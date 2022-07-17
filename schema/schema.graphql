@@ -1,0 +1,71 @@
+scalar Time
+
+type AuthResponse {
+    authToken: AuthToken!
+    user: User!
+}
+
+type AuthToken {
+    accessToken: String!
+    expiredAt: Time!
+}
+type Query {
+    meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
+    user(id: ID!): User!
+}
+
+type Mutation {
+    createMeetup(input: NewMeetup!): Meetup!
+    updateMeetup(id: ID!, input: UpdateMeetup): Meetup!
+    deleteMeetup(id: ID!): Boolean!
+    register(input: RegisterInput!): AuthResponse!
+    login(input: LoginInput!): AuthResponse!
+}
+
+type Meetup {
+    id: ID!
+    name: String!
+    description: String!
+    user: User
+}
+
+input NewMeetup {
+    name: String!
+    description: String!
+}
+
+input UpdateMeetup {
+    name: String
+    description: String
+}
+
+type User {
+    id: ID!
+    username: String!
+    phone: String!
+    email: String!
+    firstName: String!
+    lastName: String!
+    meetups: [Meetup!]!
+    createdAt: Time!
+    updatedAt: Time!
+}
+
+input LoginInput {
+    email: String!
+    password: String!
+}
+
+input MeetupFilter {
+ name: String
+}
+
+input RegisterInput {
+    userName: String!
+    email: String!
+    phone: String!
+    password: String!
+    confirmPassword: String!
+    firstName: String!
+    lastName: String!
+}
