@@ -66,14 +66,27 @@ type ComplexityRoot struct {
 
 	Mutation struct {
 		CreateMeetup func(childComplexity int, input models.NewMeetup) int
+		CreatePlace  func(childComplexity int, input models.PlaceInput) int
 		DeleteMeetup func(childComplexity int, id string) int
+		DeletePlace  func(childComplexity int, id string) int
 		Login        func(childComplexity int, input models.LoginInput) int
 		Register     func(childComplexity int, input models.RegisterInput) int
 		UpdateMeetup func(childComplexity int, id string, input *models.UpdateMeetup) int
+		UpdatePlace  func(childComplexity int, id string, input *models.PlaceInput) int
+	}
+
+	Place struct {
+		Address     func(childComplexity int) int
+		Description func(childComplexity int) int
+		ID          func(childComplexity int) int
+		Name        func(childComplexity int) int
+		OrderNumber func(childComplexity int) int
+		Published   func(childComplexity int) int
 	}
 
 	Query struct {
 		Meetups func(childComplexity int, filter *models.MeetupFilter, limit *int, offset *int) int
+		Places  func(childComplexity int, filter *models.PlaceFilter, limit *int, offset *int) int
 		User    func(childComplexity int, id string) int
 	}
 
@@ -93,13 +106,17 @@ type MeetupResolver interface {
 }
 type MutationResolver interface {
 	CreateMeetup(ctx context.Context, input models.NewMeetup) (*models.Meetup, error)
+	CreatePlace(ctx context.Context, input models.PlaceInput) (*models.Place, error)
 	UpdateMeetup(ctx context.Context, id string, input *models.UpdateMeetup) (*models.Meetup, error)
+	UpdatePlace(ctx context.Context, id string, input *models.PlaceInput) (*models.Place, error)
 	DeleteMeetup(ctx context.Context, id string) (bool, error)
+	DeletePlace(ctx context.Context, id string) (bool, error)
 	Register(ctx context.Context, input models.RegisterInput) (*models.AuthResponse, error)
 	Login(ctx context.Context, input models.LoginInput) (*models.AuthResponse, error)
 }
 type QueryResolver interface {
 	Meetups(ctx context.Context, filter *models.MeetupFilter, limit *int, offset *int) ([]*models.Meetup, error)
+	Places(ctx context.Context, filter *models.PlaceFilter, limit *int, offset *int) ([]*models.Place, error)
 	User(ctx context.Context, id string) (*models.User, error)
 }
 type UserResolver interface {
@@ -189,6 +206,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.CreateMeetup(childComplexity, args["input"].(models.NewMeetup)), true
 
+	case "Mutation.createPlace":
+		if e.complexity.Mutation.CreatePlace == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_createPlace_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.CreatePlace(childComplexity, args["input"].(models.PlaceInput)), true
+
 	case "Mutation.deleteMeetup":
 		if e.complexity.Mutation.DeleteMeetup == nil {
 			break
@@ -200,6 +229,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteMeetup(childComplexity, args["id"].(string)), true
+
+	case "Mutation.deletePlace":
+		if e.complexity.Mutation.DeletePlace == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_deletePlace_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeletePlace(childComplexity, args["id"].(string)), true
 
 	case "Mutation.login":
 		if e.complexity.Mutation.Login == nil {
@@ -237,6 +278,60 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateMeetup(childComplexity, args["id"].(string), args["input"].(*models.UpdateMeetup)), true
 
+	case "Mutation.updatePlace":
+		if e.complexity.Mutation.UpdatePlace == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_updatePlace_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdatePlace(childComplexity, args["id"].(string), args["input"].(*models.PlaceInput)), true
+
+	case "Place.address":
+		if e.complexity.Place.Address == nil {
+			break
+		}
+
+		return e.complexity.Place.Address(childComplexity), true
+
+	case "Place.description":
+		if e.complexity.Place.Description == nil {
+			break
+		}
+
+		return e.complexity.Place.Description(childComplexity), true
+
+	case "Place.id":
+		if e.complexity.Place.ID == nil {
+			break
+		}
+
+		return e.complexity.Place.ID(childComplexity), true
+
+	case "Place.name":
+		if e.complexity.Place.Name == nil {
+			break
+		}
+
+		return e.complexity.Place.Name(childComplexity), true
+
+	case "Place.orderNumber":
+		if e.complexity.Place.OrderNumber == nil {
+			break
+		}
+
+		return e.complexity.Place.OrderNumber(childComplexity), true
+
+	case "Place.published":
+		if e.complexity.Place.Published == nil {
+			break
+		}
+
+		return e.complexity.Place.Published(childComplexity), true
+
 	case "Query.meetups":
 		if e.complexity.Query.Meetups == nil {
 			break
@@ -248,6 +343,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.Meetups(childComplexity, args["filter"].(*models.MeetupFilter), args["limit"].(*int), args["offset"].(*int)), true
+
+	case "Query.places":
+		if e.complexity.Query.Places == nil {
+			break
+		}
+
+		args, err := ec.field_Query_places_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Places(childComplexity, args["filter"].(*models.PlaceFilter), args["limit"].(*int), args["offset"].(*int)), true
 
 	case "Query.user":
 		if e.complexity.Query.User == nil {
@@ -321,6 +428,8 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 		ec.unmarshalInputLoginInput,
 		ec.unmarshalInputMeetupFilter,
 		ec.unmarshalInputNewMeetup,
+		ec.unmarshalInputPlaceFilter,
+		ec.unmarshalInputPlaceInput,
 		ec.unmarshalInputRegisterInput,
 		ec.unmarshalInputUpdateMeetup,
 	)
@@ -396,13 +505,17 @@ type AuthToken {
 }
 type Query {
     meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
+    places(filter: PlaceFilter, limit: Int = 10, offset: Int = 0): [Place!]!
     user(id: ID!): User!
 }
 
 type Mutation {
     createMeetup(input: NewMeetup!): Meetup!
+    createPlace(input: PlaceInput!): Place!
     updateMeetup(id: ID!, input: UpdateMeetup): Meetup!
+    updatePlace(id: ID!, input: PlaceInput): Place!
     deleteMeetup(id: ID!): Boolean!
+    deletePlace(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
 }
@@ -417,6 +530,14 @@ type Meetup {
 input NewMeetup {
     name: String!
     description: String!
+}
+
+input PlaceInput {
+    address: String!
+    description: String!
+    name: String!
+    orderNumber: Int!
+    published: Boolean!
 }
 
 input UpdateMeetup {
@@ -443,12 +564,25 @@ input MeetupFilter {
  name: String
 }
 
+input PlaceFilter {
+    name: String
+}
+
 input RegisterInput {
     phone: String!
     password: String!
     confirmPassword: String!
     firstName: String!
     lastName: String!
+}
+
+type Place {
+    address: String!
+    description: String!
+    id: ID!
+    name: String!
+    orderNumber: Int!
+    published: Boolean!
 }`, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -472,7 +606,37 @@ func (ec *executionContext) field_Mutation_createMeetup_args(ctx context.Context
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_createPlace_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 models.PlaceInput
+	if tmp, ok := rawArgs["input"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
+		arg0, err = ec.unmarshalNPlaceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["input"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_deleteMeetup_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNID2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_deletePlace_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -541,6 +705,30 @@ func (ec *executionContext) field_Mutation_updateMeetup_args(ctx context.Context
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_updatePlace_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNID2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	var arg1 *models.PlaceInput
+	if tmp, ok := rawArgs["input"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
+		arg1, err = ec.unmarshalOPlaceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["input"] = arg1
+	return args, nil
+}
+
 func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -563,6 +751,39 @@ func (ec *executionContext) field_Query_meetups_args(ctx context.Context, rawArg
 	if tmp, ok := rawArgs["filter"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
 		arg0, err = ec.unmarshalOMeetupFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetupFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_places_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *models.PlaceFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOPlaceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1094,6 +1315,75 @@ func (ec *executionContext) fieldContext_Mutation_createMeetup(ctx context.Conte
 	return fc, nil
 }
 
+func (ec *executionContext) _Mutation_createPlace(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_createPlace(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CreatePlace(rctx, fc.Args["input"].(models.PlaceInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.Place)
+	fc.Result = res
+	return ec.marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_createPlace(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "address":
+				return ec.fieldContext_Place_address(ctx, field)
+			case "description":
+				return ec.fieldContext_Place_description(ctx, field)
+			case "id":
+				return ec.fieldContext_Place_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Place_name(ctx, field)
+			case "orderNumber":
+				return ec.fieldContext_Place_orderNumber(ctx, field)
+			case "published":
+				return ec.fieldContext_Place_published(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_createPlace_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Mutation_updateMeetup(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_updateMeetup(ctx, field)
 	if err != nil {
@@ -1159,6 +1449,75 @@ func (ec *executionContext) fieldContext_Mutation_updateMeetup(ctx context.Conte
 	return fc, nil
 }
 
+func (ec *executionContext) _Mutation_updatePlace(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_updatePlace(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdatePlace(rctx, fc.Args["id"].(string), fc.Args["input"].(*models.PlaceInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.Place)
+	fc.Result = res
+	return ec.marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_updatePlace(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "address":
+				return ec.fieldContext_Place_address(ctx, field)
+			case "description":
+				return ec.fieldContext_Place_description(ctx, field)
+			case "id":
+				return ec.fieldContext_Place_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Place_name(ctx, field)
+			case "orderNumber":
+				return ec.fieldContext_Place_orderNumber(ctx, field)
+			case "published":
+				return ec.fieldContext_Place_published(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_updatePlace_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Mutation_deleteMeetup(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_deleteMeetup(ctx, field)
 	if err != nil {
@@ -1208,6 +1567,61 @@ func (ec *executionContext) fieldContext_Mutation_deleteMeetup(ctx context.Conte
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_deleteMeetup_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Mutation_deletePlace(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_deletePlace(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeletePlace(rctx, fc.Args["id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_deletePlace(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Boolean does not have child fields")
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_deletePlace_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -1336,6 +1750,270 @@ func (ec *executionContext) fieldContext_Mutation_login(ctx context.Context, fie
 	return fc, nil
 }
 
+func (ec *executionContext) _Place_address(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Place_address(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Address, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Place_address(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Place",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type String does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Place_description(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Place_description(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Description, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Place_description(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Place",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type String does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Place_id(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Place_id(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Place_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Place",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Place_name(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Place_name(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Place_name(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Place",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type String does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Place_orderNumber(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Place_orderNumber(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.OrderNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Place_orderNumber(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Place",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Int does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Place_published(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Place_published(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Published, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Place_published(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Place",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Boolean does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_meetups(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_meetups(ctx, field)
 	if err != nil {
@@ -1395,6 +2073,75 @@ func (ec *executionContext) fieldContext_Query_meetups(ctx context.Context, fiel
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Query_meetups_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_places(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_places(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Places(rctx, fc.Args["filter"].(*models.PlaceFilter), fc.Args["limit"].(*int), fc.Args["offset"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*models.Place)
+	fc.Result = res
+	return ec.marshalNPlace2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_places(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "address":
+				return ec.fieldContext_Place_address(ctx, field)
+			case "description":
+				return ec.fieldContext_Place_description(ctx, field)
+			case "id":
+				return ec.fieldContext_Place_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Place_name(ctx, field)
+			case "orderNumber":
+				return ec.fieldContext_Place_orderNumber(ctx, field)
+			case "published":
+				return ec.fieldContext_Place_published(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Query_places_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -3792,6 +4539,94 @@ func (ec *executionContext) unmarshalInputNewMeetup(ctx context.Context, obj int
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputPlaceFilter(ctx context.Context, obj interface{}) (models.PlaceFilter, error) {
+	var it models.PlaceFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputPlaceInput(ctx context.Context, obj interface{}) (models.PlaceInput, error) {
+	var it models.PlaceInput
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"address", "description", "name", "orderNumber", "published"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "address":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("address"))
+			it.Address, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "description":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("description"))
+			it.Description, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "orderNumber":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("orderNumber"))
+			it.OrderNumber, err = ec.unmarshalNInt2int(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "published":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("published"))
+			it.Published, err = ec.unmarshalNBoolean2bool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputRegisterInput(ctx context.Context, obj interface{}) (models.RegisterInput, error) {
 	var it models.RegisterInput
 	asMap := map[string]interface{}{}
@@ -4053,6 +4888,15 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createPlace":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_createPlace(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "updateMeetup":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -4062,10 +4906,28 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "updatePlace":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_updatePlace(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "deleteMeetup":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_deleteMeetup(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "deletePlace":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_deletePlace(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -4085,6 +4947,69 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_login(ctx, field)
 			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var placeImplementors = []string{"Place"}
+
+func (ec *executionContext) _Place(ctx context.Context, sel ast.SelectionSet, obj *models.Place) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, placeImplementors)
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("Place")
+		case "address":
+
+			out.Values[i] = ec._Place_address(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "description":
+
+			out.Values[i] = ec._Place_description(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "id":
+
+			out.Values[i] = ec._Place_id(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "name":
+
+			out.Values[i] = ec._Place_name(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "orderNumber":
+
+			out.Values[i] = ec._Place_orderNumber(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "published":
+
+			out.Values[i] = ec._Place_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -4129,6 +5054,29 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_meetups(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "places":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_places(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -4643,6 +5591,21 @@ func (ec *executionContext) marshalNID2string(ctx context.Context, sel ast.Selec
 	return res
 }
 
+func (ec *executionContext) unmarshalNInt2int(ctx context.Context, v interface{}) (int, error) {
+	res, err := graphql.UnmarshalInt(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.SelectionSet, v int) graphql.Marshaler {
+	res := graphql.MarshalInt(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) unmarshalNLoginInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLoginInput(ctx context.Context, v interface{}) (models.LoginInput, error) {
 	res, err := ec.unmarshalInputLoginInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -4708,6 +5671,69 @@ func (ec *executionContext) marshalNMeetup2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑg
 
 func (ec *executionContext) unmarshalNNewMeetup2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐNewMeetup(ctx context.Context, v interface{}) (models.NewMeetup, error) {
 	res, err := ec.unmarshalInputNewMeetup(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNPlace2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx context.Context, sel ast.SelectionSet, v models.Place) graphql.Marshaler {
+	return ec._Place(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNPlace2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.Place) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx context.Context, sel ast.SelectionSet, v *models.Place) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._Place(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNPlaceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx context.Context, v interface{}) (models.PlaceInput, error) {
+	res, err := ec.unmarshalInputPlaceInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -5060,6 +6086,22 @@ func (ec *executionContext) unmarshalOMeetupFilter2ᚖgitlabᚗcomᚋdinamchiki�
 		return nil, nil
 	}
 	res, err := ec.unmarshalInputMeetupFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOPlaceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceFilter(ctx context.Context, v interface{}) (*models.PlaceFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputPlaceFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOPlaceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx context.Context, v interface{}) (*models.PlaceInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputPlaceInput(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 

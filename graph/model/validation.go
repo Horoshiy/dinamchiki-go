@@ -23,6 +23,16 @@ func (r RegisterInput) Validate() (bool, map[string]string) {
 	return v.IsValid(), v.Errors
 }
 
+func (r PlaceInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	v.Required("name", r.Name)
+	v.Required("address", r.Address)
+	v.Required("description", r.Description)
+
+	return v.IsValid(), v.Errors
+}
+
 func (l LoginInput) Validate() (bool, map[string]string) {
 	v := validator.New()
 

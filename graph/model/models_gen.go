@@ -30,6 +30,18 @@ type NewMeetup struct {
 	Description string `json:"description"`
 }
 
+type PlaceFilter struct {
+	Name *string `json:"name"`
+}
+
+type PlaceInput struct {
+	Address     string `json:"address"`
+	Description string `json:"description"`
+	Name        string `json:"name"`
+	OrderNumber int    `json:"orderNumber"`
+	Published   bool   `json:"published"`
+}
+
 type RegisterInput struct {
 	Phone           string `json:"phone"`
 	Password        string `json:"password"`

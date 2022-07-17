@@ -11,13 +11,17 @@ type AuthToken {
 }
 type Query {
     meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
+    places(filter: PlaceFilter, limit: Int = 10, offset: Int = 0): [Place!]!
     user(id: ID!): User!
 }
 
 type Mutation {
     createMeetup(input: NewMeetup!): Meetup!
+    createPlace(input: PlaceInput!): Place!
     updateMeetup(id: ID!, input: UpdateMeetup): Meetup!
+    updatePlace(id: ID!, input: PlaceInput): Place!
     deleteMeetup(id: ID!): Boolean!
+    deletePlace(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
 }
@@ -32,6 +36,14 @@ type Meetup {
 input NewMeetup {
     name: String!
     description: String!
+}
+
+input PlaceInput {
+    address: String!
+    description: String!
+    name: String!
+    orderNumber: Int!
+    published: Boolean!
 }
 
 input UpdateMeetup {
@@ -58,6 +70,10 @@ input MeetupFilter {
  name: String
 }
 
+input PlaceFilter {
+    name: String
+}
+
 input RegisterInput {
     phone: String!
     password: String!
@@ -65,3 +81,14 @@ input RegisterInput {
     firstName: String!
     lastName: String!
 }
+
+type Place {
+    address: String!
+    description: String!
+    id: ID!
+    name: String!
+    orderNumber: Int!
+    published: Boolean!
+}
+
+

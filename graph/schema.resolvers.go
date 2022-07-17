@@ -6,6 +6,7 @@ package graph
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	"gitlab.com/dinamchiki/go-graphql/graph/generated"
 	models "gitlab.com/dinamchiki/go-graphql/graph/model"
@@ -21,14 +22,33 @@ func (r *mutationResolver) CreateMeetup(ctx context.Context, input models.NewMee
 	return r.Domain.CreateMeetup(ctx, input)
 }
 
+// CreatePlace is the resolver for the createPlace field.
+func (r *mutationResolver) CreatePlace(ctx context.Context, input models.PlaceInput) (*models.Place, error) {
+	isValid := validation(ctx, input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.CreatePlace(input)
+}
+
 // UpdateMeetup is the resolver for the updateMeetup field.
 func (r *mutationResolver) UpdateMeetup(ctx context.Context, id string, input *models.UpdateMeetup) (*models.Meetup, error) {
 	return r.Domain.UpdateMeetup(ctx, id, input)
 }
 
+// UpdatePlace is the resolver for the updatePlace field.
+func (r *mutationResolver) UpdatePlace(ctx context.Context, id string, input *models.PlaceInput) (*models.Place, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
 // DeleteMeetup is the resolver for the deleteMeetup field.
 func (r *mutationResolver) DeleteMeetup(ctx context.Context, id string) (bool, error) {
 	return r.Domain.DeleteMeetup(ctx, id)
+}
+
+// DeletePlace is the resolver for the deletePlace field.
+func (r *mutationResolver) DeletePlace(ctx context.Context, id string) (bool, error) {
+	panic(fmt.Errorf("not implemented"))
 }
 
 // Register is the resolver for the register field.
@@ -54,6 +74,11 @@ func (r *mutationResolver) Login(ctx context.Context, input models.LoginInput) (
 // Meetups is the resolver for the meetups field.
 func (r *queryResolver) Meetups(ctx context.Context, filter *models.MeetupFilter, limit *int, offset *int) ([]*models.Meetup, error) {
 	return r.Domain.MeetupsRepo.GetMeetups(filter, limit, offset)
+}
+
+// Places is the resolver for the places field.
+func (r *queryResolver) Places(ctx context.Context, filter *models.PlaceFilter, limit *int, offset *int) ([]*models.Place, error) {
+	return r.Domain.PlacesRepo.GetPlaces(filter, limit, offset)
 }
 
 // User is the resolver for the user field.

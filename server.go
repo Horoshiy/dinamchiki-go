@@ -50,7 +50,7 @@ func main() {
 	router.Use(middleware.Logger)
 	router.Use(customMiddleware.AuthMiddleware(userRepo))
 
-	d := domain.NewDomain(userRepo, postgres.MeetupsRepo{DB: DB})
+	d := domain.NewDomain(userRepo, postgres.MeetupsRepo{DB: DB}, postgres.PlacesRepo{DB: DB})
 	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{
 		Resolvers: &graph.Resolver{
 			Domain: d,

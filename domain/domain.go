@@ -15,10 +15,11 @@ var (
 type Domain struct {
 	UsersRepo   postgres.UsersRepo
 	MeetupsRepo postgres.MeetupsRepo
+	PlacesRepo  postgres.PlacesRepo
 }
 
-func NewDomain(usersRepo postgres.UsersRepo, meetupsRepo postgres.MeetupsRepo) *Domain {
-	return &Domain{UsersRepo: usersRepo, MeetupsRepo: meetupsRepo}
+func NewDomain(usersRepo postgres.UsersRepo, meetupsRepo postgres.MeetupsRepo, placesRepo postgres.PlacesRepo) *Domain {
+	return &Domain{UsersRepo: usersRepo, MeetupsRepo: meetupsRepo, PlacesRepo: placesRepo}
 }
 
 type Ownable interface {
