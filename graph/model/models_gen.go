@@ -17,7 +17,7 @@ type AuthToken struct {
 }
 
 type LoginInput struct {
-	Email    string `json:"email"`
+	Phone    string `json:"phone"`
 	Password string `json:"password"`
 }
 
@@ -31,8 +31,6 @@ type NewMeetup struct {
 }
 
 type RegisterInput struct {
-	UserName        string `json:"userName"`
-	Email           string `json:"email"`
 	Phone           string `json:"phone"`
 	Password        string `json:"password"`
 	ConfirmPassword string `json:"confirmPassword"`

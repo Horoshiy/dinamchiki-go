@@ -21,12 +21,8 @@ func (u *UsersRepo) GetUserByID(id string) (*models.User, error) {
 
 }
 
-func (u *UsersRepo) GetUserByEmail(email string) (*models.User, error) {
-	return u.GetUserByFiled("email", email)
-}
-
-func (u *UsersRepo) GetUserByUsername(username string) (*models.User, error) {
-	return u.GetUserByFiled("username", username)
+func (u *UsersRepo) GetUserByPhone(phone string) (*models.User, error) {
+	return u.GetUserByFiled("phone", phone)
 }
 
 func (u *UsersRepo) CreateUser(tx *pg.Tx, user *models.User) (*models.User, error) {

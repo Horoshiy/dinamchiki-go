@@ -41,9 +41,7 @@ input UpdateMeetup {
 
 type User {
     id: ID!
-    username: String!
     phone: String!
-    email: String!
     firstName: String!
     lastName: String!
     meetups: [Meetup!]!
@@ -52,7 +50,7 @@ type User {
 }
 
 input LoginInput {
-    email: String!
+    phone: String!
     password: String!
 }
 
@@ -61,8 +59,6 @@ input MeetupFilter {
 }
 
 input RegisterInput {
-    userName: String!
-    email: String!
     phone: String!
     password: String!
     confirmPassword: String!

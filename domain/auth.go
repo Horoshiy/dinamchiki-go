@@ -9,7 +9,7 @@ import (
 
 // Login is the resolver for the login field.
 func (d *Domain) Login(ctx context.Context, input models.LoginInput) (*models.AuthResponse, error) {
-	user, err := d.UsersRepo.GetUserByEmail(input.Email)
+	user, err := d.UsersRepo.GetUserByPhone(input.Phone)
 	if err != nil {
 		return nil, ErrBadCredentials
 	}
@@ -33,19 +33,12 @@ func (d *Domain) Login(ctx context.Context, input models.LoginInput) (*models.Au
 
 // Register is the resolver for the register field.
 func (d *Domain) Register(ctx context.Context, input models.RegisterInput) (*models.AuthResponse, error) {
-	_, err := d.UsersRepo.GetUserByEmail(input.Email)
+	_, err := d.UsersRepo.GetUserByPhone(input.Phone)
 	if err == nil {
-		return nil, errors.New("email already in used")
-	}
-
-	_, err = d.UsersRepo.GetUserByUsername(input.UserName)
-	if err == nil {
-		return nil, errors.New("username already in used")
+		return nil, errors.New("Такой номер телефона уже зарегистрирован за пользователем")
 	}
 
 	user := &models.User{
-		Username:  input.UserName,
-		Email:     input.Email,
 		Phone:     input.Phone,
 		Password:  input.Password,
 		FirstName: input.FirstName,
