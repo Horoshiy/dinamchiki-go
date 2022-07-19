@@ -7,7 +7,7 @@ import (
 	models "gitlab.com/dinamchiki/go-graphql/graph/model"
 )
 
-func (d *Domain) CreatePlace(input models.PlaceInput) (*models.Place, error) {
+func (d *Domain) CreatePlace(input models.PlaceInput) (*models.PlacePayload, error) {
 
 	_, err := d.PlacesRepo.GetPlaceByName(input.Name)
 	if err == nil {
@@ -21,7 +21,6 @@ func (d *Domain) CreatePlace(input models.PlaceInput) (*models.Place, error) {
 		OrderNumber: input.OrderNumber,
 		Published:   input.Published,
 	}
-
 	return d.PlacesRepo.CreatePlace(place)
 }
 

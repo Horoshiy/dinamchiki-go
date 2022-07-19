@@ -19,7 +19,6 @@ func (v *Validator) Required(field string, value interface{}) bool {
 
 func IsEmpty(value interface{}) bool {
 	t := reflect.ValueOf(value)
-
 	switch t.Kind() {
 	case reflect.String, reflect.Array, reflect.Slice, reflect.Map:
 		return t.Len() == 0

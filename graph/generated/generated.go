@@ -75,6 +75,12 @@ type ComplexityRoot struct {
 		UpdatePlace  func(childComplexity int, id string, input *models.PlaceInput) int
 	}
 
+	PageInfo struct {
+		EndCursor   func(childComplexity int) int
+		HasNextPage func(childComplexity int) int
+		StartCursor func(childComplexity int) int
+	}
+
 	Place struct {
 		Address     func(childComplexity int) int
 		Description func(childComplexity int) int
@@ -84,9 +90,24 @@ type ComplexityRoot struct {
 		Published   func(childComplexity int) int
 	}
 
+	PlaceConnection struct {
+		Edges    func(childComplexity int) int
+		PageInfo func(childComplexity int) int
+	}
+
+	PlaceEdge struct {
+		Cursor func(childComplexity int) int
+		Node   func(childComplexity int) int
+	}
+
+	PlacePayload struct {
+		ID    func(childComplexity int) int
+		Place func(childComplexity int) int
+	}
+
 	Query struct {
 		Meetups func(childComplexity int, filter *models.MeetupFilter, limit *int, offset *int) int
-		Places  func(childComplexity int, filter *models.PlaceFilter, limit *int, offset *int) int
+		Places  func(childComplexity int, filter *models.PlaceFilter, limit *int, offset *int, first *int, after *string) int
 		User    func(childComplexity int, id string) int
 	}
 
@@ -106,7 +127,7 @@ type MeetupResolver interface {
 }
 type MutationResolver interface {
 	CreateMeetup(ctx context.Context, input models.NewMeetup) (*models.Meetup, error)
-	CreatePlace(ctx context.Context, input models.PlaceInput) (*models.Place, error)
+	CreatePlace(ctx context.Context, input models.PlaceInput) (*models.PlacePayload, error)
 	UpdateMeetup(ctx context.Context, id string, input *models.UpdateMeetup) (*models.Meetup, error)
 	UpdatePlace(ctx context.Context, id string, input *models.PlaceInput) (*models.Place, error)
 	DeleteMeetup(ctx context.Context, id string) (bool, error)
@@ -116,7 +137,7 @@ type MutationResolver interface {
 }
 type QueryResolver interface {
 	Meetups(ctx context.Context, filter *models.MeetupFilter, limit *int, offset *int) ([]*models.Meetup, error)
-	Places(ctx context.Context, filter *models.PlaceFilter, limit *int, offset *int) ([]*models.Place, error)
+	Places(ctx context.Context, filter *models.PlaceFilter, limit *int, offset *int, first *int, after *string) (*models.PlaceConnection, error)
 	User(ctx context.Context, id string) (*models.User, error)
 }
 type UserResolver interface {
@@ -290,6 +311,27 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdatePlace(childComplexity, args["id"].(string), args["input"].(*models.PlaceInput)), true
 
+	case "PageInfo.endCursor":
+		if e.complexity.PageInfo.EndCursor == nil {
+			break
+		}
+
+		return e.complexity.PageInfo.EndCursor(childComplexity), true
+
+	case "PageInfo.hasNextPage":
+		if e.complexity.PageInfo.HasNextPage == nil {
+			break
+		}
+
+		return e.complexity.PageInfo.HasNextPage(childComplexity), true
+
+	case "PageInfo.startCursor":
+		if e.complexity.PageInfo.StartCursor == nil {
+			break
+		}
+
+		return e.complexity.PageInfo.StartCursor(childComplexity), true
+
 	case "Place.address":
 		if e.complexity.Place.Address == nil {
 			break
@@ -332,6 +374,48 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Place.Published(childComplexity), true
 
+	case "PlaceConnection.edges":
+		if e.complexity.PlaceConnection.Edges == nil {
+			break
+		}
+
+		return e.complexity.PlaceConnection.Edges(childComplexity), true
+
+	case "PlaceConnection.pageInfo":
+		if e.complexity.PlaceConnection.PageInfo == nil {
+			break
+		}
+
+		return e.complexity.PlaceConnection.PageInfo(childComplexity), true
+
+	case "PlaceEdge.cursor":
+		if e.complexity.PlaceEdge.Cursor == nil {
+			break
+		}
+
+		return e.complexity.PlaceEdge.Cursor(childComplexity), true
+
+	case "PlaceEdge.node":
+		if e.complexity.PlaceEdge.Node == nil {
+			break
+		}
+
+		return e.complexity.PlaceEdge.Node(childComplexity), true
+
+	case "PlacePayload.id":
+		if e.complexity.PlacePayload.ID == nil {
+			break
+		}
+
+		return e.complexity.PlacePayload.ID(childComplexity), true
+
+	case "PlacePayload.place":
+		if e.complexity.PlacePayload.Place == nil {
+			break
+		}
+
+		return e.complexity.PlacePayload.Place(childComplexity), true
+
 	case "Query.meetups":
 		if e.complexity.Query.Meetups == nil {
 			break
@@ -354,7 +438,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Places(childComplexity, args["filter"].(*models.PlaceFilter), args["limit"].(*int), args["offset"].(*int)), true
+		return e.complexity.Query.Places(childComplexity, args["filter"].(*models.PlaceFilter), args["limit"].(*int), args["offset"].(*int), args["first"].(*int), args["after"].(*string)), true
 
 	case "Query.user":
 		if e.complexity.Query.User == nil {
@@ -505,19 +589,24 @@ type AuthToken {
 }
 type Query {
     meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
-    places(filter: PlaceFilter, limit: Int = 10, offset: Int = 0): [Place!]!
+    places(filter: PlaceFilter, limit: Int = 20, offset: Int = 0, first: Int = 20, after: ID): PlaceConnection!
     user(id: ID!): User!
 }
 
 type Mutation {
     createMeetup(input: NewMeetup!): Meetup!
-    createPlace(input: PlaceInput!): Place!
+    createPlace(input: PlaceInput!): PlacePayload!
     updateMeetup(id: ID!, input: UpdateMeetup): Meetup!
     updatePlace(id: ID!, input: PlaceInput): Place!
     deleteMeetup(id: ID!): Boolean!
     deletePlace(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
+}
+
+type PlacePayload {
+    place: Place!
+    id: ID!
 }
 
 type Meetup {
@@ -583,6 +672,22 @@ type Place {
     name: String!
     orderNumber: Int!
     published: Boolean!
+}
+
+type PlaceConnection {
+    edges: [PlaceEdge!]!
+    pageInfo: PageInfo!
+}
+
+type PlaceEdge {
+    cursor: ID!
+    node: Place
+}
+
+type PageInfo {
+    startCursor: ID!
+    endCursor: ID!
+    hasNextPage: Boolean
 }`, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -807,6 +912,24 @@ func (ec *executionContext) field_Query_places_args(ctx context.Context, rawArgs
 		}
 	}
 	args["offset"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["first"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg4
 	return args, nil
 }
 
@@ -1341,9 +1464,9 @@ func (ec *executionContext) _Mutation_createPlace(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*models.Place)
+	res := resTmp.(*models.PlacePayload)
 	fc.Result = res
-	return ec.marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
+	return ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createPlace(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1354,20 +1477,12 @@ func (ec *executionContext) fieldContext_Mutation_createPlace(ctx context.Contex
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "address":
-				return ec.fieldContext_Place_address(ctx, field)
-			case "description":
-				return ec.fieldContext_Place_description(ctx, field)
+			case "place":
+				return ec.fieldContext_PlacePayload_place(ctx, field)
 			case "id":
-				return ec.fieldContext_Place_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Place_name(ctx, field)
-			case "orderNumber":
-				return ec.fieldContext_Place_orderNumber(ctx, field)
-			case "published":
-				return ec.fieldContext_Place_published(ctx, field)
+				return ec.fieldContext_PlacePayload_id(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type PlacePayload", field.Name)
 		},
 	}
 	defer func() {
@@ -1750,6 +1865,135 @@ func (ec *executionContext) fieldContext_Mutation_login(ctx context.Context, fie
 	return fc, nil
 }
 
+func (ec *executionContext) _PageInfo_startCursor(ctx context.Context, field graphql.CollectedField, obj *models.PageInfo) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PageInfo_startCursor(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StartCursor, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PageInfo_startCursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PageInfo",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _PageInfo_endCursor(ctx context.Context, field graphql.CollectedField, obj *models.PageInfo) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PageInfo_endCursor(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EndCursor, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PageInfo_endCursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PageInfo",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _PageInfo_hasNextPage(ctx context.Context, field graphql.CollectedField, obj *models.PageInfo) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.HasNextPage, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*bool)
+	fc.Result = res
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PageInfo_hasNextPage(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PageInfo",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Boolean does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Place_address(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Place_address(ctx, field)
 	if err != nil {
@@ -2014,6 +2258,309 @@ func (ec *executionContext) fieldContext_Place_published(ctx context.Context, fi
 	return fc, nil
 }
 
+func (ec *executionContext) _PlaceConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.PlaceConnection) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PlaceConnection_edges(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Edges, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*models.PlaceEdge)
+	fc.Result = res
+	return ec.marshalNPlaceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceEdgeᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PlaceConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PlaceConnection",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "cursor":
+				return ec.fieldContext_PlaceEdge_cursor(ctx, field)
+			case "node":
+				return ec.fieldContext_PlaceEdge_node(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type PlaceEdge", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _PlaceConnection_pageInfo(ctx context.Context, field graphql.CollectedField, obj *models.PlaceConnection) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PlaceConnection_pageInfo(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PageInfo, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.PageInfo)
+	fc.Result = res
+	return ec.marshalNPageInfo2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPageInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PlaceConnection_pageInfo(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PlaceConnection",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
+			case "endCursor":
+				return ec.fieldContext_PageInfo_endCursor(ctx, field)
+			case "hasNextPage":
+				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _PlaceEdge_cursor(ctx context.Context, field graphql.CollectedField, obj *models.PlaceEdge) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PlaceEdge_cursor(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Cursor, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PlaceEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PlaceEdge",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _PlaceEdge_node(ctx context.Context, field graphql.CollectedField, obj *models.PlaceEdge) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PlaceEdge_node(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Node, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.Place)
+	fc.Result = res
+	return ec.marshalOPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PlaceEdge_node(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PlaceEdge",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "address":
+				return ec.fieldContext_Place_address(ctx, field)
+			case "description":
+				return ec.fieldContext_Place_description(ctx, field)
+			case "id":
+				return ec.fieldContext_Place_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Place_name(ctx, field)
+			case "orderNumber":
+				return ec.fieldContext_Place_orderNumber(ctx, field)
+			case "published":
+				return ec.fieldContext_Place_published(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _PlacePayload_place(ctx context.Context, field graphql.CollectedField, obj *models.PlacePayload) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PlacePayload_place(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Place, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.Place)
+	fc.Result = res
+	return ec.marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PlacePayload_place(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PlacePayload",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "address":
+				return ec.fieldContext_Place_address(ctx, field)
+			case "description":
+				return ec.fieldContext_Place_description(ctx, field)
+			case "id":
+				return ec.fieldContext_Place_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Place_name(ctx, field)
+			case "orderNumber":
+				return ec.fieldContext_Place_orderNumber(ctx, field)
+			case "published":
+				return ec.fieldContext_Place_published(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _PlacePayload_id(ctx context.Context, field graphql.CollectedField, obj *models.PlacePayload) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PlacePayload_id(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PlacePayload_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PlacePayload",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_meetups(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_meetups(ctx, field)
 	if err != nil {
@@ -2093,7 +2640,7 @@ func (ec *executionContext) _Query_places(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Places(rctx, fc.Args["filter"].(*models.PlaceFilter), fc.Args["limit"].(*int), fc.Args["offset"].(*int))
+		return ec.resolvers.Query().Places(rctx, fc.Args["filter"].(*models.PlaceFilter), fc.Args["limit"].(*int), fc.Args["offset"].(*int), fc.Args["first"].(*int), fc.Args["after"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2105,9 +2652,9 @@ func (ec *executionContext) _Query_places(ctx context.Context, field graphql.Col
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.Place)
+	res := resTmp.(*models.PlaceConnection)
 	fc.Result = res
-	return ec.marshalNPlace2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceᚄ(ctx, field.Selections, res)
+	return ec.marshalNPlaceConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceConnection(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_places(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -2118,20 +2665,12 @@ func (ec *executionContext) fieldContext_Query_places(ctx context.Context, field
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "address":
-				return ec.fieldContext_Place_address(ctx, field)
-			case "description":
-				return ec.fieldContext_Place_description(ctx, field)
-			case "id":
-				return ec.fieldContext_Place_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Place_name(ctx, field)
-			case "orderNumber":
-				return ec.fieldContext_Place_orderNumber(ctx, field)
-			case "published":
-				return ec.fieldContext_Place_published(ctx, field)
+			case "edges":
+				return ec.fieldContext_PlaceConnection_edges(ctx, field)
+			case "pageInfo":
+				return ec.fieldContext_PlaceConnection_pageInfo(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type PlaceConnection", field.Name)
 		},
 	}
 	defer func() {
@@ -4962,6 +5501,45 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 	return out
 }
 
+var pageInfoImplementors = []string{"PageInfo"}
+
+func (ec *executionContext) _PageInfo(ctx context.Context, sel ast.SelectionSet, obj *models.PageInfo) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, pageInfoImplementors)
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("PageInfo")
+		case "startCursor":
+
+			out.Values[i] = ec._PageInfo_startCursor(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "endCursor":
+
+			out.Values[i] = ec._PageInfo_endCursor(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "hasNextPage":
+
+			out.Values[i] = ec._PageInfo_hasNextPage(ctx, field, obj)
+
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
 var placeImplementors = []string{"Place"}
 
 func (ec *executionContext) _Place(ctx context.Context, sel ast.SelectionSet, obj *models.Place) graphql.Marshaler {
@@ -5010,6 +5588,108 @@ func (ec *executionContext) _Place(ctx context.Context, sel ast.SelectionSet, ob
 		case "published":
 
 			out.Values[i] = ec._Place_published(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var placeConnectionImplementors = []string{"PlaceConnection"}
+
+func (ec *executionContext) _PlaceConnection(ctx context.Context, sel ast.SelectionSet, obj *models.PlaceConnection) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, placeConnectionImplementors)
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("PlaceConnection")
+		case "edges":
+
+			out.Values[i] = ec._PlaceConnection_edges(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "pageInfo":
+
+			out.Values[i] = ec._PlaceConnection_pageInfo(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var placeEdgeImplementors = []string{"PlaceEdge"}
+
+func (ec *executionContext) _PlaceEdge(ctx context.Context, sel ast.SelectionSet, obj *models.PlaceEdge) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, placeEdgeImplementors)
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("PlaceEdge")
+		case "cursor":
+
+			out.Values[i] = ec._PlaceEdge_cursor(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "node":
+
+			out.Values[i] = ec._PlaceEdge_node(ctx, field, obj)
+
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var placePayloadImplementors = []string{"PlacePayload"}
+
+func (ec *executionContext) _PlacePayload(ctx context.Context, sel ast.SelectionSet, obj *models.PlacePayload) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, placePayloadImplementors)
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("PlacePayload")
+		case "place":
+
+			out.Values[i] = ec._PlacePayload_place(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "id":
+
+			out.Values[i] = ec._PlacePayload_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -5674,11 +6354,45 @@ func (ec *executionContext) unmarshalNNewMeetup2gitlabᚗcomᚋdinamchikiᚋgo�
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
+func (ec *executionContext) marshalNPageInfo2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPageInfo(ctx context.Context, sel ast.SelectionSet, v *models.PageInfo) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._PageInfo(ctx, sel, v)
+}
+
 func (ec *executionContext) marshalNPlace2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx context.Context, sel ast.SelectionSet, v models.Place) graphql.Marshaler {
 	return ec._Place(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNPlace2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.Place) graphql.Marshaler {
+func (ec *executionContext) marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx context.Context, sel ast.SelectionSet, v *models.Place) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._Place(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNPlaceConnection2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceConnection(ctx context.Context, sel ast.SelectionSet, v models.PlaceConnection) graphql.Marshaler {
+	return ec._PlaceConnection(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNPlaceConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceConnection(ctx context.Context, sel ast.SelectionSet, v *models.PlaceConnection) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._PlaceConnection(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNPlaceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.PlaceEdge) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -5702,7 +6416,7 @@ func (ec *executionContext) marshalNPlace2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgo�
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, sel, v[i])
+			ret[i] = ec.marshalNPlaceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceEdge(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -5722,19 +6436,33 @@ func (ec *executionContext) marshalNPlace2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return ret
 }
 
-func (ec *executionContext) marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx context.Context, sel ast.SelectionSet, v *models.Place) graphql.Marshaler {
+func (ec *executionContext) marshalNPlaceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceEdge(ctx context.Context, sel ast.SelectionSet, v *models.PlaceEdge) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
 		}
 		return graphql.Null
 	}
-	return ec._Place(ctx, sel, v)
+	return ec._PlaceEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNPlaceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx context.Context, v interface{}) (models.PlaceInput, error) {
 	res, err := ec.unmarshalInputPlaceInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNPlacePayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx context.Context, sel ast.SelectionSet, v models.PlacePayload) graphql.Marshaler {
+	return ec._PlacePayload(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx context.Context, sel ast.SelectionSet, v *models.PlacePayload) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._PlacePayload(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNRegisterInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRegisterInput(ctx context.Context, v interface{}) (models.RegisterInput, error) {
@@ -6065,6 +6793,22 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return res
 }
 
+func (ec *executionContext) unmarshalOID2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalID(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOID2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	res := graphql.MarshalID(*v)
+	return res
+}
+
 func (ec *executionContext) unmarshalOInt2ᚖint(ctx context.Context, v interface{}) (*int, error) {
 	if v == nil {
 		return nil, nil
@@ -6087,6 +6831,13 @@ func (ec *executionContext) unmarshalOMeetupFilter2ᚖgitlabᚗcomᚋdinamchiki�
 	}
 	res, err := ec.unmarshalInputMeetupFilter(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx context.Context, sel ast.SelectionSet, v *models.Place) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._Place(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOPlaceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceFilter(ctx context.Context, v interface{}) (*models.PlaceFilter, error) {

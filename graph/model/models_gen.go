@@ -30,6 +30,22 @@ type NewMeetup struct {
 	Description string `json:"description"`
 }
 
+type PageInfo struct {
+	StartCursor string `json:"startCursor"`
+	EndCursor   string `json:"endCursor"`
+	HasNextPage *bool  `json:"hasNextPage"`
+}
+
+type PlaceConnection struct {
+	Edges    []*PlaceEdge `json:"edges"`
+	PageInfo *PageInfo    `json:"pageInfo"`
+}
+
+type PlaceEdge struct {
+	Cursor string `json:"cursor"`
+	Node   *Place `json:"node"`
+}
+
 type PlaceFilter struct {
 	Name *string `json:"name"`
 }
@@ -40,6 +56,11 @@ type PlaceInput struct {
 	Name        string `json:"name"`
 	OrderNumber int    `json:"orderNumber"`
 	Published   bool   `json:"published"`
+}
+
+type PlacePayload struct {
+	Place *Place `json:"place"`
+	ID    string `json:"id"`
 }
 
 type RegisterInput struct {

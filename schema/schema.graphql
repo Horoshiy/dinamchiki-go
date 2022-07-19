@@ -11,19 +11,24 @@ type AuthToken {
 }
 type Query {
     meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
-    places(filter: PlaceFilter, limit: Int = 10, offset: Int = 0): [Place!]!
+    places(filter: PlaceFilter, limit: Int = 20, offset: Int = 0, first: Int = 20, after: ID): PlaceConnection!
     user(id: ID!): User!
 }
 
 type Mutation {
     createMeetup(input: NewMeetup!): Meetup!
-    createPlace(input: PlaceInput!): Place!
+    createPlace(input: PlaceInput!): PlacePayload!
     updateMeetup(id: ID!, input: UpdateMeetup): Meetup!
     updatePlace(id: ID!, input: PlaceInput): Place!
     deleteMeetup(id: ID!): Boolean!
     deletePlace(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
+}
+
+type PlacePayload {
+    place: Place!
+    id: ID!
 }
 
 type Meetup {
@@ -91,4 +96,18 @@ type Place {
     published: Boolean!
 }
 
+type PlaceConnection {
+    edges: [PlaceEdge!]!
+    pageInfo: PageInfo!
+}
 
+type PlaceEdge {
+    cursor: ID!
+    node: Place
+}
+
+type PageInfo {
+    startCursor: ID!
+    endCursor: ID!
+    hasNextPage: Boolean
+}

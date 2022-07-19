@@ -23,7 +23,7 @@ func (r *mutationResolver) CreateMeetup(ctx context.Context, input models.NewMee
 }
 
 // CreatePlace is the resolver for the createPlace field.
-func (r *mutationResolver) CreatePlace(ctx context.Context, input models.PlaceInput) (*models.Place, error) {
+func (r *mutationResolver) CreatePlace(ctx context.Context, input models.PlaceInput) (*models.PlacePayload, error) {
 	isValid := validation(ctx, input)
 	if !isValid {
 		return nil, ErrInput
@@ -77,8 +77,8 @@ func (r *queryResolver) Meetups(ctx context.Context, filter *models.MeetupFilter
 }
 
 // Places is the resolver for the places field.
-func (r *queryResolver) Places(ctx context.Context, filter *models.PlaceFilter, limit *int, offset *int) ([]*models.Place, error) {
-	return r.Domain.PlacesRepo.GetPlaces(filter, limit, offset)
+func (r *queryResolver) Places(ctx context.Context, filter *models.PlaceFilter, limit *int, offset *int, first *int, after *string) (*models.PlaceConnection, error) {
+	return r.Domain.PlacesRepo.GetPlaces(filter, limit, offset, first, after)
 }
 
 // User is the resolver for the user field.
