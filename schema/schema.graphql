@@ -1,18 +1,63 @@
 scalar Time
 
-type AuthResponse {
-    authToken: AuthToken!
-    user: User!
-}
-
-type AuthToken {
-    accessToken: String!
-    expiredAt: Time!
-}
 type Query {
     meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
+    article(id: String!): Article
+    articles(after: String, before: String, first: Int, last: Int): ArticleConnection
+    cart(id: String!): Cart
+    carts(after: String, before: String, first: Int, last: Int): CartConnection
+    clubBalance(id: String!): ClubBalance
+    clubBalances(after: String, before: String, first: Int, last: Int): ClubBalanceConnection
+    coachPaymentByMonth(id: String!): CoachPaymentByMonth
+    coachPaymentByTeam(id: String!): CoachPaymentByTeam
+    coachPaymentByTraining(id: String!): CoachPaymentByTraining
+    coachPaymentsByMonth(after: String, before: String, date:Time!, first: Int, last: Int): CoachPaymentByMonthConnection
+    coachPaymentsByTeam(after: String, before: String, first: Int, last: Int, team: TeamDto): CoachPaymentByTeamConnection
+    coachPaymentsByTraining(after: String, before: String, date:Time!, first: Int, last: Int): CoachPaymentByTrainingConnection
+    creator(id: String): Creator
+    creators(after: String, before: String, first: Int, last: Int): CreatorConnection
+    kit(id: String!): Kit
+    kits(after: String, before: String, first: Int, last: Int): KitConnection
+    lead(id: String!): Lead
+    leads(after: String, before: String, first: Int, last: Int): LeadConnection
+    moneyCost(id: String!): MoneyCost
+    moneyCosts(after: String, before: String, first: Int, last: Int): MoneyCostConnection
+    moneyMove(id: String!): MoneyMove
+    moneyMoves(after: String, before: String, first: Int, last: Int): MoneyMoveConnection
+    order(id: String!): Order
+    orders(after: String, before: String, first: Int, last: Int): OrderConnection
+    place(id: String!): Place
     places(filter: PlaceFilter, limit: Int = 20, offset: Int = 0, first: Int = 20, after: ID): PlaceConnection!
+    rentPaymentByMonth(id: String!): RentPaymentByMonth
+    rentPaymentByTraining(id: String!): RentPaymentByTraining
+    rentPaymentsByMonth(after: String, before: String, first: Int, last: Int): RentPaymentByMonthConnection
+    rentPaymentsByTraining(after: String, before: String, first: Int, last: Int): RentPaymentByTrainingConnection
+    stadium(id: String!): Stadium
+    stadiums(after: String, before: String, first: Int, last: Int): StadiumConnection
+    staff(after: String, before: String, first: Int, last: Int): StaffConnection
+    staffPerson(id: String!): Staff
+    student(id: String!): Student
+    studentVisit(id: String!): StudentVisit
+    studentVisits(after: String, before: String, first: Int, last: Int): StudentVisitConnection
+    students(after: String, before: String, first: Int, last: Int): StudentConnection
+    task(id: String!): Task
+    nearestStudentBirthdays(offset: Int!, first: Int, last: Int, after: String, before: String): StudentConnection
+    nearestStaffBirthdays(offset: Int!, first: Int, last: Int, after: String, before: String): StaffConnection
+    unPayedStudents(first: Int, last: Int, after: String, before: String): StudentConnection
+    currentTasks(first: Int, last: Int, after: String, before: String): TaskConnection
+    timeTable(startDay:Time, first: Int, last: Int, after: String, before: String): TrainingConnection
+    trainingsByDay(date:Time, first: Int, last: Int, after: String, before: String): TrainingConnection
+    tasks(after: String, before: String, first: Int, last: Int): TaskConnection
+    team(id: String!): Team
+    teamBalance(id: String!): TeamBalance
+    teamBalances(after: String, before: String, first: Int, last: Int): TeamBalanceConnection
+    teams(after: String, before: String, first: Int, last: Int): TeamConnection
+    training(id: String!): Training
+    trainingDay(id: String!): TrainingDay
+    trainingDays(after: String, before: String, first: Int, last: Int): TrainingDayConnection
+    trainings(after: String, before: String, first: Int, last: Int): TrainingConnection
     user(id: ID!): User!
+    users(after: String, before: String, first: Int, last: Int): UserConnection
 }
 
 type Mutation {
@@ -24,12 +69,144 @@ type Mutation {
     deletePlace(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
+    articlesDelete(ids: [String!]!): [ArticlePayload!]!
+    articlesPublishUpdate(ids: [String!]!): [ArticlePayload!]!
+    articlesRestore(ids: [String!]!): [ArticlePayload!]!
+    articlesSave(articleInput: [ArticleInput!]!): [ArticlePayload]!
+    articlesUpdate(articleInput: [ArticleInputWithId!]!): [ArticlePayload]!
+    cartsDelete(ids: [String!]!): [CartPayload!]!
+    cartsPublishUpdate(ids: [String!]!): [CartPayload!]!
+    cartsRestore(ids: [String!]!): [CartPayload!]!
+    cartsSave(cartInput: [CartInput!]!): [CartPayload!]!
+    cartsUpdate(cartInput: [CartInputWithId!]!): [CartPayload!]!
+    clubBalancesDelete(ids: [String!]!): [ClubBalancePayload!]!
+    clubBalancesPublishUpdate(ids: [String!]!): [ClubBalancePayload!]!
+    clubBalancesRestore(ids: [String!]!): [ClubBalancePayload!]!
+    clubBalancesSave(clubBalanceInput: [ClubBalanceInput!]!): [ClubBalancePayload!]!
+    clubBalancesUpdate(clubBalanceInput: [ClubBalanceInputWithId!]!): [ClubBalancePayload!]!
+    coachPaymentsByMonthDelete(ids: [String!]!): [CoachPaymentByMonthPayload!]!
+    coachPaymentsByMonthPublishUpdate(ids: [String!]!): [CoachPaymentByMonthPayload!]!
+    coachPaymentsByMonthRestore(ids: [String!]!): [CoachPaymentByMonthPayload!]!
+    coachPaymentsByMonthSave(coachPaymentByMonthInput: [CoachPaymentByMonthInput!]!): [CoachPaymentByMonthPayload!]!
+    coachPaymentsByMonthUpdate(coachPaymentByMonthInput: [CoachPaymentByMonthInputWithId!]!): [CoachPaymentByMonthPayload!]!
+    coachPaymentsByTeamDelete(ids: [String!]!): [CoachPaymentByTeamPayload!]!
+    coachPaymentsByTeamPublishUpdate(ids: [String!]!): [CoachPaymentByTeamPayload!]!
+    coachPaymentsByTeamRestore(ids: [String!]!): [CoachPaymentByTeamPayload!]!
+    coachPaymentsByTeamSave(coachPaymentByTeamInput: [CoachPaymentByTeamInput!]!): [CoachPaymentByTeamPayload!]!
+    coachPaymentsByTeamUpdate(coachPaymentByTeamInput: [CoachPaymentByTeamInputWithId!]!): [CoachPaymentByTeamPayload!]!
+    coachPaymentsByTrainingDelete(ids: [String!]!): [CoachPaymentByTrainingPayload!]!
+    coachPaymentsByTrainingPublishUpdate(ids: [String!]!): [CoachPaymentByTrainingPayload!]!
+    coachPaymentsByTrainingRestore(ids: [String!]!): [CoachPaymentByTrainingPayload!]!
+    coachPaymentsByTrainingSave(coachPaymentByTrainingInput: [CoachPaymentByTrainingInput!]!): [CoachPaymentByTrainingPayload!]!
+    coachPaymentsByTrainingUpdate(coachPaymentByTrainingInput: [CoachPaymentByTrainingInputWithId!]!): [CoachPaymentByTrainingPayload!]!
+    creatorsDelete(ids: [String!]!): [CreatorPayload!]!
+    creatorsPublishUpdate(ids: [String!]!): [CreatorPayload!]!
+    creatorsRestore(ids: [String!]!): [CreatorPayload!]!
+    creatorsSave(creatorInput: [CreatorInput!]!): [CreatorPayload!]!
+    creatorsUpdate(creatorInput: [CreatorInputWithId!]!): [CreatorPayload!]!
+    kitsDelete(ids: [String!]!): [KitPayload!]!
+    kitsPublishUpdate(ids: [String!]!): [KitPayload!]!
+    kitsRestore(ids: [String!]!): [KitPayload!]!
+    kitsSave(kitInput: [KitInput!]!): [KitPayload!]!
+    kitsUpdate(kitInput: [KitInputWithId!]!): [KitPayload!]!
+    leadsDelete(ids: [String!]!): [LeadPayload!]!
+    leadsPublishUpdate(ids: [String!]!): [LeadPayload!]!
+    leadsRestore(ids: [String!]!): [LeadPayload!]!
+    leadsSave(leadInput: [LeadInput!]!): [LeadPayload]!
+    leadsUpdate(leadInput: [LeadInputWithId!]!): [LeadPayload!]!
+    moneyCostsDelete(ids: [String!]!): [MoneyCostPayload!]!
+    moneyCostsPublishUpdate(ids: [String!]!): [MoneyCostPayload!]!
+    moneyCostsRestore(ids: [String!]!): [MoneyCostPayload!]!
+    moneyCostsSave(moneyCostInput: [MoneyCostInput!]!): [MoneyCostPayload!]!
+    moneyCostsUpdate(moneyCostInput: [MoneyCostInputWithId!]!): [MoneyCostPayload!]!
+    moneyMovesDelete(ids: [String!]!): [MoneyMovePayload!]!
+    moneyMovesPublishUpdate(ids: [String!]!): [MoneyMovePayload!]!
+    moneyMovesRestore(ids: [String!]!): [MoneyMovePayload!]!
+    moneyMovesSave(moneyMoveInput: [MoneyMoveInput!]!): [MoneyMovePayload!]!
+    moneyMovesUpdate(moneyMoveInput: [MoneyMoveInputWithId!]!): [MoneyMovePayload!]!
+    ordersDelete(ids: [String!]!): [OrderPayload!]!
+    ordersPublishUpdate(ids: [String!]!): [OrderPayload!]!
+    ordersRestore(ids: [String!]!): [OrderPayload!]!
+    ordersSave(orderInput: [OrderInput!]!): [OrderPayload!]!
+    ordersUpdate(orderInput: [OrderInputWithId!]!): [OrderPayload!]!
+    placesDelete(ids: [String!]!): [PlacePayload!]!
+    placesPublishUpdate(ids: [String!]!): [PlacePayload!]!
+    placesRestore(ids: [String!]!): [PlacePayload!]!
+    placesSave(placeInput: [PlaceInput!]!): [PlacePayload]!
+    placesUpdate(placeInput: [PlaceInputWithId!]!): [PlacePayload]!
+    refresh(phone: String!, token: String!): Token!
+    rentPaymentByMonthDelete(ids: [String!]!): [RentPaymentByMonthPayload!]!
+    rentPaymentByMonthPublishUpdate(ids: [String!]!): [RentPaymentByMonthPayload!]!
+    rentPaymentByMonthRestore(ids: [String!]!): [RentPaymentByMonthPayload!]!
+    rentPaymentByMonthSave(rentPaymentInput: [RentPaymentByMonthInput!]!): [RentPaymentByMonthPayload!]!
+    rentPaymentByMonthUpdate(rentPaymentInput: [RentPaymentByMonthInputWithId!]!): [RentPaymentByMonthPayload!]!
+    rentPaymentByTrainingDelete(ids: [String!]!): [RentPaymentByTrainingPayload!]!
+    rentPaymentByTrainingPublishUpdate(ids: [String!]!): [RentPaymentByTrainingPayload!]!
+    rentPaymentByTrainingRestore(ids: [String!]!): [RentPaymentByTrainingPayload!]!
+    rentPaymentByTrainingSave(rentPaymentInput: [RentPaymentByTrainingInput!]!): [RentPaymentByTrainingPayload!]!
+    rentPaymentByTrainingUpdate(rentPaymentInput: [RentPaymentByTrainingInputWithId!]!): [RentPaymentByTrainingPayload!]!
+    stadiumsDelete(ids: [String!]!): [StadiumPayload!]!
+    stadiumsPublishUpdate(ids: [String!]!): [StadiumPayload!]!
+    stadiumsRestore(ids: [String!]!): [StadiumPayload!]!
+    stadiumsSave(stadiumInput: [StadiumInput!]!): [StadiumPayload]!
+    stadiumsUpdate(stadiumInput: [StadiumInputWithId!]!): [StadiumPayload]!
+    staffDelete(ids: [String!]!): [StaffPayload!]!
+    staffPublishUpdate(ids: [String!]!): [StaffPayload!]!
+    staffRestore(ids: [String!]!): [StaffPayload!]!
+    staffSave(staffInput: [StaffInput!]!): [StaffPayload]!
+    staffUpdate(staffInput: [StaffInputWithId!]!): [StaffPayload]!
+    studentVisitsDelete(ids: [String!]!): [StudentVisitPayload!]!
+    studentVisitsPublishUpdate(ids: [String!]!): [StudentVisitPayload!]!
+    studentVisitsRestore(ids: [String!]!): [StudentVisitPayload!]!
+    studentVisitsSave(studentVisitInput: [StudentVisitInput!]!): [StudentVisitPayload!]!
+    studentVisitsUpdate(studentVisitInput: [StudentVisitInputWithId!]!): [StudentVisitPayload!]!
+    studentsDelete(ids: [String!]!): [StudentPayload!]!
+    studentsPublishUpdate(ids: [String!]!): [StudentPayload!]!
+    studentsRestore(ids: [String!]!): [StudentPayload!]!
+    studentsSave(studentInput: [StudentInput!]!): [StudentPayload!]!
+    studentsUpdate(studentInput: [StudentInputWithId!]!): [StudentPayload!]!
+    tasksDelete(ids: [String!]!): [TaskPayload!]!
+    tasksPublishUpdate(ids: [String!]!): [TaskPayload!]!
+    tasksRestore(ids: [String!]!): [TaskPayload!]!
+    tasksSave(taskInput: [TaskInput!]!): [TaskPayload]!
+    tasksUpdate(taskInput: [TaskInputWithId!]!): [TaskPayload]!
+    teamBalancesDelete(ids: [String!]!): [TeamBalancePayload!]!
+    teamBalancesPublishUpdate(ids: [String!]!): [TeamBalancePayload!]!
+    teamBalancesRestore(ids: [String!]!): [TeamBalancePayload!]!
+    teamBalancesSave(teamBalanceInput: [TeamBalanceInput!]!): [TeamBalancePayload!]!
+    teamBalancesUpdate(teamBalanceInput: [TeamBalanceInputWithId!]!): [TeamBalancePayload!]!
+    teamsDelete(ids: [String!]!): [TeamPayload!]!
+    teamsPublishUpdate(ids: [String!]!): [TeamPayload!]!
+    teamsRestore(ids: [String!]!): [TeamPayload!]!
+    teamsSave(teamInput: [TeamInput!]!): [TeamPayload]!
+    teamsUpdate(teamInput: [TeamInputWithId!]!): [TeamPayload]!
+    trainingDaysDelete(ids: [String!]!): [TrainingDayPayload!]!
+    trainingDaysPublishUpdate(ids: [String!]!): [TrainingDayPayload!]!
+    trainingDaysRestore(ids: [String!]!): [TrainingDayPayload!]!
+    trainingDaysSave(trainingDayInput: [TrainingDayInput!]!): [TrainingDayPayload]!
+    trainingDaysUpdate(trainingDayInput: [TrainingDayInputWithId!]!): [TrainingDayPayload]!
+    trainingsDelete(ids: [String!]!): [TrainingPayload!]!
+    trainingsPublishUpdate(ids: [String!]!): [TrainingPayload!]!
+    trainingsRestore(ids: [String!]!): [TrainingPayload!]!
+    trainingsSave(trainingInput: [TrainingInput!]!): [TrainingPayload!]!
+    trainingsUpdate(trainingInput: [TrainingInputWithId!]!): [TrainingPayload!]!
+    usersDelete(ids: [String!]!): [UserPayload!]!
+    usersPublishUpdate(ids: [String!]!): [UserPayload!]!
+    usersRestore(ids: [String!]!): [UserPayload!]!
+    usersSave(userInput: [UserInput!]!): [UserPayload]!
+    usersUpdate(userInput: [UserInputWithId!]!): [UserPayload]!
 }
 
-type PlacePayload {
-    place: Place!
-    id: ID!
+type AuthResponse {
+    authToken: AuthToken!
+    user: User!
 }
+
+type AuthToken {
+    accessToken: String!
+    expiredAt: Time!
+}
+
 
 type Meetup {
     id: ID!
@@ -43,27 +220,9 @@ input NewMeetup {
     description: String!
 }
 
-input PlaceInput {
-    address: String!
-    description: String!
-    name: String!
-    orderNumber: Int!
-    published: Boolean!
-}
-
 input UpdateMeetup {
     name: String
     description: String
-}
-
-type User {
-    id: ID!
-    phone: String!
-    firstName: String!
-    lastName: String!
-    meetups: [Meetup!]!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 input LoginInput {
@@ -110,4 +269,1273 @@ type PageInfo {
     startCursor: ID!
     endCursor: ID!
     hasNextPage: Boolean
+}
+
+type Article {
+    author: User
+    authorId: String!
+    description: String!
+    fileName: String
+    id: ID!
+    published: Boolean!
+    tags: [String!]
+    title: String!
+}
+
+type ArticleConnection {
+    edges: [ArticleEdge]
+    pageInfo: PageInfo
+}
+
+type ArticleEdge {
+    cursor: String
+    node: Article
+}
+
+type ArticlePayload {
+    record: Article
+    recordId: ID!
+}
+
+type Cart {
+    id: ID!
+    kitIds: [String!]!
+    kits: [KitCart!]
+    published: Boolean!
+    studentId: String!
+    studentItem: Student
+    sum: Int!
+}
+
+type CartConnection {
+    edges: [CartEdge]
+    pageInfo: PageInfo
+}
+
+type CartEdge {
+    cursor: String
+    node: Cart
+}
+
+type CartPayload {
+    record: Cart
+    recordId: ID!
+}
+
+type ClubBalance {
+    date:Time!
+    id: ID!
+    otherCosts: Int!
+    published: Boolean!
+    rent: Int!
+    salary: Int!
+    sum: Int!
+    tickets: Int!
+}
+
+type ClubBalanceConnection {
+    edges: [ClubBalanceEdge]
+    pageInfo: PageInfo
+}
+
+type ClubBalanceEdge {
+    cursor: String
+    node: ClubBalance
+}
+
+type ClubBalancePayload {
+    record: ClubBalance
+    recordId: ID!
+}
+
+type CoachPaymentByMonth {
+    coach: Staff
+    coachId: String!
+    date:Time
+    id: ID!
+    published: Boolean!
+    sum: Int!
+}
+
+type CoachPaymentByMonthConnection {
+    edges: [CoachPaymentByMonthEdge]
+    pageInfo: PageInfo
+}
+
+type CoachPaymentByMonthEdge {
+    cursor: String
+    node: CoachPaymentByMonth
+}
+
+type CoachPaymentByMonthPayload {
+    record: CoachPaymentByMonth
+    recordId: ID!
+}
+
+type CoachPaymentByTeam {
+    coach: Staff
+    coachId: String!
+    dateFinish:Time
+    dateStart:Time
+    id: ID!
+    paymentRule: CoachPaymentRule
+    published: Boolean!
+    sum: Int
+    teamId: String
+    teamItem: Team
+}
+
+type CoachPaymentByTeamConnection {
+    edges: [CoachPaymentByTeamEdge]
+    pageInfo: PageInfo
+}
+
+type CoachPaymentByTeamEdge {
+    cursor: String
+    node: CoachPaymentByTeam
+}
+
+type CoachPaymentByTeamPayload {
+    record: CoachPaymentByTeam
+    recordId: ID!
+}
+
+type CoachPaymentByTraining {
+    coach: Staff
+    coachId: String!
+    id: ID!
+    published: Boolean!
+    sum: Int
+    trainingId: String
+    trainingItem: Training
+}
+
+type CoachPaymentByTrainingConnection {
+    edges: [CoachPaymentByTrainingEdge]
+    pageInfo: PageInfo
+}
+
+type CoachPaymentByTrainingEdge {
+    cursor: String
+    node: CoachPaymentByTraining
+}
+
+type CoachPaymentByTrainingPayload {
+    record: CoachPaymentByTraining
+    recordId: ID!
+}
+
+type Creator {
+    id: ID!
+    name: String!
+    passportNum: String
+    phone: String!
+    published: Boolean!
+    userId: String
+    userItem: User
+}
+
+type CreatorConnection {
+    edges: [CreatorEdge]
+    pageInfo: PageInfo
+}
+
+type CreatorEdge {
+    cursor: String
+    node: Creator
+}
+
+type CreatorPayload {
+    record: Creator
+    recordId: ID!
+}
+
+type CreatorStudent {
+    creatorId: String!
+    creatorStudent: Creator
+    studentId: String!
+}
+
+type Kit {
+    fileName: String
+    id: ID!
+    name: String!
+    number: Int
+    price: Int!
+    published: Boolean!
+    quantity: Int
+    size: String!
+    title: String
+}
+
+type KitCart {
+    cartId: String!
+    kitCart: Kit
+    kitId: String!
+}
+
+type KitConnection {
+    edges: [KitEdge]
+    pageInfo: PageInfo
+}
+
+type KitEdge {
+    cursor: String
+    node: Kit
+}
+
+type KitPayload {
+    record: Kit
+    recordId: ID!
+}
+
+type Lead {
+    description: String
+    id: ID!
+    name: String
+    nextVisit: Training
+    nextVisitId: String
+    phone: String!
+    published: Boolean!
+    source: LeadSource
+    status: LeadStatus
+    studentIds: [String!]
+    students: [StudentLead!]
+    teamId: String
+    teamItem: Team
+    yearBorn: Int
+}
+
+type LeadConnection {
+    edges: [LeadEdge]
+    pageInfo: PageInfo
+}
+
+type LeadEdge {
+    cursor: String
+    node: Lead
+}
+
+type LeadPayload {
+    record: Lead
+    recordId: ID!
+}
+
+type LeadTask {
+    leadId: String!
+    leadTask: Lead
+    taskId: String!
+}
+
+type MoneyCost {
+    date:Time!
+    description: String!
+    id: ID!
+    moneyForm: MoneyForm!
+    published: Boolean!
+    staff: Staff
+    staffId: String!
+    sum: Int!
+}
+
+type MoneyCostConnection {
+    edges: [MoneyCostEdge]
+    pageInfo: PageInfo
+}
+
+type MoneyCostEdge {
+    cursor: String
+    node: MoneyCost
+}
+
+type MoneyCostPayload {
+    record: MoneyCost
+    recordId: ID!
+}
+
+type MoneyMove {
+    dateFinish:Time
+    datePayment:Time
+    dateStart:Time
+    description: String
+    id: ID!
+    moneyForm: MoneyForm
+    owner: Staff
+    ownerId: String!
+    published: Boolean!
+    studentId: String!
+    studentItem: Student
+    sum: Int
+    userId: String!
+    userItem: User
+}
+
+type MoneyMoveConnection {
+    edges: [MoneyMoveEdge]
+    pageInfo: PageInfo
+}
+
+type MoneyMoveEdge {
+    cursor: String
+    node: MoneyMove
+}
+
+type MoneyMovePayload {
+    record: MoneyMove
+    recordId: ID!
+}
+
+type Order {
+    cartId: String!
+    cartItem: Cart
+    creatorId: String!
+    creatorItem: Creator
+    fileName: String
+    id: ID!
+    orderStatus: OrderStatus!
+    published: Boolean!
+}
+
+type OrderConnection {
+    edges: [OrderEdge]
+    pageInfo: PageInfo
+}
+
+type OrderEdge {
+    cursor: String
+    node: Order
+}
+
+type OrderPayload {
+    record: Order
+    recordId: ID!
+}
+
+type RentPaymentByMonth {
+    description: String
+    id: ID!
+    month:Time!
+    paymentDate:Time
+    published: Boolean!
+    stadiumId: String!
+    stadiumItem: Stadium
+    sum: Int!
+}
+
+type RentPaymentByMonthConnection {
+    edges: [RentPaymentByMonthEdge]
+    pageInfo: PageInfo
+}
+
+type RentPaymentByMonthEdge {
+    cursor: String
+    node: RentPaymentByMonth
+}
+
+type RentPaymentByMonthPayload {
+    record: RentPaymentByMonth
+    recordId: ID!
+}
+
+type RentPaymentByTraining {
+    description: String
+    id: ID!
+    published: Boolean!
+    stadiumId: String!
+    stadiumItem: Stadium
+    sum: Int!
+    trainingIds: [String!]!
+    trainings: [TrainingRent!]
+}
+
+type RentPaymentByTrainingConnection {
+    edges: [RentPaymentByTrainingEdge]
+    pageInfo: PageInfo
+}
+
+type RentPaymentByTrainingEdge {
+    cursor: String
+    node: RentPaymentByTraining
+}
+
+type RentPaymentByTrainingPayload {
+    record: RentPaymentByTraining
+    recordId: ID!
+}
+
+type Stadium {
+    id: ID!
+    latitude: Float!
+    longitude: Float!
+    name: String!
+    placeId: String
+    placeItem: Place
+    published: Boolean!
+}
+
+type StadiumConnection {
+    edges: [StadiumEdge]
+    pageInfo: PageInfo
+}
+
+type StadiumEdge {
+    cursor: String
+    node: Stadium
+}
+
+type StadiumPayload {
+    record: Stadium
+    recordId: ID!
+}
+
+type Staff {
+    birthday:Time
+    department: Department!
+    description: String
+    fileName: String
+    id: ID!
+    name: String!
+    orderNumber: Int!
+    phoneNumber: String
+    published: Boolean!
+    userId: String
+    userItem: User
+    work: String!
+}
+
+type StaffConnection {
+    edges: [StaffEdge]
+    pageInfo: PageInfo
+}
+
+type StaffEdge {
+    cursor: String
+    node: Staff
+}
+
+type StaffPayload {
+    record: Staff
+    recordId: ID!
+}
+
+type StaffTask {
+    staffId: String!
+    staffTask: Staff
+    taskId: String!
+}
+
+type StaffTeam {
+    staffId: String!
+    staffTeam: Staff
+    teamId: String!
+}
+
+type StaffTraining {
+    staffId: String!
+    staffTraining: Staff
+    trainingId: String!
+}
+
+type Student {
+    birthday:Time
+    creatorIds: [String!]!
+    creators: [CreatorStudent!]
+    id: ID!
+    name: String!
+    passportNum: String
+    paymentSum: Int
+    published: Boolean!
+    teamIds: [String!]!
+    teams: [TeamStudent!]
+}
+
+type StudentConnection {
+    edges: [StudentEdge]
+    pageInfo: PageInfo
+}
+
+type StudentEdge {
+    cursor: String
+    node: Student
+}
+
+type StudentLead {
+    leadId: String!
+    studentId: String!
+    studentLead: Student
+}
+
+type StudentPayload {
+    record: Student
+    recordId: ID!
+}
+
+type StudentTask {
+    studentId: String!
+    studentTask: Student
+    taskId: String!
+}
+
+type StudentVisit {
+    id: ID!
+    payed: Boolean!
+    published: Boolean!
+    studentId: String!
+    studentItem: Student
+    trainingId: String!
+    trainingItem: Training
+    visitStatus: VisitStatus!
+}
+
+type StudentVisitConnection {
+    edges: [StudentVisitEdge]
+    pageInfo: PageInfo
+}
+
+type StudentVisitEdge {
+    cursor: String
+    node: StudentVisit
+}
+
+type StudentVisitPayload {
+    record: StudentVisit
+    recordId: ID!
+}
+
+type Task {
+    author: User
+    authorId: String
+    description: String
+    endTime: Time
+    id: ID!
+    leadIds: [String!]
+    leads: [LeadTask]
+    priority: Priority
+    published: Boolean!
+    result: String
+    startTime: Time
+    studentIds: [String!]
+    students: [StudentTask]
+    taskStatus: TaskStatus
+    title: String!
+    workerIds: [String!]
+    workers: [StaffTask]
+}
+
+type TaskConnection {
+    edges: [TaskEdge]
+    pageInfo: PageInfo
+}
+
+type TaskEdge {
+    cursor: String
+    node: Task
+}
+
+type TaskPayload {
+    record: Task
+    recordId: ID!
+}
+
+type Team {
+    ages: [Age!]
+    coachIds: [String!]
+    coaches: [StaffTeam!]
+    headCoach: Staff
+    headCoachId: String
+    id: ID!
+    name: String!
+    placeId: String!
+    placeItem: Place
+    published: Boolean!
+    writable: Boolean!
+}
+
+type TeamBalance {
+    date:Time!
+    id: ID!
+    published: Boolean!
+    rent: Int!
+    salary: Int!
+    sum: Int!
+    teamId: String!
+    teamItem: Team
+    tickets: Int!
+}
+
+type TeamBalanceConnection {
+    edges: [TeamBalanceEdge]
+    pageInfo: PageInfo
+}
+
+type TeamBalanceEdge {
+    cursor: String
+    node: TeamBalance
+}
+
+type TeamBalancePayload {
+    record: TeamBalance
+    recordId: ID!
+}
+
+type TeamConnection {
+    edges: [TeamEdge]
+    pageInfo: PageInfo
+}
+
+type TeamEdge {
+    cursor: String
+    node: Team
+}
+
+type TeamPayload {
+    record: Team
+    recordId: ID!
+}
+
+type TeamStudent {
+    studentId: String!
+    teamId: String!
+    teamStudent: Team
+}
+
+type Token {
+    accessToken: String!
+    expiration: Time!
+    refreshToken: String!
+}
+
+type Training {
+    coachIds: [String!]
+    coaches: [StaffTraining!]
+    headCoach: Staff
+    headCoachId: String
+    id: ID!
+    published: Boolean!
+    stadiumId: String
+    stadiumItem: Stadium
+    teamId: String!
+    teamItem: Team
+    time: Time
+    visits: Int!
+}
+
+type TrainingConnection {
+    edges: [TrainingEdge]
+    pageInfo: PageInfo
+}
+
+type TrainingDay {
+    day: DayOfWeek
+    id: ID!
+    published: Boolean!
+    stadiumId: String
+    stadiumItem: Stadium
+    teamId: String!
+    teamItem: Team
+    time: Time
+}
+
+type TrainingDayConnection {
+    edges: [TrainingDayEdge]
+    pageInfo: PageInfo
+}
+
+type TrainingDayEdge {
+    cursor: String
+    node: TrainingDay
+}
+
+type TrainingDayPayload {
+    record: TrainingDay
+    recordId: ID!
+}
+
+type TrainingEdge {
+    cursor: String
+    node: Training
+}
+
+type TrainingPayload {
+    record: Training
+    recordId: ID!
+}
+
+type TrainingRent {
+    rentId: String!
+    trainingId: String!
+    trainingRent: Training
+}
+
+type User {
+    id: ID!
+    phone: String!
+    firstName: String!
+    lastName: String!
+    meetups: [Meetup!]!
+    createdAt: Time!
+    updatedAt: Time!
+}
+
+type UserConnection {
+    edges: [UserEdge]
+    pageInfo: PageInfo
+}
+
+type UserEdge {
+    cursor: String
+    node: User
+}
+
+type UserPayload {
+    record: User
+    recordId: ID!
+}
+
+enum Age {
+    PRESCHOOL
+    SCHOOL
+}
+
+enum CoachPaymentRule {
+    BY_TEAM
+    BY_TRAINING
+}
+
+enum DayOfWeek {
+    FRIDAY
+    MONDAY
+    SATURDAY
+    SUNDAY
+    THURSDAY
+    TUESDAY
+    WEDNESDAY
+}
+
+enum Department {
+    COACH
+    HEAD
+}
+
+enum LeadSource {
+    BROTHER
+    FRIENDS
+    GIS
+    GOOGLE
+    INSTAGRAM
+    LIFT
+    OTHER_PARENTS
+    PAPER
+    RETURNED
+    TELEGRAM
+    VKONTAKTE
+    YANDEX
+    YANDEX_MAP
+}
+
+enum LeadStatus {
+    APPROVE_FIRST_TRAINING
+    CANCEL_AFTER_APPROVE_FIRST_TRAINING
+    CANCEL_AFTER_FIRST_TRAINING
+    CANCEL_AFTER_WRITE
+    CONTRACTED
+    FIRST_TRAINING
+    FIRST_TRAINING_ADD
+    WANT_CONTRACT
+    WRITE
+}
+
+enum MoneyForm {
+    BANK_TRANSFER
+    CARD_TRANSFER
+    CASH
+}
+
+enum OrderStatus {
+    CANCELED
+    CREATED
+    FINISHED
+    IN_DELIVERY
+    PAYED
+    READY_TO_GET
+}
+
+enum Priority {
+    HIGH
+    HIGHEST
+    LOW
+    MIDDLE
+}
+
+enum Role {
+    ROLE_ADMIN
+    ROLE_COACH
+    ROLE_DIRECTOR
+    ROLE_ECONOMIST
+    ROLE_EDITOR
+    ROLE_USER
+}
+
+enum TaskStatus {
+    CANCEL
+    DONE
+    NEW
+    WORK
+}
+
+enum VisitStatus {
+    ABSENT
+    HOLIDAY
+    ILL
+    VISITED
+}
+
+input ArticleInput {
+    author: UserDto!
+    description: String!
+    fileName: String
+    published: Boolean!
+    tags: [String!]
+    title: String!
+}
+
+input ArticleInputWithId {
+    id: String!
+    input: ArticleInput!
+}
+
+input CartDto {
+    id: String!
+    name: String!
+}
+
+input CartInput {
+    kit: [KitDto!]!
+    published: Boolean!
+    student: StudentDto!
+    sum: Int!
+}
+
+input CartInputWithId {
+    id: String!
+    input: CartInput!
+}
+
+input ClubBalanceInput {
+    date:Time!
+    otherCosts: Int!
+    published: Boolean!
+    rent: Int!
+    salary: Int!
+    tickets: Int!
+}
+
+input ClubBalanceInputWithId {
+    id: String!
+    input: ClubBalanceInput!
+}
+
+input CoachPaymentByMonthInput {
+    coach: StaffDto!
+    date:Time!
+    published: Boolean!
+    sum: Int!
+}
+
+input CoachPaymentByMonthInputWithId {
+    id: String!
+    input: CoachPaymentByMonthInput!
+}
+
+input CoachPaymentByTeamInput {
+    coach: StaffDto!
+    dateFinish:Time!
+    dateStart:Time!
+    paymentRule: CoachPaymentRule!
+    published: Boolean!
+    sum: Int!
+    team: TeamCoachPaymentDto!
+}
+
+input CoachPaymentByTeamInputWithId {
+    id: String!
+    input: CoachPaymentByTeamInput!
+}
+
+input CoachPaymentByTrainingInput {
+    coach: StaffDto!
+    published: Boolean!
+    sum: Int!
+    training: TrainingDto!
+}
+
+input CoachPaymentByTrainingInputWithId {
+    id: String!
+    input: CoachPaymentByTrainingInput!
+}
+
+input CreatorDto {
+    id: String!
+    name: String!
+}
+
+input CreatorInput {
+    name: String!
+    passportNum: String
+    phone: String!
+    published: Boolean!
+    user: UserDto
+}
+
+input CreatorInputWithId {
+    id: String!
+    input: CreatorInput!
+}
+
+input KitDto {
+    id: String!
+    name: String!
+}
+
+input KitInput {
+    fileName: String
+    name: String!
+    number: Int
+    price: Int!
+    published: Boolean!
+    quantity: Int
+    size: String!
+    title: String
+}
+
+input KitInputWithId {
+    id: String!
+    input: KitInput!
+}
+
+input LeadDto {
+    id: String!
+    name: String!
+}
+
+input LeadInput {
+    description: String
+    name: String
+    nextVisit: TrainingDto
+    phone: String!
+    published: Boolean!
+    source: LeadSource
+    status: LeadStatus
+    students: [StudentDto!]
+    team: TeamLeadDto
+    yearBorn: Int
+}
+
+input LeadInputWithId {
+    id: String!
+    input: LeadInput!
+}
+
+input MoneyCostInput {
+    date:Time!
+    description: String!
+    moneyForm: MoneyForm!
+    published: Boolean!
+    staff: StaffDto!
+    sum: Int!
+}
+
+input MoneyCostInputWithId {
+    id: String!
+    input: MoneyCostInput!
+}
+
+input MoneyMoveInput {
+    dateFinish:Time!
+    datePayment:Time!
+    dateStart:Time!
+    description: String
+    moneyForm: MoneyForm!
+    owner: StaffDto!
+    published: Boolean!
+    student: StudentDto!
+    sum: Int!
+    user: UserDto!
+}
+
+input MoneyMoveInputWithId {
+    id: String!
+    input: MoneyMoveInput!
+}
+
+input OrderInput {
+    cart: CartDto!
+    creator: CreatorDto!
+    fileName: String
+    orderStatus: OrderStatus!
+    published: Boolean!
+}
+
+input OrderInputWithId {
+    id: String!
+    input: OrderInput!
+}
+
+input PlaceDto {
+    id: String!
+    name: String!
+}
+
+type PlacePayload {
+    place: Place!
+    id: ID!
+}
+
+input PlaceInput {
+    address: String!
+    description: String!
+    name: String!
+    orderNumber: Int!
+    published: Boolean!
+}
+
+input PlaceInputWithId {
+    id: String!
+    input: PlaceInput!
+}
+
+input RentPaymentByMonthInput {
+    description: String
+    month:Time!
+    paymentDate:Time!
+    published: Boolean!
+    stadium: StadiumDto!
+    sum: Int!
+}
+
+input RentPaymentByMonthInputWithId {
+    id: String!
+    input: RentPaymentByMonthInput!
+}
+
+input RentPaymentByTrainingInput {
+    description: String
+    published: Boolean!
+    stadium: StadiumDto!
+    sum: Int!
+    trainings: [TrainingDto!]!
+}
+
+input RentPaymentByTrainingInputWithId {
+    id: String!
+    input: RentPaymentByTrainingInput!
+}
+
+input StadiumDto {
+    id: String!
+    name: String!
+}
+
+input StadiumInput {
+    latitude: Float!
+    longitude: Float!
+    name: String!
+    place: PlaceDto!
+    published: Boolean!
+}
+
+input StadiumInputWithId {
+    id: String!
+    input: StadiumInput!
+}
+
+input StaffDto {
+    id: String!
+    name: String!
+}
+
+input StaffInput {
+    birthday:Time
+    department: Department!
+    description: String
+    fileName: String
+    name: String!
+    orderNumber: Int!
+    phoneNumber: String
+    published: Boolean!
+    user: UserDto
+    work: String!
+}
+
+input StaffInputWithId {
+    id: String!
+    input: StaffInput!
+}
+
+input StudentDto {
+    id: String!
+    name: String!
+}
+
+input StudentInput {
+    birthday:Time
+    creators: [CreatorDto!]!
+    name: String!
+    passportNum: String
+    paymentSum: Int
+    published: Boolean!
+    teams: [TeamStudentDto!]!
+}
+
+input StudentInputWithId {
+    id: String!
+    input: StudentInput!
+}
+
+input StudentVisitInput {
+    payed: Boolean!
+    published: Boolean!
+    student: StudentDto!
+    training: TrainingDto!
+    visitStatus: VisitStatus!
+}
+
+input StudentVisitInputWithId {
+    id: String!
+    input: StudentVisitInput!
+}
+
+input TaskInput {
+    author: UserDto
+    description: String
+    endTime: Time
+    leads: [LeadDto!]
+    priority: Priority
+    published: Boolean!
+    result: String
+    startTime: Time
+    students: [StudentDto!]
+    taskStatus: TaskStatus
+    title: String!
+    workers: [StaffDto!]
+}
+
+input TaskInputWithId {
+    id: String!
+    input: TaskInput!
+}
+
+input TeamBalanceDto {
+    id: String!
+    name: String!
+}
+
+input TeamBalanceInput {
+    date:Time!
+    published: Boolean!
+    rent: Int!
+    salary: Int!
+    team: TeamBalanceDto!
+    tickets: Int!
+}
+
+input TeamBalanceInputWithId {
+    id: String!
+    input: TeamBalanceInput!
+}
+
+input TeamCoachPaymentDto {
+    id: String!
+    name: String!
+}
+
+input TeamDto {
+    id: String!
+    name: String!
+}
+
+input TeamInput {
+    ages: [Age!]
+    coaches: [StaffDto!]
+    headCoach: StaffDto
+    name: String!
+    place: PlaceDto!
+    published: Boolean!
+    writable: Boolean!
+}
+
+input TeamInputWithId {
+    id: String!
+    input: TeamInput!
+}
+
+input TeamLeadDto {
+    id: String!
+    name: String!
+}
+
+input TeamStudentDto {
+    id: String!
+    name: String!
+}
+
+input TeamTrainingDayDto {
+    id: String!
+    name: String!
+}
+
+input TeamTrainingDto {
+    id: String!
+    name: String!
+}
+
+input TrainingDayInput {
+    day: DayOfWeek
+    published: Boolean!
+    stadium: StadiumDto
+    team: TeamTrainingDayDto!
+    time: Time
+}
+
+input TrainingDayInputWithId {
+    id: String!
+    input: TrainingDayInput!
+}
+
+input TrainingDto {
+    id: String!
+    name: String!
+}
+
+input TrainingInput {
+    coaches: [StaffDto!]
+    headCoach: StaffDto
+    published: Boolean!
+    stadium: StadiumDto
+    team: TeamTrainingDto!
+    time: Time!
+    visits: Int!
+}
+
+input TrainingInputWithId {
+    id: String!
+    input: TrainingInput!
+}
+
+input UserDto {
+    id: String!
+    name: String!
+}
+
+input UserInput {
+    name: String!
+    password: String
+    phone: String!
+    published: Boolean!
+    roles: [Role!]!
+}
+
+input UserInputWithId {
+    id: String!
+    input: UserInput!
 }

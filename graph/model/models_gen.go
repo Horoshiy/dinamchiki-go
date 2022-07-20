@@ -3,8 +3,51 @@
 package models
 
 import (
+	"fmt"
+	"io"
+	"strconv"
 	"time"
 )
+
+type Article struct {
+	Author      *User    `json:"author"`
+	AuthorID    string   `json:"authorId"`
+	Description string   `json:"description"`
+	FileName    *string  `json:"fileName"`
+	ID          string   `json:"id"`
+	Published   bool     `json:"published"`
+	Tags        []string `json:"tags"`
+	Title       string   `json:"title"`
+}
+
+type ArticleConnection struct {
+	Edges    []*ArticleEdge `json:"edges"`
+	PageInfo *PageInfo      `json:"pageInfo"`
+}
+
+type ArticleEdge struct {
+	Cursor *string  `json:"cursor"`
+	Node   *Article `json:"node"`
+}
+
+type ArticleInput struct {
+	Author      *UserDto `json:"author"`
+	Description string   `json:"description"`
+	FileName    *string  `json:"fileName"`
+	Published   bool     `json:"published"`
+	Tags        []string `json:"tags"`
+	Title       string   `json:"title"`
+}
+
+type ArticleInputWithID struct {
+	ID    string        `json:"id"`
+	Input *ArticleInput `json:"input"`
+}
+
+type ArticlePayload struct {
+	Record   *Article `json:"record"`
+	RecordID string   `json:"recordId"`
+}
 
 type AuthResponse struct {
 	AuthToken *AuthToken `json:"authToken"`
@@ -16,6 +59,368 @@ type AuthToken struct {
 	ExpiredAt   time.Time `json:"expiredAt"`
 }
 
+type Cart struct {
+	ID          string     `json:"id"`
+	KitIds      []string   `json:"kitIds"`
+	Kits        []*KitCart `json:"kits"`
+	Published   bool       `json:"published"`
+	StudentID   string     `json:"studentId"`
+	StudentItem *Student   `json:"studentItem"`
+	Sum         int        `json:"sum"`
+}
+
+type CartConnection struct {
+	Edges    []*CartEdge `json:"edges"`
+	PageInfo *PageInfo   `json:"pageInfo"`
+}
+
+type CartDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type CartEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *Cart   `json:"node"`
+}
+
+type CartInput struct {
+	Kit       []*KitDto   `json:"kit"`
+	Published bool        `json:"published"`
+	Student   *StudentDto `json:"student"`
+	Sum       int         `json:"sum"`
+}
+
+type CartInputWithID struct {
+	ID    string     `json:"id"`
+	Input *CartInput `json:"input"`
+}
+
+type CartPayload struct {
+	Record   *Cart  `json:"record"`
+	RecordID string `json:"recordId"`
+}
+
+type ClubBalance struct {
+	Date       time.Time `json:"date"`
+	ID         string    `json:"id"`
+	OtherCosts int       `json:"otherCosts"`
+	Published  bool      `json:"published"`
+	Rent       int       `json:"rent"`
+	Salary     int       `json:"salary"`
+	Sum        int       `json:"sum"`
+	Tickets    int       `json:"tickets"`
+}
+
+type ClubBalanceConnection struct {
+	Edges    []*ClubBalanceEdge `json:"edges"`
+	PageInfo *PageInfo          `json:"pageInfo"`
+}
+
+type ClubBalanceEdge struct {
+	Cursor *string      `json:"cursor"`
+	Node   *ClubBalance `json:"node"`
+}
+
+type ClubBalanceInput struct {
+	Date       time.Time `json:"date"`
+	OtherCosts int       `json:"otherCosts"`
+	Published  bool      `json:"published"`
+	Rent       int       `json:"rent"`
+	Salary     int       `json:"salary"`
+	Tickets    int       `json:"tickets"`
+}
+
+type ClubBalanceInputWithID struct {
+	ID    string            `json:"id"`
+	Input *ClubBalanceInput `json:"input"`
+}
+
+type ClubBalancePayload struct {
+	Record   *ClubBalance `json:"record"`
+	RecordID string       `json:"recordId"`
+}
+
+type CoachPaymentByMonth struct {
+	Coach     *Staff     `json:"coach"`
+	CoachID   string     `json:"coachId"`
+	Date      *time.Time `json:"date"`
+	ID        string     `json:"id"`
+	Published bool       `json:"published"`
+	Sum       int        `json:"sum"`
+}
+
+type CoachPaymentByMonthConnection struct {
+	Edges    []*CoachPaymentByMonthEdge `json:"edges"`
+	PageInfo *PageInfo                  `json:"pageInfo"`
+}
+
+type CoachPaymentByMonthEdge struct {
+	Cursor *string              `json:"cursor"`
+	Node   *CoachPaymentByMonth `json:"node"`
+}
+
+type CoachPaymentByMonthInput struct {
+	Coach     *StaffDto `json:"coach"`
+	Date      time.Time `json:"date"`
+	Published bool      `json:"published"`
+	Sum       int       `json:"sum"`
+}
+
+type CoachPaymentByMonthInputWithID struct {
+	ID    string                    `json:"id"`
+	Input *CoachPaymentByMonthInput `json:"input"`
+}
+
+type CoachPaymentByMonthPayload struct {
+	Record   *CoachPaymentByMonth `json:"record"`
+	RecordID string               `json:"recordId"`
+}
+
+type CoachPaymentByTeam struct {
+	Coach       *Staff            `json:"coach"`
+	CoachID     string            `json:"coachId"`
+	DateFinish  *time.Time        `json:"dateFinish"`
+	DateStart   *time.Time        `json:"dateStart"`
+	ID          string            `json:"id"`
+	PaymentRule *CoachPaymentRule `json:"paymentRule"`
+	Published   bool              `json:"published"`
+	Sum         *int              `json:"sum"`
+	TeamID      *string           `json:"teamId"`
+	TeamItem    *Team             `json:"teamItem"`
+}
+
+type CoachPaymentByTeamConnection struct {
+	Edges    []*CoachPaymentByTeamEdge `json:"edges"`
+	PageInfo *PageInfo                 `json:"pageInfo"`
+}
+
+type CoachPaymentByTeamEdge struct {
+	Cursor *string             `json:"cursor"`
+	Node   *CoachPaymentByTeam `json:"node"`
+}
+
+type CoachPaymentByTeamInput struct {
+	Coach       *StaffDto            `json:"coach"`
+	DateFinish  time.Time            `json:"dateFinish"`
+	DateStart   time.Time            `json:"dateStart"`
+	PaymentRule CoachPaymentRule     `json:"paymentRule"`
+	Published   bool                 `json:"published"`
+	Sum         int                  `json:"sum"`
+	Team        *TeamCoachPaymentDto `json:"team"`
+}
+
+type CoachPaymentByTeamInputWithID struct {
+	ID    string                   `json:"id"`
+	Input *CoachPaymentByTeamInput `json:"input"`
+}
+
+type CoachPaymentByTeamPayload struct {
+	Record   *CoachPaymentByTeam `json:"record"`
+	RecordID string              `json:"recordId"`
+}
+
+type CoachPaymentByTraining struct {
+	Coach        *Staff    `json:"coach"`
+	CoachID      string    `json:"coachId"`
+	ID           string    `json:"id"`
+	Published    bool      `json:"published"`
+	Sum          *int      `json:"sum"`
+	TrainingID   *string   `json:"trainingId"`
+	TrainingItem *Training `json:"trainingItem"`
+}
+
+type CoachPaymentByTrainingConnection struct {
+	Edges    []*CoachPaymentByTrainingEdge `json:"edges"`
+	PageInfo *PageInfo                     `json:"pageInfo"`
+}
+
+type CoachPaymentByTrainingEdge struct {
+	Cursor *string                 `json:"cursor"`
+	Node   *CoachPaymentByTraining `json:"node"`
+}
+
+type CoachPaymentByTrainingInput struct {
+	Coach     *StaffDto    `json:"coach"`
+	Published bool         `json:"published"`
+	Sum       int          `json:"sum"`
+	Training  *TrainingDto `json:"training"`
+}
+
+type CoachPaymentByTrainingInputWithID struct {
+	ID    string                       `json:"id"`
+	Input *CoachPaymentByTrainingInput `json:"input"`
+}
+
+type CoachPaymentByTrainingPayload struct {
+	Record   *CoachPaymentByTraining `json:"record"`
+	RecordID string                  `json:"recordId"`
+}
+
+type Creator struct {
+	ID          string  `json:"id"`
+	Name        string  `json:"name"`
+	PassportNum *string `json:"passportNum"`
+	Phone       string  `json:"phone"`
+	Published   bool    `json:"published"`
+	UserID      *string `json:"userId"`
+	UserItem    *User   `json:"userItem"`
+}
+
+type CreatorConnection struct {
+	Edges    []*CreatorEdge `json:"edges"`
+	PageInfo *PageInfo      `json:"pageInfo"`
+}
+
+type CreatorDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type CreatorEdge struct {
+	Cursor *string  `json:"cursor"`
+	Node   *Creator `json:"node"`
+}
+
+type CreatorInput struct {
+	Name        string   `json:"name"`
+	PassportNum *string  `json:"passportNum"`
+	Phone       string   `json:"phone"`
+	Published   bool     `json:"published"`
+	User        *UserDto `json:"user"`
+}
+
+type CreatorInputWithID struct {
+	ID    string        `json:"id"`
+	Input *CreatorInput `json:"input"`
+}
+
+type CreatorPayload struct {
+	Record   *Creator `json:"record"`
+	RecordID string   `json:"recordId"`
+}
+
+type CreatorStudent struct {
+	CreatorID      string   `json:"creatorId"`
+	CreatorStudent *Creator `json:"creatorStudent"`
+	StudentID      string   `json:"studentId"`
+}
+
+type Kit struct {
+	FileName  *string `json:"fileName"`
+	ID        string  `json:"id"`
+	Name      string  `json:"name"`
+	Number    *int    `json:"number"`
+	Price     int     `json:"price"`
+	Published bool    `json:"published"`
+	Quantity  *int    `json:"quantity"`
+	Size      string  `json:"size"`
+	Title     *string `json:"title"`
+}
+
+type KitCart struct {
+	CartID  string `json:"cartId"`
+	KitCart *Kit   `json:"kitCart"`
+	KitID   string `json:"kitId"`
+}
+
+type KitConnection struct {
+	Edges    []*KitEdge `json:"edges"`
+	PageInfo *PageInfo  `json:"pageInfo"`
+}
+
+type KitDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type KitEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *Kit    `json:"node"`
+}
+
+type KitInput struct {
+	FileName  *string `json:"fileName"`
+	Name      string  `json:"name"`
+	Number    *int    `json:"number"`
+	Price     int     `json:"price"`
+	Published bool    `json:"published"`
+	Quantity  *int    `json:"quantity"`
+	Size      string  `json:"size"`
+	Title     *string `json:"title"`
+}
+
+type KitInputWithID struct {
+	ID    string    `json:"id"`
+	Input *KitInput `json:"input"`
+}
+
+type KitPayload struct {
+	Record   *Kit   `json:"record"`
+	RecordID string `json:"recordId"`
+}
+
+type Lead struct {
+	Description *string        `json:"description"`
+	ID          string         `json:"id"`
+	Name        *string        `json:"name"`
+	NextVisit   *Training      `json:"nextVisit"`
+	NextVisitID *string        `json:"nextVisitId"`
+	Phone       string         `json:"phone"`
+	Published   bool           `json:"published"`
+	Source      *LeadSource    `json:"source"`
+	Status      *LeadStatus    `json:"status"`
+	StudentIds  []string       `json:"studentIds"`
+	Students    []*StudentLead `json:"students"`
+	TeamID      *string        `json:"teamId"`
+	TeamItem    *Team          `json:"teamItem"`
+	YearBorn    *int           `json:"yearBorn"`
+}
+
+type LeadConnection struct {
+	Edges    []*LeadEdge `json:"edges"`
+	PageInfo *PageInfo   `json:"pageInfo"`
+}
+
+type LeadDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type LeadEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *Lead   `json:"node"`
+}
+
+type LeadInput struct {
+	Description *string       `json:"description"`
+	Name        *string       `json:"name"`
+	NextVisit   *TrainingDto  `json:"nextVisit"`
+	Phone       string        `json:"phone"`
+	Published   bool          `json:"published"`
+	Source      *LeadSource   `json:"source"`
+	Status      *LeadStatus   `json:"status"`
+	Students    []*StudentDto `json:"students"`
+	Team        *TeamLeadDto  `json:"team"`
+	YearBorn    *int          `json:"yearBorn"`
+}
+
+type LeadInputWithID struct {
+	ID    string     `json:"id"`
+	Input *LeadInput `json:"input"`
+}
+
+type LeadPayload struct {
+	Record   *Lead  `json:"record"`
+	RecordID string `json:"recordId"`
+}
+
+type LeadTask struct {
+	LeadID   string `json:"leadId"`
+	LeadTask *Lead  `json:"leadTask"`
+	TaskID   string `json:"taskId"`
+}
+
 type LoginInput struct {
 	Phone    string `json:"phone"`
 	Password string `json:"password"`
@@ -25,9 +430,138 @@ type MeetupFilter struct {
 	Name *string `json:"name"`
 }
 
+type MoneyCost struct {
+	Date        time.Time `json:"date"`
+	Description string    `json:"description"`
+	ID          string    `json:"id"`
+	MoneyForm   MoneyForm `json:"moneyForm"`
+	Published   bool      `json:"published"`
+	Staff       *Staff    `json:"staff"`
+	StaffID     string    `json:"staffId"`
+	Sum         int       `json:"sum"`
+}
+
+type MoneyCostConnection struct {
+	Edges    []*MoneyCostEdge `json:"edges"`
+	PageInfo *PageInfo        `json:"pageInfo"`
+}
+
+type MoneyCostEdge struct {
+	Cursor *string    `json:"cursor"`
+	Node   *MoneyCost `json:"node"`
+}
+
+type MoneyCostInput struct {
+	Date        time.Time `json:"date"`
+	Description string    `json:"description"`
+	MoneyForm   MoneyForm `json:"moneyForm"`
+	Published   bool      `json:"published"`
+	Staff       *StaffDto `json:"staff"`
+	Sum         int       `json:"sum"`
+}
+
+type MoneyCostInputWithID struct {
+	ID    string          `json:"id"`
+	Input *MoneyCostInput `json:"input"`
+}
+
+type MoneyCostPayload struct {
+	Record   *MoneyCost `json:"record"`
+	RecordID string     `json:"recordId"`
+}
+
+type MoneyMove struct {
+	DateFinish  *time.Time `json:"dateFinish"`
+	DatePayment *time.Time `json:"datePayment"`
+	DateStart   *time.Time `json:"dateStart"`
+	Description *string    `json:"description"`
+	ID          string     `json:"id"`
+	MoneyForm   *MoneyForm `json:"moneyForm"`
+	Owner       *Staff     `json:"owner"`
+	OwnerID     string     `json:"ownerId"`
+	Published   bool       `json:"published"`
+	StudentID   string     `json:"studentId"`
+	StudentItem *Student   `json:"studentItem"`
+	Sum         *int       `json:"sum"`
+	UserID      string     `json:"userId"`
+	UserItem    *User      `json:"userItem"`
+}
+
+type MoneyMoveConnection struct {
+	Edges    []*MoneyMoveEdge `json:"edges"`
+	PageInfo *PageInfo        `json:"pageInfo"`
+}
+
+type MoneyMoveEdge struct {
+	Cursor *string    `json:"cursor"`
+	Node   *MoneyMove `json:"node"`
+}
+
+type MoneyMoveInput struct {
+	DateFinish  time.Time   `json:"dateFinish"`
+	DatePayment time.Time   `json:"datePayment"`
+	DateStart   time.Time   `json:"dateStart"`
+	Description *string     `json:"description"`
+	MoneyForm   MoneyForm   `json:"moneyForm"`
+	Owner       *StaffDto   `json:"owner"`
+	Published   bool        `json:"published"`
+	Student     *StudentDto `json:"student"`
+	Sum         int         `json:"sum"`
+	User        *UserDto    `json:"user"`
+}
+
+type MoneyMoveInputWithID struct {
+	ID    string          `json:"id"`
+	Input *MoneyMoveInput `json:"input"`
+}
+
+type MoneyMovePayload struct {
+	Record   *MoneyMove `json:"record"`
+	RecordID string     `json:"recordId"`
+}
+
 type NewMeetup struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
+}
+
+type Order struct {
+	CartID      string      `json:"cartId"`
+	CartItem    *Cart       `json:"cartItem"`
+	CreatorID   string      `json:"creatorId"`
+	CreatorItem *Creator    `json:"creatorItem"`
+	FileName    *string     `json:"fileName"`
+	ID          string      `json:"id"`
+	OrderStatus OrderStatus `json:"orderStatus"`
+	Published   bool        `json:"published"`
+}
+
+type OrderConnection struct {
+	Edges    []*OrderEdge `json:"edges"`
+	PageInfo *PageInfo    `json:"pageInfo"`
+}
+
+type OrderEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *Order  `json:"node"`
+}
+
+type OrderInput struct {
+	Cart        *CartDto    `json:"cart"`
+	Creator     *CreatorDto `json:"creator"`
+	FileName    *string     `json:"fileName"`
+	OrderStatus OrderStatus `json:"orderStatus"`
+	Published   bool        `json:"published"`
+}
+
+type OrderInputWithID struct {
+	ID    string      `json:"id"`
+	Input *OrderInput `json:"input"`
+}
+
+type OrderPayload struct {
+	Record   *Order `json:"record"`
+	RecordID string `json:"recordId"`
 }
 
 type PageInfo struct {
@@ -39,6 +573,11 @@ type PageInfo struct {
 type PlaceConnection struct {
 	Edges    []*PlaceEdge `json:"edges"`
 	PageInfo *PageInfo    `json:"pageInfo"`
+}
+
+type PlaceDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
 }
 
 type PlaceEdge struct {
@@ -58,6 +597,11 @@ type PlaceInput struct {
 	Published   bool   `json:"published"`
 }
 
+type PlaceInputWithID struct {
+	ID    string      `json:"id"`
+	Input *PlaceInput `json:"input"`
+}
+
 type PlacePayload struct {
 	Place *Place `json:"place"`
 	ID    string `json:"id"`
@@ -71,7 +615,1182 @@ type RegisterInput struct {
 	LastName        string `json:"lastName"`
 }
 
+type RentPaymentByMonth struct {
+	Description *string    `json:"description"`
+	ID          string     `json:"id"`
+	Month       time.Time  `json:"month"`
+	PaymentDate *time.Time `json:"paymentDate"`
+	Published   bool       `json:"published"`
+	StadiumID   string     `json:"stadiumId"`
+	StadiumItem *Stadium   `json:"stadiumItem"`
+	Sum         int        `json:"sum"`
+}
+
+type RentPaymentByMonthConnection struct {
+	Edges    []*RentPaymentByMonthEdge `json:"edges"`
+	PageInfo *PageInfo                 `json:"pageInfo"`
+}
+
+type RentPaymentByMonthEdge struct {
+	Cursor *string             `json:"cursor"`
+	Node   *RentPaymentByMonth `json:"node"`
+}
+
+type RentPaymentByMonthInput struct {
+	Description *string     `json:"description"`
+	Month       time.Time   `json:"month"`
+	PaymentDate time.Time   `json:"paymentDate"`
+	Published   bool        `json:"published"`
+	Stadium     *StadiumDto `json:"stadium"`
+	Sum         int         `json:"sum"`
+}
+
+type RentPaymentByMonthInputWithID struct {
+	ID    string                   `json:"id"`
+	Input *RentPaymentByMonthInput `json:"input"`
+}
+
+type RentPaymentByMonthPayload struct {
+	Record   *RentPaymentByMonth `json:"record"`
+	RecordID string              `json:"recordId"`
+}
+
+type RentPaymentByTraining struct {
+	Description *string         `json:"description"`
+	ID          string          `json:"id"`
+	Published   bool            `json:"published"`
+	StadiumID   string          `json:"stadiumId"`
+	StadiumItem *Stadium        `json:"stadiumItem"`
+	Sum         int             `json:"sum"`
+	TrainingIds []string        `json:"trainingIds"`
+	Trainings   []*TrainingRent `json:"trainings"`
+}
+
+type RentPaymentByTrainingConnection struct {
+	Edges    []*RentPaymentByTrainingEdge `json:"edges"`
+	PageInfo *PageInfo                    `json:"pageInfo"`
+}
+
+type RentPaymentByTrainingEdge struct {
+	Cursor *string                `json:"cursor"`
+	Node   *RentPaymentByTraining `json:"node"`
+}
+
+type RentPaymentByTrainingInput struct {
+	Description *string        `json:"description"`
+	Published   bool           `json:"published"`
+	Stadium     *StadiumDto    `json:"stadium"`
+	Sum         int            `json:"sum"`
+	Trainings   []*TrainingDto `json:"trainings"`
+}
+
+type RentPaymentByTrainingInputWithID struct {
+	ID    string                      `json:"id"`
+	Input *RentPaymentByTrainingInput `json:"input"`
+}
+
+type RentPaymentByTrainingPayload struct {
+	Record   *RentPaymentByTraining `json:"record"`
+	RecordID string                 `json:"recordId"`
+}
+
+type Stadium struct {
+	ID        string  `json:"id"`
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
+	Name      string  `json:"name"`
+	PlaceID   *string `json:"placeId"`
+	PlaceItem *Place  `json:"placeItem"`
+	Published bool    `json:"published"`
+}
+
+type StadiumConnection struct {
+	Edges    []*StadiumEdge `json:"edges"`
+	PageInfo *PageInfo      `json:"pageInfo"`
+}
+
+type StadiumDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type StadiumEdge struct {
+	Cursor *string  `json:"cursor"`
+	Node   *Stadium `json:"node"`
+}
+
+type StadiumInput struct {
+	Latitude  float64   `json:"latitude"`
+	Longitude float64   `json:"longitude"`
+	Name      string    `json:"name"`
+	Place     *PlaceDto `json:"place"`
+	Published bool      `json:"published"`
+}
+
+type StadiumInputWithID struct {
+	ID    string        `json:"id"`
+	Input *StadiumInput `json:"input"`
+}
+
+type StadiumPayload struct {
+	Record   *Stadium `json:"record"`
+	RecordID string   `json:"recordId"`
+}
+
+type Staff struct {
+	Birthday    *time.Time `json:"birthday"`
+	Department  Department `json:"department"`
+	Description *string    `json:"description"`
+	FileName    *string    `json:"fileName"`
+	ID          string     `json:"id"`
+	Name        string     `json:"name"`
+	OrderNumber int        `json:"orderNumber"`
+	PhoneNumber *string    `json:"phoneNumber"`
+	Published   bool       `json:"published"`
+	UserID      *string    `json:"userId"`
+	UserItem    *User      `json:"userItem"`
+	Work        string     `json:"work"`
+}
+
+type StaffConnection struct {
+	Edges    []*StaffEdge `json:"edges"`
+	PageInfo *PageInfo    `json:"pageInfo"`
+}
+
+type StaffDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type StaffEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *Staff  `json:"node"`
+}
+
+type StaffInput struct {
+	Birthday    *time.Time `json:"birthday"`
+	Department  Department `json:"department"`
+	Description *string    `json:"description"`
+	FileName    *string    `json:"fileName"`
+	Name        string     `json:"name"`
+	OrderNumber int        `json:"orderNumber"`
+	PhoneNumber *string    `json:"phoneNumber"`
+	Published   bool       `json:"published"`
+	User        *UserDto   `json:"user"`
+	Work        string     `json:"work"`
+}
+
+type StaffInputWithID struct {
+	ID    string      `json:"id"`
+	Input *StaffInput `json:"input"`
+}
+
+type StaffPayload struct {
+	Record   *Staff `json:"record"`
+	RecordID string `json:"recordId"`
+}
+
+type StaffTask struct {
+	StaffID   string `json:"staffId"`
+	StaffTask *Staff `json:"staffTask"`
+	TaskID    string `json:"taskId"`
+}
+
+type StaffTeam struct {
+	StaffID   string `json:"staffId"`
+	StaffTeam *Staff `json:"staffTeam"`
+	TeamID    string `json:"teamId"`
+}
+
+type StaffTraining struct {
+	StaffID       string `json:"staffId"`
+	StaffTraining *Staff `json:"staffTraining"`
+	TrainingID    string `json:"trainingId"`
+}
+
+type Student struct {
+	Birthday    *time.Time        `json:"birthday"`
+	CreatorIds  []string          `json:"creatorIds"`
+	Creators    []*CreatorStudent `json:"creators"`
+	ID          string            `json:"id"`
+	Name        string            `json:"name"`
+	PassportNum *string           `json:"passportNum"`
+	PaymentSum  *int              `json:"paymentSum"`
+	Published   bool              `json:"published"`
+	TeamIds     []string          `json:"teamIds"`
+	Teams       []*TeamStudent    `json:"teams"`
+}
+
+type StudentConnection struct {
+	Edges    []*StudentEdge `json:"edges"`
+	PageInfo *PageInfo      `json:"pageInfo"`
+}
+
+type StudentDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type StudentEdge struct {
+	Cursor *string  `json:"cursor"`
+	Node   *Student `json:"node"`
+}
+
+type StudentInput struct {
+	Birthday    *time.Time        `json:"birthday"`
+	Creators    []*CreatorDto     `json:"creators"`
+	Name        string            `json:"name"`
+	PassportNum *string           `json:"passportNum"`
+	PaymentSum  *int              `json:"paymentSum"`
+	Published   bool              `json:"published"`
+	Teams       []*TeamStudentDto `json:"teams"`
+}
+
+type StudentInputWithID struct {
+	ID    string        `json:"id"`
+	Input *StudentInput `json:"input"`
+}
+
+type StudentLead struct {
+	LeadID      string   `json:"leadId"`
+	StudentID   string   `json:"studentId"`
+	StudentLead *Student `json:"studentLead"`
+}
+
+type StudentPayload struct {
+	Record   *Student `json:"record"`
+	RecordID string   `json:"recordId"`
+}
+
+type StudentTask struct {
+	StudentID   string   `json:"studentId"`
+	StudentTask *Student `json:"studentTask"`
+	TaskID      string   `json:"taskId"`
+}
+
+type StudentVisit struct {
+	ID           string      `json:"id"`
+	Payed        bool        `json:"payed"`
+	Published    bool        `json:"published"`
+	StudentID    string      `json:"studentId"`
+	StudentItem  *Student    `json:"studentItem"`
+	TrainingID   string      `json:"trainingId"`
+	TrainingItem *Training   `json:"trainingItem"`
+	VisitStatus  VisitStatus `json:"visitStatus"`
+}
+
+type StudentVisitConnection struct {
+	Edges    []*StudentVisitEdge `json:"edges"`
+	PageInfo *PageInfo           `json:"pageInfo"`
+}
+
+type StudentVisitEdge struct {
+	Cursor *string       `json:"cursor"`
+	Node   *StudentVisit `json:"node"`
+}
+
+type StudentVisitInput struct {
+	Payed       bool         `json:"payed"`
+	Published   bool         `json:"published"`
+	Student     *StudentDto  `json:"student"`
+	Training    *TrainingDto `json:"training"`
+	VisitStatus VisitStatus  `json:"visitStatus"`
+}
+
+type StudentVisitInputWithID struct {
+	ID    string             `json:"id"`
+	Input *StudentVisitInput `json:"input"`
+}
+
+type StudentVisitPayload struct {
+	Record   *StudentVisit `json:"record"`
+	RecordID string        `json:"recordId"`
+}
+
+type Task struct {
+	Author      *User          `json:"author"`
+	AuthorID    *string        `json:"authorId"`
+	Description *string        `json:"description"`
+	EndTime     *time.Time     `json:"endTime"`
+	ID          string         `json:"id"`
+	LeadIds     []string       `json:"leadIds"`
+	Leads       []*LeadTask    `json:"leads"`
+	Priority    *Priority      `json:"priority"`
+	Published   bool           `json:"published"`
+	Result      *string        `json:"result"`
+	StartTime   *time.Time     `json:"startTime"`
+	StudentIds  []string       `json:"studentIds"`
+	Students    []*StudentTask `json:"students"`
+	TaskStatus  *TaskStatus    `json:"taskStatus"`
+	Title       string         `json:"title"`
+	WorkerIds   []string       `json:"workerIds"`
+	Workers     []*StaffTask   `json:"workers"`
+}
+
+type TaskConnection struct {
+	Edges    []*TaskEdge `json:"edges"`
+	PageInfo *PageInfo   `json:"pageInfo"`
+}
+
+type TaskEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *Task   `json:"node"`
+}
+
+type TaskInput struct {
+	Author      *UserDto      `json:"author"`
+	Description *string       `json:"description"`
+	EndTime     *time.Time    `json:"endTime"`
+	Leads       []*LeadDto    `json:"leads"`
+	Priority    *Priority     `json:"priority"`
+	Published   bool          `json:"published"`
+	Result      *string       `json:"result"`
+	StartTime   *time.Time    `json:"startTime"`
+	Students    []*StudentDto `json:"students"`
+	TaskStatus  *TaskStatus   `json:"taskStatus"`
+	Title       string        `json:"title"`
+	Workers     []*StaffDto   `json:"workers"`
+}
+
+type TaskInputWithID struct {
+	ID    string     `json:"id"`
+	Input *TaskInput `json:"input"`
+}
+
+type TaskPayload struct {
+	Record   *Task  `json:"record"`
+	RecordID string `json:"recordId"`
+}
+
+type Team struct {
+	Ages        []Age        `json:"ages"`
+	CoachIds    []string     `json:"coachIds"`
+	Coaches     []*StaffTeam `json:"coaches"`
+	HeadCoach   *Staff       `json:"headCoach"`
+	HeadCoachID *string      `json:"headCoachId"`
+	ID          string       `json:"id"`
+	Name        string       `json:"name"`
+	PlaceID     string       `json:"placeId"`
+	PlaceItem   *Place       `json:"placeItem"`
+	Published   bool         `json:"published"`
+	Writable    bool         `json:"writable"`
+}
+
+type TeamBalance struct {
+	Date      time.Time `json:"date"`
+	ID        string    `json:"id"`
+	Published bool      `json:"published"`
+	Rent      int       `json:"rent"`
+	Salary    int       `json:"salary"`
+	Sum       int       `json:"sum"`
+	TeamID    string    `json:"teamId"`
+	TeamItem  *Team     `json:"teamItem"`
+	Tickets   int       `json:"tickets"`
+}
+
+type TeamBalanceConnection struct {
+	Edges    []*TeamBalanceEdge `json:"edges"`
+	PageInfo *PageInfo          `json:"pageInfo"`
+}
+
+type TeamBalanceDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type TeamBalanceEdge struct {
+	Cursor *string      `json:"cursor"`
+	Node   *TeamBalance `json:"node"`
+}
+
+type TeamBalanceInput struct {
+	Date      time.Time       `json:"date"`
+	Published bool            `json:"published"`
+	Rent      int             `json:"rent"`
+	Salary    int             `json:"salary"`
+	Team      *TeamBalanceDto `json:"team"`
+	Tickets   int             `json:"tickets"`
+}
+
+type TeamBalanceInputWithID struct {
+	ID    string            `json:"id"`
+	Input *TeamBalanceInput `json:"input"`
+}
+
+type TeamBalancePayload struct {
+	Record   *TeamBalance `json:"record"`
+	RecordID string       `json:"recordId"`
+}
+
+type TeamCoachPaymentDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type TeamConnection struct {
+	Edges    []*TeamEdge `json:"edges"`
+	PageInfo *PageInfo   `json:"pageInfo"`
+}
+
+type TeamDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type TeamEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *Team   `json:"node"`
+}
+
+type TeamInput struct {
+	Ages      []Age       `json:"ages"`
+	Coaches   []*StaffDto `json:"coaches"`
+	HeadCoach *StaffDto   `json:"headCoach"`
+	Name      string      `json:"name"`
+	Place     *PlaceDto   `json:"place"`
+	Published bool        `json:"published"`
+	Writable  bool        `json:"writable"`
+}
+
+type TeamInputWithID struct {
+	ID    string     `json:"id"`
+	Input *TeamInput `json:"input"`
+}
+
+type TeamLeadDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type TeamPayload struct {
+	Record   *Team  `json:"record"`
+	RecordID string `json:"recordId"`
+}
+
+type TeamStudent struct {
+	StudentID   string `json:"studentId"`
+	TeamID      string `json:"teamId"`
+	TeamStudent *Team  `json:"teamStudent"`
+}
+
+type TeamStudentDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type TeamTrainingDayDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type TeamTrainingDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type Token struct {
+	AccessToken  string    `json:"accessToken"`
+	Expiration   time.Time `json:"expiration"`
+	RefreshToken string    `json:"refreshToken"`
+}
+
+type Training struct {
+	CoachIds    []string         `json:"coachIds"`
+	Coaches     []*StaffTraining `json:"coaches"`
+	HeadCoach   *Staff           `json:"headCoach"`
+	HeadCoachID *string          `json:"headCoachId"`
+	ID          string           `json:"id"`
+	Published   bool             `json:"published"`
+	StadiumID   *string          `json:"stadiumId"`
+	StadiumItem *Stadium         `json:"stadiumItem"`
+	TeamID      string           `json:"teamId"`
+	TeamItem    *Team            `json:"teamItem"`
+	Time        *time.Time       `json:"time"`
+	Visits      int              `json:"visits"`
+}
+
+type TrainingConnection struct {
+	Edges    []*TrainingEdge `json:"edges"`
+	PageInfo *PageInfo       `json:"pageInfo"`
+}
+
+type TrainingDay struct {
+	Day         *DayOfWeek `json:"day"`
+	ID          string     `json:"id"`
+	Published   bool       `json:"published"`
+	StadiumID   *string    `json:"stadiumId"`
+	StadiumItem *Stadium   `json:"stadiumItem"`
+	TeamID      string     `json:"teamId"`
+	TeamItem    *Team      `json:"teamItem"`
+	Time        *time.Time `json:"time"`
+}
+
+type TrainingDayConnection struct {
+	Edges    []*TrainingDayEdge `json:"edges"`
+	PageInfo *PageInfo          `json:"pageInfo"`
+}
+
+type TrainingDayEdge struct {
+	Cursor *string      `json:"cursor"`
+	Node   *TrainingDay `json:"node"`
+}
+
+type TrainingDayInput struct {
+	Day       *DayOfWeek          `json:"day"`
+	Published bool                `json:"published"`
+	Stadium   *StadiumDto         `json:"stadium"`
+	Team      *TeamTrainingDayDto `json:"team"`
+	Time      *time.Time          `json:"time"`
+}
+
+type TrainingDayInputWithID struct {
+	ID    string            `json:"id"`
+	Input *TrainingDayInput `json:"input"`
+}
+
+type TrainingDayPayload struct {
+	Record   *TrainingDay `json:"record"`
+	RecordID string       `json:"recordId"`
+}
+
+type TrainingDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type TrainingEdge struct {
+	Cursor *string   `json:"cursor"`
+	Node   *Training `json:"node"`
+}
+
+type TrainingInput struct {
+	Coaches   []*StaffDto      `json:"coaches"`
+	HeadCoach *StaffDto        `json:"headCoach"`
+	Published bool             `json:"published"`
+	Stadium   *StadiumDto      `json:"stadium"`
+	Team      *TeamTrainingDto `json:"team"`
+	Time      time.Time        `json:"time"`
+	Visits    int              `json:"visits"`
+}
+
+type TrainingInputWithID struct {
+	ID    string         `json:"id"`
+	Input *TrainingInput `json:"input"`
+}
+
+type TrainingPayload struct {
+	Record   *Training `json:"record"`
+	RecordID string    `json:"recordId"`
+}
+
+type TrainingRent struct {
+	RentID       string    `json:"rentId"`
+	TrainingID   string    `json:"trainingId"`
+	TrainingRent *Training `json:"trainingRent"`
+}
+
 type UpdateMeetup struct {
 	Name        *string `json:"name"`
 	Description *string `json:"description"`
+}
+
+type UserConnection struct {
+	Edges    []*UserEdge `json:"edges"`
+	PageInfo *PageInfo   `json:"pageInfo"`
+}
+
+type UserDto struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type UserEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *User   `json:"node"`
+}
+
+type UserInput struct {
+	Name      string  `json:"name"`
+	Password  *string `json:"password"`
+	Phone     string  `json:"phone"`
+	Published bool    `json:"published"`
+	Roles     []Role  `json:"roles"`
+}
+
+type UserInputWithID struct {
+	ID    string     `json:"id"`
+	Input *UserInput `json:"input"`
+}
+
+type UserPayload struct {
+	Record   *User  `json:"record"`
+	RecordID string `json:"recordId"`
+}
+
+type Age string
+
+const (
+	AgePreschool Age = "PRESCHOOL"
+	AgeSchool    Age = "SCHOOL"
+)
+
+var AllAge = []Age{
+	AgePreschool,
+	AgeSchool,
+}
+
+func (e Age) IsValid() bool {
+	switch e {
+	case AgePreschool, AgeSchool:
+		return true
+	}
+	return false
+}
+
+func (e Age) String() string {
+	return string(e)
+}
+
+func (e *Age) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = Age(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid Age", str)
+	}
+	return nil
+}
+
+func (e Age) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type CoachPaymentRule string
+
+const (
+	CoachPaymentRuleByTeam     CoachPaymentRule = "BY_TEAM"
+	CoachPaymentRuleByTraining CoachPaymentRule = "BY_TRAINING"
+)
+
+var AllCoachPaymentRule = []CoachPaymentRule{
+	CoachPaymentRuleByTeam,
+	CoachPaymentRuleByTraining,
+}
+
+func (e CoachPaymentRule) IsValid() bool {
+	switch e {
+	case CoachPaymentRuleByTeam, CoachPaymentRuleByTraining:
+		return true
+	}
+	return false
+}
+
+func (e CoachPaymentRule) String() string {
+	return string(e)
+}
+
+func (e *CoachPaymentRule) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = CoachPaymentRule(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid CoachPaymentRule", str)
+	}
+	return nil
+}
+
+func (e CoachPaymentRule) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type DayOfWeek string
+
+const (
+	DayOfWeekFriday    DayOfWeek = "FRIDAY"
+	DayOfWeekMonday    DayOfWeek = "MONDAY"
+	DayOfWeekSaturday  DayOfWeek = "SATURDAY"
+	DayOfWeekSunday    DayOfWeek = "SUNDAY"
+	DayOfWeekThursday  DayOfWeek = "THURSDAY"
+	DayOfWeekTuesday   DayOfWeek = "TUESDAY"
+	DayOfWeekWednesday DayOfWeek = "WEDNESDAY"
+)
+
+var AllDayOfWeek = []DayOfWeek{
+	DayOfWeekFriday,
+	DayOfWeekMonday,
+	DayOfWeekSaturday,
+	DayOfWeekSunday,
+	DayOfWeekThursday,
+	DayOfWeekTuesday,
+	DayOfWeekWednesday,
+}
+
+func (e DayOfWeek) IsValid() bool {
+	switch e {
+	case DayOfWeekFriday, DayOfWeekMonday, DayOfWeekSaturday, DayOfWeekSunday, DayOfWeekThursday, DayOfWeekTuesday, DayOfWeekWednesday:
+		return true
+	}
+	return false
+}
+
+func (e DayOfWeek) String() string {
+	return string(e)
+}
+
+func (e *DayOfWeek) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = DayOfWeek(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid DayOfWeek", str)
+	}
+	return nil
+}
+
+func (e DayOfWeek) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type Department string
+
+const (
+	DepartmentCoach Department = "COACH"
+	DepartmentHead  Department = "HEAD"
+)
+
+var AllDepartment = []Department{
+	DepartmentCoach,
+	DepartmentHead,
+}
+
+func (e Department) IsValid() bool {
+	switch e {
+	case DepartmentCoach, DepartmentHead:
+		return true
+	}
+	return false
+}
+
+func (e Department) String() string {
+	return string(e)
+}
+
+func (e *Department) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = Department(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid Department", str)
+	}
+	return nil
+}
+
+func (e Department) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type LeadSource string
+
+const (
+	LeadSourceBrother      LeadSource = "BROTHER"
+	LeadSourceFriends      LeadSource = "FRIENDS"
+	LeadSourceGis          LeadSource = "GIS"
+	LeadSourceGoogle       LeadSource = "GOOGLE"
+	LeadSourceInstagram    LeadSource = "INSTAGRAM"
+	LeadSourceLift         LeadSource = "LIFT"
+	LeadSourceOtherParents LeadSource = "OTHER_PARENTS"
+	LeadSourcePaper        LeadSource = "PAPER"
+	LeadSourceReturned     LeadSource = "RETURNED"
+	LeadSourceTelegram     LeadSource = "TELEGRAM"
+	LeadSourceVkontakte    LeadSource = "VKONTAKTE"
+	LeadSourceYandex       LeadSource = "YANDEX"
+	LeadSourceYandexMap    LeadSource = "YANDEX_MAP"
+)
+
+var AllLeadSource = []LeadSource{
+	LeadSourceBrother,
+	LeadSourceFriends,
+	LeadSourceGis,
+	LeadSourceGoogle,
+	LeadSourceInstagram,
+	LeadSourceLift,
+	LeadSourceOtherParents,
+	LeadSourcePaper,
+	LeadSourceReturned,
+	LeadSourceTelegram,
+	LeadSourceVkontakte,
+	LeadSourceYandex,
+	LeadSourceYandexMap,
+}
+
+func (e LeadSource) IsValid() bool {
+	switch e {
+	case LeadSourceBrother, LeadSourceFriends, LeadSourceGis, LeadSourceGoogle, LeadSourceInstagram, LeadSourceLift, LeadSourceOtherParents, LeadSourcePaper, LeadSourceReturned, LeadSourceTelegram, LeadSourceVkontakte, LeadSourceYandex, LeadSourceYandexMap:
+		return true
+	}
+	return false
+}
+
+func (e LeadSource) String() string {
+	return string(e)
+}
+
+func (e *LeadSource) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = LeadSource(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid LeadSource", str)
+	}
+	return nil
+}
+
+func (e LeadSource) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type LeadStatus string
+
+const (
+	LeadStatusApproveFirstTraining            LeadStatus = "APPROVE_FIRST_TRAINING"
+	LeadStatusCancelAfterApproveFirstTraining LeadStatus = "CANCEL_AFTER_APPROVE_FIRST_TRAINING"
+	LeadStatusCancelAfterFirstTraining        LeadStatus = "CANCEL_AFTER_FIRST_TRAINING"
+	LeadStatusCancelAfterWrite                LeadStatus = "CANCEL_AFTER_WRITE"
+	LeadStatusContracted                      LeadStatus = "CONTRACTED"
+	LeadStatusFirstTraining                   LeadStatus = "FIRST_TRAINING"
+	LeadStatusFirstTrainingAdd                LeadStatus = "FIRST_TRAINING_ADD"
+	LeadStatusWantContract                    LeadStatus = "WANT_CONTRACT"
+	LeadStatusWrite                           LeadStatus = "WRITE"
+)
+
+var AllLeadStatus = []LeadStatus{
+	LeadStatusApproveFirstTraining,
+	LeadStatusCancelAfterApproveFirstTraining,
+	LeadStatusCancelAfterFirstTraining,
+	LeadStatusCancelAfterWrite,
+	LeadStatusContracted,
+	LeadStatusFirstTraining,
+	LeadStatusFirstTrainingAdd,
+	LeadStatusWantContract,
+	LeadStatusWrite,
+}
+
+func (e LeadStatus) IsValid() bool {
+	switch e {
+	case LeadStatusApproveFirstTraining, LeadStatusCancelAfterApproveFirstTraining, LeadStatusCancelAfterFirstTraining, LeadStatusCancelAfterWrite, LeadStatusContracted, LeadStatusFirstTraining, LeadStatusFirstTrainingAdd, LeadStatusWantContract, LeadStatusWrite:
+		return true
+	}
+	return false
+}
+
+func (e LeadStatus) String() string {
+	return string(e)
+}
+
+func (e *LeadStatus) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = LeadStatus(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid LeadStatus", str)
+	}
+	return nil
+}
+
+func (e LeadStatus) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type MoneyForm string
+
+const (
+	MoneyFormBankTransfer MoneyForm = "BANK_TRANSFER"
+	MoneyFormCardTransfer MoneyForm = "CARD_TRANSFER"
+	MoneyFormCash         MoneyForm = "CASH"
+)
+
+var AllMoneyForm = []MoneyForm{
+	MoneyFormBankTransfer,
+	MoneyFormCardTransfer,
+	MoneyFormCash,
+}
+
+func (e MoneyForm) IsValid() bool {
+	switch e {
+	case MoneyFormBankTransfer, MoneyFormCardTransfer, MoneyFormCash:
+		return true
+	}
+	return false
+}
+
+func (e MoneyForm) String() string {
+	return string(e)
+}
+
+func (e *MoneyForm) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = MoneyForm(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid MoneyForm", str)
+	}
+	return nil
+}
+
+func (e MoneyForm) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type OrderStatus string
+
+const (
+	OrderStatusCanceled   OrderStatus = "CANCELED"
+	OrderStatusCreated    OrderStatus = "CREATED"
+	OrderStatusFinished   OrderStatus = "FINISHED"
+	OrderStatusInDelivery OrderStatus = "IN_DELIVERY"
+	OrderStatusPayed      OrderStatus = "PAYED"
+	OrderStatusReadyToGet OrderStatus = "READY_TO_GET"
+)
+
+var AllOrderStatus = []OrderStatus{
+	OrderStatusCanceled,
+	OrderStatusCreated,
+	OrderStatusFinished,
+	OrderStatusInDelivery,
+	OrderStatusPayed,
+	OrderStatusReadyToGet,
+}
+
+func (e OrderStatus) IsValid() bool {
+	switch e {
+	case OrderStatusCanceled, OrderStatusCreated, OrderStatusFinished, OrderStatusInDelivery, OrderStatusPayed, OrderStatusReadyToGet:
+		return true
+	}
+	return false
+}
+
+func (e OrderStatus) String() string {
+	return string(e)
+}
+
+func (e *OrderStatus) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = OrderStatus(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid OrderStatus", str)
+	}
+	return nil
+}
+
+func (e OrderStatus) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type Priority string
+
+const (
+	PriorityHigh    Priority = "HIGH"
+	PriorityHighest Priority = "HIGHEST"
+	PriorityLow     Priority = "LOW"
+	PriorityMiddle  Priority = "MIDDLE"
+)
+
+var AllPriority = []Priority{
+	PriorityHigh,
+	PriorityHighest,
+	PriorityLow,
+	PriorityMiddle,
+}
+
+func (e Priority) IsValid() bool {
+	switch e {
+	case PriorityHigh, PriorityHighest, PriorityLow, PriorityMiddle:
+		return true
+	}
+	return false
+}
+
+func (e Priority) String() string {
+	return string(e)
+}
+
+func (e *Priority) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = Priority(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid Priority", str)
+	}
+	return nil
+}
+
+func (e Priority) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type Role string
+
+const (
+	RoleRoleAdmin     Role = "ROLE_ADMIN"
+	RoleRoleCoach     Role = "ROLE_COACH"
+	RoleRoleDirector  Role = "ROLE_DIRECTOR"
+	RoleRoleEconomist Role = "ROLE_ECONOMIST"
+	RoleRoleEditor    Role = "ROLE_EDITOR"
+	RoleRoleUser      Role = "ROLE_USER"
+)
+
+var AllRole = []Role{
+	RoleRoleAdmin,
+	RoleRoleCoach,
+	RoleRoleDirector,
+	RoleRoleEconomist,
+	RoleRoleEditor,
+	RoleRoleUser,
+}
+
+func (e Role) IsValid() bool {
+	switch e {
+	case RoleRoleAdmin, RoleRoleCoach, RoleRoleDirector, RoleRoleEconomist, RoleRoleEditor, RoleRoleUser:
+		return true
+	}
+	return false
+}
+
+func (e Role) String() string {
+	return string(e)
+}
+
+func (e *Role) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = Role(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid Role", str)
+	}
+	return nil
+}
+
+func (e Role) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type TaskStatus string
+
+const (
+	TaskStatusCancel TaskStatus = "CANCEL"
+	TaskStatusDone   TaskStatus = "DONE"
+	TaskStatusNew    TaskStatus = "NEW"
+	TaskStatusWork   TaskStatus = "WORK"
+)
+
+var AllTaskStatus = []TaskStatus{
+	TaskStatusCancel,
+	TaskStatusDone,
+	TaskStatusNew,
+	TaskStatusWork,
+}
+
+func (e TaskStatus) IsValid() bool {
+	switch e {
+	case TaskStatusCancel, TaskStatusDone, TaskStatusNew, TaskStatusWork:
+		return true
+	}
+	return false
+}
+
+func (e TaskStatus) String() string {
+	return string(e)
+}
+
+func (e *TaskStatus) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TaskStatus(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid TaskStatus", str)
+	}
+	return nil
+}
+
+func (e TaskStatus) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+type VisitStatus string
+
+const (
+	VisitStatusAbsent  VisitStatus = "ABSENT"
+	VisitStatusHoliday VisitStatus = "HOLIDAY"
+	VisitStatusIll     VisitStatus = "ILL"
+	VisitStatusVisited VisitStatus = "VISITED"
+)
+
+var AllVisitStatus = []VisitStatus{
+	VisitStatusAbsent,
+	VisitStatusHoliday,
+	VisitStatusIll,
+	VisitStatusVisited,
+}
+
+func (e VisitStatus) IsValid() bool {
+	switch e {
+	case VisitStatusAbsent, VisitStatusHoliday, VisitStatusIll, VisitStatusVisited:
+		return true
+	}
+	return false
+}
+
+func (e VisitStatus) String() string {
+	return string(e)
+}
+
+func (e *VisitStatus) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VisitStatus(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VisitStatus", str)
+	}
+	return nil
+}
+
+func (e VisitStatus) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
 }
