@@ -23,7 +23,7 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, first, last *int, aft
 		}
 		decodedCursor = string(b)
 	}
-	if before != nil {
+	if before != nil && after == nil {
 		b, err := base64.StdEncoding.DecodeString(*before)
 		if err != nil {
 			return nil, err
@@ -34,7 +34,8 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, first, last *int, aft
 	if first != nil {
 		query.Order("id ASC")
 		edges = make([]*models.PlaceEdge, *first)
-	} else {
+	}
+	if last != nil && first == nil {
 		query.Order("id DESC")
 		edges = make([]*models.PlaceEdge, *last)
 	}
