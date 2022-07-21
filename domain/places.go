@@ -11,7 +11,7 @@ func (d *Domain) CreatePlace(input models.PlaceInput) (*models.PlacePayload, err
 
 	_, err := d.PlacesRepo.GetPlaceByName(input.Name)
 	if err == nil {
-		return nil, errors.New("Такой название уже есть у филиала")
+		return nil, errors.New("такое название уже есть у филиала")
 	}
 
 	place := &models.Place{

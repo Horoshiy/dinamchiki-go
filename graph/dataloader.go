@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-const userloaderKey = "userloader"
+const userLoaderKey = "userLoader"
 
 func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -40,12 +40,12 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			},
 		}
 
-		ctx := context.WithValue(r.Context(), userloaderKey, &userLoader)
+		ctx := context.WithValue(r.Context(), userLoaderKey, &userLoader)
 
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
 
 func getUserLoader(ctx context.Context) *UserLoader {
-	return ctx.Value(userloaderKey).(*UserLoader)
+	return ctx.Value(userLoaderKey).(*UserLoader)
 }

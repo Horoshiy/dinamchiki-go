@@ -27,7 +27,7 @@ type Query {
     order(id: String!): Order
     orders(after: String, before: String, first: Int, last: Int): OrderConnection
     place(id: String!): Place
-    places(filter: PlaceFilter, limit: Int = 20, offset: Int = 0, first: Int = 20, after: ID): PlaceConnection!
+    places(filter: PlaceFilter, first: Int, after: ID, last: Int, before: ID): PlaceConnection!
     rentPaymentByMonth(id: String!): RentPaymentByMonth
     rentPaymentByTraining(id: String!): RentPaymentByTraining
     rentPaymentsByMonth(after: String, before: String, first: Int, last: Int): RentPaymentByMonthConnection
@@ -253,6 +253,8 @@ type Place {
     name: String!
     orderNumber: Int!
     published: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type PlaceConnection {
@@ -280,6 +282,8 @@ type Article {
     published: Boolean!
     tags: [String!]
     title: String!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type ArticleConnection {
@@ -305,6 +309,8 @@ type Cart {
     studentId: String!
     studentItem: Student
     sum: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CartConnection {
@@ -331,6 +337,8 @@ type ClubBalance {
     salary: Int!
     sum: Int!
     tickets: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type ClubBalanceConnection {
@@ -355,6 +363,8 @@ type CoachPaymentByMonth {
     id: ID!
     published: Boolean!
     sum: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CoachPaymentByMonthConnection {
@@ -383,6 +393,8 @@ type CoachPaymentByTeam {
     sum: Int
     teamId: String
     teamItem: Team
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CoachPaymentByTeamConnection {
@@ -408,6 +420,8 @@ type CoachPaymentByTraining {
     sum: Int
     trainingId: String
     trainingItem: Training
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CoachPaymentByTrainingConnection {
@@ -433,6 +447,8 @@ type Creator {
     published: Boolean!
     userId: String
     userItem: User
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CreatorConnection {
@@ -466,6 +482,8 @@ type Kit {
     quantity: Int
     size: String!
     title: String
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type KitCart {
@@ -504,6 +522,8 @@ type Lead {
     teamId: String
     teamItem: Team
     yearBorn: Int
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type LeadConnection {
@@ -536,6 +556,8 @@ type MoneyCost {
     staff: Staff
     staffId: String!
     sum: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type MoneyCostConnection {
@@ -568,6 +590,8 @@ type MoneyMove {
     sum: Int
     userId: String!
     userItem: User
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type MoneyMoveConnection {
@@ -594,6 +618,8 @@ type Order {
     id: ID!
     orderStatus: OrderStatus!
     published: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type OrderConnection {
@@ -620,6 +646,8 @@ type RentPaymentByMonth {
     stadiumId: String!
     stadiumItem: Stadium
     sum: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type RentPaymentByMonthConnection {
@@ -646,6 +674,8 @@ type RentPaymentByTraining {
     sum: Int!
     trainingIds: [String!]!
     trainings: [TrainingRent!]
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type RentPaymentByTrainingConnection {
@@ -671,6 +701,8 @@ type Stadium {
     placeId: String
     placeItem: Place
     published: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type StadiumConnection {
@@ -701,6 +733,8 @@ type Staff {
     userId: String
     userItem: User
     work: String!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type StaffConnection {
@@ -747,6 +781,8 @@ type Student {
     published: Boolean!
     teamIds: [String!]!
     teams: [TeamStudent!]
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type StudentConnection {
@@ -785,6 +821,8 @@ type StudentVisit {
     trainingId: String!
     trainingItem: Training
     visitStatus: VisitStatus!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type StudentVisitConnection {
@@ -820,6 +858,8 @@ type Task {
     title: String!
     workerIds: [String!]
     workers: [StaffTask]
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TaskConnection {
@@ -849,6 +889,8 @@ type Team {
     placeItem: Place
     published: Boolean!
     writable: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TeamBalance {
@@ -861,6 +903,8 @@ type TeamBalance {
     teamId: String!
     teamItem: Team
     tickets: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TeamBalanceConnection {
@@ -918,6 +962,8 @@ type Training {
     teamItem: Team
     time: Time
     visits: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TrainingConnection {
@@ -934,6 +980,8 @@ type TrainingDay {
     teamId: String!
     teamItem: Team
     time: Time
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TrainingDayConnection {

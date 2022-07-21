@@ -5,6 +5,7 @@ import (
 )
 
 type Place struct {
+	tableName   struct{}   `pg:",discard_unknown_columns"`
 	ID          string     `json:"id"`
 	Name        string     `json:"name"`
 	Description string     `json:"description"`

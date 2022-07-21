@@ -37,6 +37,7 @@ type Config struct {
 }
 
 type ResolverRoot interface {
+	Article() ArticleResolver
 	Meetup() MeetupResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
@@ -50,12 +51,14 @@ type ComplexityRoot struct {
 	Article struct {
 		Author      func(childComplexity int) int
 		AuthorID    func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		FileName    func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Published   func(childComplexity int) int
 		Tags        func(childComplexity int) int
 		Title       func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	ArticleConnection struct {
@@ -84,6 +87,7 @@ type ComplexityRoot struct {
 	}
 
 	Cart struct {
+		CreatedAt   func(childComplexity int) int
 		ID          func(childComplexity int) int
 		KitIds      func(childComplexity int) int
 		Kits        func(childComplexity int) int
@@ -91,6 +95,7 @@ type ComplexityRoot struct {
 		StudentID   func(childComplexity int) int
 		StudentItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	CartConnection struct {
@@ -109,6 +114,7 @@ type ComplexityRoot struct {
 	}
 
 	ClubBalance struct {
+		CreatedAt  func(childComplexity int) int
 		Date       func(childComplexity int) int
 		ID         func(childComplexity int) int
 		OtherCosts func(childComplexity int) int
@@ -117,6 +123,7 @@ type ComplexityRoot struct {
 		Salary     func(childComplexity int) int
 		Sum        func(childComplexity int) int
 		Tickets    func(childComplexity int) int
+		UpdatedAt  func(childComplexity int) int
 	}
 
 	ClubBalanceConnection struct {
@@ -137,10 +144,12 @@ type ComplexityRoot struct {
 	CoachPaymentByMonth struct {
 		Coach     func(childComplexity int) int
 		CoachID   func(childComplexity int) int
+		CreatedAt func(childComplexity int) int
 		Date      func(childComplexity int) int
 		ID        func(childComplexity int) int
 		Published func(childComplexity int) int
 		Sum       func(childComplexity int) int
+		UpdatedAt func(childComplexity int) int
 	}
 
 	CoachPaymentByMonthConnection struct {
@@ -161,6 +170,7 @@ type ComplexityRoot struct {
 	CoachPaymentByTeam struct {
 		Coach       func(childComplexity int) int
 		CoachID     func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		DateFinish  func(childComplexity int) int
 		DateStart   func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -169,6 +179,7 @@ type ComplexityRoot struct {
 		Sum         func(childComplexity int) int
 		TeamID      func(childComplexity int) int
 		TeamItem    func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	CoachPaymentByTeamConnection struct {
@@ -189,11 +200,13 @@ type ComplexityRoot struct {
 	CoachPaymentByTraining struct {
 		Coach        func(childComplexity int) int
 		CoachID      func(childComplexity int) int
+		CreatedAt    func(childComplexity int) int
 		ID           func(childComplexity int) int
 		Published    func(childComplexity int) int
 		Sum          func(childComplexity int) int
 		TrainingID   func(childComplexity int) int
 		TrainingItem func(childComplexity int) int
+		UpdatedAt    func(childComplexity int) int
 	}
 
 	CoachPaymentByTrainingConnection struct {
@@ -212,11 +225,13 @@ type ComplexityRoot struct {
 	}
 
 	Creator struct {
+		CreatedAt   func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Name        func(childComplexity int) int
 		PassportNum func(childComplexity int) int
 		Phone       func(childComplexity int) int
 		Published   func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 		UserID      func(childComplexity int) int
 		UserItem    func(childComplexity int) int
 	}
@@ -243,6 +258,7 @@ type ComplexityRoot struct {
 	}
 
 	Kit struct {
+		CreatedAt func(childComplexity int) int
 		FileName  func(childComplexity int) int
 		ID        func(childComplexity int) int
 		Name      func(childComplexity int) int
@@ -252,6 +268,7 @@ type ComplexityRoot struct {
 		Quantity  func(childComplexity int) int
 		Size      func(childComplexity int) int
 		Title     func(childComplexity int) int
+		UpdatedAt func(childComplexity int) int
 	}
 
 	KitCart struct {
@@ -276,6 +293,7 @@ type ComplexityRoot struct {
 	}
 
 	Lead struct {
+		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Name        func(childComplexity int) int
@@ -289,6 +307,7 @@ type ComplexityRoot struct {
 		Students    func(childComplexity int) int
 		TeamID      func(childComplexity int) int
 		TeamItem    func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 		YearBorn    func(childComplexity int) int
 	}
 
@@ -321,6 +340,7 @@ type ComplexityRoot struct {
 	}
 
 	MoneyCost struct {
+		CreatedAt   func(childComplexity int) int
 		Date        func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -329,6 +349,7 @@ type ComplexityRoot struct {
 		Staff       func(childComplexity int) int
 		StaffID     func(childComplexity int) int
 		Sum         func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	MoneyCostConnection struct {
@@ -347,6 +368,7 @@ type ComplexityRoot struct {
 	}
 
 	MoneyMove struct {
+		CreatedAt   func(childComplexity int) int
 		DateFinish  func(childComplexity int) int
 		DatePayment func(childComplexity int) int
 		DateStart   func(childComplexity int) int
@@ -359,6 +381,7 @@ type ComplexityRoot struct {
 		StudentID   func(childComplexity int) int
 		StudentItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 		UserID      func(childComplexity int) int
 		UserItem    func(childComplexity int) int
 	}
@@ -518,12 +541,14 @@ type ComplexityRoot struct {
 	Order struct {
 		CartID      func(childComplexity int) int
 		CartItem    func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		CreatorID   func(childComplexity int) int
 		CreatorItem func(childComplexity int) int
 		FileName    func(childComplexity int) int
 		ID          func(childComplexity int) int
 		OrderStatus func(childComplexity int) int
 		Published   func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	OrderConnection struct {
@@ -549,11 +574,13 @@ type ComplexityRoot struct {
 
 	Place struct {
 		Address     func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Name        func(childComplexity int) int
 		OrderNumber func(childComplexity int) int
 		Published   func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	PlaceConnection struct {
@@ -601,7 +628,7 @@ type ComplexityRoot struct {
 		Order                   func(childComplexity int, id string) int
 		Orders                  func(childComplexity int, after *string, before *string, first *int, last *int) int
 		Place                   func(childComplexity int, id string) int
-		Places                  func(childComplexity int, filter *models.PlaceFilter, limit *int, offset *int, first *int, after *string) int
+		Places                  func(childComplexity int, filter *models.PlaceFilter, first *int, after *string, last *int, before *string) int
 		RentPaymentByMonth      func(childComplexity int, id string) int
 		RentPaymentByTraining   func(childComplexity int, id string) int
 		RentPaymentsByMonth     func(childComplexity int, after *string, before *string, first *int, last *int) int
@@ -632,6 +659,7 @@ type ComplexityRoot struct {
 	}
 
 	RentPaymentByMonth struct {
+		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Month       func(childComplexity int) int
@@ -640,6 +668,7 @@ type ComplexityRoot struct {
 		StadiumID   func(childComplexity int) int
 		StadiumItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	RentPaymentByMonthConnection struct {
@@ -658,6 +687,7 @@ type ComplexityRoot struct {
 	}
 
 	RentPaymentByTraining struct {
+		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Published   func(childComplexity int) int
@@ -666,6 +696,7 @@ type ComplexityRoot struct {
 		Sum         func(childComplexity int) int
 		TrainingIds func(childComplexity int) int
 		Trainings   func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	RentPaymentByTrainingConnection struct {
@@ -684,6 +715,7 @@ type ComplexityRoot struct {
 	}
 
 	Stadium struct {
+		CreatedAt func(childComplexity int) int
 		ID        func(childComplexity int) int
 		Latitude  func(childComplexity int) int
 		Longitude func(childComplexity int) int
@@ -691,6 +723,7 @@ type ComplexityRoot struct {
 		PlaceID   func(childComplexity int) int
 		PlaceItem func(childComplexity int) int
 		Published func(childComplexity int) int
+		UpdatedAt func(childComplexity int) int
 	}
 
 	StadiumConnection struct {
@@ -710,6 +743,7 @@ type ComplexityRoot struct {
 
 	Staff struct {
 		Birthday    func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		Department  func(childComplexity int) int
 		Description func(childComplexity int) int
 		FileName    func(childComplexity int) int
@@ -718,6 +752,7 @@ type ComplexityRoot struct {
 		OrderNumber func(childComplexity int) int
 		PhoneNumber func(childComplexity int) int
 		Published   func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 		UserID      func(childComplexity int) int
 		UserItem    func(childComplexity int) int
 		Work        func(childComplexity int) int
@@ -758,6 +793,7 @@ type ComplexityRoot struct {
 
 	Student struct {
 		Birthday    func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		CreatorIds  func(childComplexity int) int
 		Creators    func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -767,6 +803,7 @@ type ComplexityRoot struct {
 		Published   func(childComplexity int) int
 		TeamIds     func(childComplexity int) int
 		Teams       func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	StudentConnection struct {
@@ -797,6 +834,7 @@ type ComplexityRoot struct {
 	}
 
 	StudentVisit struct {
+		CreatedAt    func(childComplexity int) int
 		ID           func(childComplexity int) int
 		Payed        func(childComplexity int) int
 		Published    func(childComplexity int) int
@@ -804,6 +842,7 @@ type ComplexityRoot struct {
 		StudentItem  func(childComplexity int) int
 		TrainingID   func(childComplexity int) int
 		TrainingItem func(childComplexity int) int
+		UpdatedAt    func(childComplexity int) int
 		VisitStatus  func(childComplexity int) int
 	}
 
@@ -825,6 +864,7 @@ type ComplexityRoot struct {
 	Task struct {
 		Author      func(childComplexity int) int
 		AuthorID    func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		EndTime     func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -838,6 +878,7 @@ type ComplexityRoot struct {
 		Students    func(childComplexity int) int
 		TaskStatus  func(childComplexity int) int
 		Title       func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 		WorkerIds   func(childComplexity int) int
 		Workers     func(childComplexity int) int
 	}
@@ -861,6 +902,7 @@ type ComplexityRoot struct {
 		Ages        func(childComplexity int) int
 		CoachIds    func(childComplexity int) int
 		Coaches     func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		HeadCoach   func(childComplexity int) int
 		HeadCoachID func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -868,10 +910,12 @@ type ComplexityRoot struct {
 		PlaceID     func(childComplexity int) int
 		PlaceItem   func(childComplexity int) int
 		Published   func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 		Writable    func(childComplexity int) int
 	}
 
 	TeamBalance struct {
+		CreatedAt func(childComplexity int) int
 		Date      func(childComplexity int) int
 		ID        func(childComplexity int) int
 		Published func(childComplexity int) int
@@ -881,6 +925,7 @@ type ComplexityRoot struct {
 		TeamID    func(childComplexity int) int
 		TeamItem  func(childComplexity int) int
 		Tickets   func(childComplexity int) int
+		UpdatedAt func(childComplexity int) int
 	}
 
 	TeamBalanceConnection struct {
@@ -928,6 +973,7 @@ type ComplexityRoot struct {
 	Training struct {
 		CoachIds    func(childComplexity int) int
 		Coaches     func(childComplexity int) int
+		CreatedAt   func(childComplexity int) int
 		HeadCoach   func(childComplexity int) int
 		HeadCoachID func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -937,6 +983,7 @@ type ComplexityRoot struct {
 		TeamID      func(childComplexity int) int
 		TeamItem    func(childComplexity int) int
 		Time        func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 		Visits      func(childComplexity int) int
 	}
 
@@ -946,6 +993,7 @@ type ComplexityRoot struct {
 	}
 
 	TrainingDay struct {
+		CreatedAt   func(childComplexity int) int
 		Day         func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Published   func(childComplexity int) int
@@ -954,6 +1002,7 @@ type ComplexityRoot struct {
 		TeamID      func(childComplexity int) int
 		TeamItem    func(childComplexity int) int
 		Time        func(childComplexity int) int
+		UpdatedAt   func(childComplexity int) int
 	}
 
 	TrainingDayConnection struct {
@@ -1013,6 +1062,9 @@ type ComplexityRoot struct {
 	}
 }
 
+type ArticleResolver interface {
+	Author(ctx context.Context, obj *models.Article) (*models.User, error)
+}
 type MeetupResolver interface {
 	User(ctx context.Context, obj *models.Meetup) (*models.User, error)
 }
@@ -1179,7 +1231,7 @@ type QueryResolver interface {
 	Order(ctx context.Context, id string) (*models.Order, error)
 	Orders(ctx context.Context, after *string, before *string, first *int, last *int) (*models.OrderConnection, error)
 	Place(ctx context.Context, id string) (*models.Place, error)
-	Places(ctx context.Context, filter *models.PlaceFilter, limit *int, offset *int, first *int, after *string) (*models.PlaceConnection, error)
+	Places(ctx context.Context, filter *models.PlaceFilter, first *int, after *string, last *int, before *string) (*models.PlaceConnection, error)
 	RentPaymentByMonth(ctx context.Context, id string) (*models.RentPaymentByMonth, error)
 	RentPaymentByTraining(ctx context.Context, id string) (*models.RentPaymentByTraining, error)
 	RentPaymentsByMonth(ctx context.Context, after *string, before *string, first *int, last *int) (*models.RentPaymentByMonthConnection, error)
@@ -1244,6 +1296,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Article.AuthorID(childComplexity), true
 
+	case "Article.createdAt":
+		if e.complexity.Article.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Article.CreatedAt(childComplexity), true
+
 	case "Article.description":
 		if e.complexity.Article.Description == nil {
 			break
@@ -1285,6 +1344,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Article.Title(childComplexity), true
+
+	case "Article.updatedAt":
+		if e.complexity.Article.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Article.UpdatedAt(childComplexity), true
 
 	case "ArticleConnection.edges":
 		if e.complexity.ArticleConnection.Edges == nil {
@@ -1356,6 +1422,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.AuthToken.ExpiredAt(childComplexity), true
 
+	case "Cart.createdAt":
+		if e.complexity.Cart.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Cart.CreatedAt(childComplexity), true
+
 	case "Cart.id":
 		if e.complexity.Cart.ID == nil {
 			break
@@ -1405,6 +1478,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Cart.Sum(childComplexity), true
 
+	case "Cart.updatedAt":
+		if e.complexity.Cart.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Cart.UpdatedAt(childComplexity), true
+
 	case "CartConnection.edges":
 		if e.complexity.CartConnection.Edges == nil {
 			break
@@ -1446,6 +1526,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.CartPayload.RecordID(childComplexity), true
+
+	case "ClubBalance.createdAt":
+		if e.complexity.ClubBalance.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.ClubBalance.CreatedAt(childComplexity), true
 
 	case "ClubBalance.date":
 		if e.complexity.ClubBalance.Date == nil {
@@ -1503,6 +1590,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.ClubBalance.Tickets(childComplexity), true
 
+	case "ClubBalance.updatedAt":
+		if e.complexity.ClubBalance.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.ClubBalance.UpdatedAt(childComplexity), true
+
 	case "ClubBalanceConnection.edges":
 		if e.complexity.ClubBalanceConnection.Edges == nil {
 			break
@@ -1559,6 +1653,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByMonth.CoachID(childComplexity), true
 
+	case "CoachPaymentByMonth.createdAt":
+		if e.complexity.CoachPaymentByMonth.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.CoachPaymentByMonth.CreatedAt(childComplexity), true
+
 	case "CoachPaymentByMonth.date":
 		if e.complexity.CoachPaymentByMonth.Date == nil {
 			break
@@ -1586,6 +1687,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.CoachPaymentByMonth.Sum(childComplexity), true
+
+	case "CoachPaymentByMonth.updatedAt":
+		if e.complexity.CoachPaymentByMonth.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.CoachPaymentByMonth.UpdatedAt(childComplexity), true
 
 	case "CoachPaymentByMonthConnection.edges":
 		if e.complexity.CoachPaymentByMonthConnection.Edges == nil {
@@ -1643,6 +1751,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByTeam.CoachID(childComplexity), true
 
+	case "CoachPaymentByTeam.createdAt":
+		if e.complexity.CoachPaymentByTeam.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.CoachPaymentByTeam.CreatedAt(childComplexity), true
+
 	case "CoachPaymentByTeam.dateFinish":
 		if e.complexity.CoachPaymentByTeam.DateFinish == nil {
 			break
@@ -1698,6 +1813,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.CoachPaymentByTeam.TeamItem(childComplexity), true
+
+	case "CoachPaymentByTeam.updatedAt":
+		if e.complexity.CoachPaymentByTeam.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.CoachPaymentByTeam.UpdatedAt(childComplexity), true
 
 	case "CoachPaymentByTeamConnection.edges":
 		if e.complexity.CoachPaymentByTeamConnection.Edges == nil {
@@ -1755,6 +1877,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByTraining.CoachID(childComplexity), true
 
+	case "CoachPaymentByTraining.createdAt":
+		if e.complexity.CoachPaymentByTraining.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.CoachPaymentByTraining.CreatedAt(childComplexity), true
+
 	case "CoachPaymentByTraining.id":
 		if e.complexity.CoachPaymentByTraining.ID == nil {
 			break
@@ -1789,6 +1918,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.CoachPaymentByTraining.TrainingItem(childComplexity), true
+
+	case "CoachPaymentByTraining.updatedAt":
+		if e.complexity.CoachPaymentByTraining.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.CoachPaymentByTraining.UpdatedAt(childComplexity), true
 
 	case "CoachPaymentByTrainingConnection.edges":
 		if e.complexity.CoachPaymentByTrainingConnection.Edges == nil {
@@ -1832,6 +1968,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByTrainingPayload.RecordID(childComplexity), true
 
+	case "Creator.createdAt":
+		if e.complexity.Creator.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Creator.CreatedAt(childComplexity), true
+
 	case "Creator.id":
 		if e.complexity.Creator.ID == nil {
 			break
@@ -1866,6 +2009,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Creator.Published(childComplexity), true
+
+	case "Creator.updatedAt":
+		if e.complexity.Creator.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Creator.UpdatedAt(childComplexity), true
 
 	case "Creator.userId":
 		if e.complexity.Creator.UserID == nil {
@@ -1944,6 +2094,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CreatorStudent.StudentID(childComplexity), true
 
+	case "Kit.createdAt":
+		if e.complexity.Kit.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Kit.CreatedAt(childComplexity), true
+
 	case "Kit.fileName":
 		if e.complexity.Kit.FileName == nil {
 			break
@@ -2007,6 +2164,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Kit.Title(childComplexity), true
 
+	case "Kit.updatedAt":
+		if e.complexity.Kit.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Kit.UpdatedAt(childComplexity), true
+
 	case "KitCart.cartId":
 		if e.complexity.KitCart.CartID == nil {
 			break
@@ -2069,6 +2233,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.KitPayload.RecordID(childComplexity), true
+
+	case "Lead.createdAt":
+		if e.complexity.Lead.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Lead.CreatedAt(childComplexity), true
 
 	case "Lead.description":
 		if e.complexity.Lead.Description == nil {
@@ -2160,6 +2331,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Lead.TeamItem(childComplexity), true
+
+	case "Lead.updatedAt":
+		if e.complexity.Lead.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Lead.UpdatedAt(childComplexity), true
 
 	case "Lead.yearBorn":
 		if e.complexity.Lead.YearBorn == nil {
@@ -2259,6 +2437,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Meetup.User(childComplexity), true
 
+	case "MoneyCost.createdAt":
+		if e.complexity.MoneyCost.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.MoneyCost.CreatedAt(childComplexity), true
+
 	case "MoneyCost.date":
 		if e.complexity.MoneyCost.Date == nil {
 			break
@@ -2315,6 +2500,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.MoneyCost.Sum(childComplexity), true
 
+	case "MoneyCost.updatedAt":
+		if e.complexity.MoneyCost.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.MoneyCost.UpdatedAt(childComplexity), true
+
 	case "MoneyCostConnection.edges":
 		if e.complexity.MoneyCostConnection.Edges == nil {
 			break
@@ -2356,6 +2548,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.MoneyCostPayload.RecordID(childComplexity), true
+
+	case "MoneyMove.createdAt":
+		if e.complexity.MoneyMove.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.MoneyMove.CreatedAt(childComplexity), true
 
 	case "MoneyMove.dateFinish":
 		if e.complexity.MoneyMove.DateFinish == nil {
@@ -2440,6 +2639,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.MoneyMove.Sum(childComplexity), true
+
+	case "MoneyMove.updatedAt":
+		if e.complexity.MoneyMove.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.MoneyMove.UpdatedAt(childComplexity), true
 
 	case "MoneyMove.userId":
 		if e.complexity.MoneyMove.UserID == nil {
@@ -4119,6 +4325,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Order.CartItem(childComplexity), true
 
+	case "Order.createdAt":
+		if e.complexity.Order.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Order.CreatedAt(childComplexity), true
+
 	case "Order.creatorId":
 		if e.complexity.Order.CreatorID == nil {
 			break
@@ -4160,6 +4373,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Order.Published(childComplexity), true
+
+	case "Order.updatedAt":
+		if e.complexity.Order.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Order.UpdatedAt(childComplexity), true
 
 	case "OrderConnection.edges":
 		if e.complexity.OrderConnection.Edges == nil {
@@ -4231,6 +4451,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Place.Address(childComplexity), true
 
+	case "Place.createdAt":
+		if e.complexity.Place.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Place.CreatedAt(childComplexity), true
+
 	case "Place.description":
 		if e.complexity.Place.Description == nil {
 			break
@@ -4265,6 +4492,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Place.Published(childComplexity), true
+
+	case "Place.updatedAt":
+		if e.complexity.Place.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Place.UpdatedAt(childComplexity), true
 
 	case "PlaceConnection.edges":
 		if e.complexity.PlaceConnection.Edges == nil {
@@ -4666,7 +4900,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Places(childComplexity, args["filter"].(*models.PlaceFilter), args["limit"].(*int), args["offset"].(*int), args["first"].(*int), args["after"].(*string)), true
+		return e.complexity.Query.Places(childComplexity, args["filter"].(*models.PlaceFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.rentPaymentByMonth":
 		if e.complexity.Query.RentPaymentByMonth == nil {
@@ -4992,6 +5226,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.Users(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
 
+	case "RentPaymentByMonth.createdAt":
+		if e.complexity.RentPaymentByMonth.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.RentPaymentByMonth.CreatedAt(childComplexity), true
+
 	case "RentPaymentByMonth.description":
 		if e.complexity.RentPaymentByMonth.Description == nil {
 			break
@@ -5048,6 +5289,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RentPaymentByMonth.Sum(childComplexity), true
 
+	case "RentPaymentByMonth.updatedAt":
+		if e.complexity.RentPaymentByMonth.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.RentPaymentByMonth.UpdatedAt(childComplexity), true
+
 	case "RentPaymentByMonthConnection.edges":
 		if e.complexity.RentPaymentByMonthConnection.Edges == nil {
 			break
@@ -5089,6 +5337,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.RentPaymentByMonthPayload.RecordID(childComplexity), true
+
+	case "RentPaymentByTraining.createdAt":
+		if e.complexity.RentPaymentByTraining.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.RentPaymentByTraining.CreatedAt(childComplexity), true
 
 	case "RentPaymentByTraining.description":
 		if e.complexity.RentPaymentByTraining.Description == nil {
@@ -5146,6 +5401,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RentPaymentByTraining.Trainings(childComplexity), true
 
+	case "RentPaymentByTraining.updatedAt":
+		if e.complexity.RentPaymentByTraining.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.RentPaymentByTraining.UpdatedAt(childComplexity), true
+
 	case "RentPaymentByTrainingConnection.edges":
 		if e.complexity.RentPaymentByTrainingConnection.Edges == nil {
 			break
@@ -5187,6 +5449,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.RentPaymentByTrainingPayload.RecordID(childComplexity), true
+
+	case "Stadium.createdAt":
+		if e.complexity.Stadium.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Stadium.CreatedAt(childComplexity), true
 
 	case "Stadium.id":
 		if e.complexity.Stadium.ID == nil {
@@ -5237,6 +5506,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Stadium.Published(childComplexity), true
 
+	case "Stadium.updatedAt":
+		if e.complexity.Stadium.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Stadium.UpdatedAt(childComplexity), true
+
 	case "StadiumConnection.edges":
 		if e.complexity.StadiumConnection.Edges == nil {
 			break
@@ -5285,6 +5561,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Staff.Birthday(childComplexity), true
+
+	case "Staff.createdAt":
+		if e.complexity.Staff.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Staff.CreatedAt(childComplexity), true
 
 	case "Staff.department":
 		if e.complexity.Staff.Department == nil {
@@ -5341,6 +5624,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Staff.Published(childComplexity), true
+
+	case "Staff.updatedAt":
+		if e.complexity.Staff.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Staff.UpdatedAt(childComplexity), true
 
 	case "Staff.userId":
 		if e.complexity.Staff.UserID == nil {
@@ -5475,6 +5765,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Student.Birthday(childComplexity), true
 
+	case "Student.createdAt":
+		if e.complexity.Student.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Student.CreatedAt(childComplexity), true
+
 	case "Student.creatorIds":
 		if e.complexity.Student.CreatorIds == nil {
 			break
@@ -5537,6 +5834,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Student.Teams(childComplexity), true
+
+	case "Student.updatedAt":
+		if e.complexity.Student.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Student.UpdatedAt(childComplexity), true
 
 	case "StudentConnection.edges":
 		if e.complexity.StudentConnection.Edges == nil {
@@ -5622,6 +5926,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.StudentTask.TaskID(childComplexity), true
 
+	case "StudentVisit.createdAt":
+		if e.complexity.StudentVisit.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.StudentVisit.CreatedAt(childComplexity), true
+
 	case "StudentVisit.id":
 		if e.complexity.StudentVisit.ID == nil {
 			break
@@ -5670,6 +5981,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.StudentVisit.TrainingItem(childComplexity), true
+
+	case "StudentVisit.updatedAt":
+		if e.complexity.StudentVisit.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.StudentVisit.UpdatedAt(childComplexity), true
 
 	case "StudentVisit.visitStatus":
 		if e.complexity.StudentVisit.VisitStatus == nil {
@@ -5733,6 +6051,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Task.AuthorID(childComplexity), true
+
+	case "Task.createdAt":
+		if e.complexity.Task.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Task.CreatedAt(childComplexity), true
 
 	case "Task.description":
 		if e.complexity.Task.Description == nil {
@@ -5825,6 +6150,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Task.Title(childComplexity), true
 
+	case "Task.updatedAt":
+		if e.complexity.Task.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Task.UpdatedAt(childComplexity), true
+
 	case "Task.workerIds":
 		if e.complexity.Task.WorkerIds == nil {
 			break
@@ -5902,6 +6234,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Team.Coaches(childComplexity), true
 
+	case "Team.createdAt":
+		if e.complexity.Team.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Team.CreatedAt(childComplexity), true
+
 	case "Team.headCoach":
 		if e.complexity.Team.HeadCoach == nil {
 			break
@@ -5951,12 +6290,26 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Team.Published(childComplexity), true
 
+	case "Team.updatedAt":
+		if e.complexity.Team.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Team.UpdatedAt(childComplexity), true
+
 	case "Team.writable":
 		if e.complexity.Team.Writable == nil {
 			break
 		}
 
 		return e.complexity.Team.Writable(childComplexity), true
+
+	case "TeamBalance.createdAt":
+		if e.complexity.TeamBalance.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.TeamBalance.CreatedAt(childComplexity), true
 
 	case "TeamBalance.date":
 		if e.complexity.TeamBalance.Date == nil {
@@ -6020,6 +6373,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.TeamBalance.Tickets(childComplexity), true
+
+	case "TeamBalance.updatedAt":
+		if e.complexity.TeamBalance.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.TeamBalance.UpdatedAt(childComplexity), true
 
 	case "TeamBalanceConnection.edges":
 		if e.complexity.TeamBalanceConnection.Edges == nil {
@@ -6161,6 +6521,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Training.Coaches(childComplexity), true
 
+	case "Training.createdAt":
+		if e.complexity.Training.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.Training.CreatedAt(childComplexity), true
+
 	case "Training.headCoach":
 		if e.complexity.Training.HeadCoach == nil {
 			break
@@ -6224,6 +6591,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Training.Time(childComplexity), true
 
+	case "Training.updatedAt":
+		if e.complexity.Training.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.Training.UpdatedAt(childComplexity), true
+
 	case "Training.visits":
 		if e.complexity.Training.Visits == nil {
 			break
@@ -6244,6 +6618,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.TrainingConnection.PageInfo(childComplexity), true
+
+	case "TrainingDay.createdAt":
+		if e.complexity.TrainingDay.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.TrainingDay.CreatedAt(childComplexity), true
 
 	case "TrainingDay.day":
 		if e.complexity.TrainingDay.Day == nil {
@@ -6300,6 +6681,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.TrainingDay.Time(childComplexity), true
+
+	case "TrainingDay.updatedAt":
+		if e.complexity.TrainingDay.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.TrainingDay.UpdatedAt(childComplexity), true
 
 	case "TrainingDayConnection.edges":
 		if e.complexity.TrainingDayConnection.Edges == nil {
@@ -6653,7 +7041,7 @@ type Query {
     order(id: String!): Order
     orders(after: String, before: String, first: Int, last: Int): OrderConnection
     place(id: String!): Place
-    places(filter: PlaceFilter, limit: Int = 20, offset: Int = 0, first: Int = 20, after: ID): PlaceConnection!
+    places(filter: PlaceFilter, first: Int, after: ID, last: Int, before: ID): PlaceConnection!
     rentPaymentByMonth(id: String!): RentPaymentByMonth
     rentPaymentByTraining(id: String!): RentPaymentByTraining
     rentPaymentsByMonth(after: String, before: String, first: Int, last: Int): RentPaymentByMonthConnection
@@ -6879,6 +7267,8 @@ type Place {
     name: String!
     orderNumber: Int!
     published: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type PlaceConnection {
@@ -6906,6 +7296,8 @@ type Article {
     published: Boolean!
     tags: [String!]
     title: String!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type ArticleConnection {
@@ -6931,6 +7323,8 @@ type Cart {
     studentId: String!
     studentItem: Student
     sum: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CartConnection {
@@ -6957,6 +7351,8 @@ type ClubBalance {
     salary: Int!
     sum: Int!
     tickets: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type ClubBalanceConnection {
@@ -6981,6 +7377,8 @@ type CoachPaymentByMonth {
     id: ID!
     published: Boolean!
     sum: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CoachPaymentByMonthConnection {
@@ -7009,6 +7407,8 @@ type CoachPaymentByTeam {
     sum: Int
     teamId: String
     teamItem: Team
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CoachPaymentByTeamConnection {
@@ -7034,6 +7434,8 @@ type CoachPaymentByTraining {
     sum: Int
     trainingId: String
     trainingItem: Training
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CoachPaymentByTrainingConnection {
@@ -7059,6 +7461,8 @@ type Creator {
     published: Boolean!
     userId: String
     userItem: User
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type CreatorConnection {
@@ -7092,6 +7496,8 @@ type Kit {
     quantity: Int
     size: String!
     title: String
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type KitCart {
@@ -7130,6 +7536,8 @@ type Lead {
     teamId: String
     teamItem: Team
     yearBorn: Int
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type LeadConnection {
@@ -7162,6 +7570,8 @@ type MoneyCost {
     staff: Staff
     staffId: String!
     sum: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type MoneyCostConnection {
@@ -7194,6 +7604,8 @@ type MoneyMove {
     sum: Int
     userId: String!
     userItem: User
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type MoneyMoveConnection {
@@ -7220,6 +7632,8 @@ type Order {
     id: ID!
     orderStatus: OrderStatus!
     published: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type OrderConnection {
@@ -7246,6 +7660,8 @@ type RentPaymentByMonth {
     stadiumId: String!
     stadiumItem: Stadium
     sum: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type RentPaymentByMonthConnection {
@@ -7272,6 +7688,8 @@ type RentPaymentByTraining {
     sum: Int!
     trainingIds: [String!]!
     trainings: [TrainingRent!]
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type RentPaymentByTrainingConnection {
@@ -7297,6 +7715,8 @@ type Stadium {
     placeId: String
     placeItem: Place
     published: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type StadiumConnection {
@@ -7327,6 +7747,8 @@ type Staff {
     userId: String
     userItem: User
     work: String!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type StaffConnection {
@@ -7373,6 +7795,8 @@ type Student {
     published: Boolean!
     teamIds: [String!]!
     teams: [TeamStudent!]
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type StudentConnection {
@@ -7411,6 +7835,8 @@ type StudentVisit {
     trainingId: String!
     trainingItem: Training
     visitStatus: VisitStatus!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type StudentVisitConnection {
@@ -7446,6 +7872,8 @@ type Task {
     title: String!
     workerIds: [String!]
     workers: [StaffTask]
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TaskConnection {
@@ -7475,6 +7903,8 @@ type Team {
     placeItem: Place
     published: Boolean!
     writable: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TeamBalance {
@@ -7487,6 +7917,8 @@ type TeamBalance {
     teamId: String!
     teamItem: Team
     tickets: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TeamBalanceConnection {
@@ -7544,6 +7976,8 @@ type Training {
     teamItem: Team
     time: Time
     visits: Int!
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TrainingConnection {
@@ -7560,6 +7994,8 @@ type TrainingDay {
     teamId: String!
     teamItem: Team
     time: Time
+    createdAt: Time!
+    updatedAt: Time!
 }
 
 type TrainingDayConnection {
@@ -11141,41 +11577,41 @@ func (ec *executionContext) field_Query_places_args(ctx context.Context, rawArgs
 	}
 	args["filter"] = arg0
 	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["offset"] = arg2
+	args["after"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg3
+	args["last"] = arg3
 	var arg4 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
 		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg4
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -12059,7 +12495,7 @@ func (ec *executionContext) _Article_author(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Author, nil
+		return ec.resolvers.Article().Author(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12077,8 +12513,8 @@ func (ec *executionContext) fieldContext_Article_author(ctx context.Context, fie
 	fc = &graphql.FieldContext{
 		Object:     "Article",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "id":
@@ -12404,6 +12840,94 @@ func (ec *executionContext) fieldContext_Article_title(ctx context.Context, fiel
 	return fc, nil
 }
 
+func (ec *executionContext) _Article_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Article) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Article_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Article_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Article",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Article_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Article) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Article_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Article_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Article",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _ArticleConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.ArticleConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_ArticleConnection_edges(ctx, field)
 	if err != nil {
@@ -12593,6 +13117,10 @@ func (ec *executionContext) fieldContext_ArticleEdge_node(ctx context.Context, f
 				return ec.fieldContext_Article_tags(ctx, field)
 			case "title":
 				return ec.fieldContext_Article_title(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Article_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Article_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Article", field.Name)
 		},
@@ -12652,6 +13180,10 @@ func (ec *executionContext) fieldContext_ArticlePayload_record(ctx context.Conte
 				return ec.fieldContext_Article_tags(ctx, field)
 			case "title":
 				return ec.fieldContext_Article_title(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Article_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Article_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Article", field.Name)
 		},
@@ -13182,6 +13714,10 @@ func (ec *executionContext) fieldContext_Cart_studentItem(ctx context.Context, f
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Student_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -13228,6 +13764,94 @@ func (ec *executionContext) fieldContext_Cart_sum(ctx context.Context, field gra
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Cart_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Cart_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Cart_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Cart",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Cart_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Cart_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Cart_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Cart",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -13420,6 +14044,10 @@ func (ec *executionContext) fieldContext_CartEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Cart_studentItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Cart_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Cart_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Cart", field.Name)
 		},
@@ -13477,6 +14105,10 @@ func (ec *executionContext) fieldContext_CartPayload_record(ctx context.Context,
 				return ec.fieldContext_Cart_studentItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Cart_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Cart_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Cart", field.Name)
 		},
@@ -13880,6 +14512,94 @@ func (ec *executionContext) fieldContext_ClubBalance_tickets(ctx context.Context
 	return fc, nil
 }
 
+func (ec *executionContext) _ClubBalance_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.ClubBalance) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_ClubBalance_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_ClubBalance_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "ClubBalance",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _ClubBalance_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.ClubBalance) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_ClubBalance_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_ClubBalance_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "ClubBalance",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _ClubBalanceConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.ClubBalanceConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_ClubBalanceConnection_edges(ctx, field)
 	if err != nil {
@@ -14069,6 +14789,10 @@ func (ec *executionContext) fieldContext_ClubBalanceEdge_node(ctx context.Contex
 				return ec.fieldContext_ClubBalance_sum(ctx, field)
 			case "tickets":
 				return ec.fieldContext_ClubBalance_tickets(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_ClubBalance_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_ClubBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type ClubBalance", field.Name)
 		},
@@ -14128,6 +14852,10 @@ func (ec *executionContext) fieldContext_ClubBalancePayload_record(ctx context.C
 				return ec.fieldContext_ClubBalance_sum(ctx, field)
 			case "tickets":
 				return ec.fieldContext_ClubBalance_tickets(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_ClubBalance_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_ClubBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type ClubBalance", field.Name)
 		},
@@ -14239,6 +14967,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonth_coach(ctx context.C
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -14463,6 +15195,94 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonth_sum(ctx context.Con
 	return fc, nil
 }
 
+func (ec *executionContext) _CoachPaymentByMonth_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByMonth) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByMonth_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_CoachPaymentByMonth_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "CoachPaymentByMonth",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _CoachPaymentByMonth_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByMonth) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByMonth_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_CoachPaymentByMonth_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "CoachPaymentByMonth",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _CoachPaymentByMonthConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByMonthConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_CoachPaymentByMonthConnection_edges(ctx, field)
 	if err != nil {
@@ -14648,6 +15468,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonthEdge_node(ctx contex
 				return ec.fieldContext_CoachPaymentByMonth_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByMonth_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByMonth_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByMonth", field.Name)
 		},
@@ -14703,6 +15527,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonthPayload_record(ctx c
 				return ec.fieldContext_CoachPaymentByMonth_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByMonth_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByMonth_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByMonth", field.Name)
 		},
@@ -14814,6 +15642,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_coach(ctx context.Co
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -15216,8 +16048,100 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_teamItem(ctx context
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _CoachPaymentByTeam_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByTeam_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_CoachPaymentByTeam_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "CoachPaymentByTeam",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _CoachPaymentByTeam_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByTeam_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_CoachPaymentByTeam_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "CoachPaymentByTeam",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -15416,6 +16340,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamEdge_node(ctx context
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "teamItem":
 				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByTeam_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByTeam_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -15479,6 +16407,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamPayload_record(ctx co
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "teamItem":
 				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByTeam_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByTeam_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -15590,6 +16522,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_coach(ctx contex
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -15871,8 +16807,100 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_trainingItem(ctx
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Training_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _CoachPaymentByTraining_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByTraining_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_CoachPaymentByTraining_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "CoachPaymentByTraining",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _CoachPaymentByTraining_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByTraining_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_CoachPaymentByTraining_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "CoachPaymentByTraining",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -16065,6 +17093,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingEdge_node(ctx con
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "trainingItem":
 				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByTraining_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -16122,6 +17154,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingPayload_record(ct
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "trainingItem":
 				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByTraining_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -16488,6 +17524,94 @@ func (ec *executionContext) fieldContext_Creator_userItem(ctx context.Context, f
 	return fc, nil
 }
 
+func (ec *executionContext) _Creator_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Creator_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Creator_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Creator",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Creator_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Creator_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Creator_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Creator",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _CreatorConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.CreatorConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_CreatorConnection_edges(ctx, field)
 	if err != nil {
@@ -16675,6 +17799,10 @@ func (ec *executionContext) fieldContext_CreatorEdge_node(ctx context.Context, f
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Creator_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -16732,6 +17860,10 @@ func (ec *executionContext) fieldContext_CreatorPayload_record(ctx context.Conte
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Creator_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -16877,6 +18009,10 @@ func (ec *executionContext) fieldContext_CreatorStudent_creatorStudent(ctx conte
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Creator_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -17312,6 +18448,94 @@ func (ec *executionContext) fieldContext_Kit_title(ctx context.Context, field gr
 	return fc, nil
 }
 
+func (ec *executionContext) _Kit_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Kit) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Kit_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Kit_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Kit",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Kit_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Kit) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Kit_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Kit_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Kit",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _KitCart_cartId(ctx context.Context, field graphql.CollectedField, obj *models.KitCart) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_KitCart_cartId(ctx, field)
 	if err != nil {
@@ -17410,6 +18634,10 @@ func (ec *executionContext) fieldContext_KitCart_kitCart(ctx context.Context, fi
 				return ec.fieldContext_Kit_size(ctx, field)
 			case "title":
 				return ec.fieldContext_Kit_title(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Kit_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Kit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
 		},
@@ -17652,6 +18880,10 @@ func (ec *executionContext) fieldContext_KitEdge_node(ctx context.Context, field
 				return ec.fieldContext_Kit_size(ctx, field)
 			case "title":
 				return ec.fieldContext_Kit_title(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Kit_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Kit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
 		},
@@ -17713,6 +18945,10 @@ func (ec *executionContext) fieldContext_KitPayload_record(ctx context.Context, 
 				return ec.fieldContext_Kit_size(ctx, field)
 			case "title":
 				return ec.fieldContext_Kit_title(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Kit_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Kit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
 		},
@@ -17950,6 +19186,10 @@ func (ec *executionContext) fieldContext_Lead_nextVisit(ctx context.Context, fie
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Training_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -18357,6 +19597,10 @@ func (ec *executionContext) fieldContext_Lead_teamItem(ctx context.Context, fiel
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -18400,6 +19644,94 @@ func (ec *executionContext) fieldContext_Lead_yearBorn(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Lead_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Lead_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Lead_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Lead",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Lead_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Lead_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Lead_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Lead",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -18606,6 +19938,10 @@ func (ec *executionContext) fieldContext_LeadEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Lead_teamItem(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Lead_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Lead_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Lead", field.Name)
 		},
@@ -18677,6 +20013,10 @@ func (ec *executionContext) fieldContext_LeadPayload_record(ctx context.Context,
 				return ec.fieldContext_Lead_teamItem(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Lead_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Lead_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Lead", field.Name)
 		},
@@ -18836,6 +20176,10 @@ func (ec *executionContext) fieldContext_LeadTask_leadTask(ctx context.Context, 
 				return ec.fieldContext_Lead_teamItem(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Lead_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Lead_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Lead", field.Name)
 		},
@@ -19356,6 +20700,10 @@ func (ec *executionContext) fieldContext_MoneyCost_staff(ctx context.Context, fi
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -19446,6 +20794,94 @@ func (ec *executionContext) fieldContext_MoneyCost_sum(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _MoneyCost_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.MoneyCost) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MoneyCost_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_MoneyCost_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "MoneyCost",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _MoneyCost_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.MoneyCost) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MoneyCost_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_MoneyCost_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "MoneyCost",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -19640,6 +21076,10 @@ func (ec *executionContext) fieldContext_MoneyCostEdge_node(ctx context.Context,
 				return ec.fieldContext_MoneyCost_staffId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyCost_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_MoneyCost_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_MoneyCost_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyCost", field.Name)
 		},
@@ -19699,6 +21139,10 @@ func (ec *executionContext) fieldContext_MoneyCostPayload_record(ctx context.Con
 				return ec.fieldContext_MoneyCost_staffId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyCost_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_MoneyCost_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_MoneyCost_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyCost", field.Name)
 		},
@@ -20059,6 +21503,10 @@ func (ec *executionContext) fieldContext_MoneyMove_owner(ctx context.Context, fi
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -20254,6 +21702,10 @@ func (ec *executionContext) fieldContext_MoneyMove_studentItem(ctx context.Conte
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Student_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -20398,6 +21850,94 @@ func (ec *executionContext) fieldContext_MoneyMove_userItem(ctx context.Context,
 				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _MoneyMove_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MoneyMove_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_MoneyMove_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "MoneyMove",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _MoneyMove_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MoneyMove_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_MoneyMove_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "MoneyMove",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -20604,6 +22144,10 @@ func (ec *executionContext) fieldContext_MoneyMoveEdge_node(ctx context.Context,
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_MoneyMove_userItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_MoneyMove_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_MoneyMove_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -20675,6 +22219,10 @@ func (ec *executionContext) fieldContext_MoneyMovePayload_record(ctx context.Con
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_MoneyMove_userItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_MoneyMove_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_MoneyMove_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -20968,6 +22516,10 @@ func (ec *executionContext) fieldContext_Mutation_updatePlace(ctx context.Contex
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Place_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -29000,6 +30552,10 @@ func (ec *executionContext) fieldContext_Order_cartItem(ctx context.Context, fie
 				return ec.fieldContext_Cart_studentItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Cart_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Cart_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Cart", field.Name)
 		},
@@ -29101,6 +30657,10 @@ func (ec *executionContext) fieldContext_Order_creatorItem(ctx context.Context, 
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Creator_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -29276,6 +30836,94 @@ func (ec *executionContext) fieldContext_Order_published(ctx context.Context, fi
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Boolean does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Order_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Order_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Order_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Order",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Order_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Order_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Order_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Order",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -29470,6 +31118,10 @@ func (ec *executionContext) fieldContext_OrderEdge_node(ctx context.Context, fie
 				return ec.fieldContext_Order_orderStatus(ctx, field)
 			case "published":
 				return ec.fieldContext_Order_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Order_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Order_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Order", field.Name)
 		},
@@ -29529,6 +31181,10 @@ func (ec *executionContext) fieldContext_OrderPayload_record(ctx context.Context
 				return ec.fieldContext_Order_orderStatus(ctx, field)
 			case "published":
 				return ec.fieldContext_Order_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Order_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Order_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Order", field.Name)
 		},
@@ -29973,6 +31629,94 @@ func (ec *executionContext) fieldContext_Place_published(ctx context.Context, fi
 	return fc, nil
 }
 
+func (ec *executionContext) _Place_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Place_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Place_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Place",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Place_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Place_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Place_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Place",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _PlaceConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.PlaceConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_PlaceConnection_edges(ctx, field)
 	if err != nil {
@@ -30167,6 +31911,10 @@ func (ec *executionContext) fieldContext_PlaceEdge_node(ctx context.Context, fie
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Place_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -30225,6 +31973,10 @@ func (ec *executionContext) fieldContext_PlacePayload_place(ctx context.Context,
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Place_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -30393,6 +32145,10 @@ func (ec *executionContext) fieldContext_Query_article(ctx context.Context, fiel
 				return ec.fieldContext_Article_tags(ctx, field)
 			case "title":
 				return ec.fieldContext_Article_title(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Article_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Article_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Article", field.Name)
 		},
@@ -30519,6 +32275,10 @@ func (ec *executionContext) fieldContext_Query_cart(ctx context.Context, field g
 				return ec.fieldContext_Cart_studentItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Cart_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Cart_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Cart", field.Name)
 		},
@@ -30647,6 +32407,10 @@ func (ec *executionContext) fieldContext_Query_clubBalance(ctx context.Context, 
 				return ec.fieldContext_ClubBalance_sum(ctx, field)
 			case "tickets":
 				return ec.fieldContext_ClubBalance_tickets(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_ClubBalance_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_ClubBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type ClubBalance", field.Name)
 		},
@@ -30771,6 +32535,10 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByMonth(ctx context.C
 				return ec.fieldContext_CoachPaymentByMonth_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByMonth_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByMonth_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByMonth", field.Name)
 		},
@@ -30845,6 +32613,10 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByTeam(ctx context.Co
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "teamItem":
 				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByTeam_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByTeam_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -30913,6 +32685,10 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByTraining(ctx contex
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "trainingItem":
 				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_CoachPaymentByTraining_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_CoachPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -31155,6 +32931,10 @@ func (ec *executionContext) fieldContext_Query_creator(ctx context.Context, fiel
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Creator_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -31285,6 +33065,10 @@ func (ec *executionContext) fieldContext_Query_kit(ctx context.Context, field gr
 				return ec.fieldContext_Kit_size(ctx, field)
 			case "title":
 				return ec.fieldContext_Kit_title(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Kit_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Kit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
 		},
@@ -31425,6 +33209,10 @@ func (ec *executionContext) fieldContext_Query_lead(ctx context.Context, field g
 				return ec.fieldContext_Lead_teamItem(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Lead_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Lead_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Lead", field.Name)
 		},
@@ -31553,6 +33341,10 @@ func (ec *executionContext) fieldContext_Query_moneyCost(ctx context.Context, fi
 				return ec.fieldContext_MoneyCost_staffId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyCost_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_MoneyCost_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_MoneyCost_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyCost", field.Name)
 		},
@@ -31693,6 +33485,10 @@ func (ec *executionContext) fieldContext_Query_moneyMove(ctx context.Context, fi
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_MoneyMove_userItem(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_MoneyMove_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_MoneyMove_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -31821,6 +33617,10 @@ func (ec *executionContext) fieldContext_Query_order(ctx context.Context, field 
 				return ec.fieldContext_Order_orderStatus(ctx, field)
 			case "published":
 				return ec.fieldContext_Order_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Order_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Order_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Order", field.Name)
 		},
@@ -31945,6 +33745,10 @@ func (ec *executionContext) fieldContext_Query_place(ctx context.Context, field 
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Place_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -31977,7 +33781,7 @@ func (ec *executionContext) _Query_places(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Places(rctx, fc.Args["filter"].(*models.PlaceFilter), fc.Args["limit"].(*int), fc.Args["offset"].(*int), fc.Args["first"].(*int), fc.Args["after"].(*string))
+		return ec.resolvers.Query().Places(rctx, fc.Args["filter"].(*models.PlaceFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -32076,6 +33880,10 @@ func (ec *executionContext) fieldContext_Query_rentPaymentByMonth(ctx context.Co
 				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_RentPaymentByMonth_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_RentPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByMonth", field.Name)
 		},
@@ -32146,6 +33954,10 @@ func (ec *executionContext) fieldContext_Query_rentPaymentByTraining(ctx context
 				return ec.fieldContext_RentPaymentByTraining_trainingIds(ctx, field)
 			case "trainings":
 				return ec.fieldContext_RentPaymentByTraining_trainings(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_RentPaymentByTraining_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_RentPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByTraining", field.Name)
 		},
@@ -32330,6 +34142,10 @@ func (ec *executionContext) fieldContext_Query_stadium(ctx context.Context, fiel
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Stadium_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -32524,6 +34340,10 @@ func (ec *executionContext) fieldContext_Query_staffPerson(ctx context.Context, 
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -32598,6 +34418,10 @@ func (ec *executionContext) fieldContext_Query_student(ctx context.Context, fiel
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Student_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -32668,6 +34492,10 @@ func (ec *executionContext) fieldContext_Query_studentVisit(ctx context.Context,
 				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_StudentVisit_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_StudentVisit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type StudentVisit", field.Name)
 		},
@@ -32872,6 +34700,10 @@ func (ec *executionContext) fieldContext_Query_task(ctx context.Context, field g
 				return ec.fieldContext_Task_workerIds(ctx, field)
 			case "workers":
 				return ec.fieldContext_Task_workers(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Task_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Task_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Task", field.Name)
 		},
@@ -33354,6 +35186,10 @@ func (ec *executionContext) fieldContext_Query_team(ctx context.Context, field g
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -33426,6 +35262,10 @@ func (ec *executionContext) fieldContext_Query_teamBalance(ctx context.Context, 
 				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_TeamBalance_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_TeamBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TeamBalance", field.Name)
 		},
@@ -33620,6 +35460,10 @@ func (ec *executionContext) fieldContext_Query_training(ctx context.Context, fie
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Training_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -33690,6 +35534,10 @@ func (ec *executionContext) fieldContext_Query_trainingDay(ctx context.Context, 
 				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_TrainingDay_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_TrainingDay_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TrainingDay", field.Name)
 		},
@@ -34390,6 +36238,10 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_stadiumItem(ctx cont
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Stadium_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -34436,6 +36288,94 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_sum(ctx context.Cont
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _RentPaymentByMonth_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_RentPaymentByMonth_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_RentPaymentByMonth_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "RentPaymentByMonth",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _RentPaymentByMonth_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_RentPaymentByMonth_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_RentPaymentByMonth_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "RentPaymentByMonth",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -34630,6 +36570,10 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthEdge_node(ctx context
 				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_RentPaymentByMonth_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_RentPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByMonth", field.Name)
 		},
@@ -34689,6 +36633,10 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthPayload_record(ctx co
 				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_RentPaymentByMonth_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_RentPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByMonth", field.Name)
 		},
@@ -34963,6 +36911,10 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_stadiumItem(ctx c
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Stadium_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -35102,6 +37054,94 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_trainings(ctx con
 				return ec.fieldContext_TrainingRent_trainingRent(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TrainingRent", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _RentPaymentByTraining_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_RentPaymentByTraining_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_RentPaymentByTraining_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "RentPaymentByTraining",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _RentPaymentByTraining_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_RentPaymentByTraining_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_RentPaymentByTraining_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "RentPaymentByTraining",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -35296,6 +37336,10 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingEdge_node(ctx cont
 				return ec.fieldContext_RentPaymentByTraining_trainingIds(ctx, field)
 			case "trainings":
 				return ec.fieldContext_RentPaymentByTraining_trainings(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_RentPaymentByTraining_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_RentPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByTraining", field.Name)
 		},
@@ -35355,6 +37399,10 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingPayload_record(ctx
 				return ec.fieldContext_RentPaymentByTraining_trainingIds(ctx, field)
 			case "trainings":
 				return ec.fieldContext_RentPaymentByTraining_trainings(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_RentPaymentByTraining_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_RentPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByTraining", field.Name)
 		},
@@ -35671,6 +37719,10 @@ func (ec *executionContext) fieldContext_Stadium_placeItem(ctx context.Context, 
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Place_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -35717,6 +37769,94 @@ func (ec *executionContext) fieldContext_Stadium_published(ctx context.Context, 
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Boolean does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Stadium_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Stadium_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Stadium_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Stadium",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Stadium_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Stadium_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Stadium_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Stadium",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -35909,6 +38049,10 @@ func (ec *executionContext) fieldContext_StadiumEdge_node(ctx context.Context, f
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Stadium_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -35966,6 +38110,10 @@ func (ec *executionContext) fieldContext_StadiumPayload_record(ctx context.Conte
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Stadium_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -36543,6 +38691,94 @@ func (ec *executionContext) fieldContext_Staff_work(ctx context.Context, field g
 	return fc, nil
 }
 
+func (ec *executionContext) _Staff_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Staff_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Staff_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Staff",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Staff_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Staff_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Staff_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Staff",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _StaffConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.StaffConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_StaffConnection_edges(ctx, field)
 	if err != nil {
@@ -36740,6 +38976,10 @@ func (ec *executionContext) fieldContext_StaffEdge_node(ctx context.Context, fie
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -36807,6 +39047,10 @@ func (ec *executionContext) fieldContext_StaffPayload_record(ctx context.Context
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -36962,6 +39206,10 @@ func (ec *executionContext) fieldContext_StaffTask_staffTask(ctx context.Context
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -37117,6 +39365,10 @@ func (ec *executionContext) fieldContext_StaffTeam_staffTeam(ctx context.Context
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -37272,6 +39524,10 @@ func (ec *executionContext) fieldContext_StaffTraining_staffTraining(ctx context
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -37764,6 +40020,94 @@ func (ec *executionContext) fieldContext_Student_teams(ctx context.Context, fiel
 	return fc, nil
 }
 
+func (ec *executionContext) _Student_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Student) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Student_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Student_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Student",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Student_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Student) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Student_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Student_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Student",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _StudentConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.StudentConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_StudentConnection_edges(ctx, field)
 	if err != nil {
@@ -37957,6 +40301,10 @@ func (ec *executionContext) fieldContext_StudentEdge_node(ctx context.Context, f
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Student_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -38108,6 +40456,10 @@ func (ec *executionContext) fieldContext_StudentLead_studentLead(ctx context.Con
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Student_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -38171,6 +40523,10 @@ func (ec *executionContext) fieldContext_StudentPayload_record(ctx context.Conte
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Student_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -38322,6 +40678,10 @@ func (ec *executionContext) fieldContext_StudentTask_studentTask(ctx context.Con
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Student_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -38605,6 +40965,10 @@ func (ec *executionContext) fieldContext_StudentVisit_studentItem(ctx context.Co
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Student_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -38716,6 +41080,10 @@ func (ec *executionContext) fieldContext_StudentVisit_trainingItem(ctx context.C
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Training_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -38762,6 +41130,94 @@ func (ec *executionContext) fieldContext_StudentVisit_visitStatus(ctx context.Co
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type VisitStatus does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _StudentVisit_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_StudentVisit_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_StudentVisit_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "StudentVisit",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _StudentVisit_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_StudentVisit_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_StudentVisit_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "StudentVisit",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -38956,6 +41412,10 @@ func (ec *executionContext) fieldContext_StudentVisitEdge_node(ctx context.Conte
 				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_StudentVisit_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_StudentVisit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type StudentVisit", field.Name)
 		},
@@ -39015,6 +41475,10 @@ func (ec *executionContext) fieldContext_StudentVisitPayload_record(ctx context.
 				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_StudentVisit_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_StudentVisit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type StudentVisit", field.Name)
 		},
@@ -39812,6 +42276,94 @@ func (ec *executionContext) fieldContext_Task_workers(ctx context.Context, field
 	return fc, nil
 }
 
+func (ec *executionContext) _Task_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Task) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Task_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Task_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Task",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Task_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Task) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Task_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Task_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Task",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _TaskConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.TaskConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_TaskConnection_edges(ctx, field)
 	if err != nil {
@@ -40019,6 +42571,10 @@ func (ec *executionContext) fieldContext_TaskEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Task_workerIds(ctx, field)
 			case "workers":
 				return ec.fieldContext_Task_workers(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Task_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Task_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Task", field.Name)
 		},
@@ -40096,6 +42652,10 @@ func (ec *executionContext) fieldContext_TaskPayload_record(ctx context.Context,
 				return ec.fieldContext_Task_workerIds(ctx, field)
 			case "workers":
 				return ec.fieldContext_Task_workers(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Task_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Task_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Task", field.Name)
 		},
@@ -40338,6 +42898,10 @@ func (ec *executionContext) fieldContext_Team_headCoach(ctx context.Context, fie
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -40566,6 +43130,10 @@ func (ec *executionContext) fieldContext_Team_placeItem(ctx context.Context, fie
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Place_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -40656,6 +43224,94 @@ func (ec *executionContext) fieldContext_Team_writable(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Boolean does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Team_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Team_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -41027,6 +43683,10 @@ func (ec *executionContext) fieldContext_TeamBalance_teamItem(ctx context.Contex
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -41073,6 +43733,94 @@ func (ec *executionContext) fieldContext_TeamBalance_tickets(ctx context.Context
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _TeamBalance_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TeamBalance_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_TeamBalance_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "TeamBalance",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _TeamBalance_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TeamBalance_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_TeamBalance_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "TeamBalance",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -41269,6 +44017,10 @@ func (ec *executionContext) fieldContext_TeamBalanceEdge_node(ctx context.Contex
 				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_TeamBalance_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_TeamBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TeamBalance", field.Name)
 		},
@@ -41330,6 +44082,10 @@ func (ec *executionContext) fieldContext_TeamBalancePayload_record(ctx context.C
 				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_TeamBalance_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_TeamBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TeamBalance", field.Name)
 		},
@@ -41576,6 +44332,10 @@ func (ec *executionContext) fieldContext_TeamEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -41641,6 +44401,10 @@ func (ec *executionContext) fieldContext_TeamPayload_record(ctx context.Context,
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -41838,6 +44602,10 @@ func (ec *executionContext) fieldContext_TeamStudent_teamStudent(ctx context.Con
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -42127,6 +44895,10 @@ func (ec *executionContext) fieldContext_Training_headCoach(ctx context.Context,
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Staff_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -42354,6 +45126,10 @@ func (ec *executionContext) fieldContext_Training_stadiumItem(ctx context.Contex
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Stadium_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -42463,6 +45239,10 @@ func (ec *executionContext) fieldContext_Training_teamItem(ctx context.Context, 
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -42550,6 +45330,94 @@ func (ec *executionContext) fieldContext_Training_visits(ctx context.Context, fi
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Training_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Training_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Training_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Training",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Training_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Training_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Training_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Training",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -42871,6 +45739,10 @@ func (ec *executionContext) fieldContext_TrainingDay_stadiumItem(ctx context.Con
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Stadium_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -42980,6 +45852,10 @@ func (ec *executionContext) fieldContext_TrainingDay_teamItem(ctx context.Contex
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Team_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -43016,6 +45892,94 @@ func (ec *executionContext) _TrainingDay_time(ctx context.Context, field graphql
 }
 
 func (ec *executionContext) fieldContext_TrainingDay_time(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "TrainingDay",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _TrainingDay_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TrainingDay_createdAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_TrainingDay_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "TrainingDay",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type Time does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _TrainingDay_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TrainingDay_updatedAt(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_TrainingDay_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "TrainingDay",
 		Field:      field,
@@ -43217,6 +46181,10 @@ func (ec *executionContext) fieldContext_TrainingDayEdge_node(ctx context.Contex
 				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_TrainingDay_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_TrainingDay_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TrainingDay", field.Name)
 		},
@@ -43276,6 +46244,10 @@ func (ec *executionContext) fieldContext_TrainingDayPayload_record(ctx context.C
 				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_TrainingDay_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_TrainingDay_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TrainingDay", field.Name)
 		},
@@ -43428,6 +46400,10 @@ func (ec *executionContext) fieldContext_TrainingEdge_node(ctx context.Context, 
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Training_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -43495,6 +46471,10 @@ func (ec *executionContext) fieldContext_TrainingPayload_record(ctx context.Cont
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Training_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -43694,6 +46674,10 @@ func (ec *executionContext) fieldContext_TrainingRent_trainingRent(ctx context.C
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
+			case "createdAt":
+				return ec.fieldContext_Training_createdAt(ctx, field)
+			case "updatedAt":
+				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -49622,22 +52606,35 @@ func (ec *executionContext) _Article(ctx context.Context, sel ast.SelectionSet, 
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Article")
 		case "author":
+			field := field
 
-			out.Values[i] = ec._Article_author(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Article_author(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "authorId":
 
 			out.Values[i] = ec._Article_authorId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "description":
 
 			out.Values[i] = ec._Article_description(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "fileName":
 
@@ -49648,14 +52645,14 @@ func (ec *executionContext) _Article(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Article_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._Article_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "tags":
 
@@ -49666,7 +52663,21 @@ func (ec *executionContext) _Article(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Article_title(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
+			}
+		case "createdAt":
+
+			out.Values[i] = ec._Article_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&invalids, 1)
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Article_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -49892,6 +52903,20 @@ func (ec *executionContext) _Cart(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createdAt":
+
+			out.Values[i] = ec._Cart_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Cart_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -50059,6 +53084,20 @@ func (ec *executionContext) _ClubBalance(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createdAt":
+
+			out.Values[i] = ec._ClubBalance_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._ClubBalance_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -50202,6 +53241,20 @@ func (ec *executionContext) _CoachPaymentByMonth(ctx context.Context, sel ast.Se
 		case "sum":
 
 			out.Values[i] = ec._CoachPaymentByMonth_sum(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "createdAt":
+
+			out.Values[i] = ec._CoachPaymentByMonth_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._CoachPaymentByMonth_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -50366,6 +53419,20 @@ func (ec *executionContext) _CoachPaymentByTeam(ctx context.Context, sel ast.Sel
 
 			out.Values[i] = ec._CoachPaymentByTeam_teamItem(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._CoachPaymentByTeam_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._CoachPaymentByTeam_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -50514,6 +53581,20 @@ func (ec *executionContext) _CoachPaymentByTraining(ctx context.Context, sel ast
 
 			out.Values[i] = ec._CoachPaymentByTraining_trainingItem(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._CoachPaymentByTraining_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._CoachPaymentByTraining_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -50665,6 +53746,20 @@ func (ec *executionContext) _Creator(ctx context.Context, sel ast.SelectionSet, 
 
 			out.Values[i] = ec._Creator_userItem(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._Creator_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Creator_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -50866,6 +53961,20 @@ func (ec *executionContext) _Kit(ctx context.Context, sel ast.SelectionSet, obj 
 
 			out.Values[i] = ec._Kit_title(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._Kit_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Kit_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -51081,6 +54190,20 @@ func (ec *executionContext) _Lead(ctx context.Context, sel ast.SelectionSet, obj
 
 			out.Values[i] = ec._Lead_yearBorn(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._Lead_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Lead_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -51343,6 +54466,20 @@ func (ec *executionContext) _MoneyCost(ctx context.Context, sel ast.SelectionSet
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createdAt":
+
+			out.Values[i] = ec._MoneyCost_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._MoneyCost_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -51525,6 +54662,20 @@ func (ec *executionContext) _MoneyMove(ctx context.Context, sel ast.SelectionSet
 
 			out.Values[i] = ec._MoneyMove_userItem(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._MoneyMove_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._MoneyMove_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -52919,6 +56070,20 @@ func (ec *executionContext) _Order(ctx context.Context, sel ast.SelectionSet, ob
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createdAt":
+
+			out.Values[i] = ec._Order_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Order_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -53107,6 +56272,20 @@ func (ec *executionContext) _Place(ctx context.Context, sel ast.SelectionSet, ob
 		case "published":
 
 			out.Values[i] = ec._Place_published(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "createdAt":
+
+			out.Values[i] = ec._Place_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Place_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -54472,6 +57651,20 @@ func (ec *executionContext) _RentPaymentByMonth(ctx context.Context, sel ast.Sel
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createdAt":
+
+			out.Values[i] = ec._RentPaymentByMonth_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._RentPaymentByMonth_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -54630,6 +57823,20 @@ func (ec *executionContext) _RentPaymentByTraining(ctx context.Context, sel ast.
 
 			out.Values[i] = ec._RentPaymentByTraining_trainings(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._RentPaymentByTraining_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._RentPaymentByTraining_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -54780,6 +57987,20 @@ func (ec *executionContext) _Stadium(ctx context.Context, sel ast.SelectionSet, 
 		case "published":
 
 			out.Values[i] = ec._Stadium_published(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "createdAt":
+
+			out.Values[i] = ec._Stadium_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Stadium_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -54957,6 +58178,20 @@ func (ec *executionContext) _Staff(ctx context.Context, sel ast.SelectionSet, ob
 		case "work":
 
 			out.Values[i] = ec._Staff_work(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "createdAt":
+
+			out.Values[i] = ec._Staff_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Staff_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -55244,6 +58479,20 @@ func (ec *executionContext) _Student(ctx context.Context, sel ast.SelectionSet, 
 
 			out.Values[i] = ec._Student_teams(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._Student_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Student_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -55483,6 +58732,20 @@ func (ec *executionContext) _StudentVisit(ctx context.Context, sel ast.Selection
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createdAt":
+
+			out.Values[i] = ec._StudentVisit_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._StudentVisit_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -55671,6 +58934,20 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 
 			out.Values[i] = ec._Task_workers(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._Task_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Task_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -55841,6 +59118,20 @@ func (ec *executionContext) _Team(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createdAt":
+
+			out.Values[i] = ec._Team_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Team_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -55918,6 +59209,20 @@ func (ec *executionContext) _TeamBalance(ctx context.Context, sel ast.SelectionS
 		case "tickets":
 
 			out.Values[i] = ec._TeamBalance_tickets(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "createdAt":
+
+			out.Values[i] = ec._TeamBalance_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._TeamBalance_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -56264,6 +59569,20 @@ func (ec *executionContext) _Training(ctx context.Context, sel ast.SelectionSet,
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "createdAt":
+
+			out.Values[i] = ec._Training_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._Training_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -56355,6 +59674,20 @@ func (ec *executionContext) _TrainingDay(ctx context.Context, sel ast.SelectionS
 
 			out.Values[i] = ec._TrainingDay_time(ctx, field, obj)
 
+		case "createdAt":
+
+			out.Values[i] = ec._TrainingDay_createdAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updatedAt":
+
+			out.Values[i] = ec._TrainingDay_updatedAt(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}

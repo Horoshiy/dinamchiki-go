@@ -11,10 +11,9 @@ type PlacesRepo struct {
 	DB *pg.DB
 }
 
-func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, limit, offset, first *int, after *string) (*models.PlaceConnection, error) {
+func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, first, last *int, after, before *string) (*models.PlaceConnection, error) {
 	var places []*models.Place
-
-	query := r.DB.Model(&places).Order("id")
+	query := r.DB.Model(&places)
 
 	var decodedCursor string
 	if after != nil {
@@ -24,8 +23,21 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, limit, offset, first 
 		}
 		decodedCursor = string(b)
 	}
-
-	edges := make([]*models.PlaceEdge, *first)
+	if before != nil {
+		b, err := base64.StdEncoding.DecodeString(*before)
+		if err != nil {
+			return nil, err
+		}
+		decodedCursor = string(b)
+	}
+	var edges []*models.PlaceEdge
+	if first != nil {
+		query.Order("id ASC")
+		edges = make([]*models.PlaceEdge, *first)
+	} else {
+		query.Order("id DESC")
+		edges = make([]*models.PlaceEdge, *last)
+	}
 	count := 0
 	currentPage := false
 
@@ -40,14 +52,6 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, limit, offset, first 
 		}
 	}
 
-	if limit != nil {
-		query.Limit(*limit)
-	}
-
-	if offset != nil {
-		query.Offset(*offset)
-	}
-
 	err := query.Select()
 	if err != nil {
 		return nil, err
@@ -58,18 +62,30 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, limit, offset, first 
 			currentPage = true
 		}
 
-		if currentPage && count < *first {
-			edges[count] = &models.PlaceEdge{
-				Cursor: base64.StdEncoding.EncodeToString([]byte(v.ID)),
-				Node:   v,
+		if first != nil {
+			if currentPage && count < *first {
+				edges[count] = &models.PlaceEdge{
+					Cursor: base64.StdEncoding.EncodeToString([]byte(v.ID)),
+					Node:   v,
+				}
+				count++
 			}
-			count++
-		}
 
-		// If there are any elements left after the current page
-		// we indicate that in the response
-		if count == *first && i < len(places) {
-			hasNextPage = true
+			if count == *first && i < len(places) {
+				hasNextPage = true
+			}
+		} else {
+			if currentPage && count < *last {
+				edges[count] = &models.PlaceEdge{
+					Cursor: base64.StdEncoding.EncodeToString([]byte(v.ID)),
+					Node:   v,
+				}
+				count++
+			}
+
+			if count == *last && i < len(places) {
+				hasNextPage = true
+			}
 		}
 	}
 

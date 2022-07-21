@@ -56,3 +56,8 @@ models:
         resolver: true
   Place:
     model: gitlab.com/dinamchiki/go-graphql/graph/model.Place
+  Article:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Article
+    fields:
+      user:
+        resolver: true

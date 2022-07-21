@@ -8,6 +8,7 @@ import (
 )
 
 type User struct {
+	tableName struct{}   `pg:"users"`
 	ID        string     `json:"id"`
 	Phone     string     `json:"phone"`
 	Password  string     `json:"password"`

@@ -13,6 +13,11 @@ import (
 	models "gitlab.com/dinamchiki/go-graphql/graph/model"
 )
 
+// Author is the resolver for the author field.
+func (r *articleResolver) Author(ctx context.Context, obj *models.Article) (*models.User, error) {
+	return getUserLoader(ctx).Load(obj.AuthorID)
+}
+
 // User is the resolver for the user field.
 func (r *meetupResolver) User(ctx context.Context, obj *models.Meetup) (*models.User, error) {
 	return getUserLoader(ctx).Load(obj.UserId)
@@ -833,8 +838,8 @@ func (r *queryResolver) Place(ctx context.Context, id string) (*models.Place, er
 }
 
 // Places is the resolver for the places field.
-func (r *queryResolver) Places(ctx context.Context, filter *models.PlaceFilter, limit *int, offset *int, first *int, after *string) (*models.PlaceConnection, error) {
-	return r.Domain.PlacesRepo.GetPlaces(filter, limit, offset, first, after)
+func (r *queryResolver) Places(ctx context.Context, filter *models.PlaceFilter, first *int, after *string, last *int, before *string) (*models.PlaceConnection, error) {
+	return r.Domain.PlacesRepo.GetPlaces(filter, first, last, after, before)
 }
 
 // RentPaymentByMonth is the resolver for the rentPaymentByMonth field.
@@ -992,6 +997,9 @@ func (r *userResolver) Meetups(ctx context.Context, obj *models.User) ([]*models
 	return r.Domain.MeetupsRepo.GetMeetupsForUser(obj)
 }
 
+// Article returns generated.ArticleResolver implementation.
+func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver{r} }
+
 // Meetup returns generated.MeetupResolver implementation.
 func (r *Resolver) Meetup() generated.MeetupResolver { return &meetupResolver{r} }
 
@@ -1004,6 +1012,7 @@ func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 // User returns generated.UserResolver implementation.
 func (r *Resolver) User() generated.UserResolver { return &userResolver{r} }
 
+type articleResolver struct{ *Resolver }
 type meetupResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
