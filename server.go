@@ -1,21 +1,24 @@
 package main
 
 import (
+	"context"
+	"fmt"
+	"github.com/99designs/gqlgen/graphql"
+	"github.com/99designs/gqlgen/graphql/handler"
+	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-pg/pg/v10"
 	"github.com/rs/cors"
 	"gitlab.com/dinamchiki/go-graphql/domain"
+	"gitlab.com/dinamchiki/go-graphql/graph"
+	"gitlab.com/dinamchiki/go-graphql/graph/generated"
+	models "gitlab.com/dinamchiki/go-graphql/graph/model"
 	customMiddleware "gitlab.com/dinamchiki/go-graphql/middleware"
 	"gitlab.com/dinamchiki/go-graphql/postgres"
 	"log"
 	"net/http"
 	"os"
-
-	"github.com/99designs/gqlgen/graphql/handler"
-	"github.com/99designs/gqlgen/graphql/playground"
-	"gitlab.com/dinamchiki/go-graphql/graph"
-	"gitlab.com/dinamchiki/go-graphql/graph/generated"
 )
 
 const defaultPort = "9090"
@@ -51,11 +54,32 @@ func main() {
 	router.Use(customMiddleware.AuthMiddleware(userRepo))
 
 	d := domain.NewDomain(userRepo, postgres.MeetupsRepo{DB: DB}, postgres.PlacesRepo{DB: DB})
-	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{
+	c := generated.Config{
 		Resolvers: &graph.Resolver{
 			Domain: d,
 		},
-	}))
+	}
+	c.Directives.HasRole = func(ctx context.Context, obj interface{}, next graphql.Resolver, role models.Role) (res interface{}, err error) {
+		currentUser, err := customMiddleware.GetCurrentUserFromCtx(ctx)
+		if err != nil {
+			return nil, fmt.Errorf("доступ запрещен")
+		}
+		var userRole string
+		for _, v := range currentUser.Roles {
+			if v == role {
+				userRole = role.String()
+				break
+			}
+		}
+
+		if len(userRole) == 0 {
+			return nil, fmt.Errorf("уровень доступа недостаточный")
+		}
+
+		return next(ctx)
+
+	}
+	srv := handler.NewDefaultServer(generated.NewExecutableSchema(c))
 
 	router.Handle("/", playground.Handler("GraphQL playground", "/graphql"))
 	router.Handle("/graphql", graph.DataLoaderMiddleware(DB, srv))

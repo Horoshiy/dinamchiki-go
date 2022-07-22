@@ -1,3 +1,4 @@
+directive @hasRole(role: Role!) on FIELD_DEFINITION
 scalar Time
 
 type Query {
@@ -129,7 +130,7 @@ type Mutation {
     placeDelete(id: String!): PlacePayload!
     placePublishUpdate(id: String!): PlacePayload!
     placeRestore(id: String!): PlacePayload!
-    placeSave(placeInput: PlaceInput!): PlacePayload!
+    placeSave(placeInput: PlaceInput!): PlacePayload! @hasRole(role: ADMIN)
     placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
     rentPaymentByMonthDelete(id: String!): RentPaymentByMonthPayload!
@@ -1018,7 +1019,7 @@ type User {
     firstName: String!
     lastName: String!
     meetups: [Meetup!]!
-    role: Role!
+    roles: [Role!]!
     createdAt: Time!
     updatedAt: Time!
 }

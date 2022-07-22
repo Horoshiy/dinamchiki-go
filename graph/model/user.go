@@ -14,7 +14,7 @@ type User struct {
 	Password  string     `json:"password"`
 	FirstName string     `json:"firstName"`
 	LastName  string     `json:"lastName"`
-	Role      Role       `json:"role"`
+	Roles     []Role     `json:"roles" pg:",array"`
 	CreatedAt time.Time  `json:"createdAt"`
 	UpdatedAt time.Time  `json:"updatedAt"`
 	DeletedAt *time.Time `json:"-" pg:",soft_delete"`

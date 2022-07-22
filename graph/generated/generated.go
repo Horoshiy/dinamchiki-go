@@ -45,6 +45,7 @@ type ResolverRoot interface {
 }
 
 type DirectiveRoot struct {
+	HasRole func(ctx context.Context, obj interface{}, next graphql.Resolver, role models.Role) (res interface{}, err error)
 }
 
 type ComplexityRoot struct {
@@ -1040,7 +1041,7 @@ type ComplexityRoot struct {
 		LastName  func(childComplexity int) int
 		Meetups   func(childComplexity int) int
 		Phone     func(childComplexity int) int
-		Role      func(childComplexity int) int
+		Roles     func(childComplexity int) int
 		UpdatedAt func(childComplexity int) int
 	}
 
@@ -6781,12 +6782,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.User.Phone(childComplexity), true
 
-	case "User.role":
-		if e.complexity.User.Role == nil {
+	case "User.roles":
+		if e.complexity.User.Roles == nil {
 			break
 		}
 
-		return e.complexity.User.Role(childComplexity), true
+		return e.complexity.User.Roles(childComplexity), true
 
 	case "User.updatedAt":
 		if e.complexity.User.UpdatedAt == nil {
@@ -6978,7 +6979,8 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "../../schema/schema.graphql", Input: `scalar Time
+	{Name: "../../schema/schema.graphql", Input: `directive @hasRole(role: Role!) on FIELD_DEFINITION
+scalar Time
 
 type Query {
     meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
@@ -7109,7 +7111,7 @@ type Mutation {
     placeDelete(id: String!): PlacePayload!
     placePublishUpdate(id: String!): PlacePayload!
     placeRestore(id: String!): PlacePayload!
-    placeSave(placeInput: PlaceInput!): PlacePayload!
+    placeSave(placeInput: PlaceInput!): PlacePayload! @hasRole(role: ADMIN)
     placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
     rentPaymentByMonthDelete(id: String!): RentPaymentByMonthPayload!
@@ -7998,7 +8000,7 @@ type User {
     firstName: String!
     lastName: String!
     meetups: [Meetup!]!
-    role: Role!
+    roles: [Role!]!
     createdAt: Time!
     updatedAt: Time!
 }
@@ -8572,6 +8574,21 @@ var parsedSchema = gqlparser.MustLoadSchema(sources...)
 // endregion ************************** generated!.gotpl **************************
 
 // region    ***************************** args.gotpl *****************************
+
+func (ec *executionContext) dir_hasRole_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 models.Role
+	if tmp, ok := rawArgs["role"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("role"))
+		arg0, err = ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["role"] = arg0
+	return args, nil
+}
 
 func (ec *executionContext) field_Mutation_articleDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
@@ -12437,8 +12454,8 @@ func (ec *executionContext) fieldContext_Article_author(ctx context.Context, fie
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -13246,8 +13263,8 @@ func (ec *executionContext) fieldContext_AuthResponse_user(ctx context.Context, 
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -17427,8 +17444,8 @@ func (ec *executionContext) fieldContext_Creator_userItem(ctx context.Context, f
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -20325,8 +20342,8 @@ func (ec *executionContext) fieldContext_Meetup_user(ctx context.Context, field 
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -21762,8 +21779,8 @@ func (ec *executionContext) fieldContext_MoneyMove_userItem(ctx context.Context,
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -26354,8 +26371,32 @@ func (ec *executionContext) _Mutation_placeSave(ctx context.Context, field graph
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().PlaceSave(rctx, fc.Args["placeInput"].(models.PlaceInput))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().PlaceSave(rctx, fc.Args["placeInput"].(models.PlaceInput))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.PlacePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.PlacePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -35449,8 +35490,8 @@ func (ec *executionContext) fieldContext_Query_user(ctx context.Context, field g
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -38366,8 +38407,8 @@ func (ec *executionContext) fieldContext_Staff_userItem(ctx context.Context, fie
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -41308,8 +41349,8 @@ func (ec *executionContext) fieldContext_Task_author(ctx context.Context, field 
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -46649,8 +46690,8 @@ func (ec *executionContext) fieldContext_User_meetups(ctx context.Context, field
 	return fc, nil
 }
 
-func (ec *executionContext) _User_role(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_User_role(ctx, field)
+func (ec *executionContext) _User_roles(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_User_roles(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -46663,7 +46704,7 @@ func (ec *executionContext) _User_role(ctx context.Context, field graphql.Collec
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Role, nil
+		return obj.Roles, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -46675,12 +46716,12 @@ func (ec *executionContext) _User_role(ctx context.Context, field graphql.Collec
 		}
 		return graphql.Null
 	}
-	res := resTmp.(models.Role)
+	res := resTmp.([]models.Role)
 	fc.Result = res
-	return ec.marshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, field.Selections, res)
+	return ec.marshalNRole2ᚕgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRoleᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_User_role(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_User_roles(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "User",
 		Field:      field,
@@ -46964,8 +47005,8 @@ func (ec *executionContext) fieldContext_UserEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -47023,8 +47064,8 @@ func (ec *executionContext) fieldContext_UserPayload_record(ctx context.Context,
 				return ec.fieldContext_User_lastName(ctx, field)
 			case "meetups":
 				return ec.fieldContext_User_meetups(ctx, field)
-			case "role":
-				return ec.fieldContext_User_role(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
 			case "createdAt":
 				return ec.fieldContext_User_createdAt(ctx, field)
 			case "updatedAt":
@@ -59699,9 +59740,9 @@ func (ec *executionContext) _User(ctx context.Context, sel ast.SelectionSet, obj
 				return innerFunc(ctx)
 
 			})
-		case "role":
+		case "roles":
 
-			out.Values[i] = ec._User_role(ctx, field, obj)
+			out.Values[i] = ec._User_roles(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				atomic.AddUint32(&invalids, 1)
@@ -60956,6 +60997,67 @@ func (ec *executionContext) unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgrap
 
 func (ec *executionContext) marshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx context.Context, sel ast.SelectionSet, v models.Role) graphql.Marshaler {
 	return v
+}
+
+func (ec *executionContext) unmarshalNRole2ᚕgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRoleᚄ(ctx context.Context, v interface{}) ([]models.Role, error) {
+	var vSlice []interface{}
+	if v != nil {
+		vSlice = graphql.CoerceList(v)
+	}
+	var err error
+	res := make([]models.Role, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalNRole2ᚕgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRoleᚄ(ctx context.Context, sel ast.SelectionSet, v []models.Role) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
 }
 
 func (ec *executionContext) unmarshalNStadiumDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumDto(ctx context.Context, v interface{}) (*models.StadiumDto, error) {

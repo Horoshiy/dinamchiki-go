@@ -38,12 +38,14 @@ func (d *Domain) Register(ctx context.Context, input models.RegisterInput) (*mod
 		return nil, errors.New("Такой номер телефона уже зарегистрирован за пользователем")
 	}
 
+	//var roles []models.Role
+
 	user := &models.User{
 		Phone:     input.Phone,
 		Password:  input.Password,
 		FirstName: input.FirstName,
 		LastName:  input.LastName,
-		Role:      models.Role(models.RoleUser),
+		Roles:     []models.Role{models.RoleUser},
 	}
 
 	err = user.HashPassword(input.Password)
