@@ -402,140 +402,137 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		ArticlesDelete                       func(childComplexity int, ids []string) int
-		ArticlesPublishUpdate                func(childComplexity int, ids []string) int
-		ArticlesRestore                      func(childComplexity int, ids []string) int
-		ArticlesSave                         func(childComplexity int, articleInput []*models.ArticleInput) int
-		ArticlesUpdate                       func(childComplexity int, articleInput []*models.ArticleInputWithID) int
-		CartsDelete                          func(childComplexity int, ids []string) int
-		CartsPublishUpdate                   func(childComplexity int, ids []string) int
-		CartsRestore                         func(childComplexity int, ids []string) int
-		CartsSave                            func(childComplexity int, cartInput []*models.CartInput) int
-		CartsUpdate                          func(childComplexity int, cartInput []*models.CartInputWithID) int
-		ClubBalancesDelete                   func(childComplexity int, ids []string) int
-		ClubBalancesPublishUpdate            func(childComplexity int, ids []string) int
-		ClubBalancesRestore                  func(childComplexity int, ids []string) int
-		ClubBalancesSave                     func(childComplexity int, clubBalanceInput []*models.ClubBalanceInput) int
-		ClubBalancesUpdate                   func(childComplexity int, clubBalanceInput []*models.ClubBalanceInputWithID) int
-		CoachPaymentsByMonthDelete           func(childComplexity int, ids []string) int
-		CoachPaymentsByMonthPublishUpdate    func(childComplexity int, ids []string) int
-		CoachPaymentsByMonthRestore          func(childComplexity int, ids []string) int
-		CoachPaymentsByMonthSave             func(childComplexity int, coachPaymentByMonthInput []*models.CoachPaymentByMonthInput) int
-		CoachPaymentsByMonthUpdate           func(childComplexity int, coachPaymentByMonthInput []*models.CoachPaymentByMonthInputWithID) int
-		CoachPaymentsByTeamDelete            func(childComplexity int, ids []string) int
-		CoachPaymentsByTeamPublishUpdate     func(childComplexity int, ids []string) int
-		CoachPaymentsByTeamRestore           func(childComplexity int, ids []string) int
-		CoachPaymentsByTeamSave              func(childComplexity int, coachPaymentByTeamInput []*models.CoachPaymentByTeamInput) int
-		CoachPaymentsByTeamUpdate            func(childComplexity int, coachPaymentByTeamInput []*models.CoachPaymentByTeamInputWithID) int
-		CoachPaymentsByTrainingDelete        func(childComplexity int, ids []string) int
-		CoachPaymentsByTrainingPublishUpdate func(childComplexity int, ids []string) int
-		CoachPaymentsByTrainingRestore       func(childComplexity int, ids []string) int
-		CoachPaymentsByTrainingSave          func(childComplexity int, coachPaymentByTrainingInput []*models.CoachPaymentByTrainingInput) int
-		CoachPaymentsByTrainingUpdate        func(childComplexity int, coachPaymentByTrainingInput []*models.CoachPaymentByTrainingInputWithID) int
-		CreateMeetup                         func(childComplexity int, input models.NewMeetup) int
-		CreatePlace                          func(childComplexity int, input models.PlaceInput) int
-		CreatorsDelete                       func(childComplexity int, ids []string) int
-		CreatorsPublishUpdate                func(childComplexity int, ids []string) int
-		CreatorsRestore                      func(childComplexity int, ids []string) int
-		CreatorsSave                         func(childComplexity int, creatorInput []*models.CreatorInput) int
-		CreatorsUpdate                       func(childComplexity int, creatorInput []*models.CreatorInputWithID) int
-		DeleteMeetup                         func(childComplexity int, id string) int
-		DeletePlace                          func(childComplexity int, id string) int
-		KitsDelete                           func(childComplexity int, ids []string) int
-		KitsPublishUpdate                    func(childComplexity int, ids []string) int
-		KitsRestore                          func(childComplexity int, ids []string) int
-		KitsSave                             func(childComplexity int, kitInput []*models.KitInput) int
-		KitsUpdate                           func(childComplexity int, kitInput []*models.KitInputWithID) int
-		LeadsDelete                          func(childComplexity int, ids []string) int
-		LeadsPublishUpdate                   func(childComplexity int, ids []string) int
-		LeadsRestore                         func(childComplexity int, ids []string) int
-		LeadsSave                            func(childComplexity int, leadInput []*models.LeadInput) int
-		LeadsUpdate                          func(childComplexity int, leadInput []*models.LeadInputWithID) int
-		Login                                func(childComplexity int, input models.LoginInput) int
-		MoneyCostsDelete                     func(childComplexity int, ids []string) int
-		MoneyCostsPublishUpdate              func(childComplexity int, ids []string) int
-		MoneyCostsRestore                    func(childComplexity int, ids []string) int
-		MoneyCostsSave                       func(childComplexity int, moneyCostInput []*models.MoneyCostInput) int
-		MoneyCostsUpdate                     func(childComplexity int, moneyCostInput []*models.MoneyCostInputWithID) int
-		MoneyMovesDelete                     func(childComplexity int, ids []string) int
-		MoneyMovesPublishUpdate              func(childComplexity int, ids []string) int
-		MoneyMovesRestore                    func(childComplexity int, ids []string) int
-		MoneyMovesSave                       func(childComplexity int, moneyMoveInput []*models.MoneyMoveInput) int
-		MoneyMovesUpdate                     func(childComplexity int, moneyMoveInput []*models.MoneyMoveInputWithID) int
-		OrdersDelete                         func(childComplexity int, ids []string) int
-		OrdersPublishUpdate                  func(childComplexity int, ids []string) int
-		OrdersRestore                        func(childComplexity int, ids []string) int
-		OrdersSave                           func(childComplexity int, orderInput []*models.OrderInput) int
-		OrdersUpdate                         func(childComplexity int, orderInput []*models.OrderInputWithID) int
-		PlacesDelete                         func(childComplexity int, ids []string) int
-		PlacesPublishUpdate                  func(childComplexity int, ids []string) int
-		PlacesRestore                        func(childComplexity int, ids []string) int
-		PlacesSave                           func(childComplexity int, placeInput []*models.PlaceInput) int
-		PlacesUpdate                         func(childComplexity int, placeInput []*models.PlaceInputWithID) int
-		Refresh                              func(childComplexity int, phone string, token string) int
-		Register                             func(childComplexity int, input models.RegisterInput) int
-		RentPaymentByMonthDelete             func(childComplexity int, ids []string) int
-		RentPaymentByMonthPublishUpdate      func(childComplexity int, ids []string) int
-		RentPaymentByMonthRestore            func(childComplexity int, ids []string) int
-		RentPaymentByMonthSave               func(childComplexity int, rentPaymentInput []*models.RentPaymentByMonthInput) int
-		RentPaymentByMonthUpdate             func(childComplexity int, rentPaymentInput []*models.RentPaymentByMonthInputWithID) int
-		RentPaymentByTrainingDelete          func(childComplexity int, ids []string) int
-		RentPaymentByTrainingPublishUpdate   func(childComplexity int, ids []string) int
-		RentPaymentByTrainingRestore         func(childComplexity int, ids []string) int
-		RentPaymentByTrainingSave            func(childComplexity int, rentPaymentInput []*models.RentPaymentByTrainingInput) int
-		RentPaymentByTrainingUpdate          func(childComplexity int, rentPaymentInput []*models.RentPaymentByTrainingInputWithID) int
-		StadiumsDelete                       func(childComplexity int, ids []string) int
-		StadiumsPublishUpdate                func(childComplexity int, ids []string) int
-		StadiumsRestore                      func(childComplexity int, ids []string) int
-		StadiumsSave                         func(childComplexity int, stadiumInput []*models.StadiumInput) int
-		StadiumsUpdate                       func(childComplexity int, stadiumInput []*models.StadiumInputWithID) int
-		StaffDelete                          func(childComplexity int, ids []string) int
-		StaffPublishUpdate                   func(childComplexity int, ids []string) int
-		StaffRestore                         func(childComplexity int, ids []string) int
-		StaffSave                            func(childComplexity int, staffInput []*models.StaffInput) int
-		StaffUpdate                          func(childComplexity int, staffInput []*models.StaffInputWithID) int
-		StudentVisitsDelete                  func(childComplexity int, ids []string) int
-		StudentVisitsPublishUpdate           func(childComplexity int, ids []string) int
-		StudentVisitsRestore                 func(childComplexity int, ids []string) int
-		StudentVisitsSave                    func(childComplexity int, studentVisitInput []*models.StudentVisitInput) int
-		StudentVisitsUpdate                  func(childComplexity int, studentVisitInput []*models.StudentVisitInputWithID) int
-		StudentsDelete                       func(childComplexity int, ids []string) int
-		StudentsPublishUpdate                func(childComplexity int, ids []string) int
-		StudentsRestore                      func(childComplexity int, ids []string) int
-		StudentsSave                         func(childComplexity int, studentInput []*models.StudentInput) int
-		StudentsUpdate                       func(childComplexity int, studentInput []*models.StudentInputWithID) int
-		TasksDelete                          func(childComplexity int, ids []string) int
-		TasksPublishUpdate                   func(childComplexity int, ids []string) int
-		TasksRestore                         func(childComplexity int, ids []string) int
-		TasksSave                            func(childComplexity int, taskInput []*models.TaskInput) int
-		TasksUpdate                          func(childComplexity int, taskInput []*models.TaskInputWithID) int
-		TeamBalancesDelete                   func(childComplexity int, ids []string) int
-		TeamBalancesPublishUpdate            func(childComplexity int, ids []string) int
-		TeamBalancesRestore                  func(childComplexity int, ids []string) int
-		TeamBalancesSave                     func(childComplexity int, teamBalanceInput []*models.TeamBalanceInput) int
-		TeamBalancesUpdate                   func(childComplexity int, teamBalanceInput []*models.TeamBalanceInputWithID) int
-		TeamsDelete                          func(childComplexity int, ids []string) int
-		TeamsPublishUpdate                   func(childComplexity int, ids []string) int
-		TeamsRestore                         func(childComplexity int, ids []string) int
-		TeamsSave                            func(childComplexity int, teamInput []*models.TeamInput) int
-		TeamsUpdate                          func(childComplexity int, teamInput []*models.TeamInputWithID) int
-		TrainingDaysDelete                   func(childComplexity int, ids []string) int
-		TrainingDaysPublishUpdate            func(childComplexity int, ids []string) int
-		TrainingDaysRestore                  func(childComplexity int, ids []string) int
-		TrainingDaysSave                     func(childComplexity int, trainingDayInput []*models.TrainingDayInput) int
-		TrainingDaysUpdate                   func(childComplexity int, trainingDayInput []*models.TrainingDayInputWithID) int
-		TrainingsDelete                      func(childComplexity int, ids []string) int
-		TrainingsPublishUpdate               func(childComplexity int, ids []string) int
-		TrainingsRestore                     func(childComplexity int, ids []string) int
-		TrainingsSave                        func(childComplexity int, trainingInput []*models.TrainingInput) int
-		TrainingsUpdate                      func(childComplexity int, trainingInput []*models.TrainingInputWithID) int
-		UpdateMeetup                         func(childComplexity int, id string, input *models.UpdateMeetup) int
-		UpdatePlace                          func(childComplexity int, id string, input *models.PlaceInput) int
-		UsersDelete                          func(childComplexity int, ids []string) int
-		UsersPublishUpdate                   func(childComplexity int, ids []string) int
-		UsersRestore                         func(childComplexity int, ids []string) int
-		UsersSave                            func(childComplexity int, userInput []*models.UserInput) int
-		UsersUpdate                          func(childComplexity int, userInput []*models.UserInputWithID) int
+		ArticleDelete                       func(childComplexity int, id string) int
+		ArticlePublishUpdate                func(childComplexity int, id string) int
+		ArticleRestore                      func(childComplexity int, id string) int
+		ArticleSave                         func(childComplexity int, articleInput models.ArticleInput) int
+		ArticleUpdate                       func(childComplexity int, articleInput models.ArticleInputWithID) int
+		CartDelete                          func(childComplexity int, id string) int
+		CartPublishUpdate                   func(childComplexity int, id string) int
+		CartRestore                         func(childComplexity int, id string) int
+		CartSave                            func(childComplexity int, cartInput models.CartInput) int
+		CartUpdate                          func(childComplexity int, cartInput models.CartInputWithID) int
+		ClubBalanceDelete                   func(childComplexity int, id string) int
+		ClubBalancePublishUpdate            func(childComplexity int, id string) int
+		ClubBalanceRestore                  func(childComplexity int, id string) int
+		ClubBalanceSave                     func(childComplexity int, clubBalanceInput models.ClubBalanceInput) int
+		ClubBalanceUpdate                   func(childComplexity int, clubBalanceInput models.ClubBalanceInputWithID) int
+		CoachPaymentByMonthDelete           func(childComplexity int, id string) int
+		CoachPaymentByMonthPublishUpdate    func(childComplexity int, id string) int
+		CoachPaymentByMonthRestore          func(childComplexity int, id string) int
+		CoachPaymentByMonthSave             func(childComplexity int, coachPaymentByMonthInput models.CoachPaymentByMonthInput) int
+		CoachPaymentByMonthUpdate           func(childComplexity int, coachPaymentByMonthInput models.CoachPaymentByMonthInputWithID) int
+		CoachPaymentByTeamDelete            func(childComplexity int, id string) int
+		CoachPaymentByTeamPublishUpdate     func(childComplexity int, id string) int
+		CoachPaymentByTeamRestore           func(childComplexity int, id string) int
+		CoachPaymentByTeamSave              func(childComplexity int, coachPaymentByTeamInput models.CoachPaymentByTeamInput) int
+		CoachPaymentByTeamUpdate            func(childComplexity int, coachPaymentByTeamInput models.CoachPaymentByTeamInputWithID) int
+		CoachPaymentByTrainingDelete        func(childComplexity int, id string) int
+		CoachPaymentByTrainingPublishUpdate func(childComplexity int, id string) int
+		CoachPaymentByTrainingRestore       func(childComplexity int, id string) int
+		CoachPaymentByTrainingSave          func(childComplexity int, coachPaymentByTrainingInput models.CoachPaymentByTrainingInput) int
+		CoachPaymentByTrainingUpdate        func(childComplexity int, coachPaymentByTrainingInput models.CoachPaymentByTrainingInputWithID) int
+		CreateMeetup                        func(childComplexity int, input models.NewMeetup) int
+		CreatorDelete                       func(childComplexity int, id string) int
+		CreatorPublishUpdate                func(childComplexity int, id string) int
+		CreatorRestore                      func(childComplexity int, id string) int
+		CreatorSave                         func(childComplexity int, creatorInput models.CreatorInput) int
+		CreatorUpdate                       func(childComplexity int, creatorInput models.CreatorInputWithID) int
+		DeleteMeetup                        func(childComplexity int, id string) int
+		KitDelete                           func(childComplexity int, id string) int
+		KitPublishUpdate                    func(childComplexity int, id string) int
+		KitRestore                          func(childComplexity int, id string) int
+		KitSave                             func(childComplexity int, kitInput models.KitInput) int
+		KitUpdate                           func(childComplexity int, kitInput models.KitInputWithID) int
+		LeadDelete                          func(childComplexity int, id string) int
+		LeadPublishUpdate                   func(childComplexity int, id string) int
+		LeadRestore                         func(childComplexity int, id string) int
+		LeadSave                            func(childComplexity int, leadInput models.LeadInput) int
+		LeadUpdate                          func(childComplexity int, leadInput models.LeadInputWithID) int
+		Login                               func(childComplexity int, input models.LoginInput) int
+		MoneyCostDelete                     func(childComplexity int, id string) int
+		MoneyCostPublishUpdate              func(childComplexity int, id string) int
+		MoneyCostRestore                    func(childComplexity int, id string) int
+		MoneyCostSave                       func(childComplexity int, moneyCostInput models.MoneyCostInput) int
+		MoneyCostUpdate                     func(childComplexity int, moneyCostInput models.MoneyCostInputWithID) int
+		MoneyMoveDelete                     func(childComplexity int, id string) int
+		MoneyMovePublishUpdate              func(childComplexity int, id string) int
+		MoneyMoveRestore                    func(childComplexity int, id string) int
+		MoneyMoveSave                       func(childComplexity int, moneyMoveInput models.MoneyMoveInput) int
+		MoneyMoveUpdate                     func(childComplexity int, moneyMoveInput models.MoneyMoveInputWithID) int
+		OrderDelete                         func(childComplexity int, id string) int
+		OrderPublishUpdate                  func(childComplexity int, id string) int
+		OrderRestore                        func(childComplexity int, id string) int
+		OrderSave                           func(childComplexity int, orderInput models.OrderInput) int
+		OrderUpdate                         func(childComplexity int, orderInput models.OrderInputWithID) int
+		PlaceDelete                         func(childComplexity int, id string) int
+		PlacePublishUpdate                  func(childComplexity int, id string) int
+		PlaceRestore                        func(childComplexity int, id string) int
+		PlaceSave                           func(childComplexity int, placeInput models.PlaceInput) int
+		PlaceUpdate                         func(childComplexity int, placeInput models.PlaceInputWithID) int
+		Refresh                             func(childComplexity int, phone string, token string) int
+		Register                            func(childComplexity int, input models.RegisterInput) int
+		RentPaymentByMonthDelete            func(childComplexity int, id string) int
+		RentPaymentByMonthPublishUpdate     func(childComplexity int, id string) int
+		RentPaymentByMonthRestore           func(childComplexity int, id string) int
+		RentPaymentByMonthSave              func(childComplexity int, rentPaymentInput models.RentPaymentByMonthInput) int
+		RentPaymentByMonthUpdate            func(childComplexity int, rentPaymentInput models.RentPaymentByMonthInputWithID) int
+		RentPaymentByTrainingDelete         func(childComplexity int, id string) int
+		RentPaymentByTrainingPublishUpdate  func(childComplexity int, id string) int
+		RentPaymentByTrainingRestore        func(childComplexity int, id string) int
+		RentPaymentByTrainingSave           func(childComplexity int, rentPaymentInput models.RentPaymentByTrainingInput) int
+		RentPaymentByTrainingUpdate         func(childComplexity int, rentPaymentInput models.RentPaymentByTrainingInputWithID) int
+		StadiumDelete                       func(childComplexity int, id string) int
+		StadiumPublishUpdate                func(childComplexity int, id string) int
+		StadiumRestore                      func(childComplexity int, id string) int
+		StadiumSave                         func(childComplexity int, stadiumInput models.StadiumInput) int
+		StadiumUpdate                       func(childComplexity int, stadiumInput models.StadiumInputWithID) int
+		StaffDelete                         func(childComplexity int, id string) int
+		StaffPublishUpdate                  func(childComplexity int, id string) int
+		StaffRestore                        func(childComplexity int, id string) int
+		StaffSave                           func(childComplexity int, staffInput models.StaffInput) int
+		StaffUpdate                         func(childComplexity int, staffInput models.StaffInputWithID) int
+		StudentDelete                       func(childComplexity int, id string) int
+		StudentPublishUpdate                func(childComplexity int, id string) int
+		StudentRestore                      func(childComplexity int, id string) int
+		StudentSave                         func(childComplexity int, studentInput models.StudentInput) int
+		StudentUpdate                       func(childComplexity int, studentInput models.StudentInputWithID) int
+		StudentVisitDelete                  func(childComplexity int, id string) int
+		StudentVisitPublishUpdate           func(childComplexity int, id string) int
+		StudentVisitRestore                 func(childComplexity int, id string) int
+		StudentVisitSave                    func(childComplexity int, studentVisitInput models.StudentVisitInput) int
+		StudentVisitUpdate                  func(childComplexity int, studentVisitInput models.StudentVisitInputWithID) int
+		TaskDelete                          func(childComplexity int, id string) int
+		TaskPublishUpdate                   func(childComplexity int, id string) int
+		TaskRestore                         func(childComplexity int, id string) int
+		TaskSave                            func(childComplexity int, taskInput models.TaskInput) int
+		TaskUpdate                          func(childComplexity int, taskInput models.TaskInputWithID) int
+		TeamBalanceDelete                   func(childComplexity int, id string) int
+		TeamBalancePublishUpdate            func(childComplexity int, id string) int
+		TeamBalanceRestore                  func(childComplexity int, id string) int
+		TeamBalanceSave                     func(childComplexity int, teamBalanceInput models.TeamBalanceInput) int
+		TeamBalanceUpdate                   func(childComplexity int, teamBalanceInput models.TeamBalanceInputWithID) int
+		TeamDelete                          func(childComplexity int, id string) int
+		TeamPublishUpdate                   func(childComplexity int, id string) int
+		TeamRestore                         func(childComplexity int, id string) int
+		TeamSave                            func(childComplexity int, teamInput models.TeamInput) int
+		TeamUpdate                          func(childComplexity int, teamInput models.TeamInputWithID) int
+		TrainingDayDelete                   func(childComplexity int, id string) int
+		TrainingDayPublishUpdate            func(childComplexity int, id string) int
+		TrainingDayRestore                  func(childComplexity int, id string) int
+		TrainingDaySave                     func(childComplexity int, trainingDayInput models.TrainingDayInput) int
+		TrainingDayUpdate                   func(childComplexity int, trainingDayInput models.TrainingDayInputWithID) int
+		TrainingDelete                      func(childComplexity int, id string) int
+		TrainingPublishUpdate               func(childComplexity int, id string) int
+		TrainingRestore                     func(childComplexity int, id string) int
+		TrainingSave                        func(childComplexity int, trainingInput models.TrainingInput) int
+		TrainingUpdate                      func(childComplexity int, trainingInput models.TrainingInputWithID) int
+		UpdateMeetup                        func(childComplexity int, id string, input *models.UpdateMeetup) int
+		UserDelete                          func(childComplexity int, id string) int
+		UserPublishUpdate                   func(childComplexity int, id string) int
+		UserRestore                         func(childComplexity int, id string) int
+		UserSave                            func(childComplexity int, userInput models.UserInput) int
+		UserUpdate                          func(childComplexity int, userInput models.UserInputWithID) int
 	}
 
 	Order struct {
@@ -1070,139 +1067,136 @@ type MeetupResolver interface {
 }
 type MutationResolver interface {
 	CreateMeetup(ctx context.Context, input models.NewMeetup) (*models.Meetup, error)
-	CreatePlace(ctx context.Context, input models.PlaceInput) (*models.PlacePayload, error)
 	UpdateMeetup(ctx context.Context, id string, input *models.UpdateMeetup) (*models.Meetup, error)
-	UpdatePlace(ctx context.Context, id string, input *models.PlaceInput) (*models.Place, error)
 	DeleteMeetup(ctx context.Context, id string) (bool, error)
-	DeletePlace(ctx context.Context, id string) (bool, error)
 	Register(ctx context.Context, input models.RegisterInput) (*models.AuthResponse, error)
 	Login(ctx context.Context, input models.LoginInput) (*models.AuthResponse, error)
-	ArticlesDelete(ctx context.Context, ids []string) ([]*models.ArticlePayload, error)
-	ArticlesPublishUpdate(ctx context.Context, ids []string) ([]*models.ArticlePayload, error)
-	ArticlesRestore(ctx context.Context, ids []string) ([]*models.ArticlePayload, error)
-	ArticlesSave(ctx context.Context, articleInput []*models.ArticleInput) ([]*models.ArticlePayload, error)
-	ArticlesUpdate(ctx context.Context, articleInput []*models.ArticleInputWithID) ([]*models.ArticlePayload, error)
-	CartsDelete(ctx context.Context, ids []string) ([]*models.CartPayload, error)
-	CartsPublishUpdate(ctx context.Context, ids []string) ([]*models.CartPayload, error)
-	CartsRestore(ctx context.Context, ids []string) ([]*models.CartPayload, error)
-	CartsSave(ctx context.Context, cartInput []*models.CartInput) ([]*models.CartPayload, error)
-	CartsUpdate(ctx context.Context, cartInput []*models.CartInputWithID) ([]*models.CartPayload, error)
-	ClubBalancesDelete(ctx context.Context, ids []string) ([]*models.ClubBalancePayload, error)
-	ClubBalancesPublishUpdate(ctx context.Context, ids []string) ([]*models.ClubBalancePayload, error)
-	ClubBalancesRestore(ctx context.Context, ids []string) ([]*models.ClubBalancePayload, error)
-	ClubBalancesSave(ctx context.Context, clubBalanceInput []*models.ClubBalanceInput) ([]*models.ClubBalancePayload, error)
-	ClubBalancesUpdate(ctx context.Context, clubBalanceInput []*models.ClubBalanceInputWithID) ([]*models.ClubBalancePayload, error)
-	CoachPaymentsByMonthDelete(ctx context.Context, ids []string) ([]*models.CoachPaymentByMonthPayload, error)
-	CoachPaymentsByMonthPublishUpdate(ctx context.Context, ids []string) ([]*models.CoachPaymentByMonthPayload, error)
-	CoachPaymentsByMonthRestore(ctx context.Context, ids []string) ([]*models.CoachPaymentByMonthPayload, error)
-	CoachPaymentsByMonthSave(ctx context.Context, coachPaymentByMonthInput []*models.CoachPaymentByMonthInput) ([]*models.CoachPaymentByMonthPayload, error)
-	CoachPaymentsByMonthUpdate(ctx context.Context, coachPaymentByMonthInput []*models.CoachPaymentByMonthInputWithID) ([]*models.CoachPaymentByMonthPayload, error)
-	CoachPaymentsByTeamDelete(ctx context.Context, ids []string) ([]*models.CoachPaymentByTeamPayload, error)
-	CoachPaymentsByTeamPublishUpdate(ctx context.Context, ids []string) ([]*models.CoachPaymentByTeamPayload, error)
-	CoachPaymentsByTeamRestore(ctx context.Context, ids []string) ([]*models.CoachPaymentByTeamPayload, error)
-	CoachPaymentsByTeamSave(ctx context.Context, coachPaymentByTeamInput []*models.CoachPaymentByTeamInput) ([]*models.CoachPaymentByTeamPayload, error)
-	CoachPaymentsByTeamUpdate(ctx context.Context, coachPaymentByTeamInput []*models.CoachPaymentByTeamInputWithID) ([]*models.CoachPaymentByTeamPayload, error)
-	CoachPaymentsByTrainingDelete(ctx context.Context, ids []string) ([]*models.CoachPaymentByTrainingPayload, error)
-	CoachPaymentsByTrainingPublishUpdate(ctx context.Context, ids []string) ([]*models.CoachPaymentByTrainingPayload, error)
-	CoachPaymentsByTrainingRestore(ctx context.Context, ids []string) ([]*models.CoachPaymentByTrainingPayload, error)
-	CoachPaymentsByTrainingSave(ctx context.Context, coachPaymentByTrainingInput []*models.CoachPaymentByTrainingInput) ([]*models.CoachPaymentByTrainingPayload, error)
-	CoachPaymentsByTrainingUpdate(ctx context.Context, coachPaymentByTrainingInput []*models.CoachPaymentByTrainingInputWithID) ([]*models.CoachPaymentByTrainingPayload, error)
-	CreatorsDelete(ctx context.Context, ids []string) ([]*models.CreatorPayload, error)
-	CreatorsPublishUpdate(ctx context.Context, ids []string) ([]*models.CreatorPayload, error)
-	CreatorsRestore(ctx context.Context, ids []string) ([]*models.CreatorPayload, error)
-	CreatorsSave(ctx context.Context, creatorInput []*models.CreatorInput) ([]*models.CreatorPayload, error)
-	CreatorsUpdate(ctx context.Context, creatorInput []*models.CreatorInputWithID) ([]*models.CreatorPayload, error)
-	KitsDelete(ctx context.Context, ids []string) ([]*models.KitPayload, error)
-	KitsPublishUpdate(ctx context.Context, ids []string) ([]*models.KitPayload, error)
-	KitsRestore(ctx context.Context, ids []string) ([]*models.KitPayload, error)
-	KitsSave(ctx context.Context, kitInput []*models.KitInput) ([]*models.KitPayload, error)
-	KitsUpdate(ctx context.Context, kitInput []*models.KitInputWithID) ([]*models.KitPayload, error)
-	LeadsDelete(ctx context.Context, ids []string) ([]*models.LeadPayload, error)
-	LeadsPublishUpdate(ctx context.Context, ids []string) ([]*models.LeadPayload, error)
-	LeadsRestore(ctx context.Context, ids []string) ([]*models.LeadPayload, error)
-	LeadsSave(ctx context.Context, leadInput []*models.LeadInput) ([]*models.LeadPayload, error)
-	LeadsUpdate(ctx context.Context, leadInput []*models.LeadInputWithID) ([]*models.LeadPayload, error)
-	MoneyCostsDelete(ctx context.Context, ids []string) ([]*models.MoneyCostPayload, error)
-	MoneyCostsPublishUpdate(ctx context.Context, ids []string) ([]*models.MoneyCostPayload, error)
-	MoneyCostsRestore(ctx context.Context, ids []string) ([]*models.MoneyCostPayload, error)
-	MoneyCostsSave(ctx context.Context, moneyCostInput []*models.MoneyCostInput) ([]*models.MoneyCostPayload, error)
-	MoneyCostsUpdate(ctx context.Context, moneyCostInput []*models.MoneyCostInputWithID) ([]*models.MoneyCostPayload, error)
-	MoneyMovesDelete(ctx context.Context, ids []string) ([]*models.MoneyMovePayload, error)
-	MoneyMovesPublishUpdate(ctx context.Context, ids []string) ([]*models.MoneyMovePayload, error)
-	MoneyMovesRestore(ctx context.Context, ids []string) ([]*models.MoneyMovePayload, error)
-	MoneyMovesSave(ctx context.Context, moneyMoveInput []*models.MoneyMoveInput) ([]*models.MoneyMovePayload, error)
-	MoneyMovesUpdate(ctx context.Context, moneyMoveInput []*models.MoneyMoveInputWithID) ([]*models.MoneyMovePayload, error)
-	OrdersDelete(ctx context.Context, ids []string) ([]*models.OrderPayload, error)
-	OrdersPublishUpdate(ctx context.Context, ids []string) ([]*models.OrderPayload, error)
-	OrdersRestore(ctx context.Context, ids []string) ([]*models.OrderPayload, error)
-	OrdersSave(ctx context.Context, orderInput []*models.OrderInput) ([]*models.OrderPayload, error)
-	OrdersUpdate(ctx context.Context, orderInput []*models.OrderInputWithID) ([]*models.OrderPayload, error)
-	PlacesDelete(ctx context.Context, ids []string) ([]*models.PlacePayload, error)
-	PlacesPublishUpdate(ctx context.Context, ids []string) ([]*models.PlacePayload, error)
-	PlacesRestore(ctx context.Context, ids []string) ([]*models.PlacePayload, error)
-	PlacesSave(ctx context.Context, placeInput []*models.PlaceInput) ([]*models.PlacePayload, error)
-	PlacesUpdate(ctx context.Context, placeInput []*models.PlaceInputWithID) ([]*models.PlacePayload, error)
+	ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error)
+	ArticlePublishUpdate(ctx context.Context, id string) (*models.ArticlePayload, error)
+	ArticleRestore(ctx context.Context, id string) (*models.ArticlePayload, error)
+	ArticleSave(ctx context.Context, articleInput models.ArticleInput) (*models.ArticlePayload, error)
+	ArticleUpdate(ctx context.Context, articleInput models.ArticleInputWithID) (*models.ArticlePayload, error)
+	CartDelete(ctx context.Context, id string) (*models.CartPayload, error)
+	CartPublishUpdate(ctx context.Context, id string) (*models.CartPayload, error)
+	CartRestore(ctx context.Context, id string) (*models.CartPayload, error)
+	CartSave(ctx context.Context, cartInput models.CartInput) (*models.CartPayload, error)
+	CartUpdate(ctx context.Context, cartInput models.CartInputWithID) (*models.CartPayload, error)
+	ClubBalanceDelete(ctx context.Context, id string) (*models.ClubBalancePayload, error)
+	ClubBalancePublishUpdate(ctx context.Context, id string) (*models.ClubBalancePayload, error)
+	ClubBalanceRestore(ctx context.Context, id string) (*models.ClubBalancePayload, error)
+	ClubBalanceSave(ctx context.Context, clubBalanceInput models.ClubBalanceInput) (*models.ClubBalancePayload, error)
+	ClubBalanceUpdate(ctx context.Context, clubBalanceInput models.ClubBalanceInputWithID) (*models.ClubBalancePayload, error)
+	CoachPaymentByMonthDelete(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error)
+	CoachPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error)
+	CoachPaymentByMonthRestore(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error)
+	CoachPaymentByMonthSave(ctx context.Context, coachPaymentByMonthInput models.CoachPaymentByMonthInput) (*models.CoachPaymentByMonthPayload, error)
+	CoachPaymentByMonthUpdate(ctx context.Context, coachPaymentByMonthInput models.CoachPaymentByMonthInputWithID) (*models.CoachPaymentByMonthPayload, error)
+	CoachPaymentByTeamDelete(ctx context.Context, id string) (*models.CoachPaymentByTeamPayload, error)
+	CoachPaymentByTeamPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByTeamPayload, error)
+	CoachPaymentByTeamRestore(ctx context.Context, id string) (*models.CoachPaymentByTeamPayload, error)
+	CoachPaymentByTeamSave(ctx context.Context, coachPaymentByTeamInput models.CoachPaymentByTeamInput) (*models.CoachPaymentByTeamPayload, error)
+	CoachPaymentByTeamUpdate(ctx context.Context, coachPaymentByTeamInput models.CoachPaymentByTeamInputWithID) (*models.CoachPaymentByTeamPayload, error)
+	CoachPaymentByTrainingDelete(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error)
+	CoachPaymentByTrainingPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error)
+	CoachPaymentByTrainingRestore(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error)
+	CoachPaymentByTrainingSave(ctx context.Context, coachPaymentByTrainingInput models.CoachPaymentByTrainingInput) (*models.CoachPaymentByTrainingPayload, error)
+	CoachPaymentByTrainingUpdate(ctx context.Context, coachPaymentByTrainingInput models.CoachPaymentByTrainingInputWithID) (*models.CoachPaymentByTrainingPayload, error)
+	CreatorDelete(ctx context.Context, id string) (*models.CreatorPayload, error)
+	CreatorPublishUpdate(ctx context.Context, id string) (*models.CreatorPayload, error)
+	CreatorRestore(ctx context.Context, id string) (*models.CreatorPayload, error)
+	CreatorSave(ctx context.Context, creatorInput models.CreatorInput) (*models.CreatorPayload, error)
+	CreatorUpdate(ctx context.Context, creatorInput models.CreatorInputWithID) (*models.CreatorPayload, error)
+	KitDelete(ctx context.Context, id string) (*models.KitPayload, error)
+	KitPublishUpdate(ctx context.Context, id string) (*models.KitPayload, error)
+	KitRestore(ctx context.Context, id string) (*models.KitPayload, error)
+	KitSave(ctx context.Context, kitInput models.KitInput) (*models.KitPayload, error)
+	KitUpdate(ctx context.Context, kitInput models.KitInputWithID) (*models.KitPayload, error)
+	LeadDelete(ctx context.Context, id string) (*models.LeadPayload, error)
+	LeadPublishUpdate(ctx context.Context, id string) (*models.LeadPayload, error)
+	LeadRestore(ctx context.Context, id string) (*models.LeadPayload, error)
+	LeadSave(ctx context.Context, leadInput models.LeadInput) (*models.LeadPayload, error)
+	LeadUpdate(ctx context.Context, leadInput models.LeadInputWithID) (*models.LeadPayload, error)
+	MoneyCostDelete(ctx context.Context, id string) (*models.MoneyCostPayload, error)
+	MoneyCostPublishUpdate(ctx context.Context, id string) (*models.MoneyCostPayload, error)
+	MoneyCostRestore(ctx context.Context, id string) (*models.MoneyCostPayload, error)
+	MoneyCostSave(ctx context.Context, moneyCostInput models.MoneyCostInput) (*models.MoneyCostPayload, error)
+	MoneyCostUpdate(ctx context.Context, moneyCostInput models.MoneyCostInputWithID) (*models.MoneyCostPayload, error)
+	MoneyMoveDelete(ctx context.Context, id string) (*models.MoneyMovePayload, error)
+	MoneyMovePublishUpdate(ctx context.Context, id string) (*models.MoneyMovePayload, error)
+	MoneyMoveRestore(ctx context.Context, id string) (*models.MoneyMovePayload, error)
+	MoneyMoveSave(ctx context.Context, moneyMoveInput models.MoneyMoveInput) (*models.MoneyMovePayload, error)
+	MoneyMoveUpdate(ctx context.Context, moneyMoveInput models.MoneyMoveInputWithID) (*models.MoneyMovePayload, error)
+	OrderDelete(ctx context.Context, id string) (*models.OrderPayload, error)
+	OrderPublishUpdate(ctx context.Context, id string) (*models.OrderPayload, error)
+	OrderRestore(ctx context.Context, id string) (*models.OrderPayload, error)
+	OrderSave(ctx context.Context, orderInput models.OrderInput) (*models.OrderPayload, error)
+	OrderUpdate(ctx context.Context, orderInput models.OrderInputWithID) (*models.OrderPayload, error)
+	PlaceDelete(ctx context.Context, id string) (*models.PlacePayload, error)
+	PlacePublishUpdate(ctx context.Context, id string) (*models.PlacePayload, error)
+	PlaceRestore(ctx context.Context, id string) (*models.PlacePayload, error)
+	PlaceSave(ctx context.Context, placeInput models.PlaceInput) (*models.PlacePayload, error)
+	PlaceUpdate(ctx context.Context, placeInput models.PlaceInputWithID) (*models.PlacePayload, error)
 	Refresh(ctx context.Context, phone string, token string) (*models.Token, error)
-	RentPaymentByMonthDelete(ctx context.Context, ids []string) ([]*models.RentPaymentByMonthPayload, error)
-	RentPaymentByMonthPublishUpdate(ctx context.Context, ids []string) ([]*models.RentPaymentByMonthPayload, error)
-	RentPaymentByMonthRestore(ctx context.Context, ids []string) ([]*models.RentPaymentByMonthPayload, error)
-	RentPaymentByMonthSave(ctx context.Context, rentPaymentInput []*models.RentPaymentByMonthInput) ([]*models.RentPaymentByMonthPayload, error)
-	RentPaymentByMonthUpdate(ctx context.Context, rentPaymentInput []*models.RentPaymentByMonthInputWithID) ([]*models.RentPaymentByMonthPayload, error)
-	RentPaymentByTrainingDelete(ctx context.Context, ids []string) ([]*models.RentPaymentByTrainingPayload, error)
-	RentPaymentByTrainingPublishUpdate(ctx context.Context, ids []string) ([]*models.RentPaymentByTrainingPayload, error)
-	RentPaymentByTrainingRestore(ctx context.Context, ids []string) ([]*models.RentPaymentByTrainingPayload, error)
-	RentPaymentByTrainingSave(ctx context.Context, rentPaymentInput []*models.RentPaymentByTrainingInput) ([]*models.RentPaymentByTrainingPayload, error)
-	RentPaymentByTrainingUpdate(ctx context.Context, rentPaymentInput []*models.RentPaymentByTrainingInputWithID) ([]*models.RentPaymentByTrainingPayload, error)
-	StadiumsDelete(ctx context.Context, ids []string) ([]*models.StadiumPayload, error)
-	StadiumsPublishUpdate(ctx context.Context, ids []string) ([]*models.StadiumPayload, error)
-	StadiumsRestore(ctx context.Context, ids []string) ([]*models.StadiumPayload, error)
-	StadiumsSave(ctx context.Context, stadiumInput []*models.StadiumInput) ([]*models.StadiumPayload, error)
-	StadiumsUpdate(ctx context.Context, stadiumInput []*models.StadiumInputWithID) ([]*models.StadiumPayload, error)
-	StaffDelete(ctx context.Context, ids []string) ([]*models.StaffPayload, error)
-	StaffPublishUpdate(ctx context.Context, ids []string) ([]*models.StaffPayload, error)
-	StaffRestore(ctx context.Context, ids []string) ([]*models.StaffPayload, error)
-	StaffSave(ctx context.Context, staffInput []*models.StaffInput) ([]*models.StaffPayload, error)
-	StaffUpdate(ctx context.Context, staffInput []*models.StaffInputWithID) ([]*models.StaffPayload, error)
-	StudentVisitsDelete(ctx context.Context, ids []string) ([]*models.StudentVisitPayload, error)
-	StudentVisitsPublishUpdate(ctx context.Context, ids []string) ([]*models.StudentVisitPayload, error)
-	StudentVisitsRestore(ctx context.Context, ids []string) ([]*models.StudentVisitPayload, error)
-	StudentVisitsSave(ctx context.Context, studentVisitInput []*models.StudentVisitInput) ([]*models.StudentVisitPayload, error)
-	StudentVisitsUpdate(ctx context.Context, studentVisitInput []*models.StudentVisitInputWithID) ([]*models.StudentVisitPayload, error)
-	StudentsDelete(ctx context.Context, ids []string) ([]*models.StudentPayload, error)
-	StudentsPublishUpdate(ctx context.Context, ids []string) ([]*models.StudentPayload, error)
-	StudentsRestore(ctx context.Context, ids []string) ([]*models.StudentPayload, error)
-	StudentsSave(ctx context.Context, studentInput []*models.StudentInput) ([]*models.StudentPayload, error)
-	StudentsUpdate(ctx context.Context, studentInput []*models.StudentInputWithID) ([]*models.StudentPayload, error)
-	TasksDelete(ctx context.Context, ids []string) ([]*models.TaskPayload, error)
-	TasksPublishUpdate(ctx context.Context, ids []string) ([]*models.TaskPayload, error)
-	TasksRestore(ctx context.Context, ids []string) ([]*models.TaskPayload, error)
-	TasksSave(ctx context.Context, taskInput []*models.TaskInput) ([]*models.TaskPayload, error)
-	TasksUpdate(ctx context.Context, taskInput []*models.TaskInputWithID) ([]*models.TaskPayload, error)
-	TeamBalancesDelete(ctx context.Context, ids []string) ([]*models.TeamBalancePayload, error)
-	TeamBalancesPublishUpdate(ctx context.Context, ids []string) ([]*models.TeamBalancePayload, error)
-	TeamBalancesRestore(ctx context.Context, ids []string) ([]*models.TeamBalancePayload, error)
-	TeamBalancesSave(ctx context.Context, teamBalanceInput []*models.TeamBalanceInput) ([]*models.TeamBalancePayload, error)
-	TeamBalancesUpdate(ctx context.Context, teamBalanceInput []*models.TeamBalanceInputWithID) ([]*models.TeamBalancePayload, error)
-	TeamsDelete(ctx context.Context, ids []string) ([]*models.TeamPayload, error)
-	TeamsPublishUpdate(ctx context.Context, ids []string) ([]*models.TeamPayload, error)
-	TeamsRestore(ctx context.Context, ids []string) ([]*models.TeamPayload, error)
-	TeamsSave(ctx context.Context, teamInput []*models.TeamInput) ([]*models.TeamPayload, error)
-	TeamsUpdate(ctx context.Context, teamInput []*models.TeamInputWithID) ([]*models.TeamPayload, error)
-	TrainingDaysDelete(ctx context.Context, ids []string) ([]*models.TrainingDayPayload, error)
-	TrainingDaysPublishUpdate(ctx context.Context, ids []string) ([]*models.TrainingDayPayload, error)
-	TrainingDaysRestore(ctx context.Context, ids []string) ([]*models.TrainingDayPayload, error)
-	TrainingDaysSave(ctx context.Context, trainingDayInput []*models.TrainingDayInput) ([]*models.TrainingDayPayload, error)
-	TrainingDaysUpdate(ctx context.Context, trainingDayInput []*models.TrainingDayInputWithID) ([]*models.TrainingDayPayload, error)
-	TrainingsDelete(ctx context.Context, ids []string) ([]*models.TrainingPayload, error)
-	TrainingsPublishUpdate(ctx context.Context, ids []string) ([]*models.TrainingPayload, error)
-	TrainingsRestore(ctx context.Context, ids []string) ([]*models.TrainingPayload, error)
-	TrainingsSave(ctx context.Context, trainingInput []*models.TrainingInput) ([]*models.TrainingPayload, error)
-	TrainingsUpdate(ctx context.Context, trainingInput []*models.TrainingInputWithID) ([]*models.TrainingPayload, error)
-	UsersDelete(ctx context.Context, ids []string) ([]*models.UserPayload, error)
-	UsersPublishUpdate(ctx context.Context, ids []string) ([]*models.UserPayload, error)
-	UsersRestore(ctx context.Context, ids []string) ([]*models.UserPayload, error)
-	UsersSave(ctx context.Context, userInput []*models.UserInput) ([]*models.UserPayload, error)
-	UsersUpdate(ctx context.Context, userInput []*models.UserInputWithID) ([]*models.UserPayload, error)
+	RentPaymentByMonthDelete(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error)
+	RentPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error)
+	RentPaymentByMonthRestore(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error)
+	RentPaymentByMonthSave(ctx context.Context, rentPaymentInput models.RentPaymentByMonthInput) (*models.RentPaymentByMonthPayload, error)
+	RentPaymentByMonthUpdate(ctx context.Context, rentPaymentInput models.RentPaymentByMonthInputWithID) (*models.RentPaymentByMonthPayload, error)
+	RentPaymentByTrainingDelete(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error)
+	RentPaymentByTrainingPublishUpdate(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error)
+	RentPaymentByTrainingRestore(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error)
+	RentPaymentByTrainingSave(ctx context.Context, rentPaymentInput models.RentPaymentByTrainingInput) (*models.RentPaymentByTrainingPayload, error)
+	RentPaymentByTrainingUpdate(ctx context.Context, rentPaymentInput models.RentPaymentByTrainingInputWithID) (*models.RentPaymentByTrainingPayload, error)
+	StadiumDelete(ctx context.Context, id string) (*models.StadiumPayload, error)
+	StadiumPublishUpdate(ctx context.Context, id string) (*models.StadiumPayload, error)
+	StadiumRestore(ctx context.Context, id string) (*models.StadiumPayload, error)
+	StadiumSave(ctx context.Context, stadiumInput models.StadiumInput) (*models.StadiumPayload, error)
+	StadiumUpdate(ctx context.Context, stadiumInput models.StadiumInputWithID) (*models.StadiumPayload, error)
+	StaffDelete(ctx context.Context, id string) (*models.StaffPayload, error)
+	StaffPublishUpdate(ctx context.Context, id string) (*models.StaffPayload, error)
+	StaffRestore(ctx context.Context, id string) (*models.StaffPayload, error)
+	StaffSave(ctx context.Context, staffInput models.StaffInput) (*models.StaffPayload, error)
+	StaffUpdate(ctx context.Context, staffInput models.StaffInputWithID) (*models.StaffPayload, error)
+	StudentVisitDelete(ctx context.Context, id string) (*models.StudentVisitPayload, error)
+	StudentVisitPublishUpdate(ctx context.Context, id string) (*models.StudentVisitPayload, error)
+	StudentVisitRestore(ctx context.Context, id string) (*models.StudentVisitPayload, error)
+	StudentVisitSave(ctx context.Context, studentVisitInput models.StudentVisitInput) (*models.StudentVisitPayload, error)
+	StudentVisitUpdate(ctx context.Context, studentVisitInput models.StudentVisitInputWithID) (*models.StudentVisitPayload, error)
+	StudentDelete(ctx context.Context, id string) (*models.StudentPayload, error)
+	StudentPublishUpdate(ctx context.Context, id string) (*models.StudentPayload, error)
+	StudentRestore(ctx context.Context, id string) (*models.StudentPayload, error)
+	StudentSave(ctx context.Context, studentInput models.StudentInput) (*models.StudentPayload, error)
+	StudentUpdate(ctx context.Context, studentInput models.StudentInputWithID) (*models.StudentPayload, error)
+	TaskDelete(ctx context.Context, id string) (*models.TaskPayload, error)
+	TaskPublishUpdate(ctx context.Context, id string) (*models.TaskPayload, error)
+	TaskRestore(ctx context.Context, id string) (*models.TaskPayload, error)
+	TaskSave(ctx context.Context, taskInput models.TaskInput) (*models.TaskPayload, error)
+	TaskUpdate(ctx context.Context, taskInput models.TaskInputWithID) (*models.TaskPayload, error)
+	TeamBalanceDelete(ctx context.Context, id string) (*models.TeamBalancePayload, error)
+	TeamBalancePublishUpdate(ctx context.Context, id string) (*models.TeamBalancePayload, error)
+	TeamBalanceRestore(ctx context.Context, id string) (*models.TeamBalancePayload, error)
+	TeamBalanceSave(ctx context.Context, teamBalanceInput models.TeamBalanceInput) (*models.TeamBalancePayload, error)
+	TeamBalanceUpdate(ctx context.Context, teamBalanceInput models.TeamBalanceInputWithID) (*models.TeamBalancePayload, error)
+	TeamDelete(ctx context.Context, id string) (*models.TeamPayload, error)
+	TeamPublishUpdate(ctx context.Context, id string) (*models.TeamPayload, error)
+	TeamRestore(ctx context.Context, id string) (*models.TeamPayload, error)
+	TeamSave(ctx context.Context, teamInput models.TeamInput) (*models.TeamPayload, error)
+	TeamUpdate(ctx context.Context, teamInput models.TeamInputWithID) (*models.TeamPayload, error)
+	TrainingDayDelete(ctx context.Context, id string) (*models.TrainingDayPayload, error)
+	TrainingDayPublishUpdate(ctx context.Context, id string) (*models.TrainingDayPayload, error)
+	TrainingDayRestore(ctx context.Context, id string) (*models.TrainingDayPayload, error)
+	TrainingDaySave(ctx context.Context, trainingDayInput models.TrainingDayInput) (*models.TrainingDayPayload, error)
+	TrainingDayUpdate(ctx context.Context, trainingDayInput models.TrainingDayInputWithID) (*models.TrainingDayPayload, error)
+	TrainingDelete(ctx context.Context, id string) (*models.TrainingPayload, error)
+	TrainingPublishUpdate(ctx context.Context, id string) (*models.TrainingPayload, error)
+	TrainingRestore(ctx context.Context, id string) (*models.TrainingPayload, error)
+	TrainingSave(ctx context.Context, trainingInput models.TrainingInput) (*models.TrainingPayload, error)
+	TrainingUpdate(ctx context.Context, trainingInput models.TrainingInputWithID) (*models.TrainingPayload, error)
+	UserDelete(ctx context.Context, id string) (*models.UserPayload, error)
+	UserPublishUpdate(ctx context.Context, id string) (*models.UserPayload, error)
+	UserRestore(ctx context.Context, id string) (*models.UserPayload, error)
+	UserSave(ctx context.Context, userInput models.UserInput) (*models.UserPayload, error)
+	UserUpdate(ctx context.Context, userInput models.UserInputWithID) (*models.UserPayload, error)
 }
 type QueryResolver interface {
 	Meetups(ctx context.Context, filter *models.MeetupFilter, limit *int, offset *int) ([]*models.Meetup, error)
@@ -2703,365 +2697,365 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.MoneyMovePayload.RecordID(childComplexity), true
 
-	case "Mutation.articlesDelete":
-		if e.complexity.Mutation.ArticlesDelete == nil {
+	case "Mutation.articleDelete":
+		if e.complexity.Mutation.ArticleDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_articlesDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_articleDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ArticlesDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.ArticleDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.articlesPublishUpdate":
-		if e.complexity.Mutation.ArticlesPublishUpdate == nil {
+	case "Mutation.articlePublishUpdate":
+		if e.complexity.Mutation.ArticlePublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_articlesPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_articlePublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ArticlesPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.ArticlePublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.articlesRestore":
-		if e.complexity.Mutation.ArticlesRestore == nil {
+	case "Mutation.articleRestore":
+		if e.complexity.Mutation.ArticleRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_articlesRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_articleRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ArticlesRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.ArticleRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.articlesSave":
-		if e.complexity.Mutation.ArticlesSave == nil {
+	case "Mutation.articleSave":
+		if e.complexity.Mutation.ArticleSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_articlesSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_articleSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ArticlesSave(childComplexity, args["articleInput"].([]*models.ArticleInput)), true
+		return e.complexity.Mutation.ArticleSave(childComplexity, args["articleInput"].(models.ArticleInput)), true
 
-	case "Mutation.articlesUpdate":
-		if e.complexity.Mutation.ArticlesUpdate == nil {
+	case "Mutation.articleUpdate":
+		if e.complexity.Mutation.ArticleUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_articlesUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_articleUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ArticlesUpdate(childComplexity, args["articleInput"].([]*models.ArticleInputWithID)), true
+		return e.complexity.Mutation.ArticleUpdate(childComplexity, args["articleInput"].(models.ArticleInputWithID)), true
 
-	case "Mutation.cartsDelete":
-		if e.complexity.Mutation.CartsDelete == nil {
+	case "Mutation.cartDelete":
+		if e.complexity.Mutation.CartDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_cartsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_cartDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CartsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CartDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.cartsPublishUpdate":
-		if e.complexity.Mutation.CartsPublishUpdate == nil {
+	case "Mutation.cartPublishUpdate":
+		if e.complexity.Mutation.CartPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_cartsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_cartPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CartsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CartPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.cartsRestore":
-		if e.complexity.Mutation.CartsRestore == nil {
+	case "Mutation.cartRestore":
+		if e.complexity.Mutation.CartRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_cartsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_cartRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CartsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CartRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.cartsSave":
-		if e.complexity.Mutation.CartsSave == nil {
+	case "Mutation.cartSave":
+		if e.complexity.Mutation.CartSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_cartsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_cartSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CartsSave(childComplexity, args["cartInput"].([]*models.CartInput)), true
+		return e.complexity.Mutation.CartSave(childComplexity, args["cartInput"].(models.CartInput)), true
 
-	case "Mutation.cartsUpdate":
-		if e.complexity.Mutation.CartsUpdate == nil {
+	case "Mutation.cartUpdate":
+		if e.complexity.Mutation.CartUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_cartsUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_cartUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CartsUpdate(childComplexity, args["cartInput"].([]*models.CartInputWithID)), true
+		return e.complexity.Mutation.CartUpdate(childComplexity, args["cartInput"].(models.CartInputWithID)), true
 
-	case "Mutation.clubBalancesDelete":
-		if e.complexity.Mutation.ClubBalancesDelete == nil {
+	case "Mutation.clubBalanceDelete":
+		if e.complexity.Mutation.ClubBalanceDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_clubBalancesDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_clubBalanceDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ClubBalancesDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.ClubBalanceDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.clubBalancesPublishUpdate":
-		if e.complexity.Mutation.ClubBalancesPublishUpdate == nil {
+	case "Mutation.clubBalancePublishUpdate":
+		if e.complexity.Mutation.ClubBalancePublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_clubBalancesPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_clubBalancePublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ClubBalancesPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.ClubBalancePublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.clubBalancesRestore":
-		if e.complexity.Mutation.ClubBalancesRestore == nil {
+	case "Mutation.clubBalanceRestore":
+		if e.complexity.Mutation.ClubBalanceRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_clubBalancesRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_clubBalanceRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ClubBalancesRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.ClubBalanceRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.clubBalancesSave":
-		if e.complexity.Mutation.ClubBalancesSave == nil {
+	case "Mutation.clubBalanceSave":
+		if e.complexity.Mutation.ClubBalanceSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_clubBalancesSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_clubBalanceSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ClubBalancesSave(childComplexity, args["clubBalanceInput"].([]*models.ClubBalanceInput)), true
+		return e.complexity.Mutation.ClubBalanceSave(childComplexity, args["clubBalanceInput"].(models.ClubBalanceInput)), true
 
-	case "Mutation.clubBalancesUpdate":
-		if e.complexity.Mutation.ClubBalancesUpdate == nil {
+	case "Mutation.clubBalanceUpdate":
+		if e.complexity.Mutation.ClubBalanceUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_clubBalancesUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_clubBalanceUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.ClubBalancesUpdate(childComplexity, args["clubBalanceInput"].([]*models.ClubBalanceInputWithID)), true
+		return e.complexity.Mutation.ClubBalanceUpdate(childComplexity, args["clubBalanceInput"].(models.ClubBalanceInputWithID)), true
 
-	case "Mutation.coachPaymentsByMonthDelete":
-		if e.complexity.Mutation.CoachPaymentsByMonthDelete == nil {
+	case "Mutation.coachPaymentByMonthDelete":
+		if e.complexity.Mutation.CoachPaymentByMonthDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByMonthDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByMonthDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByMonthDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByMonthDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByMonthPublishUpdate":
-		if e.complexity.Mutation.CoachPaymentsByMonthPublishUpdate == nil {
+	case "Mutation.coachPaymentByMonthPublishUpdate":
+		if e.complexity.Mutation.CoachPaymentByMonthPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByMonthPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByMonthPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByMonthPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByMonthPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByMonthRestore":
-		if e.complexity.Mutation.CoachPaymentsByMonthRestore == nil {
+	case "Mutation.coachPaymentByMonthRestore":
+		if e.complexity.Mutation.CoachPaymentByMonthRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByMonthRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByMonthRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByMonthRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByMonthRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByMonthSave":
-		if e.complexity.Mutation.CoachPaymentsByMonthSave == nil {
+	case "Mutation.coachPaymentByMonthSave":
+		if e.complexity.Mutation.CoachPaymentByMonthSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByMonthSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByMonthSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByMonthSave(childComplexity, args["coachPaymentByMonthInput"].([]*models.CoachPaymentByMonthInput)), true
+		return e.complexity.Mutation.CoachPaymentByMonthSave(childComplexity, args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInput)), true
 
-	case "Mutation.coachPaymentsByMonthUpdate":
-		if e.complexity.Mutation.CoachPaymentsByMonthUpdate == nil {
+	case "Mutation.coachPaymentByMonthUpdate":
+		if e.complexity.Mutation.CoachPaymentByMonthUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByMonthUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByMonthUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByMonthUpdate(childComplexity, args["coachPaymentByMonthInput"].([]*models.CoachPaymentByMonthInputWithID)), true
+		return e.complexity.Mutation.CoachPaymentByMonthUpdate(childComplexity, args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInputWithID)), true
 
-	case "Mutation.coachPaymentsByTeamDelete":
-		if e.complexity.Mutation.CoachPaymentsByTeamDelete == nil {
+	case "Mutation.coachPaymentByTeamDelete":
+		if e.complexity.Mutation.CoachPaymentByTeamDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTeamDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTeamDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTeamDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByTeamDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByTeamPublishUpdate":
-		if e.complexity.Mutation.CoachPaymentsByTeamPublishUpdate == nil {
+	case "Mutation.coachPaymentByTeamPublishUpdate":
+		if e.complexity.Mutation.CoachPaymentByTeamPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTeamPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTeamPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTeamPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByTeamPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByTeamRestore":
-		if e.complexity.Mutation.CoachPaymentsByTeamRestore == nil {
+	case "Mutation.coachPaymentByTeamRestore":
+		if e.complexity.Mutation.CoachPaymentByTeamRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTeamRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTeamRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTeamRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByTeamRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByTeamSave":
-		if e.complexity.Mutation.CoachPaymentsByTeamSave == nil {
+	case "Mutation.coachPaymentByTeamSave":
+		if e.complexity.Mutation.CoachPaymentByTeamSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTeamSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTeamSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTeamSave(childComplexity, args["coachPaymentByTeamInput"].([]*models.CoachPaymentByTeamInput)), true
+		return e.complexity.Mutation.CoachPaymentByTeamSave(childComplexity, args["coachPaymentByTeamInput"].(models.CoachPaymentByTeamInput)), true
 
-	case "Mutation.coachPaymentsByTeamUpdate":
-		if e.complexity.Mutation.CoachPaymentsByTeamUpdate == nil {
+	case "Mutation.coachPaymentByTeamUpdate":
+		if e.complexity.Mutation.CoachPaymentByTeamUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTeamUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTeamUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTeamUpdate(childComplexity, args["coachPaymentByTeamInput"].([]*models.CoachPaymentByTeamInputWithID)), true
+		return e.complexity.Mutation.CoachPaymentByTeamUpdate(childComplexity, args["coachPaymentByTeamInput"].(models.CoachPaymentByTeamInputWithID)), true
 
-	case "Mutation.coachPaymentsByTrainingDelete":
-		if e.complexity.Mutation.CoachPaymentsByTrainingDelete == nil {
+	case "Mutation.coachPaymentByTrainingDelete":
+		if e.complexity.Mutation.CoachPaymentByTrainingDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTrainingDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTrainingDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTrainingDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByTrainingDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByTrainingPublishUpdate":
-		if e.complexity.Mutation.CoachPaymentsByTrainingPublishUpdate == nil {
+	case "Mutation.coachPaymentByTrainingPublishUpdate":
+		if e.complexity.Mutation.CoachPaymentByTrainingPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTrainingPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTrainingPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTrainingPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByTrainingPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByTrainingRestore":
-		if e.complexity.Mutation.CoachPaymentsByTrainingRestore == nil {
+	case "Mutation.coachPaymentByTrainingRestore":
+		if e.complexity.Mutation.CoachPaymentByTrainingRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTrainingRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTrainingRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTrainingRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CoachPaymentByTrainingRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentsByTrainingSave":
-		if e.complexity.Mutation.CoachPaymentsByTrainingSave == nil {
+	case "Mutation.coachPaymentByTrainingSave":
+		if e.complexity.Mutation.CoachPaymentByTrainingSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTrainingSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTrainingSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTrainingSave(childComplexity, args["coachPaymentByTrainingInput"].([]*models.CoachPaymentByTrainingInput)), true
+		return e.complexity.Mutation.CoachPaymentByTrainingSave(childComplexity, args["coachPaymentByTrainingInput"].(models.CoachPaymentByTrainingInput)), true
 
-	case "Mutation.coachPaymentsByTrainingUpdate":
-		if e.complexity.Mutation.CoachPaymentsByTrainingUpdate == nil {
+	case "Mutation.coachPaymentByTrainingUpdate":
+		if e.complexity.Mutation.CoachPaymentByTrainingUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_coachPaymentsByTrainingUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_coachPaymentByTrainingUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CoachPaymentsByTrainingUpdate(childComplexity, args["coachPaymentByTrainingInput"].([]*models.CoachPaymentByTrainingInputWithID)), true
+		return e.complexity.Mutation.CoachPaymentByTrainingUpdate(childComplexity, args["coachPaymentByTrainingInput"].(models.CoachPaymentByTrainingInputWithID)), true
 
 	case "Mutation.createMeetup":
 		if e.complexity.Mutation.CreateMeetup == nil {
@@ -3075,77 +3069,65 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.CreateMeetup(childComplexity, args["input"].(models.NewMeetup)), true
 
-	case "Mutation.createPlace":
-		if e.complexity.Mutation.CreatePlace == nil {
+	case "Mutation.creatorDelete":
+		if e.complexity.Mutation.CreatorDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_createPlace_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_creatorDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CreatePlace(childComplexity, args["input"].(models.PlaceInput)), true
+		return e.complexity.Mutation.CreatorDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.creatorsDelete":
-		if e.complexity.Mutation.CreatorsDelete == nil {
+	case "Mutation.creatorPublishUpdate":
+		if e.complexity.Mutation.CreatorPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_creatorsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_creatorPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CreatorsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CreatorPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.creatorsPublishUpdate":
-		if e.complexity.Mutation.CreatorsPublishUpdate == nil {
+	case "Mutation.creatorRestore":
+		if e.complexity.Mutation.CreatorRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_creatorsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_creatorRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CreatorsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CreatorRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.creatorsRestore":
-		if e.complexity.Mutation.CreatorsRestore == nil {
+	case "Mutation.creatorSave":
+		if e.complexity.Mutation.CreatorSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_creatorsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_creatorSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CreatorsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.CreatorSave(childComplexity, args["creatorInput"].(models.CreatorInput)), true
 
-	case "Mutation.creatorsSave":
-		if e.complexity.Mutation.CreatorsSave == nil {
+	case "Mutation.creatorUpdate":
+		if e.complexity.Mutation.CreatorUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_creatorsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_creatorUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CreatorsSave(childComplexity, args["creatorInput"].([]*models.CreatorInput)), true
-
-	case "Mutation.creatorsUpdate":
-		if e.complexity.Mutation.CreatorsUpdate == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_creatorsUpdate_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.CreatorsUpdate(childComplexity, args["creatorInput"].([]*models.CreatorInputWithID)), true
+		return e.complexity.Mutation.CreatorUpdate(childComplexity, args["creatorInput"].(models.CreatorInputWithID)), true
 
 	case "Mutation.deleteMeetup":
 		if e.complexity.Mutation.DeleteMeetup == nil {
@@ -3159,137 +3141,125 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteMeetup(childComplexity, args["id"].(string)), true
 
-	case "Mutation.deletePlace":
-		if e.complexity.Mutation.DeletePlace == nil {
+	case "Mutation.kitDelete":
+		if e.complexity.Mutation.KitDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_deletePlace_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_kitDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.DeletePlace(childComplexity, args["id"].(string)), true
+		return e.complexity.Mutation.KitDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.kitsDelete":
-		if e.complexity.Mutation.KitsDelete == nil {
+	case "Mutation.kitPublishUpdate":
+		if e.complexity.Mutation.KitPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_kitsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_kitPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.KitsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.KitPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.kitsPublishUpdate":
-		if e.complexity.Mutation.KitsPublishUpdate == nil {
+	case "Mutation.kitRestore":
+		if e.complexity.Mutation.KitRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_kitsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_kitRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.KitsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.KitRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.kitsRestore":
-		if e.complexity.Mutation.KitsRestore == nil {
+	case "Mutation.kitSave":
+		if e.complexity.Mutation.KitSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_kitsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_kitSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.KitsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.KitSave(childComplexity, args["kitInput"].(models.KitInput)), true
 
-	case "Mutation.kitsSave":
-		if e.complexity.Mutation.KitsSave == nil {
+	case "Mutation.kitUpdate":
+		if e.complexity.Mutation.KitUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_kitsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_kitUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.KitsSave(childComplexity, args["kitInput"].([]*models.KitInput)), true
+		return e.complexity.Mutation.KitUpdate(childComplexity, args["kitInput"].(models.KitInputWithID)), true
 
-	case "Mutation.kitsUpdate":
-		if e.complexity.Mutation.KitsUpdate == nil {
+	case "Mutation.leadDelete":
+		if e.complexity.Mutation.LeadDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_kitsUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_leadDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.KitsUpdate(childComplexity, args["kitInput"].([]*models.KitInputWithID)), true
+		return e.complexity.Mutation.LeadDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.leadsDelete":
-		if e.complexity.Mutation.LeadsDelete == nil {
+	case "Mutation.leadPublishUpdate":
+		if e.complexity.Mutation.LeadPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_leadsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_leadPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.LeadsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.LeadPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.leadsPublishUpdate":
-		if e.complexity.Mutation.LeadsPublishUpdate == nil {
+	case "Mutation.leadRestore":
+		if e.complexity.Mutation.LeadRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_leadsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_leadRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.LeadsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.LeadRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.leadsRestore":
-		if e.complexity.Mutation.LeadsRestore == nil {
+	case "Mutation.leadSave":
+		if e.complexity.Mutation.LeadSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_leadsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_leadSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.LeadsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.LeadSave(childComplexity, args["leadInput"].(models.LeadInput)), true
 
-	case "Mutation.leadsSave":
-		if e.complexity.Mutation.LeadsSave == nil {
+	case "Mutation.leadUpdate":
+		if e.complexity.Mutation.LeadUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_leadsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_leadUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.LeadsSave(childComplexity, args["leadInput"].([]*models.LeadInput)), true
-
-	case "Mutation.leadsUpdate":
-		if e.complexity.Mutation.LeadsUpdate == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_leadsUpdate_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.LeadsUpdate(childComplexity, args["leadInput"].([]*models.LeadInputWithID)), true
+		return e.complexity.Mutation.LeadUpdate(childComplexity, args["leadInput"].(models.LeadInputWithID)), true
 
 	case "Mutation.login":
 		if e.complexity.Mutation.Login == nil {
@@ -3303,245 +3273,245 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.Login(childComplexity, args["input"].(models.LoginInput)), true
 
-	case "Mutation.moneyCostsDelete":
-		if e.complexity.Mutation.MoneyCostsDelete == nil {
+	case "Mutation.moneyCostDelete":
+		if e.complexity.Mutation.MoneyCostDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyCostsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyCostDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyCostsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.MoneyCostDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.moneyCostsPublishUpdate":
-		if e.complexity.Mutation.MoneyCostsPublishUpdate == nil {
+	case "Mutation.moneyCostPublishUpdate":
+		if e.complexity.Mutation.MoneyCostPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyCostsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyCostPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyCostsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.MoneyCostPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.moneyCostsRestore":
-		if e.complexity.Mutation.MoneyCostsRestore == nil {
+	case "Mutation.moneyCostRestore":
+		if e.complexity.Mutation.MoneyCostRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyCostsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyCostRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyCostsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.MoneyCostRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.moneyCostsSave":
-		if e.complexity.Mutation.MoneyCostsSave == nil {
+	case "Mutation.moneyCostSave":
+		if e.complexity.Mutation.MoneyCostSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyCostsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyCostSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyCostsSave(childComplexity, args["moneyCostInput"].([]*models.MoneyCostInput)), true
+		return e.complexity.Mutation.MoneyCostSave(childComplexity, args["moneyCostInput"].(models.MoneyCostInput)), true
 
-	case "Mutation.moneyCostsUpdate":
-		if e.complexity.Mutation.MoneyCostsUpdate == nil {
+	case "Mutation.moneyCostUpdate":
+		if e.complexity.Mutation.MoneyCostUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyCostsUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyCostUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyCostsUpdate(childComplexity, args["moneyCostInput"].([]*models.MoneyCostInputWithID)), true
+		return e.complexity.Mutation.MoneyCostUpdate(childComplexity, args["moneyCostInput"].(models.MoneyCostInputWithID)), true
 
-	case "Mutation.moneyMovesDelete":
-		if e.complexity.Mutation.MoneyMovesDelete == nil {
+	case "Mutation.moneyMoveDelete":
+		if e.complexity.Mutation.MoneyMoveDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyMovesDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyMoveDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyMovesDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.MoneyMoveDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.moneyMovesPublishUpdate":
-		if e.complexity.Mutation.MoneyMovesPublishUpdate == nil {
+	case "Mutation.moneyMovePublishUpdate":
+		if e.complexity.Mutation.MoneyMovePublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyMovesPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyMovePublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyMovesPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.MoneyMovePublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.moneyMovesRestore":
-		if e.complexity.Mutation.MoneyMovesRestore == nil {
+	case "Mutation.moneyMoveRestore":
+		if e.complexity.Mutation.MoneyMoveRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyMovesRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyMoveRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyMovesRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.MoneyMoveRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.moneyMovesSave":
-		if e.complexity.Mutation.MoneyMovesSave == nil {
+	case "Mutation.moneyMoveSave":
+		if e.complexity.Mutation.MoneyMoveSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyMovesSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyMoveSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyMovesSave(childComplexity, args["moneyMoveInput"].([]*models.MoneyMoveInput)), true
+		return e.complexity.Mutation.MoneyMoveSave(childComplexity, args["moneyMoveInput"].(models.MoneyMoveInput)), true
 
-	case "Mutation.moneyMovesUpdate":
-		if e.complexity.Mutation.MoneyMovesUpdate == nil {
+	case "Mutation.moneyMoveUpdate":
+		if e.complexity.Mutation.MoneyMoveUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_moneyMovesUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_moneyMoveUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.MoneyMovesUpdate(childComplexity, args["moneyMoveInput"].([]*models.MoneyMoveInputWithID)), true
+		return e.complexity.Mutation.MoneyMoveUpdate(childComplexity, args["moneyMoveInput"].(models.MoneyMoveInputWithID)), true
 
-	case "Mutation.ordersDelete":
-		if e.complexity.Mutation.OrdersDelete == nil {
+	case "Mutation.orderDelete":
+		if e.complexity.Mutation.OrderDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_ordersDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_orderDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.OrdersDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.OrderDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.ordersPublishUpdate":
-		if e.complexity.Mutation.OrdersPublishUpdate == nil {
+	case "Mutation.orderPublishUpdate":
+		if e.complexity.Mutation.OrderPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_ordersPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_orderPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.OrdersPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.OrderPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.ordersRestore":
-		if e.complexity.Mutation.OrdersRestore == nil {
+	case "Mutation.orderRestore":
+		if e.complexity.Mutation.OrderRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_ordersRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_orderRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.OrdersRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.OrderRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.ordersSave":
-		if e.complexity.Mutation.OrdersSave == nil {
+	case "Mutation.orderSave":
+		if e.complexity.Mutation.OrderSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_ordersSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_orderSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.OrdersSave(childComplexity, args["orderInput"].([]*models.OrderInput)), true
+		return e.complexity.Mutation.OrderSave(childComplexity, args["orderInput"].(models.OrderInput)), true
 
-	case "Mutation.ordersUpdate":
-		if e.complexity.Mutation.OrdersUpdate == nil {
+	case "Mutation.orderUpdate":
+		if e.complexity.Mutation.OrderUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_ordersUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_orderUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.OrdersUpdate(childComplexity, args["orderInput"].([]*models.OrderInputWithID)), true
+		return e.complexity.Mutation.OrderUpdate(childComplexity, args["orderInput"].(models.OrderInputWithID)), true
 
-	case "Mutation.placesDelete":
-		if e.complexity.Mutation.PlacesDelete == nil {
+	case "Mutation.placeDelete":
+		if e.complexity.Mutation.PlaceDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_placesDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_placeDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.PlacesDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.PlaceDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.placesPublishUpdate":
-		if e.complexity.Mutation.PlacesPublishUpdate == nil {
+	case "Mutation.placePublishUpdate":
+		if e.complexity.Mutation.PlacePublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_placesPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_placePublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.PlacesPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.PlacePublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.placesRestore":
-		if e.complexity.Mutation.PlacesRestore == nil {
+	case "Mutation.placeRestore":
+		if e.complexity.Mutation.PlaceRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_placesRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_placeRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.PlacesRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.PlaceRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.placesSave":
-		if e.complexity.Mutation.PlacesSave == nil {
+	case "Mutation.placeSave":
+		if e.complexity.Mutation.PlaceSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_placesSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_placeSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.PlacesSave(childComplexity, args["placeInput"].([]*models.PlaceInput)), true
+		return e.complexity.Mutation.PlaceSave(childComplexity, args["placeInput"].(models.PlaceInput)), true
 
-	case "Mutation.placesUpdate":
-		if e.complexity.Mutation.PlacesUpdate == nil {
+	case "Mutation.placeUpdate":
+		if e.complexity.Mutation.PlaceUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_placesUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_placeUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.PlacesUpdate(childComplexity, args["placeInput"].([]*models.PlaceInputWithID)), true
+		return e.complexity.Mutation.PlaceUpdate(childComplexity, args["placeInput"].(models.PlaceInputWithID)), true
 
 	case "Mutation.refresh":
 		if e.complexity.Mutation.Refresh == nil {
@@ -3577,7 +3547,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByMonthDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.RentPaymentByMonthDelete(childComplexity, args["id"].(string)), true
 
 	case "Mutation.rentPaymentByMonthPublishUpdate":
 		if e.complexity.Mutation.RentPaymentByMonthPublishUpdate == nil {
@@ -3589,7 +3559,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByMonthPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.RentPaymentByMonthPublishUpdate(childComplexity, args["id"].(string)), true
 
 	case "Mutation.rentPaymentByMonthRestore":
 		if e.complexity.Mutation.RentPaymentByMonthRestore == nil {
@@ -3601,7 +3571,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByMonthRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.RentPaymentByMonthRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.rentPaymentByMonthSave":
 		if e.complexity.Mutation.RentPaymentByMonthSave == nil {
@@ -3613,7 +3583,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByMonthSave(childComplexity, args["rentPaymentInput"].([]*models.RentPaymentByMonthInput)), true
+		return e.complexity.Mutation.RentPaymentByMonthSave(childComplexity, args["rentPaymentInput"].(models.RentPaymentByMonthInput)), true
 
 	case "Mutation.rentPaymentByMonthUpdate":
 		if e.complexity.Mutation.RentPaymentByMonthUpdate == nil {
@@ -3625,7 +3595,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByMonthUpdate(childComplexity, args["rentPaymentInput"].([]*models.RentPaymentByMonthInputWithID)), true
+		return e.complexity.Mutation.RentPaymentByMonthUpdate(childComplexity, args["rentPaymentInput"].(models.RentPaymentByMonthInputWithID)), true
 
 	case "Mutation.rentPaymentByTrainingDelete":
 		if e.complexity.Mutation.RentPaymentByTrainingDelete == nil {
@@ -3637,7 +3607,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByTrainingDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.RentPaymentByTrainingDelete(childComplexity, args["id"].(string)), true
 
 	case "Mutation.rentPaymentByTrainingPublishUpdate":
 		if e.complexity.Mutation.RentPaymentByTrainingPublishUpdate == nil {
@@ -3649,7 +3619,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByTrainingPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.RentPaymentByTrainingPublishUpdate(childComplexity, args["id"].(string)), true
 
 	case "Mutation.rentPaymentByTrainingRestore":
 		if e.complexity.Mutation.RentPaymentByTrainingRestore == nil {
@@ -3661,7 +3631,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByTrainingRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.RentPaymentByTrainingRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.rentPaymentByTrainingSave":
 		if e.complexity.Mutation.RentPaymentByTrainingSave == nil {
@@ -3673,7 +3643,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByTrainingSave(childComplexity, args["rentPaymentInput"].([]*models.RentPaymentByTrainingInput)), true
+		return e.complexity.Mutation.RentPaymentByTrainingSave(childComplexity, args["rentPaymentInput"].(models.RentPaymentByTrainingInput)), true
 
 	case "Mutation.rentPaymentByTrainingUpdate":
 		if e.complexity.Mutation.RentPaymentByTrainingUpdate == nil {
@@ -3685,67 +3655,67 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RentPaymentByTrainingUpdate(childComplexity, args["rentPaymentInput"].([]*models.RentPaymentByTrainingInputWithID)), true
+		return e.complexity.Mutation.RentPaymentByTrainingUpdate(childComplexity, args["rentPaymentInput"].(models.RentPaymentByTrainingInputWithID)), true
 
-	case "Mutation.stadiumsDelete":
-		if e.complexity.Mutation.StadiumsDelete == nil {
+	case "Mutation.stadiumDelete":
+		if e.complexity.Mutation.StadiumDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_stadiumsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_stadiumDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StadiumsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StadiumDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.stadiumsPublishUpdate":
-		if e.complexity.Mutation.StadiumsPublishUpdate == nil {
+	case "Mutation.stadiumPublishUpdate":
+		if e.complexity.Mutation.StadiumPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_stadiumsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_stadiumPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StadiumsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StadiumPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.stadiumsRestore":
-		if e.complexity.Mutation.StadiumsRestore == nil {
+	case "Mutation.stadiumRestore":
+		if e.complexity.Mutation.StadiumRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_stadiumsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_stadiumRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StadiumsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StadiumRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.stadiumsSave":
-		if e.complexity.Mutation.StadiumsSave == nil {
+	case "Mutation.stadiumSave":
+		if e.complexity.Mutation.StadiumSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_stadiumsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_stadiumSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StadiumsSave(childComplexity, args["stadiumInput"].([]*models.StadiumInput)), true
+		return e.complexity.Mutation.StadiumSave(childComplexity, args["stadiumInput"].(models.StadiumInput)), true
 
-	case "Mutation.stadiumsUpdate":
-		if e.complexity.Mutation.StadiumsUpdate == nil {
+	case "Mutation.stadiumUpdate":
+		if e.complexity.Mutation.StadiumUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_stadiumsUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_stadiumUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StadiumsUpdate(childComplexity, args["stadiumInput"].([]*models.StadiumInputWithID)), true
+		return e.complexity.Mutation.StadiumUpdate(childComplexity, args["stadiumInput"].(models.StadiumInputWithID)), true
 
 	case "Mutation.staffDelete":
 		if e.complexity.Mutation.StaffDelete == nil {
@@ -3757,7 +3727,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StaffDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StaffDelete(childComplexity, args["id"].(string)), true
 
 	case "Mutation.staffPublishUpdate":
 		if e.complexity.Mutation.StaffPublishUpdate == nil {
@@ -3769,7 +3739,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StaffPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StaffPublishUpdate(childComplexity, args["id"].(string)), true
 
 	case "Mutation.staffRestore":
 		if e.complexity.Mutation.StaffRestore == nil {
@@ -3781,7 +3751,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StaffRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StaffRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.staffSave":
 		if e.complexity.Mutation.StaffSave == nil {
@@ -3793,7 +3763,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StaffSave(childComplexity, args["staffInput"].([]*models.StaffInput)), true
+		return e.complexity.Mutation.StaffSave(childComplexity, args["staffInput"].(models.StaffInput)), true
 
 	case "Mutation.staffUpdate":
 		if e.complexity.Mutation.StaffUpdate == nil {
@@ -3805,427 +3775,427 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StaffUpdate(childComplexity, args["staffInput"].([]*models.StaffInputWithID)), true
+		return e.complexity.Mutation.StaffUpdate(childComplexity, args["staffInput"].(models.StaffInputWithID)), true
 
-	case "Mutation.studentVisitsDelete":
-		if e.complexity.Mutation.StudentVisitsDelete == nil {
+	case "Mutation.studentDelete":
+		if e.complexity.Mutation.StudentDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentVisitsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentVisitsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StudentDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.studentVisitsPublishUpdate":
-		if e.complexity.Mutation.StudentVisitsPublishUpdate == nil {
+	case "Mutation.studentPublishUpdate":
+		if e.complexity.Mutation.StudentPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentVisitsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentVisitsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StudentPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.studentVisitsRestore":
-		if e.complexity.Mutation.StudentVisitsRestore == nil {
+	case "Mutation.studentRestore":
+		if e.complexity.Mutation.StudentRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentVisitsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentVisitsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StudentRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.studentVisitsSave":
-		if e.complexity.Mutation.StudentVisitsSave == nil {
+	case "Mutation.studentSave":
+		if e.complexity.Mutation.StudentSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentVisitsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentVisitsSave(childComplexity, args["studentVisitInput"].([]*models.StudentVisitInput)), true
+		return e.complexity.Mutation.StudentSave(childComplexity, args["studentInput"].(models.StudentInput)), true
 
-	case "Mutation.studentVisitsUpdate":
-		if e.complexity.Mutation.StudentVisitsUpdate == nil {
+	case "Mutation.studentUpdate":
+		if e.complexity.Mutation.StudentUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentVisitsUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentVisitsUpdate(childComplexity, args["studentVisitInput"].([]*models.StudentVisitInputWithID)), true
+		return e.complexity.Mutation.StudentUpdate(childComplexity, args["studentInput"].(models.StudentInputWithID)), true
 
-	case "Mutation.studentsDelete":
-		if e.complexity.Mutation.StudentsDelete == nil {
+	case "Mutation.studentVisitDelete":
+		if e.complexity.Mutation.StudentVisitDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentVisitDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StudentVisitDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.studentsPublishUpdate":
-		if e.complexity.Mutation.StudentsPublishUpdate == nil {
+	case "Mutation.studentVisitPublishUpdate":
+		if e.complexity.Mutation.StudentVisitPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentVisitPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StudentVisitPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.studentsRestore":
-		if e.complexity.Mutation.StudentsRestore == nil {
+	case "Mutation.studentVisitRestore":
+		if e.complexity.Mutation.StudentVisitRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentVisitRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.StudentVisitRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.studentsSave":
-		if e.complexity.Mutation.StudentsSave == nil {
+	case "Mutation.studentVisitSave":
+		if e.complexity.Mutation.StudentVisitSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentVisitSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentsSave(childComplexity, args["studentInput"].([]*models.StudentInput)), true
+		return e.complexity.Mutation.StudentVisitSave(childComplexity, args["studentVisitInput"].(models.StudentVisitInput)), true
 
-	case "Mutation.studentsUpdate":
-		if e.complexity.Mutation.StudentsUpdate == nil {
+	case "Mutation.studentVisitUpdate":
+		if e.complexity.Mutation.StudentVisitUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_studentsUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_studentVisitUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.StudentsUpdate(childComplexity, args["studentInput"].([]*models.StudentInputWithID)), true
+		return e.complexity.Mutation.StudentVisitUpdate(childComplexity, args["studentVisitInput"].(models.StudentVisitInputWithID)), true
 
-	case "Mutation.tasksDelete":
-		if e.complexity.Mutation.TasksDelete == nil {
+	case "Mutation.taskDelete":
+		if e.complexity.Mutation.TaskDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_tasksDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_taskDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TasksDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TaskDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.tasksPublishUpdate":
-		if e.complexity.Mutation.TasksPublishUpdate == nil {
+	case "Mutation.taskPublishUpdate":
+		if e.complexity.Mutation.TaskPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_tasksPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_taskPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TasksPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TaskPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.tasksRestore":
-		if e.complexity.Mutation.TasksRestore == nil {
+	case "Mutation.taskRestore":
+		if e.complexity.Mutation.TaskRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_tasksRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_taskRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TasksRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TaskRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.tasksSave":
-		if e.complexity.Mutation.TasksSave == nil {
+	case "Mutation.taskSave":
+		if e.complexity.Mutation.TaskSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_tasksSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_taskSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TasksSave(childComplexity, args["taskInput"].([]*models.TaskInput)), true
+		return e.complexity.Mutation.TaskSave(childComplexity, args["taskInput"].(models.TaskInput)), true
 
-	case "Mutation.tasksUpdate":
-		if e.complexity.Mutation.TasksUpdate == nil {
+	case "Mutation.taskUpdate":
+		if e.complexity.Mutation.TaskUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_tasksUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_taskUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TasksUpdate(childComplexity, args["taskInput"].([]*models.TaskInputWithID)), true
+		return e.complexity.Mutation.TaskUpdate(childComplexity, args["taskInput"].(models.TaskInputWithID)), true
 
-	case "Mutation.teamBalancesDelete":
-		if e.complexity.Mutation.TeamBalancesDelete == nil {
+	case "Mutation.teamBalanceDelete":
+		if e.complexity.Mutation.TeamBalanceDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamBalancesDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamBalanceDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamBalancesDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TeamBalanceDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.teamBalancesPublishUpdate":
-		if e.complexity.Mutation.TeamBalancesPublishUpdate == nil {
+	case "Mutation.teamBalancePublishUpdate":
+		if e.complexity.Mutation.TeamBalancePublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamBalancesPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamBalancePublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamBalancesPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TeamBalancePublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.teamBalancesRestore":
-		if e.complexity.Mutation.TeamBalancesRestore == nil {
+	case "Mutation.teamBalanceRestore":
+		if e.complexity.Mutation.TeamBalanceRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamBalancesRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamBalanceRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamBalancesRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TeamBalanceRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.teamBalancesSave":
-		if e.complexity.Mutation.TeamBalancesSave == nil {
+	case "Mutation.teamBalanceSave":
+		if e.complexity.Mutation.TeamBalanceSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamBalancesSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamBalanceSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamBalancesSave(childComplexity, args["teamBalanceInput"].([]*models.TeamBalanceInput)), true
+		return e.complexity.Mutation.TeamBalanceSave(childComplexity, args["teamBalanceInput"].(models.TeamBalanceInput)), true
 
-	case "Mutation.teamBalancesUpdate":
-		if e.complexity.Mutation.TeamBalancesUpdate == nil {
+	case "Mutation.teamBalanceUpdate":
+		if e.complexity.Mutation.TeamBalanceUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamBalancesUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamBalanceUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamBalancesUpdate(childComplexity, args["teamBalanceInput"].([]*models.TeamBalanceInputWithID)), true
+		return e.complexity.Mutation.TeamBalanceUpdate(childComplexity, args["teamBalanceInput"].(models.TeamBalanceInputWithID)), true
 
-	case "Mutation.teamsDelete":
-		if e.complexity.Mutation.TeamsDelete == nil {
+	case "Mutation.teamDelete":
+		if e.complexity.Mutation.TeamDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TeamDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.teamsPublishUpdate":
-		if e.complexity.Mutation.TeamsPublishUpdate == nil {
+	case "Mutation.teamPublishUpdate":
+		if e.complexity.Mutation.TeamPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TeamPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.teamsRestore":
-		if e.complexity.Mutation.TeamsRestore == nil {
+	case "Mutation.teamRestore":
+		if e.complexity.Mutation.TeamRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TeamRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.teamsSave":
-		if e.complexity.Mutation.TeamsSave == nil {
+	case "Mutation.teamSave":
+		if e.complexity.Mutation.TeamSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamsSave(childComplexity, args["teamInput"].([]*models.TeamInput)), true
+		return e.complexity.Mutation.TeamSave(childComplexity, args["teamInput"].(models.TeamInput)), true
 
-	case "Mutation.teamsUpdate":
-		if e.complexity.Mutation.TeamsUpdate == nil {
+	case "Mutation.teamUpdate":
+		if e.complexity.Mutation.TeamUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_teamsUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_teamUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TeamsUpdate(childComplexity, args["teamInput"].([]*models.TeamInputWithID)), true
+		return e.complexity.Mutation.TeamUpdate(childComplexity, args["teamInput"].(models.TeamInputWithID)), true
 
-	case "Mutation.trainingDaysDelete":
-		if e.complexity.Mutation.TrainingDaysDelete == nil {
+	case "Mutation.trainingDayDelete":
+		if e.complexity.Mutation.TrainingDayDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingDaysDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingDayDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingDaysDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TrainingDayDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.trainingDaysPublishUpdate":
-		if e.complexity.Mutation.TrainingDaysPublishUpdate == nil {
+	case "Mutation.trainingDayPublishUpdate":
+		if e.complexity.Mutation.TrainingDayPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingDaysPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingDayPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingDaysPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TrainingDayPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.trainingDaysRestore":
-		if e.complexity.Mutation.TrainingDaysRestore == nil {
+	case "Mutation.trainingDayRestore":
+		if e.complexity.Mutation.TrainingDayRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingDaysRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingDayRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingDaysRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TrainingDayRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.trainingDaysSave":
-		if e.complexity.Mutation.TrainingDaysSave == nil {
+	case "Mutation.trainingDaySave":
+		if e.complexity.Mutation.TrainingDaySave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingDaysSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingDaySave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingDaysSave(childComplexity, args["trainingDayInput"].([]*models.TrainingDayInput)), true
+		return e.complexity.Mutation.TrainingDaySave(childComplexity, args["trainingDayInput"].(models.TrainingDayInput)), true
 
-	case "Mutation.trainingDaysUpdate":
-		if e.complexity.Mutation.TrainingDaysUpdate == nil {
+	case "Mutation.trainingDayUpdate":
+		if e.complexity.Mutation.TrainingDayUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingDaysUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingDayUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingDaysUpdate(childComplexity, args["trainingDayInput"].([]*models.TrainingDayInputWithID)), true
+		return e.complexity.Mutation.TrainingDayUpdate(childComplexity, args["trainingDayInput"].(models.TrainingDayInputWithID)), true
 
-	case "Mutation.trainingsDelete":
-		if e.complexity.Mutation.TrainingsDelete == nil {
+	case "Mutation.trainingDelete":
+		if e.complexity.Mutation.TrainingDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingsDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingsDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TrainingDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.trainingsPublishUpdate":
-		if e.complexity.Mutation.TrainingsPublishUpdate == nil {
+	case "Mutation.trainingPublishUpdate":
+		if e.complexity.Mutation.TrainingPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingsPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingsPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TrainingPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.trainingsRestore":
-		if e.complexity.Mutation.TrainingsRestore == nil {
+	case "Mutation.trainingRestore":
+		if e.complexity.Mutation.TrainingRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingsRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingsRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.TrainingRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.trainingsSave":
-		if e.complexity.Mutation.TrainingsSave == nil {
+	case "Mutation.trainingSave":
+		if e.complexity.Mutation.TrainingSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingsSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingsSave(childComplexity, args["trainingInput"].([]*models.TrainingInput)), true
+		return e.complexity.Mutation.TrainingSave(childComplexity, args["trainingInput"].(models.TrainingInput)), true
 
-	case "Mutation.trainingsUpdate":
-		if e.complexity.Mutation.TrainingsUpdate == nil {
+	case "Mutation.trainingUpdate":
+		if e.complexity.Mutation.TrainingUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_trainingsUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_trainingUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.TrainingsUpdate(childComplexity, args["trainingInput"].([]*models.TrainingInputWithID)), true
+		return e.complexity.Mutation.TrainingUpdate(childComplexity, args["trainingInput"].(models.TrainingInputWithID)), true
 
 	case "Mutation.updateMeetup":
 		if e.complexity.Mutation.UpdateMeetup == nil {
@@ -4239,77 +4209,65 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateMeetup(childComplexity, args["id"].(string), args["input"].(*models.UpdateMeetup)), true
 
-	case "Mutation.updatePlace":
-		if e.complexity.Mutation.UpdatePlace == nil {
+	case "Mutation.userDelete":
+		if e.complexity.Mutation.UserDelete == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_updatePlace_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_userDelete_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdatePlace(childComplexity, args["id"].(string), args["input"].(*models.PlaceInput)), true
+		return e.complexity.Mutation.UserDelete(childComplexity, args["id"].(string)), true
 
-	case "Mutation.usersDelete":
-		if e.complexity.Mutation.UsersDelete == nil {
+	case "Mutation.userPublishUpdate":
+		if e.complexity.Mutation.UserPublishUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_usersDelete_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_userPublishUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UsersDelete(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.UserPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.usersPublishUpdate":
-		if e.complexity.Mutation.UsersPublishUpdate == nil {
+	case "Mutation.userRestore":
+		if e.complexity.Mutation.UserRestore == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_usersPublishUpdate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_userRestore_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UsersPublishUpdate(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.UserRestore(childComplexity, args["id"].(string)), true
 
-	case "Mutation.usersRestore":
-		if e.complexity.Mutation.UsersRestore == nil {
+	case "Mutation.userSave":
+		if e.complexity.Mutation.UserSave == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_usersRestore_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_userSave_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UsersRestore(childComplexity, args["ids"].([]string)), true
+		return e.complexity.Mutation.UserSave(childComplexity, args["userInput"].(models.UserInput)), true
 
-	case "Mutation.usersSave":
-		if e.complexity.Mutation.UsersSave == nil {
+	case "Mutation.userUpdate":
+		if e.complexity.Mutation.UserUpdate == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_usersSave_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_userUpdate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UsersSave(childComplexity, args["userInput"].([]*models.UserInput)), true
-
-	case "Mutation.usersUpdate":
-		if e.complexity.Mutation.UsersUpdate == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_usersUpdate_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UsersUpdate(childComplexity, args["userInput"].([]*models.UserInputWithID)), true
+		return e.complexity.Mutation.UserUpdate(childComplexity, args["userInput"].(models.UserInputWithID)), true
 
 	case "Order.cartId":
 		if e.complexity.Order.CartID == nil {
@@ -7076,139 +7034,136 @@ type Query {
 
 type Mutation {
     createMeetup(input: NewMeetup!): Meetup!
-    createPlace(input: PlaceInput!): PlacePayload!
     updateMeetup(id: ID!, input: UpdateMeetup): Meetup!
-    updatePlace(id: ID!, input: PlaceInput): Place!
     deleteMeetup(id: ID!): Boolean!
-    deletePlace(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
-    articlesDelete(ids: [String!]!): [ArticlePayload!]!
-    articlesPublishUpdate(ids: [String!]!): [ArticlePayload!]!
-    articlesRestore(ids: [String!]!): [ArticlePayload!]!
-    articlesSave(articleInput: [ArticleInput!]!): [ArticlePayload]!
-    articlesUpdate(articleInput: [ArticleInputWithId!]!): [ArticlePayload]!
-    cartsDelete(ids: [String!]!): [CartPayload!]!
-    cartsPublishUpdate(ids: [String!]!): [CartPayload!]!
-    cartsRestore(ids: [String!]!): [CartPayload!]!
-    cartsSave(cartInput: [CartInput!]!): [CartPayload!]!
-    cartsUpdate(cartInput: [CartInputWithId!]!): [CartPayload!]!
-    clubBalancesDelete(ids: [String!]!): [ClubBalancePayload!]!
-    clubBalancesPublishUpdate(ids: [String!]!): [ClubBalancePayload!]!
-    clubBalancesRestore(ids: [String!]!): [ClubBalancePayload!]!
-    clubBalancesSave(clubBalanceInput: [ClubBalanceInput!]!): [ClubBalancePayload!]!
-    clubBalancesUpdate(clubBalanceInput: [ClubBalanceInputWithId!]!): [ClubBalancePayload!]!
-    coachPaymentsByMonthDelete(ids: [String!]!): [CoachPaymentByMonthPayload!]!
-    coachPaymentsByMonthPublishUpdate(ids: [String!]!): [CoachPaymentByMonthPayload!]!
-    coachPaymentsByMonthRestore(ids: [String!]!): [CoachPaymentByMonthPayload!]!
-    coachPaymentsByMonthSave(coachPaymentByMonthInput: [CoachPaymentByMonthInput!]!): [CoachPaymentByMonthPayload!]!
-    coachPaymentsByMonthUpdate(coachPaymentByMonthInput: [CoachPaymentByMonthInputWithId!]!): [CoachPaymentByMonthPayload!]!
-    coachPaymentsByTeamDelete(ids: [String!]!): [CoachPaymentByTeamPayload!]!
-    coachPaymentsByTeamPublishUpdate(ids: [String!]!): [CoachPaymentByTeamPayload!]!
-    coachPaymentsByTeamRestore(ids: [String!]!): [CoachPaymentByTeamPayload!]!
-    coachPaymentsByTeamSave(coachPaymentByTeamInput: [CoachPaymentByTeamInput!]!): [CoachPaymentByTeamPayload!]!
-    coachPaymentsByTeamUpdate(coachPaymentByTeamInput: [CoachPaymentByTeamInputWithId!]!): [CoachPaymentByTeamPayload!]!
-    coachPaymentsByTrainingDelete(ids: [String!]!): [CoachPaymentByTrainingPayload!]!
-    coachPaymentsByTrainingPublishUpdate(ids: [String!]!): [CoachPaymentByTrainingPayload!]!
-    coachPaymentsByTrainingRestore(ids: [String!]!): [CoachPaymentByTrainingPayload!]!
-    coachPaymentsByTrainingSave(coachPaymentByTrainingInput: [CoachPaymentByTrainingInput!]!): [CoachPaymentByTrainingPayload!]!
-    coachPaymentsByTrainingUpdate(coachPaymentByTrainingInput: [CoachPaymentByTrainingInputWithId!]!): [CoachPaymentByTrainingPayload!]!
-    creatorsDelete(ids: [String!]!): [CreatorPayload!]!
-    creatorsPublishUpdate(ids: [String!]!): [CreatorPayload!]!
-    creatorsRestore(ids: [String!]!): [CreatorPayload!]!
-    creatorsSave(creatorInput: [CreatorInput!]!): [CreatorPayload!]!
-    creatorsUpdate(creatorInput: [CreatorInputWithId!]!): [CreatorPayload!]!
-    kitsDelete(ids: [String!]!): [KitPayload!]!
-    kitsPublishUpdate(ids: [String!]!): [KitPayload!]!
-    kitsRestore(ids: [String!]!): [KitPayload!]!
-    kitsSave(kitInput: [KitInput!]!): [KitPayload!]!
-    kitsUpdate(kitInput: [KitInputWithId!]!): [KitPayload!]!
-    leadsDelete(ids: [String!]!): [LeadPayload!]!
-    leadsPublishUpdate(ids: [String!]!): [LeadPayload!]!
-    leadsRestore(ids: [String!]!): [LeadPayload!]!
-    leadsSave(leadInput: [LeadInput!]!): [LeadPayload]!
-    leadsUpdate(leadInput: [LeadInputWithId!]!): [LeadPayload!]!
-    moneyCostsDelete(ids: [String!]!): [MoneyCostPayload!]!
-    moneyCostsPublishUpdate(ids: [String!]!): [MoneyCostPayload!]!
-    moneyCostsRestore(ids: [String!]!): [MoneyCostPayload!]!
-    moneyCostsSave(moneyCostInput: [MoneyCostInput!]!): [MoneyCostPayload!]!
-    moneyCostsUpdate(moneyCostInput: [MoneyCostInputWithId!]!): [MoneyCostPayload!]!
-    moneyMovesDelete(ids: [String!]!): [MoneyMovePayload!]!
-    moneyMovesPublishUpdate(ids: [String!]!): [MoneyMovePayload!]!
-    moneyMovesRestore(ids: [String!]!): [MoneyMovePayload!]!
-    moneyMovesSave(moneyMoveInput: [MoneyMoveInput!]!): [MoneyMovePayload!]!
-    moneyMovesUpdate(moneyMoveInput: [MoneyMoveInputWithId!]!): [MoneyMovePayload!]!
-    ordersDelete(ids: [String!]!): [OrderPayload!]!
-    ordersPublishUpdate(ids: [String!]!): [OrderPayload!]!
-    ordersRestore(ids: [String!]!): [OrderPayload!]!
-    ordersSave(orderInput: [OrderInput!]!): [OrderPayload!]!
-    ordersUpdate(orderInput: [OrderInputWithId!]!): [OrderPayload!]!
-    placesDelete(ids: [String!]!): [PlacePayload!]!
-    placesPublishUpdate(ids: [String!]!): [PlacePayload!]!
-    placesRestore(ids: [String!]!): [PlacePayload!]!
-    placesSave(placeInput: [PlaceInput!]!): [PlacePayload]!
-    placesUpdate(placeInput: [PlaceInputWithId!]!): [PlacePayload]!
+    articleDelete(id: String!): ArticlePayload!
+    articlePublishUpdate(id: String!): ArticlePayload!
+    articleRestore(id: String!): ArticlePayload!
+    articleSave(articleInput: ArticleInput!): ArticlePayload!
+    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload!
+    cartDelete(id: String!): CartPayload!
+    cartPublishUpdate(id: String!): CartPayload!
+    cartRestore(id: String!): CartPayload!
+    cartSave(cartInput: CartInput!): CartPayload!
+    cartUpdate(cartInput: CartInputWithId!): CartPayload!
+    clubBalanceDelete(id: String!): ClubBalancePayload!
+    clubBalancePublishUpdate(id: String!): ClubBalancePayload!
+    clubBalanceRestore(id: String!): ClubBalancePayload!
+    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload!
+    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload!
+    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthRestore(id: String!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload!
+    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload!
+    coachPaymentByTeamPublishUpdate(id: String!): CoachPaymentByTeamPayload!
+    coachPaymentByTeamRestore(id: String!): CoachPaymentByTeamPayload!
+    coachPaymentByTeamSave(coachPaymentByTeamInput: CoachPaymentByTeamInput!): CoachPaymentByTeamPayload!
+    coachPaymentByTeamUpdate(coachPaymentByTeamInput: CoachPaymentByTeamInputWithId!): CoachPaymentByTeamPayload!
+    coachPaymentByTrainingDelete(id: String!): CoachPaymentByTrainingPayload!
+    coachPaymentByTrainingPublishUpdate(id: String!): CoachPaymentByTrainingPayload!
+    coachPaymentByTrainingRestore(id: String!): CoachPaymentByTrainingPayload!
+    coachPaymentByTrainingSave(coachPaymentByTrainingInput: CoachPaymentByTrainingInput!): CoachPaymentByTrainingPayload!
+    coachPaymentByTrainingUpdate(coachPaymentByTrainingInput: CoachPaymentByTrainingInputWithId!): CoachPaymentByTrainingPayload!
+    creatorDelete(id: String!): CreatorPayload!
+    creatorPublishUpdate(id: String!): CreatorPayload!
+    creatorRestore(id: String!): CreatorPayload!
+    creatorSave(creatorInput: CreatorInput!): CreatorPayload!
+    creatorUpdate(creatorInput: CreatorInputWithId!): CreatorPayload!
+    kitDelete(id: String!): KitPayload!
+    kitPublishUpdate(id: String!): KitPayload!
+    kitRestore(id: String!): KitPayload!
+    kitSave(kitInput: KitInput!): KitPayload!
+    kitUpdate(kitInput: KitInputWithId!): KitPayload!
+    leadDelete(id: String!): LeadPayload!
+    leadPublishUpdate(id: String!): LeadPayload!
+    leadRestore(id: String!): LeadPayload!
+    leadSave(leadInput: LeadInput!): LeadPayload
+    leadUpdate(leadInput: LeadInputWithId!): LeadPayload!
+    moneyCostDelete(id: String!): MoneyCostPayload!
+    moneyCostPublishUpdate(id: String!): MoneyCostPayload!
+    moneyCostRestore(id: String!): MoneyCostPayload!
+    moneyCostSave(moneyCostInput: MoneyCostInput!): MoneyCostPayload!
+    moneyCostUpdate(moneyCostInput: MoneyCostInputWithId!): MoneyCostPayload!
+    moneyMoveDelete(id: String!): MoneyMovePayload!
+    moneyMovePublishUpdate(id: String!): MoneyMovePayload!
+    moneyMoveRestore(id: String!): MoneyMovePayload!
+    moneyMoveSave(moneyMoveInput: MoneyMoveInput!): MoneyMovePayload!
+    moneyMoveUpdate(moneyMoveInput: MoneyMoveInputWithId!): MoneyMovePayload!
+    orderDelete(id: String!): OrderPayload!
+    orderPublishUpdate(id: String!): OrderPayload!
+    orderRestore(id: String!): OrderPayload!
+    orderSave(orderInput: OrderInput!): OrderPayload!
+    orderUpdate(orderInput: OrderInputWithId!): OrderPayload!
+    placeDelete(id: String!): PlacePayload!
+    placePublishUpdate(id: String!): PlacePayload!
+    placeRestore(id: String!): PlacePayload!
+    placeSave(placeInput: PlaceInput!): PlacePayload!
+    placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
-    rentPaymentByMonthDelete(ids: [String!]!): [RentPaymentByMonthPayload!]!
-    rentPaymentByMonthPublishUpdate(ids: [String!]!): [RentPaymentByMonthPayload!]!
-    rentPaymentByMonthRestore(ids: [String!]!): [RentPaymentByMonthPayload!]!
-    rentPaymentByMonthSave(rentPaymentInput: [RentPaymentByMonthInput!]!): [RentPaymentByMonthPayload!]!
-    rentPaymentByMonthUpdate(rentPaymentInput: [RentPaymentByMonthInputWithId!]!): [RentPaymentByMonthPayload!]!
-    rentPaymentByTrainingDelete(ids: [String!]!): [RentPaymentByTrainingPayload!]!
-    rentPaymentByTrainingPublishUpdate(ids: [String!]!): [RentPaymentByTrainingPayload!]!
-    rentPaymentByTrainingRestore(ids: [String!]!): [RentPaymentByTrainingPayload!]!
-    rentPaymentByTrainingSave(rentPaymentInput: [RentPaymentByTrainingInput!]!): [RentPaymentByTrainingPayload!]!
-    rentPaymentByTrainingUpdate(rentPaymentInput: [RentPaymentByTrainingInputWithId!]!): [RentPaymentByTrainingPayload!]!
-    stadiumsDelete(ids: [String!]!): [StadiumPayload!]!
-    stadiumsPublishUpdate(ids: [String!]!): [StadiumPayload!]!
-    stadiumsRestore(ids: [String!]!): [StadiumPayload!]!
-    stadiumsSave(stadiumInput: [StadiumInput!]!): [StadiumPayload]!
-    stadiumsUpdate(stadiumInput: [StadiumInputWithId!]!): [StadiumPayload]!
-    staffDelete(ids: [String!]!): [StaffPayload!]!
-    staffPublishUpdate(ids: [String!]!): [StaffPayload!]!
-    staffRestore(ids: [String!]!): [StaffPayload!]!
-    staffSave(staffInput: [StaffInput!]!): [StaffPayload]!
-    staffUpdate(staffInput: [StaffInputWithId!]!): [StaffPayload]!
-    studentVisitsDelete(ids: [String!]!): [StudentVisitPayload!]!
-    studentVisitsPublishUpdate(ids: [String!]!): [StudentVisitPayload!]!
-    studentVisitsRestore(ids: [String!]!): [StudentVisitPayload!]!
-    studentVisitsSave(studentVisitInput: [StudentVisitInput!]!): [StudentVisitPayload!]!
-    studentVisitsUpdate(studentVisitInput: [StudentVisitInputWithId!]!): [StudentVisitPayload!]!
-    studentsDelete(ids: [String!]!): [StudentPayload!]!
-    studentsPublishUpdate(ids: [String!]!): [StudentPayload!]!
-    studentsRestore(ids: [String!]!): [StudentPayload!]!
-    studentsSave(studentInput: [StudentInput!]!): [StudentPayload!]!
-    studentsUpdate(studentInput: [StudentInputWithId!]!): [StudentPayload!]!
-    tasksDelete(ids: [String!]!): [TaskPayload!]!
-    tasksPublishUpdate(ids: [String!]!): [TaskPayload!]!
-    tasksRestore(ids: [String!]!): [TaskPayload!]!
-    tasksSave(taskInput: [TaskInput!]!): [TaskPayload]!
-    tasksUpdate(taskInput: [TaskInputWithId!]!): [TaskPayload]!
-    teamBalancesDelete(ids: [String!]!): [TeamBalancePayload!]!
-    teamBalancesPublishUpdate(ids: [String!]!): [TeamBalancePayload!]!
-    teamBalancesRestore(ids: [String!]!): [TeamBalancePayload!]!
-    teamBalancesSave(teamBalanceInput: [TeamBalanceInput!]!): [TeamBalancePayload!]!
-    teamBalancesUpdate(teamBalanceInput: [TeamBalanceInputWithId!]!): [TeamBalancePayload!]!
-    teamsDelete(ids: [String!]!): [TeamPayload!]!
-    teamsPublishUpdate(ids: [String!]!): [TeamPayload!]!
-    teamsRestore(ids: [String!]!): [TeamPayload!]!
-    teamsSave(teamInput: [TeamInput!]!): [TeamPayload]!
-    teamsUpdate(teamInput: [TeamInputWithId!]!): [TeamPayload]!
-    trainingDaysDelete(ids: [String!]!): [TrainingDayPayload!]!
-    trainingDaysPublishUpdate(ids: [String!]!): [TrainingDayPayload!]!
-    trainingDaysRestore(ids: [String!]!): [TrainingDayPayload!]!
-    trainingDaysSave(trainingDayInput: [TrainingDayInput!]!): [TrainingDayPayload]!
-    trainingDaysUpdate(trainingDayInput: [TrainingDayInputWithId!]!): [TrainingDayPayload]!
-    trainingsDelete(ids: [String!]!): [TrainingPayload!]!
-    trainingsPublishUpdate(ids: [String!]!): [TrainingPayload!]!
-    trainingsRestore(ids: [String!]!): [TrainingPayload!]!
-    trainingsSave(trainingInput: [TrainingInput!]!): [TrainingPayload!]!
-    trainingsUpdate(trainingInput: [TrainingInputWithId!]!): [TrainingPayload!]!
-    usersDelete(ids: [String!]!): [UserPayload!]!
-    usersPublishUpdate(ids: [String!]!): [UserPayload!]!
-    usersRestore(ids: [String!]!): [UserPayload!]!
-    usersSave(userInput: [UserInput!]!): [UserPayload]!
-    usersUpdate(userInput: [UserInputWithId!]!): [UserPayload]!
+    rentPaymentByMonthDelete(id: String!): RentPaymentByMonthPayload!
+    rentPaymentByMonthPublishUpdate(id: String!): RentPaymentByMonthPayload!
+    rentPaymentByMonthRestore(id: String!): RentPaymentByMonthPayload!
+    rentPaymentByMonthSave(rentPaymentInput: RentPaymentByMonthInput!): RentPaymentByMonthPayload!
+    rentPaymentByMonthUpdate(rentPaymentInput: RentPaymentByMonthInputWithId!): RentPaymentByMonthPayload!
+    rentPaymentByTrainingDelete(id: String!): RentPaymentByTrainingPayload!
+    rentPaymentByTrainingPublishUpdate(id: String!): RentPaymentByTrainingPayload!
+    rentPaymentByTrainingRestore(id: String!): RentPaymentByTrainingPayload!
+    rentPaymentByTrainingSave(rentPaymentInput: RentPaymentByTrainingInput!): RentPaymentByTrainingPayload!
+    rentPaymentByTrainingUpdate(rentPaymentInput: RentPaymentByTrainingInputWithId!): RentPaymentByTrainingPayload!
+    stadiumDelete(id: String!): StadiumPayload!
+    stadiumPublishUpdate(id: String!): StadiumPayload!
+    stadiumRestore(id: String!): StadiumPayload!
+    stadiumSave(stadiumInput: StadiumInput!): StadiumPayload!
+    stadiumUpdate(stadiumInput: StadiumInputWithId!): StadiumPayload!
+    staffDelete(id: String!): StaffPayload!
+    staffPublishUpdate(id: String!): StaffPayload!
+    staffRestore(id: String!): StaffPayload!
+    staffSave(staffInput: StaffInput!): StaffPayload!
+    staffUpdate(staffInput: StaffInputWithId!): StaffPayload!
+    studentVisitDelete(id: String!): StudentVisitPayload!
+    studentVisitPublishUpdate(id: String!): StudentVisitPayload!
+    studentVisitRestore(id: String!): StudentVisitPayload!
+    studentVisitSave(studentVisitInput: StudentVisitInput!): StudentVisitPayload!
+    studentVisitUpdate(studentVisitInput: StudentVisitInputWithId!): StudentVisitPayload!
+    studentDelete(id: String!): StudentPayload!
+    studentPublishUpdate(id: String!): StudentPayload!
+    studentRestore(id: String!): StudentPayload!
+    studentSave(studentInput: StudentInput!): StudentPayload!
+    studentUpdate(studentInput: StudentInputWithId!): StudentPayload!
+    taskDelete(id: String!): TaskPayload!
+    taskPublishUpdate(id: String!): TaskPayload!
+    taskRestore(id: String!): TaskPayload!
+    taskSave(taskInput: TaskInput!): TaskPayload!
+    taskUpdate(taskInput: TaskInputWithId!): TaskPayload!
+    teamBalanceDelete(id: String!): TeamBalancePayload!
+    teamBalancePublishUpdate(id: String!): TeamBalancePayload!
+    teamBalanceRestore(id: String!): TeamBalancePayload!
+    teamBalanceSave(teamBalanceInput: TeamBalanceInput!): TeamBalancePayload!
+    teamBalanceUpdate(teamBalanceInput: TeamBalanceInputWithId!): TeamBalancePayload!
+    teamDelete(id: String!): TeamPayload!
+    teamPublishUpdate(id: String!): TeamPayload!
+    teamRestore(id: String!): TeamPayload!
+    teamSave(teamInput: TeamInput!): TeamPayload!
+    teamUpdate(teamInput: TeamInputWithId!): TeamPayload!
+    trainingDayDelete(id: String!): TrainingDayPayload!
+    trainingDayPublishUpdate(id: String!): TrainingDayPayload!
+    trainingDayRestore(id: String!): TrainingDayPayload!
+    trainingDaySave(trainingDayInput: TrainingDayInput!): TrainingDayPayload!
+    trainingDayUpdate(trainingDayInput: TrainingDayInputWithId!): TrainingDayPayload!
+    trainingDelete(id: String!): TrainingPayload!
+    trainingPublishUpdate(id: String!): TrainingPayload!
+    trainingRestore(id: String!): TrainingPayload!
+    trainingSave(trainingInput: TrainingInput!): TrainingPayload!
+    trainingUpdate(trainingInput: TrainingInputWithId!): TrainingPayload!
+    userDelete(id: String!): UserPayload!
+    userPublishUpdate(id: String!): UserPayload!
+    userRestore(id: String!): UserPayload!
+    userSave(userInput: UserInput!): UserPayload!
+    userUpdate(userInput: UserInputWithId!): UserPayload!
 }
 
 type AuthResponse {
@@ -8609,58 +8564,58 @@ var parsedSchema = gqlparser.MustLoadSchema(sources...)
 
 // region    ***************************** args.gotpl *****************************
 
-func (ec *executionContext) field_Mutation_articlesDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_articleDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_articlesPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_articlePublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_articlesRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_articleRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_articlesSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_articleSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.ArticleInput
+	var arg0 models.ArticleInput
 	if tmp, ok := rawArgs["articleInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("articleInput"))
-		arg0, err = ec.unmarshalNArticleInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNArticleInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8669,13 +8624,13 @@ func (ec *executionContext) field_Mutation_articlesSave_args(ctx context.Context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_articlesUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_articleUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.ArticleInputWithID
+	var arg0 models.ArticleInputWithID
 	if tmp, ok := rawArgs["articleInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("articleInput"))
-		arg0, err = ec.unmarshalNArticleInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNArticleInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8684,58 +8639,58 @@ func (ec *executionContext) field_Mutation_articlesUpdate_args(ctx context.Conte
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_cartsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_cartDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_cartsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_cartPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_cartsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_cartRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_cartsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_cartSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CartInput
+	var arg0 models.CartInput
 	if tmp, ok := rawArgs["cartInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("cartInput"))
-		arg0, err = ec.unmarshalNCartInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCartInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8744,13 +8699,13 @@ func (ec *executionContext) field_Mutation_cartsSave_args(ctx context.Context, r
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_cartsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_cartUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CartInputWithID
+	var arg0 models.CartInputWithID
 	if tmp, ok := rawArgs["cartInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("cartInput"))
-		arg0, err = ec.unmarshalNCartInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCartInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8759,58 +8714,58 @@ func (ec *executionContext) field_Mutation_cartsUpdate_args(ctx context.Context,
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_clubBalancesDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_clubBalanceDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_clubBalancesPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_clubBalancePublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_clubBalancesRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_clubBalanceRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_clubBalancesSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_clubBalanceSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.ClubBalanceInput
+	var arg0 models.ClubBalanceInput
 	if tmp, ok := rawArgs["clubBalanceInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("clubBalanceInput"))
-		arg0, err = ec.unmarshalNClubBalanceInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNClubBalanceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8819,13 +8774,13 @@ func (ec *executionContext) field_Mutation_clubBalancesSave_args(ctx context.Con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_clubBalancesUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_clubBalanceUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.ClubBalanceInputWithID
+	var arg0 models.ClubBalanceInputWithID
 	if tmp, ok := rawArgs["clubBalanceInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("clubBalanceInput"))
-		arg0, err = ec.unmarshalNClubBalanceInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNClubBalanceInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8834,58 +8789,58 @@ func (ec *executionContext) field_Mutation_clubBalancesUpdate_args(ctx context.C
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByMonthDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByMonthDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByMonthPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByMonthPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByMonthRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByMonthRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByMonthSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByMonthSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CoachPaymentByMonthInput
+	var arg0 models.CoachPaymentByMonthInput
 	if tmp, ok := rawArgs["coachPaymentByMonthInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("coachPaymentByMonthInput"))
-		arg0, err = ec.unmarshalNCoachPaymentByMonthInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCoachPaymentByMonthInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8894,13 +8849,13 @@ func (ec *executionContext) field_Mutation_coachPaymentsByMonthSave_args(ctx con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByMonthUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByMonthUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CoachPaymentByMonthInputWithID
+	var arg0 models.CoachPaymentByMonthInputWithID
 	if tmp, ok := rawArgs["coachPaymentByMonthInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("coachPaymentByMonthInput"))
-		arg0, err = ec.unmarshalNCoachPaymentByMonthInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCoachPaymentByMonthInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8909,58 +8864,58 @@ func (ec *executionContext) field_Mutation_coachPaymentsByMonthUpdate_args(ctx c
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTeamDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTeamDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTeamPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTeamPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTeamRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTeamRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTeamSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTeamSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CoachPaymentByTeamInput
+	var arg0 models.CoachPaymentByTeamInput
 	if tmp, ok := rawArgs["coachPaymentByTeamInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("coachPaymentByTeamInput"))
-		arg0, err = ec.unmarshalNCoachPaymentByTeamInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCoachPaymentByTeamInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8969,13 +8924,13 @@ func (ec *executionContext) field_Mutation_coachPaymentsByTeamSave_args(ctx cont
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTeamUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTeamUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CoachPaymentByTeamInputWithID
+	var arg0 models.CoachPaymentByTeamInputWithID
 	if tmp, ok := rawArgs["coachPaymentByTeamInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("coachPaymentByTeamInput"))
-		arg0, err = ec.unmarshalNCoachPaymentByTeamInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCoachPaymentByTeamInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -8984,58 +8939,58 @@ func (ec *executionContext) field_Mutation_coachPaymentsByTeamUpdate_args(ctx co
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTrainingDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTrainingDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTrainingPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTrainingPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTrainingRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTrainingRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTrainingSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTrainingSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CoachPaymentByTrainingInput
+	var arg0 models.CoachPaymentByTrainingInput
 	if tmp, ok := rawArgs["coachPaymentByTrainingInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("coachPaymentByTrainingInput"))
-		arg0, err = ec.unmarshalNCoachPaymentByTrainingInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCoachPaymentByTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9044,13 +8999,13 @@ func (ec *executionContext) field_Mutation_coachPaymentsByTrainingSave_args(ctx 
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentsByTrainingUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_coachPaymentByTrainingUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CoachPaymentByTrainingInputWithID
+	var arg0 models.CoachPaymentByTrainingInputWithID
 	if tmp, ok := rawArgs["coachPaymentByTrainingInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("coachPaymentByTrainingInput"))
-		arg0, err = ec.unmarshalNCoachPaymentByTrainingInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCoachPaymentByTrainingInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9074,73 +9029,58 @@ func (ec *executionContext) field_Mutation_createMeetup_args(ctx context.Context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_createPlace_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_creatorDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 models.PlaceInput
-	if tmp, ok := rawArgs["input"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNPlaceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_creatorsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_creatorPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_creatorsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_creatorRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_creatorsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_creatorSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["ids"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_creatorsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*models.CreatorInput
+	var arg0 models.CreatorInput
 	if tmp, ok := rawArgs["creatorInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("creatorInput"))
-		arg0, err = ec.unmarshalNCreatorInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCreatorInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9149,13 +9089,13 @@ func (ec *executionContext) field_Mutation_creatorsSave_args(ctx context.Context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_creatorsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_creatorUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.CreatorInputWithID
+	var arg0 models.CreatorInputWithID
 	if tmp, ok := rawArgs["creatorInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("creatorInput"))
-		arg0, err = ec.unmarshalNCreatorInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCreatorInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9179,13 +9119,13 @@ func (ec *executionContext) field_Mutation_deleteMeetup_args(ctx context.Context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_deletePlace_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_kitDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
 	if tmp, ok := rawArgs["id"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNID2string(ctx, tmp)
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9194,58 +9134,43 @@ func (ec *executionContext) field_Mutation_deletePlace_args(ctx context.Context,
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_kitsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_kitPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_kitsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_kitRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_kitsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_kitSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["ids"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_kitsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*models.KitInput
+	var arg0 models.KitInput
 	if tmp, ok := rawArgs["kitInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("kitInput"))
-		arg0, err = ec.unmarshalNKitInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNKitInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9254,13 +9179,13 @@ func (ec *executionContext) field_Mutation_kitsSave_args(ctx context.Context, ra
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_kitsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_kitUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.KitInputWithID
+	var arg0 models.KitInputWithID
 	if tmp, ok := rawArgs["kitInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("kitInput"))
-		arg0, err = ec.unmarshalNKitInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNKitInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9269,58 +9194,58 @@ func (ec *executionContext) field_Mutation_kitsUpdate_args(ctx context.Context, 
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_leadsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_leadDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_leadsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_leadPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_leadsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_leadRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_leadsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_leadSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.LeadInput
+	var arg0 models.LeadInput
 	if tmp, ok := rawArgs["leadInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("leadInput"))
-		arg0, err = ec.unmarshalNLeadInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNLeadInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9329,13 +9254,13 @@ func (ec *executionContext) field_Mutation_leadsSave_args(ctx context.Context, r
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_leadsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_leadUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.LeadInputWithID
+	var arg0 models.LeadInputWithID
 	if tmp, ok := rawArgs["leadInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("leadInput"))
-		arg0, err = ec.unmarshalNLeadInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNLeadInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9359,58 +9284,58 @@ func (ec *executionContext) field_Mutation_login_args(ctx context.Context, rawAr
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyCostsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyCostDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyCostsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyCostPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyCostsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyCostRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyCostsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyCostSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.MoneyCostInput
+	var arg0 models.MoneyCostInput
 	if tmp, ok := rawArgs["moneyCostInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("moneyCostInput"))
-		arg0, err = ec.unmarshalNMoneyCostInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNMoneyCostInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9419,13 +9344,13 @@ func (ec *executionContext) field_Mutation_moneyCostsSave_args(ctx context.Conte
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyCostsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyCostUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.MoneyCostInputWithID
+	var arg0 models.MoneyCostInputWithID
 	if tmp, ok := rawArgs["moneyCostInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("moneyCostInput"))
-		arg0, err = ec.unmarshalNMoneyCostInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNMoneyCostInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9434,58 +9359,58 @@ func (ec *executionContext) field_Mutation_moneyCostsUpdate_args(ctx context.Con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyMovesDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyMoveDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyMovesPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyMovePublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyMovesRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyMoveRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyMovesSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyMoveSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.MoneyMoveInput
+	var arg0 models.MoneyMoveInput
 	if tmp, ok := rawArgs["moneyMoveInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("moneyMoveInput"))
-		arg0, err = ec.unmarshalNMoneyMoveInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNMoneyMoveInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9494,13 +9419,13 @@ func (ec *executionContext) field_Mutation_moneyMovesSave_args(ctx context.Conte
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyMovesUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_moneyMoveUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.MoneyMoveInputWithID
+	var arg0 models.MoneyMoveInputWithID
 	if tmp, ok := rawArgs["moneyMoveInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("moneyMoveInput"))
-		arg0, err = ec.unmarshalNMoneyMoveInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNMoneyMoveInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9509,58 +9434,58 @@ func (ec *executionContext) field_Mutation_moneyMovesUpdate_args(ctx context.Con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_ordersDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_orderDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_ordersPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_orderPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_ordersRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_orderRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_ordersSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_orderSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.OrderInput
+	var arg0 models.OrderInput
 	if tmp, ok := rawArgs["orderInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("orderInput"))
-		arg0, err = ec.unmarshalNOrderInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNOrderInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9569,13 +9494,13 @@ func (ec *executionContext) field_Mutation_ordersSave_args(ctx context.Context, 
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_ordersUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_orderUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.OrderInputWithID
+	var arg0 models.OrderInputWithID
 	if tmp, ok := rawArgs["orderInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("orderInput"))
-		arg0, err = ec.unmarshalNOrderInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNOrderInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9584,58 +9509,58 @@ func (ec *executionContext) field_Mutation_ordersUpdate_args(ctx context.Context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_placesDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_placeDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_placesPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_placePublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_placesRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_placeRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_placesSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_placeSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.PlaceInput
+	var arg0 models.PlaceInput
 	if tmp, ok := rawArgs["placeInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("placeInput"))
-		arg0, err = ec.unmarshalNPlaceInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNPlaceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9644,13 +9569,13 @@ func (ec *executionContext) field_Mutation_placesSave_args(ctx context.Context, 
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_placesUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_placeUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.PlaceInputWithID
+	var arg0 models.PlaceInputWithID
 	if tmp, ok := rawArgs["placeInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("placeInput"))
-		arg0, err = ec.unmarshalNPlaceInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNPlaceInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9701,55 +9626,55 @@ func (ec *executionContext) field_Mutation_register_args(ctx context.Context, ra
 func (ec *executionContext) field_Mutation_rentPaymentByMonthDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_rentPaymentByMonthPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_rentPaymentByMonthRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_rentPaymentByMonthSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.RentPaymentByMonthInput
+	var arg0 models.RentPaymentByMonthInput
 	if tmp, ok := rawArgs["rentPaymentInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("rentPaymentInput"))
-		arg0, err = ec.unmarshalNRentPaymentByMonthInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNRentPaymentByMonthInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9761,10 +9686,10 @@ func (ec *executionContext) field_Mutation_rentPaymentByMonthSave_args(ctx conte
 func (ec *executionContext) field_Mutation_rentPaymentByMonthUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.RentPaymentByMonthInputWithID
+	var arg0 models.RentPaymentByMonthInputWithID
 	if tmp, ok := rawArgs["rentPaymentInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("rentPaymentInput"))
-		arg0, err = ec.unmarshalNRentPaymentByMonthInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNRentPaymentByMonthInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9776,55 +9701,55 @@ func (ec *executionContext) field_Mutation_rentPaymentByMonthUpdate_args(ctx con
 func (ec *executionContext) field_Mutation_rentPaymentByTrainingDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_rentPaymentByTrainingPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_rentPaymentByTrainingRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_rentPaymentByTrainingSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.RentPaymentByTrainingInput
+	var arg0 models.RentPaymentByTrainingInput
 	if tmp, ok := rawArgs["rentPaymentInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("rentPaymentInput"))
-		arg0, err = ec.unmarshalNRentPaymentByTrainingInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNRentPaymentByTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9836,10 +9761,10 @@ func (ec *executionContext) field_Mutation_rentPaymentByTrainingSave_args(ctx co
 func (ec *executionContext) field_Mutation_rentPaymentByTrainingUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.RentPaymentByTrainingInputWithID
+	var arg0 models.RentPaymentByTrainingInputWithID
 	if tmp, ok := rawArgs["rentPaymentInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("rentPaymentInput"))
-		arg0, err = ec.unmarshalNRentPaymentByTrainingInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNRentPaymentByTrainingInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9848,58 +9773,58 @@ func (ec *executionContext) field_Mutation_rentPaymentByTrainingUpdate_args(ctx 
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_stadiumsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_stadiumDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_stadiumsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_stadiumPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_stadiumsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_stadiumRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_stadiumsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_stadiumSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.StadiumInput
+	var arg0 models.StadiumInput
 	if tmp, ok := rawArgs["stadiumInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stadiumInput"))
-		arg0, err = ec.unmarshalNStadiumInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNStadiumInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9908,13 +9833,13 @@ func (ec *executionContext) field_Mutation_stadiumsSave_args(ctx context.Context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_stadiumsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_stadiumUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.StadiumInputWithID
+	var arg0 models.StadiumInputWithID
 	if tmp, ok := rawArgs["stadiumInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stadiumInput"))
-		arg0, err = ec.unmarshalNStadiumInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNStadiumInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9926,55 +9851,55 @@ func (ec *executionContext) field_Mutation_stadiumsUpdate_args(ctx context.Conte
 func (ec *executionContext) field_Mutation_staffDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_staffPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_staffRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_staffSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.StaffInput
+	var arg0 models.StaffInput
 	if tmp, ok := rawArgs["staffInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("staffInput"))
-		arg0, err = ec.unmarshalNStaffInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNStaffInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9986,10 +9911,10 @@ func (ec *executionContext) field_Mutation_staffSave_args(ctx context.Context, r
 func (ec *executionContext) field_Mutation_staffUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.StaffInputWithID
+	var arg0 models.StaffInputWithID
 	if tmp, ok := rawArgs["staffInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("staffInput"))
-		arg0, err = ec.unmarshalNStaffInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNStaffInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9998,133 +9923,58 @@ func (ec *executionContext) field_Mutation_staffUpdate_args(ctx context.Context,
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_studentVisitsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_studentVisitsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_studentVisitsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_studentVisitsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.StudentVisitInput
-	if tmp, ok := rawArgs["studentVisitInput"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("studentVisitInput"))
-		arg0, err = ec.unmarshalNStudentVisitInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInputᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["studentVisitInput"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_studentVisitsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*models.StudentVisitInputWithID
-	if tmp, ok := rawArgs["studentVisitInput"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("studentVisitInput"))
-		arg0, err = ec.unmarshalNStudentVisitInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInputWithIDᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["studentVisitInput"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_studentsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["ids"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_studentsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["ids"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_studentsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["ids"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_studentsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*models.StudentInput
+	var arg0 models.StudentInput
 	if tmp, ok := rawArgs["studentInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("studentInput"))
-		arg0, err = ec.unmarshalNStudentInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNStudentInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10133,13 +9983,13 @@ func (ec *executionContext) field_Mutation_studentsSave_args(ctx context.Context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_studentsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.StudentInputWithID
+	var arg0 models.StudentInputWithID
 	if tmp, ok := rawArgs["studentInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("studentInput"))
-		arg0, err = ec.unmarshalNStudentInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNStudentInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10148,58 +9998,133 @@ func (ec *executionContext) field_Mutation_studentsUpdate_args(ctx context.Conte
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_tasksDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentVisitDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_tasksPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentVisitPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_tasksRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentVisitRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_tasksSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_studentVisitSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TaskInput
+	var arg0 models.StudentVisitInput
+	if tmp, ok := rawArgs["studentVisitInput"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("studentVisitInput"))
+		arg0, err = ec.unmarshalNStudentVisitInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["studentVisitInput"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_studentVisitUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 models.StudentVisitInputWithID
+	if tmp, ok := rawArgs["studentVisitInput"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("studentVisitInput"))
+		arg0, err = ec.unmarshalNStudentVisitInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInputWithID(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["studentVisitInput"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_taskDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_taskPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_taskRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_taskSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 models.TaskInput
 	if tmp, ok := rawArgs["taskInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("taskInput"))
-		arg0, err = ec.unmarshalNTaskInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTaskInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10208,13 +10133,13 @@ func (ec *executionContext) field_Mutation_tasksSave_args(ctx context.Context, r
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_tasksUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_taskUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TaskInputWithID
+	var arg0 models.TaskInputWithID
 	if tmp, ok := rawArgs["taskInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("taskInput"))
-		arg0, err = ec.unmarshalNTaskInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTaskInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10223,58 +10148,58 @@ func (ec *executionContext) field_Mutation_tasksUpdate_args(ctx context.Context,
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamBalancesDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamBalanceDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamBalancesPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamBalancePublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamBalancesRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamBalanceRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamBalancesSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamBalanceSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TeamBalanceInput
+	var arg0 models.TeamBalanceInput
 	if tmp, ok := rawArgs["teamBalanceInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("teamBalanceInput"))
-		arg0, err = ec.unmarshalNTeamBalanceInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTeamBalanceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10283,13 +10208,13 @@ func (ec *executionContext) field_Mutation_teamBalancesSave_args(ctx context.Con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamBalancesUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamBalanceUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TeamBalanceInputWithID
+	var arg0 models.TeamBalanceInputWithID
 	if tmp, ok := rawArgs["teamBalanceInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("teamBalanceInput"))
-		arg0, err = ec.unmarshalNTeamBalanceInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTeamBalanceInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10298,58 +10223,58 @@ func (ec *executionContext) field_Mutation_teamBalancesUpdate_args(ctx context.C
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TeamInput
+	var arg0 models.TeamInput
 	if tmp, ok := rawArgs["teamInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("teamInput"))
-		arg0, err = ec.unmarshalNTeamInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTeamInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10358,13 +10283,13 @@ func (ec *executionContext) field_Mutation_teamsSave_args(ctx context.Context, r
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_teamUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TeamInputWithID
+	var arg0 models.TeamInputWithID
 	if tmp, ok := rawArgs["teamInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("teamInput"))
-		arg0, err = ec.unmarshalNTeamInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTeamInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10373,58 +10298,58 @@ func (ec *executionContext) field_Mutation_teamsUpdate_args(ctx context.Context,
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingDaysDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingDayDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingDaysPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingDayPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingDaysRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingDayRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingDaysSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingDaySave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TrainingDayInput
+	var arg0 models.TrainingDayInput
 	if tmp, ok := rawArgs["trainingDayInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("trainingDayInput"))
-		arg0, err = ec.unmarshalNTrainingDayInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTrainingDayInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10433,13 +10358,13 @@ func (ec *executionContext) field_Mutation_trainingDaysSave_args(ctx context.Con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingDaysUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingDayUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TrainingDayInputWithID
+	var arg0 models.TrainingDayInputWithID
 	if tmp, ok := rawArgs["trainingDayInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("trainingDayInput"))
-		arg0, err = ec.unmarshalNTrainingDayInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTrainingDayInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10448,58 +10373,58 @@ func (ec *executionContext) field_Mutation_trainingDaysUpdate_args(ctx context.C
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingsDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingsPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingsRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingsSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TrainingInput
+	var arg0 models.TrainingInput
 	if tmp, ok := rawArgs["trainingInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("trainingInput"))
-		arg0, err = ec.unmarshalNTrainingInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10508,13 +10433,13 @@ func (ec *executionContext) field_Mutation_trainingsSave_args(ctx context.Contex
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingsUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_trainingUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.TrainingInputWithID
+	var arg0 models.TrainingInputWithID
 	if tmp, ok := rawArgs["trainingInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("trainingInput"))
-		arg0, err = ec.unmarshalNTrainingInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNTrainingInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10547,82 +10472,58 @@ func (ec *executionContext) field_Mutation_updateMeetup_args(ctx context.Context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_updatePlace_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_userDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
 	if tmp, ok := rawArgs["id"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNID2string(ctx, tmp)
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["id"] = arg0
-	var arg1 *models.PlaceInput
-	if tmp, ok := rawArgs["input"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOPlaceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx, tmp)
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_userPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg1
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_usersDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_userRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["ids"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_usersPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_userSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["ids"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_usersRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []string
-	if tmp, ok := rawArgs["ids"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ids"))
-		arg0, err = ec.unmarshalNString2ᚕstringᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["ids"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_usersSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*models.UserInput
+	var arg0 models.UserInput
 	if tmp, ok := rawArgs["userInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("userInput"))
-		arg0, err = ec.unmarshalNUserInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNUserInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10631,13 +10532,13 @@ func (ec *executionContext) field_Mutation_usersSave_args(ctx context.Context, r
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_usersUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_userUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*models.UserInputWithID
+	var arg0 models.UserInputWithID
 	if tmp, ok := rawArgs["userInput"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("userInput"))
-		arg0, err = ec.unmarshalNUserInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInputWithIDᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNUserInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInputWithID(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -22339,67 +22240,6 @@ func (ec *executionContext) fieldContext_Mutation_createMeetup(ctx context.Conte
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_createPlace(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_createPlace(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreatePlace(rctx, fc.Args["input"].(models.PlaceInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.PlacePayload)
-	fc.Result = res
-	return ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_createPlace(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "place":
-				return ec.fieldContext_PlacePayload_place(ctx, field)
-			case "id":
-				return ec.fieldContext_PlacePayload_id(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type PlacePayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_createPlace_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_updateMeetup(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_updateMeetup(ctx, field)
 	if err != nil {
@@ -22465,79 +22305,6 @@ func (ec *executionContext) fieldContext_Mutation_updateMeetup(ctx context.Conte
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_updatePlace(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_updatePlace(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdatePlace(rctx, fc.Args["id"].(string), fc.Args["input"].(*models.PlaceInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.Place)
-	fc.Result = res
-	return ec.marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_updatePlace(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "address":
-				return ec.fieldContext_Place_address(ctx, field)
-			case "description":
-				return ec.fieldContext_Place_description(ctx, field)
-			case "id":
-				return ec.fieldContext_Place_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Place_name(ctx, field)
-			case "orderNumber":
-				return ec.fieldContext_Place_orderNumber(ctx, field)
-			case "published":
-				return ec.fieldContext_Place_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Place_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Place_updatedAt(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_updatePlace_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_deleteMeetup(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_deleteMeetup(ctx, field)
 	if err != nil {
@@ -22587,61 +22354,6 @@ func (ec *executionContext) fieldContext_Mutation_deleteMeetup(ctx context.Conte
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_deleteMeetup_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_deletePlace(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_deletePlace(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeletePlace(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(bool)
-	fc.Result = res
-	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_deletePlace(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Boolean does not have child fields")
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_deletePlace_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -22770,8 +22482,8 @@ func (ec *executionContext) fieldContext_Mutation_login(ctx context.Context, fie
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_articlesDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_articlesDelete(ctx, field)
+func (ec *executionContext) _Mutation_articleDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_articleDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -22784,7 +22496,7 @@ func (ec *executionContext) _Mutation_articlesDelete(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticlesDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().ArticleDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22796,12 +22508,12 @@ func (ec *executionContext) _Mutation_articlesDelete(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ArticlePayload)
+	res := resTmp.(*models.ArticlePayload)
 	fc.Result = res
-	return ec.marshalNArticlePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_articlesDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_articleDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -22824,15 +22536,15 @@ func (ec *executionContext) fieldContext_Mutation_articlesDelete(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_articlesDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_articleDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_articlesPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_articlesPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_articlePublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_articlePublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -22845,7 +22557,7 @@ func (ec *executionContext) _Mutation_articlesPublishUpdate(ctx context.Context,
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticlesPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().ArticlePublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22857,12 +22569,12 @@ func (ec *executionContext) _Mutation_articlesPublishUpdate(ctx context.Context,
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ArticlePayload)
+	res := resTmp.(*models.ArticlePayload)
 	fc.Result = res
-	return ec.marshalNArticlePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_articlesPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_articlePublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -22885,15 +22597,15 @@ func (ec *executionContext) fieldContext_Mutation_articlesPublishUpdate(ctx cont
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_articlesPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_articlePublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_articlesRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_articlesRestore(ctx, field)
+func (ec *executionContext) _Mutation_articleRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_articleRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -22906,7 +22618,7 @@ func (ec *executionContext) _Mutation_articlesRestore(ctx context.Context, field
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticlesRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().ArticleRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22918,12 +22630,12 @@ func (ec *executionContext) _Mutation_articlesRestore(ctx context.Context, field
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ArticlePayload)
+	res := resTmp.(*models.ArticlePayload)
 	fc.Result = res
-	return ec.marshalNArticlePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_articlesRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_articleRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -22946,15 +22658,15 @@ func (ec *executionContext) fieldContext_Mutation_articlesRestore(ctx context.Co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_articlesRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_articleRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_articlesSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_articlesSave(ctx, field)
+func (ec *executionContext) _Mutation_articleSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_articleSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -22967,7 +22679,7 @@ func (ec *executionContext) _Mutation_articlesSave(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticlesSave(rctx, fc.Args["articleInput"].([]*models.ArticleInput))
+		return ec.resolvers.Mutation().ArticleSave(rctx, fc.Args["articleInput"].(models.ArticleInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22979,12 +22691,12 @@ func (ec *executionContext) _Mutation_articlesSave(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ArticlePayload)
+	res := resTmp.(*models.ArticlePayload)
 	fc.Result = res
-	return ec.marshalNArticlePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, field.Selections, res)
+	return ec.marshalNArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_articlesSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_articleSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23007,15 +22719,15 @@ func (ec *executionContext) fieldContext_Mutation_articlesSave(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_articlesSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_articleSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_articlesUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_articlesUpdate(ctx, field)
+func (ec *executionContext) _Mutation_articleUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_articleUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23028,7 +22740,7 @@ func (ec *executionContext) _Mutation_articlesUpdate(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticlesUpdate(rctx, fc.Args["articleInput"].([]*models.ArticleInputWithID))
+		return ec.resolvers.Mutation().ArticleUpdate(rctx, fc.Args["articleInput"].(models.ArticleInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23040,12 +22752,12 @@ func (ec *executionContext) _Mutation_articlesUpdate(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ArticlePayload)
+	res := resTmp.(*models.ArticlePayload)
 	fc.Result = res
-	return ec.marshalNArticlePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, field.Selections, res)
+	return ec.marshalNArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_articlesUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_articleUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23068,15 +22780,15 @@ func (ec *executionContext) fieldContext_Mutation_articlesUpdate(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_articlesUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_articleUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_cartsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_cartsDelete(ctx, field)
+func (ec *executionContext) _Mutation_cartDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_cartDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23089,7 +22801,7 @@ func (ec *executionContext) _Mutation_cartsDelete(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CartDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23101,12 +22813,12 @@ func (ec *executionContext) _Mutation_cartsDelete(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CartPayload)
+	res := resTmp.(*models.CartPayload)
 	fc.Result = res
-	return ec.marshalNCartPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_cartsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_cartDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23129,15 +22841,15 @@ func (ec *executionContext) fieldContext_Mutation_cartsDelete(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_cartsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_cartDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_cartsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_cartsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_cartPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_cartPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23150,7 +22862,7 @@ func (ec *executionContext) _Mutation_cartsPublishUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CartPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23162,12 +22874,12 @@ func (ec *executionContext) _Mutation_cartsPublishUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CartPayload)
+	res := resTmp.(*models.CartPayload)
 	fc.Result = res
-	return ec.marshalNCartPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_cartsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_cartPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23190,15 +22902,15 @@ func (ec *executionContext) fieldContext_Mutation_cartsPublishUpdate(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_cartsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_cartPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_cartsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_cartsRestore(ctx, field)
+func (ec *executionContext) _Mutation_cartRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_cartRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23211,7 +22923,7 @@ func (ec *executionContext) _Mutation_cartsRestore(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CartRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23223,12 +22935,12 @@ func (ec *executionContext) _Mutation_cartsRestore(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CartPayload)
+	res := resTmp.(*models.CartPayload)
 	fc.Result = res
-	return ec.marshalNCartPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_cartsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_cartRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23251,15 +22963,15 @@ func (ec *executionContext) fieldContext_Mutation_cartsRestore(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_cartsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_cartRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_cartsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_cartsSave(ctx, field)
+func (ec *executionContext) _Mutation_cartSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_cartSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23272,7 +22984,7 @@ func (ec *executionContext) _Mutation_cartsSave(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartsSave(rctx, fc.Args["cartInput"].([]*models.CartInput))
+		return ec.resolvers.Mutation().CartSave(rctx, fc.Args["cartInput"].(models.CartInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23284,12 +22996,12 @@ func (ec *executionContext) _Mutation_cartsSave(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CartPayload)
+	res := resTmp.(*models.CartPayload)
 	fc.Result = res
-	return ec.marshalNCartPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_cartsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_cartSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23312,15 +23024,15 @@ func (ec *executionContext) fieldContext_Mutation_cartsSave(ctx context.Context,
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_cartsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_cartSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_cartsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_cartsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_cartUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_cartUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23333,7 +23045,7 @@ func (ec *executionContext) _Mutation_cartsUpdate(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartsUpdate(rctx, fc.Args["cartInput"].([]*models.CartInputWithID))
+		return ec.resolvers.Mutation().CartUpdate(rctx, fc.Args["cartInput"].(models.CartInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23345,12 +23057,12 @@ func (ec *executionContext) _Mutation_cartsUpdate(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CartPayload)
+	res := resTmp.(*models.CartPayload)
 	fc.Result = res
-	return ec.marshalNCartPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_cartsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_cartUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23373,15 +23085,15 @@ func (ec *executionContext) fieldContext_Mutation_cartsUpdate(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_cartsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_cartUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_clubBalancesDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_clubBalancesDelete(ctx, field)
+func (ec *executionContext) _Mutation_clubBalanceDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_clubBalanceDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23394,7 +23106,7 @@ func (ec *executionContext) _Mutation_clubBalancesDelete(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalancesDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().ClubBalanceDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23406,12 +23118,12 @@ func (ec *executionContext) _Mutation_clubBalancesDelete(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ClubBalancePayload)
+	res := resTmp.(*models.ClubBalancePayload)
 	fc.Result = res
-	return ec.marshalNClubBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_clubBalancesDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_clubBalanceDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23434,15 +23146,15 @@ func (ec *executionContext) fieldContext_Mutation_clubBalancesDelete(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_clubBalancesDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_clubBalanceDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_clubBalancesPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_clubBalancesPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_clubBalancePublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_clubBalancePublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23455,7 +23167,7 @@ func (ec *executionContext) _Mutation_clubBalancesPublishUpdate(ctx context.Cont
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalancesPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().ClubBalancePublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23467,12 +23179,12 @@ func (ec *executionContext) _Mutation_clubBalancesPublishUpdate(ctx context.Cont
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ClubBalancePayload)
+	res := resTmp.(*models.ClubBalancePayload)
 	fc.Result = res
-	return ec.marshalNClubBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_clubBalancesPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_clubBalancePublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23495,15 +23207,15 @@ func (ec *executionContext) fieldContext_Mutation_clubBalancesPublishUpdate(ctx 
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_clubBalancesPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_clubBalancePublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_clubBalancesRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_clubBalancesRestore(ctx, field)
+func (ec *executionContext) _Mutation_clubBalanceRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_clubBalanceRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23516,7 +23228,7 @@ func (ec *executionContext) _Mutation_clubBalancesRestore(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalancesRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().ClubBalanceRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23528,12 +23240,12 @@ func (ec *executionContext) _Mutation_clubBalancesRestore(ctx context.Context, f
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ClubBalancePayload)
+	res := resTmp.(*models.ClubBalancePayload)
 	fc.Result = res
-	return ec.marshalNClubBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_clubBalancesRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_clubBalanceRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23556,15 +23268,15 @@ func (ec *executionContext) fieldContext_Mutation_clubBalancesRestore(ctx contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_clubBalancesRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_clubBalanceRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_clubBalancesSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_clubBalancesSave(ctx, field)
+func (ec *executionContext) _Mutation_clubBalanceSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_clubBalanceSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23577,7 +23289,7 @@ func (ec *executionContext) _Mutation_clubBalancesSave(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalancesSave(rctx, fc.Args["clubBalanceInput"].([]*models.ClubBalanceInput))
+		return ec.resolvers.Mutation().ClubBalanceSave(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23589,12 +23301,12 @@ func (ec *executionContext) _Mutation_clubBalancesSave(ctx context.Context, fiel
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ClubBalancePayload)
+	res := resTmp.(*models.ClubBalancePayload)
 	fc.Result = res
-	return ec.marshalNClubBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_clubBalancesSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_clubBalanceSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23617,15 +23329,15 @@ func (ec *executionContext) fieldContext_Mutation_clubBalancesSave(ctx context.C
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_clubBalancesSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_clubBalanceSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_clubBalancesUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_clubBalancesUpdate(ctx, field)
+func (ec *executionContext) _Mutation_clubBalanceUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_clubBalanceUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23638,7 +23350,7 @@ func (ec *executionContext) _Mutation_clubBalancesUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalancesUpdate(rctx, fc.Args["clubBalanceInput"].([]*models.ClubBalanceInputWithID))
+		return ec.resolvers.Mutation().ClubBalanceUpdate(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23650,12 +23362,12 @@ func (ec *executionContext) _Mutation_clubBalancesUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.ClubBalancePayload)
+	res := resTmp.(*models.ClubBalancePayload)
 	fc.Result = res
-	return ec.marshalNClubBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_clubBalancesUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_clubBalanceUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23678,15 +23390,15 @@ func (ec *executionContext) fieldContext_Mutation_clubBalancesUpdate(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_clubBalancesUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_clubBalanceUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByMonthDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByMonthDelete(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByMonthDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByMonthDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23699,7 +23411,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthDelete(ctx context.Con
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByMonthDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByMonthDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23711,12 +23423,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthDelete(ctx context.Con
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByMonthPayload)
+	res := resTmp.(*models.CoachPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByMonthDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23739,15 +23451,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthDelete(ctx
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByMonthDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByMonthDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByMonthPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByMonthPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByMonthPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByMonthPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23760,7 +23472,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthPublishUpdate(ctx cont
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByMonthPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByMonthPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23772,12 +23484,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthPublishUpdate(ctx cont
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByMonthPayload)
+	res := resTmp.(*models.CoachPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByMonthPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23800,15 +23512,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthPublishUpd
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByMonthPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByMonthPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByMonthRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByMonthRestore(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByMonthRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByMonthRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23821,7 +23533,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthRestore(ctx context.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByMonthRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByMonthRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23833,12 +23545,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthRestore(ctx context.Co
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByMonthPayload)
+	res := resTmp.(*models.CoachPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByMonthRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23861,15 +23573,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthRestore(ct
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByMonthRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByMonthRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByMonthSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByMonthSave(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByMonthSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByMonthSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23882,7 +23594,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthSave(ctx context.Conte
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByMonthSave(rctx, fc.Args["coachPaymentByMonthInput"].([]*models.CoachPaymentByMonthInput))
+		return ec.resolvers.Mutation().CoachPaymentByMonthSave(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23894,12 +23606,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthSave(ctx context.Conte
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByMonthPayload)
+	res := resTmp.(*models.CoachPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByMonthSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23922,15 +23634,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthSave(ctx c
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByMonthSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByMonthSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByMonthUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByMonthUpdate(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByMonthUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByMonthUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -23943,7 +23655,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthUpdate(ctx context.Con
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByMonthUpdate(rctx, fc.Args["coachPaymentByMonthInput"].([]*models.CoachPaymentByMonthInputWithID))
+		return ec.resolvers.Mutation().CoachPaymentByMonthUpdate(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23955,12 +23667,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByMonthUpdate(ctx context.Con
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByMonthPayload)
+	res := resTmp.(*models.CoachPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByMonthUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -23983,15 +23695,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByMonthUpdate(ctx
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByMonthUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByMonthUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTeamDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTeamDelete(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTeamDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTeamDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24004,7 +23716,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamDelete(ctx context.Cont
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTeamDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByTeamDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24016,12 +23728,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamDelete(ctx context.Cont
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTeamPayload)
+	res := resTmp.(*models.CoachPaymentByTeamPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTeamDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24044,15 +23756,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamDelete(ctx 
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTeamDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTeamDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTeamPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTeamPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTeamPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTeamPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24065,7 +23777,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamPublishUpdate(ctx conte
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTeamPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByTeamPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24077,12 +23789,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamPublishUpdate(ctx conte
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTeamPayload)
+	res := resTmp.(*models.CoachPaymentByTeamPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTeamPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24105,15 +23817,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamPublishUpda
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTeamPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTeamPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTeamRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTeamRestore(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTeamRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTeamRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24126,7 +23838,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamRestore(ctx context.Con
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTeamRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByTeamRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24138,12 +23850,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamRestore(ctx context.Con
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTeamPayload)
+	res := resTmp.(*models.CoachPaymentByTeamPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTeamRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24166,15 +23878,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamRestore(ctx
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTeamRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTeamRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTeamSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTeamSave(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTeamSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTeamSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24187,7 +23899,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamSave(ctx context.Contex
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTeamSave(rctx, fc.Args["coachPaymentByTeamInput"].([]*models.CoachPaymentByTeamInput))
+		return ec.resolvers.Mutation().CoachPaymentByTeamSave(rctx, fc.Args["coachPaymentByTeamInput"].(models.CoachPaymentByTeamInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24199,12 +23911,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamSave(ctx context.Contex
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTeamPayload)
+	res := resTmp.(*models.CoachPaymentByTeamPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTeamSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24227,15 +23939,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamSave(ctx co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTeamSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTeamSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTeamUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTeamUpdate(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTeamUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTeamUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24248,7 +23960,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamUpdate(ctx context.Cont
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTeamUpdate(rctx, fc.Args["coachPaymentByTeamInput"].([]*models.CoachPaymentByTeamInputWithID))
+		return ec.resolvers.Mutation().CoachPaymentByTeamUpdate(rctx, fc.Args["coachPaymentByTeamInput"].(models.CoachPaymentByTeamInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24260,12 +23972,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTeamUpdate(ctx context.Cont
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTeamPayload)
+	res := resTmp.(*models.CoachPaymentByTeamPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTeamUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24288,15 +24000,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTeamUpdate(ctx 
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTeamUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTeamUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTrainingDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTrainingDelete(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTrainingDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTrainingDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24309,7 +24021,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingDelete(ctx context.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTrainingDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByTrainingDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24321,12 +24033,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingDelete(ctx context.
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTrainingPayload)
+	res := resTmp.(*models.CoachPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTrainingDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24349,15 +24061,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingDelete(
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTrainingDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTrainingDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTrainingPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTrainingPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTrainingPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTrainingPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24370,7 +24082,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingPublishUpdate(ctx c
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTrainingPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByTrainingPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24382,12 +24094,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingPublishUpdate(ctx c
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTrainingPayload)
+	res := resTmp.(*models.CoachPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTrainingPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24410,15 +24122,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingPublish
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTrainingPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTrainingPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTrainingRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTrainingRestore(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTrainingRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTrainingRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24431,7 +24143,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingRestore(ctx context
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTrainingRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CoachPaymentByTrainingRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24443,12 +24155,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingRestore(ctx context
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTrainingPayload)
+	res := resTmp.(*models.CoachPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTrainingRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24471,15 +24183,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingRestore
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTrainingRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTrainingRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTrainingSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTrainingSave(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTrainingSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTrainingSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24492,7 +24204,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingSave(ctx context.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTrainingSave(rctx, fc.Args["coachPaymentByTrainingInput"].([]*models.CoachPaymentByTrainingInput))
+		return ec.resolvers.Mutation().CoachPaymentByTrainingSave(rctx, fc.Args["coachPaymentByTrainingInput"].(models.CoachPaymentByTrainingInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24504,12 +24216,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingSave(ctx context.Co
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTrainingPayload)
+	res := resTmp.(*models.CoachPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTrainingSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24532,15 +24244,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingSave(ct
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTrainingSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTrainingSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentsByTrainingUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentsByTrainingUpdate(ctx, field)
+func (ec *executionContext) _Mutation_coachPaymentByTrainingUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_coachPaymentByTrainingUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24553,7 +24265,7 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingUpdate(ctx context.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentsByTrainingUpdate(rctx, fc.Args["coachPaymentByTrainingInput"].([]*models.CoachPaymentByTrainingInputWithID))
+		return ec.resolvers.Mutation().CoachPaymentByTrainingUpdate(rctx, fc.Args["coachPaymentByTrainingInput"].(models.CoachPaymentByTrainingInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24565,12 +24277,12 @@ func (ec *executionContext) _Mutation_coachPaymentsByTrainingUpdate(ctx context.
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CoachPaymentByTrainingPayload)
+	res := resTmp.(*models.CoachPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNCoachPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_coachPaymentByTrainingUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24593,15 +24305,15 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentsByTrainingUpdate(
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentsByTrainingUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_coachPaymentByTrainingUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_creatorsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_creatorsDelete(ctx, field)
+func (ec *executionContext) _Mutation_creatorDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_creatorDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24614,7 +24326,7 @@ func (ec *executionContext) _Mutation_creatorsDelete(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreatorsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CreatorDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24626,12 +24338,12 @@ func (ec *executionContext) _Mutation_creatorsDelete(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CreatorPayload)
+	res := resTmp.(*models.CreatorPayload)
 	fc.Result = res
-	return ec.marshalNCreatorPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCreatorPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_creatorsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_creatorDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24654,15 +24366,15 @@ func (ec *executionContext) fieldContext_Mutation_creatorsDelete(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_creatorsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_creatorDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_creatorsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_creatorsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_creatorPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_creatorPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24675,7 +24387,7 @@ func (ec *executionContext) _Mutation_creatorsPublishUpdate(ctx context.Context,
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreatorsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CreatorPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24687,12 +24399,12 @@ func (ec *executionContext) _Mutation_creatorsPublishUpdate(ctx context.Context,
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CreatorPayload)
+	res := resTmp.(*models.CreatorPayload)
 	fc.Result = res
-	return ec.marshalNCreatorPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCreatorPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_creatorsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_creatorPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24715,15 +24427,15 @@ func (ec *executionContext) fieldContext_Mutation_creatorsPublishUpdate(ctx cont
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_creatorsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_creatorPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_creatorsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_creatorsRestore(ctx, field)
+func (ec *executionContext) _Mutation_creatorRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_creatorRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24736,7 +24448,7 @@ func (ec *executionContext) _Mutation_creatorsRestore(ctx context.Context, field
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreatorsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().CreatorRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24748,12 +24460,12 @@ func (ec *executionContext) _Mutation_creatorsRestore(ctx context.Context, field
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CreatorPayload)
+	res := resTmp.(*models.CreatorPayload)
 	fc.Result = res
-	return ec.marshalNCreatorPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCreatorPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_creatorsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_creatorRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24776,15 +24488,15 @@ func (ec *executionContext) fieldContext_Mutation_creatorsRestore(ctx context.Co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_creatorsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_creatorRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_creatorsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_creatorsSave(ctx, field)
+func (ec *executionContext) _Mutation_creatorSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_creatorSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24797,7 +24509,7 @@ func (ec *executionContext) _Mutation_creatorsSave(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreatorsSave(rctx, fc.Args["creatorInput"].([]*models.CreatorInput))
+		return ec.resolvers.Mutation().CreatorSave(rctx, fc.Args["creatorInput"].(models.CreatorInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24809,12 +24521,12 @@ func (ec *executionContext) _Mutation_creatorsSave(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CreatorPayload)
+	res := resTmp.(*models.CreatorPayload)
 	fc.Result = res
-	return ec.marshalNCreatorPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCreatorPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_creatorsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_creatorSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24837,15 +24549,15 @@ func (ec *executionContext) fieldContext_Mutation_creatorsSave(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_creatorsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_creatorSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_creatorsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_creatorsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_creatorUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_creatorUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24858,7 +24570,7 @@ func (ec *executionContext) _Mutation_creatorsUpdate(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreatorsUpdate(rctx, fc.Args["creatorInput"].([]*models.CreatorInputWithID))
+		return ec.resolvers.Mutation().CreatorUpdate(rctx, fc.Args["creatorInput"].(models.CreatorInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24870,12 +24582,12 @@ func (ec *executionContext) _Mutation_creatorsUpdate(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CreatorPayload)
+	res := resTmp.(*models.CreatorPayload)
 	fc.Result = res
-	return ec.marshalNCreatorPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNCreatorPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_creatorsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_creatorUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24898,15 +24610,15 @@ func (ec *executionContext) fieldContext_Mutation_creatorsUpdate(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_creatorsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_creatorUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_kitsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_kitsDelete(ctx, field)
+func (ec *executionContext) _Mutation_kitDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_kitDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24919,7 +24631,7 @@ func (ec *executionContext) _Mutation_kitsDelete(ctx context.Context, field grap
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().KitsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().KitDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24931,12 +24643,12 @@ func (ec *executionContext) _Mutation_kitsDelete(ctx context.Context, field grap
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.KitPayload)
+	res := resTmp.(*models.KitPayload)
 	fc.Result = res
-	return ec.marshalNKitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNKitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_kitsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_kitDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -24959,15 +24671,15 @@ func (ec *executionContext) fieldContext_Mutation_kitsDelete(ctx context.Context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_kitsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_kitDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_kitsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_kitsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_kitPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_kitPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -24980,7 +24692,7 @@ func (ec *executionContext) _Mutation_kitsPublishUpdate(ctx context.Context, fie
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().KitsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().KitPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24992,12 +24704,12 @@ func (ec *executionContext) _Mutation_kitsPublishUpdate(ctx context.Context, fie
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.KitPayload)
+	res := resTmp.(*models.KitPayload)
 	fc.Result = res
-	return ec.marshalNKitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNKitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_kitsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_kitPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25020,15 +24732,15 @@ func (ec *executionContext) fieldContext_Mutation_kitsPublishUpdate(ctx context.
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_kitsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_kitPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_kitsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_kitsRestore(ctx, field)
+func (ec *executionContext) _Mutation_kitRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_kitRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25041,7 +24753,7 @@ func (ec *executionContext) _Mutation_kitsRestore(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().KitsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().KitRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25053,12 +24765,12 @@ func (ec *executionContext) _Mutation_kitsRestore(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.KitPayload)
+	res := resTmp.(*models.KitPayload)
 	fc.Result = res
-	return ec.marshalNKitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNKitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_kitsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_kitRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25081,15 +24793,15 @@ func (ec *executionContext) fieldContext_Mutation_kitsRestore(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_kitsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_kitRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_kitsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_kitsSave(ctx, field)
+func (ec *executionContext) _Mutation_kitSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_kitSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25102,7 +24814,7 @@ func (ec *executionContext) _Mutation_kitsSave(ctx context.Context, field graphq
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().KitsSave(rctx, fc.Args["kitInput"].([]*models.KitInput))
+		return ec.resolvers.Mutation().KitSave(rctx, fc.Args["kitInput"].(models.KitInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25114,12 +24826,12 @@ func (ec *executionContext) _Mutation_kitsSave(ctx context.Context, field graphq
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.KitPayload)
+	res := resTmp.(*models.KitPayload)
 	fc.Result = res
-	return ec.marshalNKitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNKitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_kitsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_kitSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25142,15 +24854,15 @@ func (ec *executionContext) fieldContext_Mutation_kitsSave(ctx context.Context, 
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_kitsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_kitSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_kitsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_kitsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_kitUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_kitUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25163,7 +24875,7 @@ func (ec *executionContext) _Mutation_kitsUpdate(ctx context.Context, field grap
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().KitsUpdate(rctx, fc.Args["kitInput"].([]*models.KitInputWithID))
+		return ec.resolvers.Mutation().KitUpdate(rctx, fc.Args["kitInput"].(models.KitInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25175,12 +24887,12 @@ func (ec *executionContext) _Mutation_kitsUpdate(ctx context.Context, field grap
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.KitPayload)
+	res := resTmp.(*models.KitPayload)
 	fc.Result = res
-	return ec.marshalNKitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNKitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_kitsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_kitUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25203,15 +24915,15 @@ func (ec *executionContext) fieldContext_Mutation_kitsUpdate(ctx context.Context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_kitsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_kitUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_leadsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_leadsDelete(ctx, field)
+func (ec *executionContext) _Mutation_leadDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_leadDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25224,7 +24936,7 @@ func (ec *executionContext) _Mutation_leadsDelete(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().LeadsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().LeadDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25236,12 +24948,12 @@ func (ec *executionContext) _Mutation_leadsDelete(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.LeadPayload)
+	res := resTmp.(*models.LeadPayload)
 	fc.Result = res
-	return ec.marshalNLeadPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_leadsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_leadDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25264,15 +24976,15 @@ func (ec *executionContext) fieldContext_Mutation_leadsDelete(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_leadsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_leadDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_leadsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_leadsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_leadPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_leadPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25285,7 +24997,7 @@ func (ec *executionContext) _Mutation_leadsPublishUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().LeadsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().LeadPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25297,12 +25009,12 @@ func (ec *executionContext) _Mutation_leadsPublishUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.LeadPayload)
+	res := resTmp.(*models.LeadPayload)
 	fc.Result = res
-	return ec.marshalNLeadPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_leadsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_leadPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25325,15 +25037,15 @@ func (ec *executionContext) fieldContext_Mutation_leadsPublishUpdate(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_leadsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_leadPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_leadsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_leadsRestore(ctx, field)
+func (ec *executionContext) _Mutation_leadRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_leadRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25346,7 +25058,7 @@ func (ec *executionContext) _Mutation_leadsRestore(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().LeadsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().LeadRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25358,12 +25070,12 @@ func (ec *executionContext) _Mutation_leadsRestore(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.LeadPayload)
+	res := resTmp.(*models.LeadPayload)
 	fc.Result = res
-	return ec.marshalNLeadPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_leadsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_leadRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25386,15 +25098,15 @@ func (ec *executionContext) fieldContext_Mutation_leadsRestore(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_leadsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_leadRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_leadsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_leadsSave(ctx, field)
+func (ec *executionContext) _Mutation_leadSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_leadSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25407,24 +25119,21 @@ func (ec *executionContext) _Mutation_leadsSave(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().LeadsSave(rctx, fc.Args["leadInput"].([]*models.LeadInput))
+		return ec.resolvers.Mutation().LeadSave(rctx, fc.Args["leadInput"].(models.LeadInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.LeadPayload)
+	res := resTmp.(*models.LeadPayload)
 	fc.Result = res
-	return ec.marshalNLeadPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, field.Selections, res)
+	return ec.marshalOLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_leadsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_leadSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25447,15 +25156,15 @@ func (ec *executionContext) fieldContext_Mutation_leadsSave(ctx context.Context,
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_leadsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_leadSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_leadsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_leadsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_leadUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_leadUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25468,7 +25177,7 @@ func (ec *executionContext) _Mutation_leadsUpdate(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().LeadsUpdate(rctx, fc.Args["leadInput"].([]*models.LeadInputWithID))
+		return ec.resolvers.Mutation().LeadUpdate(rctx, fc.Args["leadInput"].(models.LeadInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25480,12 +25189,12 @@ func (ec *executionContext) _Mutation_leadsUpdate(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.LeadPayload)
+	res := resTmp.(*models.LeadPayload)
 	fc.Result = res
-	return ec.marshalNLeadPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_leadsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_leadUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25508,15 +25217,15 @@ func (ec *executionContext) fieldContext_Mutation_leadsUpdate(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_leadsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_leadUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyCostsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyCostsDelete(ctx, field)
+func (ec *executionContext) _Mutation_moneyCostDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyCostDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25529,7 +25238,7 @@ func (ec *executionContext) _Mutation_moneyCostsDelete(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyCostsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().MoneyCostDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25541,12 +25250,12 @@ func (ec *executionContext) _Mutation_moneyCostsDelete(ctx context.Context, fiel
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyCostPayload)
+	res := resTmp.(*models.MoneyCostPayload)
 	fc.Result = res
-	return ec.marshalNMoneyCostPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyCostPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyCostsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyCostDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25569,15 +25278,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyCostsDelete(ctx context.C
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyCostsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyCostDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyCostsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyCostsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_moneyCostPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyCostPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25590,7 +25299,7 @@ func (ec *executionContext) _Mutation_moneyCostsPublishUpdate(ctx context.Contex
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyCostsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().MoneyCostPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25602,12 +25311,12 @@ func (ec *executionContext) _Mutation_moneyCostsPublishUpdate(ctx context.Contex
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyCostPayload)
+	res := resTmp.(*models.MoneyCostPayload)
 	fc.Result = res
-	return ec.marshalNMoneyCostPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyCostPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyCostsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyCostPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25630,15 +25339,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyCostsPublishUpdate(ctx co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyCostsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyCostPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyCostsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyCostsRestore(ctx, field)
+func (ec *executionContext) _Mutation_moneyCostRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyCostRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25651,7 +25360,7 @@ func (ec *executionContext) _Mutation_moneyCostsRestore(ctx context.Context, fie
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyCostsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().MoneyCostRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25663,12 +25372,12 @@ func (ec *executionContext) _Mutation_moneyCostsRestore(ctx context.Context, fie
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyCostPayload)
+	res := resTmp.(*models.MoneyCostPayload)
 	fc.Result = res
-	return ec.marshalNMoneyCostPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyCostPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyCostsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyCostRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25691,15 +25400,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyCostsRestore(ctx context.
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyCostsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyCostRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyCostsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyCostsSave(ctx, field)
+func (ec *executionContext) _Mutation_moneyCostSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyCostSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25712,7 +25421,7 @@ func (ec *executionContext) _Mutation_moneyCostsSave(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyCostsSave(rctx, fc.Args["moneyCostInput"].([]*models.MoneyCostInput))
+		return ec.resolvers.Mutation().MoneyCostSave(rctx, fc.Args["moneyCostInput"].(models.MoneyCostInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25724,12 +25433,12 @@ func (ec *executionContext) _Mutation_moneyCostsSave(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyCostPayload)
+	res := resTmp.(*models.MoneyCostPayload)
 	fc.Result = res
-	return ec.marshalNMoneyCostPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyCostPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyCostsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyCostSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25752,15 +25461,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyCostsSave(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyCostsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyCostSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyCostsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyCostsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_moneyCostUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyCostUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25773,7 +25482,7 @@ func (ec *executionContext) _Mutation_moneyCostsUpdate(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyCostsUpdate(rctx, fc.Args["moneyCostInput"].([]*models.MoneyCostInputWithID))
+		return ec.resolvers.Mutation().MoneyCostUpdate(rctx, fc.Args["moneyCostInput"].(models.MoneyCostInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25785,12 +25494,12 @@ func (ec *executionContext) _Mutation_moneyCostsUpdate(ctx context.Context, fiel
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyCostPayload)
+	res := resTmp.(*models.MoneyCostPayload)
 	fc.Result = res
-	return ec.marshalNMoneyCostPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyCostPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyCostsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyCostUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25813,15 +25522,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyCostsUpdate(ctx context.C
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyCostsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyCostUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyMovesDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyMovesDelete(ctx, field)
+func (ec *executionContext) _Mutation_moneyMoveDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyMoveDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25834,7 +25543,7 @@ func (ec *executionContext) _Mutation_moneyMovesDelete(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyMovesDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().MoneyMoveDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25846,12 +25555,12 @@ func (ec *executionContext) _Mutation_moneyMovesDelete(ctx context.Context, fiel
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyMovePayload)
+	res := resTmp.(*models.MoneyMovePayload)
 	fc.Result = res
-	return ec.marshalNMoneyMovePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyMovesDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyMoveDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25874,15 +25583,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyMovesDelete(ctx context.C
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyMovesDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyMoveDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyMovesPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyMovesPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_moneyMovePublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyMovePublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25895,7 +25604,7 @@ func (ec *executionContext) _Mutation_moneyMovesPublishUpdate(ctx context.Contex
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyMovesPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().MoneyMovePublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25907,12 +25616,12 @@ func (ec *executionContext) _Mutation_moneyMovesPublishUpdate(ctx context.Contex
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyMovePayload)
+	res := resTmp.(*models.MoneyMovePayload)
 	fc.Result = res
-	return ec.marshalNMoneyMovePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyMovesPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyMovePublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25935,15 +25644,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyMovesPublishUpdate(ctx co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyMovesPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyMovePublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyMovesRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyMovesRestore(ctx, field)
+func (ec *executionContext) _Mutation_moneyMoveRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyMoveRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25956,7 +25665,7 @@ func (ec *executionContext) _Mutation_moneyMovesRestore(ctx context.Context, fie
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyMovesRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().MoneyMoveRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25968,12 +25677,12 @@ func (ec *executionContext) _Mutation_moneyMovesRestore(ctx context.Context, fie
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyMovePayload)
+	res := resTmp.(*models.MoneyMovePayload)
 	fc.Result = res
-	return ec.marshalNMoneyMovePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyMovesRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyMoveRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -25996,15 +25705,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyMovesRestore(ctx context.
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyMovesRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyMoveRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyMovesSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyMovesSave(ctx, field)
+func (ec *executionContext) _Mutation_moneyMoveSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyMoveSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26017,7 +25726,7 @@ func (ec *executionContext) _Mutation_moneyMovesSave(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyMovesSave(rctx, fc.Args["moneyMoveInput"].([]*models.MoneyMoveInput))
+		return ec.resolvers.Mutation().MoneyMoveSave(rctx, fc.Args["moneyMoveInput"].(models.MoneyMoveInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26029,12 +25738,12 @@ func (ec *executionContext) _Mutation_moneyMovesSave(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyMovePayload)
+	res := resTmp.(*models.MoneyMovePayload)
 	fc.Result = res
-	return ec.marshalNMoneyMovePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyMovesSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyMoveSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26057,15 +25766,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyMovesSave(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyMovesSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyMoveSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyMovesUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyMovesUpdate(ctx, field)
+func (ec *executionContext) _Mutation_moneyMoveUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_moneyMoveUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26078,7 +25787,7 @@ func (ec *executionContext) _Mutation_moneyMovesUpdate(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyMovesUpdate(rctx, fc.Args["moneyMoveInput"].([]*models.MoneyMoveInputWithID))
+		return ec.resolvers.Mutation().MoneyMoveUpdate(rctx, fc.Args["moneyMoveInput"].(models.MoneyMoveInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26090,12 +25799,12 @@ func (ec *executionContext) _Mutation_moneyMovesUpdate(ctx context.Context, fiel
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.MoneyMovePayload)
+	res := resTmp.(*models.MoneyMovePayload)
 	fc.Result = res
-	return ec.marshalNMoneyMovePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_moneyMovesUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_moneyMoveUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26118,15 +25827,15 @@ func (ec *executionContext) fieldContext_Mutation_moneyMovesUpdate(ctx context.C
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyMovesUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_moneyMoveUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_ordersDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_ordersDelete(ctx, field)
+func (ec *executionContext) _Mutation_orderDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_orderDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26139,7 +25848,7 @@ func (ec *executionContext) _Mutation_ordersDelete(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().OrdersDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().OrderDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26151,12 +25860,12 @@ func (ec *executionContext) _Mutation_ordersDelete(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.OrderPayload)
+	res := resTmp.(*models.OrderPayload)
 	fc.Result = res
-	return ec.marshalNOrderPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNOrderPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_ordersDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_orderDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26179,15 +25888,15 @@ func (ec *executionContext) fieldContext_Mutation_ordersDelete(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_ordersDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_orderDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_ordersPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_ordersPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_orderPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_orderPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26200,7 +25909,7 @@ func (ec *executionContext) _Mutation_ordersPublishUpdate(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().OrdersPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().OrderPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26212,12 +25921,12 @@ func (ec *executionContext) _Mutation_ordersPublishUpdate(ctx context.Context, f
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.OrderPayload)
+	res := resTmp.(*models.OrderPayload)
 	fc.Result = res
-	return ec.marshalNOrderPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNOrderPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_ordersPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_orderPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26240,15 +25949,15 @@ func (ec *executionContext) fieldContext_Mutation_ordersPublishUpdate(ctx contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_ordersPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_orderPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_ordersRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_ordersRestore(ctx, field)
+func (ec *executionContext) _Mutation_orderRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_orderRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26261,7 +25970,7 @@ func (ec *executionContext) _Mutation_ordersRestore(ctx context.Context, field g
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().OrdersRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().OrderRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26273,12 +25982,12 @@ func (ec *executionContext) _Mutation_ordersRestore(ctx context.Context, field g
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.OrderPayload)
+	res := resTmp.(*models.OrderPayload)
 	fc.Result = res
-	return ec.marshalNOrderPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNOrderPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_ordersRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_orderRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26301,15 +26010,15 @@ func (ec *executionContext) fieldContext_Mutation_ordersRestore(ctx context.Cont
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_ordersRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_orderRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_ordersSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_ordersSave(ctx, field)
+func (ec *executionContext) _Mutation_orderSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_orderSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26322,7 +26031,7 @@ func (ec *executionContext) _Mutation_ordersSave(ctx context.Context, field grap
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().OrdersSave(rctx, fc.Args["orderInput"].([]*models.OrderInput))
+		return ec.resolvers.Mutation().OrderSave(rctx, fc.Args["orderInput"].(models.OrderInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26334,12 +26043,12 @@ func (ec *executionContext) _Mutation_ordersSave(ctx context.Context, field grap
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.OrderPayload)
+	res := resTmp.(*models.OrderPayload)
 	fc.Result = res
-	return ec.marshalNOrderPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNOrderPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_ordersSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_orderSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26362,15 +26071,15 @@ func (ec *executionContext) fieldContext_Mutation_ordersSave(ctx context.Context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_ordersSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_orderSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_ordersUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_ordersUpdate(ctx, field)
+func (ec *executionContext) _Mutation_orderUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_orderUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26383,7 +26092,7 @@ func (ec *executionContext) _Mutation_ordersUpdate(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().OrdersUpdate(rctx, fc.Args["orderInput"].([]*models.OrderInputWithID))
+		return ec.resolvers.Mutation().OrderUpdate(rctx, fc.Args["orderInput"].(models.OrderInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26395,12 +26104,12 @@ func (ec *executionContext) _Mutation_ordersUpdate(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.OrderPayload)
+	res := resTmp.(*models.OrderPayload)
 	fc.Result = res
-	return ec.marshalNOrderPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNOrderPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_ordersUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_orderUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26423,15 +26132,15 @@ func (ec *executionContext) fieldContext_Mutation_ordersUpdate(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_ordersUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_orderUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_placesDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_placesDelete(ctx, field)
+func (ec *executionContext) _Mutation_placeDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_placeDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26444,7 +26153,7 @@ func (ec *executionContext) _Mutation_placesDelete(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().PlacesDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().PlaceDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26456,12 +26165,12 @@ func (ec *executionContext) _Mutation_placesDelete(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.PlacePayload)
+	res := resTmp.(*models.PlacePayload)
 	fc.Result = res
-	return ec.marshalNPlacePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_placesDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_placeDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26484,15 +26193,15 @@ func (ec *executionContext) fieldContext_Mutation_placesDelete(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_placesDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_placeDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_placesPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_placesPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_placePublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_placePublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26505,7 +26214,7 @@ func (ec *executionContext) _Mutation_placesPublishUpdate(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().PlacesPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().PlacePublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26517,12 +26226,12 @@ func (ec *executionContext) _Mutation_placesPublishUpdate(ctx context.Context, f
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.PlacePayload)
+	res := resTmp.(*models.PlacePayload)
 	fc.Result = res
-	return ec.marshalNPlacePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_placesPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_placePublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26545,15 +26254,15 @@ func (ec *executionContext) fieldContext_Mutation_placesPublishUpdate(ctx contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_placesPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_placePublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_placesRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_placesRestore(ctx, field)
+func (ec *executionContext) _Mutation_placeRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_placeRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26566,7 +26275,7 @@ func (ec *executionContext) _Mutation_placesRestore(ctx context.Context, field g
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().PlacesRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().PlaceRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26578,12 +26287,12 @@ func (ec *executionContext) _Mutation_placesRestore(ctx context.Context, field g
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.PlacePayload)
+	res := resTmp.(*models.PlacePayload)
 	fc.Result = res
-	return ec.marshalNPlacePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_placesRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_placeRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26606,15 +26315,15 @@ func (ec *executionContext) fieldContext_Mutation_placesRestore(ctx context.Cont
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_placesRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_placeRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_placesSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_placesSave(ctx, field)
+func (ec *executionContext) _Mutation_placeSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_placeSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26627,7 +26336,7 @@ func (ec *executionContext) _Mutation_placesSave(ctx context.Context, field grap
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().PlacesSave(rctx, fc.Args["placeInput"].([]*models.PlaceInput))
+		return ec.resolvers.Mutation().PlaceSave(rctx, fc.Args["placeInput"].(models.PlaceInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26639,12 +26348,12 @@ func (ec *executionContext) _Mutation_placesSave(ctx context.Context, field grap
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.PlacePayload)
+	res := resTmp.(*models.PlacePayload)
 	fc.Result = res
-	return ec.marshalNPlacePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
+	return ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_placesSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_placeSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26667,15 +26376,15 @@ func (ec *executionContext) fieldContext_Mutation_placesSave(ctx context.Context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_placesSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_placeSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_placesUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_placesUpdate(ctx, field)
+func (ec *executionContext) _Mutation_placeUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_placeUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26688,7 +26397,7 @@ func (ec *executionContext) _Mutation_placesUpdate(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().PlacesUpdate(rctx, fc.Args["placeInput"].([]*models.PlaceInputWithID))
+		return ec.resolvers.Mutation().PlaceUpdate(rctx, fc.Args["placeInput"].(models.PlaceInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26700,12 +26409,12 @@ func (ec *executionContext) _Mutation_placesUpdate(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.PlacePayload)
+	res := resTmp.(*models.PlacePayload)
 	fc.Result = res
-	return ec.marshalNPlacePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
+	return ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_placesUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_placeUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -26728,7 +26437,7 @@ func (ec *executionContext) fieldContext_Mutation_placesUpdate(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_placesUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_placeUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -26812,7 +26521,7 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthDelete(ctx context.Conte
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByMonthDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().RentPaymentByMonthDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26824,9 +26533,9 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthDelete(ctx context.Conte
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByMonthPayload)
+	res := resTmp.(*models.RentPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByMonthDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -26873,7 +26582,7 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthPublishUpdate(ctx contex
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByMonthPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().RentPaymentByMonthPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26885,9 +26594,9 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthPublishUpdate(ctx contex
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByMonthPayload)
+	res := resTmp.(*models.RentPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByMonthPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -26934,7 +26643,7 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthRestore(ctx context.Cont
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByMonthRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().RentPaymentByMonthRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26946,9 +26655,9 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthRestore(ctx context.Cont
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByMonthPayload)
+	res := resTmp.(*models.RentPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByMonthRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -26995,7 +26704,7 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthSave(ctx context.Context
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByMonthSave(rctx, fc.Args["rentPaymentInput"].([]*models.RentPaymentByMonthInput))
+		return ec.resolvers.Mutation().RentPaymentByMonthSave(rctx, fc.Args["rentPaymentInput"].(models.RentPaymentByMonthInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27007,9 +26716,9 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthSave(ctx context.Context
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByMonthPayload)
+	res := resTmp.(*models.RentPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByMonthSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27056,7 +26765,7 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthUpdate(ctx context.Conte
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByMonthUpdate(rctx, fc.Args["rentPaymentInput"].([]*models.RentPaymentByMonthInputWithID))
+		return ec.resolvers.Mutation().RentPaymentByMonthUpdate(rctx, fc.Args["rentPaymentInput"].(models.RentPaymentByMonthInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27068,9 +26777,9 @@ func (ec *executionContext) _Mutation_rentPaymentByMonthUpdate(ctx context.Conte
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByMonthPayload)
+	res := resTmp.(*models.RentPaymentByMonthPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByMonthUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27117,7 +26826,7 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingDelete(ctx context.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByTrainingDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().RentPaymentByTrainingDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27129,9 +26838,9 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingDelete(ctx context.Co
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByTrainingPayload)
+	res := resTmp.(*models.RentPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByTrainingDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27178,7 +26887,7 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingPublishUpdate(ctx con
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByTrainingPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().RentPaymentByTrainingPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27190,9 +26899,9 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingPublishUpdate(ctx con
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByTrainingPayload)
+	res := resTmp.(*models.RentPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByTrainingPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27239,7 +26948,7 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingRestore(ctx context.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByTrainingRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().RentPaymentByTrainingRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27251,9 +26960,9 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingRestore(ctx context.C
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByTrainingPayload)
+	res := resTmp.(*models.RentPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByTrainingRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27300,7 +27009,7 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingSave(ctx context.Cont
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByTrainingSave(rctx, fc.Args["rentPaymentInput"].([]*models.RentPaymentByTrainingInput))
+		return ec.resolvers.Mutation().RentPaymentByTrainingSave(rctx, fc.Args["rentPaymentInput"].(models.RentPaymentByTrainingInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27312,9 +27021,9 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingSave(ctx context.Cont
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByTrainingPayload)
+	res := resTmp.(*models.RentPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByTrainingSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27361,7 +27070,7 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingUpdate(ctx context.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByTrainingUpdate(rctx, fc.Args["rentPaymentInput"].([]*models.RentPaymentByTrainingInputWithID))
+		return ec.resolvers.Mutation().RentPaymentByTrainingUpdate(rctx, fc.Args["rentPaymentInput"].(models.RentPaymentByTrainingInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27373,9 +27082,9 @@ func (ec *executionContext) _Mutation_rentPaymentByTrainingUpdate(ctx context.Co
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.RentPaymentByTrainingPayload)
+	res := resTmp.(*models.RentPaymentByTrainingPayload)
 	fc.Result = res
-	return ec.marshalNRentPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_rentPaymentByTrainingUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27408,8 +27117,8 @@ func (ec *executionContext) fieldContext_Mutation_rentPaymentByTrainingUpdate(ct
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_stadiumsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_stadiumsDelete(ctx, field)
+func (ec *executionContext) _Mutation_stadiumDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_stadiumDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -27422,7 +27131,7 @@ func (ec *executionContext) _Mutation_stadiumsDelete(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StadiumsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StadiumDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27434,12 +27143,12 @@ func (ec *executionContext) _Mutation_stadiumsDelete(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StadiumPayload)
+	res := resTmp.(*models.StadiumPayload)
 	fc.Result = res
-	return ec.marshalNStadiumPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_stadiumsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_stadiumDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -27462,15 +27171,15 @@ func (ec *executionContext) fieldContext_Mutation_stadiumsDelete(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_stadiumsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_stadiumDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_stadiumsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_stadiumsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_stadiumPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_stadiumPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -27483,7 +27192,7 @@ func (ec *executionContext) _Mutation_stadiumsPublishUpdate(ctx context.Context,
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StadiumsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StadiumPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27495,12 +27204,12 @@ func (ec *executionContext) _Mutation_stadiumsPublishUpdate(ctx context.Context,
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StadiumPayload)
+	res := resTmp.(*models.StadiumPayload)
 	fc.Result = res
-	return ec.marshalNStadiumPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_stadiumsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_stadiumPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -27523,15 +27232,15 @@ func (ec *executionContext) fieldContext_Mutation_stadiumsPublishUpdate(ctx cont
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_stadiumsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_stadiumPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_stadiumsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_stadiumsRestore(ctx, field)
+func (ec *executionContext) _Mutation_stadiumRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_stadiumRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -27544,7 +27253,7 @@ func (ec *executionContext) _Mutation_stadiumsRestore(ctx context.Context, field
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StadiumsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StadiumRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27556,12 +27265,12 @@ func (ec *executionContext) _Mutation_stadiumsRestore(ctx context.Context, field
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StadiumPayload)
+	res := resTmp.(*models.StadiumPayload)
 	fc.Result = res
-	return ec.marshalNStadiumPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_stadiumsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_stadiumRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -27584,15 +27293,15 @@ func (ec *executionContext) fieldContext_Mutation_stadiumsRestore(ctx context.Co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_stadiumsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_stadiumRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_stadiumsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_stadiumsSave(ctx, field)
+func (ec *executionContext) _Mutation_stadiumSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_stadiumSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -27605,7 +27314,7 @@ func (ec *executionContext) _Mutation_stadiumsSave(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StadiumsSave(rctx, fc.Args["stadiumInput"].([]*models.StadiumInput))
+		return ec.resolvers.Mutation().StadiumSave(rctx, fc.Args["stadiumInput"].(models.StadiumInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27617,12 +27326,12 @@ func (ec *executionContext) _Mutation_stadiumsSave(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StadiumPayload)
+	res := resTmp.(*models.StadiumPayload)
 	fc.Result = res
-	return ec.marshalNStadiumPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, field.Selections, res)
+	return ec.marshalNStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_stadiumsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_stadiumSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -27645,15 +27354,15 @@ func (ec *executionContext) fieldContext_Mutation_stadiumsSave(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_stadiumsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_stadiumSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_stadiumsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_stadiumsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_stadiumUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_stadiumUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -27666,7 +27375,7 @@ func (ec *executionContext) _Mutation_stadiumsUpdate(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StadiumsUpdate(rctx, fc.Args["stadiumInput"].([]*models.StadiumInputWithID))
+		return ec.resolvers.Mutation().StadiumUpdate(rctx, fc.Args["stadiumInput"].(models.StadiumInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27678,12 +27387,12 @@ func (ec *executionContext) _Mutation_stadiumsUpdate(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StadiumPayload)
+	res := resTmp.(*models.StadiumPayload)
 	fc.Result = res
-	return ec.marshalNStadiumPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, field.Selections, res)
+	return ec.marshalNStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_stadiumsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_stadiumUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -27706,7 +27415,7 @@ func (ec *executionContext) fieldContext_Mutation_stadiumsUpdate(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_stadiumsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_stadiumUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -27727,7 +27436,7 @@ func (ec *executionContext) _Mutation_staffDelete(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StaffDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StaffDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27739,9 +27448,9 @@ func (ec *executionContext) _Mutation_staffDelete(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StaffPayload)
+	res := resTmp.(*models.StaffPayload)
 	fc.Result = res
-	return ec.marshalNStaffPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_staffDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27788,7 +27497,7 @@ func (ec *executionContext) _Mutation_staffPublishUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StaffPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StaffPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27800,9 +27509,9 @@ func (ec *executionContext) _Mutation_staffPublishUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StaffPayload)
+	res := resTmp.(*models.StaffPayload)
 	fc.Result = res
-	return ec.marshalNStaffPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_staffPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27849,7 +27558,7 @@ func (ec *executionContext) _Mutation_staffRestore(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StaffRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StaffRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27861,9 +27570,9 @@ func (ec *executionContext) _Mutation_staffRestore(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StaffPayload)
+	res := resTmp.(*models.StaffPayload)
 	fc.Result = res
-	return ec.marshalNStaffPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_staffRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27910,7 +27619,7 @@ func (ec *executionContext) _Mutation_staffSave(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StaffSave(rctx, fc.Args["staffInput"].([]*models.StaffInput))
+		return ec.resolvers.Mutation().StaffSave(rctx, fc.Args["staffInput"].(models.StaffInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27922,9 +27631,9 @@ func (ec *executionContext) _Mutation_staffSave(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StaffPayload)
+	res := resTmp.(*models.StaffPayload)
 	fc.Result = res
-	return ec.marshalNStaffPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, field.Selections, res)
+	return ec.marshalNStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_staffSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -27971,7 +27680,7 @@ func (ec *executionContext) _Mutation_staffUpdate(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StaffUpdate(rctx, fc.Args["staffInput"].([]*models.StaffInputWithID))
+		return ec.resolvers.Mutation().StaffUpdate(rctx, fc.Args["staffInput"].(models.StaffInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27983,9 +27692,9 @@ func (ec *executionContext) _Mutation_staffUpdate(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StaffPayload)
+	res := resTmp.(*models.StaffPayload)
 	fc.Result = res
-	return ec.marshalNStaffPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, field.Selections, res)
+	return ec.marshalNStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_staffUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -28018,8 +27727,8 @@ func (ec *executionContext) fieldContext_Mutation_staffUpdate(ctx context.Contex
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentVisitsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitsDelete(ctx, field)
+func (ec *executionContext) _Mutation_studentVisitDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28032,7 +27741,7 @@ func (ec *executionContext) _Mutation_studentVisitsDelete(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StudentVisitDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28044,12 +27753,12 @@ func (ec *executionContext) _Mutation_studentVisitsDelete(ctx context.Context, f
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentVisitPayload)
+	res := resTmp.(*models.StudentVisitPayload)
 	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentVisitsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentVisitDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28072,15 +27781,15 @@ func (ec *executionContext) fieldContext_Mutation_studentVisitsDelete(ctx contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentVisitDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentVisitsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_studentVisitPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28093,7 +27802,7 @@ func (ec *executionContext) _Mutation_studentVisitsPublishUpdate(ctx context.Con
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StudentVisitPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28105,12 +27814,12 @@ func (ec *executionContext) _Mutation_studentVisitsPublishUpdate(ctx context.Con
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentVisitPayload)
+	res := resTmp.(*models.StudentVisitPayload)
 	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentVisitsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentVisitPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28133,15 +27842,15 @@ func (ec *executionContext) fieldContext_Mutation_studentVisitsPublishUpdate(ctx
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentVisitPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentVisitsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitsRestore(ctx, field)
+func (ec *executionContext) _Mutation_studentVisitRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28154,7 +27863,7 @@ func (ec *executionContext) _Mutation_studentVisitsRestore(ctx context.Context, 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StudentVisitRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28166,12 +27875,12 @@ func (ec *executionContext) _Mutation_studentVisitsRestore(ctx context.Context, 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentVisitPayload)
+	res := resTmp.(*models.StudentVisitPayload)
 	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentVisitsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentVisitRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28194,15 +27903,15 @@ func (ec *executionContext) fieldContext_Mutation_studentVisitsRestore(ctx conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentVisitRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentVisitsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitsSave(ctx, field)
+func (ec *executionContext) _Mutation_studentVisitSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28215,7 +27924,7 @@ func (ec *executionContext) _Mutation_studentVisitsSave(ctx context.Context, fie
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitsSave(rctx, fc.Args["studentVisitInput"].([]*models.StudentVisitInput))
+		return ec.resolvers.Mutation().StudentVisitSave(rctx, fc.Args["studentVisitInput"].(models.StudentVisitInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28227,12 +27936,12 @@ func (ec *executionContext) _Mutation_studentVisitsSave(ctx context.Context, fie
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentVisitPayload)
+	res := resTmp.(*models.StudentVisitPayload)
 	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentVisitsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentVisitSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28255,15 +27964,15 @@ func (ec *executionContext) fieldContext_Mutation_studentVisitsSave(ctx context.
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentVisitSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentVisitsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_studentVisitUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28276,7 +27985,7 @@ func (ec *executionContext) _Mutation_studentVisitsUpdate(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitsUpdate(rctx, fc.Args["studentVisitInput"].([]*models.StudentVisitInputWithID))
+		return ec.resolvers.Mutation().StudentVisitUpdate(rctx, fc.Args["studentVisitInput"].(models.StudentVisitInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28288,12 +27997,12 @@ func (ec *executionContext) _Mutation_studentVisitsUpdate(ctx context.Context, f
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentVisitPayload)
+	res := resTmp.(*models.StudentVisitPayload)
 	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentVisitsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentVisitUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28316,15 +28025,15 @@ func (ec *executionContext) fieldContext_Mutation_studentVisitsUpdate(ctx contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentVisitUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentsDelete(ctx, field)
+func (ec *executionContext) _Mutation_studentDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28337,7 +28046,7 @@ func (ec *executionContext) _Mutation_studentsDelete(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StudentDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28349,12 +28058,12 @@ func (ec *executionContext) _Mutation_studentsDelete(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentPayload)
+	res := resTmp.(*models.StudentPayload)
 	fc.Result = res
-	return ec.marshalNStudentPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28377,15 +28086,15 @@ func (ec *executionContext) fieldContext_Mutation_studentsDelete(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_studentPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28398,7 +28107,7 @@ func (ec *executionContext) _Mutation_studentsPublishUpdate(ctx context.Context,
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StudentPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28410,12 +28119,12 @@ func (ec *executionContext) _Mutation_studentsPublishUpdate(ctx context.Context,
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentPayload)
+	res := resTmp.(*models.StudentPayload)
 	fc.Result = res
-	return ec.marshalNStudentPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28438,15 +28147,15 @@ func (ec *executionContext) fieldContext_Mutation_studentsPublishUpdate(ctx cont
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentsRestore(ctx, field)
+func (ec *executionContext) _Mutation_studentRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28459,7 +28168,7 @@ func (ec *executionContext) _Mutation_studentsRestore(ctx context.Context, field
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().StudentRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28471,12 +28180,12 @@ func (ec *executionContext) _Mutation_studentsRestore(ctx context.Context, field
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentPayload)
+	res := resTmp.(*models.StudentPayload)
 	fc.Result = res
-	return ec.marshalNStudentPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28499,15 +28208,15 @@ func (ec *executionContext) fieldContext_Mutation_studentsRestore(ctx context.Co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentsSave(ctx, field)
+func (ec *executionContext) _Mutation_studentSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28520,7 +28229,7 @@ func (ec *executionContext) _Mutation_studentsSave(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentsSave(rctx, fc.Args["studentInput"].([]*models.StudentInput))
+		return ec.resolvers.Mutation().StudentSave(rctx, fc.Args["studentInput"].(models.StudentInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28532,12 +28241,12 @@ func (ec *executionContext) _Mutation_studentsSave(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentPayload)
+	res := resTmp.(*models.StudentPayload)
 	fc.Result = res
-	return ec.marshalNStudentPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28560,15 +28269,15 @@ func (ec *executionContext) fieldContext_Mutation_studentsSave(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_studentUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28581,7 +28290,7 @@ func (ec *executionContext) _Mutation_studentsUpdate(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentsUpdate(rctx, fc.Args["studentInput"].([]*models.StudentInputWithID))
+		return ec.resolvers.Mutation().StudentUpdate(rctx, fc.Args["studentInput"].(models.StudentInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28593,12 +28302,12 @@ func (ec *executionContext) _Mutation_studentsUpdate(ctx context.Context, field 
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.StudentPayload)
+	res := resTmp.(*models.StudentPayload)
 	fc.Result = res
-	return ec.marshalNStudentPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_studentsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_studentUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28621,15 +28330,15 @@ func (ec *executionContext) fieldContext_Mutation_studentsUpdate(ctx context.Con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_studentUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_tasksDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_tasksDelete(ctx, field)
+func (ec *executionContext) _Mutation_taskDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_taskDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28642,7 +28351,7 @@ func (ec *executionContext) _Mutation_tasksDelete(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TasksDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TaskDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28654,12 +28363,12 @@ func (ec *executionContext) _Mutation_tasksDelete(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TaskPayload)
+	res := resTmp.(*models.TaskPayload)
 	fc.Result = res
-	return ec.marshalNTaskPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_tasksDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_taskDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28682,15 +28391,15 @@ func (ec *executionContext) fieldContext_Mutation_tasksDelete(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_tasksDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_taskDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_tasksPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_tasksPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_taskPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_taskPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28703,7 +28412,7 @@ func (ec *executionContext) _Mutation_tasksPublishUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TasksPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TaskPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28715,12 +28424,12 @@ func (ec *executionContext) _Mutation_tasksPublishUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TaskPayload)
+	res := resTmp.(*models.TaskPayload)
 	fc.Result = res
-	return ec.marshalNTaskPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_tasksPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_taskPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28743,15 +28452,15 @@ func (ec *executionContext) fieldContext_Mutation_tasksPublishUpdate(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_tasksPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_taskPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_tasksRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_tasksRestore(ctx, field)
+func (ec *executionContext) _Mutation_taskRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_taskRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28764,7 +28473,7 @@ func (ec *executionContext) _Mutation_tasksRestore(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TasksRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TaskRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28776,12 +28485,12 @@ func (ec *executionContext) _Mutation_tasksRestore(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TaskPayload)
+	res := resTmp.(*models.TaskPayload)
 	fc.Result = res
-	return ec.marshalNTaskPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_tasksRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_taskRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28804,15 +28513,15 @@ func (ec *executionContext) fieldContext_Mutation_tasksRestore(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_tasksRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_taskRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_tasksSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_tasksSave(ctx, field)
+func (ec *executionContext) _Mutation_taskSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_taskSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28825,7 +28534,7 @@ func (ec *executionContext) _Mutation_tasksSave(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TasksSave(rctx, fc.Args["taskInput"].([]*models.TaskInput))
+		return ec.resolvers.Mutation().TaskSave(rctx, fc.Args["taskInput"].(models.TaskInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28837,12 +28546,12 @@ func (ec *executionContext) _Mutation_tasksSave(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TaskPayload)
+	res := resTmp.(*models.TaskPayload)
 	fc.Result = res
-	return ec.marshalNTaskPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, field.Selections, res)
+	return ec.marshalNTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_tasksSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_taskSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28865,15 +28574,15 @@ func (ec *executionContext) fieldContext_Mutation_tasksSave(ctx context.Context,
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_tasksSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_taskSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_tasksUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_tasksUpdate(ctx, field)
+func (ec *executionContext) _Mutation_taskUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_taskUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28886,7 +28595,7 @@ func (ec *executionContext) _Mutation_tasksUpdate(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TasksUpdate(rctx, fc.Args["taskInput"].([]*models.TaskInputWithID))
+		return ec.resolvers.Mutation().TaskUpdate(rctx, fc.Args["taskInput"].(models.TaskInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28898,12 +28607,12 @@ func (ec *executionContext) _Mutation_tasksUpdate(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TaskPayload)
+	res := resTmp.(*models.TaskPayload)
 	fc.Result = res
-	return ec.marshalNTaskPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, field.Selections, res)
+	return ec.marshalNTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_tasksUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_taskUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28926,15 +28635,15 @@ func (ec *executionContext) fieldContext_Mutation_tasksUpdate(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_tasksUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_taskUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamBalancesDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamBalancesDelete(ctx, field)
+func (ec *executionContext) _Mutation_teamBalanceDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamBalanceDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -28947,7 +28656,7 @@ func (ec *executionContext) _Mutation_teamBalancesDelete(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamBalancesDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TeamBalanceDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28959,12 +28668,12 @@ func (ec *executionContext) _Mutation_teamBalancesDelete(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamBalancePayload)
+	res := resTmp.(*models.TeamBalancePayload)
 	fc.Result = res
-	return ec.marshalNTeamBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTeamBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamBalancesDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamBalanceDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -28987,15 +28696,15 @@ func (ec *executionContext) fieldContext_Mutation_teamBalancesDelete(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamBalancesDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamBalanceDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamBalancesPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamBalancesPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_teamBalancePublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamBalancePublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29008,7 +28717,7 @@ func (ec *executionContext) _Mutation_teamBalancesPublishUpdate(ctx context.Cont
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamBalancesPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TeamBalancePublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29020,12 +28729,12 @@ func (ec *executionContext) _Mutation_teamBalancesPublishUpdate(ctx context.Cont
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamBalancePayload)
+	res := resTmp.(*models.TeamBalancePayload)
 	fc.Result = res
-	return ec.marshalNTeamBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTeamBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamBalancesPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamBalancePublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29048,15 +28757,15 @@ func (ec *executionContext) fieldContext_Mutation_teamBalancesPublishUpdate(ctx 
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamBalancesPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamBalancePublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamBalancesRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamBalancesRestore(ctx, field)
+func (ec *executionContext) _Mutation_teamBalanceRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamBalanceRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29069,7 +28778,7 @@ func (ec *executionContext) _Mutation_teamBalancesRestore(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamBalancesRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TeamBalanceRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29081,12 +28790,12 @@ func (ec *executionContext) _Mutation_teamBalancesRestore(ctx context.Context, f
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamBalancePayload)
+	res := resTmp.(*models.TeamBalancePayload)
 	fc.Result = res
-	return ec.marshalNTeamBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTeamBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamBalancesRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamBalanceRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29109,15 +28818,15 @@ func (ec *executionContext) fieldContext_Mutation_teamBalancesRestore(ctx contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamBalancesRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamBalanceRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamBalancesSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamBalancesSave(ctx, field)
+func (ec *executionContext) _Mutation_teamBalanceSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamBalanceSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29130,7 +28839,7 @@ func (ec *executionContext) _Mutation_teamBalancesSave(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamBalancesSave(rctx, fc.Args["teamBalanceInput"].([]*models.TeamBalanceInput))
+		return ec.resolvers.Mutation().TeamBalanceSave(rctx, fc.Args["teamBalanceInput"].(models.TeamBalanceInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29142,12 +28851,12 @@ func (ec *executionContext) _Mutation_teamBalancesSave(ctx context.Context, fiel
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamBalancePayload)
+	res := resTmp.(*models.TeamBalancePayload)
 	fc.Result = res
-	return ec.marshalNTeamBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTeamBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamBalancesSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamBalanceSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29170,15 +28879,15 @@ func (ec *executionContext) fieldContext_Mutation_teamBalancesSave(ctx context.C
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamBalancesSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamBalanceSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamBalancesUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamBalancesUpdate(ctx, field)
+func (ec *executionContext) _Mutation_teamBalanceUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamBalanceUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29191,7 +28900,7 @@ func (ec *executionContext) _Mutation_teamBalancesUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamBalancesUpdate(rctx, fc.Args["teamBalanceInput"].([]*models.TeamBalanceInputWithID))
+		return ec.resolvers.Mutation().TeamBalanceUpdate(rctx, fc.Args["teamBalanceInput"].(models.TeamBalanceInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29203,12 +28912,12 @@ func (ec *executionContext) _Mutation_teamBalancesUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamBalancePayload)
+	res := resTmp.(*models.TeamBalancePayload)
 	fc.Result = res
-	return ec.marshalNTeamBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTeamBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamBalancesUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamBalanceUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29231,15 +28940,15 @@ func (ec *executionContext) fieldContext_Mutation_teamBalancesUpdate(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamBalancesUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamBalanceUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamsDelete(ctx, field)
+func (ec *executionContext) _Mutation_teamDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29252,7 +28961,7 @@ func (ec *executionContext) _Mutation_teamsDelete(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TeamDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29264,12 +28973,12 @@ func (ec *executionContext) _Mutation_teamsDelete(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamPayload)
+	res := resTmp.(*models.TeamPayload)
 	fc.Result = res
-	return ec.marshalNTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29292,15 +29001,15 @@ func (ec *executionContext) fieldContext_Mutation_teamsDelete(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_teamPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29313,7 +29022,7 @@ func (ec *executionContext) _Mutation_teamsPublishUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TeamPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29325,12 +29034,12 @@ func (ec *executionContext) _Mutation_teamsPublishUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamPayload)
+	res := resTmp.(*models.TeamPayload)
 	fc.Result = res
-	return ec.marshalNTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29353,15 +29062,15 @@ func (ec *executionContext) fieldContext_Mutation_teamsPublishUpdate(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamsRestore(ctx, field)
+func (ec *executionContext) _Mutation_teamRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29374,7 +29083,7 @@ func (ec *executionContext) _Mutation_teamsRestore(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TeamRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29386,12 +29095,12 @@ func (ec *executionContext) _Mutation_teamsRestore(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamPayload)
+	res := resTmp.(*models.TeamPayload)
 	fc.Result = res
-	return ec.marshalNTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29414,15 +29123,15 @@ func (ec *executionContext) fieldContext_Mutation_teamsRestore(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamsSave(ctx, field)
+func (ec *executionContext) _Mutation_teamSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29435,7 +29144,7 @@ func (ec *executionContext) _Mutation_teamsSave(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamsSave(rctx, fc.Args["teamInput"].([]*models.TeamInput))
+		return ec.resolvers.Mutation().TeamSave(rctx, fc.Args["teamInput"].(models.TeamInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29447,12 +29156,12 @@ func (ec *executionContext) _Mutation_teamsSave(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamPayload)
+	res := resTmp.(*models.TeamPayload)
 	fc.Result = res
-	return ec.marshalNTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, field.Selections, res)
+	return ec.marshalNTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29475,15 +29184,15 @@ func (ec *executionContext) fieldContext_Mutation_teamsSave(ctx context.Context,
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_teamUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_teamUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29496,7 +29205,7 @@ func (ec *executionContext) _Mutation_teamsUpdate(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamsUpdate(rctx, fc.Args["teamInput"].([]*models.TeamInputWithID))
+		return ec.resolvers.Mutation().TeamUpdate(rctx, fc.Args["teamInput"].(models.TeamInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29508,12 +29217,12 @@ func (ec *executionContext) _Mutation_teamsUpdate(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TeamPayload)
+	res := resTmp.(*models.TeamPayload)
 	fc.Result = res
-	return ec.marshalNTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, field.Selections, res)
+	return ec.marshalNTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_teamsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_teamUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29536,15 +29245,15 @@ func (ec *executionContext) fieldContext_Mutation_teamsUpdate(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_teamUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingDaysDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingDaysDelete(ctx, field)
+func (ec *executionContext) _Mutation_trainingDayDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingDayDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29557,7 +29266,7 @@ func (ec *executionContext) _Mutation_trainingDaysDelete(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingDaysDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TrainingDayDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29569,12 +29278,12 @@ func (ec *executionContext) _Mutation_trainingDaysDelete(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingDayPayload)
+	res := resTmp.(*models.TrainingDayPayload)
 	fc.Result = res
-	return ec.marshalNTrainingDayPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingDaysDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingDayDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29597,15 +29306,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingDaysDelete(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingDaysDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingDayDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingDaysPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingDaysPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_trainingDayPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingDayPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29618,7 +29327,7 @@ func (ec *executionContext) _Mutation_trainingDaysPublishUpdate(ctx context.Cont
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingDaysPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TrainingDayPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29630,12 +29339,12 @@ func (ec *executionContext) _Mutation_trainingDaysPublishUpdate(ctx context.Cont
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingDayPayload)
+	res := resTmp.(*models.TrainingDayPayload)
 	fc.Result = res
-	return ec.marshalNTrainingDayPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingDaysPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingDayPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29658,15 +29367,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingDaysPublishUpdate(ctx 
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingDaysPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingDayPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingDaysRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingDaysRestore(ctx, field)
+func (ec *executionContext) _Mutation_trainingDayRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingDayRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29679,7 +29388,7 @@ func (ec *executionContext) _Mutation_trainingDaysRestore(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingDaysRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TrainingDayRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29691,12 +29400,12 @@ func (ec *executionContext) _Mutation_trainingDaysRestore(ctx context.Context, f
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingDayPayload)
+	res := resTmp.(*models.TrainingDayPayload)
 	fc.Result = res
-	return ec.marshalNTrainingDayPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingDaysRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingDayRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29719,15 +29428,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingDaysRestore(ctx contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingDaysRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingDayRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingDaysSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingDaysSave(ctx, field)
+func (ec *executionContext) _Mutation_trainingDaySave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingDaySave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29740,7 +29449,7 @@ func (ec *executionContext) _Mutation_trainingDaysSave(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingDaysSave(rctx, fc.Args["trainingDayInput"].([]*models.TrainingDayInput))
+		return ec.resolvers.Mutation().TrainingDaySave(rctx, fc.Args["trainingDayInput"].(models.TrainingDayInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29752,12 +29461,12 @@ func (ec *executionContext) _Mutation_trainingDaysSave(ctx context.Context, fiel
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingDayPayload)
+	res := resTmp.(*models.TrainingDayPayload)
 	fc.Result = res
-	return ec.marshalNTrainingDayPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, field.Selections, res)
+	return ec.marshalNTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingDaysSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingDaySave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29780,15 +29489,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingDaysSave(ctx context.C
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingDaysSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingDaySave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingDaysUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingDaysUpdate(ctx, field)
+func (ec *executionContext) _Mutation_trainingDayUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingDayUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29801,7 +29510,7 @@ func (ec *executionContext) _Mutation_trainingDaysUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingDaysUpdate(rctx, fc.Args["trainingDayInput"].([]*models.TrainingDayInputWithID))
+		return ec.resolvers.Mutation().TrainingDayUpdate(rctx, fc.Args["trainingDayInput"].(models.TrainingDayInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29813,12 +29522,12 @@ func (ec *executionContext) _Mutation_trainingDaysUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingDayPayload)
+	res := resTmp.(*models.TrainingDayPayload)
 	fc.Result = res
-	return ec.marshalNTrainingDayPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, field.Selections, res)
+	return ec.marshalNTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingDaysUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingDayUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29841,15 +29550,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingDaysUpdate(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingDaysUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingDayUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingsDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingsDelete(ctx, field)
+func (ec *executionContext) _Mutation_trainingDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29862,7 +29571,7 @@ func (ec *executionContext) _Mutation_trainingsDelete(ctx context.Context, field
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingsDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TrainingDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29874,12 +29583,12 @@ func (ec *executionContext) _Mutation_trainingsDelete(ctx context.Context, field
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingPayload)
+	res := resTmp.(*models.TrainingPayload)
 	fc.Result = res
-	return ec.marshalNTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingsDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29902,15 +29611,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingsDelete(ctx context.Co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingsDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingsPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingsPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_trainingPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29923,7 +29632,7 @@ func (ec *executionContext) _Mutation_trainingsPublishUpdate(ctx context.Context
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingsPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TrainingPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29935,12 +29644,12 @@ func (ec *executionContext) _Mutation_trainingsPublishUpdate(ctx context.Context
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingPayload)
+	res := resTmp.(*models.TrainingPayload)
 	fc.Result = res
-	return ec.marshalNTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingsPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -29963,15 +29672,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingsPublishUpdate(ctx con
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingsPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingsRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingsRestore(ctx, field)
+func (ec *executionContext) _Mutation_trainingRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -29984,7 +29693,7 @@ func (ec *executionContext) _Mutation_trainingsRestore(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingsRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().TrainingRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29996,12 +29705,12 @@ func (ec *executionContext) _Mutation_trainingsRestore(ctx context.Context, fiel
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingPayload)
+	res := resTmp.(*models.TrainingPayload)
 	fc.Result = res
-	return ec.marshalNTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingsRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -30024,15 +29733,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingsRestore(ctx context.C
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingsRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingsSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingsSave(ctx, field)
+func (ec *executionContext) _Mutation_trainingSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -30045,7 +29754,7 @@ func (ec *executionContext) _Mutation_trainingsSave(ctx context.Context, field g
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingsSave(rctx, fc.Args["trainingInput"].([]*models.TrainingInput))
+		return ec.resolvers.Mutation().TrainingSave(rctx, fc.Args["trainingInput"].(models.TrainingInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30057,12 +29766,12 @@ func (ec *executionContext) _Mutation_trainingsSave(ctx context.Context, field g
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingPayload)
+	res := resTmp.(*models.TrainingPayload)
 	fc.Result = res
-	return ec.marshalNTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingsSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -30085,15 +29794,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingsSave(ctx context.Cont
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingsSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingsUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingsUpdate(ctx, field)
+func (ec *executionContext) _Mutation_trainingUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_trainingUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -30106,7 +29815,7 @@ func (ec *executionContext) _Mutation_trainingsUpdate(ctx context.Context, field
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingsUpdate(rctx, fc.Args["trainingInput"].([]*models.TrainingInputWithID))
+		return ec.resolvers.Mutation().TrainingUpdate(rctx, fc.Args["trainingInput"].(models.TrainingInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30118,12 +29827,12 @@ func (ec *executionContext) _Mutation_trainingsUpdate(ctx context.Context, field
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.TrainingPayload)
+	res := resTmp.(*models.TrainingPayload)
 	fc.Result = res
-	return ec.marshalNTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_trainingsUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_trainingUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -30146,15 +29855,15 @@ func (ec *executionContext) fieldContext_Mutation_trainingsUpdate(ctx context.Co
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingsUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_trainingUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_usersDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_usersDelete(ctx, field)
+func (ec *executionContext) _Mutation_userDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_userDelete(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -30167,7 +29876,7 @@ func (ec *executionContext) _Mutation_usersDelete(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UsersDelete(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().UserDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30179,12 +29888,12 @@ func (ec *executionContext) _Mutation_usersDelete(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.UserPayload)
+	res := resTmp.(*models.UserPayload)
 	fc.Result = res
-	return ec.marshalNUserPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_usersDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_userDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -30207,15 +29916,15 @@ func (ec *executionContext) fieldContext_Mutation_usersDelete(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_usersDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_userDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_usersPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_usersPublishUpdate(ctx, field)
+func (ec *executionContext) _Mutation_userPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_userPublishUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -30228,7 +29937,7 @@ func (ec *executionContext) _Mutation_usersPublishUpdate(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UsersPublishUpdate(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().UserPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30240,12 +29949,12 @@ func (ec *executionContext) _Mutation_usersPublishUpdate(ctx context.Context, fi
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.UserPayload)
+	res := resTmp.(*models.UserPayload)
 	fc.Result = res
-	return ec.marshalNUserPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_usersPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_userPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -30268,15 +29977,15 @@ func (ec *executionContext) fieldContext_Mutation_usersPublishUpdate(ctx context
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_usersPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_userPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_usersRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_usersRestore(ctx, field)
+func (ec *executionContext) _Mutation_userRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_userRestore(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -30289,7 +29998,7 @@ func (ec *executionContext) _Mutation_usersRestore(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UsersRestore(rctx, fc.Args["ids"].([]string))
+		return ec.resolvers.Mutation().UserRestore(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30301,12 +30010,12 @@ func (ec *executionContext) _Mutation_usersRestore(ctx context.Context, field gr
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.UserPayload)
+	res := resTmp.(*models.UserPayload)
 	fc.Result = res
-	return ec.marshalNUserPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayloadᚄ(ctx, field.Selections, res)
+	return ec.marshalNUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_usersRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_userRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -30329,15 +30038,15 @@ func (ec *executionContext) fieldContext_Mutation_usersRestore(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_usersRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_userRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_usersSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_usersSave(ctx, field)
+func (ec *executionContext) _Mutation_userSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_userSave(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -30350,7 +30059,7 @@ func (ec *executionContext) _Mutation_usersSave(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UsersSave(rctx, fc.Args["userInput"].([]*models.UserInput))
+		return ec.resolvers.Mutation().UserSave(rctx, fc.Args["userInput"].(models.UserInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30362,12 +30071,12 @@ func (ec *executionContext) _Mutation_usersSave(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.UserPayload)
+	res := resTmp.(*models.UserPayload)
 	fc.Result = res
-	return ec.marshalNUserPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, field.Selections, res)
+	return ec.marshalNUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_usersSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_userSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -30390,15 +30099,15 @@ func (ec *executionContext) fieldContext_Mutation_usersSave(ctx context.Context,
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_usersSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_userSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_usersUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_usersUpdate(ctx, field)
+func (ec *executionContext) _Mutation_userUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_userUpdate(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -30411,7 +30120,7 @@ func (ec *executionContext) _Mutation_usersUpdate(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UsersUpdate(rctx, fc.Args["userInput"].([]*models.UserInputWithID))
+		return ec.resolvers.Mutation().UserUpdate(rctx, fc.Args["userInput"].(models.UserInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30423,12 +30132,12 @@ func (ec *executionContext) _Mutation_usersUpdate(ctx context.Context, field gra
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*models.UserPayload)
+	res := resTmp.(*models.UserPayload)
 	fc.Result = res
-	return ec.marshalNUserPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, field.Selections, res)
+	return ec.marshalNUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Mutation_usersUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_userUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
@@ -30451,7 +30160,7 @@ func (ec *executionContext) fieldContext_Mutation_usersUpdate(ctx context.Contex
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_usersUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_userUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -54805,15 +54514,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "createPlace":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_createPlace(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "updateMeetup":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -54823,28 +54523,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "updatePlace":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_updatePlace(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "deleteMeetup":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_deleteMeetup(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "deletePlace":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_deletePlace(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -54868,586 +54550,583 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "articlesDelete":
+		case "articleDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_articlesDelete(ctx, field)
+				return ec._Mutation_articleDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "articlesPublishUpdate":
+		case "articlePublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_articlesPublishUpdate(ctx, field)
+				return ec._Mutation_articlePublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "articlesRestore":
+		case "articleRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_articlesRestore(ctx, field)
+				return ec._Mutation_articleRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "articlesSave":
+		case "articleSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_articlesSave(ctx, field)
+				return ec._Mutation_articleSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "articlesUpdate":
+		case "articleUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_articlesUpdate(ctx, field)
+				return ec._Mutation_articleUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "cartsDelete":
+		case "cartDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_cartsDelete(ctx, field)
+				return ec._Mutation_cartDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "cartsPublishUpdate":
+		case "cartPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_cartsPublishUpdate(ctx, field)
+				return ec._Mutation_cartPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "cartsRestore":
+		case "cartRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_cartsRestore(ctx, field)
+				return ec._Mutation_cartRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "cartsSave":
+		case "cartSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_cartsSave(ctx, field)
+				return ec._Mutation_cartSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "cartsUpdate":
+		case "cartUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_cartsUpdate(ctx, field)
+				return ec._Mutation_cartUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "clubBalancesDelete":
+		case "clubBalanceDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_clubBalancesDelete(ctx, field)
+				return ec._Mutation_clubBalanceDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "clubBalancesPublishUpdate":
+		case "clubBalancePublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_clubBalancesPublishUpdate(ctx, field)
+				return ec._Mutation_clubBalancePublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "clubBalancesRestore":
+		case "clubBalanceRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_clubBalancesRestore(ctx, field)
+				return ec._Mutation_clubBalanceRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "clubBalancesSave":
+		case "clubBalanceSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_clubBalancesSave(ctx, field)
+				return ec._Mutation_clubBalanceSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "clubBalancesUpdate":
+		case "clubBalanceUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_clubBalancesUpdate(ctx, field)
+				return ec._Mutation_clubBalanceUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByMonthDelete":
+		case "coachPaymentByMonthDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByMonthDelete(ctx, field)
+				return ec._Mutation_coachPaymentByMonthDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByMonthPublishUpdate":
+		case "coachPaymentByMonthPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByMonthPublishUpdate(ctx, field)
+				return ec._Mutation_coachPaymentByMonthPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByMonthRestore":
+		case "coachPaymentByMonthRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByMonthRestore(ctx, field)
+				return ec._Mutation_coachPaymentByMonthRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByMonthSave":
+		case "coachPaymentByMonthSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByMonthSave(ctx, field)
+				return ec._Mutation_coachPaymentByMonthSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByMonthUpdate":
+		case "coachPaymentByMonthUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByMonthUpdate(ctx, field)
+				return ec._Mutation_coachPaymentByMonthUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTeamDelete":
+		case "coachPaymentByTeamDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTeamDelete(ctx, field)
+				return ec._Mutation_coachPaymentByTeamDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTeamPublishUpdate":
+		case "coachPaymentByTeamPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTeamPublishUpdate(ctx, field)
+				return ec._Mutation_coachPaymentByTeamPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTeamRestore":
+		case "coachPaymentByTeamRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTeamRestore(ctx, field)
+				return ec._Mutation_coachPaymentByTeamRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTeamSave":
+		case "coachPaymentByTeamSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTeamSave(ctx, field)
+				return ec._Mutation_coachPaymentByTeamSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTeamUpdate":
+		case "coachPaymentByTeamUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTeamUpdate(ctx, field)
+				return ec._Mutation_coachPaymentByTeamUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTrainingDelete":
+		case "coachPaymentByTrainingDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTrainingDelete(ctx, field)
+				return ec._Mutation_coachPaymentByTrainingDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTrainingPublishUpdate":
+		case "coachPaymentByTrainingPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTrainingPublishUpdate(ctx, field)
+				return ec._Mutation_coachPaymentByTrainingPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTrainingRestore":
+		case "coachPaymentByTrainingRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTrainingRestore(ctx, field)
+				return ec._Mutation_coachPaymentByTrainingRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTrainingSave":
+		case "coachPaymentByTrainingSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTrainingSave(ctx, field)
+				return ec._Mutation_coachPaymentByTrainingSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentsByTrainingUpdate":
+		case "coachPaymentByTrainingUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentsByTrainingUpdate(ctx, field)
+				return ec._Mutation_coachPaymentByTrainingUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "creatorsDelete":
+		case "creatorDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_creatorsDelete(ctx, field)
+				return ec._Mutation_creatorDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "creatorsPublishUpdate":
+		case "creatorPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_creatorsPublishUpdate(ctx, field)
+				return ec._Mutation_creatorPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "creatorsRestore":
+		case "creatorRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_creatorsRestore(ctx, field)
+				return ec._Mutation_creatorRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "creatorsSave":
+		case "creatorSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_creatorsSave(ctx, field)
+				return ec._Mutation_creatorSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "creatorsUpdate":
+		case "creatorUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_creatorsUpdate(ctx, field)
+				return ec._Mutation_creatorUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "kitsDelete":
+		case "kitDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_kitsDelete(ctx, field)
+				return ec._Mutation_kitDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "kitsPublishUpdate":
+		case "kitPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_kitsPublishUpdate(ctx, field)
+				return ec._Mutation_kitPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "kitsRestore":
+		case "kitRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_kitsRestore(ctx, field)
+				return ec._Mutation_kitRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "kitsSave":
+		case "kitSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_kitsSave(ctx, field)
+				return ec._Mutation_kitSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "kitsUpdate":
+		case "kitUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_kitsUpdate(ctx, field)
+				return ec._Mutation_kitUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "leadsDelete":
+		case "leadDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_leadsDelete(ctx, field)
+				return ec._Mutation_leadDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "leadsPublishUpdate":
+		case "leadPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_leadsPublishUpdate(ctx, field)
+				return ec._Mutation_leadPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "leadsRestore":
+		case "leadRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_leadsRestore(ctx, field)
+				return ec._Mutation_leadRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "leadsSave":
+		case "leadSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_leadsSave(ctx, field)
+				return ec._Mutation_leadSave(ctx, field)
 			})
 
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "leadsUpdate":
+		case "leadUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_leadsUpdate(ctx, field)
+				return ec._Mutation_leadUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyCostsDelete":
+		case "moneyCostDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyCostsDelete(ctx, field)
+				return ec._Mutation_moneyCostDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyCostsPublishUpdate":
+		case "moneyCostPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyCostsPublishUpdate(ctx, field)
+				return ec._Mutation_moneyCostPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyCostsRestore":
+		case "moneyCostRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyCostsRestore(ctx, field)
+				return ec._Mutation_moneyCostRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyCostsSave":
+		case "moneyCostSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyCostsSave(ctx, field)
+				return ec._Mutation_moneyCostSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyCostsUpdate":
+		case "moneyCostUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyCostsUpdate(ctx, field)
+				return ec._Mutation_moneyCostUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyMovesDelete":
+		case "moneyMoveDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyMovesDelete(ctx, field)
+				return ec._Mutation_moneyMoveDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyMovesPublishUpdate":
+		case "moneyMovePublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyMovesPublishUpdate(ctx, field)
+				return ec._Mutation_moneyMovePublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyMovesRestore":
+		case "moneyMoveRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyMovesRestore(ctx, field)
+				return ec._Mutation_moneyMoveRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyMovesSave":
+		case "moneyMoveSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyMovesSave(ctx, field)
+				return ec._Mutation_moneyMoveSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyMovesUpdate":
+		case "moneyMoveUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyMovesUpdate(ctx, field)
+				return ec._Mutation_moneyMoveUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "ordersDelete":
+		case "orderDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_ordersDelete(ctx, field)
+				return ec._Mutation_orderDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "ordersPublishUpdate":
+		case "orderPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_ordersPublishUpdate(ctx, field)
+				return ec._Mutation_orderPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "ordersRestore":
+		case "orderRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_ordersRestore(ctx, field)
+				return ec._Mutation_orderRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "ordersSave":
+		case "orderSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_ordersSave(ctx, field)
+				return ec._Mutation_orderSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "ordersUpdate":
+		case "orderUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_ordersUpdate(ctx, field)
+				return ec._Mutation_orderUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "placesDelete":
+		case "placeDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_placesDelete(ctx, field)
+				return ec._Mutation_placeDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "placesPublishUpdate":
+		case "placePublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_placesPublishUpdate(ctx, field)
+				return ec._Mutation_placePublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "placesRestore":
+		case "placeRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_placesRestore(ctx, field)
+				return ec._Mutation_placeRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "placesSave":
+		case "placeSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_placesSave(ctx, field)
+				return ec._Mutation_placeSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "placesUpdate":
+		case "placeUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_placesUpdate(ctx, field)
+				return ec._Mutation_placeUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55552,46 +55231,46 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadiumsDelete":
+		case "stadiumDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_stadiumsDelete(ctx, field)
+				return ec._Mutation_stadiumDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadiumsPublishUpdate":
+		case "stadiumPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_stadiumsPublishUpdate(ctx, field)
+				return ec._Mutation_stadiumPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadiumsRestore":
+		case "stadiumRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_stadiumsRestore(ctx, field)
+				return ec._Mutation_stadiumRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadiumsSave":
+		case "stadiumSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_stadiumsSave(ctx, field)
+				return ec._Mutation_stadiumSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadiumsUpdate":
+		case "stadiumUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_stadiumsUpdate(ctx, field)
+				return ec._Mutation_stadiumUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55642,361 +55321,361 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentVisitsDelete":
+		case "studentVisitDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitsDelete(ctx, field)
+				return ec._Mutation_studentVisitDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentVisitsPublishUpdate":
+		case "studentVisitPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitsPublishUpdate(ctx, field)
+				return ec._Mutation_studentVisitPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentVisitsRestore":
+		case "studentVisitRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitsRestore(ctx, field)
+				return ec._Mutation_studentVisitRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentVisitsSave":
+		case "studentVisitSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitsSave(ctx, field)
+				return ec._Mutation_studentVisitSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentVisitsUpdate":
+		case "studentVisitUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitsUpdate(ctx, field)
+				return ec._Mutation_studentVisitUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentsDelete":
+		case "studentDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentsDelete(ctx, field)
+				return ec._Mutation_studentDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentsPublishUpdate":
+		case "studentPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentsPublishUpdate(ctx, field)
+				return ec._Mutation_studentPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentsRestore":
+		case "studentRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentsRestore(ctx, field)
+				return ec._Mutation_studentRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentsSave":
+		case "studentSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentsSave(ctx, field)
+				return ec._Mutation_studentSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentsUpdate":
+		case "studentUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentsUpdate(ctx, field)
+				return ec._Mutation_studentUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "tasksDelete":
+		case "taskDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_tasksDelete(ctx, field)
+				return ec._Mutation_taskDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "tasksPublishUpdate":
+		case "taskPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_tasksPublishUpdate(ctx, field)
+				return ec._Mutation_taskPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "tasksRestore":
+		case "taskRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_tasksRestore(ctx, field)
+				return ec._Mutation_taskRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "tasksSave":
+		case "taskSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_tasksSave(ctx, field)
+				return ec._Mutation_taskSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "tasksUpdate":
+		case "taskUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_tasksUpdate(ctx, field)
+				return ec._Mutation_taskUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamBalancesDelete":
+		case "teamBalanceDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamBalancesDelete(ctx, field)
+				return ec._Mutation_teamBalanceDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamBalancesPublishUpdate":
+		case "teamBalancePublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamBalancesPublishUpdate(ctx, field)
+				return ec._Mutation_teamBalancePublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamBalancesRestore":
+		case "teamBalanceRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamBalancesRestore(ctx, field)
+				return ec._Mutation_teamBalanceRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamBalancesSave":
+		case "teamBalanceSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamBalancesSave(ctx, field)
+				return ec._Mutation_teamBalanceSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamBalancesUpdate":
+		case "teamBalanceUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamBalancesUpdate(ctx, field)
+				return ec._Mutation_teamBalanceUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamsDelete":
+		case "teamDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamsDelete(ctx, field)
+				return ec._Mutation_teamDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamsPublishUpdate":
+		case "teamPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamsPublishUpdate(ctx, field)
+				return ec._Mutation_teamPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamsRestore":
+		case "teamRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamsRestore(ctx, field)
+				return ec._Mutation_teamRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamsSave":
+		case "teamSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamsSave(ctx, field)
+				return ec._Mutation_teamSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamsUpdate":
+		case "teamUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamsUpdate(ctx, field)
+				return ec._Mutation_teamUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingDaysDelete":
+		case "trainingDayDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingDaysDelete(ctx, field)
+				return ec._Mutation_trainingDayDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingDaysPublishUpdate":
+		case "trainingDayPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingDaysPublishUpdate(ctx, field)
+				return ec._Mutation_trainingDayPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingDaysRestore":
+		case "trainingDayRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingDaysRestore(ctx, field)
+				return ec._Mutation_trainingDayRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingDaysSave":
+		case "trainingDaySave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingDaysSave(ctx, field)
+				return ec._Mutation_trainingDaySave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingDaysUpdate":
+		case "trainingDayUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingDaysUpdate(ctx, field)
+				return ec._Mutation_trainingDayUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingsDelete":
+		case "trainingDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingsDelete(ctx, field)
+				return ec._Mutation_trainingDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingsPublishUpdate":
+		case "trainingPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingsPublishUpdate(ctx, field)
+				return ec._Mutation_trainingPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingsRestore":
+		case "trainingRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingsRestore(ctx, field)
+				return ec._Mutation_trainingRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingsSave":
+		case "trainingSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingsSave(ctx, field)
+				return ec._Mutation_trainingSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingsUpdate":
+		case "trainingUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingsUpdate(ctx, field)
+				return ec._Mutation_trainingUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "usersDelete":
+		case "userDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_usersDelete(ctx, field)
+				return ec._Mutation_userDelete(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "usersPublishUpdate":
+		case "userPublishUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_usersPublishUpdate(ctx, field)
+				return ec._Mutation_userPublishUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "usersRestore":
+		case "userRestore":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_usersRestore(ctx, field)
+				return ec._Mutation_userRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "usersSave":
+		case "userSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_usersSave(ctx, field)
+				return ec._Mutation_userSave(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "usersUpdate":
+		case "userUpdate":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_usersUpdate(ctx, field)
+				return ec._Mutation_userUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -60390,21 +60069,9 @@ func (ec *executionContext) marshalNAge2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphql
 	return v
 }
 
-func (ec *executionContext) unmarshalNArticleInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInputᚄ(ctx context.Context, v interface{}) ([]*models.ArticleInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.ArticleInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNArticleInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNArticleInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInput(ctx context.Context, v interface{}) (models.ArticleInput, error) {
+	res, err := ec.unmarshalInputArticleInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNArticleInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInput(ctx context.Context, v interface{}) (*models.ArticleInput, error) {
@@ -60412,108 +60079,13 @@ func (ec *executionContext) unmarshalNArticleInput2ᚖgitlabᚗcomᚋdinamchiki�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNArticleInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.ArticleInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.ArticleInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNArticleInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNArticleInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInputWithID(ctx context.Context, v interface{}) (*models.ArticleInputWithID, error) {
+func (ec *executionContext) unmarshalNArticleInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInputWithID(ctx context.Context, v interface{}) (models.ArticleInputWithID, error) {
 	res, err := ec.unmarshalInputArticleInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNArticlePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx context.Context, sel ast.SelectionSet, v []*models.ArticlePayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNArticlePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.ArticlePayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNArticlePayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx context.Context, sel ast.SelectionSet, v models.ArticlePayload) graphql.Marshaler {
+	return ec._ArticlePayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx context.Context, sel ast.SelectionSet, v *models.ArticlePayload) graphql.Marshaler {
@@ -60570,21 +60142,9 @@ func (ec *executionContext) unmarshalNCartDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNCartInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInputᚄ(ctx context.Context, v interface{}) ([]*models.CartInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CartInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCartInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNCartInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInput(ctx context.Context, v interface{}) (models.CartInput, error) {
+	res, err := ec.unmarshalInputCartInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNCartInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInput(ctx context.Context, v interface{}) (*models.CartInput, error) {
@@ -60592,70 +60152,13 @@ func (ec *executionContext) unmarshalNCartInput2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNCartInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.CartInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CartInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCartInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNCartInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInputWithID(ctx context.Context, v interface{}) (*models.CartInputWithID, error) {
+func (ec *executionContext) unmarshalNCartInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInputWithID(ctx context.Context, v interface{}) (models.CartInputWithID, error) {
 	res, err := ec.unmarshalInputCartInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNCartPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CartPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNCartPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx context.Context, sel ast.SelectionSet, v models.CartPayload) graphql.Marshaler {
+	return ec._CartPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx context.Context, sel ast.SelectionSet, v *models.CartPayload) graphql.Marshaler {
@@ -60668,21 +60171,9 @@ func (ec *executionContext) marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return ec._CartPayload(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNClubBalanceInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInputᚄ(ctx context.Context, v interface{}) ([]*models.ClubBalanceInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.ClubBalanceInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNClubBalanceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNClubBalanceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInput(ctx context.Context, v interface{}) (models.ClubBalanceInput, error) {
+	res, err := ec.unmarshalInputClubBalanceInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNClubBalanceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInput(ctx context.Context, v interface{}) (*models.ClubBalanceInput, error) {
@@ -60690,70 +60181,13 @@ func (ec *executionContext) unmarshalNClubBalanceInput2ᚖgitlabᚗcomᚋdinamch
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNClubBalanceInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.ClubBalanceInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.ClubBalanceInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNClubBalanceInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNClubBalanceInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInputWithID(ctx context.Context, v interface{}) (*models.ClubBalanceInputWithID, error) {
+func (ec *executionContext) unmarshalNClubBalanceInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInputWithID(ctx context.Context, v interface{}) (models.ClubBalanceInputWithID, error) {
 	res, err := ec.unmarshalInputClubBalanceInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNClubBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.ClubBalancePayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNClubBalancePayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx context.Context, sel ast.SelectionSet, v models.ClubBalancePayload) graphql.Marshaler {
+	return ec._ClubBalancePayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx context.Context, sel ast.SelectionSet, v *models.ClubBalancePayload) graphql.Marshaler {
@@ -60766,21 +60200,9 @@ func (ec *executionContext) marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamch
 	return ec._ClubBalancePayload(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNCoachPaymentByMonthInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInputᚄ(ctx context.Context, v interface{}) ([]*models.CoachPaymentByMonthInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CoachPaymentByMonthInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCoachPaymentByMonthInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNCoachPaymentByMonthInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInput(ctx context.Context, v interface{}) (models.CoachPaymentByMonthInput, error) {
+	res, err := ec.unmarshalInputCoachPaymentByMonthInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNCoachPaymentByMonthInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInput(ctx context.Context, v interface{}) (*models.CoachPaymentByMonthInput, error) {
@@ -60788,70 +60210,13 @@ func (ec *executionContext) unmarshalNCoachPaymentByMonthInput2ᚖgitlabᚗcom�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNCoachPaymentByMonthInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.CoachPaymentByMonthInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CoachPaymentByMonthInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCoachPaymentByMonthInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNCoachPaymentByMonthInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInputWithID(ctx context.Context, v interface{}) (*models.CoachPaymentByMonthInputWithID, error) {
+func (ec *executionContext) unmarshalNCoachPaymentByMonthInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInputWithID(ctx context.Context, v interface{}) (models.CoachPaymentByMonthInputWithID, error) {
 	res, err := ec.unmarshalInputCoachPaymentByMonthInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNCoachPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByMonthPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNCoachPaymentByMonthPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx context.Context, sel ast.SelectionSet, v models.CoachPaymentByMonthPayload) graphql.Marshaler {
+	return ec._CoachPaymentByMonthPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByMonthPayload) graphql.Marshaler {
@@ -60864,21 +60229,9 @@ func (ec *executionContext) marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcom�
 	return ec._CoachPaymentByMonthPayload(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNCoachPaymentByTeamInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInputᚄ(ctx context.Context, v interface{}) ([]*models.CoachPaymentByTeamInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CoachPaymentByTeamInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCoachPaymentByTeamInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNCoachPaymentByTeamInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInput(ctx context.Context, v interface{}) (models.CoachPaymentByTeamInput, error) {
+	res, err := ec.unmarshalInputCoachPaymentByTeamInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNCoachPaymentByTeamInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInput(ctx context.Context, v interface{}) (*models.CoachPaymentByTeamInput, error) {
@@ -60886,70 +60239,13 @@ func (ec *executionContext) unmarshalNCoachPaymentByTeamInput2ᚖgitlabᚗcomᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNCoachPaymentByTeamInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.CoachPaymentByTeamInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CoachPaymentByTeamInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCoachPaymentByTeamInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNCoachPaymentByTeamInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInputWithID(ctx context.Context, v interface{}) (*models.CoachPaymentByTeamInputWithID, error) {
+func (ec *executionContext) unmarshalNCoachPaymentByTeamInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInputWithID(ctx context.Context, v interface{}) (models.CoachPaymentByTeamInputWithID, error) {
 	res, err := ec.unmarshalInputCoachPaymentByTeamInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNCoachPaymentByTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByTeamPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNCoachPaymentByTeamPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx context.Context, sel ast.SelectionSet, v models.CoachPaymentByTeamPayload) graphql.Marshaler {
+	return ec._CoachPaymentByTeamPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByTeamPayload) graphql.Marshaler {
@@ -60962,21 +60258,9 @@ func (ec *executionContext) marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋ
 	return ec._CoachPaymentByTeamPayload(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNCoachPaymentByTrainingInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInputᚄ(ctx context.Context, v interface{}) ([]*models.CoachPaymentByTrainingInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CoachPaymentByTrainingInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCoachPaymentByTrainingInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNCoachPaymentByTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInput(ctx context.Context, v interface{}) (models.CoachPaymentByTrainingInput, error) {
+	res, err := ec.unmarshalInputCoachPaymentByTrainingInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNCoachPaymentByTrainingInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInput(ctx context.Context, v interface{}) (*models.CoachPaymentByTrainingInput, error) {
@@ -60984,70 +60268,13 @@ func (ec *executionContext) unmarshalNCoachPaymentByTrainingInput2ᚖgitlabᚗco
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNCoachPaymentByTrainingInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.CoachPaymentByTrainingInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CoachPaymentByTrainingInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCoachPaymentByTrainingInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNCoachPaymentByTrainingInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInputWithID(ctx context.Context, v interface{}) (*models.CoachPaymentByTrainingInputWithID, error) {
+func (ec *executionContext) unmarshalNCoachPaymentByTrainingInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInputWithID(ctx context.Context, v interface{}) (models.CoachPaymentByTrainingInputWithID, error) {
 	res, err := ec.unmarshalInputCoachPaymentByTrainingInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNCoachPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByTrainingPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNCoachPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNCoachPaymentByTrainingPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx context.Context, sel ast.SelectionSet, v models.CoachPaymentByTrainingPayload) graphql.Marshaler {
+	return ec._CoachPaymentByTrainingPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNCoachPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByTrainingPayload) graphql.Marshaler {
@@ -61092,21 +60319,9 @@ func (ec *executionContext) unmarshalNCreatorDto2ᚖgitlabᚗcomᚋdinamchikiᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNCreatorInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInputᚄ(ctx context.Context, v interface{}) ([]*models.CreatorInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CreatorInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCreatorInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNCreatorInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInput(ctx context.Context, v interface{}) (models.CreatorInput, error) {
+	res, err := ec.unmarshalInputCreatorInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNCreatorInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInput(ctx context.Context, v interface{}) (*models.CreatorInput, error) {
@@ -61114,70 +60329,13 @@ func (ec *executionContext) unmarshalNCreatorInput2ᚖgitlabᚗcomᚋdinamchiki�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNCreatorInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.CreatorInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.CreatorInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCreatorInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNCreatorInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInputWithID(ctx context.Context, v interface{}) (*models.CreatorInputWithID, error) {
+func (ec *executionContext) unmarshalNCreatorInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInputWithID(ctx context.Context, v interface{}) (models.CreatorInputWithID, error) {
 	res, err := ec.unmarshalInputCreatorInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNCreatorPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CreatorPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNCreatorPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNCreatorPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx context.Context, sel ast.SelectionSet, v models.CreatorPayload) graphql.Marshaler {
+	return ec._CreatorPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNCreatorPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx context.Context, sel ast.SelectionSet, v *models.CreatorPayload) graphql.Marshaler {
@@ -61287,21 +60445,9 @@ func (ec *executionContext) unmarshalNKitDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNKitInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInputᚄ(ctx context.Context, v interface{}) ([]*models.KitInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.KitInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNKitInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNKitInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInput(ctx context.Context, v interface{}) (models.KitInput, error) {
+	res, err := ec.unmarshalInputKitInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNKitInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInput(ctx context.Context, v interface{}) (*models.KitInput, error) {
@@ -61309,70 +60455,13 @@ func (ec *executionContext) unmarshalNKitInput2ᚖgitlabᚗcomᚋdinamchikiᚋgo
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNKitInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.KitInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.KitInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNKitInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNKitInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInputWithID(ctx context.Context, v interface{}) (*models.KitInputWithID, error) {
+func (ec *executionContext) unmarshalNKitInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInputWithID(ctx context.Context, v interface{}) (models.KitInputWithID, error) {
 	res, err := ec.unmarshalInputKitInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNKitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.KitPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNKitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNKitPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx context.Context, sel ast.SelectionSet, v models.KitPayload) graphql.Marshaler {
+	return ec._KitPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNKitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx context.Context, sel ast.SelectionSet, v *models.KitPayload) graphql.Marshaler {
@@ -61390,21 +60479,9 @@ func (ec *executionContext) unmarshalNLeadDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNLeadInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInputᚄ(ctx context.Context, v interface{}) ([]*models.LeadInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.LeadInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNLeadInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNLeadInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInput(ctx context.Context, v interface{}) (models.LeadInput, error) {
+	res, err := ec.unmarshalInputLeadInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNLeadInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInput(ctx context.Context, v interface{}) (*models.LeadInput, error) {
@@ -61412,108 +60489,13 @@ func (ec *executionContext) unmarshalNLeadInput2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNLeadInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.LeadInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.LeadInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNLeadInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNLeadInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInputWithID(ctx context.Context, v interface{}) (*models.LeadInputWithID, error) {
+func (ec *executionContext) unmarshalNLeadInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInputWithID(ctx context.Context, v interface{}) (models.LeadInputWithID, error) {
 	res, err := ec.unmarshalInputLeadInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNLeadPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx context.Context, sel ast.SelectionSet, v []*models.LeadPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNLeadPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.LeadPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNLeadPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx context.Context, sel ast.SelectionSet, v models.LeadPayload) graphql.Marshaler {
+	return ec._LeadPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx context.Context, sel ast.SelectionSet, v *models.LeadPayload) graphql.Marshaler {
@@ -61589,21 +60571,9 @@ func (ec *executionContext) marshalNMeetup2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑg
 	return ec._Meetup(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNMoneyCostInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInputᚄ(ctx context.Context, v interface{}) ([]*models.MoneyCostInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.MoneyCostInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNMoneyCostInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNMoneyCostInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInput(ctx context.Context, v interface{}) (models.MoneyCostInput, error) {
+	res, err := ec.unmarshalInputMoneyCostInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNMoneyCostInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInput(ctx context.Context, v interface{}) (*models.MoneyCostInput, error) {
@@ -61611,70 +60581,13 @@ func (ec *executionContext) unmarshalNMoneyCostInput2ᚖgitlabᚗcomᚋdinamchik
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNMoneyCostInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.MoneyCostInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.MoneyCostInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNMoneyCostInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNMoneyCostInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInputWithID(ctx context.Context, v interface{}) (*models.MoneyCostInputWithID, error) {
+func (ec *executionContext) unmarshalNMoneyCostInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInputWithID(ctx context.Context, v interface{}) (models.MoneyCostInputWithID, error) {
 	res, err := ec.unmarshalInputMoneyCostInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNMoneyCostPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.MoneyCostPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNMoneyCostPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNMoneyCostPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx context.Context, sel ast.SelectionSet, v models.MoneyCostPayload) graphql.Marshaler {
+	return ec._MoneyCostPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNMoneyCostPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx context.Context, sel ast.SelectionSet, v *models.MoneyCostPayload) graphql.Marshaler {
@@ -61697,21 +60610,9 @@ func (ec *executionContext) marshalNMoneyForm2gitlabᚗcomᚋdinamchikiᚋgoᚑg
 	return v
 }
 
-func (ec *executionContext) unmarshalNMoneyMoveInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInputᚄ(ctx context.Context, v interface{}) ([]*models.MoneyMoveInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.MoneyMoveInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNMoneyMoveInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNMoneyMoveInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInput(ctx context.Context, v interface{}) (models.MoneyMoveInput, error) {
+	res, err := ec.unmarshalInputMoneyMoveInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNMoneyMoveInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInput(ctx context.Context, v interface{}) (*models.MoneyMoveInput, error) {
@@ -61719,70 +60620,13 @@ func (ec *executionContext) unmarshalNMoneyMoveInput2ᚖgitlabᚗcomᚋdinamchik
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNMoneyMoveInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.MoneyMoveInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.MoneyMoveInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNMoneyMoveInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNMoneyMoveInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInputWithID(ctx context.Context, v interface{}) (*models.MoneyMoveInputWithID, error) {
+func (ec *executionContext) unmarshalNMoneyMoveInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInputWithID(ctx context.Context, v interface{}) (models.MoneyMoveInputWithID, error) {
 	res, err := ec.unmarshalInputMoneyMoveInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNMoneyMovePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.MoneyMovePayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNMoneyMovePayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx context.Context, sel ast.SelectionSet, v models.MoneyMovePayload) graphql.Marshaler {
+	return ec._MoneyMovePayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx context.Context, sel ast.SelectionSet, v *models.MoneyMovePayload) graphql.Marshaler {
@@ -61800,21 +60644,9 @@ func (ec *executionContext) unmarshalNNewMeetup2gitlabᚗcomᚋdinamchikiᚋgo�
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNOrderInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInputᚄ(ctx context.Context, v interface{}) ([]*models.OrderInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.OrderInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNOrderInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNOrderInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInput(ctx context.Context, v interface{}) (models.OrderInput, error) {
+	res, err := ec.unmarshalInputOrderInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNOrderInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInput(ctx context.Context, v interface{}) (*models.OrderInput, error) {
@@ -61822,70 +60654,13 @@ func (ec *executionContext) unmarshalNOrderInput2ᚖgitlabᚗcomᚋdinamchikiᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNOrderInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.OrderInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.OrderInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNOrderInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNOrderInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInputWithID(ctx context.Context, v interface{}) (*models.OrderInputWithID, error) {
+func (ec *executionContext) unmarshalNOrderInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInputWithID(ctx context.Context, v interface{}) (models.OrderInputWithID, error) {
 	res, err := ec.unmarshalInputOrderInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNOrderPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.OrderPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNOrderPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNOrderPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx context.Context, sel ast.SelectionSet, v models.OrderPayload) graphql.Marshaler {
+	return ec._OrderPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNOrderPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx context.Context, sel ast.SelectionSet, v *models.OrderPayload) graphql.Marshaler {
@@ -61916,10 +60691,6 @@ func (ec *executionContext) marshalNPageInfo2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._PageInfo(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalNPlace2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx context.Context, sel ast.SelectionSet, v models.Place) graphql.Marshaler {
-	return ec._Place(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx context.Context, sel ast.SelectionSet, v *models.Place) graphql.Marshaler {
@@ -62010,134 +60781,18 @@ func (ec *executionContext) unmarshalNPlaceInput2gitlabᚗcomᚋdinamchikiᚋgo�
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNPlaceInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInputᚄ(ctx context.Context, v interface{}) ([]*models.PlaceInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.PlaceInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNPlaceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
 func (ec *executionContext) unmarshalNPlaceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx context.Context, v interface{}) (*models.PlaceInput, error) {
 	res, err := ec.unmarshalInputPlaceInput(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNPlaceInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.PlaceInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.PlaceInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNPlaceInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNPlaceInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInputWithID(ctx context.Context, v interface{}) (*models.PlaceInputWithID, error) {
+func (ec *executionContext) unmarshalNPlaceInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInputWithID(ctx context.Context, v interface{}) (models.PlaceInputWithID, error) {
 	res, err := ec.unmarshalInputPlaceInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalNPlacePayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx context.Context, sel ast.SelectionSet, v models.PlacePayload) graphql.Marshaler {
 	return ec._PlacePayload(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNPlacePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx context.Context, sel ast.SelectionSet, v []*models.PlacePayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNPlacePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.PlacePayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
 }
 
 func (ec *executionContext) marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx context.Context, sel ast.SelectionSet, v *models.PlacePayload) graphql.Marshaler {
@@ -62155,21 +60810,9 @@ func (ec *executionContext) unmarshalNRegisterInput2gitlabᚗcomᚋdinamchikiᚋ
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNRentPaymentByMonthInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInputᚄ(ctx context.Context, v interface{}) ([]*models.RentPaymentByMonthInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.RentPaymentByMonthInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNRentPaymentByMonthInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNRentPaymentByMonthInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInput(ctx context.Context, v interface{}) (models.RentPaymentByMonthInput, error) {
+	res, err := ec.unmarshalInputRentPaymentByMonthInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNRentPaymentByMonthInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInput(ctx context.Context, v interface{}) (*models.RentPaymentByMonthInput, error) {
@@ -62177,70 +60820,13 @@ func (ec *executionContext) unmarshalNRentPaymentByMonthInput2ᚖgitlabᚗcomᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNRentPaymentByMonthInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.RentPaymentByMonthInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.RentPaymentByMonthInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNRentPaymentByMonthInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNRentPaymentByMonthInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInputWithID(ctx context.Context, v interface{}) (*models.RentPaymentByMonthInputWithID, error) {
+func (ec *executionContext) unmarshalNRentPaymentByMonthInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInputWithID(ctx context.Context, v interface{}) (models.RentPaymentByMonthInputWithID, error) {
 	res, err := ec.unmarshalInputRentPaymentByMonthInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNRentPaymentByMonthPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.RentPaymentByMonthPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNRentPaymentByMonthPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx context.Context, sel ast.SelectionSet, v models.RentPaymentByMonthPayload) graphql.Marshaler {
+	return ec._RentPaymentByMonthPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx context.Context, sel ast.SelectionSet, v *models.RentPaymentByMonthPayload) graphql.Marshaler {
@@ -62253,21 +60839,9 @@ func (ec *executionContext) marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋ
 	return ec._RentPaymentByMonthPayload(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNRentPaymentByTrainingInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInputᚄ(ctx context.Context, v interface{}) ([]*models.RentPaymentByTrainingInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.RentPaymentByTrainingInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNRentPaymentByTrainingInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNRentPaymentByTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInput(ctx context.Context, v interface{}) (models.RentPaymentByTrainingInput, error) {
+	res, err := ec.unmarshalInputRentPaymentByTrainingInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNRentPaymentByTrainingInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInput(ctx context.Context, v interface{}) (*models.RentPaymentByTrainingInput, error) {
@@ -62275,70 +60849,13 @@ func (ec *executionContext) unmarshalNRentPaymentByTrainingInput2ᚖgitlabᚗcom
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNRentPaymentByTrainingInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.RentPaymentByTrainingInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.RentPaymentByTrainingInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNRentPaymentByTrainingInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNRentPaymentByTrainingInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInputWithID(ctx context.Context, v interface{}) (*models.RentPaymentByTrainingInputWithID, error) {
+func (ec *executionContext) unmarshalNRentPaymentByTrainingInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInputWithID(ctx context.Context, v interface{}) (models.RentPaymentByTrainingInputWithID, error) {
 	res, err := ec.unmarshalInputRentPaymentByTrainingInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNRentPaymentByTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.RentPaymentByTrainingPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNRentPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNRentPaymentByTrainingPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx context.Context, sel ast.SelectionSet, v models.RentPaymentByTrainingPayload) graphql.Marshaler {
+	return ec._RentPaymentByTrainingPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNRentPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx context.Context, sel ast.SelectionSet, v *models.RentPaymentByTrainingPayload) graphql.Marshaler {
@@ -62427,21 +60944,9 @@ func (ec *executionContext) unmarshalNStadiumDto2ᚖgitlabᚗcomᚋdinamchikiᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNStadiumInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInputᚄ(ctx context.Context, v interface{}) ([]*models.StadiumInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.StadiumInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNStadiumInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNStadiumInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInput(ctx context.Context, v interface{}) (models.StadiumInput, error) {
+	res, err := ec.unmarshalInputStadiumInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNStadiumInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInput(ctx context.Context, v interface{}) (*models.StadiumInput, error) {
@@ -62449,108 +60954,13 @@ func (ec *executionContext) unmarshalNStadiumInput2ᚖgitlabᚗcomᚋdinamchiki�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNStadiumInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.StadiumInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.StadiumInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNStadiumInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNStadiumInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInputWithID(ctx context.Context, v interface{}) (*models.StadiumInputWithID, error) {
+func (ec *executionContext) unmarshalNStadiumInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInputWithID(ctx context.Context, v interface{}) (models.StadiumInputWithID, error) {
 	res, err := ec.unmarshalInputStadiumInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNStadiumPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx context.Context, sel ast.SelectionSet, v []*models.StadiumPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNStadiumPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StadiumPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNStadiumPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx context.Context, sel ast.SelectionSet, v models.StadiumPayload) graphql.Marshaler {
+	return ec._StadiumPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx context.Context, sel ast.SelectionSet, v *models.StadiumPayload) graphql.Marshaler {
@@ -62568,21 +60978,9 @@ func (ec *executionContext) unmarshalNStaffDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNStaffInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInputᚄ(ctx context.Context, v interface{}) ([]*models.StaffInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.StaffInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNStaffInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNStaffInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInput(ctx context.Context, v interface{}) (models.StaffInput, error) {
+	res, err := ec.unmarshalInputStaffInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNStaffInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInput(ctx context.Context, v interface{}) (*models.StaffInput, error) {
@@ -62590,108 +60988,13 @@ func (ec *executionContext) unmarshalNStaffInput2ᚖgitlabᚗcomᚋdinamchikiᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNStaffInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.StaffInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.StaffInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNStaffInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNStaffInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInputWithID(ctx context.Context, v interface{}) (*models.StaffInputWithID, error) {
+func (ec *executionContext) unmarshalNStaffInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInputWithID(ctx context.Context, v interface{}) (models.StaffInputWithID, error) {
 	res, err := ec.unmarshalInputStaffInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNStaffPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx context.Context, sel ast.SelectionSet, v []*models.StaffPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNStaffPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StaffPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNStaffPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx context.Context, sel ast.SelectionSet, v models.StaffPayload) graphql.Marshaler {
+	return ec._StaffPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx context.Context, sel ast.SelectionSet, v *models.StaffPayload) graphql.Marshaler {
@@ -62776,21 +61079,9 @@ func (ec *executionContext) unmarshalNStudentDto2ᚖgitlabᚗcomᚋdinamchikiᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNStudentInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInputᚄ(ctx context.Context, v interface{}) ([]*models.StudentInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.StudentInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNStudentInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNStudentInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInput(ctx context.Context, v interface{}) (models.StudentInput, error) {
+	res, err := ec.unmarshalInputStudentInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNStudentInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInput(ctx context.Context, v interface{}) (*models.StudentInput, error) {
@@ -62798,26 +61089,9 @@ func (ec *executionContext) unmarshalNStudentInput2ᚖgitlabᚗcomᚋdinamchiki�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNStudentInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.StudentInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.StudentInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNStudentInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNStudentInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInputWithID(ctx context.Context, v interface{}) (*models.StudentInputWithID, error) {
+func (ec *executionContext) unmarshalNStudentInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInputWithID(ctx context.Context, v interface{}) (models.StudentInputWithID, error) {
 	res, err := ec.unmarshalInputStudentInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalNStudentLead2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentLead(ctx context.Context, sel ast.SelectionSet, v *models.StudentLead) graphql.Marshaler {
@@ -62830,48 +61104,8 @@ func (ec *executionContext) marshalNStudentLead2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return ec._StudentLead(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNStudentPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StudentPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNStudentPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx context.Context, sel ast.SelectionSet, v models.StudentPayload) graphql.Marshaler {
+	return ec._StudentPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx context.Context, sel ast.SelectionSet, v *models.StudentPayload) graphql.Marshaler {
@@ -62884,21 +61118,9 @@ func (ec *executionContext) marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchiki�
 	return ec._StudentPayload(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNStudentVisitInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInputᚄ(ctx context.Context, v interface{}) ([]*models.StudentVisitInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.StudentVisitInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNStudentVisitInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNStudentVisitInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInput(ctx context.Context, v interface{}) (models.StudentVisitInput, error) {
+	res, err := ec.unmarshalInputStudentVisitInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNStudentVisitInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInput(ctx context.Context, v interface{}) (*models.StudentVisitInput, error) {
@@ -62906,70 +61128,13 @@ func (ec *executionContext) unmarshalNStudentVisitInput2ᚖgitlabᚗcomᚋdinamc
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNStudentVisitInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.StudentVisitInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.StudentVisitInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNStudentVisitInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNStudentVisitInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInputWithID(ctx context.Context, v interface{}) (*models.StudentVisitInputWithID, error) {
+func (ec *executionContext) unmarshalNStudentVisitInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInputWithID(ctx context.Context, v interface{}) (models.StudentVisitInputWithID, error) {
 	res, err := ec.unmarshalInputStudentVisitInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNStudentVisitPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StudentVisitPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNStudentVisitPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx context.Context, sel ast.SelectionSet, v models.StudentVisitPayload) graphql.Marshaler {
+	return ec._StudentVisitPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx context.Context, sel ast.SelectionSet, v *models.StudentVisitPayload) graphql.Marshaler {
@@ -62982,21 +61147,9 @@ func (ec *executionContext) marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamc
 	return ec._StudentVisitPayload(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNTaskInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInputᚄ(ctx context.Context, v interface{}) ([]*models.TaskInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TaskInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTaskInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNTaskInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInput(ctx context.Context, v interface{}) (models.TaskInput, error) {
+	res, err := ec.unmarshalInputTaskInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNTaskInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInput(ctx context.Context, v interface{}) (*models.TaskInput, error) {
@@ -63004,108 +61157,13 @@ func (ec *executionContext) unmarshalNTaskInput2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNTaskInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.TaskInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TaskInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTaskInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNTaskInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInputWithID(ctx context.Context, v interface{}) (*models.TaskInputWithID, error) {
+func (ec *executionContext) unmarshalNTaskInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInputWithID(ctx context.Context, v interface{}) (models.TaskInputWithID, error) {
 	res, err := ec.unmarshalInputTaskInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNTaskPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx context.Context, sel ast.SelectionSet, v []*models.TaskPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNTaskPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TaskPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNTaskPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx context.Context, sel ast.SelectionSet, v models.TaskPayload) graphql.Marshaler {
+	return ec._TaskPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx context.Context, sel ast.SelectionSet, v *models.TaskPayload) graphql.Marshaler {
@@ -63123,21 +61181,9 @@ func (ec *executionContext) unmarshalNTeamBalanceDto2ᚖgitlabᚗcomᚋdinamchik
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNTeamBalanceInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInputᚄ(ctx context.Context, v interface{}) ([]*models.TeamBalanceInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TeamBalanceInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTeamBalanceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNTeamBalanceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInput(ctx context.Context, v interface{}) (models.TeamBalanceInput, error) {
+	res, err := ec.unmarshalInputTeamBalanceInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNTeamBalanceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInput(ctx context.Context, v interface{}) (*models.TeamBalanceInput, error) {
@@ -63145,70 +61191,13 @@ func (ec *executionContext) unmarshalNTeamBalanceInput2ᚖgitlabᚗcomᚋdinamch
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNTeamBalanceInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.TeamBalanceInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TeamBalanceInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTeamBalanceInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNTeamBalanceInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInputWithID(ctx context.Context, v interface{}) (*models.TeamBalanceInputWithID, error) {
+func (ec *executionContext) unmarshalNTeamBalanceInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInputWithID(ctx context.Context, v interface{}) (models.TeamBalanceInputWithID, error) {
 	res, err := ec.unmarshalInputTeamBalanceInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNTeamBalancePayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TeamBalancePayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNTeamBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNTeamBalancePayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx context.Context, sel ast.SelectionSet, v models.TeamBalancePayload) graphql.Marshaler {
+	return ec._TeamBalancePayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNTeamBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx context.Context, sel ast.SelectionSet, v *models.TeamBalancePayload) graphql.Marshaler {
@@ -63226,21 +61215,9 @@ func (ec *executionContext) unmarshalNTeamCoachPaymentDto2ᚖgitlabᚗcomᚋdina
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNTeamInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInputᚄ(ctx context.Context, v interface{}) ([]*models.TeamInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TeamInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTeamInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNTeamInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInput(ctx context.Context, v interface{}) (models.TeamInput, error) {
+	res, err := ec.unmarshalInputTeamInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNTeamInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInput(ctx context.Context, v interface{}) (*models.TeamInput, error) {
@@ -63248,108 +61225,13 @@ func (ec *executionContext) unmarshalNTeamInput2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNTeamInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.TeamInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TeamInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTeamInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNTeamInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInputWithID(ctx context.Context, v interface{}) (*models.TeamInputWithID, error) {
+func (ec *executionContext) unmarshalNTeamInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInputWithID(ctx context.Context, v interface{}) (models.TeamInputWithID, error) {
 	res, err := ec.unmarshalInputTeamInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx context.Context, sel ast.SelectionSet, v []*models.TeamPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNTeamPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TeamPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNTeamPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx context.Context, sel ast.SelectionSet, v models.TeamPayload) graphql.Marshaler {
+	return ec._TeamPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx context.Context, sel ast.SelectionSet, v *models.TeamPayload) graphql.Marshaler {
@@ -63433,21 +61315,9 @@ func (ec *executionContext) marshalNToken2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgr
 	return ec._Token(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNTrainingDayInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInputᚄ(ctx context.Context, v interface{}) ([]*models.TrainingDayInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TrainingDayInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTrainingDayInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNTrainingDayInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInput(ctx context.Context, v interface{}) (models.TrainingDayInput, error) {
+	res, err := ec.unmarshalInputTrainingDayInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNTrainingDayInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInput(ctx context.Context, v interface{}) (*models.TrainingDayInput, error) {
@@ -63455,108 +61325,13 @@ func (ec *executionContext) unmarshalNTrainingDayInput2ᚖgitlabᚗcomᚋdinamch
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNTrainingDayInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.TrainingDayInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TrainingDayInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTrainingDayInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNTrainingDayInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInputWithID(ctx context.Context, v interface{}) (*models.TrainingDayInputWithID, error) {
+func (ec *executionContext) unmarshalNTrainingDayInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInputWithID(ctx context.Context, v interface{}) (models.TrainingDayInputWithID, error) {
 	res, err := ec.unmarshalInputTrainingDayInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNTrainingDayPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx context.Context, sel ast.SelectionSet, v []*models.TrainingDayPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNTrainingDayPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TrainingDayPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNTrainingDayPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx context.Context, sel ast.SelectionSet, v models.TrainingDayPayload) graphql.Marshaler {
+	return ec._TrainingDayPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx context.Context, sel ast.SelectionSet, v *models.TrainingDayPayload) graphql.Marshaler {
@@ -63591,21 +61366,9 @@ func (ec *executionContext) unmarshalNTrainingDto2ᚖgitlabᚗcomᚋdinamchiki�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNTrainingInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInputᚄ(ctx context.Context, v interface{}) ([]*models.TrainingInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TrainingInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTrainingInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInput(ctx context.Context, v interface{}) (models.TrainingInput, error) {
+	res, err := ec.unmarshalInputTrainingInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNTrainingInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInput(ctx context.Context, v interface{}) (*models.TrainingInput, error) {
@@ -63613,70 +61376,13 @@ func (ec *executionContext) unmarshalNTrainingInput2ᚖgitlabᚗcomᚋdinamchiki
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNTrainingInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.TrainingInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.TrainingInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNTrainingInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNTrainingInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInputWithID(ctx context.Context, v interface{}) (*models.TrainingInputWithID, error) {
+func (ec *executionContext) unmarshalNTrainingInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInputWithID(ctx context.Context, v interface{}) (models.TrainingInputWithID, error) {
 	res, err := ec.unmarshalInputTrainingInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNTrainingPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TrainingPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNTrainingPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx context.Context, sel ast.SelectionSet, v models.TrainingPayload) graphql.Marshaler {
+	return ec._TrainingPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx context.Context, sel ast.SelectionSet, v *models.TrainingPayload) graphql.Marshaler {
@@ -63718,21 +61424,9 @@ func (ec *executionContext) unmarshalNUserDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNUserInput2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInputᚄ(ctx context.Context, v interface{}) ([]*models.UserInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.UserInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNUserInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
+func (ec *executionContext) unmarshalNUserInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInput(ctx context.Context, v interface{}) (models.UserInput, error) {
+	res, err := ec.unmarshalInputUserInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNUserInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInput(ctx context.Context, v interface{}) (*models.UserInput, error) {
@@ -63740,108 +61434,13 @@ func (ec *executionContext) unmarshalNUserInput2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNUserInputWithId2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInputWithIDᚄ(ctx context.Context, v interface{}) ([]*models.UserInputWithID, error) {
-	var vSlice []interface{}
-	if v != nil {
-		vSlice = graphql.CoerceList(v)
-	}
-	var err error
-	res := make([]*models.UserInputWithID, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNUserInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInputWithID(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNUserInputWithId2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInputWithID(ctx context.Context, v interface{}) (*models.UserInputWithID, error) {
+func (ec *executionContext) unmarshalNUserInputWithId2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInputWithID(ctx context.Context, v interface{}) (models.UserInputWithID, error) {
 	res, err := ec.unmarshalInputUserInputWithId(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNUserPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx context.Context, sel ast.SelectionSet, v []*models.UserPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalNUserPayload2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayloadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.UserPayload) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
+func (ec *executionContext) marshalNUserPayload2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx context.Context, sel ast.SelectionSet, v models.UserPayload) graphql.Marshaler {
+	return ec._UserPayload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx context.Context, sel ast.SelectionSet, v *models.UserPayload) graphql.Marshaler {
@@ -64244,13 +61843,6 @@ func (ec *executionContext) marshalOArticleEdge2ᚖgitlabᚗcomᚋdinamchikiᚋg
 		return graphql.Null
 	}
 	return ec._ArticleEdge(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx context.Context, sel ast.SelectionSet, v *models.ArticlePayload) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._ArticlePayload(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
@@ -65272,21 +62864,6 @@ func (ec *executionContext) unmarshalOPlaceFilter2ᚖgitlabᚗcomᚋdinamchiki�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOPlaceInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceInput(ctx context.Context, v interface{}) (*models.PlaceInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputPlaceInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx context.Context, sel ast.SelectionSet, v *models.PlacePayload) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._PlacePayload(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOPriority2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPriority(ctx context.Context, v interface{}) (*models.Priority, error) {
 	if v == nil {
 		return nil, nil
@@ -65497,13 +63074,6 @@ func (ec *executionContext) marshalOStadiumEdge2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return ec._StadiumEdge(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx context.Context, sel ast.SelectionSet, v *models.StadiumPayload) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._StadiumPayload(ctx, sel, v)
-}
-
 func (ec *executionContext) marshalOStaff2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaff(ctx context.Context, sel ast.SelectionSet, v *models.Staff) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -65592,13 +63162,6 @@ func (ec *executionContext) marshalOStaffEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._StaffEdge(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx context.Context, sel ast.SelectionSet, v *models.StaffPayload) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._StaffPayload(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalOStaffTask2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffTask(ctx context.Context, sel ast.SelectionSet, v []*models.StaffTask) graphql.Marshaler {
@@ -66098,13 +63661,6 @@ func (ec *executionContext) marshalOTaskEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return ec._TaskEdge(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx context.Context, sel ast.SelectionSet, v *models.TaskPayload) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._TaskPayload(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOTaskStatus2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskStatus(ctx context.Context, v interface{}) (*models.TaskStatus, error) {
 	if v == nil {
 		return nil, nil
@@ -66261,13 +63817,6 @@ func (ec *executionContext) unmarshalOTeamLeadDto2ᚖgitlabᚗcomᚋdinamchiki�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx context.Context, sel ast.SelectionSet, v *models.TeamPayload) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._TeamPayload(ctx, sel, v)
-}
-
 func (ec *executionContext) marshalOTeamStudent2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamStudentᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TeamStudent) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -66405,13 +63954,6 @@ func (ec *executionContext) marshalOTrainingDayEdge2ᚖgitlabᚗcomᚋdinamchiki
 		return graphql.Null
 	}
 	return ec._TrainingDayEdge(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx context.Context, sel ast.SelectionSet, v *models.TrainingDayPayload) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._TrainingDayPayload(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOTrainingDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDto(ctx context.Context, v interface{}) (*models.TrainingDto, error) {
@@ -66593,13 +64135,6 @@ func (ec *executionContext) marshalOUserEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._UserEdge(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx context.Context, sel ast.SelectionSet, v *models.UserPayload) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._UserPayload(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalO__EnumValue2ᚕgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐEnumValueᚄ(ctx context.Context, sel ast.SelectionSet, v []introspection.EnumValue) graphql.Marshaler {
