@@ -31,14 +31,26 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, first, last *int, aft
 		decodedCursor = string(b)
 	}
 	var edges []*models.PlaceEdge
+	countElems, err := query.Count()
+	if err != nil {
+		return nil, err
+	}
+
+	edges = make([]*models.PlaceEdge, countElems)
+
 	if first != nil {
 		query.Order("id ASC")
 		edges = make([]*models.PlaceEdge, *first)
 	}
-	if last != nil && first == nil {
+	if last != nil && first == nil && before == nil && after == nil {
 		query.Order("id DESC")
 		edges = make([]*models.PlaceEdge, *last)
 	}
+	if (last != nil && first == nil) || (before != nil && after == nil) {
+		query.Order("id DESC")
+		edges = make([]*models.PlaceEdge, countElems)
+	}
+
 	count := 0
 	currentPage := false
 
@@ -53,7 +65,7 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, first, last *int, aft
 		}
 	}
 
-	err := query.Select()
+	err = query.Select()
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +87,8 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, first, last *int, aft
 			if count == *first && i < len(places) {
 				hasNextPage = true
 			}
-		} else {
+		}
+		if last != nil && first == nil {
 			if currentPage && count < *last {
 				edges[count] = &models.PlaceEdge{
 					Cursor: base64.StdEncoding.EncodeToString([]byte(v.ID)),
@@ -86,6 +99,15 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, first, last *int, aft
 
 			if count == *last && i < len(places) {
 				hasNextPage = true
+			}
+		}
+		if last == nil && first == nil {
+			if currentPage && count < countElems {
+				edges[count] = &models.PlaceEdge{
+					Cursor: base64.StdEncoding.EncodeToString([]byte(v.ID)),
+					Node:   v,
+				}
+				count++
 			}
 		}
 	}
