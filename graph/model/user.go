@@ -58,3 +58,12 @@ func (u *User) ComparePassword(password string) error {
 	byteHashedPassword := []byte(u.Password)
 	return bcrypt.CompareHashAndPassword(byteHashedPassword, bytePassword)
 }
+
+func (u *User) HasRole(role Role) bool {
+	for _, r := range u.Roles {
+		if r == role {
+			return true
+		}
+	}
+	return false
+}

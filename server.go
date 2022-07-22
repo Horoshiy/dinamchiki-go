@@ -64,15 +64,7 @@ func main() {
 		if err != nil {
 			return nil, fmt.Errorf("доступ запрещен")
 		}
-		var userRole string
-		for _, v := range currentUser.Roles {
-			if v == role {
-				userRole = role.String()
-				break
-			}
-		}
-
-		if len(userRole) == 0 {
+		if !currentUser.HasRole(role) {
 			return nil, fmt.Errorf("уровень доступа недостаточный")
 		}
 
