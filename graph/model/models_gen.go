@@ -1247,7 +1247,7 @@ type UserInput struct {
 	Password  *string `json:"password"`
 	Phone     string  `json:"phone"`
 	Published bool    `json:"published"`
-	Roles     []Role  `json:"roles"`
+	Role      Role    `json:"role"`
 }
 
 type UserInputWithID struct {
@@ -1692,26 +1692,26 @@ func (e Priority) MarshalGQL(w io.Writer) {
 type Role string
 
 const (
-	RoleRoleAdmin     Role = "ROLE_ADMIN"
-	RoleRoleCoach     Role = "ROLE_COACH"
-	RoleRoleDirector  Role = "ROLE_DIRECTOR"
-	RoleRoleEconomist Role = "ROLE_ECONOMIST"
-	RoleRoleEditor    Role = "ROLE_EDITOR"
-	RoleRoleUser      Role = "ROLE_USER"
+	RoleAdmin     Role = "ADMIN"
+	RoleCoach     Role = "COACH"
+	RoleDirector  Role = "DIRECTOR"
+	RoleEconomist Role = "ECONOMIST"
+	RoleEditor    Role = "EDITOR"
+	RoleUser      Role = "USER"
 )
 
 var AllRole = []Role{
-	RoleRoleAdmin,
-	RoleRoleCoach,
-	RoleRoleDirector,
-	RoleRoleEconomist,
-	RoleRoleEditor,
-	RoleRoleUser,
+	RoleAdmin,
+	RoleCoach,
+	RoleDirector,
+	RoleEconomist,
+	RoleEditor,
+	RoleUser,
 }
 
 func (e Role) IsValid() bool {
 	switch e {
-	case RoleRoleAdmin, RoleRoleCoach, RoleRoleDirector, RoleRoleEconomist, RoleRoleEditor, RoleRoleUser:
+	case RoleAdmin, RoleCoach, RoleDirector, RoleEconomist, RoleEditor, RoleUser:
 		return true
 	}
 	return false

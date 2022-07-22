@@ -1018,6 +1018,7 @@ type User {
     firstName: String!
     lastName: String!
     meetups: [Meetup!]!
+    role: Role!
     createdAt: Time!
     updatedAt: Time!
 }
@@ -1113,12 +1114,12 @@ enum Priority {
 }
 
 enum Role {
-    ROLE_ADMIN
-    ROLE_COACH
-    ROLE_DIRECTOR
-    ROLE_ECONOMIST
-    ROLE_EDITOR
-    ROLE_USER
+    ADMIN
+    COACH
+    DIRECTOR
+    ECONOMIST
+    EDITOR
+    USER
 }
 
 enum TaskStatus {
@@ -1577,7 +1578,7 @@ input UserInput {
     password: String
     phone: String!
     published: Boolean!
-    roles: [Role!]!
+    role: Role!
 }
 
 input UserInputWithId {

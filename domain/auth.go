@@ -43,6 +43,7 @@ func (d *Domain) Register(ctx context.Context, input models.RegisterInput) (*mod
 		Password:  input.Password,
 		FirstName: input.FirstName,
 		LastName:  input.LastName,
+		Role:      models.Role(models.RoleUser),
 	}
 
 	err = user.HashPassword(input.Password)
