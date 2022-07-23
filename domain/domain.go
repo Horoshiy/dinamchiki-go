@@ -17,14 +17,21 @@ type Domain struct {
 	MeetupsRepo  postgres.MeetupsRepo
 	PlacesRepo   postgres.PlacesRepo
 	ArticlesRepo postgres.ArticlesRepo
+	StadiumsRepo postgres.StadiumsRepo
 }
 
 func NewDomain(
 	usersRepo postgres.UsersRepo,
 	meetupsRepo postgres.MeetupsRepo,
 	placesRepo postgres.PlacesRepo,
-	articlesRepo postgres.ArticlesRepo) *Domain {
-	return &Domain{UsersRepo: usersRepo, MeetupsRepo: meetupsRepo, PlacesRepo: placesRepo, ArticlesRepo: articlesRepo}
+	articlesRepo postgres.ArticlesRepo,
+	stadiumsRepo postgres.StadiumsRepo) *Domain {
+	return &Domain{UsersRepo: usersRepo,
+		MeetupsRepo:  meetupsRepo,
+		PlacesRepo:   placesRepo,
+		ArticlesRepo: articlesRepo,
+		StadiumsRepo: stadiumsRepo,
+	}
 }
 
 type Ownable interface {

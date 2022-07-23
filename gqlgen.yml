@@ -61,3 +61,8 @@ models:
     fields:
       author:
         resolver: true
+  Stadium:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Stadium
+    fields:
+      place:
+        resolver: true

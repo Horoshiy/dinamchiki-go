@@ -34,7 +34,7 @@ type Query {
     rentPaymentsByMonth(after: String, before: String, first: Int, last: Int): RentPaymentByMonthConnection
     rentPaymentsByTraining(after: String, before: String, first: Int, last: Int): RentPaymentByTrainingConnection
     stadium(id: String!): Stadium
-    stadiums(after: String, before: String, first: Int, last: Int): StadiumConnection
+    stadiums(filter: StadiumFilter, first: Int, after: ID, last: Int, before: ID): StadiumConnection
     staff(after: String, before: String, first: Int, last: Int): StaffConnection
     staffPerson(id: String!): Staff
     student(id: String!): Student
@@ -213,6 +213,10 @@ input PlaceFilter {
 
 input ArticleFilter {
     title: String
+}
+
+input StadiumFilter {
+    name: String
 }
 
 input RegisterInput {
@@ -645,18 +649,18 @@ type Stadium {
     latitude: Float!
     longitude: Float!
     name: String!
-    placeId: String
-    placeItem: Place
+    placeId: String!
+    place: Place
     published: Boolean!
 }
 
 type StadiumConnection {
-    edges: [StadiumEdge]
+    edges: [StadiumEdge!]!
     pageInfo: PageInfo
 }
 
 type StadiumEdge {
-    cursor: String
+    cursor: String!
     node: Stadium
 }
 

@@ -686,16 +686,6 @@ type RentPaymentByTrainingPayload struct {
 	RecordID string                 `json:"recordId"`
 }
 
-type Stadium struct {
-	ID        string  `json:"id"`
-	Latitude  float64 `json:"latitude"`
-	Longitude float64 `json:"longitude"`
-	Name      string  `json:"name"`
-	PlaceID   *string `json:"placeId"`
-	PlaceItem *Place  `json:"placeItem"`
-	Published bool    `json:"published"`
-}
-
 type StadiumConnection struct {
 	Edges    []*StadiumEdge `json:"edges"`
 	PageInfo *PageInfo      `json:"pageInfo"`
@@ -707,8 +697,12 @@ type StadiumDto struct {
 }
 
 type StadiumEdge struct {
-	Cursor *string  `json:"cursor"`
+	Cursor string   `json:"cursor"`
 	Node   *Stadium `json:"node"`
+}
+
+type StadiumFilter struct {
+	Name *string `json:"name"`
 }
 
 type StadiumInput struct {

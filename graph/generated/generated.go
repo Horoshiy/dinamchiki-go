@@ -41,6 +41,7 @@ type ResolverRoot interface {
 	Meetup() MeetupResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
+	Stadium() StadiumResolver
 	User() UserResolver
 }
 
@@ -581,7 +582,7 @@ type ComplexityRoot struct {
 		RentPaymentsByMonth     func(childComplexity int, after *string, before *string, first *int, last *int) int
 		RentPaymentsByTraining  func(childComplexity int, after *string, before *string, first *int, last *int) int
 		Stadium                 func(childComplexity int, id string) int
-		Stadiums                func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Stadiums                func(childComplexity int, filter *models.StadiumFilter, first *int, after *string, last *int, before *string) int
 		Staff                   func(childComplexity int, after *string, before *string, first *int, last *int) int
 		StaffPerson             func(childComplexity int, id string) int
 		Student                 func(childComplexity int, id string) int
@@ -662,8 +663,8 @@ type ComplexityRoot struct {
 		Latitude  func(childComplexity int) int
 		Longitude func(childComplexity int) int
 		Name      func(childComplexity int) int
+		Place     func(childComplexity int) int
 		PlaceID   func(childComplexity int) int
-		PlaceItem func(childComplexity int) int
 		Published func(childComplexity int) int
 	}
 
@@ -1133,7 +1134,7 @@ type QueryResolver interface {
 	RentPaymentsByMonth(ctx context.Context, after *string, before *string, first *int, last *int) (*models.RentPaymentByMonthConnection, error)
 	RentPaymentsByTraining(ctx context.Context, after *string, before *string, first *int, last *int) (*models.RentPaymentByTrainingConnection, error)
 	Stadium(ctx context.Context, id string) (*models.Stadium, error)
-	Stadiums(ctx context.Context, after *string, before *string, first *int, last *int) (*models.StadiumConnection, error)
+	Stadiums(ctx context.Context, filter *models.StadiumFilter, first *int, after *string, last *int, before *string) (*models.StadiumConnection, error)
 	Staff(ctx context.Context, after *string, before *string, first *int, last *int) (*models.StaffConnection, error)
 	StaffPerson(ctx context.Context, id string) (*models.Staff, error)
 	Student(ctx context.Context, id string) (*models.Student, error)
@@ -1158,6 +1159,9 @@ type QueryResolver interface {
 	Trainings(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TrainingConnection, error)
 	User(ctx context.Context, id string) (*models.User, error)
 	Users(ctx context.Context, after *string, before *string, first *int, last *int) (*models.UserConnection, error)
+}
+type StadiumResolver interface {
+	Place(ctx context.Context, obj *models.Stadium) (*models.Place, error)
 }
 type UserResolver interface {
 	Meetups(ctx context.Context, obj *models.User) ([]*models.Meetup, error)
@@ -4350,7 +4354,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Stadiums(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Stadiums(childComplexity, args["filter"].(*models.StadiumFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.staff":
 		if e.complexity.Query.Staff == nil {
@@ -4828,19 +4832,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Stadium.Name(childComplexity), true
 
+	case "Stadium.place":
+		if e.complexity.Stadium.Place == nil {
+			break
+		}
+
+		return e.complexity.Stadium.Place(childComplexity), true
+
 	case "Stadium.placeId":
 		if e.complexity.Stadium.PlaceID == nil {
 			break
 		}
 
 		return e.complexity.Stadium.PlaceID(childComplexity), true
-
-	case "Stadium.placeItem":
-		if e.complexity.Stadium.PlaceItem == nil {
-			break
-		}
-
-		return e.complexity.Stadium.PlaceItem(childComplexity), true
 
 	case "Stadium.published":
 		if e.complexity.Stadium.Published == nil {
@@ -6138,6 +6142,7 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 		ec.unmarshalInputRentPaymentByTrainingInput,
 		ec.unmarshalInputRentPaymentByTrainingInputWithId,
 		ec.unmarshalInputStadiumDto,
+		ec.unmarshalInputStadiumFilter,
 		ec.unmarshalInputStadiumInput,
 		ec.unmarshalInputStadiumInputWithId,
 		ec.unmarshalInputStaffDto,
@@ -6266,7 +6271,7 @@ type Query {
     rentPaymentsByMonth(after: String, before: String, first: Int, last: Int): RentPaymentByMonthConnection
     rentPaymentsByTraining(after: String, before: String, first: Int, last: Int): RentPaymentByTrainingConnection
     stadium(id: String!): Stadium
-    stadiums(after: String, before: String, first: Int, last: Int): StadiumConnection
+    stadiums(filter: StadiumFilter, first: Int, after: ID, last: Int, before: ID): StadiumConnection
     staff(after: String, before: String, first: Int, last: Int): StaffConnection
     staffPerson(id: String!): Staff
     student(id: String!): Student
@@ -6445,6 +6450,10 @@ input PlaceFilter {
 
 input ArticleFilter {
     title: String
+}
+
+input StadiumFilter {
+    name: String
 }
 
 input RegisterInput {
@@ -6877,18 +6886,18 @@ type Stadium {
     latitude: Float!
     longitude: Float!
     name: String!
-    placeId: String
-    placeItem: Place
+    placeId: String!
+    place: Place
     published: Boolean!
 }
 
 type StadiumConnection {
-    edges: [StadiumEdge]
+    edges: [StadiumEdge!]!
     pageInfo: PageInfo
 }
 
 type StadiumEdge {
-    cursor: String
+    cursor: String!
     node: Stadium
 }
 
@@ -10487,33 +10496,33 @@ func (ec *executionContext) field_Query_stadium_args(ctx context.Context, rawArg
 func (ec *executionContext) field_Query_stadiums_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.StadiumFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOStadiumFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10523,6 +10532,15 @@ func (ec *executionContext) field_Query_stadiums_args(ctx context.Context, rawAr
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -30220,8 +30238,8 @@ func (ec *executionContext) fieldContext_Query_stadium(ctx context.Context, fiel
 				return ec.fieldContext_Stadium_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Stadium_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Stadium_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Stadium_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -30256,7 +30274,7 @@ func (ec *executionContext) _Query_stadiums(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Stadiums(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Stadiums(rctx, fc.Args["filter"].(*models.StadiumFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -32278,8 +32296,8 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_stadiumItem(ctx cont
 				return ec.fieldContext_Stadium_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Stadium_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Stadium_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Stadium_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -32851,8 +32869,8 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_stadiumItem(ctx c
 				return ec.fieldContext_Stadium_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Stadium_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Stadium_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Stadium_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -33495,11 +33513,14 @@ func (ec *executionContext) _Stadium_placeId(ctx context.Context, field graphql.
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.(*string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNString2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Stadium_placeId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -33515,8 +33536,8 @@ func (ec *executionContext) fieldContext_Stadium_placeId(ctx context.Context, fi
 	return fc, nil
 }
 
-func (ec *executionContext) _Stadium_placeItem(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Stadium_placeItem(ctx, field)
+func (ec *executionContext) _Stadium_place(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Stadium_place(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -33529,7 +33550,7 @@ func (ec *executionContext) _Stadium_placeItem(ctx context.Context, field graphq
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.PlaceItem, nil
+		return ec.resolvers.Stadium().Place(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -33543,12 +33564,12 @@ func (ec *executionContext) _Stadium_placeItem(ctx context.Context, field graphq
 	return ec.marshalOPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Stadium_placeItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Stadium_place(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Stadium",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "address":
@@ -33635,11 +33656,14 @@ func (ec *executionContext) _StadiumConnection_edges(ctx context.Context, field 
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.StadiumEdge)
 	fc.Result = res
-	return ec.marshalOStadiumEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumEdge(ctx, field.Selections, res)
+	return ec.marshalNStadiumEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StadiumConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -33731,11 +33755,14 @@ func (ec *executionContext) _StadiumEdge_cursor(ctx context.Context, field graph
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StadiumEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -33797,8 +33824,8 @@ func (ec *executionContext) fieldContext_StadiumEdge_node(ctx context.Context, f
 				return ec.fieldContext_Stadium_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Stadium_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Stadium_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Stadium_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -33854,8 +33881,8 @@ func (ec *executionContext) fieldContext_StadiumPayload_record(ctx context.Conte
 				return ec.fieldContext_Stadium_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Stadium_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Stadium_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Stadium_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -40238,8 +40265,8 @@ func (ec *executionContext) fieldContext_Training_stadiumItem(ctx context.Contex
 				return ec.fieldContext_Stadium_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Stadium_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Stadium_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Stadium_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -40755,8 +40782,8 @@ func (ec *executionContext) fieldContext_TrainingDay_stadiumItem(ctx context.Con
 				return ec.fieldContext_Stadium_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Stadium_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Stadium_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Stadium_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -45910,6 +45937,34 @@ func (ec *executionContext) unmarshalInputStadiumDto(ctx context.Context, obj in
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
 			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputStadiumFilter(ctx context.Context, obj interface{}) (models.StadiumFilter, error) {
+	var it models.StadiumFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -52373,43 +52428,59 @@ func (ec *executionContext) _Stadium(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Stadium_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "latitude":
 
 			out.Values[i] = ec._Stadium_latitude(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "longitude":
 
 			out.Values[i] = ec._Stadium_longitude(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "name":
 
 			out.Values[i] = ec._Stadium_name(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "placeId":
 
 			out.Values[i] = ec._Stadium_placeId(ctx, field, obj)
 
-		case "placeItem":
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&invalids, 1)
+			}
+		case "place":
+			field := field
 
-			out.Values[i] = ec._Stadium_placeItem(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Stadium_place(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "published":
 
 			out.Values[i] = ec._Stadium_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -52436,6 +52507,9 @@ func (ec *executionContext) _StadiumConnection(ctx context.Context, sel ast.Sele
 
 			out.Values[i] = ec._StadiumConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._StadiumConnection_pageInfo(ctx, field, obj)
@@ -52465,6 +52539,9 @@ func (ec *executionContext) _StadiumEdge(ctx context.Context, sel ast.SelectionS
 
 			out.Values[i] = ec._StadiumEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._StadiumEdge_node(ctx, field, obj)
@@ -55606,6 +55683,60 @@ func (ec *executionContext) unmarshalNStadiumDto2ᚖgitlabᚗcomᚋdinamchikiᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
+func (ec *executionContext) marshalNStadiumEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StadiumEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNStadiumEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNStadiumEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumEdge(ctx context.Context, sel ast.SelectionSet, v *models.StadiumEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._StadiumEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNStadiumInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumInput(ctx context.Context, v interface{}) (models.StadiumInput, error) {
 	res, err := ec.unmarshalInputStadiumInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -55734,6 +55865,27 @@ func (ec *executionContext) marshalNString2ᚕstringᚄ(ctx context.Context, sel
 	}
 
 	return ret
+}
+
+func (ec *executionContext) unmarshalNString2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
+	res, err := graphql.UnmarshalString(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNString2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	res := graphql.MarshalString(*v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+	}
+	return res
 }
 
 func (ec *executionContext) unmarshalNStudentDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentDto(ctx context.Context, v interface{}) (*models.StudentDto, error) {
@@ -57648,52 +57800,12 @@ func (ec *executionContext) unmarshalOStadiumDto2ᚖgitlabᚗcomᚋdinamchikiᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOStadiumEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumEdge(ctx context.Context, sel ast.SelectionSet, v []*models.StadiumEdge) graphql.Marshaler {
+func (ec *executionContext) unmarshalOStadiumFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumFilter(ctx context.Context, v interface{}) (*models.StadiumFilter, error) {
 	if v == nil {
-		return graphql.Null
+		return nil, nil
 	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOStadiumEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOStadiumEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumEdge(ctx context.Context, sel ast.SelectionSet, v *models.StadiumEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._StadiumEdge(ctx, sel, v)
+	res, err := ec.unmarshalInputStadiumFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOStaff2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaff(ctx context.Context, sel ast.SelectionSet, v *models.Staff) graphql.Marshaler {
