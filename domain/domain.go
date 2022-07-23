@@ -2,7 +2,6 @@ package domain
 
 import (
 	"errors"
-	models "gitlab.com/dinamchiki/go-graphql/graph/model"
 	"gitlab.com/dinamchiki/go-graphql/postgres"
 )
 
@@ -14,7 +13,6 @@ var (
 
 type Domain struct {
 	UsersRepo    postgres.UsersRepo
-	MeetupsRepo  postgres.MeetupsRepo
 	PlacesRepo   postgres.PlacesRepo
 	ArticlesRepo postgres.ArticlesRepo
 	StadiumsRepo postgres.StadiumsRepo
@@ -22,22 +20,13 @@ type Domain struct {
 
 func NewDomain(
 	usersRepo postgres.UsersRepo,
-	meetupsRepo postgres.MeetupsRepo,
 	placesRepo postgres.PlacesRepo,
 	articlesRepo postgres.ArticlesRepo,
 	stadiumsRepo postgres.StadiumsRepo) *Domain {
-	return &Domain{UsersRepo: usersRepo,
-		MeetupsRepo:  meetupsRepo,
+	return &Domain{
+		UsersRepo:    usersRepo,
 		PlacesRepo:   placesRepo,
 		ArticlesRepo: articlesRepo,
 		StadiumsRepo: stadiumsRepo,
 	}
-}
-
-type Ownable interface {
-	IsOwner(user *models.User) bool
-}
-
-func checkOwnership(o Ownable, user *models.User) bool {
-	return o.IsOwner(user)
 }

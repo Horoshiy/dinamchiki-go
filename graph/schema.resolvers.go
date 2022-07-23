@@ -18,26 +18,6 @@ func (r *articleResolver) Author(ctx context.Context, obj *models.Article) (*mod
 	return For(ctx).UserLoader.Load(obj.AuthorID)
 }
 
-// User is the resolver for the user field.
-func (r *meetupResolver) User(ctx context.Context, obj *models.Meetup) (*models.User, error) {
-	return For(ctx).UserLoader.Load(obj.UserId)
-}
-
-// CreateMeetup is the resolver for the createMeetup field.
-func (r *mutationResolver) CreateMeetup(ctx context.Context, input models.NewMeetup) (*models.Meetup, error) {
-	return r.Domain.CreateMeetup(ctx, input)
-}
-
-// UpdateMeetup is the resolver for the updateMeetup field.
-func (r *mutationResolver) UpdateMeetup(ctx context.Context, id string, input *models.UpdateMeetup) (*models.Meetup, error) {
-	return r.Domain.UpdateMeetup(ctx, id, input)
-}
-
-// DeleteMeetup is the resolver for the deleteMeetup field.
-func (r *mutationResolver) DeleteMeetup(ctx context.Context, id string) (bool, error) {
-	return r.Domain.DeleteMeetup(ctx, id)
-}
-
 // Register is the resolver for the register field.
 func (r *mutationResolver) Register(ctx context.Context, input models.RegisterInput) (*models.AuthResponse, error) {
 	isValid := validation(ctx, input)
@@ -608,11 +588,6 @@ func (r *mutationResolver) UserUpdate(ctx context.Context, userInput models.User
 	panic(fmt.Errorf("not implemented"))
 }
 
-// Meetups is the resolver for the meetups field.
-func (r *queryResolver) Meetups(ctx context.Context, filter *models.MeetupFilter, limit *int, offset *int) ([]*models.Meetup, error) {
-	return r.Domain.MeetupsRepo.GetMeetups(filter, limit, offset)
-}
-
 // Article is the resolver for the article field.
 func (r *queryResolver) Article(ctx context.Context, id string) (*models.Article, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -898,16 +873,8 @@ func (r *stadiumResolver) Place(ctx context.Context, obj *models.Stadium) (*mode
 	return For(ctx).PlaceLoader.Load(*obj.PlaceID)
 }
 
-// Meetups is the resolver for the meetups field.
-func (r *userResolver) Meetups(ctx context.Context, obj *models.User) ([]*models.Meetup, error) {
-	return r.Domain.MeetupsRepo.GetMeetupsForUser(obj)
-}
-
 // Article returns generated.ArticleResolver implementation.
 func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver{r} }
-
-// Meetup returns generated.MeetupResolver implementation.
-func (r *Resolver) Meetup() generated.MeetupResolver { return &meetupResolver{r} }
 
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
@@ -918,15 +885,10 @@ func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 // Stadium returns generated.StadiumResolver implementation.
 func (r *Resolver) Stadium() generated.StadiumResolver { return &stadiumResolver{r} }
 
-// User returns generated.UserResolver implementation.
-func (r *Resolver) User() generated.UserResolver { return &userResolver{r} }
-
 type articleResolver struct{ *Resolver }
-type meetupResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
-type userResolver struct{ *Resolver }
 
 // !!! WARNING !!!
 // The code below was going to be deleted when updating resolvers. It has been copied here so you have

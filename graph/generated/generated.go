@@ -38,11 +38,9 @@ type Config struct {
 
 type ResolverRoot interface {
 	Article() ArticleResolver
-	Meetup() MeetupResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
 	Stadium() StadiumResolver
-	User() UserResolver
 }
 
 type DirectiveRoot struct {
@@ -316,13 +314,6 @@ type ComplexityRoot struct {
 		TaskID   func(childComplexity int) int
 	}
 
-	Meetup struct {
-		Description func(childComplexity int) int
-		ID          func(childComplexity int) int
-		Name        func(childComplexity int) int
-		User        func(childComplexity int) int
-	}
-
 	MoneyCost struct {
 		Date        func(childComplexity int) int
 		Description func(childComplexity int) int
@@ -406,12 +397,10 @@ type ComplexityRoot struct {
 		CoachPaymentByTrainingPublishUpdate func(childComplexity int, id string) int
 		CoachPaymentByTrainingSave          func(childComplexity int, coachPaymentByTrainingInput models.CoachPaymentByTrainingInput) int
 		CoachPaymentByTrainingUpdate        func(childComplexity int, coachPaymentByTrainingInput models.CoachPaymentByTrainingInputWithID) int
-		CreateMeetup                        func(childComplexity int, input models.NewMeetup) int
 		CreatorDelete                       func(childComplexity int, id string) int
 		CreatorPublishUpdate                func(childComplexity int, id string) int
 		CreatorSave                         func(childComplexity int, creatorInput models.CreatorInput) int
 		CreatorUpdate                       func(childComplexity int, creatorInput models.CreatorInputWithID) int
-		DeleteMeetup                        func(childComplexity int, id string) int
 		KitDelete                           func(childComplexity int, id string) int
 		KitPublishUpdate                    func(childComplexity int, id string) int
 		KitSave                             func(childComplexity int, kitInput models.KitInput) int
@@ -483,7 +472,6 @@ type ComplexityRoot struct {
 		TrainingPublishUpdate               func(childComplexity int, id string) int
 		TrainingSave                        func(childComplexity int, trainingInput models.TrainingInput) int
 		TrainingUpdate                      func(childComplexity int, trainingInput models.TrainingInputWithID) int
-		UpdateMeetup                        func(childComplexity int, id string, input *models.UpdateMeetup) int
 		UserDelete                          func(childComplexity int, id string) int
 		UserPublishUpdate                   func(childComplexity int, id string) int
 		UserSave                            func(childComplexity int, userInput models.UserInput) int
@@ -566,7 +554,6 @@ type ComplexityRoot struct {
 		Kits                    func(childComplexity int, after *string, before *string, first *int, last *int) int
 		Lead                    func(childComplexity int, id string) int
 		Leads                   func(childComplexity int, after *string, before *string, first *int, last *int) int
-		Meetups                 func(childComplexity int, filter *models.MeetupFilter, limit *int, offset *int) int
 		MoneyCost               func(childComplexity int, id string) int
 		MoneyCosts              func(childComplexity int, after *string, before *string, first *int, last *int) int
 		MoneyMove               func(childComplexity int, id string) int
@@ -966,7 +953,6 @@ type ComplexityRoot struct {
 		FirstName func(childComplexity int) int
 		ID        func(childComplexity int) int
 		LastName  func(childComplexity int) int
-		Meetups   func(childComplexity int) int
 		Phone     func(childComplexity int) int
 		Roles     func(childComplexity int) int
 	}
@@ -990,13 +976,7 @@ type ComplexityRoot struct {
 type ArticleResolver interface {
 	Author(ctx context.Context, obj *models.Article) (*models.User, error)
 }
-type MeetupResolver interface {
-	User(ctx context.Context, obj *models.Meetup) (*models.User, error)
-}
 type MutationResolver interface {
-	CreateMeetup(ctx context.Context, input models.NewMeetup) (*models.Meetup, error)
-	UpdateMeetup(ctx context.Context, id string, input *models.UpdateMeetup) (*models.Meetup, error)
-	DeleteMeetup(ctx context.Context, id string) (bool, error)
 	Register(ctx context.Context, input models.RegisterInput) (*models.AuthResponse, error)
 	Login(ctx context.Context, input models.LoginInput) (*models.AuthResponse, error)
 	ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error)
@@ -1102,7 +1082,6 @@ type MutationResolver interface {
 	UserUpdate(ctx context.Context, userInput models.UserInputWithID) (*models.UserPayload, error)
 }
 type QueryResolver interface {
-	Meetups(ctx context.Context, filter *models.MeetupFilter, limit *int, offset *int) ([]*models.Meetup, error)
 	Article(ctx context.Context, id string) (*models.Article, error)
 	Articles(ctx context.Context, filter *models.ArticleFilter, first *int, after *string, last *int, before *string) (*models.ArticleConnection, error)
 	Cart(ctx context.Context, id string) (*models.Cart, error)
@@ -1162,9 +1141,6 @@ type QueryResolver interface {
 }
 type StadiumResolver interface {
 	Place(ctx context.Context, obj *models.Stadium) (*models.Place, error)
-}
-type UserResolver interface {
-	Meetups(ctx context.Context, obj *models.User) ([]*models.Meetup, error)
 }
 
 type executableSchema struct {
@@ -2183,34 +2159,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.LeadTask.TaskID(childComplexity), true
 
-	case "Meetup.description":
-		if e.complexity.Meetup.Description == nil {
-			break
-		}
-
-		return e.complexity.Meetup.Description(childComplexity), true
-
-	case "Meetup.id":
-		if e.complexity.Meetup.ID == nil {
-			break
-		}
-
-		return e.complexity.Meetup.ID(childComplexity), true
-
-	case "Meetup.name":
-		if e.complexity.Meetup.Name == nil {
-			break
-		}
-
-		return e.complexity.Meetup.Name(childComplexity), true
-
-	case "Meetup.user":
-		if e.complexity.Meetup.User == nil {
-			break
-		}
-
-		return e.complexity.Meetup.User(childComplexity), true
-
 	case "MoneyCost.date":
 		if e.complexity.MoneyCost.Date == nil {
 			break
@@ -2737,18 +2685,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.CoachPaymentByTrainingUpdate(childComplexity, args["coachPaymentByTrainingInput"].(models.CoachPaymentByTrainingInputWithID)), true
 
-	case "Mutation.createMeetup":
-		if e.complexity.Mutation.CreateMeetup == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_createMeetup_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.CreateMeetup(childComplexity, args["input"].(models.NewMeetup)), true
-
 	case "Mutation.creatorDelete":
 		if e.complexity.Mutation.CreatorDelete == nil {
 			break
@@ -2796,18 +2732,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.CreatorUpdate(childComplexity, args["creatorInput"].(models.CreatorInputWithID)), true
-
-	case "Mutation.deleteMeetup":
-		if e.complexity.Mutation.DeleteMeetup == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_deleteMeetup_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteMeetup(childComplexity, args["id"].(string)), true
 
 	case "Mutation.kitDelete":
 		if e.complexity.Mutation.KitDelete == nil {
@@ -3661,18 +3585,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.TrainingUpdate(childComplexity, args["trainingInput"].(models.TrainingInputWithID)), true
 
-	case "Mutation.updateMeetup":
-		if e.complexity.Mutation.UpdateMeetup == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_updateMeetup_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateMeetup(childComplexity, args["id"].(string), args["input"].(*models.UpdateMeetup)), true
-
 	case "Mutation.userDelete":
 		if e.complexity.Mutation.UserDelete == nil {
 			break
@@ -4151,18 +4063,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.Leads(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
-
-	case "Query.meetups":
-		if e.complexity.Query.Meetups == nil {
-			break
-		}
-
-		args, err := ec.field_Query_meetups_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.Meetups(childComplexity, args["filter"].(*models.MeetupFilter), args["limit"].(*int), args["offset"].(*int)), true
 
 	case "Query.moneyCost":
 		if e.complexity.Query.MoneyCost == nil {
@@ -6029,13 +5929,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.User.LastName(childComplexity), true
 
-	case "User.meetups":
-		if e.complexity.User.Meetups == nil {
-			break
-		}
-
-		return e.complexity.User.Meetups(childComplexity), true
-
 	case "User.phone":
 		if e.complexity.User.Phone == nil {
 			break
@@ -6124,12 +6017,10 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 		ec.unmarshalInputLeadInput,
 		ec.unmarshalInputLeadInputWithId,
 		ec.unmarshalInputLoginInput,
-		ec.unmarshalInputMeetupFilter,
 		ec.unmarshalInputMoneyCostInput,
 		ec.unmarshalInputMoneyCostInputWithId,
 		ec.unmarshalInputMoneyMoveInput,
 		ec.unmarshalInputMoneyMoveInputWithId,
-		ec.unmarshalInputNewMeetup,
 		ec.unmarshalInputOrderInput,
 		ec.unmarshalInputOrderInputWithId,
 		ec.unmarshalInputPlaceDto,
@@ -6171,7 +6062,6 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 		ec.unmarshalInputTrainingDto,
 		ec.unmarshalInputTrainingInput,
 		ec.unmarshalInputTrainingInputWithId,
-		ec.unmarshalInputUpdateMeetup,
 		ec.unmarshalInputUserDto,
 		ec.unmarshalInputUserInput,
 		ec.unmarshalInputUserInputWithId,
@@ -6239,7 +6129,6 @@ var sources = []*ast.Source{
 scalar Time
 
 type Query {
-    meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
     article(id: String!): Article
     articles(filter: ArticleFilter, first: Int, after: ID, last: Int, before: ID): ArticleConnection
     cart(id: String!): Cart
@@ -6299,9 +6188,6 @@ type Query {
 }
 
 type Mutation {
-    createMeetup(input: NewMeetup!): Meetup!
-    updateMeetup(id: ID!, input: UpdateMeetup): Meetup!
-    deleteMeetup(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
     articleDelete(id: String!): ArticlePayload! @hasRole(role: EDITOR)
@@ -6418,30 +6304,9 @@ type AuthToken {
 }
 
 
-type Meetup {
-    id: ID!
-    name: String!
-    description: String!
-    user: User
-}
-
-input NewMeetup {
-    name: String!
-    description: String!
-}
-
-input UpdateMeetup {
-    name: String
-    description: String
-}
-
 input LoginInput {
     phone: String!
     password: String!
-}
-
-input MeetupFilter {
- name: String
 }
 
 input PlaceFilter {
@@ -7190,7 +7055,6 @@ type User {
     phone: String!
     firstName: String!
     lastName: String!
-    meetups: [Meetup!]!
     roles: [Role!]!
 }
 
@@ -8138,21 +8002,6 @@ func (ec *executionContext) field_Mutation_coachPaymentByTrainingUpdate_args(ctx
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_createMeetup_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 models.NewMeetup
-	if tmp, ok := rawArgs["input"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNewMeetup2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐNewMeetup(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["input"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_creatorDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8210,21 +8059,6 @@ func (ec *executionContext) field_Mutation_creatorUpdate_args(ctx context.Contex
 		}
 	}
 	args["creatorInput"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_deleteMeetup_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNID2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
 	return args, nil
 }
 
@@ -9302,30 +9136,6 @@ func (ec *executionContext) field_Mutation_trainingUpdate_args(ctx context.Conte
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_updateMeetup_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNID2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 *models.UpdateMeetup
-	if tmp, ok := rawArgs["input"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOUpdateMeetup2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUpdateMeetup(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["input"] = arg1
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_userDelete_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9989,39 +9799,6 @@ func (ec *executionContext) field_Query_leads_args(ctx context.Context, rawArgs 
 		}
 	}
 	args["last"] = arg3
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_meetups_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *models.MeetupFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOMeetupFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetupFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
 	return args, nil
 }
 
@@ -11283,8 +11060,6 @@ func (ec *executionContext) fieldContext_Article_author(ctx context.Context, fie
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -12001,8 +11776,6 @@ func (ec *executionContext) fieldContext_AuthResponse_user(ctx context.Context, 
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -15674,8 +15447,6 @@ func (ec *executionContext) fieldContext_Creator_userItem(ctx context.Context, f
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -18084,193 +17855,6 @@ func (ec *executionContext) fieldContext_LeadTask_taskId(ctx context.Context, fi
 	return fc, nil
 }
 
-func (ec *executionContext) _Meetup_id(ctx context.Context, field graphql.CollectedField, obj *models.Meetup) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Meetup_id(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Meetup_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Meetup",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Meetup_name(ctx context.Context, field graphql.CollectedField, obj *models.Meetup) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Meetup_name(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Name, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Meetup_name(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Meetup",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Meetup_description(ctx context.Context, field graphql.CollectedField, obj *models.Meetup) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Meetup_description(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Description, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Meetup_description(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Meetup",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Meetup_user(ctx context.Context, field graphql.CollectedField, obj *models.Meetup) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Meetup_user(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Meetup().User(rctx, obj)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.User)
-	fc.Result = res
-	return ec.marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Meetup_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Meetup",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
-			case "firstName":
-				return ec.fieldContext_User_firstName(ctx, field)
-			case "lastName":
-				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
-			case "roles":
-				return ec.fieldContext_User_roles(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _MoneyCost_date(ctx context.Context, field graphql.CollectedField, obj *models.MoneyCost) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_MoneyCost_date(ctx, field)
 	if err != nil {
@@ -19585,8 +19169,6 @@ func (ec *executionContext) fieldContext_MoneyMove_userItem(ctx context.Context,
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -19915,191 +19497,6 @@ func (ec *executionContext) fieldContext_MoneyMovePayload_recordId(ctx context.C
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type ID does not have child fields")
 		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_createMeetup(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_createMeetup(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreateMeetup(rctx, fc.Args["input"].(models.NewMeetup))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.Meetup)
-	fc.Result = res
-	return ec.marshalNMeetup2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetup(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_createMeetup(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_Meetup_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Meetup_name(ctx, field)
-			case "description":
-				return ec.fieldContext_Meetup_description(ctx, field)
-			case "user":
-				return ec.fieldContext_Meetup_user(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Meetup", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_createMeetup_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_updateMeetup(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_updateMeetup(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMeetup(rctx, fc.Args["id"].(string), fc.Args["input"].(*models.UpdateMeetup))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.Meetup)
-	fc.Result = res
-	return ec.marshalNMeetup2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetup(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_updateMeetup(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_Meetup_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Meetup_name(ctx, field)
-			case "description":
-				return ec.fieldContext_Meetup_description(ctx, field)
-			case "user":
-				return ec.fieldContext_Meetup_user(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Meetup", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_updateMeetup_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_deleteMeetup(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_deleteMeetup(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteMeetup(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(bool)
-	fc.Result = res
-	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_deleteMeetup(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Boolean does not have child fields")
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_deleteMeetup_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
 	}
 	return fc, nil
 }
@@ -28188,71 +27585,6 @@ func (ec *executionContext) fieldContext_PlacePayload_id(ctx context.Context, fi
 	return fc, nil
 }
 
-func (ec *executionContext) _Query_meetups(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_meetups(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Meetups(rctx, fc.Args["filter"].(*models.MeetupFilter), fc.Args["limit"].(*int), fc.Args["offset"].(*int))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*models.Meetup)
-	fc.Result = res
-	return ec.marshalNMeetup2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetupᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_meetups(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_Meetup_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Meetup_name(ctx, field)
-			case "description":
-				return ec.fieldContext_Meetup_description(ctx, field)
-			case "user":
-				return ec.fieldContext_Meetup_user(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Meetup", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_meetups_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Query_article(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_article(ctx, field)
 	if err != nil {
@@ -31783,8 +31115,6 @@ func (ec *executionContext) fieldContext_Query_user(ctx context.Context, field g
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -34405,8 +33735,6 @@ func (ec *executionContext) fieldContext_Staff_userItem(ctx context.Context, fie
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -37027,8 +36355,6 @@ func (ec *executionContext) fieldContext_Task_author(ctx context.Context, field 
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -41792,60 +41118,6 @@ func (ec *executionContext) fieldContext_User_lastName(ctx context.Context, fiel
 	return fc, nil
 }
 
-func (ec *executionContext) _User_meetups(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_User_meetups(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.User().Meetups(rctx, obj)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*models.Meetup)
-	fc.Result = res
-	return ec.marshalNMeetup2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetupᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_User_meetups(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "User",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_Meetup_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Meetup_name(ctx, field)
-			case "description":
-				return ec.fieldContext_Meetup_description(ctx, field)
-			case "user":
-				return ec.fieldContext_Meetup_user(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Meetup", field.Name)
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _User_roles(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_User_roles(ctx, field)
 	if err != nil {
@@ -42071,8 +41343,6 @@ func (ec *executionContext) fieldContext_UserEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -42126,8 +41396,6 @@ func (ec *executionContext) fieldContext_UserPayload_record(ctx context.Context,
 				return ec.fieldContext_User_firstName(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
-			case "meetups":
-				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -45090,34 +44358,6 @@ func (ec *executionContext) unmarshalInputLoginInput(ctx context.Context, obj in
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputMeetupFilter(ctx context.Context, obj interface{}) (models.MeetupFilter, error) {
-	var it models.MeetupFilter
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
-		asMap[k] = v
-	}
-
-	fieldsInOrder := [...]string{"name"}
-	for _, k := range fieldsInOrder {
-		v, ok := asMap[k]
-		if !ok {
-			continue
-		}
-		switch k {
-		case "name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
-			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
 func (ec *executionContext) unmarshalInputMoneyCostInput(ctx context.Context, obj interface{}) (models.MoneyCostInput, error) {
 	var it models.MoneyCostInput
 	asMap := map[string]interface{}{}
@@ -45349,42 +44589,6 @@ func (ec *executionContext) unmarshalInputMoneyMoveInputWithId(ctx context.Conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 			it.Input, err = ec.unmarshalNMoneyMoveInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInput(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputNewMeetup(ctx context.Context, obj interface{}) (models.NewMeetup, error) {
-	var it models.NewMeetup
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
-		asMap[k] = v
-	}
-
-	fieldsInOrder := [...]string{"name", "description"}
-	for _, k := range fieldsInOrder {
-		v, ok := asMap[k]
-		if !ok {
-			continue
-		}
-		switch k {
-		case "name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
-			it.Name, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "description":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("description"))
-			it.Description, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -47350,42 +46554,6 @@ func (ec *executionContext) unmarshalInputTrainingInputWithId(ctx context.Contex
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputUpdateMeetup(ctx context.Context, obj interface{}) (models.UpdateMeetup, error) {
-	var it models.UpdateMeetup
-	asMap := map[string]interface{}{}
-	for k, v := range obj.(map[string]interface{}) {
-		asMap[k] = v
-	}
-
-	fieldsInOrder := [...]string{"name", "description"}
-	for _, k := range fieldsInOrder {
-		v, ok := asMap[k]
-		if !ok {
-			continue
-		}
-		switch k {
-		case "name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
-			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "description":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("description"))
-			it.Description, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
 func (ec *executionContext) unmarshalInputUserDto(ctx context.Context, obj interface{}) (models.UserDto, error) {
 	var it models.UserDto
 	asMap := map[string]interface{}{}
@@ -49158,65 +48326,6 @@ func (ec *executionContext) _LeadTask(ctx context.Context, sel ast.SelectionSet,
 	return out
 }
 
-var meetupImplementors = []string{"Meetup"}
-
-func (ec *executionContext) _Meetup(ctx context.Context, sel ast.SelectionSet, obj *models.Meetup) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, meetupImplementors)
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("Meetup")
-		case "id":
-
-			out.Values[i] = ec._Meetup_id(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
-		case "name":
-
-			out.Values[i] = ec._Meetup_name(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
-		case "description":
-
-			out.Values[i] = ec._Meetup_description(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
-		case "user":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Meetup_user(ctx, field, obj)
-				return res
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return innerFunc(ctx)
-
-			})
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
 var moneyCostImplementors = []string{"MoneyCost"}
 
 func (ec *executionContext) _MoneyCost(ctx context.Context, sel ast.SelectionSet, obj *models.MoneyCost) graphql.Marshaler {
@@ -49582,33 +48691,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Mutation")
-		case "createMeetup":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_createMeetup(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updateMeetup":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_updateMeetup(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "deleteMeetup":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_deleteMeetup(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "register":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -50925,29 +50007,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Query")
-		case "meetups":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_meetups(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
 		case "article":
 			field := field
 
@@ -54275,55 +53334,35 @@ func (ec *executionContext) _User(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._User_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
+				invalids++
 			}
 		case "phone":
 
 			out.Values[i] = ec._User_phone(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
+				invalids++
 			}
 		case "firstName":
 
 			out.Values[i] = ec._User_firstName(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
+				invalids++
 			}
 		case "lastName":
 
 			out.Values[i] = ec._User_lastName(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
+				invalids++
 			}
-		case "meetups":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._User_meetups(ctx, field, obj)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return innerFunc(ctx)
-
-			})
 		case "roles":
 
 			out.Values[i] = ec._User_roles(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
+				invalids++
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -55252,64 +54291,6 @@ func (ec *executionContext) unmarshalNLoginInput2gitlabᚗcomᚋdinamchikiᚋgo�
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNMeetup2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetup(ctx context.Context, sel ast.SelectionSet, v models.Meetup) graphql.Marshaler {
-	return ec._Meetup(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNMeetup2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetupᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.Meetup) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNMeetup2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetup(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
-}
-
-func (ec *executionContext) marshalNMeetup2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetup(ctx context.Context, sel ast.SelectionSet, v *models.Meetup) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
-		}
-		return graphql.Null
-	}
-	return ec._Meetup(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalNMoneyCostInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInput(ctx context.Context, v interface{}) (models.MoneyCostInput, error) {
 	res, err := ec.unmarshalInputMoneyCostInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -55376,11 +54357,6 @@ func (ec *executionContext) marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchik
 		return graphql.Null
 	}
 	return ec._MoneyMovePayload(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalNNewMeetup2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐNewMeetup(ctx context.Context, v interface{}) (models.NewMeetup, error) {
-	res, err := ec.unmarshalInputNewMeetup(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNOrderInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInput(ctx context.Context, v interface{}) (models.OrderInput, error) {
@@ -57406,14 +56382,6 @@ func (ec *executionContext) marshalOLeadTask2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return ec._LeadTask(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOMeetupFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMeetupFilter(ctx context.Context, v interface{}) (*models.MeetupFilter, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputMeetupFilter(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
 func (ec *executionContext) marshalOMoneyCost2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCost(ctx context.Context, sel ast.SelectionSet, v *models.MoneyCost) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -58791,14 +57759,6 @@ func (ec *executionContext) marshalOTrainingRent2ᚕᚖgitlabᚗcomᚋdinamchiki
 	}
 
 	return ret
-}
-
-func (ec *executionContext) unmarshalOUpdateMeetup2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUpdateMeetup(ctx context.Context, v interface{}) (*models.UpdateMeetup, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputUpdateMeetup(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *models.User) graphql.Marshaler {

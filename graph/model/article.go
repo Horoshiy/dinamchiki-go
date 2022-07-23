@@ -13,3 +13,7 @@ type Article struct {
 	Title       string     `json:"title"`
 	DeletedAt   *time.Time `json:"-" pg:",soft_delete"`
 }
+
+func (m *Article) IsOwner(user *User) bool {
+	return m.AuthorID == user.ID
+}

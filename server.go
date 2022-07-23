@@ -55,7 +55,6 @@ func main() {
 
 	d := domain.NewDomain(
 		userRepo,
-		postgres.MeetupsRepo{DB: DB},
 		postgres.PlacesRepo{DB: DB},
 		postgres.ArticlesRepo{DB: DB},
 		postgres.StadiumsRepo{DB: DB},

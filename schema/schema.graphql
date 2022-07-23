@@ -2,7 +2,6 @@ directive @hasRole(role: Role!) on FIELD_DEFINITION
 scalar Time
 
 type Query {
-    meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
     article(id: String!): Article
     articles(filter: ArticleFilter, first: Int, after: ID, last: Int, before: ID): ArticleConnection
     cart(id: String!): Cart
@@ -62,9 +61,6 @@ type Query {
 }
 
 type Mutation {
-    createMeetup(input: NewMeetup!): Meetup!
-    updateMeetup(id: ID!, input: UpdateMeetup): Meetup!
-    deleteMeetup(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
     articleDelete(id: String!): ArticlePayload! @hasRole(role: EDITOR)
@@ -181,30 +177,9 @@ type AuthToken {
 }
 
 
-type Meetup {
-    id: ID!
-    name: String!
-    description: String!
-    user: User
-}
-
-input NewMeetup {
-    name: String!
-    description: String!
-}
-
-input UpdateMeetup {
-    name: String
-    description: String
-}
-
 input LoginInput {
     phone: String!
     password: String!
-}
-
-input MeetupFilter {
- name: String
 }
 
 input PlaceFilter {
@@ -953,7 +928,6 @@ type User {
     phone: String!
     firstName: String!
     lastName: String!
-    meetups: [Meetup!]!
     roles: [Role!]!
 }
 

@@ -49,17 +49,31 @@ func (d *Domain) ArticleSave(ctx context.Context, input models.ArticleInput) (*m
 }
 
 func (d *Domain) ArticleUpdate(ctx context.Context, articleInput models.ArticleInputWithID) (*models.ArticlePayload, error) {
+	currentUser, err := middleware.GetCurrentUserFromCtx(ctx)
+	if err != nil {
+		return nil, ErrUnauthenticated
+	}
 
 	article, err := d.ArticlesRepo.GetArticleByID(articleInput.ID)
 	if err != nil || article == nil {
 		return nil, errors.New("такого филиала не существует")
 	}
 
+	if !article.IsOwner(currentUser) || !currentUser.HasRole(models.RoleAdmin) {
+		return nil, ErrForbidden
+	}
+
+	didUpdate := true
+
 	if len(articleInput.Input.Title) < 3 {
 		return nil, errors.New("кол-во символов в названии мало")
 	}
 	if len(articleInput.Input.Description) < 3 {
 		return nil, errors.New("кол-во символов в описании мало")
+	}
+
+	if !didUpdate {
+		return nil, errors.New("no update done")
 	}
 
 	article = articleInputWithIdToArticle(ctx, article, articleInput.Input)

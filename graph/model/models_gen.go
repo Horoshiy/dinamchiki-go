@@ -418,10 +418,6 @@ type LoginInput struct {
 	Password string `json:"password"`
 }
 
-type MeetupFilter struct {
-	Name *string `json:"name"`
-}
-
 type MoneyCost struct {
 	Date        time.Time `json:"date"`
 	Description string    `json:"description"`
@@ -510,11 +506,6 @@ type MoneyMoveInputWithID struct {
 type MoneyMovePayload struct {
 	Record   *MoneyMove `json:"record"`
 	RecordID string     `json:"recordId"`
-}
-
-type NewMeetup struct {
-	Name        string `json:"name"`
-	Description string `json:"description"`
 }
 
 type Order struct {
@@ -1173,11 +1164,6 @@ type TrainingRent struct {
 	RentID       string    `json:"rentId"`
 	TrainingID   string    `json:"trainingId"`
 	TrainingRent *Training `json:"trainingRent"`
-}
-
-type UpdateMeetup struct {
-	Name        *string `json:"name"`
-	Description *string `json:"description"`
 }
 
 type UserConnection struct {
