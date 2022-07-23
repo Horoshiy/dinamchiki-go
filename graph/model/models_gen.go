@@ -76,6 +76,10 @@ type CartEdge struct {
 	Node   *Cart   `json:"node"`
 }
 
+type CartFilter struct {
+	Name *string `json:"name"`
+}
+
 type CartInput struct {
 	Kit       []*KitDto   `json:"kit"`
 	Published bool        `json:"published"`
@@ -114,6 +118,10 @@ type ClubBalanceEdge struct {
 	Node   *ClubBalance `json:"node"`
 }
 
+type ClubBalanceFilter struct {
+	Name *string `json:"name"`
+}
+
 type ClubBalanceInput struct {
 	Date       time.Time `json:"date"`
 	OtherCosts int       `json:"otherCosts"`
@@ -150,6 +158,10 @@ type CoachPaymentByMonthConnection struct {
 type CoachPaymentByMonthEdge struct {
 	Cursor *string              `json:"cursor"`
 	Node   *CoachPaymentByMonth `json:"node"`
+}
+
+type CoachPaymentByMonthFilter struct {
+	Name *string `json:"name"`
 }
 
 type CoachPaymentByMonthInput struct {
@@ -192,6 +204,10 @@ type CoachPaymentByTeamEdge struct {
 	Node   *CoachPaymentByTeam `json:"node"`
 }
 
+type CoachPaymentByTeamFilter struct {
+	Name *string `json:"name"`
+}
+
 type CoachPaymentByTeamInput struct {
 	Coach       *StaffDto            `json:"coach"`
 	DateFinish  time.Time            `json:"dateFinish"`
@@ -230,6 +246,10 @@ type CoachPaymentByTrainingConnection struct {
 type CoachPaymentByTrainingEdge struct {
 	Cursor *string                 `json:"cursor"`
 	Node   *CoachPaymentByTraining `json:"node"`
+}
+
+type CoachPaymentByTrainingFilter struct {
+	Name *string `json:"name"`
 }
 
 type CoachPaymentByTrainingInput struct {
@@ -272,6 +292,10 @@ type CreatorDto struct {
 type CreatorEdge struct {
 	Cursor *string  `json:"cursor"`
 	Node   *Creator `json:"node"`
+}
+
+type CreatorFilter struct {
+	Name *string `json:"name"`
 }
 
 type CreatorInput struct {
@@ -331,6 +355,10 @@ type KitEdge struct {
 	Node   *Kit    `json:"node"`
 }
 
+type KitFilter struct {
+	Name *string `json:"name"`
+}
+
 type KitInput struct {
 	FileName  *string `json:"fileName"`
 	Name      string  `json:"name"`
@@ -382,6 +410,10 @@ type LeadDto struct {
 type LeadEdge struct {
 	Cursor *string `json:"cursor"`
 	Node   *Lead   `json:"node"`
+}
+
+type LeadFilter struct {
+	Name *string `json:"name"`
 }
 
 type LeadInput struct {
@@ -439,6 +471,10 @@ type MoneyCostEdge struct {
 	Node   *MoneyCost `json:"node"`
 }
 
+type MoneyCostFilter struct {
+	Name *string `json:"name"`
+}
+
 type MoneyCostInput struct {
 	Date        time.Time `json:"date"`
 	Description string    `json:"description"`
@@ -485,6 +521,10 @@ type MoneyMoveEdge struct {
 	Node   *MoneyMove `json:"node"`
 }
 
+type MoneyMoveFilter struct {
+	Name *string `json:"name"`
+}
+
 type MoneyMoveInput struct {
 	DateFinish  time.Time   `json:"dateFinish"`
 	DatePayment time.Time   `json:"datePayment"`
@@ -527,6 +567,10 @@ type OrderConnection struct {
 type OrderEdge struct {
 	Cursor *string `json:"cursor"`
 	Node   *Order  `json:"node"`
+}
+
+type OrderFilter struct {
+	Name *string `json:"name"`
 }
 
 type OrderInput struct {
@@ -619,6 +663,10 @@ type RentPaymentByMonthEdge struct {
 	Node   *RentPaymentByMonth `json:"node"`
 }
 
+type RentPaymentByMonthFilter struct {
+	Name *string `json:"name"`
+}
+
 type RentPaymentByMonthInput struct {
 	Description *string     `json:"description"`
 	Month       time.Time   `json:"month"`
@@ -657,6 +705,10 @@ type RentPaymentByTrainingConnection struct {
 type RentPaymentByTrainingEdge struct {
 	Cursor *string                `json:"cursor"`
 	Node   *RentPaymentByTraining `json:"node"`
+}
+
+type RentPaymentByTrainingFilter struct {
+	Name *string `json:"name"`
 }
 
 type RentPaymentByTrainingInput struct {
@@ -744,6 +796,10 @@ type StaffEdge struct {
 	Node   *Staff  `json:"node"`
 }
 
+type StaffFilter struct {
+	Name *string `json:"name"`
+}
+
 type StaffInput struct {
 	Birthday    *time.Time `json:"birthday"`
 	Department  Department `json:"department"`
@@ -813,6 +869,10 @@ type StudentEdge struct {
 	Node   *Student `json:"node"`
 }
 
+type StudentFilter struct {
+	Name *string `json:"name"`
+}
+
 type StudentInput struct {
 	Birthday    *time.Time        `json:"birthday"`
 	Creators    []*CreatorDto     `json:"creators"`
@@ -866,6 +926,10 @@ type StudentVisitEdge struct {
 	Node   *StudentVisit `json:"node"`
 }
 
+type StudentVisitFilter struct {
+	Name *string `json:"name"`
+}
+
 type StudentVisitInput struct {
 	Payed       bool         `json:"payed"`
 	Published   bool         `json:"published"`
@@ -912,6 +976,10 @@ type TaskConnection struct {
 type TaskEdge struct {
 	Cursor *string `json:"cursor"`
 	Node   *Task   `json:"node"`
+}
+
+type TaskFilter struct {
+	Name *string `json:"name"`
 }
 
 type TaskInput struct {
@@ -980,6 +1048,10 @@ type TeamBalanceEdge struct {
 	Node   *TeamBalance `json:"node"`
 }
 
+type TeamBalanceFilter struct {
+	Name *string `json:"name"`
+}
+
 type TeamBalanceInput struct {
 	Date      time.Time       `json:"date"`
 	Published bool            `json:"published"`
@@ -1017,6 +1089,10 @@ type TeamDto struct {
 type TeamEdge struct {
 	Cursor *string `json:"cursor"`
 	Node   *Team   `json:"node"`
+}
+
+type TeamFilter struct {
+	Name *string `json:"name"`
 }
 
 type TeamInput struct {
@@ -1112,6 +1188,10 @@ type TrainingDayEdge struct {
 	Node   *TrainingDay `json:"node"`
 }
 
+type TrainingDayFilter struct {
+	Name *string `json:"name"`
+}
+
 type TrainingDayInput struct {
 	Day       *DayOfWeek          `json:"day"`
 	Published bool                `json:"published"`
@@ -1138,6 +1218,10 @@ type TrainingDto struct {
 type TrainingEdge struct {
 	Cursor *string   `json:"cursor"`
 	Node   *Training `json:"node"`
+}
+
+type TrainingFilter struct {
+	Name *string `json:"name"`
 }
 
 type TrainingInput struct {
@@ -1179,6 +1263,10 @@ type UserDto struct {
 type UserEdge struct {
 	Cursor *string `json:"cursor"`
 	Node   *User   `json:"node"`
+}
+
+type UserFilter struct {
+	Name *string `json:"name"`
 }
 
 type UserInput struct {

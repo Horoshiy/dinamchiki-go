@@ -538,59 +538,59 @@ type ComplexityRoot struct {
 		Article                 func(childComplexity int, id string) int
 		Articles                func(childComplexity int, filter *models.ArticleFilter, first *int, after *string, last *int, before *string) int
 		Cart                    func(childComplexity int, id string) int
-		Carts                   func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Carts                   func(childComplexity int, filter *models.CartFilter, first *int, after *string, last *int, before *string) int
 		ClubBalance             func(childComplexity int, id string) int
-		ClubBalances            func(childComplexity int, after *string, before *string, first *int, last *int) int
+		ClubBalances            func(childComplexity int, filter *models.ClubBalanceFilter, first *int, after *string, last *int, before *string) int
 		CoachPaymentByMonth     func(childComplexity int, id string) int
 		CoachPaymentByTeam      func(childComplexity int, id string) int
 		CoachPaymentByTraining  func(childComplexity int, id string) int
-		CoachPaymentsByMonth    func(childComplexity int, after *string, before *string, date time.Time, first *int, last *int) int
-		CoachPaymentsByTeam     func(childComplexity int, after *string, before *string, first *int, last *int, team *models.TeamDto) int
-		CoachPaymentsByTraining func(childComplexity int, after *string, before *string, date time.Time, first *int, last *int) int
+		CoachPaymentsByMonth    func(childComplexity int, filter *models.CoachPaymentByMonthFilter, first *int, after *string, last *int, before *string) int
+		CoachPaymentsByTeam     func(childComplexity int, filter *models.CoachPaymentByTeamFilter, first *int, after *string, last *int, before *string) int
+		CoachPaymentsByTraining func(childComplexity int, filter *models.CoachPaymentByTrainingFilter, first *int, after *string, last *int, before *string) int
 		Creator                 func(childComplexity int, id *string) int
-		Creators                func(childComplexity int, after *string, before *string, first *int, last *int) int
-		CurrentTasks            func(childComplexity int, first *int, last *int, after *string, before *string) int
+		Creators                func(childComplexity int, filter *models.CreatorFilter, first *int, after *string, last *int, before *string) int
+		CurrentTasks            func(childComplexity int, filter *models.TaskFilter, first *int, after *string, last *int, before *string) int
 		Kit                     func(childComplexity int, id string) int
-		Kits                    func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Kits                    func(childComplexity int, filter *models.KitFilter, first *int, after *string, last *int, before *string) int
 		Lead                    func(childComplexity int, id string) int
-		Leads                   func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Leads                   func(childComplexity int, filter *models.LeadFilter, first *int, after *string, last *int, before *string) int
 		MoneyCost               func(childComplexity int, id string) int
-		MoneyCosts              func(childComplexity int, after *string, before *string, first *int, last *int) int
+		MoneyCosts              func(childComplexity int, filter *models.MoneyCostFilter, first *int, after *string, last *int, before *string) int
 		MoneyMove               func(childComplexity int, id string) int
-		MoneyMoves              func(childComplexity int, after *string, before *string, first *int, last *int) int
-		NearestStaffBirthdays   func(childComplexity int, offset int, first *int, last *int, after *string, before *string) int
-		NearestStudentBirthdays func(childComplexity int, offset int, first *int, last *int, after *string, before *string) int
+		MoneyMoves              func(childComplexity int, filter *models.MoneyMoveFilter, first *int, after *string, last *int, before *string) int
+		NearestStaffBirthdays   func(childComplexity int, filter *models.StaffFilter, first *int, after *string, last *int, before *string) int
+		NearestStudentBirthdays func(childComplexity int, filter *models.StudentFilter, first *int, after *string, last *int, before *string) int
 		Order                   func(childComplexity int, id string) int
-		Orders                  func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Orders                  func(childComplexity int, filter *models.OrderFilter, first *int, after *string, last *int, before *string) int
 		Place                   func(childComplexity int, id string) int
 		Places                  func(childComplexity int, filter *models.PlaceFilter, first *int, after *string, last *int, before *string) int
 		RentPaymentByMonth      func(childComplexity int, id string) int
 		RentPaymentByTraining   func(childComplexity int, id string) int
-		RentPaymentsByMonth     func(childComplexity int, after *string, before *string, first *int, last *int) int
-		RentPaymentsByTraining  func(childComplexity int, after *string, before *string, first *int, last *int) int
+		RentPaymentsByMonth     func(childComplexity int, filter *models.RentPaymentByMonthFilter, first *int, after *string, last *int, before *string) int
+		RentPaymentsByTraining  func(childComplexity int, filter *models.RentPaymentByTrainingFilter, first *int, after *string, last *int, before *string) int
 		Stadium                 func(childComplexity int, id string) int
 		Stadiums                func(childComplexity int, filter *models.StadiumFilter, first *int, after *string, last *int, before *string) int
-		Staff                   func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Staff                   func(childComplexity int, filter *models.StaffFilter, first *int, after *string, last *int, before *string) int
 		StaffPerson             func(childComplexity int, id string) int
 		Student                 func(childComplexity int, id string) int
 		StudentVisit            func(childComplexity int, id string) int
-		StudentVisits           func(childComplexity int, after *string, before *string, first *int, last *int) int
-		Students                func(childComplexity int, after *string, before *string, first *int, last *int) int
+		StudentVisits           func(childComplexity int, filter *models.StudentVisitFilter, first *int, after *string, last *int, before *string) int
+		Students                func(childComplexity int, filter *models.StudentFilter, first *int, after *string, last *int, before *string) int
 		Task                    func(childComplexity int, id string) int
-		Tasks                   func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Tasks                   func(childComplexity int, filter *models.TaskFilter, first *int, after *string, last *int, before *string) int
 		Team                    func(childComplexity int, id string) int
 		TeamBalance             func(childComplexity int, id string) int
-		TeamBalances            func(childComplexity int, after *string, before *string, first *int, last *int) int
-		Teams                   func(childComplexity int, after *string, before *string, first *int, last *int) int
-		TimeTable               func(childComplexity int, startDay *time.Time, first *int, last *int, after *string, before *string) int
+		TeamBalances            func(childComplexity int, filter *models.TeamBalanceFilter, first *int, after *string, last *int, before *string) int
+		Teams                   func(childComplexity int, filter *models.TeamFilter, first *int, after *string, last *int, before *string) int
+		TimeTable               func(childComplexity int, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) int
 		Training                func(childComplexity int, id string) int
 		TrainingDay             func(childComplexity int, id string) int
-		TrainingDays            func(childComplexity int, after *string, before *string, first *int, last *int) int
-		Trainings               func(childComplexity int, after *string, before *string, first *int, last *int) int
-		TrainingsByDay          func(childComplexity int, date *time.Time, first *int, last *int, after *string, before *string) int
-		UnPayedStudents         func(childComplexity int, first *int, last *int, after *string, before *string) int
+		TrainingDays            func(childComplexity int, filter *models.TrainingDayFilter, first *int, after *string, last *int, before *string) int
+		Trainings               func(childComplexity int, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) int
+		TrainingsByDay          func(childComplexity int, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) int
+		UnPayedStudents         func(childComplexity int, filter *models.StudentFilter, first *int, after *string, last *int, before *string) int
 		User                    func(childComplexity int, id string) int
-		Users                   func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Users                   func(childComplexity int, filter *models.UserFilter, first *int, after *string, last *int, before *string) int
 	}
 
 	RentPaymentByMonth struct {
@@ -1085,59 +1085,59 @@ type QueryResolver interface {
 	Article(ctx context.Context, id string) (*models.Article, error)
 	Articles(ctx context.Context, filter *models.ArticleFilter, first *int, after *string, last *int, before *string) (*models.ArticleConnection, error)
 	Cart(ctx context.Context, id string) (*models.Cart, error)
-	Carts(ctx context.Context, after *string, before *string, first *int, last *int) (*models.CartConnection, error)
+	Carts(ctx context.Context, filter *models.CartFilter, first *int, after *string, last *int, before *string) (*models.CartConnection, error)
 	ClubBalance(ctx context.Context, id string) (*models.ClubBalance, error)
-	ClubBalances(ctx context.Context, after *string, before *string, first *int, last *int) (*models.ClubBalanceConnection, error)
+	ClubBalances(ctx context.Context, filter *models.ClubBalanceFilter, first *int, after *string, last *int, before *string) (*models.ClubBalanceConnection, error)
 	CoachPaymentByMonth(ctx context.Context, id string) (*models.CoachPaymentByMonth, error)
 	CoachPaymentByTeam(ctx context.Context, id string) (*models.CoachPaymentByTeam, error)
 	CoachPaymentByTraining(ctx context.Context, id string) (*models.CoachPaymentByTraining, error)
-	CoachPaymentsByMonth(ctx context.Context, after *string, before *string, date time.Time, first *int, last *int) (*models.CoachPaymentByMonthConnection, error)
-	CoachPaymentsByTeam(ctx context.Context, after *string, before *string, first *int, last *int, team *models.TeamDto) (*models.CoachPaymentByTeamConnection, error)
-	CoachPaymentsByTraining(ctx context.Context, after *string, before *string, date time.Time, first *int, last *int) (*models.CoachPaymentByTrainingConnection, error)
+	CoachPaymentsByMonth(ctx context.Context, filter *models.CoachPaymentByMonthFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByMonthConnection, error)
+	CoachPaymentsByTeam(ctx context.Context, filter *models.CoachPaymentByTeamFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByTeamConnection, error)
+	CoachPaymentsByTraining(ctx context.Context, filter *models.CoachPaymentByTrainingFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByTrainingConnection, error)
 	Creator(ctx context.Context, id *string) (*models.Creator, error)
-	Creators(ctx context.Context, after *string, before *string, first *int, last *int) (*models.CreatorConnection, error)
+	Creators(ctx context.Context, filter *models.CreatorFilter, first *int, after *string, last *int, before *string) (*models.CreatorConnection, error)
 	Kit(ctx context.Context, id string) (*models.Kit, error)
-	Kits(ctx context.Context, after *string, before *string, first *int, last *int) (*models.KitConnection, error)
+	Kits(ctx context.Context, filter *models.KitFilter, first *int, after *string, last *int, before *string) (*models.KitConnection, error)
 	Lead(ctx context.Context, id string) (*models.Lead, error)
-	Leads(ctx context.Context, after *string, before *string, first *int, last *int) (*models.LeadConnection, error)
+	Leads(ctx context.Context, filter *models.LeadFilter, first *int, after *string, last *int, before *string) (*models.LeadConnection, error)
 	MoneyCost(ctx context.Context, id string) (*models.MoneyCost, error)
-	MoneyCosts(ctx context.Context, after *string, before *string, first *int, last *int) (*models.MoneyCostConnection, error)
+	MoneyCosts(ctx context.Context, filter *models.MoneyCostFilter, first *int, after *string, last *int, before *string) (*models.MoneyCostConnection, error)
 	MoneyMove(ctx context.Context, id string) (*models.MoneyMove, error)
-	MoneyMoves(ctx context.Context, after *string, before *string, first *int, last *int) (*models.MoneyMoveConnection, error)
+	MoneyMoves(ctx context.Context, filter *models.MoneyMoveFilter, first *int, after *string, last *int, before *string) (*models.MoneyMoveConnection, error)
 	Order(ctx context.Context, id string) (*models.Order, error)
-	Orders(ctx context.Context, after *string, before *string, first *int, last *int) (*models.OrderConnection, error)
+	Orders(ctx context.Context, filter *models.OrderFilter, first *int, after *string, last *int, before *string) (*models.OrderConnection, error)
 	Place(ctx context.Context, id string) (*models.Place, error)
 	Places(ctx context.Context, filter *models.PlaceFilter, first *int, after *string, last *int, before *string) (*models.PlaceConnection, error)
 	RentPaymentByMonth(ctx context.Context, id string) (*models.RentPaymentByMonth, error)
 	RentPaymentByTraining(ctx context.Context, id string) (*models.RentPaymentByTraining, error)
-	RentPaymentsByMonth(ctx context.Context, after *string, before *string, first *int, last *int) (*models.RentPaymentByMonthConnection, error)
-	RentPaymentsByTraining(ctx context.Context, after *string, before *string, first *int, last *int) (*models.RentPaymentByTrainingConnection, error)
+	RentPaymentsByMonth(ctx context.Context, filter *models.RentPaymentByMonthFilter, first *int, after *string, last *int, before *string) (*models.RentPaymentByMonthConnection, error)
+	RentPaymentsByTraining(ctx context.Context, filter *models.RentPaymentByTrainingFilter, first *int, after *string, last *int, before *string) (*models.RentPaymentByTrainingConnection, error)
 	Stadium(ctx context.Context, id string) (*models.Stadium, error)
 	Stadiums(ctx context.Context, filter *models.StadiumFilter, first *int, after *string, last *int, before *string) (*models.StadiumConnection, error)
-	Staff(ctx context.Context, after *string, before *string, first *int, last *int) (*models.StaffConnection, error)
+	Staff(ctx context.Context, filter *models.StaffFilter, first *int, after *string, last *int, before *string) (*models.StaffConnection, error)
 	StaffPerson(ctx context.Context, id string) (*models.Staff, error)
 	Student(ctx context.Context, id string) (*models.Student, error)
 	StudentVisit(ctx context.Context, id string) (*models.StudentVisit, error)
-	StudentVisits(ctx context.Context, after *string, before *string, first *int, last *int) (*models.StudentVisitConnection, error)
-	Students(ctx context.Context, after *string, before *string, first *int, last *int) (*models.StudentConnection, error)
+	StudentVisits(ctx context.Context, filter *models.StudentVisitFilter, first *int, after *string, last *int, before *string) (*models.StudentVisitConnection, error)
+	Students(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error)
 	Task(ctx context.Context, id string) (*models.Task, error)
-	NearestStudentBirthdays(ctx context.Context, offset int, first *int, last *int, after *string, before *string) (*models.StudentConnection, error)
-	NearestStaffBirthdays(ctx context.Context, offset int, first *int, last *int, after *string, before *string) (*models.StaffConnection, error)
-	UnPayedStudents(ctx context.Context, first *int, last *int, after *string, before *string) (*models.StudentConnection, error)
-	CurrentTasks(ctx context.Context, first *int, last *int, after *string, before *string) (*models.TaskConnection, error)
-	TimeTable(ctx context.Context, startDay *time.Time, first *int, last *int, after *string, before *string) (*models.TrainingConnection, error)
-	TrainingsByDay(ctx context.Context, date *time.Time, first *int, last *int, after *string, before *string) (*models.TrainingConnection, error)
-	Tasks(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TaskConnection, error)
+	NearestStudentBirthdays(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error)
+	NearestStaffBirthdays(ctx context.Context, filter *models.StaffFilter, first *int, after *string, last *int, before *string) (*models.StaffConnection, error)
+	UnPayedStudents(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error)
+	CurrentTasks(ctx context.Context, filter *models.TaskFilter, first *int, after *string, last *int, before *string) (*models.TaskConnection, error)
+	TimeTable(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error)
+	TrainingsByDay(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error)
+	Tasks(ctx context.Context, filter *models.TaskFilter, first *int, after *string, last *int, before *string) (*models.TaskConnection, error)
 	Team(ctx context.Context, id string) (*models.Team, error)
 	TeamBalance(ctx context.Context, id string) (*models.TeamBalance, error)
-	TeamBalances(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TeamBalanceConnection, error)
-	Teams(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TeamConnection, error)
+	TeamBalances(ctx context.Context, filter *models.TeamBalanceFilter, first *int, after *string, last *int, before *string) (*models.TeamBalanceConnection, error)
+	Teams(ctx context.Context, filter *models.TeamFilter, first *int, after *string, last *int, before *string) (*models.TeamConnection, error)
 	Training(ctx context.Context, id string) (*models.Training, error)
 	TrainingDay(ctx context.Context, id string) (*models.TrainingDay, error)
-	TrainingDays(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TrainingDayConnection, error)
-	Trainings(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TrainingConnection, error)
+	TrainingDays(ctx context.Context, filter *models.TrainingDayFilter, first *int, after *string, last *int, before *string) (*models.TrainingDayConnection, error)
+	Trainings(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error)
 	User(ctx context.Context, id string) (*models.User, error)
-	Users(ctx context.Context, after *string, before *string, first *int, last *int) (*models.UserConnection, error)
+	Users(ctx context.Context, filter *models.UserFilter, first *int, after *string, last *int, before *string) (*models.UserConnection, error)
 }
 type StadiumResolver interface {
 	Place(ctx context.Context, obj *models.Stadium) (*models.Place, error)
@@ -3882,7 +3882,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Carts(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Carts(childComplexity, args["filter"].(*models.CartFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.clubBalance":
 		if e.complexity.Query.ClubBalance == nil {
@@ -3906,7 +3906,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.ClubBalances(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.ClubBalances(childComplexity, args["filter"].(*models.ClubBalanceFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.coachPaymentByMonth":
 		if e.complexity.Query.CoachPaymentByMonth == nil {
@@ -3954,7 +3954,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.CoachPaymentsByMonth(childComplexity, args["after"].(*string), args["before"].(*string), args["date"].(time.Time), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.CoachPaymentsByMonth(childComplexity, args["filter"].(*models.CoachPaymentByMonthFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.coachPaymentsByTeam":
 		if e.complexity.Query.CoachPaymentsByTeam == nil {
@@ -3966,7 +3966,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.CoachPaymentsByTeam(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int), args["team"].(*models.TeamDto)), true
+		return e.complexity.Query.CoachPaymentsByTeam(childComplexity, args["filter"].(*models.CoachPaymentByTeamFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.coachPaymentsByTraining":
 		if e.complexity.Query.CoachPaymentsByTraining == nil {
@@ -3978,7 +3978,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.CoachPaymentsByTraining(childComplexity, args["after"].(*string), args["before"].(*string), args["date"].(time.Time), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.CoachPaymentsByTraining(childComplexity, args["filter"].(*models.CoachPaymentByTrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.creator":
 		if e.complexity.Query.Creator == nil {
@@ -4002,7 +4002,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Creators(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Creators(childComplexity, args["filter"].(*models.CreatorFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.currentTasks":
 		if e.complexity.Query.CurrentTasks == nil {
@@ -4014,7 +4014,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.CurrentTasks(childComplexity, args["first"].(*int), args["last"].(*int), args["after"].(*string), args["before"].(*string)), true
+		return e.complexity.Query.CurrentTasks(childComplexity, args["filter"].(*models.TaskFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.kit":
 		if e.complexity.Query.Kit == nil {
@@ -4038,7 +4038,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Kits(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Kits(childComplexity, args["filter"].(*models.KitFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.lead":
 		if e.complexity.Query.Lead == nil {
@@ -4062,7 +4062,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Leads(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Leads(childComplexity, args["filter"].(*models.LeadFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.moneyCost":
 		if e.complexity.Query.MoneyCost == nil {
@@ -4086,7 +4086,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.MoneyCosts(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.MoneyCosts(childComplexity, args["filter"].(*models.MoneyCostFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.moneyMove":
 		if e.complexity.Query.MoneyMove == nil {
@@ -4110,7 +4110,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.MoneyMoves(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.MoneyMoves(childComplexity, args["filter"].(*models.MoneyMoveFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.nearestStaffBirthdays":
 		if e.complexity.Query.NearestStaffBirthdays == nil {
@@ -4122,7 +4122,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.NearestStaffBirthdays(childComplexity, args["offset"].(int), args["first"].(*int), args["last"].(*int), args["after"].(*string), args["before"].(*string)), true
+		return e.complexity.Query.NearestStaffBirthdays(childComplexity, args["filter"].(*models.StaffFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.nearestStudentBirthdays":
 		if e.complexity.Query.NearestStudentBirthdays == nil {
@@ -4134,7 +4134,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.NearestStudentBirthdays(childComplexity, args["offset"].(int), args["first"].(*int), args["last"].(*int), args["after"].(*string), args["before"].(*string)), true
+		return e.complexity.Query.NearestStudentBirthdays(childComplexity, args["filter"].(*models.StudentFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.order":
 		if e.complexity.Query.Order == nil {
@@ -4158,7 +4158,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Orders(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Orders(childComplexity, args["filter"].(*models.OrderFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.place":
 		if e.complexity.Query.Place == nil {
@@ -4218,7 +4218,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.RentPaymentsByMonth(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.RentPaymentsByMonth(childComplexity, args["filter"].(*models.RentPaymentByMonthFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.rentPaymentsByTraining":
 		if e.complexity.Query.RentPaymentsByTraining == nil {
@@ -4230,7 +4230,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.RentPaymentsByTraining(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.RentPaymentsByTraining(childComplexity, args["filter"].(*models.RentPaymentByTrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.stadium":
 		if e.complexity.Query.Stadium == nil {
@@ -4266,7 +4266,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Staff(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Staff(childComplexity, args["filter"].(*models.StaffFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.staffPerson":
 		if e.complexity.Query.StaffPerson == nil {
@@ -4314,7 +4314,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.StudentVisits(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.StudentVisits(childComplexity, args["filter"].(*models.StudentVisitFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.students":
 		if e.complexity.Query.Students == nil {
@@ -4326,7 +4326,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Students(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Students(childComplexity, args["filter"].(*models.StudentFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.task":
 		if e.complexity.Query.Task == nil {
@@ -4350,7 +4350,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Tasks(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Tasks(childComplexity, args["filter"].(*models.TaskFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.team":
 		if e.complexity.Query.Team == nil {
@@ -4386,7 +4386,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.TeamBalances(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.TeamBalances(childComplexity, args["filter"].(*models.TeamBalanceFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.teams":
 		if e.complexity.Query.Teams == nil {
@@ -4398,7 +4398,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Teams(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Teams(childComplexity, args["filter"].(*models.TeamFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.timeTable":
 		if e.complexity.Query.TimeTable == nil {
@@ -4410,7 +4410,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.TimeTable(childComplexity, args["startDay"].(*time.Time), args["first"].(*int), args["last"].(*int), args["after"].(*string), args["before"].(*string)), true
+		return e.complexity.Query.TimeTable(childComplexity, args["filter"].(*models.TrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.training":
 		if e.complexity.Query.Training == nil {
@@ -4446,7 +4446,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.TrainingDays(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.TrainingDays(childComplexity, args["filter"].(*models.TrainingDayFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.trainings":
 		if e.complexity.Query.Trainings == nil {
@@ -4458,7 +4458,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Trainings(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Trainings(childComplexity, args["filter"].(*models.TrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.trainingsByDay":
 		if e.complexity.Query.TrainingsByDay == nil {
@@ -4470,7 +4470,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.TrainingsByDay(childComplexity, args["date"].(*time.Time), args["first"].(*int), args["last"].(*int), args["after"].(*string), args["before"].(*string)), true
+		return e.complexity.Query.TrainingsByDay(childComplexity, args["filter"].(*models.TrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.unPayedStudents":
 		if e.complexity.Query.UnPayedStudents == nil {
@@ -4482,7 +4482,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.UnPayedStudents(childComplexity, args["first"].(*int), args["last"].(*int), args["after"].(*string), args["before"].(*string)), true
+		return e.complexity.Query.UnPayedStudents(childComplexity, args["filter"].(*models.StudentFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.user":
 		if e.complexity.Query.User == nil {
@@ -4506,7 +4506,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Users(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Users(childComplexity, args["filter"].(*models.UserFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "RentPaymentByMonth.description":
 		if e.complexity.RentPaymentByMonth.Description == nil {
@@ -5997,30 +5997,41 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 		ec.unmarshalInputArticleInput,
 		ec.unmarshalInputArticleInputWithId,
 		ec.unmarshalInputCartDto,
+		ec.unmarshalInputCartFilter,
 		ec.unmarshalInputCartInput,
 		ec.unmarshalInputCartInputWithId,
+		ec.unmarshalInputClubBalanceFilter,
 		ec.unmarshalInputClubBalanceInput,
 		ec.unmarshalInputClubBalanceInputWithId,
+		ec.unmarshalInputCoachPaymentByMonthFilter,
 		ec.unmarshalInputCoachPaymentByMonthInput,
 		ec.unmarshalInputCoachPaymentByMonthInputWithId,
+		ec.unmarshalInputCoachPaymentByTeamFilter,
 		ec.unmarshalInputCoachPaymentByTeamInput,
 		ec.unmarshalInputCoachPaymentByTeamInputWithId,
+		ec.unmarshalInputCoachPaymentByTrainingFilter,
 		ec.unmarshalInputCoachPaymentByTrainingInput,
 		ec.unmarshalInputCoachPaymentByTrainingInputWithId,
 		ec.unmarshalInputCreatorDto,
+		ec.unmarshalInputCreatorFilter,
 		ec.unmarshalInputCreatorInput,
 		ec.unmarshalInputCreatorInputWithId,
 		ec.unmarshalInputKitDto,
+		ec.unmarshalInputKitFilter,
 		ec.unmarshalInputKitInput,
 		ec.unmarshalInputKitInputWithId,
 		ec.unmarshalInputLeadDto,
+		ec.unmarshalInputLeadFilter,
 		ec.unmarshalInputLeadInput,
 		ec.unmarshalInputLeadInputWithId,
 		ec.unmarshalInputLoginInput,
+		ec.unmarshalInputMoneyCostFilter,
 		ec.unmarshalInputMoneyCostInput,
 		ec.unmarshalInputMoneyCostInputWithId,
+		ec.unmarshalInputMoneyMoveFilter,
 		ec.unmarshalInputMoneyMoveInput,
 		ec.unmarshalInputMoneyMoveInputWithId,
+		ec.unmarshalInputOrderFilter,
 		ec.unmarshalInputOrderInput,
 		ec.unmarshalInputOrderInputWithId,
 		ec.unmarshalInputPlaceDto,
@@ -6028,8 +6039,10 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 		ec.unmarshalInputPlaceInput,
 		ec.unmarshalInputPlaceInputWithId,
 		ec.unmarshalInputRegisterInput,
+		ec.unmarshalInputRentPaymentByMonthFilter,
 		ec.unmarshalInputRentPaymentByMonthInput,
 		ec.unmarshalInputRentPaymentByMonthInputWithId,
+		ec.unmarshalInputRentPaymentByTrainingFilter,
 		ec.unmarshalInputRentPaymentByTrainingInput,
 		ec.unmarshalInputRentPaymentByTrainingInputWithId,
 		ec.unmarshalInputStadiumDto,
@@ -6037,32 +6050,41 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 		ec.unmarshalInputStadiumInput,
 		ec.unmarshalInputStadiumInputWithId,
 		ec.unmarshalInputStaffDto,
+		ec.unmarshalInputStaffFilter,
 		ec.unmarshalInputStaffInput,
 		ec.unmarshalInputStaffInputWithId,
 		ec.unmarshalInputStudentDto,
+		ec.unmarshalInputStudentFilter,
 		ec.unmarshalInputStudentInput,
 		ec.unmarshalInputStudentInputWithId,
+		ec.unmarshalInputStudentVisitFilter,
 		ec.unmarshalInputStudentVisitInput,
 		ec.unmarshalInputStudentVisitInputWithId,
+		ec.unmarshalInputTaskFilter,
 		ec.unmarshalInputTaskInput,
 		ec.unmarshalInputTaskInputWithId,
 		ec.unmarshalInputTeamBalanceDto,
+		ec.unmarshalInputTeamBalanceFilter,
 		ec.unmarshalInputTeamBalanceInput,
 		ec.unmarshalInputTeamBalanceInputWithId,
 		ec.unmarshalInputTeamCoachPaymentDto,
 		ec.unmarshalInputTeamDto,
+		ec.unmarshalInputTeamFilter,
 		ec.unmarshalInputTeamInput,
 		ec.unmarshalInputTeamInputWithId,
 		ec.unmarshalInputTeamLeadDto,
 		ec.unmarshalInputTeamStudentDto,
 		ec.unmarshalInputTeamTrainingDayDto,
 		ec.unmarshalInputTeamTrainingDto,
+		ec.unmarshalInputTrainingDayFilter,
 		ec.unmarshalInputTrainingDayInput,
 		ec.unmarshalInputTrainingDayInputWithId,
 		ec.unmarshalInputTrainingDto,
+		ec.unmarshalInputTrainingFilter,
 		ec.unmarshalInputTrainingInput,
 		ec.unmarshalInputTrainingInputWithId,
 		ec.unmarshalInputUserDto,
+		ec.unmarshalInputUserFilter,
 		ec.unmarshalInputUserInput,
 		ec.unmarshalInputUserInputWithId,
 	)
@@ -6132,59 +6154,59 @@ type Query {
     article(id: String!): Article
     articles(filter: ArticleFilter, first: Int, after: ID, last: Int, before: ID): ArticleConnection
     cart(id: String!): Cart
-    carts(after: String, before: String, first: Int, last: Int): CartConnection
+    carts(filter: CartFilter, first: Int, after: ID, last: Int, before: ID): CartConnection
     clubBalance(id: String!): ClubBalance
-    clubBalances(after: String, before: String, first: Int, last: Int): ClubBalanceConnection
+    clubBalances(filter: ClubBalanceFilter, first: Int, after: ID, last: Int, before: ID): ClubBalanceConnection
     coachPaymentByMonth(id: String!): CoachPaymentByMonth
     coachPaymentByTeam(id: String!): CoachPaymentByTeam
     coachPaymentByTraining(id: String!): CoachPaymentByTraining
-    coachPaymentsByMonth(after: String, before: String, date:Time!, first: Int, last: Int): CoachPaymentByMonthConnection
-    coachPaymentsByTeam(after: String, before: String, first: Int, last: Int, team: TeamDto): CoachPaymentByTeamConnection
-    coachPaymentsByTraining(after: String, before: String, date:Time!, first: Int, last: Int): CoachPaymentByTrainingConnection
+    coachPaymentsByMonth(filter: CoachPaymentByMonthFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByMonthConnection
+    coachPaymentsByTeam(filter: CoachPaymentByTeamFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByTeamConnection
+    coachPaymentsByTraining(filter: CoachPaymentByTrainingFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByTrainingConnection
     creator(id: String): Creator
-    creators(after: String, before: String, first: Int, last: Int): CreatorConnection
+    creators(filter: CreatorFilter, first: Int, after: ID, last: Int, before: ID): CreatorConnection
     kit(id: String!): Kit
-    kits(after: String, before: String, first: Int, last: Int): KitConnection
+    kits(filter: KitFilter, first: Int, after: ID, last: Int, before: ID): KitConnection
     lead(id: String!): Lead
-    leads(after: String, before: String, first: Int, last: Int): LeadConnection
+    leads(filter: LeadFilter, first: Int, after: ID, last: Int, before: ID): LeadConnection
     moneyCost(id: String!): MoneyCost
-    moneyCosts(after: String, before: String, first: Int, last: Int): MoneyCostConnection
+    moneyCosts(filter: MoneyCostFilter, first: Int, after: ID, last: Int, before: ID): MoneyCostConnection
     moneyMove(id: String!): MoneyMove
-    moneyMoves(after: String, before: String, first: Int, last: Int): MoneyMoveConnection
+    moneyMoves(filter: MoneyMoveFilter, first: Int, after: ID, last: Int, before: ID): MoneyMoveConnection
     order(id: String!): Order
-    orders(after: String, before: String, first: Int, last: Int): OrderConnection
+    orders(filter: OrderFilter, first: Int, after: ID, last: Int, before: ID): OrderConnection
     place(id: String!): Place
     places(filter: PlaceFilter, first: Int, after: ID, last: Int, before: ID): PlaceConnection!
     rentPaymentByMonth(id: String!): RentPaymentByMonth
     rentPaymentByTraining(id: String!): RentPaymentByTraining
-    rentPaymentsByMonth(after: String, before: String, first: Int, last: Int): RentPaymentByMonthConnection
-    rentPaymentsByTraining(after: String, before: String, first: Int, last: Int): RentPaymentByTrainingConnection
+    rentPaymentsByMonth(filter: RentPaymentByMonthFilter, first: Int, after: ID, last: Int, before: ID): RentPaymentByMonthConnection
+    rentPaymentsByTraining(filter: RentPaymentByTrainingFilter, first: Int, after: ID, last: Int, before: ID): RentPaymentByTrainingConnection
     stadium(id: String!): Stadium
     stadiums(filter: StadiumFilter, first: Int, after: ID, last: Int, before: ID): StadiumConnection
-    staff(after: String, before: String, first: Int, last: Int): StaffConnection
+    staff(filter: StaffFilter, first: Int, after: ID, last: Int, before: ID): StaffConnection
     staffPerson(id: String!): Staff
     student(id: String!): Student
     studentVisit(id: String!): StudentVisit
-    studentVisits(after: String, before: String, first: Int, last: Int): StudentVisitConnection
-    students(after: String, before: String, first: Int, last: Int): StudentConnection
+    studentVisits(filter: StudentVisitFilter, first: Int, after: ID, last: Int, before: ID): StudentVisitConnection
+    students(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
     task(id: String!): Task
-    nearestStudentBirthdays(offset: Int!, first: Int, last: Int, after: String, before: String): StudentConnection
-    nearestStaffBirthdays(offset: Int!, first: Int, last: Int, after: String, before: String): StaffConnection
-    unPayedStudents(first: Int, last: Int, after: String, before: String): StudentConnection
-    currentTasks(first: Int, last: Int, after: String, before: String): TaskConnection
-    timeTable(startDay:Time, first: Int, last: Int, after: String, before: String): TrainingConnection
-    trainingsByDay(date:Time, first: Int, last: Int, after: String, before: String): TrainingConnection
-    tasks(after: String, before: String, first: Int, last: Int): TaskConnection
+    nearestStudentBirthdays(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
+    nearestStaffBirthdays(filter: StaffFilter, first: Int, after: ID, last: Int, before: ID): StaffConnection
+    unPayedStudents(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
+    currentTasks(filter: TaskFilter, first: Int, after: ID, last: Int, before: ID): TaskConnection
+    timeTable(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
+    trainingsByDay(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
+    tasks(filter: TaskFilter, first: Int, after: ID, last: Int, before: ID): TaskConnection
     team(id: String!): Team
     teamBalance(id: String!): TeamBalance
-    teamBalances(after: String, before: String, first: Int, last: Int): TeamBalanceConnection
-    teams(after: String, before: String, first: Int, last: Int): TeamConnection
+    teamBalances(filter: TeamBalanceFilter, first: Int, after: ID, last: Int, before: ID): TeamBalanceConnection
+    teams(filter: TeamFilter, first: Int, after: ID, last: Int, before: ID): TeamConnection
     training(id: String!): Training
     trainingDay(id: String!): TrainingDay
-    trainingDays(after: String, before: String, first: Int, last: Int): TrainingDayConnection
-    trainings(after: String, before: String, first: Int, last: Int): TrainingConnection
+    trainingDays(filter: TrainingDayFilter, first: Int, after: ID, last: Int, before: ID): TrainingDayConnection
+    trainings(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
     user(id: ID!): User!
-    users(after: String, before: String, first: Int, last: Int): UserConnection
+    users(filter: UserFilter, first: Int, after: ID, last: Int, before: ID): UserConnection
 }
 
 type Mutation {
@@ -6321,12 +6343,100 @@ input StadiumFilter {
     name: String
 }
 
+input CartFilter {
+    name: String
+}
+
+input TrainingFilter {
+    name: String
+}
+
+input OrderFilter {
+    name: String
+}
+
+input MoneyMoveFilter {
+    name: String
+}
+
+input RentPaymentByMonthFilter {
+    name: String
+}
+
+input RentPaymentByTrainingFilter {
+    name: String
+}
+
+input MoneyCostFilter {
+    name: String
+}
+
 input RegisterInput {
     phone: String!
     password: String!
     confirmPassword: String!
     firstName: String!
     lastName: String!
+}
+
+input TeamBalanceFilter {
+    name: String
+}
+
+input TeamFilter {
+    name: String
+}
+
+input StudentFilter {
+    name: String
+}
+
+input StaffFilter {
+    name: String
+}
+
+input UserFilter {
+    name: String
+}
+
+input TaskFilter {
+    name: String
+}
+
+input ClubBalanceFilter {
+    name: String
+}
+
+input CoachPaymentByMonthFilter {
+    name: String
+}
+
+input CoachPaymentByTeamFilter {
+    name: String
+}
+
+input CoachPaymentByTrainingFilter {
+    name: String
+}
+
+input CreatorFilter {
+    name: String
+}
+
+input LeadFilter {
+    name: String
+}
+
+input KitFilter {
+    name: String
+}
+
+input StudentVisitFilter {
+    name: String
+}
+
+input TrainingDayFilter {
+    name: String
 }
 
 type Place {
@@ -9295,33 +9405,33 @@ func (ec *executionContext) field_Query_cart_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_carts_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.CartFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOCartFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -9331,6 +9441,15 @@ func (ec *executionContext) field_Query_carts_args(ctx context.Context, rawArgs 
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -9352,33 +9471,33 @@ func (ec *executionContext) field_Query_clubBalance_args(ctx context.Context, ra
 func (ec *executionContext) field_Query_clubBalances_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.ClubBalanceFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOClubBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -9388,6 +9507,15 @@ func (ec *executionContext) field_Query_clubBalances_args(ctx context.Context, r
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -9439,84 +9567,33 @@ func (ec *executionContext) field_Query_coachPaymentByTraining_args(ctx context.
 func (ec *executionContext) field_Query_coachPaymentsByMonth_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.CoachPaymentByMonthFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOCoachPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 time.Time
-	if tmp, ok := rawArgs["date"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("date"))
-		arg2, err = ec.unmarshalNTime2timeᚐTime(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["date"] = arg2
-	var arg3 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg3
-	var arg4 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
-		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["last"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_coachPaymentsByTeam_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *string
+	args["first"] = arg1
+	var arg2 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg2
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -9526,66 +9603,117 @@ func (ec *executionContext) field_Query_coachPaymentsByTeam_args(ctx context.Con
 		}
 	}
 	args["last"] = arg3
-	var arg4 *models.TeamDto
-	if tmp, ok := rawArgs["team"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("team"))
-		arg4, err = ec.unmarshalOTeamDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamDto(ctx, tmp)
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["team"] = arg4
+	args["before"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_coachPaymentsByTeam_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *models.CoachPaymentByTeamFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOCoachPaymentByTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_coachPaymentsByTraining_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.CoachPaymentByTrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOCoachPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 time.Time
-	if tmp, ok := rawArgs["date"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("date"))
-		arg2, err = ec.unmarshalNTime2timeᚐTime(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["date"] = arg2
-	var arg3 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg3
-	var arg4 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
-		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg4
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -9607,33 +9735,33 @@ func (ec *executionContext) field_Query_creator_args(ctx context.Context, rawArg
 func (ec *executionContext) field_Query_creators_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.CreatorFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOCreatorFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -9643,48 +9771,66 @@ func (ec *executionContext) field_Query_creators_args(ctx context.Context, rawAr
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_currentTasks_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+	var arg0 *models.TaskFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOTaskFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg0
+	args["filter"] = arg0
 	var arg1 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg1
+	args["first"] = arg1
 	var arg2 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["after"] = arg2
-	var arg3 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg3, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg3
+	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -9706,33 +9852,33 @@ func (ec *executionContext) field_Query_kit_args(ctx context.Context, rawArgs ma
 func (ec *executionContext) field_Query_kits_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.KitFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOKitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -9742,6 +9888,15 @@ func (ec *executionContext) field_Query_kits_args(ctx context.Context, rawArgs m
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -9763,33 +9918,33 @@ func (ec *executionContext) field_Query_lead_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_leads_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.LeadFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOLeadFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -9799,6 +9954,15 @@ func (ec *executionContext) field_Query_leads_args(ctx context.Context, rawArgs 
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -9820,33 +9984,33 @@ func (ec *executionContext) field_Query_moneyCost_args(ctx context.Context, rawA
 func (ec *executionContext) field_Query_moneyCosts_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.MoneyCostFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOMoneyCostFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -9856,6 +10020,15 @@ func (ec *executionContext) field_Query_moneyCosts_args(ctx context.Context, raw
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -9877,57 +10050,15 @@ func (ec *executionContext) field_Query_moneyMove_args(ctx context.Context, rawA
 func (ec *executionContext) field_Query_moneyMoves_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.MoneyMoveFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOMoneyMoveFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg2
-	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
-		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["last"] = arg3
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_nearestStaffBirthdays_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg0, err = ec.unmarshalNInt2int(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg0
+	args["filter"] = arg0
 	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
@@ -9937,28 +10068,79 @@ func (ec *executionContext) field_Query_nearestStaffBirthdays_args(ctx context.C
 		}
 	}
 	args["first"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["last"] = arg2
-	var arg3 *string
+	var arg2 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg3, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg3
+	args["after"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["last"] = arg3
 	var arg4 *string
 	if tmp, ok := rawArgs["before"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_nearestStaffBirthdays_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *models.StaffFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOStaffFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -9970,15 +10152,15 @@ func (ec *executionContext) field_Query_nearestStaffBirthdays_args(ctx context.C
 func (ec *executionContext) field_Query_nearestStudentBirthdays_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg0, err = ec.unmarshalNInt2int(ctx, tmp)
+	var arg0 *models.StudentFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["offset"] = arg0
+	args["filter"] = arg0
 	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
@@ -9988,28 +10170,28 @@ func (ec *executionContext) field_Query_nearestStudentBirthdays_args(ctx context
 		}
 	}
 	args["first"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["last"] = arg2
-	var arg3 *string
+	var arg2 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg3, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg3
+	args["after"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["last"] = arg3
 	var arg4 *string
 	if tmp, ok := rawArgs["before"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10036,33 +10218,33 @@ func (ec *executionContext) field_Query_order_args(ctx context.Context, rawArgs 
 func (ec *executionContext) field_Query_orders_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.OrderFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOOrderFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10072,6 +10254,15 @@ func (ec *executionContext) field_Query_orders_args(ctx context.Context, rawArgs
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10174,33 +10365,33 @@ func (ec *executionContext) field_Query_rentPaymentByTraining_args(ctx context.C
 func (ec *executionContext) field_Query_rentPaymentsByMonth_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.RentPaymentByMonthFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalORentPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10210,39 +10401,48 @@ func (ec *executionContext) field_Query_rentPaymentsByMonth_args(ctx context.Con
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_rentPaymentsByTraining_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.RentPaymentByTrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalORentPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10252,6 +10452,15 @@ func (ec *executionContext) field_Query_rentPaymentsByTraining_args(ctx context.
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10339,33 +10548,33 @@ func (ec *executionContext) field_Query_staffPerson_args(ctx context.Context, ra
 func (ec *executionContext) field_Query_staff_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.StaffFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOStaffFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10375,6 +10584,15 @@ func (ec *executionContext) field_Query_staff_args(ctx context.Context, rawArgs 
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10396,33 +10614,33 @@ func (ec *executionContext) field_Query_studentVisit_args(ctx context.Context, r
 func (ec *executionContext) field_Query_studentVisits_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.StudentVisitFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOStudentVisitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10432,6 +10650,15 @@ func (ec *executionContext) field_Query_studentVisits_args(ctx context.Context, 
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10453,33 +10680,33 @@ func (ec *executionContext) field_Query_student_args(ctx context.Context, rawArg
 func (ec *executionContext) field_Query_students_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.StudentFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10489,6 +10716,15 @@ func (ec *executionContext) field_Query_students_args(ctx context.Context, rawAr
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10510,33 +10746,33 @@ func (ec *executionContext) field_Query_task_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_tasks_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.TaskFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOTaskFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10546,6 +10782,15 @@ func (ec *executionContext) field_Query_tasks_args(ctx context.Context, rawArgs 
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10567,33 +10812,33 @@ func (ec *executionContext) field_Query_teamBalance_args(ctx context.Context, ra
 func (ec *executionContext) field_Query_teamBalances_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.TeamBalanceFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOTeamBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10603,6 +10848,15 @@ func (ec *executionContext) field_Query_teamBalances_args(ctx context.Context, r
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10624,57 +10878,15 @@ func (ec *executionContext) field_Query_team_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_teams_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.TeamFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg2
-	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
-		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["last"] = arg3
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_timeTable_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *time.Time
-	if tmp, ok := rawArgs["startDay"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("startDay"))
-		arg0, err = ec.unmarshalOTime2ᚖtimeᚐTime(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["startDay"] = arg0
+	args["filter"] = arg0
 	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
@@ -10684,28 +10896,79 @@ func (ec *executionContext) field_Query_timeTable_args(ctx context.Context, rawA
 		}
 	}
 	args["first"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["last"] = arg2
-	var arg3 *string
+	var arg2 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg3, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg3
+	args["after"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["last"] = arg3
 	var arg4 *string
 	if tmp, ok := rawArgs["before"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_timeTable_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *models.TrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10732,33 +10995,33 @@ func (ec *executionContext) field_Query_trainingDay_args(ctx context.Context, ra
 func (ec *executionContext) field_Query_trainingDays_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.TrainingDayFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOTrainingDayFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10768,6 +11031,15 @@ func (ec *executionContext) field_Query_trainingDays_args(ctx context.Context, r
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10789,15 +11061,15 @@ func (ec *executionContext) field_Query_training_args(ctx context.Context, rawAr
 func (ec *executionContext) field_Query_trainingsByDay_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *time.Time
-	if tmp, ok := rawArgs["date"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("date"))
-		arg0, err = ec.unmarshalOTime2ᚖtimeᚐTime(ctx, tmp)
+	var arg0 *models.TrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["date"] = arg0
+	args["filter"] = arg0
 	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
@@ -10807,28 +11079,28 @@ func (ec *executionContext) field_Query_trainingsByDay_args(ctx context.Context,
 		}
 	}
 	args["first"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["last"] = arg2
-	var arg3 *string
+	var arg2 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg3, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg3
+	args["after"] = arg2
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["last"] = arg3
 	var arg4 *string
 	if tmp, ok := rawArgs["before"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10840,33 +11112,33 @@ func (ec *executionContext) field_Query_trainingsByDay_args(ctx context.Context,
 func (ec *executionContext) field_Query_trainings_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.TrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10876,48 +11148,66 @@ func (ec *executionContext) field_Query_trainings_args(ctx context.Context, rawA
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_unPayedStudents_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+	var arg0 *models.StudentFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg0
+	args["filter"] = arg0
 	var arg1 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg1
+	args["first"] = arg1
 	var arg2 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["after"] = arg2
-	var arg3 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg3, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg3 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg3
+	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -10939,33 +11229,33 @@ func (ec *executionContext) field_Query_user_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_users_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.UserFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOUserFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -10975,6 +11265,15 @@ func (ec *executionContext) field_Query_users_args(ctx context.Context, rawArgs 
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -27795,7 +28094,7 @@ func (ec *executionContext) _Query_carts(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Carts(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Carts(rctx, fc.Args["filter"].(*models.CartFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27923,7 +28222,7 @@ func (ec *executionContext) _Query_clubBalances(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().ClubBalances(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().ClubBalances(rctx, fc.Args["filter"].(*models.ClubBalanceFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28189,7 +28488,7 @@ func (ec *executionContext) _Query_coachPaymentsByMonth(ctx context.Context, fie
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CoachPaymentsByMonth(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["date"].(time.Time), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().CoachPaymentsByMonth(rctx, fc.Args["filter"].(*models.CoachPaymentByMonthFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28247,7 +28546,7 @@ func (ec *executionContext) _Query_coachPaymentsByTeam(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CoachPaymentsByTeam(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int), fc.Args["team"].(*models.TeamDto))
+		return ec.resolvers.Query().CoachPaymentsByTeam(rctx, fc.Args["filter"].(*models.CoachPaymentByTeamFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28305,7 +28604,7 @@ func (ec *executionContext) _Query_coachPaymentsByTraining(ctx context.Context, 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CoachPaymentsByTraining(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["date"].(time.Time), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().CoachPaymentsByTraining(rctx, fc.Args["filter"].(*models.CoachPaymentByTrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28431,7 +28730,7 @@ func (ec *executionContext) _Query_creators(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Creators(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Creators(rctx, fc.Args["filter"].(*models.CreatorFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28561,7 +28860,7 @@ func (ec *executionContext) _Query_kits(ctx context.Context, field graphql.Colle
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Kits(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Kits(rctx, fc.Args["filter"].(*models.KitFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28701,7 +29000,7 @@ func (ec *executionContext) _Query_leads(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Leads(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Leads(rctx, fc.Args["filter"].(*models.LeadFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28829,7 +29128,7 @@ func (ec *executionContext) _Query_moneyCosts(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().MoneyCosts(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().MoneyCosts(rctx, fc.Args["filter"].(*models.MoneyCostFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28969,7 +29268,7 @@ func (ec *executionContext) _Query_moneyMoves(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().MoneyMoves(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().MoneyMoves(rctx, fc.Args["filter"].(*models.MoneyMoveFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29097,7 +29396,7 @@ func (ec *executionContext) _Query_orders(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Orders(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Orders(rctx, fc.Args["filter"].(*models.OrderFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29422,7 +29721,7 @@ func (ec *executionContext) _Query_rentPaymentsByMonth(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().RentPaymentsByMonth(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().RentPaymentsByMonth(rctx, fc.Args["filter"].(*models.RentPaymentByMonthFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29480,7 +29779,7 @@ func (ec *executionContext) _Query_rentPaymentsByTraining(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().RentPaymentsByTraining(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().RentPaymentsByTraining(rctx, fc.Args["filter"].(*models.RentPaymentByTrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29664,7 +29963,7 @@ func (ec *executionContext) _Query_staff(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Staff(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Staff(rctx, fc.Args["filter"].(*models.StaffFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29944,7 +30243,7 @@ func (ec *executionContext) _Query_studentVisits(ctx context.Context, field grap
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().StudentVisits(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().StudentVisits(rctx, fc.Args["filter"].(*models.StudentVisitFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30002,7 +30301,7 @@ func (ec *executionContext) _Query_students(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Students(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Students(rctx, fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30148,7 +30447,7 @@ func (ec *executionContext) _Query_nearestStudentBirthdays(ctx context.Context, 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().NearestStudentBirthdays(rctx, fc.Args["offset"].(int), fc.Args["first"].(*int), fc.Args["last"].(*int), fc.Args["after"].(*string), fc.Args["before"].(*string))
+		return ec.resolvers.Query().NearestStudentBirthdays(rctx, fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30206,7 +30505,7 @@ func (ec *executionContext) _Query_nearestStaffBirthdays(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().NearestStaffBirthdays(rctx, fc.Args["offset"].(int), fc.Args["first"].(*int), fc.Args["last"].(*int), fc.Args["after"].(*string), fc.Args["before"].(*string))
+		return ec.resolvers.Query().NearestStaffBirthdays(rctx, fc.Args["filter"].(*models.StaffFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30264,7 +30563,7 @@ func (ec *executionContext) _Query_unPayedStudents(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().UnPayedStudents(rctx, fc.Args["first"].(*int), fc.Args["last"].(*int), fc.Args["after"].(*string), fc.Args["before"].(*string))
+		return ec.resolvers.Query().UnPayedStudents(rctx, fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30322,7 +30621,7 @@ func (ec *executionContext) _Query_currentTasks(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CurrentTasks(rctx, fc.Args["first"].(*int), fc.Args["last"].(*int), fc.Args["after"].(*string), fc.Args["before"].(*string))
+		return ec.resolvers.Query().CurrentTasks(rctx, fc.Args["filter"].(*models.TaskFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30380,7 +30679,7 @@ func (ec *executionContext) _Query_timeTable(ctx context.Context, field graphql.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TimeTable(rctx, fc.Args["startDay"].(*time.Time), fc.Args["first"].(*int), fc.Args["last"].(*int), fc.Args["after"].(*string), fc.Args["before"].(*string))
+		return ec.resolvers.Query().TimeTable(rctx, fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30438,7 +30737,7 @@ func (ec *executionContext) _Query_trainingsByDay(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TrainingsByDay(rctx, fc.Args["date"].(*time.Time), fc.Args["first"].(*int), fc.Args["last"].(*int), fc.Args["after"].(*string), fc.Args["before"].(*string))
+		return ec.resolvers.Query().TrainingsByDay(rctx, fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30496,7 +30795,7 @@ func (ec *executionContext) _Query_tasks(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Tasks(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Tasks(rctx, fc.Args["filter"].(*models.TaskFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30702,7 +31001,7 @@ func (ec *executionContext) _Query_teamBalances(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TeamBalances(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().TeamBalances(rctx, fc.Args["filter"].(*models.TeamBalanceFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30760,7 +31059,7 @@ func (ec *executionContext) _Query_teams(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Teams(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Teams(rctx, fc.Args["filter"].(*models.TeamFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30966,7 +31265,7 @@ func (ec *executionContext) _Query_trainingDays(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TrainingDays(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().TrainingDays(rctx, fc.Args["filter"].(*models.TrainingDayFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -31024,7 +31323,7 @@ func (ec *executionContext) _Query_trainings(ctx context.Context, field graphql.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Trainings(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Trainings(rctx, fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -31149,7 +31448,7 @@ func (ec *executionContext) _Query_users(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Users(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Users(rctx, fc.Args["filter"].(*models.UserFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -43382,6 +43681,34 @@ func (ec *executionContext) unmarshalInputCartDto(ctx context.Context, obj inter
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputCartFilter(ctx context.Context, obj interface{}) (models.CartFilter, error) {
+	var it models.CartFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputCartInput(ctx context.Context, obj interface{}) (models.CartInput, error) {
 	var it models.CartInput
 	asMap := map[string]interface{}{}
@@ -43461,6 +43788,34 @@ func (ec *executionContext) unmarshalInputCartInputWithId(ctx context.Context, o
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 			it.Input, err = ec.unmarshalNCartInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputClubBalanceFilter(ctx context.Context, obj interface{}) (models.ClubBalanceFilter, error) {
+	var it models.ClubBalanceFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -43574,6 +43929,34 @@ func (ec *executionContext) unmarshalInputClubBalanceInputWithId(ctx context.Con
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputCoachPaymentByMonthFilter(ctx context.Context, obj interface{}) (models.CoachPaymentByMonthFilter, error) {
+	var it models.CoachPaymentByMonthFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputCoachPaymentByMonthInput(ctx context.Context, obj interface{}) (models.CoachPaymentByMonthInput, error) {
 	var it models.CoachPaymentByMonthInput
 	asMap := map[string]interface{}{}
@@ -43653,6 +44036,34 @@ func (ec *executionContext) unmarshalInputCoachPaymentByMonthInputWithId(ctx con
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 			it.Input, err = ec.unmarshalNCoachPaymentByMonthInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputCoachPaymentByTeamFilter(ctx context.Context, obj interface{}) (models.CoachPaymentByTeamFilter, error) {
+	var it models.CoachPaymentByTeamFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -43765,6 +44176,34 @@ func (ec *executionContext) unmarshalInputCoachPaymentByTeamInputWithId(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 			it.Input, err = ec.unmarshalNCoachPaymentByTeamInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputCoachPaymentByTrainingFilter(ctx context.Context, obj interface{}) (models.CoachPaymentByTrainingFilter, error) {
+	var it models.CoachPaymentByTrainingFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -43898,6 +44337,34 @@ func (ec *executionContext) unmarshalInputCreatorDto(ctx context.Context, obj in
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputCreatorFilter(ctx context.Context, obj interface{}) (models.CreatorFilter, error) {
+	var it models.CreatorFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputCreatorInput(ctx context.Context, obj interface{}) (models.CreatorInput, error) {
 	var it models.CreatorInput
 	asMap := map[string]interface{}{}
@@ -44021,6 +44488,34 @@ func (ec *executionContext) unmarshalInputKitDto(ctx context.Context, obj interf
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
 			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputKitFilter(ctx context.Context, obj interface{}) (models.KitFilter, error) {
+	var it models.KitFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44177,6 +44672,34 @@ func (ec *executionContext) unmarshalInputLeadDto(ctx context.Context, obj inter
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
 			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputLeadFilter(ctx context.Context, obj interface{}) (models.LeadFilter, error) {
+	var it models.LeadFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44358,6 +44881,34 @@ func (ec *executionContext) unmarshalInputLoginInput(ctx context.Context, obj in
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputMoneyCostFilter(ctx context.Context, obj interface{}) (models.MoneyCostFilter, error) {
+	var it models.MoneyCostFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputMoneyCostInput(ctx context.Context, obj interface{}) (models.MoneyCostInput, error) {
 	var it models.MoneyCostInput
 	asMap := map[string]interface{}{}
@@ -44453,6 +45004,34 @@ func (ec *executionContext) unmarshalInputMoneyCostInputWithId(ctx context.Conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 			it.Input, err = ec.unmarshalNMoneyCostInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputMoneyMoveFilter(ctx context.Context, obj interface{}) (models.MoneyMoveFilter, error) {
+	var it models.MoneyMoveFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44589,6 +45168,34 @@ func (ec *executionContext) unmarshalInputMoneyMoveInputWithId(ctx context.Conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 			it.Input, err = ec.unmarshalNMoneyMoveInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputOrderFilter(ctx context.Context, obj interface{}) (models.OrderFilter, error) {
+	var it models.OrderFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44914,6 +45521,34 @@ func (ec *executionContext) unmarshalInputRegisterInput(ctx context.Context, obj
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputRentPaymentByMonthFilter(ctx context.Context, obj interface{}) (models.RentPaymentByMonthFilter, error) {
+	var it models.RentPaymentByMonthFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputRentPaymentByMonthInput(ctx context.Context, obj interface{}) (models.RentPaymentByMonthInput, error) {
 	var it models.RentPaymentByMonthInput
 	asMap := map[string]interface{}{}
@@ -45009,6 +45644,34 @@ func (ec *executionContext) unmarshalInputRentPaymentByMonthInputWithId(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 			it.Input, err = ec.unmarshalNRentPaymentByMonthInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputRentPaymentByTrainingFilter(ctx context.Context, obj interface{}) (models.RentPaymentByTrainingFilter, error) {
+	var it models.RentPaymentByTrainingFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -45310,6 +45973,34 @@ func (ec *executionContext) unmarshalInputStaffDto(ctx context.Context, obj inte
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputStaffFilter(ctx context.Context, obj interface{}) (models.StaffFilter, error) {
+	var it models.StaffFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputStaffInput(ctx context.Context, obj interface{}) (models.StaffInput, error) {
 	var it models.StaffInput
 	asMap := map[string]interface{}{}
@@ -45482,6 +46173,34 @@ func (ec *executionContext) unmarshalInputStudentDto(ctx context.Context, obj in
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputStudentFilter(ctx context.Context, obj interface{}) (models.StudentFilter, error) {
+	var it models.StudentFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputStudentInput(ctx context.Context, obj interface{}) (models.StudentInput, error) {
 	var it models.StudentInput
 	asMap := map[string]interface{}{}
@@ -45594,6 +46313,34 @@ func (ec *executionContext) unmarshalInputStudentInputWithId(ctx context.Context
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputStudentVisitFilter(ctx context.Context, obj interface{}) (models.StudentVisitFilter, error) {
+	var it models.StudentVisitFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputStudentVisitInput(ctx context.Context, obj interface{}) (models.StudentVisitInput, error) {
 	var it models.StudentVisitInput
 	asMap := map[string]interface{}{}
@@ -45681,6 +46428,34 @@ func (ec *executionContext) unmarshalInputStudentVisitInputWithId(ctx context.Co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 			it.Input, err = ec.unmarshalNStudentVisitInput2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputTaskFilter(ctx context.Context, obj interface{}) (models.TaskFilter, error) {
+	var it models.TaskFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -45878,6 +46653,34 @@ func (ec *executionContext) unmarshalInputTeamBalanceDto(ctx context.Context, ob
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputTeamBalanceFilter(ctx context.Context, obj interface{}) (models.TeamBalanceFilter, error) {
+	var it models.TeamBalanceFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputTeamBalanceInput(ctx context.Context, obj interface{}) (models.TeamBalanceInput, error) {
 	var it models.TeamBalanceInput
 	asMap := map[string]interface{}{}
@@ -46045,6 +46848,34 @@ func (ec *executionContext) unmarshalInputTeamDto(ctx context.Context, obj inter
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
 			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputTeamFilter(ctx context.Context, obj interface{}) (models.TeamFilter, error) {
+	var it models.TeamFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -46310,6 +47141,34 @@ func (ec *executionContext) unmarshalInputTeamTrainingDto(ctx context.Context, o
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputTrainingDayFilter(ctx context.Context, obj interface{}) (models.TrainingDayFilter, error) {
+	var it models.TrainingDayFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputTrainingDayInput(ctx context.Context, obj interface{}) (models.TrainingDayInput, error) {
 	var it models.TrainingDayInput
 	asMap := map[string]interface{}{}
@@ -46433,6 +47292,34 @@ func (ec *executionContext) unmarshalInputTrainingDto(ctx context.Context, obj i
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
 			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputTrainingFilter(ctx context.Context, obj interface{}) (models.TrainingFilter, error) {
+	var it models.TrainingFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -46581,6 +47468,34 @@ func (ec *executionContext) unmarshalInputUserDto(ctx context.Context, obj inter
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
 			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputUserFilter(ctx context.Context, obj interface{}) (models.UserFilter, error) {
+	var it models.UserFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"name"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -55683,6 +56598,14 @@ func (ec *executionContext) marshalOCartEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return ec._CartEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOCartFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartFilter(ctx context.Context, v interface{}) (*models.CartFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputCartFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOClubBalance2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalance(ctx context.Context, sel ast.SelectionSet, v *models.ClubBalance) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -55743,6 +56666,14 @@ func (ec *executionContext) marshalOClubBalanceEdge2ᚖgitlabᚗcomᚋdinamchiki
 		return graphql.Null
 	}
 	return ec._ClubBalanceEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOClubBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceFilter(ctx context.Context, v interface{}) (*models.ClubBalanceFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputClubBalanceFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOCoachPaymentByMonth2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonth(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByMonth) graphql.Marshaler {
@@ -55807,6 +56738,14 @@ func (ec *executionContext) marshalOCoachPaymentByMonthEdge2ᚖgitlabᚗcomᚋdi
 	return ec._CoachPaymentByMonthEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOCoachPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthFilter(ctx context.Context, v interface{}) (*models.CoachPaymentByMonthFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputCoachPaymentByMonthFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOCoachPaymentByTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeam(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByTeam) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -55869,6 +56808,14 @@ func (ec *executionContext) marshalOCoachPaymentByTeamEdge2ᚖgitlabᚗcomᚋdin
 	return ec._CoachPaymentByTeamEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOCoachPaymentByTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamFilter(ctx context.Context, v interface{}) (*models.CoachPaymentByTeamFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputCoachPaymentByTeamFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOCoachPaymentByTraining2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTraining(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByTraining) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -55929,6 +56876,14 @@ func (ec *executionContext) marshalOCoachPaymentByTrainingEdge2ᚖgitlabᚗcom�
 		return graphql.Null
 	}
 	return ec._CoachPaymentByTrainingEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOCoachPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingFilter(ctx context.Context, v interface{}) (*models.CoachPaymentByTrainingFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputCoachPaymentByTrainingFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalOCoachPaymentRule2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentRule(ctx context.Context, v interface{}) (*models.CoachPaymentRule, error) {
@@ -56007,6 +56962,14 @@ func (ec *executionContext) marshalOCreatorEdge2ᚖgitlabᚗcomᚋdinamchikiᚋg
 		return graphql.Null
 	}
 	return ec._CreatorEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOCreatorFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorFilter(ctx context.Context, v interface{}) (*models.CreatorFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputCreatorFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOCreatorStudent2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorStudentᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CreatorStudent) graphql.Marshaler {
@@ -56213,6 +57176,14 @@ func (ec *executionContext) marshalOKitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑ
 	return ec._KitEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOKitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitFilter(ctx context.Context, v interface{}) (*models.KitFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputKitFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOLead2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLead(ctx context.Context, sel ast.SelectionSet, v *models.Lead) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -56293,6 +57264,14 @@ func (ec *executionContext) marshalOLeadEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._LeadEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOLeadFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadFilter(ctx context.Context, v interface{}) (*models.LeadFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputLeadFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx context.Context, sel ast.SelectionSet, v *models.LeadPayload) graphql.Marshaler {
@@ -56444,6 +57423,14 @@ func (ec *executionContext) marshalOMoneyCostEdge2ᚖgitlabᚗcomᚋdinamchiki�
 	return ec._MoneyCostEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOMoneyCostFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostFilter(ctx context.Context, v interface{}) (*models.MoneyCostFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputMoneyCostFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) unmarshalOMoneyForm2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyForm(ctx context.Context, v interface{}) (*models.MoneyForm, error) {
 	if v == nil {
 		return nil, nil
@@ -56522,6 +57509,14 @@ func (ec *executionContext) marshalOMoneyMoveEdge2ᚖgitlabᚗcomᚋdinamchiki�
 	return ec._MoneyMoveEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOMoneyMoveFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveFilter(ctx context.Context, v interface{}) (*models.MoneyMoveFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputMoneyMoveFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOOrder2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrder(ctx context.Context, sel ast.SelectionSet, v *models.Order) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -56582,6 +57577,14 @@ func (ec *executionContext) marshalOOrderEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._OrderEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOOrderFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderFilter(ctx context.Context, v interface{}) (*models.OrderFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputOrderFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOPageInfo2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPageInfo(ctx context.Context, sel ast.SelectionSet, v *models.PageInfo) graphql.Marshaler {
@@ -56684,6 +57687,14 @@ func (ec *executionContext) marshalORentPaymentByMonthEdge2ᚖgitlabᚗcomᚋdin
 	return ec._RentPaymentByMonthEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalORentPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthFilter(ctx context.Context, v interface{}) (*models.RentPaymentByMonthFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputRentPaymentByMonthFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalORentPaymentByTraining2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTraining(ctx context.Context, sel ast.SelectionSet, v *models.RentPaymentByTraining) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -56744,6 +57755,14 @@ func (ec *executionContext) marshalORentPaymentByTrainingEdge2ᚖgitlabᚗcomᚋ
 		return graphql.Null
 	}
 	return ec._RentPaymentByTrainingEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalORentPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingFilter(ctx context.Context, v interface{}) (*models.RentPaymentByTrainingFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputRentPaymentByTrainingFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOStadium2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadium(ctx context.Context, sel ast.SelectionSet, v *models.Stadium) graphql.Marshaler {
@@ -56864,6 +57883,14 @@ func (ec *executionContext) marshalOStaffEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._StaffEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOStaffFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffFilter(ctx context.Context, v interface{}) (*models.StaffFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputStaffFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOStaffTask2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffTask(ctx context.Context, sel ast.SelectionSet, v []*models.StaffTask) graphql.Marshaler {
@@ -57144,6 +58171,14 @@ func (ec *executionContext) marshalOStudentEdge2ᚖgitlabᚗcomᚋdinamchikiᚋg
 	return ec._StudentEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx context.Context, v interface{}) (*models.StudentFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputStudentFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOStudentLead2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentLeadᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StudentLead) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -57301,6 +58336,14 @@ func (ec *executionContext) marshalOStudentVisitEdge2ᚖgitlabᚗcomᚋdinamchik
 	return ec._StudentVisitEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOStudentVisitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitFilter(ctx context.Context, v interface{}) (*models.StudentVisitFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputStudentVisitFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOTask2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTask(ctx context.Context, sel ast.SelectionSet, v *models.Task) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -57361,6 +58404,14 @@ func (ec *executionContext) marshalOTaskEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._TaskEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOTaskFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskFilter(ctx context.Context, v interface{}) (*models.TaskFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputTaskFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalOTaskStatus2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskStatus(ctx context.Context, v interface{}) (*models.TaskStatus, error) {
@@ -57448,19 +58499,19 @@ func (ec *executionContext) marshalOTeamBalanceEdge2ᚖgitlabᚗcomᚋdinamchiki
 	return ec._TeamBalanceEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOTeamBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceFilter(ctx context.Context, v interface{}) (*models.TeamBalanceFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputTeamBalanceFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOTeamConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamConnection(ctx context.Context, sel ast.SelectionSet, v *models.TeamConnection) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._TeamConnection(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOTeamDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamDto(ctx context.Context, v interface{}) (*models.TeamDto, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputTeamDto(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdge(ctx context.Context, sel ast.SelectionSet, v []*models.TeamEdge) graphql.Marshaler {
@@ -57509,6 +58560,14 @@ func (ec *executionContext) marshalOTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._TeamEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamFilter(ctx context.Context, v interface{}) (*models.TeamFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputTeamFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalOTeamLeadDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamLeadDto(ctx context.Context, v interface{}) (*models.TeamLeadDto, error) {
@@ -57658,6 +58717,14 @@ func (ec *executionContext) marshalOTrainingDayEdge2ᚖgitlabᚗcomᚋdinamchiki
 	return ec._TrainingDayEdge(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalOTrainingDayFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayFilter(ctx context.Context, v interface{}) (*models.TrainingDayFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputTrainingDayFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) unmarshalOTrainingDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDto(ctx context.Context, v interface{}) (*models.TrainingDto, error) {
 	if v == nil {
 		return nil, nil
@@ -57712,6 +58779,14 @@ func (ec *executionContext) marshalOTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋ
 		return graphql.Null
 	}
 	return ec._TrainingEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx context.Context, v interface{}) (*models.TrainingFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputTrainingFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOTrainingRent2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingRentᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TrainingRent) graphql.Marshaler {
@@ -57829,6 +58904,14 @@ func (ec *executionContext) marshalOUserEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 		return graphql.Null
 	}
 	return ec._UserEdge(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOUserFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserFilter(ctx context.Context, v interface{}) (*models.UserFilter, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputUserFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalO__EnumValue2ᚕgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐEnumValueᚄ(ctx context.Context, sel ast.SelectionSet, v []introspection.EnumValue) graphql.Marshaler {

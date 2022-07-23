@@ -7,7 +7,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"time"
 
 	"gitlab.com/dinamchiki/go-graphql/graph/generated"
 	models "gitlab.com/dinamchiki/go-graphql/graph/model"
@@ -604,7 +603,7 @@ func (r *queryResolver) Cart(ctx context.Context, id string) (*models.Cart, erro
 }
 
 // Carts is the resolver for the carts field.
-func (r *queryResolver) Carts(ctx context.Context, after *string, before *string, first *int, last *int) (*models.CartConnection, error) {
+func (r *queryResolver) Carts(ctx context.Context, filter *models.CartFilter, first *int, after *string, last *int, before *string) (*models.CartConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -614,7 +613,7 @@ func (r *queryResolver) ClubBalance(ctx context.Context, id string) (*models.Clu
 }
 
 // ClubBalances is the resolver for the clubBalances field.
-func (r *queryResolver) ClubBalances(ctx context.Context, after *string, before *string, first *int, last *int) (*models.ClubBalanceConnection, error) {
+func (r *queryResolver) ClubBalances(ctx context.Context, filter *models.ClubBalanceFilter, first *int, after *string, last *int, before *string) (*models.ClubBalanceConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -634,17 +633,17 @@ func (r *queryResolver) CoachPaymentByTraining(ctx context.Context, id string) (
 }
 
 // CoachPaymentsByMonth is the resolver for the coachPaymentsByMonth field.
-func (r *queryResolver) CoachPaymentsByMonth(ctx context.Context, after *string, before *string, date time.Time, first *int, last *int) (*models.CoachPaymentByMonthConnection, error) {
+func (r *queryResolver) CoachPaymentsByMonth(ctx context.Context, filter *models.CoachPaymentByMonthFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByMonthConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // CoachPaymentsByTeam is the resolver for the coachPaymentsByTeam field.
-func (r *queryResolver) CoachPaymentsByTeam(ctx context.Context, after *string, before *string, first *int, last *int, team *models.TeamDto) (*models.CoachPaymentByTeamConnection, error) {
+func (r *queryResolver) CoachPaymentsByTeam(ctx context.Context, filter *models.CoachPaymentByTeamFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByTeamConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // CoachPaymentsByTraining is the resolver for the coachPaymentsByTraining field.
-func (r *queryResolver) CoachPaymentsByTraining(ctx context.Context, after *string, before *string, date time.Time, first *int, last *int) (*models.CoachPaymentByTrainingConnection, error) {
+func (r *queryResolver) CoachPaymentsByTraining(ctx context.Context, filter *models.CoachPaymentByTrainingFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByTrainingConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -654,7 +653,7 @@ func (r *queryResolver) Creator(ctx context.Context, id *string) (*models.Creato
 }
 
 // Creators is the resolver for the creators field.
-func (r *queryResolver) Creators(ctx context.Context, after *string, before *string, first *int, last *int) (*models.CreatorConnection, error) {
+func (r *queryResolver) Creators(ctx context.Context, filter *models.CreatorFilter, first *int, after *string, last *int, before *string) (*models.CreatorConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -664,7 +663,7 @@ func (r *queryResolver) Kit(ctx context.Context, id string) (*models.Kit, error)
 }
 
 // Kits is the resolver for the kits field.
-func (r *queryResolver) Kits(ctx context.Context, after *string, before *string, first *int, last *int) (*models.KitConnection, error) {
+func (r *queryResolver) Kits(ctx context.Context, filter *models.KitFilter, first *int, after *string, last *int, before *string) (*models.KitConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -674,7 +673,7 @@ func (r *queryResolver) Lead(ctx context.Context, id string) (*models.Lead, erro
 }
 
 // Leads is the resolver for the leads field.
-func (r *queryResolver) Leads(ctx context.Context, after *string, before *string, first *int, last *int) (*models.LeadConnection, error) {
+func (r *queryResolver) Leads(ctx context.Context, filter *models.LeadFilter, first *int, after *string, last *int, before *string) (*models.LeadConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -684,7 +683,7 @@ func (r *queryResolver) MoneyCost(ctx context.Context, id string) (*models.Money
 }
 
 // MoneyCosts is the resolver for the moneyCosts field.
-func (r *queryResolver) MoneyCosts(ctx context.Context, after *string, before *string, first *int, last *int) (*models.MoneyCostConnection, error) {
+func (r *queryResolver) MoneyCosts(ctx context.Context, filter *models.MoneyCostFilter, first *int, after *string, last *int, before *string) (*models.MoneyCostConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -694,7 +693,7 @@ func (r *queryResolver) MoneyMove(ctx context.Context, id string) (*models.Money
 }
 
 // MoneyMoves is the resolver for the moneyMoves field.
-func (r *queryResolver) MoneyMoves(ctx context.Context, after *string, before *string, first *int, last *int) (*models.MoneyMoveConnection, error) {
+func (r *queryResolver) MoneyMoves(ctx context.Context, filter *models.MoneyMoveFilter, first *int, after *string, last *int, before *string) (*models.MoneyMoveConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -704,7 +703,7 @@ func (r *queryResolver) Order(ctx context.Context, id string) (*models.Order, er
 }
 
 // Orders is the resolver for the orders field.
-func (r *queryResolver) Orders(ctx context.Context, after *string, before *string, first *int, last *int) (*models.OrderConnection, error) {
+func (r *queryResolver) Orders(ctx context.Context, filter *models.OrderFilter, first *int, after *string, last *int, before *string) (*models.OrderConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -729,12 +728,12 @@ func (r *queryResolver) RentPaymentByTraining(ctx context.Context, id string) (*
 }
 
 // RentPaymentsByMonth is the resolver for the rentPaymentsByMonth field.
-func (r *queryResolver) RentPaymentsByMonth(ctx context.Context, after *string, before *string, first *int, last *int) (*models.RentPaymentByMonthConnection, error) {
+func (r *queryResolver) RentPaymentsByMonth(ctx context.Context, filter *models.RentPaymentByMonthFilter, first *int, after *string, last *int, before *string) (*models.RentPaymentByMonthConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // RentPaymentsByTraining is the resolver for the rentPaymentsByTraining field.
-func (r *queryResolver) RentPaymentsByTraining(ctx context.Context, after *string, before *string, first *int, last *int) (*models.RentPaymentByTrainingConnection, error) {
+func (r *queryResolver) RentPaymentsByTraining(ctx context.Context, filter *models.RentPaymentByTrainingFilter, first *int, after *string, last *int, before *string) (*models.RentPaymentByTrainingConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -749,7 +748,7 @@ func (r *queryResolver) Stadiums(ctx context.Context, filter *models.StadiumFilt
 }
 
 // Staff is the resolver for the staff field.
-func (r *queryResolver) Staff(ctx context.Context, after *string, before *string, first *int, last *int) (*models.StaffConnection, error) {
+func (r *queryResolver) Staff(ctx context.Context, filter *models.StaffFilter, first *int, after *string, last *int, before *string) (*models.StaffConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -769,12 +768,12 @@ func (r *queryResolver) StudentVisit(ctx context.Context, id string) (*models.St
 }
 
 // StudentVisits is the resolver for the studentVisits field.
-func (r *queryResolver) StudentVisits(ctx context.Context, after *string, before *string, first *int, last *int) (*models.StudentVisitConnection, error) {
+func (r *queryResolver) StudentVisits(ctx context.Context, filter *models.StudentVisitFilter, first *int, after *string, last *int, before *string) (*models.StudentVisitConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // Students is the resolver for the students field.
-func (r *queryResolver) Students(ctx context.Context, after *string, before *string, first *int, last *int) (*models.StudentConnection, error) {
+func (r *queryResolver) Students(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -784,37 +783,37 @@ func (r *queryResolver) Task(ctx context.Context, id string) (*models.Task, erro
 }
 
 // NearestStudentBirthdays is the resolver for the nearestStudentBirthdays field.
-func (r *queryResolver) NearestStudentBirthdays(ctx context.Context, offset int, first *int, last *int, after *string, before *string) (*models.StudentConnection, error) {
+func (r *queryResolver) NearestStudentBirthdays(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // NearestStaffBirthdays is the resolver for the nearestStaffBirthdays field.
-func (r *queryResolver) NearestStaffBirthdays(ctx context.Context, offset int, first *int, last *int, after *string, before *string) (*models.StaffConnection, error) {
+func (r *queryResolver) NearestStaffBirthdays(ctx context.Context, filter *models.StaffFilter, first *int, after *string, last *int, before *string) (*models.StaffConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // UnPayedStudents is the resolver for the unPayedStudents field.
-func (r *queryResolver) UnPayedStudents(ctx context.Context, first *int, last *int, after *string, before *string) (*models.StudentConnection, error) {
+func (r *queryResolver) UnPayedStudents(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // CurrentTasks is the resolver for the currentTasks field.
-func (r *queryResolver) CurrentTasks(ctx context.Context, first *int, last *int, after *string, before *string) (*models.TaskConnection, error) {
+func (r *queryResolver) CurrentTasks(ctx context.Context, filter *models.TaskFilter, first *int, after *string, last *int, before *string) (*models.TaskConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // TimeTable is the resolver for the timeTable field.
-func (r *queryResolver) TimeTable(ctx context.Context, startDay *time.Time, first *int, last *int, after *string, before *string) (*models.TrainingConnection, error) {
+func (r *queryResolver) TimeTable(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // TrainingsByDay is the resolver for the trainingsByDay field.
-func (r *queryResolver) TrainingsByDay(ctx context.Context, date *time.Time, first *int, last *int, after *string, before *string) (*models.TrainingConnection, error) {
+func (r *queryResolver) TrainingsByDay(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // Tasks is the resolver for the tasks field.
-func (r *queryResolver) Tasks(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TaskConnection, error) {
+func (r *queryResolver) Tasks(ctx context.Context, filter *models.TaskFilter, first *int, after *string, last *int, before *string) (*models.TaskConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -829,12 +828,12 @@ func (r *queryResolver) TeamBalance(ctx context.Context, id string) (*models.Tea
 }
 
 // TeamBalances is the resolver for the teamBalances field.
-func (r *queryResolver) TeamBalances(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TeamBalanceConnection, error) {
+func (r *queryResolver) TeamBalances(ctx context.Context, filter *models.TeamBalanceFilter, first *int, after *string, last *int, before *string) (*models.TeamBalanceConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // Teams is the resolver for the teams field.
-func (r *queryResolver) Teams(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TeamConnection, error) {
+func (r *queryResolver) Teams(ctx context.Context, filter *models.TeamFilter, first *int, after *string, last *int, before *string) (*models.TeamConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -849,12 +848,12 @@ func (r *queryResolver) TrainingDay(ctx context.Context, id string) (*models.Tra
 }
 
 // TrainingDays is the resolver for the trainingDays field.
-func (r *queryResolver) TrainingDays(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TrainingDayConnection, error) {
+func (r *queryResolver) TrainingDays(ctx context.Context, filter *models.TrainingDayFilter, first *int, after *string, last *int, before *string) (*models.TrainingDayConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
 // Trainings is the resolver for the trainings field.
-func (r *queryResolver) Trainings(ctx context.Context, after *string, before *string, first *int, last *int) (*models.TrainingConnection, error) {
+func (r *queryResolver) Trainings(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -864,7 +863,7 @@ func (r *queryResolver) User(ctx context.Context, id string) (*models.User, erro
 }
 
 // Users is the resolver for the users field.
-func (r *queryResolver) Users(ctx context.Context, after *string, before *string, first *int, last *int) (*models.UserConnection, error) {
+func (r *queryResolver) Users(ctx context.Context, filter *models.UserFilter, first *int, after *string, last *int, before *string) (*models.UserConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
