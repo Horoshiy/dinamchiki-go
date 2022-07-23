@@ -4,7 +4,7 @@ scalar Time
 type Query {
     meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
     article(id: String!): Article
-    articles(after: String, before: String, first: Int, last: Int): ArticleConnection
+    articles(filter: ArticleFilter, first: Int, after: ID, last: Int, before: ID): ArticleConnection
     cart(id: String!): Cart
     carts(after: String, before: String, first: Int, last: Int): CartConnection
     clubBalance(id: String!): ClubBalance
@@ -211,6 +211,10 @@ input PlaceFilter {
     name: String
 }
 
+input ArticleFilter {
+    title: String
+}
+
 input RegisterInput {
     phone: String!
     password: String!
@@ -256,12 +260,12 @@ type Article {
 }
 
 type ArticleConnection {
-    edges: [ArticleEdge]
-    pageInfo: PageInfo
+    edges: [ArticleEdge!]!
+    pageInfo: PageInfo!
 }
 
 type ArticleEdge {
-    cursor: String
+    cursor: String!
     node: Article
 }
 
@@ -1063,7 +1067,6 @@ enum VisitStatus {
 }
 
 input ArticleInput {
-    author: UserDto!
     description: String!
     fileName: String
     published: Boolean!

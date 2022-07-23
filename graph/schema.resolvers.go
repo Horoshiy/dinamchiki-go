@@ -60,22 +60,37 @@ func (r *mutationResolver) Login(ctx context.Context, input models.LoginInput) (
 
 // ArticleDelete is the resolver for the articleDelete field.
 func (r *mutationResolver) ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.ArticleDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.ArticlePayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // ArticlePublishUpdate is the resolver for the articlePublishUpdate field.
 func (r *mutationResolver) ArticlePublishUpdate(ctx context.Context, id string) (*models.ArticlePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.ArticlePublish(id)
 }
 
 // ArticleSave is the resolver for the articleSave field.
 func (r *mutationResolver) ArticleSave(ctx context.Context, articleInput models.ArticleInput) (*models.ArticlePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, articleInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.ArticleSave(ctx, articleInput)
 }
 
 // ArticleUpdate is the resolver for the articleUpdate field.
 func (r *mutationResolver) ArticleUpdate(ctx context.Context, articleInput models.ArticleInputWithID) (*models.ArticlePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, articleInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.ArticleUpdate(ctx, articleInput)
 }
 
 // CartDelete is the resolver for the cartDelete field.
@@ -589,7 +604,7 @@ func (r *queryResolver) Article(ctx context.Context, id string) (*models.Article
 }
 
 // Articles is the resolver for the articles field.
-func (r *queryResolver) Articles(ctx context.Context, after *string, before *string, first *int, last *int) (*models.ArticleConnection, error) {
+func (r *queryResolver) Articles(ctx context.Context, filter *models.ArticleFilter, first *int, after *string, last *int, before *string) (*models.ArticleConnection, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 

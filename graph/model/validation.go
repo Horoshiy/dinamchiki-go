@@ -33,6 +33,15 @@ func (r PlaceInput) Validate() (bool, map[string]string) {
 	return v.IsValid(), v.Errors
 }
 
+func (r ArticleInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	v.Required("title", r.Title)
+	v.Required("description", r.Description)
+
+	return v.IsValid(), v.Errors
+}
+
 func (l LoginInput) Validate() (bool, map[string]string) {
 	v := validator.New()
 

@@ -547,7 +547,7 @@ type ComplexityRoot struct {
 
 	Query struct {
 		Article                 func(childComplexity int, id string) int
-		Articles                func(childComplexity int, after *string, before *string, first *int, last *int) int
+		Articles                func(childComplexity int, filter *models.ArticleFilter, first *int, after *string, last *int, before *string) int
 		Cart                    func(childComplexity int, id string) int
 		Carts                   func(childComplexity int, after *string, before *string, first *int, last *int) int
 		ClubBalance             func(childComplexity int, id string) int
@@ -1103,7 +1103,7 @@ type MutationResolver interface {
 type QueryResolver interface {
 	Meetups(ctx context.Context, filter *models.MeetupFilter, limit *int, offset *int) ([]*models.Meetup, error)
 	Article(ctx context.Context, id string) (*models.Article, error)
-	Articles(ctx context.Context, after *string, before *string, first *int, last *int) (*models.ArticleConnection, error)
+	Articles(ctx context.Context, filter *models.ArticleFilter, first *int, after *string, last *int, before *string) (*models.ArticleConnection, error)
 	Cart(ctx context.Context, id string) (*models.Cart, error)
 	Carts(ctx context.Context, after *string, before *string, first *int, last *int) (*models.CartConnection, error)
 	ClubBalance(ctx context.Context, id string) (*models.ClubBalance, error)
@@ -3942,7 +3942,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Articles(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
+		return e.complexity.Query.Articles(childComplexity, args["filter"].(*models.ArticleFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
 
 	case "Query.cart":
 		if e.complexity.Query.Cart == nil {
@@ -6096,6 +6096,7 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 	rc := graphql.GetOperationContext(ctx)
 	ec := executionContext{rc, e}
 	inputUnmarshalMap := graphql.BuildUnmarshalerMap(
+		ec.unmarshalInputArticleFilter,
 		ec.unmarshalInputArticleInput,
 		ec.unmarshalInputArticleInputWithId,
 		ec.unmarshalInputCartDto,
@@ -6235,7 +6236,7 @@ scalar Time
 type Query {
     meetups(filter: MeetupFilter, limit: Int = 10, offset: Int = 0): [Meetup!]!
     article(id: String!): Article
-    articles(after: String, before: String, first: Int, last: Int): ArticleConnection
+    articles(filter: ArticleFilter, first: Int, after: ID, last: Int, before: ID): ArticleConnection
     cart(id: String!): Cart
     carts(after: String, before: String, first: Int, last: Int): CartConnection
     clubBalance(id: String!): ClubBalance
@@ -6442,6 +6443,10 @@ input PlaceFilter {
     name: String
 }
 
+input ArticleFilter {
+    title: String
+}
+
 input RegisterInput {
     phone: String!
     password: String!
@@ -6487,12 +6492,12 @@ type Article {
 }
 
 type ArticleConnection {
-    edges: [ArticleEdge]
-    pageInfo: PageInfo
+    edges: [ArticleEdge!]!
+    pageInfo: PageInfo!
 }
 
 type ArticleEdge {
-    cursor: String
+    cursor: String!
     node: Article
 }
 
@@ -7294,7 +7299,6 @@ enum VisitStatus {
 }
 
 input ArticleInput {
-    author: UserDto!
     description: String!
     fileName: String
     published: Boolean!
@@ -9406,33 +9410,33 @@ func (ec *executionContext) field_Query_article_args(ctx context.Context, rawArg
 func (ec *executionContext) field_Query_articles_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["after"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
+	var arg0 *models.ArticleFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg0, err = ec.unmarshalOArticleFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg0
-	var arg1 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg1, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["before"] = arg1
-	var arg2 *int
+	args["filter"] = arg0
+	var arg1 *int
 	if tmp, ok := rawArgs["first"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["first"] = arg2
+	args["first"] = arg1
+	var arg2 *string
+	if tmp, ok := rawArgs["after"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
+		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["after"] = arg2
 	var arg3 *int
 	if tmp, ok := rawArgs["last"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
@@ -9442,6 +9446,15 @@ func (ec *executionContext) field_Query_articles_args(ctx context.Context, rawAr
 		}
 	}
 	args["last"] = arg3
+	var arg4 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg4
 	return args, nil
 }
 
@@ -11586,11 +11599,14 @@ func (ec *executionContext) _ArticleConnection_edges(ctx context.Context, field 
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.ArticleEdge)
 	fc.Result = res
-	return ec.marshalOArticleEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleEdge(ctx, field.Selections, res)
+	return ec.marshalNArticleEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_ArticleConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -11633,11 +11649,14 @@ func (ec *executionContext) _ArticleConnection_pageInfo(ctx context.Context, fie
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.(*models.PageInfo)
 	fc.Result = res
-	return ec.marshalOPageInfo2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPageInfo(ctx, field.Selections, res)
+	return ec.marshalNPageInfo2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPageInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_ArticleConnection_pageInfo(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -11682,11 +11701,14 @@ func (ec *executionContext) _ArticleEdge_cursor(ctx context.Context, field graph
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_ArticleEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -28297,7 +28319,7 @@ func (ec *executionContext) _Query_articles(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Articles(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["first"].(*int), fc.Args["last"].(*int))
+		return ec.resolvers.Query().Articles(rctx, fc.Args["filter"].(*models.ArticleFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -43905,6 +43927,34 @@ func (ec *executionContext) fieldContext___Type_specifiedByURL(ctx context.Conte
 
 // region    **************************** input.gotpl *****************************
 
+func (ec *executionContext) unmarshalInputArticleFilter(ctx context.Context, obj interface{}) (models.ArticleFilter, error) {
+	var it models.ArticleFilter
+	asMap := map[string]interface{}{}
+	for k, v := range obj.(map[string]interface{}) {
+		asMap[k] = v
+	}
+
+	fieldsInOrder := [...]string{"title"}
+	for _, k := range fieldsInOrder {
+		v, ok := asMap[k]
+		if !ok {
+			continue
+		}
+		switch k {
+		case "title":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("title"))
+			it.Title, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputArticleInput(ctx context.Context, obj interface{}) (models.ArticleInput, error) {
 	var it models.ArticleInput
 	asMap := map[string]interface{}{}
@@ -43912,21 +43962,13 @@ func (ec *executionContext) unmarshalInputArticleInput(ctx context.Context, obj 
 		asMap[k] = v
 	}
 
-	fieldsInOrder := [...]string{"author", "description", "fileName", "published", "tags", "title"}
+	fieldsInOrder := [...]string{"description", "fileName", "published", "tags", "title"}
 	for _, k := range fieldsInOrder {
 		v, ok := asMap[k]
 		if !ok {
 			continue
 		}
 		switch k {
-		case "author":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("author"))
-			it.Author, err = ec.unmarshalNUserDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserDto(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "description":
 			var err error
 
@@ -47524,10 +47566,16 @@ func (ec *executionContext) _ArticleConnection(ctx context.Context, sel ast.Sele
 
 			out.Values[i] = ec._ArticleConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._ArticleConnection_pageInfo(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -47553,6 +47601,9 @@ func (ec *executionContext) _ArticleEdge(ctx context.Context, sel ast.SelectionS
 
 			out.Values[i] = ec._ArticleEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._ArticleEdge_node(ctx, field, obj)
@@ -54626,6 +54677,60 @@ func (ec *executionContext) marshalNAge2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphql
 	return v
 }
 
+func (ec *executionContext) marshalNArticleEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.ArticleEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNArticleEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNArticleEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleEdge(ctx context.Context, sel ast.SelectionSet, v *models.ArticleEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._ArticleEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNArticleInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleInput(ctx context.Context, v interface{}) (models.ArticleInput, error) {
 	res, err := ec.unmarshalInputArticleInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -56354,52 +56459,12 @@ func (ec *executionContext) marshalOArticleConnection2ᚖgitlabᚗcomᚋdinamchi
 	return ec._ArticleConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOArticleEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleEdge(ctx context.Context, sel ast.SelectionSet, v []*models.ArticleEdge) graphql.Marshaler {
+func (ec *executionContext) unmarshalOArticleFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleFilter(ctx context.Context, v interface{}) (*models.ArticleFilter, error) {
 	if v == nil {
-		return graphql.Null
+		return nil, nil
 	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOArticleEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOArticleEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleEdge(ctx context.Context, sel ast.SelectionSet, v *models.ArticleEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._ArticleEdge(ctx, sel, v)
+	res, err := ec.unmarshalInputArticleFilter(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalOBoolean2bool(ctx context.Context, v interface{}) (bool, error) {

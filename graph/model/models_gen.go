@@ -15,12 +15,15 @@ type ArticleConnection struct {
 }
 
 type ArticleEdge struct {
-	Cursor *string  `json:"cursor"`
+	Cursor string   `json:"cursor"`
 	Node   *Article `json:"node"`
 }
 
+type ArticleFilter struct {
+	Title *string `json:"title"`
+}
+
 type ArticleInput struct {
-	Author      *UserDto `json:"author"`
 	Description string   `json:"description"`
 	FileName    *string  `json:"fileName"`
 	Published   bool     `json:"published"`
