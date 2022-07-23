@@ -7,62 +7,99 @@ import (
 	models "gitlab.com/dinamchiki/go-graphql/graph/model"
 )
 
-func (d *Domain) CreatePlace(input models.PlaceInput) (*models.PlacePayload, error) {
-
-	_, err := d.PlacesRepo.GetPlaceByName(input.Name)
-	if err == nil {
-		return nil, errors.New("такое название уже есть у филиала")
-	}
-
-	place := &models.Place{
+func placeInputToPlace(input *models.PlaceInput) *models.Place {
+	return &models.Place{
 		Address:     input.Address,
 		Description: input.Description,
 		Name:        input.Name,
 		OrderNumber: input.OrderNumber,
 		Published:   input.Published,
 	}
-	return d.PlacesRepo.CreatePlace(place)
+}
+func placeInputWithIdToPlace(place *models.Place, input *models.PlaceInput) *models.Place {
+	return &models.Place{
+		ID:          place.ID,
+		Address:     input.Address,
+		Description: input.Description,
+		Name:        input.Name,
+		OrderNumber: input.OrderNumber,
+		Published:   input.Published,
+	}
+}
+func (d *Domain) PlaceSave(input models.PlaceInput) (*models.PlacePayload, error) {
+
+	_, err := d.PlacesRepo.GetPlaceByName(input.Name)
+	if err == nil {
+		return nil, errors.New("такое название уже есть у филиала")
+	}
+
+	return d.PlacesRepo.PlaceSave(placeInputToPlace(&input))
 }
 
-func (d *Domain) UpdatePlace(ctx context.Context, id string, input *models.PlaceInput) (*models.Place, error) {
+func (d *Domain) PlaceUpdate(ctx context.Context, placeInput models.PlaceInputWithID) (*models.PlacePayload, error) {
 
-	place, err := d.PlacesRepo.GetPlaceByID(id)
+	place, err := d.PlacesRepo.GetPlaceByID(placeInput.ID)
 	if err != nil || place == nil {
 		return nil, errors.New("такого филиала не существует")
 	}
 
-	if len(input.Name) < 3 {
+	if len(placeInput.Input.Name) < 3 {
 		return nil, errors.New("кол-во символов в названии мало")
 	}
-	if len(input.Description) < 3 {
+	if len(placeInput.Input.Description) < 3 {
 		return nil, errors.New("кол-во символов в описании мало")
 	}
-	if len(input.Address) < 3 {
+	if len(placeInput.Input.Address) < 3 {
 		return nil, errors.New("кол-во символов в адресе мало")
 	}
 
-	place.Name = input.Name
-	place.Description = input.Description
-	place.Address = input.Address
-	place.OrderNumber = input.OrderNumber
-	place.Published = input.Published
-	place, err = d.PlacesRepo.UpdatePlace(place)
+	place = placeInputWithIdToPlace(place, placeInput.Input)
+	placePayload, err := d.PlacesRepo.PlaceUpdate(place)
 	if err != nil {
 		return nil, fmt.Errorf("ошибка при обновлении филиала: %v", err)
 	}
 
-	return place, nil
+	return placePayload, nil
 }
 
-func (d *Domain) DeletePlace(ctx context.Context, id string) (bool, error) {
+func (d *Domain) PlacePublish(id string) (*models.PlacePayload, error) {
+	place, err := d.PlacesRepo.GetPlaceByID(id)
+	if err != nil || place == nil {
+		return nil, errors.New("филиала не существует")
+	}
+
+	placePayload, err := d.PlacesRepo.PlacePublish(place)
+	if err != nil {
+		return nil, fmt.Errorf("ошибка при обновлении филиала: %v", err)
+	}
+
+	return placePayload, nil
+}
+
+func (d *Domain) PlaceRestore(id string) (*models.PlacePayload, error) {
+	place, err := d.PlacesRepo.GetPlaceByID(id)
+	if err != nil || place == nil {
+		return nil, errors.New("филиала не существует")
+	}
+
+	placePayload, err := d.PlacesRepo.PlaceRestore(place)
+	if err != nil {
+		return nil, fmt.Errorf("ошибка при обновлении филиала: %v", err)
+	}
+
+	return placePayload, nil
+}
+
+// PlaceDelete is the resolver for the placeDelete field.
+func (d *Domain) PlaceDelete(id string) (bool, error) {
 	place, err := d.PlacesRepo.GetPlaceByID(id)
 	if err != nil || place == nil {
 		return false, errors.New("филиала не существует")
 	}
 
-	err = d.PlacesRepo.DeletePlace(place)
+	err = d.PlacesRepo.PlaceDelete(place)
 	if err != nil {
-		return false, fmt.Errorf("ошибка при удалении филиала %v", err)
+		return false, fmt.Errorf("error while deleting meetup %v", err)
 	}
 
 	return true, nil

@@ -56,8 +56,6 @@ type Cart struct {
 	StudentID   string     `json:"studentId"`
 	StudentItem *Student   `json:"studentItem"`
 	Sum         int        `json:"sum"`
-	CreatedAt   time.Time  `json:"createdAt"`
-	UpdatedAt   time.Time  `json:"updatedAt"`
 }
 
 type CartConnection struct {
@@ -101,8 +99,6 @@ type ClubBalance struct {
 	Salary     int       `json:"salary"`
 	Sum        int       `json:"sum"`
 	Tickets    int       `json:"tickets"`
-	CreatedAt  time.Time `json:"createdAt"`
-	UpdatedAt  time.Time `json:"updatedAt"`
 }
 
 type ClubBalanceConnection struct {
@@ -141,8 +137,6 @@ type CoachPaymentByMonth struct {
 	ID        string     `json:"id"`
 	Published bool       `json:"published"`
 	Sum       int        `json:"sum"`
-	CreatedAt time.Time  `json:"createdAt"`
-	UpdatedAt time.Time  `json:"updatedAt"`
 }
 
 type CoachPaymentByMonthConnection struct {
@@ -183,8 +177,6 @@ type CoachPaymentByTeam struct {
 	Sum         *int              `json:"sum"`
 	TeamID      *string           `json:"teamId"`
 	TeamItem    *Team             `json:"teamItem"`
-	CreatedAt   time.Time         `json:"createdAt"`
-	UpdatedAt   time.Time         `json:"updatedAt"`
 }
 
 type CoachPaymentByTeamConnection struct {
@@ -225,8 +217,6 @@ type CoachPaymentByTraining struct {
 	Sum          *int      `json:"sum"`
 	TrainingID   *string   `json:"trainingId"`
 	TrainingItem *Training `json:"trainingItem"`
-	CreatedAt    time.Time `json:"createdAt"`
-	UpdatedAt    time.Time `json:"updatedAt"`
 }
 
 type CoachPaymentByTrainingConnection struct {
@@ -257,15 +247,13 @@ type CoachPaymentByTrainingPayload struct {
 }
 
 type Creator struct {
-	ID          string    `json:"id"`
-	Name        string    `json:"name"`
-	PassportNum *string   `json:"passportNum"`
-	Phone       string    `json:"phone"`
-	Published   bool      `json:"published"`
-	UserID      *string   `json:"userId"`
-	UserItem    *User     `json:"userItem"`
-	CreatedAt   time.Time `json:"createdAt"`
-	UpdatedAt   time.Time `json:"updatedAt"`
+	ID          string  `json:"id"`
+	Name        string  `json:"name"`
+	PassportNum *string `json:"passportNum"`
+	Phone       string  `json:"phone"`
+	Published   bool    `json:"published"`
+	UserID      *string `json:"userId"`
+	UserItem    *User   `json:"userItem"`
 }
 
 type CreatorConnection struct {
@@ -308,17 +296,15 @@ type CreatorStudent struct {
 }
 
 type Kit struct {
-	FileName  *string   `json:"fileName"`
-	ID        string    `json:"id"`
-	Name      string    `json:"name"`
-	Number    *int      `json:"number"`
-	Price     int       `json:"price"`
-	Published bool      `json:"published"`
-	Quantity  *int      `json:"quantity"`
-	Size      string    `json:"size"`
-	Title     *string   `json:"title"`
-	CreatedAt time.Time `json:"createdAt"`
-	UpdatedAt time.Time `json:"updatedAt"`
+	FileName  *string `json:"fileName"`
+	ID        string  `json:"id"`
+	Name      string  `json:"name"`
+	Number    *int    `json:"number"`
+	Price     int     `json:"price"`
+	Published bool    `json:"published"`
+	Quantity  *int    `json:"quantity"`
+	Size      string  `json:"size"`
+	Title     *string `json:"title"`
 }
 
 type KitCart struct {
@@ -378,8 +364,6 @@ type Lead struct {
 	TeamID      *string        `json:"teamId"`
 	TeamItem    *Team          `json:"teamItem"`
 	YearBorn    *int           `json:"yearBorn"`
-	CreatedAt   time.Time      `json:"createdAt"`
-	UpdatedAt   time.Time      `json:"updatedAt"`
 }
 
 type LeadConnection struct {
@@ -444,8 +428,6 @@ type MoneyCost struct {
 	Staff       *Staff    `json:"staff"`
 	StaffID     string    `json:"staffId"`
 	Sum         int       `json:"sum"`
-	CreatedAt   time.Time `json:"createdAt"`
-	UpdatedAt   time.Time `json:"updatedAt"`
 }
 
 type MoneyCostConnection struct {
@@ -492,8 +474,6 @@ type MoneyMove struct {
 	Sum         *int       `json:"sum"`
 	UserID      string     `json:"userId"`
 	UserItem    *User      `json:"userItem"`
-	CreatedAt   time.Time  `json:"createdAt"`
-	UpdatedAt   time.Time  `json:"updatedAt"`
 }
 
 type MoneyMoveConnection struct {
@@ -543,8 +523,6 @@ type Order struct {
 	ID          string      `json:"id"`
 	OrderStatus OrderStatus `json:"orderStatus"`
 	Published   bool        `json:"published"`
-	CreatedAt   time.Time   `json:"createdAt"`
-	UpdatedAt   time.Time   `json:"updatedAt"`
 }
 
 type OrderConnection struct {
@@ -635,8 +613,6 @@ type RentPaymentByMonth struct {
 	StadiumID   string     `json:"stadiumId"`
 	StadiumItem *Stadium   `json:"stadiumItem"`
 	Sum         int        `json:"sum"`
-	CreatedAt   time.Time  `json:"createdAt"`
-	UpdatedAt   time.Time  `json:"updatedAt"`
 }
 
 type RentPaymentByMonthConnection struct {
@@ -677,8 +653,6 @@ type RentPaymentByTraining struct {
 	Sum         int             `json:"sum"`
 	TrainingIds []string        `json:"trainingIds"`
 	Trainings   []*TrainingRent `json:"trainings"`
-	CreatedAt   time.Time       `json:"createdAt"`
-	UpdatedAt   time.Time       `json:"updatedAt"`
 }
 
 type RentPaymentByTrainingConnection struct {
@@ -710,15 +684,13 @@ type RentPaymentByTrainingPayload struct {
 }
 
 type Stadium struct {
-	ID        string    `json:"id"`
-	Latitude  float64   `json:"latitude"`
-	Longitude float64   `json:"longitude"`
-	Name      string    `json:"name"`
-	PlaceID   *string   `json:"placeId"`
-	PlaceItem *Place    `json:"placeItem"`
-	Published bool      `json:"published"`
-	CreatedAt time.Time `json:"createdAt"`
-	UpdatedAt time.Time `json:"updatedAt"`
+	ID        string  `json:"id"`
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
+	Name      string  `json:"name"`
+	PlaceID   *string `json:"placeId"`
+	PlaceItem *Place  `json:"placeItem"`
+	Published bool    `json:"published"`
 }
 
 type StadiumConnection struct {
@@ -767,8 +739,6 @@ type Staff struct {
 	UserID      *string    `json:"userId"`
 	UserItem    *User      `json:"userItem"`
 	Work        string     `json:"work"`
-	CreatedAt   time.Time  `json:"createdAt"`
-	UpdatedAt   time.Time  `json:"updatedAt"`
 }
 
 type StaffConnection struct {
@@ -838,8 +808,6 @@ type Student struct {
 	Published   bool              `json:"published"`
 	TeamIds     []string          `json:"teamIds"`
 	Teams       []*TeamStudent    `json:"teams"`
-	CreatedAt   time.Time         `json:"createdAt"`
-	UpdatedAt   time.Time         `json:"updatedAt"`
 }
 
 type StudentConnection struct {
@@ -898,8 +866,6 @@ type StudentVisit struct {
 	TrainingID   string      `json:"trainingId"`
 	TrainingItem *Training   `json:"trainingItem"`
 	VisitStatus  VisitStatus `json:"visitStatus"`
-	CreatedAt    time.Time   `json:"createdAt"`
-	UpdatedAt    time.Time   `json:"updatedAt"`
 }
 
 type StudentVisitConnection struct {
@@ -948,8 +914,6 @@ type Task struct {
 	Title       string         `json:"title"`
 	WorkerIds   []string       `json:"workerIds"`
 	Workers     []*StaffTask   `json:"workers"`
-	CreatedAt   time.Time      `json:"createdAt"`
-	UpdatedAt   time.Time      `json:"updatedAt"`
 }
 
 type TaskConnection struct {
@@ -999,8 +963,6 @@ type Team struct {
 	PlaceItem   *Place       `json:"placeItem"`
 	Published   bool         `json:"published"`
 	Writable    bool         `json:"writable"`
-	CreatedAt   time.Time    `json:"createdAt"`
-	UpdatedAt   time.Time    `json:"updatedAt"`
 }
 
 type TeamBalance struct {
@@ -1013,8 +975,6 @@ type TeamBalance struct {
 	TeamID    string    `json:"teamId"`
 	TeamItem  *Team     `json:"teamItem"`
 	Tickets   int       `json:"tickets"`
-	CreatedAt time.Time `json:"createdAt"`
-	UpdatedAt time.Time `json:"updatedAt"`
 }
 
 type TeamBalanceConnection struct {
@@ -1136,8 +1096,6 @@ type Training struct {
 	TeamItem    *Team            `json:"teamItem"`
 	Time        *time.Time       `json:"time"`
 	Visits      int              `json:"visits"`
-	CreatedAt   time.Time        `json:"createdAt"`
-	UpdatedAt   time.Time        `json:"updatedAt"`
 }
 
 type TrainingConnection struct {
@@ -1154,8 +1112,6 @@ type TrainingDay struct {
 	TeamID      string     `json:"teamId"`
 	TeamItem    *Team      `json:"teamItem"`
 	Time        *time.Time `json:"time"`
-	CreatedAt   time.Time  `json:"createdAt"`
-	UpdatedAt   time.Time  `json:"updatedAt"`
 }
 
 type TrainingDayConnection struct {

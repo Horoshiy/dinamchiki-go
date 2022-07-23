@@ -12,7 +12,5 @@ type Place struct {
 	Address     string     `json:"address"`
 	Published   bool       `json:"published"`
 	OrderNumber int        `json:"orderNumber"`
-	CreatedAt   time.Time  `json:"createdAt"`
-	UpdatedAt   time.Time  `json:"updatedAt"`
 	DeletedAt   *time.Time `json:"-" pg:",soft_delete"`
 }

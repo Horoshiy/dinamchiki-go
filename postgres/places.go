@@ -140,29 +140,44 @@ func (r *PlacesRepo) GetPlaceByName(name string) (*models.Place, error) {
 	return r.GetPlaceByFiled("name", name)
 }
 
-func (r *PlacesRepo) CreatePlace(place *models.Place) (*models.PlacePayload, error) {
+func (r *PlacesRepo) PlaceSave(place *models.Place) (*models.PlacePayload, error) {
 	_, err := r.DB.Model(place).Returning("*").Insert()
 	fmt.Println(err)
 	placePayload := &models.PlacePayload{
-		Place: &models.Place{
-			ID:          place.ID,
-			Address:     place.Address,
-			Description: place.Description,
-			Name:        place.Name,
-			OrderNumber: place.OrderNumber,
-			Published:   place.Published,
-		},
-		ID: place.ID,
+		Place: place,
+		ID:    place.ID,
 	}
 	return placePayload, err
 }
 
-func (r *PlacesRepo) UpdatePlace(place *models.Place) (*models.Place, error) {
+func (r *PlacesRepo) PlaceUpdate(place *models.Place) (*models.PlacePayload, error) {
 	_, err := r.DB.Model(place).Where("id = ?", place.ID).Update()
-	return place, err
+	placePayload := &models.PlacePayload{
+		Place: place,
+		ID:    place.ID,
+	}
+	return placePayload, err
 }
 
-func (r *PlacesRepo) DeletePlace(place *models.Place) error {
+func (r *PlacesRepo) PlacePublish(place *models.Place) (*models.PlacePayload, error) {
+	_, err := r.DB.Model(place).Set("published = NOT published").Where("id = ?", place.ID).Update()
+	placePayload := &models.PlacePayload{
+		Place: place,
+		ID:    place.ID,
+	}
+	return placePayload, err
+}
+
+func (r *PlacesRepo) PlaceRestore(place *models.Place) (*models.PlacePayload, error) {
+	_, err := r.DB.Model(place).Set("deletedAt = NULL").Where("id = ?", place.ID).Update()
+	placePayload := &models.PlacePayload{
+		Place: place,
+		ID:    place.ID,
+	}
+	return placePayload, err
+}
+
+func (r *PlacesRepo) PlaceDelete(place *models.Place) error {
 	_, err := r.DB.Model(place).Where("id = ?", place.ID).Delete()
 	return err
 }

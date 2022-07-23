@@ -68,11 +68,6 @@ func (r *mutationResolver) ArticlePublishUpdate(ctx context.Context, id string) 
 	panic(fmt.Errorf("not implemented"))
 }
 
-// ArticleRestore is the resolver for the articleRestore field.
-func (r *mutationResolver) ArticleRestore(ctx context.Context, id string) (*models.ArticlePayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // ArticleSave is the resolver for the articleSave field.
 func (r *mutationResolver) ArticleSave(ctx context.Context, articleInput models.ArticleInput) (*models.ArticlePayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -90,11 +85,6 @@ func (r *mutationResolver) CartDelete(ctx context.Context, id string) (*models.C
 
 // CartPublishUpdate is the resolver for the cartPublishUpdate field.
 func (r *mutationResolver) CartPublishUpdate(ctx context.Context, id string) (*models.CartPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// CartRestore is the resolver for the cartRestore field.
-func (r *mutationResolver) CartRestore(ctx context.Context, id string) (*models.CartPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -118,11 +108,6 @@ func (r *mutationResolver) ClubBalancePublishUpdate(ctx context.Context, id stri
 	panic(fmt.Errorf("not implemented"))
 }
 
-// ClubBalanceRestore is the resolver for the clubBalanceRestore field.
-func (r *mutationResolver) ClubBalanceRestore(ctx context.Context, id string) (*models.ClubBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // ClubBalanceSave is the resolver for the clubBalanceSave field.
 func (r *mutationResolver) ClubBalanceSave(ctx context.Context, clubBalanceInput models.ClubBalanceInput) (*models.ClubBalancePayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -140,11 +125,6 @@ func (r *mutationResolver) CoachPaymentByMonthDelete(ctx context.Context, id str
 
 // CoachPaymentByMonthPublishUpdate is the resolver for the coachPaymentByMonthPublishUpdate field.
 func (r *mutationResolver) CoachPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// CoachPaymentByMonthRestore is the resolver for the coachPaymentByMonthRestore field.
-func (r *mutationResolver) CoachPaymentByMonthRestore(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -168,11 +148,6 @@ func (r *mutationResolver) CoachPaymentByTeamPublishUpdate(ctx context.Context, 
 	panic(fmt.Errorf("not implemented"))
 }
 
-// CoachPaymentByTeamRestore is the resolver for the coachPaymentByTeamRestore field.
-func (r *mutationResolver) CoachPaymentByTeamRestore(ctx context.Context, id string) (*models.CoachPaymentByTeamPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // CoachPaymentByTeamSave is the resolver for the coachPaymentByTeamSave field.
 func (r *mutationResolver) CoachPaymentByTeamSave(ctx context.Context, coachPaymentByTeamInput models.CoachPaymentByTeamInput) (*models.CoachPaymentByTeamPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -190,11 +165,6 @@ func (r *mutationResolver) CoachPaymentByTrainingDelete(ctx context.Context, id 
 
 // CoachPaymentByTrainingPublishUpdate is the resolver for the coachPaymentByTrainingPublishUpdate field.
 func (r *mutationResolver) CoachPaymentByTrainingPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// CoachPaymentByTrainingRestore is the resolver for the coachPaymentByTrainingRestore field.
-func (r *mutationResolver) CoachPaymentByTrainingRestore(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -218,11 +188,6 @@ func (r *mutationResolver) CreatorPublishUpdate(ctx context.Context, id string) 
 	panic(fmt.Errorf("not implemented"))
 }
 
-// CreatorRestore is the resolver for the creatorRestore field.
-func (r *mutationResolver) CreatorRestore(ctx context.Context, id string) (*models.CreatorPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // CreatorSave is the resolver for the creatorSave field.
 func (r *mutationResolver) CreatorSave(ctx context.Context, creatorInput models.CreatorInput) (*models.CreatorPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -240,11 +205,6 @@ func (r *mutationResolver) KitDelete(ctx context.Context, id string) (*models.Ki
 
 // KitPublishUpdate is the resolver for the kitPublishUpdate field.
 func (r *mutationResolver) KitPublishUpdate(ctx context.Context, id string) (*models.KitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// KitRestore is the resolver for the kitRestore field.
-func (r *mutationResolver) KitRestore(ctx context.Context, id string) (*models.KitPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -268,11 +228,6 @@ func (r *mutationResolver) LeadPublishUpdate(ctx context.Context, id string) (*m
 	panic(fmt.Errorf("not implemented"))
 }
 
-// LeadRestore is the resolver for the leadRestore field.
-func (r *mutationResolver) LeadRestore(ctx context.Context, id string) (*models.LeadPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // LeadSave is the resolver for the leadSave field.
 func (r *mutationResolver) LeadSave(ctx context.Context, leadInput models.LeadInput) (*models.LeadPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -290,11 +245,6 @@ func (r *mutationResolver) MoneyCostDelete(ctx context.Context, id string) (*mod
 
 // MoneyCostPublishUpdate is the resolver for the moneyCostPublishUpdate field.
 func (r *mutationResolver) MoneyCostPublishUpdate(ctx context.Context, id string) (*models.MoneyCostPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// MoneyCostRestore is the resolver for the moneyCostRestore field.
-func (r *mutationResolver) MoneyCostRestore(ctx context.Context, id string) (*models.MoneyCostPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -318,11 +268,6 @@ func (r *mutationResolver) MoneyMovePublishUpdate(ctx context.Context, id string
 	panic(fmt.Errorf("not implemented"))
 }
 
-// MoneyMoveRestore is the resolver for the moneyMoveRestore field.
-func (r *mutationResolver) MoneyMoveRestore(ctx context.Context, id string) (*models.MoneyMovePayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // MoneyMoveSave is the resolver for the moneyMoveSave field.
 func (r *mutationResolver) MoneyMoveSave(ctx context.Context, moneyMoveInput models.MoneyMoveInput) (*models.MoneyMovePayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -343,11 +288,6 @@ func (r *mutationResolver) OrderPublishUpdate(ctx context.Context, id string) (*
 	panic(fmt.Errorf("not implemented"))
 }
 
-// OrderRestore is the resolver for the orderRestore field.
-func (r *mutationResolver) OrderRestore(ctx context.Context, id string) (*models.OrderPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // OrderSave is the resolver for the orderSave field.
 func (r *mutationResolver) OrderSave(ctx context.Context, orderInput models.OrderInput) (*models.OrderPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -360,17 +300,19 @@ func (r *mutationResolver) OrderUpdate(ctx context.Context, orderInput models.Or
 
 // PlaceDelete is the resolver for the placeDelete field.
 func (r *mutationResolver) PlaceDelete(ctx context.Context, id string) (*models.PlacePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.PlaceDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.PlacePayload{
+		ID:    id,
+		Place: nil,
+	}, nil
 }
 
 // PlacePublishUpdate is the resolver for the placePublishUpdate field.
 func (r *mutationResolver) PlacePublishUpdate(ctx context.Context, id string) (*models.PlacePayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// PlaceRestore is the resolver for the placeRestore field.
-func (r *mutationResolver) PlaceRestore(ctx context.Context, id string) (*models.PlacePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.PlacePublish(id)
 }
 
 // PlaceSave is the resolver for the placeSave field.
@@ -379,12 +321,16 @@ func (r *mutationResolver) PlaceSave(ctx context.Context, placeInput models.Plac
 	if !isValid {
 		return nil, ErrInput
 	}
-	return r.Domain.CreatePlace(placeInput)
+	return r.Domain.PlaceSave(placeInput)
 }
 
 // PlaceUpdate is the resolver for the placeUpdate field.
 func (r *mutationResolver) PlaceUpdate(ctx context.Context, placeInput models.PlaceInputWithID) (*models.PlacePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, placeInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.PlaceUpdate(ctx, placeInput)
 }
 
 // Refresh is the resolver for the refresh field.
@@ -399,11 +345,6 @@ func (r *mutationResolver) RentPaymentByMonthDelete(ctx context.Context, id stri
 
 // RentPaymentByMonthPublishUpdate is the resolver for the rentPaymentByMonthPublishUpdate field.
 func (r *mutationResolver) RentPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// RentPaymentByMonthRestore is the resolver for the rentPaymentByMonthRestore field.
-func (r *mutationResolver) RentPaymentByMonthRestore(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -427,11 +368,6 @@ func (r *mutationResolver) RentPaymentByTrainingPublishUpdate(ctx context.Contex
 	panic(fmt.Errorf("not implemented"))
 }
 
-// RentPaymentByTrainingRestore is the resolver for the rentPaymentByTrainingRestore field.
-func (r *mutationResolver) RentPaymentByTrainingRestore(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // RentPaymentByTrainingSave is the resolver for the rentPaymentByTrainingSave field.
 func (r *mutationResolver) RentPaymentByTrainingSave(ctx context.Context, rentPaymentInput models.RentPaymentByTrainingInput) (*models.RentPaymentByTrainingPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -449,11 +385,6 @@ func (r *mutationResolver) StadiumDelete(ctx context.Context, id string) (*model
 
 // StadiumPublishUpdate is the resolver for the stadiumPublishUpdate field.
 func (r *mutationResolver) StadiumPublishUpdate(ctx context.Context, id string) (*models.StadiumPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// StadiumRestore is the resolver for the stadiumRestore field.
-func (r *mutationResolver) StadiumRestore(ctx context.Context, id string) (*models.StadiumPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -477,11 +408,6 @@ func (r *mutationResolver) StaffPublishUpdate(ctx context.Context, id string) (*
 	panic(fmt.Errorf("not implemented"))
 }
 
-// StaffRestore is the resolver for the staffRestore field.
-func (r *mutationResolver) StaffRestore(ctx context.Context, id string) (*models.StaffPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // StaffSave is the resolver for the staffSave field.
 func (r *mutationResolver) StaffSave(ctx context.Context, staffInput models.StaffInput) (*models.StaffPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -499,11 +425,6 @@ func (r *mutationResolver) StudentVisitDelete(ctx context.Context, id string) (*
 
 // StudentVisitPublishUpdate is the resolver for the studentVisitPublishUpdate field.
 func (r *mutationResolver) StudentVisitPublishUpdate(ctx context.Context, id string) (*models.StudentVisitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// StudentVisitRestore is the resolver for the studentVisitRestore field.
-func (r *mutationResolver) StudentVisitRestore(ctx context.Context, id string) (*models.StudentVisitPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -527,11 +448,6 @@ func (r *mutationResolver) StudentPublishUpdate(ctx context.Context, id string) 
 	panic(fmt.Errorf("not implemented"))
 }
 
-// StudentRestore is the resolver for the studentRestore field.
-func (r *mutationResolver) StudentRestore(ctx context.Context, id string) (*models.StudentPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // StudentSave is the resolver for the studentSave field.
 func (r *mutationResolver) StudentSave(ctx context.Context, studentInput models.StudentInput) (*models.StudentPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -549,11 +465,6 @@ func (r *mutationResolver) TaskDelete(ctx context.Context, id string) (*models.T
 
 // TaskPublishUpdate is the resolver for the taskPublishUpdate field.
 func (r *mutationResolver) TaskPublishUpdate(ctx context.Context, id string) (*models.TaskPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// TaskRestore is the resolver for the taskRestore field.
-func (r *mutationResolver) TaskRestore(ctx context.Context, id string) (*models.TaskPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -577,11 +488,6 @@ func (r *mutationResolver) TeamBalancePublishUpdate(ctx context.Context, id stri
 	panic(fmt.Errorf("not implemented"))
 }
 
-// TeamBalanceRestore is the resolver for the teamBalanceRestore field.
-func (r *mutationResolver) TeamBalanceRestore(ctx context.Context, id string) (*models.TeamBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // TeamBalanceSave is the resolver for the teamBalanceSave field.
 func (r *mutationResolver) TeamBalanceSave(ctx context.Context, teamBalanceInput models.TeamBalanceInput) (*models.TeamBalancePayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -599,11 +505,6 @@ func (r *mutationResolver) TeamDelete(ctx context.Context, id string) (*models.T
 
 // TeamPublishUpdate is the resolver for the teamPublishUpdate field.
 func (r *mutationResolver) TeamPublishUpdate(ctx context.Context, id string) (*models.TeamPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// TeamRestore is the resolver for the teamRestore field.
-func (r *mutationResolver) TeamRestore(ctx context.Context, id string) (*models.TeamPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -627,11 +528,6 @@ func (r *mutationResolver) TrainingDayPublishUpdate(ctx context.Context, id stri
 	panic(fmt.Errorf("not implemented"))
 }
 
-// TrainingDayRestore is the resolver for the trainingDayRestore field.
-func (r *mutationResolver) TrainingDayRestore(ctx context.Context, id string) (*models.TrainingDayPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // TrainingDaySave is the resolver for the trainingDaySave field.
 func (r *mutationResolver) TrainingDaySave(ctx context.Context, trainingDayInput models.TrainingDayInput) (*models.TrainingDayPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -652,11 +548,6 @@ func (r *mutationResolver) TrainingPublishUpdate(ctx context.Context, id string)
 	panic(fmt.Errorf("not implemented"))
 }
 
-// TrainingRestore is the resolver for the trainingRestore field.
-func (r *mutationResolver) TrainingRestore(ctx context.Context, id string) (*models.TrainingPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 // TrainingSave is the resolver for the trainingSave field.
 func (r *mutationResolver) TrainingSave(ctx context.Context, trainingInput models.TrainingInput) (*models.TrainingPayload, error) {
 	panic(fmt.Errorf("not implemented"))
@@ -674,11 +565,6 @@ func (r *mutationResolver) UserDelete(ctx context.Context, id string) (*models.U
 
 // UserPublishUpdate is the resolver for the userPublishUpdate field.
 func (r *mutationResolver) UserPublishUpdate(ctx context.Context, id string) (*models.UserPayload, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-// UserRestore is the resolver for the userRestore field.
-func (r *mutationResolver) UserRestore(ctx context.Context, id string) (*models.UserPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -1009,23 +895,79 @@ type userResolver struct{ *Resolver }
 //  - When renaming or deleting a resolver the old code will be put in here. You can safely delete
 //    it when you're done.
 //  - You have helper methods in this file. Move them out to keep these resolver files clean.
-func (r *userResolver) Roles(ctx context.Context, obj *models.User) ([]models.Role, error) {
+func (r *mutationResolver) ArticleRestore(ctx context.Context, id string) (*models.ArticlePayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
-func (r *userResolver) Role(ctx context.Context, obj *models.User) (models.Role, error) {
+func (r *mutationResolver) CartRestore(ctx context.Context, id string) (*models.CartPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
-func (r *mutationResolver) CreatePlace(ctx context.Context, input models.PlaceInput) (*models.PlacePayload, error) {
-	isValid := validation(ctx, input)
-	if !isValid {
-		return nil, ErrInput
-	}
-	return r.Domain.CreatePlace(input)
-}
-func (r *mutationResolver) UpdatePlace(ctx context.Context, id string, input *models.PlaceInput) (*models.Place, error) {
+func (r *mutationResolver) ClubBalanceRestore(ctx context.Context, id string) (*models.ClubBalancePayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
-func (r *mutationResolver) DeletePlace(ctx context.Context, id string) (bool, error) {
+func (r *mutationResolver) CoachPaymentByMonthRestore(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) CoachPaymentByTeamRestore(ctx context.Context, id string) (*models.CoachPaymentByTeamPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) CoachPaymentByTrainingRestore(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) CreatorRestore(ctx context.Context, id string) (*models.CreatorPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) KitRestore(ctx context.Context, id string) (*models.KitPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) LeadRestore(ctx context.Context, id string) (*models.LeadPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) MoneyCostRestore(ctx context.Context, id string) (*models.MoneyCostPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) MoneyMoveRestore(ctx context.Context, id string) (*models.MoneyMovePayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) OrderRestore(ctx context.Context, id string) (*models.OrderPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) PlaceRestore(ctx context.Context, id string) (*models.PlacePayload, error) {
+	return r.Domain.PlaceRestore(id)
+}
+func (r *mutationResolver) RentPaymentByMonthRestore(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) RentPaymentByTrainingRestore(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) StadiumRestore(ctx context.Context, id string) (*models.StadiumPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) StaffRestore(ctx context.Context, id string) (*models.StaffPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) StudentVisitRestore(ctx context.Context, id string) (*models.StudentVisitPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) StudentRestore(ctx context.Context, id string) (*models.StudentPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) TaskRestore(ctx context.Context, id string) (*models.TaskPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) TeamBalanceRestore(ctx context.Context, id string) (*models.TeamBalancePayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) TeamRestore(ctx context.Context, id string) (*models.TeamPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) TrainingDayRestore(ctx context.Context, id string) (*models.TrainingDayPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) TrainingRestore(ctx context.Context, id string) (*models.TrainingPayload, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+func (r *mutationResolver) UserRestore(ctx context.Context, id string) (*models.UserPayload, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 func (r *mutationResolver) ArticlesDelete(ctx context.Context, ids []string) ([]*models.ArticlePayload, error) {

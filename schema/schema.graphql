@@ -67,130 +67,105 @@ type Mutation {
     deleteMeetup(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
-    articleDelete(id: String!): ArticlePayload!
-    articlePublishUpdate(id: String!): ArticlePayload!
-    articleRestore(id: String!): ArticlePayload!
-    articleSave(articleInput: ArticleInput!): ArticlePayload!
-    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload!
-    cartDelete(id: String!): CartPayload!
-    cartPublishUpdate(id: String!): CartPayload!
-    cartRestore(id: String!): CartPayload!
-    cartSave(cartInput: CartInput!): CartPayload!
-    cartUpdate(cartInput: CartInputWithId!): CartPayload!
-    clubBalanceDelete(id: String!): ClubBalancePayload!
-    clubBalancePublishUpdate(id: String!): ClubBalancePayload!
-    clubBalanceRestore(id: String!): ClubBalancePayload!
-    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload!
-    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload!
-    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthRestore(id: String!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload!
-    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload!
+    articleDelete(id: String!): ArticlePayload! @hasRole(role: EDITOR)
+    articlePublishUpdate(id: String!): ArticlePayload! @hasRole(role: EDITOR)
+    articleSave(articleInput: ArticleInput!): ArticlePayload! @hasRole(role: EDITOR)
+    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload! @hasRole(role: EDITOR)
+    cartDelete(id: String!): CartPayload! @hasRole(role: ADMIN)
+    cartPublishUpdate(id: String!): CartPayload! @hasRole(role: ADMIN)
+    cartSave(cartInput: CartInput!): CartPayload! @hasRole(role: USER)
+    cartUpdate(cartInput: CartInputWithId!): CartPayload! @hasRole(role: USER)
+    clubBalanceDelete(id: String!): ClubBalancePayload! @hasRole(role: ADMIN)
+    clubBalancePublishUpdate(id: String!): ClubBalancePayload! @hasRole(role: ADMIN)
+    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload! @hasRole(role: ADMIN)
+    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload! @hasRole(role: ADMIN)
+    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload! @hasRole(role: ADMIN)
+    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload! @hasRole(role: ADMIN)
+    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload! @hasRole(role: ECONOMIST)
+    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload! @hasRole(role: ECONOMIST)
+    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload! @hasRole(role: ADMIN)
     coachPaymentByTeamPublishUpdate(id: String!): CoachPaymentByTeamPayload!
-    coachPaymentByTeamRestore(id: String!): CoachPaymentByTeamPayload!
     coachPaymentByTeamSave(coachPaymentByTeamInput: CoachPaymentByTeamInput!): CoachPaymentByTeamPayload!
     coachPaymentByTeamUpdate(coachPaymentByTeamInput: CoachPaymentByTeamInputWithId!): CoachPaymentByTeamPayload!
     coachPaymentByTrainingDelete(id: String!): CoachPaymentByTrainingPayload!
     coachPaymentByTrainingPublishUpdate(id: String!): CoachPaymentByTrainingPayload!
-    coachPaymentByTrainingRestore(id: String!): CoachPaymentByTrainingPayload!
     coachPaymentByTrainingSave(coachPaymentByTrainingInput: CoachPaymentByTrainingInput!): CoachPaymentByTrainingPayload!
     coachPaymentByTrainingUpdate(coachPaymentByTrainingInput: CoachPaymentByTrainingInputWithId!): CoachPaymentByTrainingPayload!
     creatorDelete(id: String!): CreatorPayload!
     creatorPublishUpdate(id: String!): CreatorPayload!
-    creatorRestore(id: String!): CreatorPayload!
     creatorSave(creatorInput: CreatorInput!): CreatorPayload!
     creatorUpdate(creatorInput: CreatorInputWithId!): CreatorPayload!
     kitDelete(id: String!): KitPayload!
     kitPublishUpdate(id: String!): KitPayload!
-    kitRestore(id: String!): KitPayload!
     kitSave(kitInput: KitInput!): KitPayload!
     kitUpdate(kitInput: KitInputWithId!): KitPayload!
     leadDelete(id: String!): LeadPayload!
     leadPublishUpdate(id: String!): LeadPayload!
-    leadRestore(id: String!): LeadPayload!
     leadSave(leadInput: LeadInput!): LeadPayload
     leadUpdate(leadInput: LeadInputWithId!): LeadPayload!
     moneyCostDelete(id: String!): MoneyCostPayload!
     moneyCostPublishUpdate(id: String!): MoneyCostPayload!
-    moneyCostRestore(id: String!): MoneyCostPayload!
     moneyCostSave(moneyCostInput: MoneyCostInput!): MoneyCostPayload!
     moneyCostUpdate(moneyCostInput: MoneyCostInputWithId!): MoneyCostPayload!
     moneyMoveDelete(id: String!): MoneyMovePayload!
     moneyMovePublishUpdate(id: String!): MoneyMovePayload!
-    moneyMoveRestore(id: String!): MoneyMovePayload!
     moneyMoveSave(moneyMoveInput: MoneyMoveInput!): MoneyMovePayload!
     moneyMoveUpdate(moneyMoveInput: MoneyMoveInputWithId!): MoneyMovePayload!
     orderDelete(id: String!): OrderPayload!
     orderPublishUpdate(id: String!): OrderPayload!
-    orderRestore(id: String!): OrderPayload!
     orderSave(orderInput: OrderInput!): OrderPayload!
     orderUpdate(orderInput: OrderInputWithId!): OrderPayload!
     placeDelete(id: String!): PlacePayload!
     placePublishUpdate(id: String!): PlacePayload!
-    placeRestore(id: String!): PlacePayload!
-    placeSave(placeInput: PlaceInput!): PlacePayload! @hasRole(role: ADMIN)
+    placeSave(placeInput: PlaceInput!): PlacePayload! @hasRole(role: EDITOR)
     placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
     rentPaymentByMonthDelete(id: String!): RentPaymentByMonthPayload!
     rentPaymentByMonthPublishUpdate(id: String!): RentPaymentByMonthPayload!
-    rentPaymentByMonthRestore(id: String!): RentPaymentByMonthPayload!
     rentPaymentByMonthSave(rentPaymentInput: RentPaymentByMonthInput!): RentPaymentByMonthPayload!
     rentPaymentByMonthUpdate(rentPaymentInput: RentPaymentByMonthInputWithId!): RentPaymentByMonthPayload!
     rentPaymentByTrainingDelete(id: String!): RentPaymentByTrainingPayload!
     rentPaymentByTrainingPublishUpdate(id: String!): RentPaymentByTrainingPayload!
-    rentPaymentByTrainingRestore(id: String!): RentPaymentByTrainingPayload!
     rentPaymentByTrainingSave(rentPaymentInput: RentPaymentByTrainingInput!): RentPaymentByTrainingPayload!
     rentPaymentByTrainingUpdate(rentPaymentInput: RentPaymentByTrainingInputWithId!): RentPaymentByTrainingPayload!
     stadiumDelete(id: String!): StadiumPayload!
     stadiumPublishUpdate(id: String!): StadiumPayload!
-    stadiumRestore(id: String!): StadiumPayload!
     stadiumSave(stadiumInput: StadiumInput!): StadiumPayload!
     stadiumUpdate(stadiumInput: StadiumInputWithId!): StadiumPayload!
     staffDelete(id: String!): StaffPayload!
     staffPublishUpdate(id: String!): StaffPayload!
-    staffRestore(id: String!): StaffPayload!
     staffSave(staffInput: StaffInput!): StaffPayload!
     staffUpdate(staffInput: StaffInputWithId!): StaffPayload!
     studentVisitDelete(id: String!): StudentVisitPayload!
     studentVisitPublishUpdate(id: String!): StudentVisitPayload!
-    studentVisitRestore(id: String!): StudentVisitPayload!
     studentVisitSave(studentVisitInput: StudentVisitInput!): StudentVisitPayload!
     studentVisitUpdate(studentVisitInput: StudentVisitInputWithId!): StudentVisitPayload!
     studentDelete(id: String!): StudentPayload!
     studentPublishUpdate(id: String!): StudentPayload!
-    studentRestore(id: String!): StudentPayload!
     studentSave(studentInput: StudentInput!): StudentPayload!
     studentUpdate(studentInput: StudentInputWithId!): StudentPayload!
     taskDelete(id: String!): TaskPayload!
     taskPublishUpdate(id: String!): TaskPayload!
-    taskRestore(id: String!): TaskPayload!
     taskSave(taskInput: TaskInput!): TaskPayload!
     taskUpdate(taskInput: TaskInputWithId!): TaskPayload!
     teamBalanceDelete(id: String!): TeamBalancePayload!
     teamBalancePublishUpdate(id: String!): TeamBalancePayload!
-    teamBalanceRestore(id: String!): TeamBalancePayload!
     teamBalanceSave(teamBalanceInput: TeamBalanceInput!): TeamBalancePayload!
     teamBalanceUpdate(teamBalanceInput: TeamBalanceInputWithId!): TeamBalancePayload!
     teamDelete(id: String!): TeamPayload!
     teamPublishUpdate(id: String!): TeamPayload!
-    teamRestore(id: String!): TeamPayload!
     teamSave(teamInput: TeamInput!): TeamPayload!
     teamUpdate(teamInput: TeamInputWithId!): TeamPayload!
     trainingDayDelete(id: String!): TrainingDayPayload!
     trainingDayPublishUpdate(id: String!): TrainingDayPayload!
-    trainingDayRestore(id: String!): TrainingDayPayload!
     trainingDaySave(trainingDayInput: TrainingDayInput!): TrainingDayPayload!
     trainingDayUpdate(trainingDayInput: TrainingDayInputWithId!): TrainingDayPayload!
     trainingDelete(id: String!): TrainingPayload!
     trainingPublishUpdate(id: String!): TrainingPayload!
-    trainingRestore(id: String!): TrainingPayload!
     trainingSave(trainingInput: TrainingInput!): TrainingPayload!
     trainingUpdate(trainingInput: TrainingInputWithId!): TrainingPayload!
     userDelete(id: String!): UserPayload!
     userPublishUpdate(id: String!): UserPayload!
-    userRestore(id: String!): UserPayload!
     userSave(userInput: UserInput!): UserPayload!
     userUpdate(userInput: UserInputWithId!): UserPayload!
 }
@@ -251,8 +226,6 @@ type Place {
     name: String!
     orderNumber: Int!
     published: Boolean!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type PlaceConnection {
@@ -280,8 +253,6 @@ type Article {
     published: Boolean!
     tags: [String!]
     title: String!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type ArticleConnection {
@@ -307,8 +278,6 @@ type Cart {
     studentId: String!
     studentItem: Student
     sum: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CartConnection {
@@ -335,8 +304,6 @@ type ClubBalance {
     salary: Int!
     sum: Int!
     tickets: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type ClubBalanceConnection {
@@ -361,8 +328,6 @@ type CoachPaymentByMonth {
     id: ID!
     published: Boolean!
     sum: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CoachPaymentByMonthConnection {
@@ -391,8 +356,6 @@ type CoachPaymentByTeam {
     sum: Int
     teamId: String
     teamItem: Team
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CoachPaymentByTeamConnection {
@@ -418,8 +381,6 @@ type CoachPaymentByTraining {
     sum: Int
     trainingId: String
     trainingItem: Training
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CoachPaymentByTrainingConnection {
@@ -445,8 +406,6 @@ type Creator {
     published: Boolean!
     userId: String
     userItem: User
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CreatorConnection {
@@ -480,8 +439,6 @@ type Kit {
     quantity: Int
     size: String!
     title: String
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type KitCart {
@@ -520,8 +477,6 @@ type Lead {
     teamId: String
     teamItem: Team
     yearBorn: Int
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type LeadConnection {
@@ -554,8 +509,6 @@ type MoneyCost {
     staff: Staff
     staffId: String!
     sum: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type MoneyCostConnection {
@@ -588,8 +541,6 @@ type MoneyMove {
     sum: Int
     userId: String!
     userItem: User
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type MoneyMoveConnection {
@@ -616,8 +567,6 @@ type Order {
     id: ID!
     orderStatus: OrderStatus!
     published: Boolean!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type OrderConnection {
@@ -644,8 +593,6 @@ type RentPaymentByMonth {
     stadiumId: String!
     stadiumItem: Stadium
     sum: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type RentPaymentByMonthConnection {
@@ -672,8 +619,6 @@ type RentPaymentByTraining {
     sum: Int!
     trainingIds: [String!]!
     trainings: [TrainingRent!]
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type RentPaymentByTrainingConnection {
@@ -699,8 +644,6 @@ type Stadium {
     placeId: String
     placeItem: Place
     published: Boolean!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type StadiumConnection {
@@ -731,8 +674,6 @@ type Staff {
     userId: String
     userItem: User
     work: String!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type StaffConnection {
@@ -779,8 +720,6 @@ type Student {
     published: Boolean!
     teamIds: [String!]!
     teams: [TeamStudent!]
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type StudentConnection {
@@ -819,8 +758,6 @@ type StudentVisit {
     trainingId: String!
     trainingItem: Training
     visitStatus: VisitStatus!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type StudentVisitConnection {
@@ -856,8 +793,6 @@ type Task {
     title: String!
     workerIds: [String!]
     workers: [StaffTask]
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TaskConnection {
@@ -887,8 +822,6 @@ type Team {
     placeItem: Place
     published: Boolean!
     writable: Boolean!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TeamBalance {
@@ -901,8 +834,6 @@ type TeamBalance {
     teamId: String!
     teamItem: Team
     tickets: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TeamBalanceConnection {
@@ -960,8 +891,6 @@ type Training {
     teamItem: Team
     time: Time
     visits: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TrainingConnection {
@@ -978,8 +907,6 @@ type TrainingDay {
     teamId: String!
     teamItem: Team
     time: Time
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TrainingDayConnection {
@@ -1020,8 +947,6 @@ type User {
     lastName: String!
     meetups: [Meetup!]!
     roles: [Role!]!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type UserConnection {

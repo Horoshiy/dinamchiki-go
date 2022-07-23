@@ -52,14 +52,12 @@ type ComplexityRoot struct {
 	Article struct {
 		Author      func(childComplexity int) int
 		AuthorID    func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		FileName    func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Published   func(childComplexity int) int
 		Tags        func(childComplexity int) int
 		Title       func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	ArticleConnection struct {
@@ -88,7 +86,6 @@ type ComplexityRoot struct {
 	}
 
 	Cart struct {
-		CreatedAt   func(childComplexity int) int
 		ID          func(childComplexity int) int
 		KitIds      func(childComplexity int) int
 		Kits        func(childComplexity int) int
@@ -96,7 +93,6 @@ type ComplexityRoot struct {
 		StudentID   func(childComplexity int) int
 		StudentItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	CartConnection struct {
@@ -115,7 +111,6 @@ type ComplexityRoot struct {
 	}
 
 	ClubBalance struct {
-		CreatedAt  func(childComplexity int) int
 		Date       func(childComplexity int) int
 		ID         func(childComplexity int) int
 		OtherCosts func(childComplexity int) int
@@ -124,7 +119,6 @@ type ComplexityRoot struct {
 		Salary     func(childComplexity int) int
 		Sum        func(childComplexity int) int
 		Tickets    func(childComplexity int) int
-		UpdatedAt  func(childComplexity int) int
 	}
 
 	ClubBalanceConnection struct {
@@ -145,12 +139,10 @@ type ComplexityRoot struct {
 	CoachPaymentByMonth struct {
 		Coach     func(childComplexity int) int
 		CoachID   func(childComplexity int) int
-		CreatedAt func(childComplexity int) int
 		Date      func(childComplexity int) int
 		ID        func(childComplexity int) int
 		Published func(childComplexity int) int
 		Sum       func(childComplexity int) int
-		UpdatedAt func(childComplexity int) int
 	}
 
 	CoachPaymentByMonthConnection struct {
@@ -171,7 +163,6 @@ type ComplexityRoot struct {
 	CoachPaymentByTeam struct {
 		Coach       func(childComplexity int) int
 		CoachID     func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		DateFinish  func(childComplexity int) int
 		DateStart   func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -180,7 +171,6 @@ type ComplexityRoot struct {
 		Sum         func(childComplexity int) int
 		TeamID      func(childComplexity int) int
 		TeamItem    func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	CoachPaymentByTeamConnection struct {
@@ -201,13 +191,11 @@ type ComplexityRoot struct {
 	CoachPaymentByTraining struct {
 		Coach        func(childComplexity int) int
 		CoachID      func(childComplexity int) int
-		CreatedAt    func(childComplexity int) int
 		ID           func(childComplexity int) int
 		Published    func(childComplexity int) int
 		Sum          func(childComplexity int) int
 		TrainingID   func(childComplexity int) int
 		TrainingItem func(childComplexity int) int
-		UpdatedAt    func(childComplexity int) int
 	}
 
 	CoachPaymentByTrainingConnection struct {
@@ -226,13 +214,11 @@ type ComplexityRoot struct {
 	}
 
 	Creator struct {
-		CreatedAt   func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Name        func(childComplexity int) int
 		PassportNum func(childComplexity int) int
 		Phone       func(childComplexity int) int
 		Published   func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 		UserID      func(childComplexity int) int
 		UserItem    func(childComplexity int) int
 	}
@@ -259,7 +245,6 @@ type ComplexityRoot struct {
 	}
 
 	Kit struct {
-		CreatedAt func(childComplexity int) int
 		FileName  func(childComplexity int) int
 		ID        func(childComplexity int) int
 		Name      func(childComplexity int) int
@@ -269,7 +254,6 @@ type ComplexityRoot struct {
 		Quantity  func(childComplexity int) int
 		Size      func(childComplexity int) int
 		Title     func(childComplexity int) int
-		UpdatedAt func(childComplexity int) int
 	}
 
 	KitCart struct {
@@ -294,7 +278,6 @@ type ComplexityRoot struct {
 	}
 
 	Lead struct {
-		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Name        func(childComplexity int) int
@@ -308,7 +291,6 @@ type ComplexityRoot struct {
 		Students    func(childComplexity int) int
 		TeamID      func(childComplexity int) int
 		TeamItem    func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 		YearBorn    func(childComplexity int) int
 	}
 
@@ -341,7 +323,6 @@ type ComplexityRoot struct {
 	}
 
 	MoneyCost struct {
-		CreatedAt   func(childComplexity int) int
 		Date        func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -350,7 +331,6 @@ type ComplexityRoot struct {
 		Staff       func(childComplexity int) int
 		StaffID     func(childComplexity int) int
 		Sum         func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	MoneyCostConnection struct {
@@ -369,7 +349,6 @@ type ComplexityRoot struct {
 	}
 
 	MoneyMove struct {
-		CreatedAt   func(childComplexity int) int
 		DateFinish  func(childComplexity int) int
 		DatePayment func(childComplexity int) int
 		DateStart   func(childComplexity int) int
@@ -382,7 +361,6 @@ type ComplexityRoot struct {
 		StudentID   func(childComplexity int) int
 		StudentItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 		UserID      func(childComplexity int) int
 		UserItem    func(childComplexity int) int
 	}
@@ -405,133 +383,108 @@ type ComplexityRoot struct {
 	Mutation struct {
 		ArticleDelete                       func(childComplexity int, id string) int
 		ArticlePublishUpdate                func(childComplexity int, id string) int
-		ArticleRestore                      func(childComplexity int, id string) int
 		ArticleSave                         func(childComplexity int, articleInput models.ArticleInput) int
 		ArticleUpdate                       func(childComplexity int, articleInput models.ArticleInputWithID) int
 		CartDelete                          func(childComplexity int, id string) int
 		CartPublishUpdate                   func(childComplexity int, id string) int
-		CartRestore                         func(childComplexity int, id string) int
 		CartSave                            func(childComplexity int, cartInput models.CartInput) int
 		CartUpdate                          func(childComplexity int, cartInput models.CartInputWithID) int
 		ClubBalanceDelete                   func(childComplexity int, id string) int
 		ClubBalancePublishUpdate            func(childComplexity int, id string) int
-		ClubBalanceRestore                  func(childComplexity int, id string) int
 		ClubBalanceSave                     func(childComplexity int, clubBalanceInput models.ClubBalanceInput) int
 		ClubBalanceUpdate                   func(childComplexity int, clubBalanceInput models.ClubBalanceInputWithID) int
 		CoachPaymentByMonthDelete           func(childComplexity int, id string) int
 		CoachPaymentByMonthPublishUpdate    func(childComplexity int, id string) int
-		CoachPaymentByMonthRestore          func(childComplexity int, id string) int
 		CoachPaymentByMonthSave             func(childComplexity int, coachPaymentByMonthInput models.CoachPaymentByMonthInput) int
 		CoachPaymentByMonthUpdate           func(childComplexity int, coachPaymentByMonthInput models.CoachPaymentByMonthInputWithID) int
 		CoachPaymentByTeamDelete            func(childComplexity int, id string) int
 		CoachPaymentByTeamPublishUpdate     func(childComplexity int, id string) int
-		CoachPaymentByTeamRestore           func(childComplexity int, id string) int
 		CoachPaymentByTeamSave              func(childComplexity int, coachPaymentByTeamInput models.CoachPaymentByTeamInput) int
 		CoachPaymentByTeamUpdate            func(childComplexity int, coachPaymentByTeamInput models.CoachPaymentByTeamInputWithID) int
 		CoachPaymentByTrainingDelete        func(childComplexity int, id string) int
 		CoachPaymentByTrainingPublishUpdate func(childComplexity int, id string) int
-		CoachPaymentByTrainingRestore       func(childComplexity int, id string) int
 		CoachPaymentByTrainingSave          func(childComplexity int, coachPaymentByTrainingInput models.CoachPaymentByTrainingInput) int
 		CoachPaymentByTrainingUpdate        func(childComplexity int, coachPaymentByTrainingInput models.CoachPaymentByTrainingInputWithID) int
 		CreateMeetup                        func(childComplexity int, input models.NewMeetup) int
 		CreatorDelete                       func(childComplexity int, id string) int
 		CreatorPublishUpdate                func(childComplexity int, id string) int
-		CreatorRestore                      func(childComplexity int, id string) int
 		CreatorSave                         func(childComplexity int, creatorInput models.CreatorInput) int
 		CreatorUpdate                       func(childComplexity int, creatorInput models.CreatorInputWithID) int
 		DeleteMeetup                        func(childComplexity int, id string) int
 		KitDelete                           func(childComplexity int, id string) int
 		KitPublishUpdate                    func(childComplexity int, id string) int
-		KitRestore                          func(childComplexity int, id string) int
 		KitSave                             func(childComplexity int, kitInput models.KitInput) int
 		KitUpdate                           func(childComplexity int, kitInput models.KitInputWithID) int
 		LeadDelete                          func(childComplexity int, id string) int
 		LeadPublishUpdate                   func(childComplexity int, id string) int
-		LeadRestore                         func(childComplexity int, id string) int
 		LeadSave                            func(childComplexity int, leadInput models.LeadInput) int
 		LeadUpdate                          func(childComplexity int, leadInput models.LeadInputWithID) int
 		Login                               func(childComplexity int, input models.LoginInput) int
 		MoneyCostDelete                     func(childComplexity int, id string) int
 		MoneyCostPublishUpdate              func(childComplexity int, id string) int
-		MoneyCostRestore                    func(childComplexity int, id string) int
 		MoneyCostSave                       func(childComplexity int, moneyCostInput models.MoneyCostInput) int
 		MoneyCostUpdate                     func(childComplexity int, moneyCostInput models.MoneyCostInputWithID) int
 		MoneyMoveDelete                     func(childComplexity int, id string) int
 		MoneyMovePublishUpdate              func(childComplexity int, id string) int
-		MoneyMoveRestore                    func(childComplexity int, id string) int
 		MoneyMoveSave                       func(childComplexity int, moneyMoveInput models.MoneyMoveInput) int
 		MoneyMoveUpdate                     func(childComplexity int, moneyMoveInput models.MoneyMoveInputWithID) int
 		OrderDelete                         func(childComplexity int, id string) int
 		OrderPublishUpdate                  func(childComplexity int, id string) int
-		OrderRestore                        func(childComplexity int, id string) int
 		OrderSave                           func(childComplexity int, orderInput models.OrderInput) int
 		OrderUpdate                         func(childComplexity int, orderInput models.OrderInputWithID) int
 		PlaceDelete                         func(childComplexity int, id string) int
 		PlacePublishUpdate                  func(childComplexity int, id string) int
-		PlaceRestore                        func(childComplexity int, id string) int
 		PlaceSave                           func(childComplexity int, placeInput models.PlaceInput) int
 		PlaceUpdate                         func(childComplexity int, placeInput models.PlaceInputWithID) int
 		Refresh                             func(childComplexity int, phone string, token string) int
 		Register                            func(childComplexity int, input models.RegisterInput) int
 		RentPaymentByMonthDelete            func(childComplexity int, id string) int
 		RentPaymentByMonthPublishUpdate     func(childComplexity int, id string) int
-		RentPaymentByMonthRestore           func(childComplexity int, id string) int
 		RentPaymentByMonthSave              func(childComplexity int, rentPaymentInput models.RentPaymentByMonthInput) int
 		RentPaymentByMonthUpdate            func(childComplexity int, rentPaymentInput models.RentPaymentByMonthInputWithID) int
 		RentPaymentByTrainingDelete         func(childComplexity int, id string) int
 		RentPaymentByTrainingPublishUpdate  func(childComplexity int, id string) int
-		RentPaymentByTrainingRestore        func(childComplexity int, id string) int
 		RentPaymentByTrainingSave           func(childComplexity int, rentPaymentInput models.RentPaymentByTrainingInput) int
 		RentPaymentByTrainingUpdate         func(childComplexity int, rentPaymentInput models.RentPaymentByTrainingInputWithID) int
 		StadiumDelete                       func(childComplexity int, id string) int
 		StadiumPublishUpdate                func(childComplexity int, id string) int
-		StadiumRestore                      func(childComplexity int, id string) int
 		StadiumSave                         func(childComplexity int, stadiumInput models.StadiumInput) int
 		StadiumUpdate                       func(childComplexity int, stadiumInput models.StadiumInputWithID) int
 		StaffDelete                         func(childComplexity int, id string) int
 		StaffPublishUpdate                  func(childComplexity int, id string) int
-		StaffRestore                        func(childComplexity int, id string) int
 		StaffSave                           func(childComplexity int, staffInput models.StaffInput) int
 		StaffUpdate                         func(childComplexity int, staffInput models.StaffInputWithID) int
 		StudentDelete                       func(childComplexity int, id string) int
 		StudentPublishUpdate                func(childComplexity int, id string) int
-		StudentRestore                      func(childComplexity int, id string) int
 		StudentSave                         func(childComplexity int, studentInput models.StudentInput) int
 		StudentUpdate                       func(childComplexity int, studentInput models.StudentInputWithID) int
 		StudentVisitDelete                  func(childComplexity int, id string) int
 		StudentVisitPublishUpdate           func(childComplexity int, id string) int
-		StudentVisitRestore                 func(childComplexity int, id string) int
 		StudentVisitSave                    func(childComplexity int, studentVisitInput models.StudentVisitInput) int
 		StudentVisitUpdate                  func(childComplexity int, studentVisitInput models.StudentVisitInputWithID) int
 		TaskDelete                          func(childComplexity int, id string) int
 		TaskPublishUpdate                   func(childComplexity int, id string) int
-		TaskRestore                         func(childComplexity int, id string) int
 		TaskSave                            func(childComplexity int, taskInput models.TaskInput) int
 		TaskUpdate                          func(childComplexity int, taskInput models.TaskInputWithID) int
 		TeamBalanceDelete                   func(childComplexity int, id string) int
 		TeamBalancePublishUpdate            func(childComplexity int, id string) int
-		TeamBalanceRestore                  func(childComplexity int, id string) int
 		TeamBalanceSave                     func(childComplexity int, teamBalanceInput models.TeamBalanceInput) int
 		TeamBalanceUpdate                   func(childComplexity int, teamBalanceInput models.TeamBalanceInputWithID) int
 		TeamDelete                          func(childComplexity int, id string) int
 		TeamPublishUpdate                   func(childComplexity int, id string) int
-		TeamRestore                         func(childComplexity int, id string) int
 		TeamSave                            func(childComplexity int, teamInput models.TeamInput) int
 		TeamUpdate                          func(childComplexity int, teamInput models.TeamInputWithID) int
 		TrainingDayDelete                   func(childComplexity int, id string) int
 		TrainingDayPublishUpdate            func(childComplexity int, id string) int
-		TrainingDayRestore                  func(childComplexity int, id string) int
 		TrainingDaySave                     func(childComplexity int, trainingDayInput models.TrainingDayInput) int
 		TrainingDayUpdate                   func(childComplexity int, trainingDayInput models.TrainingDayInputWithID) int
 		TrainingDelete                      func(childComplexity int, id string) int
 		TrainingPublishUpdate               func(childComplexity int, id string) int
-		TrainingRestore                     func(childComplexity int, id string) int
 		TrainingSave                        func(childComplexity int, trainingInput models.TrainingInput) int
 		TrainingUpdate                      func(childComplexity int, trainingInput models.TrainingInputWithID) int
 		UpdateMeetup                        func(childComplexity int, id string, input *models.UpdateMeetup) int
 		UserDelete                          func(childComplexity int, id string) int
 		UserPublishUpdate                   func(childComplexity int, id string) int
-		UserRestore                         func(childComplexity int, id string) int
 		UserSave                            func(childComplexity int, userInput models.UserInput) int
 		UserUpdate                          func(childComplexity int, userInput models.UserInputWithID) int
 	}
@@ -539,14 +492,12 @@ type ComplexityRoot struct {
 	Order struct {
 		CartID      func(childComplexity int) int
 		CartItem    func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		CreatorID   func(childComplexity int) int
 		CreatorItem func(childComplexity int) int
 		FileName    func(childComplexity int) int
 		ID          func(childComplexity int) int
 		OrderStatus func(childComplexity int) int
 		Published   func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	OrderConnection struct {
@@ -572,13 +523,11 @@ type ComplexityRoot struct {
 
 	Place struct {
 		Address     func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Name        func(childComplexity int) int
 		OrderNumber func(childComplexity int) int
 		Published   func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	PlaceConnection struct {
@@ -657,7 +606,6 @@ type ComplexityRoot struct {
 	}
 
 	RentPaymentByMonth struct {
-		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Month       func(childComplexity int) int
@@ -666,7 +614,6 @@ type ComplexityRoot struct {
 		StadiumID   func(childComplexity int) int
 		StadiumItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	RentPaymentByMonthConnection struct {
@@ -685,7 +632,6 @@ type ComplexityRoot struct {
 	}
 
 	RentPaymentByTraining struct {
-		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Published   func(childComplexity int) int
@@ -694,7 +640,6 @@ type ComplexityRoot struct {
 		Sum         func(childComplexity int) int
 		TrainingIds func(childComplexity int) int
 		Trainings   func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	RentPaymentByTrainingConnection struct {
@@ -713,7 +658,6 @@ type ComplexityRoot struct {
 	}
 
 	Stadium struct {
-		CreatedAt func(childComplexity int) int
 		ID        func(childComplexity int) int
 		Latitude  func(childComplexity int) int
 		Longitude func(childComplexity int) int
@@ -721,7 +665,6 @@ type ComplexityRoot struct {
 		PlaceID   func(childComplexity int) int
 		PlaceItem func(childComplexity int) int
 		Published func(childComplexity int) int
-		UpdatedAt func(childComplexity int) int
 	}
 
 	StadiumConnection struct {
@@ -741,7 +684,6 @@ type ComplexityRoot struct {
 
 	Staff struct {
 		Birthday    func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		Department  func(childComplexity int) int
 		Description func(childComplexity int) int
 		FileName    func(childComplexity int) int
@@ -750,7 +692,6 @@ type ComplexityRoot struct {
 		OrderNumber func(childComplexity int) int
 		PhoneNumber func(childComplexity int) int
 		Published   func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 		UserID      func(childComplexity int) int
 		UserItem    func(childComplexity int) int
 		Work        func(childComplexity int) int
@@ -791,7 +732,6 @@ type ComplexityRoot struct {
 
 	Student struct {
 		Birthday    func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		CreatorIds  func(childComplexity int) int
 		Creators    func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -801,7 +741,6 @@ type ComplexityRoot struct {
 		Published   func(childComplexity int) int
 		TeamIds     func(childComplexity int) int
 		Teams       func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	StudentConnection struct {
@@ -832,7 +771,6 @@ type ComplexityRoot struct {
 	}
 
 	StudentVisit struct {
-		CreatedAt    func(childComplexity int) int
 		ID           func(childComplexity int) int
 		Payed        func(childComplexity int) int
 		Published    func(childComplexity int) int
@@ -840,7 +778,6 @@ type ComplexityRoot struct {
 		StudentItem  func(childComplexity int) int
 		TrainingID   func(childComplexity int) int
 		TrainingItem func(childComplexity int) int
-		UpdatedAt    func(childComplexity int) int
 		VisitStatus  func(childComplexity int) int
 	}
 
@@ -862,7 +799,6 @@ type ComplexityRoot struct {
 	Task struct {
 		Author      func(childComplexity int) int
 		AuthorID    func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		Description func(childComplexity int) int
 		EndTime     func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -876,7 +812,6 @@ type ComplexityRoot struct {
 		Students    func(childComplexity int) int
 		TaskStatus  func(childComplexity int) int
 		Title       func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 		WorkerIds   func(childComplexity int) int
 		Workers     func(childComplexity int) int
 	}
@@ -900,7 +835,6 @@ type ComplexityRoot struct {
 		Ages        func(childComplexity int) int
 		CoachIds    func(childComplexity int) int
 		Coaches     func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		HeadCoach   func(childComplexity int) int
 		HeadCoachID func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -908,12 +842,10 @@ type ComplexityRoot struct {
 		PlaceID     func(childComplexity int) int
 		PlaceItem   func(childComplexity int) int
 		Published   func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 		Writable    func(childComplexity int) int
 	}
 
 	TeamBalance struct {
-		CreatedAt func(childComplexity int) int
 		Date      func(childComplexity int) int
 		ID        func(childComplexity int) int
 		Published func(childComplexity int) int
@@ -923,7 +855,6 @@ type ComplexityRoot struct {
 		TeamID    func(childComplexity int) int
 		TeamItem  func(childComplexity int) int
 		Tickets   func(childComplexity int) int
-		UpdatedAt func(childComplexity int) int
 	}
 
 	TeamBalanceConnection struct {
@@ -971,7 +902,6 @@ type ComplexityRoot struct {
 	Training struct {
 		CoachIds    func(childComplexity int) int
 		Coaches     func(childComplexity int) int
-		CreatedAt   func(childComplexity int) int
 		HeadCoach   func(childComplexity int) int
 		HeadCoachID func(childComplexity int) int
 		ID          func(childComplexity int) int
@@ -981,7 +911,6 @@ type ComplexityRoot struct {
 		TeamID      func(childComplexity int) int
 		TeamItem    func(childComplexity int) int
 		Time        func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 		Visits      func(childComplexity int) int
 	}
 
@@ -991,7 +920,6 @@ type ComplexityRoot struct {
 	}
 
 	TrainingDay struct {
-		CreatedAt   func(childComplexity int) int
 		Day         func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Published   func(childComplexity int) int
@@ -1000,7 +928,6 @@ type ComplexityRoot struct {
 		TeamID      func(childComplexity int) int
 		TeamItem    func(childComplexity int) int
 		Time        func(childComplexity int) int
-		UpdatedAt   func(childComplexity int) int
 	}
 
 	TrainingDayConnection struct {
@@ -1035,14 +962,12 @@ type ComplexityRoot struct {
 	}
 
 	User struct {
-		CreatedAt func(childComplexity int) int
 		FirstName func(childComplexity int) int
 		ID        func(childComplexity int) int
 		LastName  func(childComplexity int) int
 		Meetups   func(childComplexity int) int
 		Phone     func(childComplexity int) int
 		Roles     func(childComplexity int) int
-		UpdatedAt func(childComplexity int) int
 	}
 
 	UserConnection struct {
@@ -1075,128 +1000,103 @@ type MutationResolver interface {
 	Login(ctx context.Context, input models.LoginInput) (*models.AuthResponse, error)
 	ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error)
 	ArticlePublishUpdate(ctx context.Context, id string) (*models.ArticlePayload, error)
-	ArticleRestore(ctx context.Context, id string) (*models.ArticlePayload, error)
 	ArticleSave(ctx context.Context, articleInput models.ArticleInput) (*models.ArticlePayload, error)
 	ArticleUpdate(ctx context.Context, articleInput models.ArticleInputWithID) (*models.ArticlePayload, error)
 	CartDelete(ctx context.Context, id string) (*models.CartPayload, error)
 	CartPublishUpdate(ctx context.Context, id string) (*models.CartPayload, error)
-	CartRestore(ctx context.Context, id string) (*models.CartPayload, error)
 	CartSave(ctx context.Context, cartInput models.CartInput) (*models.CartPayload, error)
 	CartUpdate(ctx context.Context, cartInput models.CartInputWithID) (*models.CartPayload, error)
 	ClubBalanceDelete(ctx context.Context, id string) (*models.ClubBalancePayload, error)
 	ClubBalancePublishUpdate(ctx context.Context, id string) (*models.ClubBalancePayload, error)
-	ClubBalanceRestore(ctx context.Context, id string) (*models.ClubBalancePayload, error)
 	ClubBalanceSave(ctx context.Context, clubBalanceInput models.ClubBalanceInput) (*models.ClubBalancePayload, error)
 	ClubBalanceUpdate(ctx context.Context, clubBalanceInput models.ClubBalanceInputWithID) (*models.ClubBalancePayload, error)
 	CoachPaymentByMonthDelete(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error)
 	CoachPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error)
-	CoachPaymentByMonthRestore(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error)
 	CoachPaymentByMonthSave(ctx context.Context, coachPaymentByMonthInput models.CoachPaymentByMonthInput) (*models.CoachPaymentByMonthPayload, error)
 	CoachPaymentByMonthUpdate(ctx context.Context, coachPaymentByMonthInput models.CoachPaymentByMonthInputWithID) (*models.CoachPaymentByMonthPayload, error)
 	CoachPaymentByTeamDelete(ctx context.Context, id string) (*models.CoachPaymentByTeamPayload, error)
 	CoachPaymentByTeamPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByTeamPayload, error)
-	CoachPaymentByTeamRestore(ctx context.Context, id string) (*models.CoachPaymentByTeamPayload, error)
 	CoachPaymentByTeamSave(ctx context.Context, coachPaymentByTeamInput models.CoachPaymentByTeamInput) (*models.CoachPaymentByTeamPayload, error)
 	CoachPaymentByTeamUpdate(ctx context.Context, coachPaymentByTeamInput models.CoachPaymentByTeamInputWithID) (*models.CoachPaymentByTeamPayload, error)
 	CoachPaymentByTrainingDelete(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error)
 	CoachPaymentByTrainingPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error)
-	CoachPaymentByTrainingRestore(ctx context.Context, id string) (*models.CoachPaymentByTrainingPayload, error)
 	CoachPaymentByTrainingSave(ctx context.Context, coachPaymentByTrainingInput models.CoachPaymentByTrainingInput) (*models.CoachPaymentByTrainingPayload, error)
 	CoachPaymentByTrainingUpdate(ctx context.Context, coachPaymentByTrainingInput models.CoachPaymentByTrainingInputWithID) (*models.CoachPaymentByTrainingPayload, error)
 	CreatorDelete(ctx context.Context, id string) (*models.CreatorPayload, error)
 	CreatorPublishUpdate(ctx context.Context, id string) (*models.CreatorPayload, error)
-	CreatorRestore(ctx context.Context, id string) (*models.CreatorPayload, error)
 	CreatorSave(ctx context.Context, creatorInput models.CreatorInput) (*models.CreatorPayload, error)
 	CreatorUpdate(ctx context.Context, creatorInput models.CreatorInputWithID) (*models.CreatorPayload, error)
 	KitDelete(ctx context.Context, id string) (*models.KitPayload, error)
 	KitPublishUpdate(ctx context.Context, id string) (*models.KitPayload, error)
-	KitRestore(ctx context.Context, id string) (*models.KitPayload, error)
 	KitSave(ctx context.Context, kitInput models.KitInput) (*models.KitPayload, error)
 	KitUpdate(ctx context.Context, kitInput models.KitInputWithID) (*models.KitPayload, error)
 	LeadDelete(ctx context.Context, id string) (*models.LeadPayload, error)
 	LeadPublishUpdate(ctx context.Context, id string) (*models.LeadPayload, error)
-	LeadRestore(ctx context.Context, id string) (*models.LeadPayload, error)
 	LeadSave(ctx context.Context, leadInput models.LeadInput) (*models.LeadPayload, error)
 	LeadUpdate(ctx context.Context, leadInput models.LeadInputWithID) (*models.LeadPayload, error)
 	MoneyCostDelete(ctx context.Context, id string) (*models.MoneyCostPayload, error)
 	MoneyCostPublishUpdate(ctx context.Context, id string) (*models.MoneyCostPayload, error)
-	MoneyCostRestore(ctx context.Context, id string) (*models.MoneyCostPayload, error)
 	MoneyCostSave(ctx context.Context, moneyCostInput models.MoneyCostInput) (*models.MoneyCostPayload, error)
 	MoneyCostUpdate(ctx context.Context, moneyCostInput models.MoneyCostInputWithID) (*models.MoneyCostPayload, error)
 	MoneyMoveDelete(ctx context.Context, id string) (*models.MoneyMovePayload, error)
 	MoneyMovePublishUpdate(ctx context.Context, id string) (*models.MoneyMovePayload, error)
-	MoneyMoveRestore(ctx context.Context, id string) (*models.MoneyMovePayload, error)
 	MoneyMoveSave(ctx context.Context, moneyMoveInput models.MoneyMoveInput) (*models.MoneyMovePayload, error)
 	MoneyMoveUpdate(ctx context.Context, moneyMoveInput models.MoneyMoveInputWithID) (*models.MoneyMovePayload, error)
 	OrderDelete(ctx context.Context, id string) (*models.OrderPayload, error)
 	OrderPublishUpdate(ctx context.Context, id string) (*models.OrderPayload, error)
-	OrderRestore(ctx context.Context, id string) (*models.OrderPayload, error)
 	OrderSave(ctx context.Context, orderInput models.OrderInput) (*models.OrderPayload, error)
 	OrderUpdate(ctx context.Context, orderInput models.OrderInputWithID) (*models.OrderPayload, error)
 	PlaceDelete(ctx context.Context, id string) (*models.PlacePayload, error)
 	PlacePublishUpdate(ctx context.Context, id string) (*models.PlacePayload, error)
-	PlaceRestore(ctx context.Context, id string) (*models.PlacePayload, error)
 	PlaceSave(ctx context.Context, placeInput models.PlaceInput) (*models.PlacePayload, error)
 	PlaceUpdate(ctx context.Context, placeInput models.PlaceInputWithID) (*models.PlacePayload, error)
 	Refresh(ctx context.Context, phone string, token string) (*models.Token, error)
 	RentPaymentByMonthDelete(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error)
 	RentPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error)
-	RentPaymentByMonthRestore(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error)
 	RentPaymentByMonthSave(ctx context.Context, rentPaymentInput models.RentPaymentByMonthInput) (*models.RentPaymentByMonthPayload, error)
 	RentPaymentByMonthUpdate(ctx context.Context, rentPaymentInput models.RentPaymentByMonthInputWithID) (*models.RentPaymentByMonthPayload, error)
 	RentPaymentByTrainingDelete(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error)
 	RentPaymentByTrainingPublishUpdate(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error)
-	RentPaymentByTrainingRestore(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error)
 	RentPaymentByTrainingSave(ctx context.Context, rentPaymentInput models.RentPaymentByTrainingInput) (*models.RentPaymentByTrainingPayload, error)
 	RentPaymentByTrainingUpdate(ctx context.Context, rentPaymentInput models.RentPaymentByTrainingInputWithID) (*models.RentPaymentByTrainingPayload, error)
 	StadiumDelete(ctx context.Context, id string) (*models.StadiumPayload, error)
 	StadiumPublishUpdate(ctx context.Context, id string) (*models.StadiumPayload, error)
-	StadiumRestore(ctx context.Context, id string) (*models.StadiumPayload, error)
 	StadiumSave(ctx context.Context, stadiumInput models.StadiumInput) (*models.StadiumPayload, error)
 	StadiumUpdate(ctx context.Context, stadiumInput models.StadiumInputWithID) (*models.StadiumPayload, error)
 	StaffDelete(ctx context.Context, id string) (*models.StaffPayload, error)
 	StaffPublishUpdate(ctx context.Context, id string) (*models.StaffPayload, error)
-	StaffRestore(ctx context.Context, id string) (*models.StaffPayload, error)
 	StaffSave(ctx context.Context, staffInput models.StaffInput) (*models.StaffPayload, error)
 	StaffUpdate(ctx context.Context, staffInput models.StaffInputWithID) (*models.StaffPayload, error)
 	StudentVisitDelete(ctx context.Context, id string) (*models.StudentVisitPayload, error)
 	StudentVisitPublishUpdate(ctx context.Context, id string) (*models.StudentVisitPayload, error)
-	StudentVisitRestore(ctx context.Context, id string) (*models.StudentVisitPayload, error)
 	StudentVisitSave(ctx context.Context, studentVisitInput models.StudentVisitInput) (*models.StudentVisitPayload, error)
 	StudentVisitUpdate(ctx context.Context, studentVisitInput models.StudentVisitInputWithID) (*models.StudentVisitPayload, error)
 	StudentDelete(ctx context.Context, id string) (*models.StudentPayload, error)
 	StudentPublishUpdate(ctx context.Context, id string) (*models.StudentPayload, error)
-	StudentRestore(ctx context.Context, id string) (*models.StudentPayload, error)
 	StudentSave(ctx context.Context, studentInput models.StudentInput) (*models.StudentPayload, error)
 	StudentUpdate(ctx context.Context, studentInput models.StudentInputWithID) (*models.StudentPayload, error)
 	TaskDelete(ctx context.Context, id string) (*models.TaskPayload, error)
 	TaskPublishUpdate(ctx context.Context, id string) (*models.TaskPayload, error)
-	TaskRestore(ctx context.Context, id string) (*models.TaskPayload, error)
 	TaskSave(ctx context.Context, taskInput models.TaskInput) (*models.TaskPayload, error)
 	TaskUpdate(ctx context.Context, taskInput models.TaskInputWithID) (*models.TaskPayload, error)
 	TeamBalanceDelete(ctx context.Context, id string) (*models.TeamBalancePayload, error)
 	TeamBalancePublishUpdate(ctx context.Context, id string) (*models.TeamBalancePayload, error)
-	TeamBalanceRestore(ctx context.Context, id string) (*models.TeamBalancePayload, error)
 	TeamBalanceSave(ctx context.Context, teamBalanceInput models.TeamBalanceInput) (*models.TeamBalancePayload, error)
 	TeamBalanceUpdate(ctx context.Context, teamBalanceInput models.TeamBalanceInputWithID) (*models.TeamBalancePayload, error)
 	TeamDelete(ctx context.Context, id string) (*models.TeamPayload, error)
 	TeamPublishUpdate(ctx context.Context, id string) (*models.TeamPayload, error)
-	TeamRestore(ctx context.Context, id string) (*models.TeamPayload, error)
 	TeamSave(ctx context.Context, teamInput models.TeamInput) (*models.TeamPayload, error)
 	TeamUpdate(ctx context.Context, teamInput models.TeamInputWithID) (*models.TeamPayload, error)
 	TrainingDayDelete(ctx context.Context, id string) (*models.TrainingDayPayload, error)
 	TrainingDayPublishUpdate(ctx context.Context, id string) (*models.TrainingDayPayload, error)
-	TrainingDayRestore(ctx context.Context, id string) (*models.TrainingDayPayload, error)
 	TrainingDaySave(ctx context.Context, trainingDayInput models.TrainingDayInput) (*models.TrainingDayPayload, error)
 	TrainingDayUpdate(ctx context.Context, trainingDayInput models.TrainingDayInputWithID) (*models.TrainingDayPayload, error)
 	TrainingDelete(ctx context.Context, id string) (*models.TrainingPayload, error)
 	TrainingPublishUpdate(ctx context.Context, id string) (*models.TrainingPayload, error)
-	TrainingRestore(ctx context.Context, id string) (*models.TrainingPayload, error)
 	TrainingSave(ctx context.Context, trainingInput models.TrainingInput) (*models.TrainingPayload, error)
 	TrainingUpdate(ctx context.Context, trainingInput models.TrainingInputWithID) (*models.TrainingPayload, error)
 	UserDelete(ctx context.Context, id string) (*models.UserPayload, error)
 	UserPublishUpdate(ctx context.Context, id string) (*models.UserPayload, error)
-	UserRestore(ctx context.Context, id string) (*models.UserPayload, error)
 	UserSave(ctx context.Context, userInput models.UserInput) (*models.UserPayload, error)
 	UserUpdate(ctx context.Context, userInput models.UserInputWithID) (*models.UserPayload, error)
 }
@@ -1292,13 +1192,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Article.AuthorID(childComplexity), true
 
-	case "Article.createdAt":
-		if e.complexity.Article.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Article.CreatedAt(childComplexity), true
-
 	case "Article.description":
 		if e.complexity.Article.Description == nil {
 			break
@@ -1340,13 +1233,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Article.Title(childComplexity), true
-
-	case "Article.updatedAt":
-		if e.complexity.Article.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Article.UpdatedAt(childComplexity), true
 
 	case "ArticleConnection.edges":
 		if e.complexity.ArticleConnection.Edges == nil {
@@ -1418,13 +1304,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.AuthToken.ExpiredAt(childComplexity), true
 
-	case "Cart.createdAt":
-		if e.complexity.Cart.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Cart.CreatedAt(childComplexity), true
-
 	case "Cart.id":
 		if e.complexity.Cart.ID == nil {
 			break
@@ -1474,13 +1353,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Cart.Sum(childComplexity), true
 
-	case "Cart.updatedAt":
-		if e.complexity.Cart.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Cart.UpdatedAt(childComplexity), true
-
 	case "CartConnection.edges":
 		if e.complexity.CartConnection.Edges == nil {
 			break
@@ -1522,13 +1394,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.CartPayload.RecordID(childComplexity), true
-
-	case "ClubBalance.createdAt":
-		if e.complexity.ClubBalance.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.ClubBalance.CreatedAt(childComplexity), true
 
 	case "ClubBalance.date":
 		if e.complexity.ClubBalance.Date == nil {
@@ -1586,13 +1451,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.ClubBalance.Tickets(childComplexity), true
 
-	case "ClubBalance.updatedAt":
-		if e.complexity.ClubBalance.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.ClubBalance.UpdatedAt(childComplexity), true
-
 	case "ClubBalanceConnection.edges":
 		if e.complexity.ClubBalanceConnection.Edges == nil {
 			break
@@ -1649,13 +1507,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByMonth.CoachID(childComplexity), true
 
-	case "CoachPaymentByMonth.createdAt":
-		if e.complexity.CoachPaymentByMonth.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.CoachPaymentByMonth.CreatedAt(childComplexity), true
-
 	case "CoachPaymentByMonth.date":
 		if e.complexity.CoachPaymentByMonth.Date == nil {
 			break
@@ -1683,13 +1534,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.CoachPaymentByMonth.Sum(childComplexity), true
-
-	case "CoachPaymentByMonth.updatedAt":
-		if e.complexity.CoachPaymentByMonth.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.CoachPaymentByMonth.UpdatedAt(childComplexity), true
 
 	case "CoachPaymentByMonthConnection.edges":
 		if e.complexity.CoachPaymentByMonthConnection.Edges == nil {
@@ -1747,13 +1591,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByTeam.CoachID(childComplexity), true
 
-	case "CoachPaymentByTeam.createdAt":
-		if e.complexity.CoachPaymentByTeam.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.CoachPaymentByTeam.CreatedAt(childComplexity), true
-
 	case "CoachPaymentByTeam.dateFinish":
 		if e.complexity.CoachPaymentByTeam.DateFinish == nil {
 			break
@@ -1809,13 +1646,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.CoachPaymentByTeam.TeamItem(childComplexity), true
-
-	case "CoachPaymentByTeam.updatedAt":
-		if e.complexity.CoachPaymentByTeam.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.CoachPaymentByTeam.UpdatedAt(childComplexity), true
 
 	case "CoachPaymentByTeamConnection.edges":
 		if e.complexity.CoachPaymentByTeamConnection.Edges == nil {
@@ -1873,13 +1703,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByTraining.CoachID(childComplexity), true
 
-	case "CoachPaymentByTraining.createdAt":
-		if e.complexity.CoachPaymentByTraining.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.CoachPaymentByTraining.CreatedAt(childComplexity), true
-
 	case "CoachPaymentByTraining.id":
 		if e.complexity.CoachPaymentByTraining.ID == nil {
 			break
@@ -1914,13 +1737,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.CoachPaymentByTraining.TrainingItem(childComplexity), true
-
-	case "CoachPaymentByTraining.updatedAt":
-		if e.complexity.CoachPaymentByTraining.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.CoachPaymentByTraining.UpdatedAt(childComplexity), true
 
 	case "CoachPaymentByTrainingConnection.edges":
 		if e.complexity.CoachPaymentByTrainingConnection.Edges == nil {
@@ -1964,13 +1780,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByTrainingPayload.RecordID(childComplexity), true
 
-	case "Creator.createdAt":
-		if e.complexity.Creator.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Creator.CreatedAt(childComplexity), true
-
 	case "Creator.id":
 		if e.complexity.Creator.ID == nil {
 			break
@@ -2005,13 +1814,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Creator.Published(childComplexity), true
-
-	case "Creator.updatedAt":
-		if e.complexity.Creator.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Creator.UpdatedAt(childComplexity), true
 
 	case "Creator.userId":
 		if e.complexity.Creator.UserID == nil {
@@ -2090,13 +1892,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CreatorStudent.StudentID(childComplexity), true
 
-	case "Kit.createdAt":
-		if e.complexity.Kit.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Kit.CreatedAt(childComplexity), true
-
 	case "Kit.fileName":
 		if e.complexity.Kit.FileName == nil {
 			break
@@ -2160,13 +1955,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Kit.Title(childComplexity), true
 
-	case "Kit.updatedAt":
-		if e.complexity.Kit.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Kit.UpdatedAt(childComplexity), true
-
 	case "KitCart.cartId":
 		if e.complexity.KitCart.CartID == nil {
 			break
@@ -2229,13 +2017,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.KitPayload.RecordID(childComplexity), true
-
-	case "Lead.createdAt":
-		if e.complexity.Lead.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Lead.CreatedAt(childComplexity), true
 
 	case "Lead.description":
 		if e.complexity.Lead.Description == nil {
@@ -2327,13 +2108,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Lead.TeamItem(childComplexity), true
-
-	case "Lead.updatedAt":
-		if e.complexity.Lead.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Lead.UpdatedAt(childComplexity), true
 
 	case "Lead.yearBorn":
 		if e.complexity.Lead.YearBorn == nil {
@@ -2433,13 +2207,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Meetup.User(childComplexity), true
 
-	case "MoneyCost.createdAt":
-		if e.complexity.MoneyCost.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.MoneyCost.CreatedAt(childComplexity), true
-
 	case "MoneyCost.date":
 		if e.complexity.MoneyCost.Date == nil {
 			break
@@ -2496,13 +2263,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.MoneyCost.Sum(childComplexity), true
 
-	case "MoneyCost.updatedAt":
-		if e.complexity.MoneyCost.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.MoneyCost.UpdatedAt(childComplexity), true
-
 	case "MoneyCostConnection.edges":
 		if e.complexity.MoneyCostConnection.Edges == nil {
 			break
@@ -2544,13 +2304,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.MoneyCostPayload.RecordID(childComplexity), true
-
-	case "MoneyMove.createdAt":
-		if e.complexity.MoneyMove.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.MoneyMove.CreatedAt(childComplexity), true
 
 	case "MoneyMove.dateFinish":
 		if e.complexity.MoneyMove.DateFinish == nil {
@@ -2636,13 +2389,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.MoneyMove.Sum(childComplexity), true
 
-	case "MoneyMove.updatedAt":
-		if e.complexity.MoneyMove.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.MoneyMove.UpdatedAt(childComplexity), true
-
 	case "MoneyMove.userId":
 		if e.complexity.MoneyMove.UserID == nil {
 			break
@@ -2723,18 +2469,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.ArticlePublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.articleRestore":
-		if e.complexity.Mutation.ArticleRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_articleRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.ArticleRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.articleSave":
 		if e.complexity.Mutation.ArticleSave == nil {
 			break
@@ -2782,18 +2516,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.CartPublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.cartRestore":
-		if e.complexity.Mutation.CartRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_cartRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.CartRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.cartSave":
 		if e.complexity.Mutation.CartSave == nil {
@@ -2843,18 +2565,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.ClubBalancePublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.clubBalanceRestore":
-		if e.complexity.Mutation.ClubBalanceRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_clubBalanceRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.ClubBalanceRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.clubBalanceSave":
 		if e.complexity.Mutation.ClubBalanceSave == nil {
 			break
@@ -2902,18 +2612,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.CoachPaymentByMonthPublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.coachPaymentByMonthRestore":
-		if e.complexity.Mutation.CoachPaymentByMonthRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_coachPaymentByMonthRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.CoachPaymentByMonthRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.coachPaymentByMonthSave":
 		if e.complexity.Mutation.CoachPaymentByMonthSave == nil {
@@ -2963,18 +2661,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.CoachPaymentByTeamPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.coachPaymentByTeamRestore":
-		if e.complexity.Mutation.CoachPaymentByTeamRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_coachPaymentByTeamRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.CoachPaymentByTeamRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.coachPaymentByTeamSave":
 		if e.complexity.Mutation.CoachPaymentByTeamSave == nil {
 			break
@@ -3022,18 +2708,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.CoachPaymentByTrainingPublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.coachPaymentByTrainingRestore":
-		if e.complexity.Mutation.CoachPaymentByTrainingRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_coachPaymentByTrainingRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.CoachPaymentByTrainingRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.coachPaymentByTrainingSave":
 		if e.complexity.Mutation.CoachPaymentByTrainingSave == nil {
@@ -3095,18 +2769,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.CreatorPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.creatorRestore":
-		if e.complexity.Mutation.CreatorRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_creatorRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.CreatorRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.creatorSave":
 		if e.complexity.Mutation.CreatorSave == nil {
 			break
@@ -3167,18 +2829,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.KitPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.kitRestore":
-		if e.complexity.Mutation.KitRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_kitRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.KitRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.kitSave":
 		if e.complexity.Mutation.KitSave == nil {
 			break
@@ -3226,18 +2876,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.LeadPublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.leadRestore":
-		if e.complexity.Mutation.LeadRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_leadRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.LeadRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.leadSave":
 		if e.complexity.Mutation.LeadSave == nil {
@@ -3299,18 +2937,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.MoneyCostPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.moneyCostRestore":
-		if e.complexity.Mutation.MoneyCostRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_moneyCostRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.MoneyCostRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.moneyCostSave":
 		if e.complexity.Mutation.MoneyCostSave == nil {
 			break
@@ -3358,18 +2984,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.MoneyMovePublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.moneyMoveRestore":
-		if e.complexity.Mutation.MoneyMoveRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_moneyMoveRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.MoneyMoveRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.moneyMoveSave":
 		if e.complexity.Mutation.MoneyMoveSave == nil {
@@ -3419,18 +3033,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.OrderPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.orderRestore":
-		if e.complexity.Mutation.OrderRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_orderRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.OrderRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.orderSave":
 		if e.complexity.Mutation.OrderSave == nil {
 			break
@@ -3478,18 +3080,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.PlacePublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.placeRestore":
-		if e.complexity.Mutation.PlaceRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_placeRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.PlaceRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.placeSave":
 		if e.complexity.Mutation.PlaceSave == nil {
@@ -3563,18 +3153,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.RentPaymentByMonthPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.rentPaymentByMonthRestore":
-		if e.complexity.Mutation.RentPaymentByMonthRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_rentPaymentByMonthRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.RentPaymentByMonthRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.rentPaymentByMonthSave":
 		if e.complexity.Mutation.RentPaymentByMonthSave == nil {
 			break
@@ -3622,18 +3200,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.RentPaymentByTrainingPublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.rentPaymentByTrainingRestore":
-		if e.complexity.Mutation.RentPaymentByTrainingRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_rentPaymentByTrainingRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.RentPaymentByTrainingRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.rentPaymentByTrainingSave":
 		if e.complexity.Mutation.RentPaymentByTrainingSave == nil {
@@ -3683,18 +3249,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.StadiumPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.stadiumRestore":
-		if e.complexity.Mutation.StadiumRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_stadiumRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.StadiumRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.stadiumSave":
 		if e.complexity.Mutation.StadiumSave == nil {
 			break
@@ -3742,18 +3296,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.StaffPublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.staffRestore":
-		if e.complexity.Mutation.StaffRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_staffRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.StaffRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.staffSave":
 		if e.complexity.Mutation.StaffSave == nil {
@@ -3803,18 +3345,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.StudentPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.studentRestore":
-		if e.complexity.Mutation.StudentRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_studentRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.StudentRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.studentSave":
 		if e.complexity.Mutation.StudentSave == nil {
 			break
@@ -3862,18 +3392,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.StudentVisitPublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.studentVisitRestore":
-		if e.complexity.Mutation.StudentVisitRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_studentVisitRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.StudentVisitRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.studentVisitSave":
 		if e.complexity.Mutation.StudentVisitSave == nil {
@@ -3923,18 +3441,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.TaskPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.taskRestore":
-		if e.complexity.Mutation.TaskRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_taskRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.TaskRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.taskSave":
 		if e.complexity.Mutation.TaskSave == nil {
 			break
@@ -3982,18 +3488,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.TeamBalancePublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.teamBalanceRestore":
-		if e.complexity.Mutation.TeamBalanceRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_teamBalanceRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.TeamBalanceRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.teamBalanceSave":
 		if e.complexity.Mutation.TeamBalanceSave == nil {
@@ -4043,18 +3537,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.TeamPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.teamRestore":
-		if e.complexity.Mutation.TeamRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_teamRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.TeamRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.teamSave":
 		if e.complexity.Mutation.TeamSave == nil {
 			break
@@ -4103,18 +3585,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.TrainingDayPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.trainingDayRestore":
-		if e.complexity.Mutation.TrainingDayRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_trainingDayRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.TrainingDayRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.trainingDaySave":
 		if e.complexity.Mutation.TrainingDaySave == nil {
 			break
@@ -4162,18 +3632,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.TrainingPublishUpdate(childComplexity, args["id"].(string)), true
-
-	case "Mutation.trainingRestore":
-		if e.complexity.Mutation.TrainingRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_trainingRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.TrainingRestore(childComplexity, args["id"].(string)), true
 
 	case "Mutation.trainingSave":
 		if e.complexity.Mutation.TrainingSave == nil {
@@ -4235,18 +3693,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UserPublishUpdate(childComplexity, args["id"].(string)), true
 
-	case "Mutation.userRestore":
-		if e.complexity.Mutation.UserRestore == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_userRestore_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UserRestore(childComplexity, args["id"].(string)), true
-
 	case "Mutation.userSave":
 		if e.complexity.Mutation.UserSave == nil {
 			break
@@ -4284,13 +3730,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Order.CartItem(childComplexity), true
-
-	case "Order.createdAt":
-		if e.complexity.Order.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Order.CreatedAt(childComplexity), true
 
 	case "Order.creatorId":
 		if e.complexity.Order.CreatorID == nil {
@@ -4333,13 +3772,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Order.Published(childComplexity), true
-
-	case "Order.updatedAt":
-		if e.complexity.Order.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Order.UpdatedAt(childComplexity), true
 
 	case "OrderConnection.edges":
 		if e.complexity.OrderConnection.Edges == nil {
@@ -4411,13 +3843,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Place.Address(childComplexity), true
 
-	case "Place.createdAt":
-		if e.complexity.Place.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Place.CreatedAt(childComplexity), true
-
 	case "Place.description":
 		if e.complexity.Place.Description == nil {
 			break
@@ -4452,13 +3877,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Place.Published(childComplexity), true
-
-	case "Place.updatedAt":
-		if e.complexity.Place.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Place.UpdatedAt(childComplexity), true
 
 	case "PlaceConnection.edges":
 		if e.complexity.PlaceConnection.Edges == nil {
@@ -5186,13 +4604,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.Users(childComplexity, args["after"].(*string), args["before"].(*string), args["first"].(*int), args["last"].(*int)), true
 
-	case "RentPaymentByMonth.createdAt":
-		if e.complexity.RentPaymentByMonth.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.RentPaymentByMonth.CreatedAt(childComplexity), true
-
 	case "RentPaymentByMonth.description":
 		if e.complexity.RentPaymentByMonth.Description == nil {
 			break
@@ -5249,13 +4660,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RentPaymentByMonth.Sum(childComplexity), true
 
-	case "RentPaymentByMonth.updatedAt":
-		if e.complexity.RentPaymentByMonth.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.RentPaymentByMonth.UpdatedAt(childComplexity), true
-
 	case "RentPaymentByMonthConnection.edges":
 		if e.complexity.RentPaymentByMonthConnection.Edges == nil {
 			break
@@ -5297,13 +4701,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.RentPaymentByMonthPayload.RecordID(childComplexity), true
-
-	case "RentPaymentByTraining.createdAt":
-		if e.complexity.RentPaymentByTraining.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.RentPaymentByTraining.CreatedAt(childComplexity), true
 
 	case "RentPaymentByTraining.description":
 		if e.complexity.RentPaymentByTraining.Description == nil {
@@ -5361,13 +4758,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RentPaymentByTraining.Trainings(childComplexity), true
 
-	case "RentPaymentByTraining.updatedAt":
-		if e.complexity.RentPaymentByTraining.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.RentPaymentByTraining.UpdatedAt(childComplexity), true
-
 	case "RentPaymentByTrainingConnection.edges":
 		if e.complexity.RentPaymentByTrainingConnection.Edges == nil {
 			break
@@ -5409,13 +4799,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.RentPaymentByTrainingPayload.RecordID(childComplexity), true
-
-	case "Stadium.createdAt":
-		if e.complexity.Stadium.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Stadium.CreatedAt(childComplexity), true
 
 	case "Stadium.id":
 		if e.complexity.Stadium.ID == nil {
@@ -5466,13 +4849,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Stadium.Published(childComplexity), true
 
-	case "Stadium.updatedAt":
-		if e.complexity.Stadium.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Stadium.UpdatedAt(childComplexity), true
-
 	case "StadiumConnection.edges":
 		if e.complexity.StadiumConnection.Edges == nil {
 			break
@@ -5521,13 +4897,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Staff.Birthday(childComplexity), true
-
-	case "Staff.createdAt":
-		if e.complexity.Staff.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Staff.CreatedAt(childComplexity), true
 
 	case "Staff.department":
 		if e.complexity.Staff.Department == nil {
@@ -5584,13 +4953,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Staff.Published(childComplexity), true
-
-	case "Staff.updatedAt":
-		if e.complexity.Staff.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Staff.UpdatedAt(childComplexity), true
 
 	case "Staff.userId":
 		if e.complexity.Staff.UserID == nil {
@@ -5725,13 +5087,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Student.Birthday(childComplexity), true
 
-	case "Student.createdAt":
-		if e.complexity.Student.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Student.CreatedAt(childComplexity), true
-
 	case "Student.creatorIds":
 		if e.complexity.Student.CreatorIds == nil {
 			break
@@ -5794,13 +5149,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Student.Teams(childComplexity), true
-
-	case "Student.updatedAt":
-		if e.complexity.Student.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Student.UpdatedAt(childComplexity), true
 
 	case "StudentConnection.edges":
 		if e.complexity.StudentConnection.Edges == nil {
@@ -5886,13 +5234,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.StudentTask.TaskID(childComplexity), true
 
-	case "StudentVisit.createdAt":
-		if e.complexity.StudentVisit.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.StudentVisit.CreatedAt(childComplexity), true
-
 	case "StudentVisit.id":
 		if e.complexity.StudentVisit.ID == nil {
 			break
@@ -5941,13 +5282,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.StudentVisit.TrainingItem(childComplexity), true
-
-	case "StudentVisit.updatedAt":
-		if e.complexity.StudentVisit.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.StudentVisit.UpdatedAt(childComplexity), true
 
 	case "StudentVisit.visitStatus":
 		if e.complexity.StudentVisit.VisitStatus == nil {
@@ -6011,13 +5345,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Task.AuthorID(childComplexity), true
-
-	case "Task.createdAt":
-		if e.complexity.Task.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Task.CreatedAt(childComplexity), true
 
 	case "Task.description":
 		if e.complexity.Task.Description == nil {
@@ -6110,13 +5437,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Task.Title(childComplexity), true
 
-	case "Task.updatedAt":
-		if e.complexity.Task.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Task.UpdatedAt(childComplexity), true
-
 	case "Task.workerIds":
 		if e.complexity.Task.WorkerIds == nil {
 			break
@@ -6194,13 +5514,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Team.Coaches(childComplexity), true
 
-	case "Team.createdAt":
-		if e.complexity.Team.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Team.CreatedAt(childComplexity), true
-
 	case "Team.headCoach":
 		if e.complexity.Team.HeadCoach == nil {
 			break
@@ -6250,26 +5563,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Team.Published(childComplexity), true
 
-	case "Team.updatedAt":
-		if e.complexity.Team.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Team.UpdatedAt(childComplexity), true
-
 	case "Team.writable":
 		if e.complexity.Team.Writable == nil {
 			break
 		}
 
 		return e.complexity.Team.Writable(childComplexity), true
-
-	case "TeamBalance.createdAt":
-		if e.complexity.TeamBalance.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.TeamBalance.CreatedAt(childComplexity), true
 
 	case "TeamBalance.date":
 		if e.complexity.TeamBalance.Date == nil {
@@ -6333,13 +5632,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.TeamBalance.Tickets(childComplexity), true
-
-	case "TeamBalance.updatedAt":
-		if e.complexity.TeamBalance.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.TeamBalance.UpdatedAt(childComplexity), true
 
 	case "TeamBalanceConnection.edges":
 		if e.complexity.TeamBalanceConnection.Edges == nil {
@@ -6481,13 +5773,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Training.Coaches(childComplexity), true
 
-	case "Training.createdAt":
-		if e.complexity.Training.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.Training.CreatedAt(childComplexity), true
-
 	case "Training.headCoach":
 		if e.complexity.Training.HeadCoach == nil {
 			break
@@ -6551,13 +5836,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Training.Time(childComplexity), true
 
-	case "Training.updatedAt":
-		if e.complexity.Training.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.Training.UpdatedAt(childComplexity), true
-
 	case "Training.visits":
 		if e.complexity.Training.Visits == nil {
 			break
@@ -6578,13 +5856,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.TrainingConnection.PageInfo(childComplexity), true
-
-	case "TrainingDay.createdAt":
-		if e.complexity.TrainingDay.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.TrainingDay.CreatedAt(childComplexity), true
 
 	case "TrainingDay.day":
 		if e.complexity.TrainingDay.Day == nil {
@@ -6641,13 +5912,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.TrainingDay.Time(childComplexity), true
-
-	case "TrainingDay.updatedAt":
-		if e.complexity.TrainingDay.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.TrainingDay.UpdatedAt(childComplexity), true
 
 	case "TrainingDayConnection.edges":
 		if e.complexity.TrainingDayConnection.Edges == nil {
@@ -6740,13 +6004,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.TrainingRent.TrainingRent(childComplexity), true
 
-	case "User.createdAt":
-		if e.complexity.User.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.User.CreatedAt(childComplexity), true
-
 	case "User.firstName":
 		if e.complexity.User.FirstName == nil {
 			break
@@ -6788,13 +6045,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.User.Roles(childComplexity), true
-
-	case "User.updatedAt":
-		if e.complexity.User.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.User.UpdatedAt(childComplexity), true
 
 	case "UserConnection.edges":
 		if e.complexity.UserConnection.Edges == nil {
@@ -7048,130 +6298,105 @@ type Mutation {
     deleteMeetup(id: ID!): Boolean!
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
-    articleDelete(id: String!): ArticlePayload!
-    articlePublishUpdate(id: String!): ArticlePayload!
-    articleRestore(id: String!): ArticlePayload!
-    articleSave(articleInput: ArticleInput!): ArticlePayload!
-    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload!
-    cartDelete(id: String!): CartPayload!
-    cartPublishUpdate(id: String!): CartPayload!
-    cartRestore(id: String!): CartPayload!
-    cartSave(cartInput: CartInput!): CartPayload!
-    cartUpdate(cartInput: CartInputWithId!): CartPayload!
-    clubBalanceDelete(id: String!): ClubBalancePayload!
-    clubBalancePublishUpdate(id: String!): ClubBalancePayload!
-    clubBalanceRestore(id: String!): ClubBalancePayload!
-    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload!
-    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload!
-    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthRestore(id: String!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload!
-    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload!
+    articleDelete(id: String!): ArticlePayload! @hasRole(role: EDITOR)
+    articlePublishUpdate(id: String!): ArticlePayload! @hasRole(role: EDITOR)
+    articleSave(articleInput: ArticleInput!): ArticlePayload! @hasRole(role: EDITOR)
+    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload! @hasRole(role: EDITOR)
+    cartDelete(id: String!): CartPayload! @hasRole(role: ADMIN)
+    cartPublishUpdate(id: String!): CartPayload! @hasRole(role: ADMIN)
+    cartSave(cartInput: CartInput!): CartPayload! @hasRole(role: USER)
+    cartUpdate(cartInput: CartInputWithId!): CartPayload! @hasRole(role: USER)
+    clubBalanceDelete(id: String!): ClubBalancePayload! @hasRole(role: ADMIN)
+    clubBalancePublishUpdate(id: String!): ClubBalancePayload! @hasRole(role: ADMIN)
+    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload! @hasRole(role: ADMIN)
+    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload! @hasRole(role: ADMIN)
+    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload! @hasRole(role: ADMIN)
+    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload! @hasRole(role: ADMIN)
+    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload! @hasRole(role: ECONOMIST)
+    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload! @hasRole(role: ECONOMIST)
+    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload! @hasRole(role: ADMIN)
     coachPaymentByTeamPublishUpdate(id: String!): CoachPaymentByTeamPayload!
-    coachPaymentByTeamRestore(id: String!): CoachPaymentByTeamPayload!
     coachPaymentByTeamSave(coachPaymentByTeamInput: CoachPaymentByTeamInput!): CoachPaymentByTeamPayload!
     coachPaymentByTeamUpdate(coachPaymentByTeamInput: CoachPaymentByTeamInputWithId!): CoachPaymentByTeamPayload!
     coachPaymentByTrainingDelete(id: String!): CoachPaymentByTrainingPayload!
     coachPaymentByTrainingPublishUpdate(id: String!): CoachPaymentByTrainingPayload!
-    coachPaymentByTrainingRestore(id: String!): CoachPaymentByTrainingPayload!
     coachPaymentByTrainingSave(coachPaymentByTrainingInput: CoachPaymentByTrainingInput!): CoachPaymentByTrainingPayload!
     coachPaymentByTrainingUpdate(coachPaymentByTrainingInput: CoachPaymentByTrainingInputWithId!): CoachPaymentByTrainingPayload!
     creatorDelete(id: String!): CreatorPayload!
     creatorPublishUpdate(id: String!): CreatorPayload!
-    creatorRestore(id: String!): CreatorPayload!
     creatorSave(creatorInput: CreatorInput!): CreatorPayload!
     creatorUpdate(creatorInput: CreatorInputWithId!): CreatorPayload!
     kitDelete(id: String!): KitPayload!
     kitPublishUpdate(id: String!): KitPayload!
-    kitRestore(id: String!): KitPayload!
     kitSave(kitInput: KitInput!): KitPayload!
     kitUpdate(kitInput: KitInputWithId!): KitPayload!
     leadDelete(id: String!): LeadPayload!
     leadPublishUpdate(id: String!): LeadPayload!
-    leadRestore(id: String!): LeadPayload!
     leadSave(leadInput: LeadInput!): LeadPayload
     leadUpdate(leadInput: LeadInputWithId!): LeadPayload!
     moneyCostDelete(id: String!): MoneyCostPayload!
     moneyCostPublishUpdate(id: String!): MoneyCostPayload!
-    moneyCostRestore(id: String!): MoneyCostPayload!
     moneyCostSave(moneyCostInput: MoneyCostInput!): MoneyCostPayload!
     moneyCostUpdate(moneyCostInput: MoneyCostInputWithId!): MoneyCostPayload!
     moneyMoveDelete(id: String!): MoneyMovePayload!
     moneyMovePublishUpdate(id: String!): MoneyMovePayload!
-    moneyMoveRestore(id: String!): MoneyMovePayload!
     moneyMoveSave(moneyMoveInput: MoneyMoveInput!): MoneyMovePayload!
     moneyMoveUpdate(moneyMoveInput: MoneyMoveInputWithId!): MoneyMovePayload!
     orderDelete(id: String!): OrderPayload!
     orderPublishUpdate(id: String!): OrderPayload!
-    orderRestore(id: String!): OrderPayload!
     orderSave(orderInput: OrderInput!): OrderPayload!
     orderUpdate(orderInput: OrderInputWithId!): OrderPayload!
     placeDelete(id: String!): PlacePayload!
     placePublishUpdate(id: String!): PlacePayload!
-    placeRestore(id: String!): PlacePayload!
-    placeSave(placeInput: PlaceInput!): PlacePayload! @hasRole(role: ADMIN)
+    placeSave(placeInput: PlaceInput!): PlacePayload! @hasRole(role: EDITOR)
     placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
     rentPaymentByMonthDelete(id: String!): RentPaymentByMonthPayload!
     rentPaymentByMonthPublishUpdate(id: String!): RentPaymentByMonthPayload!
-    rentPaymentByMonthRestore(id: String!): RentPaymentByMonthPayload!
     rentPaymentByMonthSave(rentPaymentInput: RentPaymentByMonthInput!): RentPaymentByMonthPayload!
     rentPaymentByMonthUpdate(rentPaymentInput: RentPaymentByMonthInputWithId!): RentPaymentByMonthPayload!
     rentPaymentByTrainingDelete(id: String!): RentPaymentByTrainingPayload!
     rentPaymentByTrainingPublishUpdate(id: String!): RentPaymentByTrainingPayload!
-    rentPaymentByTrainingRestore(id: String!): RentPaymentByTrainingPayload!
     rentPaymentByTrainingSave(rentPaymentInput: RentPaymentByTrainingInput!): RentPaymentByTrainingPayload!
     rentPaymentByTrainingUpdate(rentPaymentInput: RentPaymentByTrainingInputWithId!): RentPaymentByTrainingPayload!
     stadiumDelete(id: String!): StadiumPayload!
     stadiumPublishUpdate(id: String!): StadiumPayload!
-    stadiumRestore(id: String!): StadiumPayload!
     stadiumSave(stadiumInput: StadiumInput!): StadiumPayload!
     stadiumUpdate(stadiumInput: StadiumInputWithId!): StadiumPayload!
     staffDelete(id: String!): StaffPayload!
     staffPublishUpdate(id: String!): StaffPayload!
-    staffRestore(id: String!): StaffPayload!
     staffSave(staffInput: StaffInput!): StaffPayload!
     staffUpdate(staffInput: StaffInputWithId!): StaffPayload!
     studentVisitDelete(id: String!): StudentVisitPayload!
     studentVisitPublishUpdate(id: String!): StudentVisitPayload!
-    studentVisitRestore(id: String!): StudentVisitPayload!
     studentVisitSave(studentVisitInput: StudentVisitInput!): StudentVisitPayload!
     studentVisitUpdate(studentVisitInput: StudentVisitInputWithId!): StudentVisitPayload!
     studentDelete(id: String!): StudentPayload!
     studentPublishUpdate(id: String!): StudentPayload!
-    studentRestore(id: String!): StudentPayload!
     studentSave(studentInput: StudentInput!): StudentPayload!
     studentUpdate(studentInput: StudentInputWithId!): StudentPayload!
     taskDelete(id: String!): TaskPayload!
     taskPublishUpdate(id: String!): TaskPayload!
-    taskRestore(id: String!): TaskPayload!
     taskSave(taskInput: TaskInput!): TaskPayload!
     taskUpdate(taskInput: TaskInputWithId!): TaskPayload!
     teamBalanceDelete(id: String!): TeamBalancePayload!
     teamBalancePublishUpdate(id: String!): TeamBalancePayload!
-    teamBalanceRestore(id: String!): TeamBalancePayload!
     teamBalanceSave(teamBalanceInput: TeamBalanceInput!): TeamBalancePayload!
     teamBalanceUpdate(teamBalanceInput: TeamBalanceInputWithId!): TeamBalancePayload!
     teamDelete(id: String!): TeamPayload!
     teamPublishUpdate(id: String!): TeamPayload!
-    teamRestore(id: String!): TeamPayload!
     teamSave(teamInput: TeamInput!): TeamPayload!
     teamUpdate(teamInput: TeamInputWithId!): TeamPayload!
     trainingDayDelete(id: String!): TrainingDayPayload!
     trainingDayPublishUpdate(id: String!): TrainingDayPayload!
-    trainingDayRestore(id: String!): TrainingDayPayload!
     trainingDaySave(trainingDayInput: TrainingDayInput!): TrainingDayPayload!
     trainingDayUpdate(trainingDayInput: TrainingDayInputWithId!): TrainingDayPayload!
     trainingDelete(id: String!): TrainingPayload!
     trainingPublishUpdate(id: String!): TrainingPayload!
-    trainingRestore(id: String!): TrainingPayload!
     trainingSave(trainingInput: TrainingInput!): TrainingPayload!
     trainingUpdate(trainingInput: TrainingInputWithId!): TrainingPayload!
     userDelete(id: String!): UserPayload!
     userPublishUpdate(id: String!): UserPayload!
-    userRestore(id: String!): UserPayload!
     userSave(userInput: UserInput!): UserPayload!
     userUpdate(userInput: UserInputWithId!): UserPayload!
 }
@@ -7232,8 +6457,6 @@ type Place {
     name: String!
     orderNumber: Int!
     published: Boolean!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type PlaceConnection {
@@ -7261,8 +6484,6 @@ type Article {
     published: Boolean!
     tags: [String!]
     title: String!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type ArticleConnection {
@@ -7288,8 +6509,6 @@ type Cart {
     studentId: String!
     studentItem: Student
     sum: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CartConnection {
@@ -7316,8 +6535,6 @@ type ClubBalance {
     salary: Int!
     sum: Int!
     tickets: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type ClubBalanceConnection {
@@ -7342,8 +6559,6 @@ type CoachPaymentByMonth {
     id: ID!
     published: Boolean!
     sum: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CoachPaymentByMonthConnection {
@@ -7372,8 +6587,6 @@ type CoachPaymentByTeam {
     sum: Int
     teamId: String
     teamItem: Team
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CoachPaymentByTeamConnection {
@@ -7399,8 +6612,6 @@ type CoachPaymentByTraining {
     sum: Int
     trainingId: String
     trainingItem: Training
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CoachPaymentByTrainingConnection {
@@ -7426,8 +6637,6 @@ type Creator {
     published: Boolean!
     userId: String
     userItem: User
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type CreatorConnection {
@@ -7461,8 +6670,6 @@ type Kit {
     quantity: Int
     size: String!
     title: String
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type KitCart {
@@ -7501,8 +6708,6 @@ type Lead {
     teamId: String
     teamItem: Team
     yearBorn: Int
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type LeadConnection {
@@ -7535,8 +6740,6 @@ type MoneyCost {
     staff: Staff
     staffId: String!
     sum: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type MoneyCostConnection {
@@ -7569,8 +6772,6 @@ type MoneyMove {
     sum: Int
     userId: String!
     userItem: User
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type MoneyMoveConnection {
@@ -7597,8 +6798,6 @@ type Order {
     id: ID!
     orderStatus: OrderStatus!
     published: Boolean!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type OrderConnection {
@@ -7625,8 +6824,6 @@ type RentPaymentByMonth {
     stadiumId: String!
     stadiumItem: Stadium
     sum: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type RentPaymentByMonthConnection {
@@ -7653,8 +6850,6 @@ type RentPaymentByTraining {
     sum: Int!
     trainingIds: [String!]!
     trainings: [TrainingRent!]
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type RentPaymentByTrainingConnection {
@@ -7680,8 +6875,6 @@ type Stadium {
     placeId: String
     placeItem: Place
     published: Boolean!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type StadiumConnection {
@@ -7712,8 +6905,6 @@ type Staff {
     userId: String
     userItem: User
     work: String!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type StaffConnection {
@@ -7760,8 +6951,6 @@ type Student {
     published: Boolean!
     teamIds: [String!]!
     teams: [TeamStudent!]
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type StudentConnection {
@@ -7800,8 +6989,6 @@ type StudentVisit {
     trainingId: String!
     trainingItem: Training
     visitStatus: VisitStatus!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type StudentVisitConnection {
@@ -7837,8 +7024,6 @@ type Task {
     title: String!
     workerIds: [String!]
     workers: [StaffTask]
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TaskConnection {
@@ -7868,8 +7053,6 @@ type Team {
     placeItem: Place
     published: Boolean!
     writable: Boolean!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TeamBalance {
@@ -7882,8 +7065,6 @@ type TeamBalance {
     teamId: String!
     teamItem: Team
     tickets: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TeamBalanceConnection {
@@ -7941,8 +7122,6 @@ type Training {
     teamItem: Team
     time: Time
     visits: Int!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TrainingConnection {
@@ -7959,8 +7138,6 @@ type TrainingDay {
     teamId: String!
     teamItem: Team
     time: Time
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type TrainingDayConnection {
@@ -8001,8 +7178,6 @@ type User {
     lastName: String!
     meetups: [Meetup!]!
     roles: [Role!]!
-    createdAt: Time!
-    updatedAt: Time!
 }
 
 type UserConnection {
@@ -8620,21 +7795,6 @@ func (ec *executionContext) field_Mutation_articlePublishUpdate_args(ctx context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_articleRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_articleSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8681,21 +7841,6 @@ func (ec *executionContext) field_Mutation_cartDelete_args(ctx context.Context, 
 }
 
 func (ec *executionContext) field_Mutation_cartPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_cartRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -8770,21 +7915,6 @@ func (ec *executionContext) field_Mutation_clubBalancePublishUpdate_args(ctx con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_clubBalanceRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_clubBalanceSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8831,21 +7961,6 @@ func (ec *executionContext) field_Mutation_coachPaymentByMonthDelete_args(ctx co
 }
 
 func (ec *executionContext) field_Mutation_coachPaymentByMonthPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_coachPaymentByMonthRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -8920,21 +8035,6 @@ func (ec *executionContext) field_Mutation_coachPaymentByTeamPublishUpdate_args(
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_coachPaymentByTeamRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_coachPaymentByTeamSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8981,21 +8081,6 @@ func (ec *executionContext) field_Mutation_coachPaymentByTrainingDelete_args(ctx
 }
 
 func (ec *executionContext) field_Mutation_coachPaymentByTrainingPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_coachPaymentByTrainingRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -9085,21 +8170,6 @@ func (ec *executionContext) field_Mutation_creatorPublishUpdate_args(ctx context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_creatorRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_creatorSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9175,21 +8245,6 @@ func (ec *executionContext) field_Mutation_kitPublishUpdate_args(ctx context.Con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_kitRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_kitSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9236,21 +8291,6 @@ func (ec *executionContext) field_Mutation_leadDelete_args(ctx context.Context, 
 }
 
 func (ec *executionContext) field_Mutation_leadPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_leadRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -9340,21 +8380,6 @@ func (ec *executionContext) field_Mutation_moneyCostPublishUpdate_args(ctx conte
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_moneyCostRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_moneyCostSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9401,21 +8426,6 @@ func (ec *executionContext) field_Mutation_moneyMoveDelete_args(ctx context.Cont
 }
 
 func (ec *executionContext) field_Mutation_moneyMovePublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_moneyMoveRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -9490,21 +8500,6 @@ func (ec *executionContext) field_Mutation_orderPublishUpdate_args(ctx context.C
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_orderRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_orderSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9551,21 +8546,6 @@ func (ec *executionContext) field_Mutation_placeDelete_args(ctx context.Context,
 }
 
 func (ec *executionContext) field_Mutation_placePublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_placeRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -9679,21 +8659,6 @@ func (ec *executionContext) field_Mutation_rentPaymentByMonthPublishUpdate_args(
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_rentPaymentByMonthRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_rentPaymentByMonthSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9740,21 +8705,6 @@ func (ec *executionContext) field_Mutation_rentPaymentByTrainingDelete_args(ctx 
 }
 
 func (ec *executionContext) field_Mutation_rentPaymentByTrainingPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_rentPaymentByTrainingRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -9829,21 +8779,6 @@ func (ec *executionContext) field_Mutation_stadiumPublishUpdate_args(ctx context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_stadiumRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_stadiumSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9890,21 +8825,6 @@ func (ec *executionContext) field_Mutation_staffDelete_args(ctx context.Context,
 }
 
 func (ec *executionContext) field_Mutation_staffPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_staffRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -9979,21 +8899,6 @@ func (ec *executionContext) field_Mutation_studentPublishUpdate_args(ctx context
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_studentRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_studentSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10040,21 +8945,6 @@ func (ec *executionContext) field_Mutation_studentVisitDelete_args(ctx context.C
 }
 
 func (ec *executionContext) field_Mutation_studentVisitPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_studentVisitRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -10129,21 +9019,6 @@ func (ec *executionContext) field_Mutation_taskPublishUpdate_args(ctx context.Co
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_taskRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_taskSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10190,21 +9065,6 @@ func (ec *executionContext) field_Mutation_teamBalanceDelete_args(ctx context.Co
 }
 
 func (ec *executionContext) field_Mutation_teamBalancePublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_teamBalanceRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -10279,21 +9139,6 @@ func (ec *executionContext) field_Mutation_teamPublishUpdate_args(ctx context.Co
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_teamRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_teamSave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10354,21 +9199,6 @@ func (ec *executionContext) field_Mutation_trainingDayPublishUpdate_args(ctx con
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_trainingDayRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_trainingDaySave_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10415,21 +9245,6 @@ func (ec *executionContext) field_Mutation_trainingDelete_args(ctx context.Conte
 }
 
 func (ec *executionContext) field_Mutation_trainingPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_trainingRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -10514,21 +9329,6 @@ func (ec *executionContext) field_Mutation_userDelete_args(ctx context.Context, 
 }
 
 func (ec *executionContext) field_Mutation_userPublishUpdate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_userRestore_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 string
@@ -12456,10 +11256,6 @@ func (ec *executionContext) fieldContext_Article_author(ctx context.Context, fie
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -12769,94 +11565,6 @@ func (ec *executionContext) fieldContext_Article_title(ctx context.Context, fiel
 	return fc, nil
 }
 
-func (ec *executionContext) _Article_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Article) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Article_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Article_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Article",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Article_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Article) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Article_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Article_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Article",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _ArticleConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.ArticleConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_ArticleConnection_edges(ctx, field)
 	if err != nil {
@@ -13046,10 +11754,6 @@ func (ec *executionContext) fieldContext_ArticleEdge_node(ctx context.Context, f
 				return ec.fieldContext_Article_tags(ctx, field)
 			case "title":
 				return ec.fieldContext_Article_title(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Article_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Article_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Article", field.Name)
 		},
@@ -13109,10 +11813,6 @@ func (ec *executionContext) fieldContext_ArticlePayload_record(ctx context.Conte
 				return ec.fieldContext_Article_tags(ctx, field)
 			case "title":
 				return ec.fieldContext_Article_title(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Article_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Article_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Article", field.Name)
 		},
@@ -13265,10 +11965,6 @@ func (ec *executionContext) fieldContext_AuthResponse_user(ctx context.Context, 
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -13645,10 +12341,6 @@ func (ec *executionContext) fieldContext_Cart_studentItem(ctx context.Context, f
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Student_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -13695,94 +12387,6 @@ func (ec *executionContext) fieldContext_Cart_sum(ctx context.Context, field gra
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Cart_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Cart_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Cart_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Cart",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Cart_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Cart_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Cart_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Cart",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -13975,10 +12579,6 @@ func (ec *executionContext) fieldContext_CartEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Cart_studentItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Cart_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Cart_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Cart", field.Name)
 		},
@@ -14036,10 +12636,6 @@ func (ec *executionContext) fieldContext_CartPayload_record(ctx context.Context,
 				return ec.fieldContext_Cart_studentItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Cart_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Cart_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Cart", field.Name)
 		},
@@ -14443,94 +13039,6 @@ func (ec *executionContext) fieldContext_ClubBalance_tickets(ctx context.Context
 	return fc, nil
 }
 
-func (ec *executionContext) _ClubBalance_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.ClubBalance) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_ClubBalance_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_ClubBalance_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "ClubBalance",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _ClubBalance_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.ClubBalance) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_ClubBalance_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_ClubBalance_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "ClubBalance",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _ClubBalanceConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.ClubBalanceConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_ClubBalanceConnection_edges(ctx, field)
 	if err != nil {
@@ -14720,10 +13228,6 @@ func (ec *executionContext) fieldContext_ClubBalanceEdge_node(ctx context.Contex
 				return ec.fieldContext_ClubBalance_sum(ctx, field)
 			case "tickets":
 				return ec.fieldContext_ClubBalance_tickets(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_ClubBalance_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_ClubBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type ClubBalance", field.Name)
 		},
@@ -14783,10 +13287,6 @@ func (ec *executionContext) fieldContext_ClubBalancePayload_record(ctx context.C
 				return ec.fieldContext_ClubBalance_sum(ctx, field)
 			case "tickets":
 				return ec.fieldContext_ClubBalance_tickets(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_ClubBalance_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_ClubBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type ClubBalance", field.Name)
 		},
@@ -14898,10 +13398,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonth_coach(ctx context.C
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -15126,94 +13622,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonth_sum(ctx context.Con
 	return fc, nil
 }
 
-func (ec *executionContext) _CoachPaymentByMonth_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByMonth) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByMonth_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_CoachPaymentByMonth_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "CoachPaymentByMonth",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _CoachPaymentByMonth_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByMonth) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByMonth_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_CoachPaymentByMonth_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "CoachPaymentByMonth",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _CoachPaymentByMonthConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByMonthConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_CoachPaymentByMonthConnection_edges(ctx, field)
 	if err != nil {
@@ -15399,10 +13807,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonthEdge_node(ctx contex
 				return ec.fieldContext_CoachPaymentByMonth_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByMonth_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByMonth_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByMonth", field.Name)
 		},
@@ -15458,10 +13862,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonthPayload_record(ctx c
 				return ec.fieldContext_CoachPaymentByMonth_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByMonth_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByMonth_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByMonth", field.Name)
 		},
@@ -15573,10 +13973,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_coach(ctx context.Co
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -15979,100 +14375,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_teamItem(ctx context
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _CoachPaymentByTeam_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByTeam_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_CoachPaymentByTeam_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "CoachPaymentByTeam",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _CoachPaymentByTeam_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByTeam_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_CoachPaymentByTeam_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "CoachPaymentByTeam",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -16271,10 +14575,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamEdge_node(ctx context
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "teamItem":
 				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByTeam_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByTeam_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -16338,10 +14638,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamPayload_record(ctx co
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "teamItem":
 				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByTeam_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByTeam_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -16453,10 +14749,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_coach(ctx contex
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -16738,100 +15030,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_trainingItem(ctx
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Training_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _CoachPaymentByTraining_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByTraining_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_CoachPaymentByTraining_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "CoachPaymentByTraining",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _CoachPaymentByTraining_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByTraining_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_CoachPaymentByTraining_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "CoachPaymentByTraining",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -17024,10 +15224,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingEdge_node(ctx con
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "trainingItem":
 				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByTraining_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -17085,10 +15281,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingPayload_record(ct
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "trainingItem":
 				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByTraining_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -17446,100 +15638,8 @@ func (ec *executionContext) fieldContext_Creator_userItem(ctx context.Context, f
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Creator_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Creator_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Creator_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Creator",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Creator_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Creator_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Creator_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Creator",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -17732,10 +15832,6 @@ func (ec *executionContext) fieldContext_CreatorEdge_node(ctx context.Context, f
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Creator_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -17793,10 +15889,6 @@ func (ec *executionContext) fieldContext_CreatorPayload_record(ctx context.Conte
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Creator_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -17942,10 +16034,6 @@ func (ec *executionContext) fieldContext_CreatorStudent_creatorStudent(ctx conte
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Creator_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -18381,94 +16469,6 @@ func (ec *executionContext) fieldContext_Kit_title(ctx context.Context, field gr
 	return fc, nil
 }
 
-func (ec *executionContext) _Kit_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Kit) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Kit_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Kit_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Kit",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Kit_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Kit) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Kit_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Kit_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Kit",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _KitCart_cartId(ctx context.Context, field graphql.CollectedField, obj *models.KitCart) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_KitCart_cartId(ctx, field)
 	if err != nil {
@@ -18567,10 +16567,6 @@ func (ec *executionContext) fieldContext_KitCart_kitCart(ctx context.Context, fi
 				return ec.fieldContext_Kit_size(ctx, field)
 			case "title":
 				return ec.fieldContext_Kit_title(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Kit_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Kit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
 		},
@@ -18813,10 +16809,6 @@ func (ec *executionContext) fieldContext_KitEdge_node(ctx context.Context, field
 				return ec.fieldContext_Kit_size(ctx, field)
 			case "title":
 				return ec.fieldContext_Kit_title(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Kit_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Kit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
 		},
@@ -18878,10 +16870,6 @@ func (ec *executionContext) fieldContext_KitPayload_record(ctx context.Context, 
 				return ec.fieldContext_Kit_size(ctx, field)
 			case "title":
 				return ec.fieldContext_Kit_title(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Kit_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Kit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
 		},
@@ -19119,10 +17107,6 @@ func (ec *executionContext) fieldContext_Lead_nextVisit(ctx context.Context, fie
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Training_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -19530,10 +17514,6 @@ func (ec *executionContext) fieldContext_Lead_teamItem(ctx context.Context, fiel
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -19577,94 +17557,6 @@ func (ec *executionContext) fieldContext_Lead_yearBorn(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Lead_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Lead_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Lead_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Lead",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Lead_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Lead_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Lead_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Lead",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -19871,10 +17763,6 @@ func (ec *executionContext) fieldContext_LeadEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Lead_teamItem(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Lead_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Lead_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Lead", field.Name)
 		},
@@ -19946,10 +17834,6 @@ func (ec *executionContext) fieldContext_LeadPayload_record(ctx context.Context,
 				return ec.fieldContext_Lead_teamItem(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Lead_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Lead_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Lead", field.Name)
 		},
@@ -20109,10 +17993,6 @@ func (ec *executionContext) fieldContext_LeadTask_leadTask(ctx context.Context, 
 				return ec.fieldContext_Lead_teamItem(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Lead_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Lead_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Lead", field.Name)
 		},
@@ -20344,10 +18224,6 @@ func (ec *executionContext) fieldContext_Meetup_user(ctx context.Context, field 
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -20635,10 +18511,6 @@ func (ec *executionContext) fieldContext_MoneyCost_staff(ctx context.Context, fi
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -20729,94 +18601,6 @@ func (ec *executionContext) fieldContext_MoneyCost_sum(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _MoneyCost_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.MoneyCost) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MoneyCost_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_MoneyCost_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "MoneyCost",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _MoneyCost_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.MoneyCost) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MoneyCost_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_MoneyCost_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "MoneyCost",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -21011,10 +18795,6 @@ func (ec *executionContext) fieldContext_MoneyCostEdge_node(ctx context.Context,
 				return ec.fieldContext_MoneyCost_staffId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyCost_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_MoneyCost_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_MoneyCost_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyCost", field.Name)
 		},
@@ -21074,10 +18854,6 @@ func (ec *executionContext) fieldContext_MoneyCostPayload_record(ctx context.Con
 				return ec.fieldContext_MoneyCost_staffId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyCost_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_MoneyCost_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_MoneyCost_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyCost", field.Name)
 		},
@@ -21438,10 +19214,6 @@ func (ec *executionContext) fieldContext_MoneyMove_owner(ctx context.Context, fi
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -21637,10 +19409,6 @@ func (ec *executionContext) fieldContext_MoneyMove_studentItem(ctx context.Conte
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Student_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -21781,100 +19549,8 @@ func (ec *executionContext) fieldContext_MoneyMove_userItem(ctx context.Context,
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _MoneyMove_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MoneyMove_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_MoneyMove_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "MoneyMove",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _MoneyMove_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MoneyMove_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_MoneyMove_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "MoneyMove",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -22081,10 +19757,6 @@ func (ec *executionContext) fieldContext_MoneyMoveEdge_node(ctx context.Context,
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_MoneyMove_userItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_MoneyMove_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_MoneyMove_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -22156,10 +19828,6 @@ func (ec *executionContext) fieldContext_MoneyMovePayload_record(ctx context.Con
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_MoneyMove_userItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_MoneyMove_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_MoneyMove_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -22531,8 +20199,32 @@ func (ec *executionContext) _Mutation_articleDelete(ctx context.Context, field g
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticleDelete(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().ArticleDelete(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.ArticlePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ArticlePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22592,8 +20284,32 @@ func (ec *executionContext) _Mutation_articlePublishUpdate(ctx context.Context, 
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticlePublishUpdate(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().ArticlePublishUpdate(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.ArticlePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ArticlePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22640,67 +20356,6 @@ func (ec *executionContext) fieldContext_Mutation_articlePublishUpdate(ctx conte
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_articleRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_articleRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticleRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.ArticlePayload)
-	fc.Result = res
-	return ec.marshalNArticlePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticlePayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_articleRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_ArticlePayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_ArticlePayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type ArticlePayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_articleRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_articleSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_articleSave(ctx, field)
 	if err != nil {
@@ -22714,8 +20369,32 @@ func (ec *executionContext) _Mutation_articleSave(ctx context.Context, field gra
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticleSave(rctx, fc.Args["articleInput"].(models.ArticleInput))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().ArticleSave(rctx, fc.Args["articleInput"].(models.ArticleInput))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.ArticlePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ArticlePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22775,8 +20454,32 @@ func (ec *executionContext) _Mutation_articleUpdate(ctx context.Context, field g
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ArticleUpdate(rctx, fc.Args["articleInput"].(models.ArticleInputWithID))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().ArticleUpdate(rctx, fc.Args["articleInput"].(models.ArticleInputWithID))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.ArticlePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ArticlePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22836,8 +20539,32 @@ func (ec *executionContext) _Mutation_cartDelete(ctx context.Context, field grap
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartDelete(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CartDelete(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CartPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CartPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22897,8 +20624,32 @@ func (ec *executionContext) _Mutation_cartPublishUpdate(ctx context.Context, fie
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartPublishUpdate(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CartPublishUpdate(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CartPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CartPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22945,67 +20696,6 @@ func (ec *executionContext) fieldContext_Mutation_cartPublishUpdate(ctx context.
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_cartRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_cartRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.CartPayload)
-	fc.Result = res
-	return ec.marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_cartRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_CartPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_CartPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type CartPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_cartRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_cartSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_cartSave(ctx, field)
 	if err != nil {
@@ -23019,8 +20709,32 @@ func (ec *executionContext) _Mutation_cartSave(ctx context.Context, field graphq
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartSave(rctx, fc.Args["cartInput"].(models.CartInput))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CartSave(rctx, fc.Args["cartInput"].(models.CartInput))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "USER")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CartPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CartPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23080,8 +20794,32 @@ func (ec *executionContext) _Mutation_cartUpdate(ctx context.Context, field grap
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CartUpdate(rctx, fc.Args["cartInput"].(models.CartInputWithID))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CartUpdate(rctx, fc.Args["cartInput"].(models.CartInputWithID))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "USER")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CartPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CartPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23141,8 +20879,32 @@ func (ec *executionContext) _Mutation_clubBalanceDelete(ctx context.Context, fie
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalanceDelete(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().ClubBalanceDelete(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.ClubBalancePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalancePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23202,8 +20964,32 @@ func (ec *executionContext) _Mutation_clubBalancePublishUpdate(ctx context.Conte
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalancePublishUpdate(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().ClubBalancePublishUpdate(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.ClubBalancePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalancePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23250,67 +21036,6 @@ func (ec *executionContext) fieldContext_Mutation_clubBalancePublishUpdate(ctx c
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_clubBalanceRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_clubBalanceRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalanceRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.ClubBalancePayload)
-	fc.Result = res
-	return ec.marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalancePayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_clubBalanceRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_ClubBalancePayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_ClubBalancePayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type ClubBalancePayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_clubBalanceRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_clubBalanceSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_clubBalanceSave(ctx, field)
 	if err != nil {
@@ -23324,8 +21049,32 @@ func (ec *executionContext) _Mutation_clubBalanceSave(ctx context.Context, field
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalanceSave(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInput))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().ClubBalanceSave(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInput))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.ClubBalancePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalancePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23385,8 +21134,32 @@ func (ec *executionContext) _Mutation_clubBalanceUpdate(ctx context.Context, fie
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().ClubBalanceUpdate(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInputWithID))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().ClubBalanceUpdate(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInputWithID))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.ClubBalancePayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalancePayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23446,8 +21219,32 @@ func (ec *executionContext) _Mutation_coachPaymentByMonthDelete(ctx context.Cont
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentByMonthDelete(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CoachPaymentByMonthDelete(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CoachPaymentByMonthPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonthPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23507,8 +21304,32 @@ func (ec *executionContext) _Mutation_coachPaymentByMonthPublishUpdate(ctx conte
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentByMonthPublishUpdate(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CoachPaymentByMonthPublishUpdate(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CoachPaymentByMonthPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonthPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23555,67 +21376,6 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentByMonthPublishUpda
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentByMonthRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentByMonthRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentByMonthRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.CoachPaymentByMonthPayload)
-	fc.Result = res
-	return ec.marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_coachPaymentByMonthRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_CoachPaymentByMonthPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_CoachPaymentByMonthPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByMonthPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentByMonthRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_coachPaymentByMonthSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_coachPaymentByMonthSave(ctx, field)
 	if err != nil {
@@ -23629,8 +21389,32 @@ func (ec *executionContext) _Mutation_coachPaymentByMonthSave(ctx context.Contex
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentByMonthSave(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInput))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CoachPaymentByMonthSave(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInput))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ECONOMIST")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CoachPaymentByMonthPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonthPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23690,8 +21474,32 @@ func (ec *executionContext) _Mutation_coachPaymentByMonthUpdate(ctx context.Cont
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentByMonthUpdate(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInputWithID))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CoachPaymentByMonthUpdate(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInputWithID))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ECONOMIST")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CoachPaymentByMonthPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonthPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23751,8 +21559,32 @@ func (ec *executionContext) _Mutation_coachPaymentByTeamDelete(ctx context.Conte
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentByTeamDelete(rctx, fc.Args["id"].(string))
+		directive0 := func(rctx context.Context) (interface{}, error) {
+			ctx = rctx // use context from middleware stack in children
+			return ec.resolvers.Mutation().CoachPaymentByTeamDelete(rctx, fc.Args["id"].(string))
+		}
+		directive1 := func(ctx context.Context) (interface{}, error) {
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			if err != nil {
+				return nil, err
+			}
+			if ec.directives.HasRole == nil {
+				return nil, errors.New("directive hasRole is not implemented")
+			}
+			return ec.directives.HasRole(ctx, nil, directive0, role)
+		}
+
+		tmp, err := directive1(rctx)
+		if err != nil {
+			return nil, graphql.ErrorOnPath(ctx, err)
+		}
+		if tmp == nil {
+			return nil, nil
+		}
+		if data, ok := tmp.(*models.CoachPaymentByTeamPayload); ok {
+			return data, nil
+		}
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByTeamPayload`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23854,67 +21686,6 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentByTeamPublishUpdat
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_coachPaymentByTeamPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_coachPaymentByTeamRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentByTeamRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentByTeamRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.CoachPaymentByTeamPayload)
-	fc.Result = res
-	return ec.marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_coachPaymentByTeamRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_CoachPaymentByTeamPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_CoachPaymentByTeamPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeamPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentByTeamRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -24165,67 +21936,6 @@ func (ec *executionContext) fieldContext_Mutation_coachPaymentByTrainingPublishU
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_coachPaymentByTrainingRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_coachPaymentByTrainingRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CoachPaymentByTrainingRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.CoachPaymentByTrainingPayload)
-	fc.Result = res
-	return ec.marshalNCoachPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_coachPaymentByTrainingRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_CoachPaymentByTrainingPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_CoachPaymentByTrainingPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTrainingPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_coachPaymentByTrainingRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_coachPaymentByTrainingSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_coachPaymentByTrainingSave(ctx, field)
 	if err != nil {
@@ -24464,67 +22174,6 @@ func (ec *executionContext) fieldContext_Mutation_creatorPublishUpdate(ctx conte
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_creatorPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_creatorRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_creatorRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreatorRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.CreatorPayload)
-	fc.Result = res
-	return ec.marshalNCreatorPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_creatorRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_CreatorPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_CreatorPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type CreatorPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_creatorRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -24775,67 +22424,6 @@ func (ec *executionContext) fieldContext_Mutation_kitPublishUpdate(ctx context.C
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_kitRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_kitRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().KitRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.KitPayload)
-	fc.Result = res
-	return ec.marshalNKitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_kitRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_KitPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_KitPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type KitPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_kitRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_kitSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_kitSave(ctx, field)
 	if err != nil {
@@ -25080,67 +22668,6 @@ func (ec *executionContext) fieldContext_Mutation_leadPublishUpdate(ctx context.
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_leadRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_leadRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().LeadRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.LeadPayload)
-	fc.Result = res
-	return ec.marshalNLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_leadRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_LeadPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_LeadPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type LeadPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_leadRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_leadSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_leadSave(ctx, field)
 	if err != nil {
@@ -25376,67 +22903,6 @@ func (ec *executionContext) fieldContext_Mutation_moneyCostPublishUpdate(ctx con
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_moneyCostPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_moneyCostRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyCostRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyCostRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.MoneyCostPayload)
-	fc.Result = res
-	return ec.marshalNMoneyCostPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_moneyCostRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_MoneyCostPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_MoneyCostPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type MoneyCostPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyCostRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -25687,67 +23153,6 @@ func (ec *executionContext) fieldContext_Mutation_moneyMovePublishUpdate(ctx con
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_moneyMoveRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_moneyMoveRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().MoneyMoveRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.MoneyMovePayload)
-	fc.Result = res
-	return ec.marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMovePayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_moneyMoveRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_MoneyMovePayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_MoneyMovePayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type MoneyMovePayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_moneyMoveRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_moneyMoveSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_moneyMoveSave(ctx, field)
 	if err != nil {
@@ -25986,67 +23391,6 @@ func (ec *executionContext) fieldContext_Mutation_orderPublishUpdate(ctx context
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_orderPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_orderRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_orderRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().OrderRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.OrderPayload)
-	fc.Result = res
-	return ec.marshalNOrderPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_orderRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_OrderPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_OrderPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type OrderPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_orderRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -26297,67 +23641,6 @@ func (ec *executionContext) fieldContext_Mutation_placePublishUpdate(ctx context
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_placeRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_placeRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().PlaceRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.PlacePayload)
-	fc.Result = res
-	return ec.marshalNPlacePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlacePayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_placeRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "place":
-				return ec.fieldContext_PlacePayload_place(ctx, field)
-			case "id":
-				return ec.fieldContext_PlacePayload_id(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type PlacePayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_placeRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_placeSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_placeSave(ctx, field)
 	if err != nil {
@@ -26376,7 +23659,7 @@ func (ec *executionContext) _Mutation_placeSave(ctx context.Context, field graph
 			return ec.resolvers.Mutation().PlaceSave(rctx, fc.Args["placeInput"].(models.PlaceInput))
 		}
 		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
+			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
 			if err != nil {
 				return nil, err
 			}
@@ -26689,67 +23972,6 @@ func (ec *executionContext) fieldContext_Mutation_rentPaymentByMonthPublishUpdat
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_rentPaymentByMonthRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_rentPaymentByMonthRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByMonthRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.RentPaymentByMonthPayload)
-	fc.Result = res
-	return ec.marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_rentPaymentByMonthRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_RentPaymentByMonthPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_RentPaymentByMonthPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByMonthPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_rentPaymentByMonthRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_rentPaymentByMonthSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_rentPaymentByMonthSave(ctx, field)
 	if err != nil {
@@ -26988,67 +24210,6 @@ func (ec *executionContext) fieldContext_Mutation_rentPaymentByTrainingPublishUp
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_rentPaymentByTrainingPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_rentPaymentByTrainingRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_rentPaymentByTrainingRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RentPaymentByTrainingRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.RentPaymentByTrainingPayload)
-	fc.Result = res
-	return ec.marshalNRentPaymentByTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_rentPaymentByTrainingRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_RentPaymentByTrainingPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_RentPaymentByTrainingPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByTrainingPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_rentPaymentByTrainingRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -27299,67 +24460,6 @@ func (ec *executionContext) fieldContext_Mutation_stadiumPublishUpdate(ctx conte
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_stadiumRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_stadiumRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StadiumRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.StadiumPayload)
-	fc.Result = res
-	return ec.marshalNStadiumPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_stadiumRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_StadiumPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_StadiumPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StadiumPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_stadiumRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_stadiumSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_stadiumSave(ctx, field)
 	if err != nil {
@@ -27598,67 +24698,6 @@ func (ec *executionContext) fieldContext_Mutation_staffPublishUpdate(ctx context
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_staffPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_staffRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_staffRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StaffRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.StaffPayload)
-	fc.Result = res
-	return ec.marshalNStaffPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_staffRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_StaffPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_StaffPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StaffPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_staffRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -27909,67 +24948,6 @@ func (ec *executionContext) fieldContext_Mutation_studentVisitPublishUpdate(ctx 
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentVisitRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.StudentVisitPayload)
-	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_studentVisitRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_studentVisitSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_studentVisitSave(ctx, field)
 	if err != nil {
@@ -28208,67 +25186,6 @@ func (ec *executionContext) fieldContext_Mutation_studentPublishUpdate(ctx conte
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_studentPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_studentRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.StudentPayload)
-	fc.Result = res
-	return ec.marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_studentRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_StudentPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_StudentPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -28519,67 +25436,6 @@ func (ec *executionContext) fieldContext_Mutation_taskPublishUpdate(ctx context.
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_taskRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_taskRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TaskRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.TaskPayload)
-	fc.Result = res
-	return ec.marshalNTaskPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_taskRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_TaskPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_TaskPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TaskPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_taskRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_taskSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_taskSave(ctx, field)
 	if err != nil {
@@ -28818,67 +25674,6 @@ func (ec *executionContext) fieldContext_Mutation_teamBalancePublishUpdate(ctx c
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_teamBalancePublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_teamBalanceRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamBalanceRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamBalanceRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.TeamBalancePayload)
-	fc.Result = res
-	return ec.marshalNTeamBalancePayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalancePayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_teamBalanceRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_TeamBalancePayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_TeamBalancePayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TeamBalancePayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamBalanceRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -29129,67 +25924,6 @@ func (ec *executionContext) fieldContext_Mutation_teamPublishUpdate(ctx context.
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_teamRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_teamRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TeamRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.TeamPayload)
-	fc.Result = res
-	return ec.marshalNTeamPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_teamRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_TeamPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_TeamPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TeamPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_teamRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_teamSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_teamSave(ctx, field)
 	if err != nil {
@@ -29428,67 +26162,6 @@ func (ec *executionContext) fieldContext_Mutation_trainingDayPublishUpdate(ctx c
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_trainingDayPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_trainingDayRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingDayRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingDayRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.TrainingDayPayload)
-	fc.Result = res
-	return ec.marshalNTrainingDayPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_trainingDayRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_TrainingDayPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_TrainingDayPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TrainingDayPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingDayRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -29739,67 +26412,6 @@ func (ec *executionContext) fieldContext_Mutation_trainingPublishUpdate(ctx cont
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_trainingRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_trainingRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().TrainingRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.TrainingPayload)
-	fc.Result = res
-	return ec.marshalNTrainingPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_trainingRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_TrainingPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_TrainingPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TrainingPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_trainingRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_trainingSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_trainingSave(ctx, field)
 	if err != nil {
@@ -30044,67 +26656,6 @@ func (ec *executionContext) fieldContext_Mutation_userPublishUpdate(ctx context.
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_userRestore(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_userRestore(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UserRestore(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.UserPayload)
-	fc.Result = res
-	return ec.marshalNUserPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_userRestore(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_UserPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_UserPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type UserPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_userRestore_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_userSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_userSave(ctx, field)
 	if err != nil {
@@ -30321,10 +26872,6 @@ func (ec *executionContext) fieldContext_Order_cartItem(ctx context.Context, fie
 				return ec.fieldContext_Cart_studentItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Cart_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Cart_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Cart", field.Name)
 		},
@@ -30426,10 +26973,6 @@ func (ec *executionContext) fieldContext_Order_creatorItem(ctx context.Context, 
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Creator_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -30605,94 +27148,6 @@ func (ec *executionContext) fieldContext_Order_published(ctx context.Context, fi
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Boolean does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Order_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Order_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Order_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Order",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Order_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Order_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Order_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Order",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -30887,10 +27342,6 @@ func (ec *executionContext) fieldContext_OrderEdge_node(ctx context.Context, fie
 				return ec.fieldContext_Order_orderStatus(ctx, field)
 			case "published":
 				return ec.fieldContext_Order_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Order_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Order_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Order", field.Name)
 		},
@@ -30950,10 +27401,6 @@ func (ec *executionContext) fieldContext_OrderPayload_record(ctx context.Context
 				return ec.fieldContext_Order_orderStatus(ctx, field)
 			case "published":
 				return ec.fieldContext_Order_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Order_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Order_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Order", field.Name)
 		},
@@ -31398,94 +27845,6 @@ func (ec *executionContext) fieldContext_Place_published(ctx context.Context, fi
 	return fc, nil
 }
 
-func (ec *executionContext) _Place_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Place_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Place_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Place",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Place_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Place) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Place_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Place_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Place",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _PlaceConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.PlaceConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_PlaceConnection_edges(ctx, field)
 	if err != nil {
@@ -31680,10 +28039,6 @@ func (ec *executionContext) fieldContext_PlaceEdge_node(ctx context.Context, fie
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Place_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -31742,10 +28097,6 @@ func (ec *executionContext) fieldContext_PlacePayload_place(ctx context.Context,
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Place_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -31914,10 +28265,6 @@ func (ec *executionContext) fieldContext_Query_article(ctx context.Context, fiel
 				return ec.fieldContext_Article_tags(ctx, field)
 			case "title":
 				return ec.fieldContext_Article_title(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Article_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Article_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Article", field.Name)
 		},
@@ -32044,10 +28391,6 @@ func (ec *executionContext) fieldContext_Query_cart(ctx context.Context, field g
 				return ec.fieldContext_Cart_studentItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Cart_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Cart_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Cart", field.Name)
 		},
@@ -32176,10 +28519,6 @@ func (ec *executionContext) fieldContext_Query_clubBalance(ctx context.Context, 
 				return ec.fieldContext_ClubBalance_sum(ctx, field)
 			case "tickets":
 				return ec.fieldContext_ClubBalance_tickets(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_ClubBalance_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_ClubBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type ClubBalance", field.Name)
 		},
@@ -32304,10 +28643,6 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByMonth(ctx context.C
 				return ec.fieldContext_CoachPaymentByMonth_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByMonth_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByMonth_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByMonth", field.Name)
 		},
@@ -32382,10 +28717,6 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByTeam(ctx context.Co
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "teamItem":
 				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByTeam_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByTeam_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -32454,10 +28785,6 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByTraining(ctx contex
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "trainingItem":
 				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_CoachPaymentByTraining_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_CoachPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -32700,10 +29027,6 @@ func (ec *executionContext) fieldContext_Query_creator(ctx context.Context, fiel
 				return ec.fieldContext_Creator_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_Creator_userItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Creator_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Creator_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -32834,10 +29157,6 @@ func (ec *executionContext) fieldContext_Query_kit(ctx context.Context, field gr
 				return ec.fieldContext_Kit_size(ctx, field)
 			case "title":
 				return ec.fieldContext_Kit_title(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Kit_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Kit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
 		},
@@ -32978,10 +29297,6 @@ func (ec *executionContext) fieldContext_Query_lead(ctx context.Context, field g
 				return ec.fieldContext_Lead_teamItem(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Lead_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Lead_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Lead", field.Name)
 		},
@@ -33110,10 +29425,6 @@ func (ec *executionContext) fieldContext_Query_moneyCost(ctx context.Context, fi
 				return ec.fieldContext_MoneyCost_staffId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyCost_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_MoneyCost_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_MoneyCost_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyCost", field.Name)
 		},
@@ -33254,10 +29565,6 @@ func (ec *executionContext) fieldContext_Query_moneyMove(ctx context.Context, fi
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "userItem":
 				return ec.fieldContext_MoneyMove_userItem(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_MoneyMove_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_MoneyMove_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -33386,10 +29693,6 @@ func (ec *executionContext) fieldContext_Query_order(ctx context.Context, field 
 				return ec.fieldContext_Order_orderStatus(ctx, field)
 			case "published":
 				return ec.fieldContext_Order_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Order_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Order_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Order", field.Name)
 		},
@@ -33514,10 +29817,6 @@ func (ec *executionContext) fieldContext_Query_place(ctx context.Context, field 
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Place_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -33649,10 +29948,6 @@ func (ec *executionContext) fieldContext_Query_rentPaymentByMonth(ctx context.Co
 				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_RentPaymentByMonth_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_RentPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByMonth", field.Name)
 		},
@@ -33723,10 +30018,6 @@ func (ec *executionContext) fieldContext_Query_rentPaymentByTraining(ctx context
 				return ec.fieldContext_RentPaymentByTraining_trainingIds(ctx, field)
 			case "trainings":
 				return ec.fieldContext_RentPaymentByTraining_trainings(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_RentPaymentByTraining_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_RentPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByTraining", field.Name)
 		},
@@ -33911,10 +30202,6 @@ func (ec *executionContext) fieldContext_Query_stadium(ctx context.Context, fiel
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Stadium_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -34109,10 +30396,6 @@ func (ec *executionContext) fieldContext_Query_staffPerson(ctx context.Context, 
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -34187,10 +30470,6 @@ func (ec *executionContext) fieldContext_Query_student(ctx context.Context, fiel
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Student_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -34261,10 +30540,6 @@ func (ec *executionContext) fieldContext_Query_studentVisit(ctx context.Context,
 				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_StudentVisit_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_StudentVisit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type StudentVisit", field.Name)
 		},
@@ -34469,10 +30744,6 @@ func (ec *executionContext) fieldContext_Query_task(ctx context.Context, field g
 				return ec.fieldContext_Task_workerIds(ctx, field)
 			case "workers":
 				return ec.fieldContext_Task_workers(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Task_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Task_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Task", field.Name)
 		},
@@ -34955,10 +31226,6 @@ func (ec *executionContext) fieldContext_Query_team(ctx context.Context, field g
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -35031,10 +31298,6 @@ func (ec *executionContext) fieldContext_Query_teamBalance(ctx context.Context, 
 				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_TeamBalance_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_TeamBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TeamBalance", field.Name)
 		},
@@ -35229,10 +31492,6 @@ func (ec *executionContext) fieldContext_Query_training(ctx context.Context, fie
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Training_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -35303,10 +31562,6 @@ func (ec *executionContext) fieldContext_Query_trainingDay(ctx context.Context, 
 				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_TrainingDay_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_TrainingDay_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TrainingDay", field.Name)
 		},
@@ -35492,10 +31747,6 @@ func (ec *executionContext) fieldContext_Query_user(ctx context.Context, field g
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -36009,10 +32260,6 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_stadiumItem(ctx cont
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Stadium_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -36059,94 +32306,6 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_sum(ctx context.Cont
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _RentPaymentByMonth_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_RentPaymentByMonth_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_RentPaymentByMonth_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "RentPaymentByMonth",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _RentPaymentByMonth_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_RentPaymentByMonth_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_RentPaymentByMonth_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "RentPaymentByMonth",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -36341,10 +32500,6 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthEdge_node(ctx context
 				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_RentPaymentByMonth_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_RentPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByMonth", field.Name)
 		},
@@ -36404,10 +32559,6 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthPayload_record(ctx co
 				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_RentPaymentByMonth_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_RentPaymentByMonth_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByMonth", field.Name)
 		},
@@ -36682,10 +32833,6 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_stadiumItem(ctx c
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Stadium_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -36825,94 +32972,6 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_trainings(ctx con
 				return ec.fieldContext_TrainingRent_trainingRent(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TrainingRent", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _RentPaymentByTraining_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_RentPaymentByTraining_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_RentPaymentByTraining_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "RentPaymentByTraining",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _RentPaymentByTraining_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_RentPaymentByTraining_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_RentPaymentByTraining_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "RentPaymentByTraining",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -37107,10 +33166,6 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingEdge_node(ctx cont
 				return ec.fieldContext_RentPaymentByTraining_trainingIds(ctx, field)
 			case "trainings":
 				return ec.fieldContext_RentPaymentByTraining_trainings(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_RentPaymentByTraining_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_RentPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByTraining", field.Name)
 		},
@@ -37170,10 +33225,6 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingPayload_record(ctx
 				return ec.fieldContext_RentPaymentByTraining_trainingIds(ctx, field)
 			case "trainings":
 				return ec.fieldContext_RentPaymentByTraining_trainings(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_RentPaymentByTraining_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_RentPaymentByTraining_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type RentPaymentByTraining", field.Name)
 		},
@@ -37490,10 +33541,6 @@ func (ec *executionContext) fieldContext_Stadium_placeItem(ctx context.Context, 
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Place_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -37540,94 +33587,6 @@ func (ec *executionContext) fieldContext_Stadium_published(ctx context.Context, 
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Boolean does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Stadium_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Stadium_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Stadium_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Stadium",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Stadium_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Stadium_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Stadium_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Stadium",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -37820,10 +33779,6 @@ func (ec *executionContext) fieldContext_StadiumEdge_node(ctx context.Context, f
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Stadium_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -37881,10 +33836,6 @@ func (ec *executionContext) fieldContext_StadiumPayload_record(ctx context.Conte
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Stadium_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -38409,10 +34360,6 @@ func (ec *executionContext) fieldContext_Staff_userItem(ctx context.Context, fie
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -38459,94 +34406,6 @@ func (ec *executionContext) fieldContext_Staff_work(ctx context.Context, field g
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type String does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Staff_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Staff_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Staff_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Staff",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Staff_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Staff_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Staff_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Staff",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -38749,10 +34608,6 @@ func (ec *executionContext) fieldContext_StaffEdge_node(ctx context.Context, fie
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -38820,10 +34675,6 @@ func (ec *executionContext) fieldContext_StaffPayload_record(ctx context.Context
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -38979,10 +34830,6 @@ func (ec *executionContext) fieldContext_StaffTask_staffTask(ctx context.Context
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -39138,10 +34985,6 @@ func (ec *executionContext) fieldContext_StaffTeam_staffTeam(ctx context.Context
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -39297,10 +35140,6 @@ func (ec *executionContext) fieldContext_StaffTraining_staffTraining(ctx context
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -39793,94 +35632,6 @@ func (ec *executionContext) fieldContext_Student_teams(ctx context.Context, fiel
 	return fc, nil
 }
 
-func (ec *executionContext) _Student_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Student) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Student_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Student_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Student",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Student_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Student) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Student_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Student_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Student",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _StudentConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.StudentConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_StudentConnection_edges(ctx, field)
 	if err != nil {
@@ -40074,10 +35825,6 @@ func (ec *executionContext) fieldContext_StudentEdge_node(ctx context.Context, f
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Student_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -40229,10 +35976,6 @@ func (ec *executionContext) fieldContext_StudentLead_studentLead(ctx context.Con
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Student_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -40296,10 +36039,6 @@ func (ec *executionContext) fieldContext_StudentPayload_record(ctx context.Conte
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Student_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -40451,10 +36190,6 @@ func (ec *executionContext) fieldContext_StudentTask_studentTask(ctx context.Con
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Student_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -40738,10 +36473,6 @@ func (ec *executionContext) fieldContext_StudentVisit_studentItem(ctx context.Co
 				return ec.fieldContext_Student_teamIds(ctx, field)
 			case "teams":
 				return ec.fieldContext_Student_teams(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Student_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Student_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
 		},
@@ -40853,10 +36584,6 @@ func (ec *executionContext) fieldContext_StudentVisit_trainingItem(ctx context.C
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Training_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -40903,94 +36630,6 @@ func (ec *executionContext) fieldContext_StudentVisit_visitStatus(ctx context.Co
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type VisitStatus does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _StudentVisit_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_StudentVisit_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_StudentVisit_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "StudentVisit",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _StudentVisit_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_StudentVisit_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_StudentVisit_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "StudentVisit",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -41185,10 +36824,6 @@ func (ec *executionContext) fieldContext_StudentVisitEdge_node(ctx context.Conte
 				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_StudentVisit_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_StudentVisit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type StudentVisit", field.Name)
 		},
@@ -41248,10 +36883,6 @@ func (ec *executionContext) fieldContext_StudentVisitPayload_record(ctx context.
 				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_StudentVisit_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_StudentVisit_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type StudentVisit", field.Name)
 		},
@@ -41351,10 +36982,6 @@ func (ec *executionContext) fieldContext_Task_author(ctx context.Context, field 
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -42051,94 +37678,6 @@ func (ec *executionContext) fieldContext_Task_workers(ctx context.Context, field
 	return fc, nil
 }
 
-func (ec *executionContext) _Task_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Task) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Task_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Task_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Task",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Task_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Task) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Task_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Task_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Task",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _TaskConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.TaskConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_TaskConnection_edges(ctx, field)
 	if err != nil {
@@ -42346,10 +37885,6 @@ func (ec *executionContext) fieldContext_TaskEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Task_workerIds(ctx, field)
 			case "workers":
 				return ec.fieldContext_Task_workers(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Task_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Task_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Task", field.Name)
 		},
@@ -42427,10 +37962,6 @@ func (ec *executionContext) fieldContext_TaskPayload_record(ctx context.Context,
 				return ec.fieldContext_Task_workerIds(ctx, field)
 			case "workers":
 				return ec.fieldContext_Task_workers(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Task_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Task_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Task", field.Name)
 		},
@@ -42673,10 +38204,6 @@ func (ec *executionContext) fieldContext_Team_headCoach(ctx context.Context, fie
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -42905,10 +38432,6 @@ func (ec *executionContext) fieldContext_Team_placeItem(ctx context.Context, fie
 				return ec.fieldContext_Place_orderNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Place_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Place_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Place_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
 		},
@@ -42999,94 +38522,6 @@ func (ec *executionContext) fieldContext_Team_writable(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Boolean does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Team_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Team_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -43458,10 +38893,6 @@ func (ec *executionContext) fieldContext_TeamBalance_teamItem(ctx context.Contex
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -43508,94 +38939,6 @@ func (ec *executionContext) fieldContext_TeamBalance_tickets(ctx context.Context
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _TeamBalance_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TeamBalance_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_TeamBalance_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "TeamBalance",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _TeamBalance_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TeamBalance_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_TeamBalance_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "TeamBalance",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -43792,10 +39135,6 @@ func (ec *executionContext) fieldContext_TeamBalanceEdge_node(ctx context.Contex
 				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_TeamBalance_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_TeamBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TeamBalance", field.Name)
 		},
@@ -43857,10 +39196,6 @@ func (ec *executionContext) fieldContext_TeamBalancePayload_record(ctx context.C
 				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_TeamBalance_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_TeamBalance_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TeamBalance", field.Name)
 		},
@@ -44107,10 +39442,6 @@ func (ec *executionContext) fieldContext_TeamEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -44176,10 +39507,6 @@ func (ec *executionContext) fieldContext_TeamPayload_record(ctx context.Context,
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -44377,10 +39704,6 @@ func (ec *executionContext) fieldContext_TeamStudent_teamStudent(ctx context.Con
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -44670,10 +39993,6 @@ func (ec *executionContext) fieldContext_Training_headCoach(ctx context.Context,
 				return ec.fieldContext_Staff_userItem(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Staff_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Staff_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
@@ -44901,10 +40220,6 @@ func (ec *executionContext) fieldContext_Training_stadiumItem(ctx context.Contex
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Stadium_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -45014,10 +40329,6 @@ func (ec *executionContext) fieldContext_Training_teamItem(ctx context.Context, 
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -45105,94 +40416,6 @@ func (ec *executionContext) fieldContext_Training_visits(ctx context.Context, fi
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Training_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Training_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Training_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Training",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Training_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Training_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Training_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Training",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
 		},
 	}
 	return fc, nil
@@ -45514,10 +40737,6 @@ func (ec *executionContext) fieldContext_TrainingDay_stadiumItem(ctx context.Con
 				return ec.fieldContext_Stadium_placeItem(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Stadium_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Stadium_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
 		},
@@ -45627,10 +40846,6 @@ func (ec *executionContext) fieldContext_TrainingDay_teamItem(ctx context.Contex
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Team_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Team_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
@@ -45667,94 +40882,6 @@ func (ec *executionContext) _TrainingDay_time(ctx context.Context, field graphql
 }
 
 func (ec *executionContext) fieldContext_TrainingDay_time(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "TrainingDay",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _TrainingDay_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TrainingDay_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_TrainingDay_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "TrainingDay",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _TrainingDay_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TrainingDay_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_TrainingDay_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "TrainingDay",
 		Field:      field,
@@ -45956,10 +41083,6 @@ func (ec *executionContext) fieldContext_TrainingDayEdge_node(ctx context.Contex
 				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_TrainingDay_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_TrainingDay_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TrainingDay", field.Name)
 		},
@@ -46019,10 +41142,6 @@ func (ec *executionContext) fieldContext_TrainingDayPayload_record(ctx context.C
 				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_TrainingDay_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_TrainingDay_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type TrainingDay", field.Name)
 		},
@@ -46175,10 +41294,6 @@ func (ec *executionContext) fieldContext_TrainingEdge_node(ctx context.Context, 
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Training_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -46246,10 +41361,6 @@ func (ec *executionContext) fieldContext_TrainingPayload_record(ctx context.Cont
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Training_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -46449,10 +41560,6 @@ func (ec *executionContext) fieldContext_TrainingRent_trainingRent(ctx context.C
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_Training_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_Training_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
 		},
@@ -46734,94 +41841,6 @@ func (ec *executionContext) fieldContext_User_roles(ctx context.Context, field g
 	return fc, nil
 }
 
-func (ec *executionContext) _User_createdAt(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_User_createdAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_User_createdAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "User",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _User_updatedAt(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_User_updatedAt(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTime2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_User_updatedAt(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "User",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Time does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _UserConnection_edges(ctx context.Context, field graphql.CollectedField, obj *models.UserConnection) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_UserConnection_edges(ctx, field)
 	if err != nil {
@@ -47007,10 +42026,6 @@ func (ec *executionContext) fieldContext_UserEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -47066,10 +42081,6 @@ func (ec *executionContext) fieldContext_UserPayload_record(ctx context.Context,
 				return ec.fieldContext_User_meetups(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
-			case "createdAt":
-				return ec.fieldContext_User_createdAt(ctx, field)
-			case "updatedAt":
-				return ec.fieldContext_User_updatedAt(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -52488,20 +47499,6 @@ func (ec *executionContext) _Article(ctx context.Context, sel ast.SelectionSet, 
 			if out.Values[i] == graphql.Null {
 				atomic.AddUint32(&invalids, 1)
 			}
-		case "createdAt":
-
-			out.Values[i] = ec._Article_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Article_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -52726,20 +47723,6 @@ func (ec *executionContext) _Cart(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "createdAt":
-
-			out.Values[i] = ec._Cart_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Cart_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -52907,20 +47890,6 @@ func (ec *executionContext) _ClubBalance(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "createdAt":
-
-			out.Values[i] = ec._ClubBalance_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._ClubBalance_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -53064,20 +48033,6 @@ func (ec *executionContext) _CoachPaymentByMonth(ctx context.Context, sel ast.Se
 		case "sum":
 
 			out.Values[i] = ec._CoachPaymentByMonth_sum(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "createdAt":
-
-			out.Values[i] = ec._CoachPaymentByMonth_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._CoachPaymentByMonth_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -53242,20 +48197,6 @@ func (ec *executionContext) _CoachPaymentByTeam(ctx context.Context, sel ast.Sel
 
 			out.Values[i] = ec._CoachPaymentByTeam_teamItem(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._CoachPaymentByTeam_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._CoachPaymentByTeam_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -53404,20 +48345,6 @@ func (ec *executionContext) _CoachPaymentByTraining(ctx context.Context, sel ast
 
 			out.Values[i] = ec._CoachPaymentByTraining_trainingItem(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._CoachPaymentByTraining_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._CoachPaymentByTraining_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -53569,20 +48496,6 @@ func (ec *executionContext) _Creator(ctx context.Context, sel ast.SelectionSet, 
 
 			out.Values[i] = ec._Creator_userItem(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._Creator_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Creator_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -53784,20 +48697,6 @@ func (ec *executionContext) _Kit(ctx context.Context, sel ast.SelectionSet, obj 
 
 			out.Values[i] = ec._Kit_title(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._Kit_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Kit_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -54013,20 +48912,6 @@ func (ec *executionContext) _Lead(ctx context.Context, sel ast.SelectionSet, obj
 
 			out.Values[i] = ec._Lead_yearBorn(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._Lead_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Lead_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -54289,20 +49174,6 @@ func (ec *executionContext) _MoneyCost(ctx context.Context, sel ast.SelectionSet
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "createdAt":
-
-			out.Values[i] = ec._MoneyCost_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._MoneyCost_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -54485,20 +49356,6 @@ func (ec *executionContext) _MoneyMove(ctx context.Context, sel ast.SelectionSet
 
 			out.Values[i] = ec._MoneyMove_userItem(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._MoneyMove_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._MoneyMove_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -54682,15 +49539,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "articleRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_articleRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "articleSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -54722,15 +49570,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_cartPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "cartRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_cartRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -54772,15 +49611,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "clubBalanceRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_clubBalanceRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "clubBalanceSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -54812,15 +49642,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_coachPaymentByMonthPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "coachPaymentByMonthRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentByMonthRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -54862,15 +49683,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "coachPaymentByTeamRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentByTeamRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "coachPaymentByTeamSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -54902,15 +49714,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_coachPaymentByTrainingPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "coachPaymentByTrainingRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_coachPaymentByTrainingRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -54952,15 +49755,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "creatorRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_creatorRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "creatorSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -54992,15 +49786,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_kitPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "kitRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_kitRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55042,15 +49827,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "leadRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_leadRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "leadSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55079,15 +49855,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_moneyCostPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "moneyCostRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyCostRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55129,15 +49896,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "moneyMoveRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_moneyMoveRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "moneyMoveSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55174,15 +49932,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "orderRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_orderRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "orderSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55214,15 +49963,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_placePublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "placeRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_placeRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55273,15 +50013,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "rentPaymentByMonthRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_rentPaymentByMonthRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "rentPaymentByMonthSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55313,15 +50044,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_rentPaymentByTrainingPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "rentPaymentByTrainingRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_rentPaymentByTrainingRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55363,15 +50085,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadiumRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_stadiumRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "stadiumSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55403,15 +50116,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_staffPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "staffRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_staffRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55453,15 +50157,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentVisitRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "studentVisitSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55493,15 +50188,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_studentPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "studentRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55543,15 +50229,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "taskRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_taskRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "taskSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55583,15 +50260,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_teamBalancePublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "teamBalanceRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamBalanceRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55633,15 +50301,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_teamRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "teamSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55673,15 +50332,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_trainingDayPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "trainingDayRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingDayRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55723,15 +50373,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_trainingRestore(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "trainingSave":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -55763,15 +50404,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_userPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "userRestore":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_userRestore(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -55859,20 +50491,6 @@ func (ec *executionContext) _Order(ctx context.Context, sel ast.SelectionSet, ob
 		case "published":
 
 			out.Values[i] = ec._Order_published(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "createdAt":
-
-			out.Values[i] = ec._Order_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Order_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -56065,20 +50683,6 @@ func (ec *executionContext) _Place(ctx context.Context, sel ast.SelectionSet, ob
 		case "published":
 
 			out.Values[i] = ec._Place_published(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "createdAt":
-
-			out.Values[i] = ec._Place_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Place_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -57444,20 +52048,6 @@ func (ec *executionContext) _RentPaymentByMonth(ctx context.Context, sel ast.Sel
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "createdAt":
-
-			out.Values[i] = ec._RentPaymentByMonth_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._RentPaymentByMonth_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -57616,20 +52206,6 @@ func (ec *executionContext) _RentPaymentByTraining(ctx context.Context, sel ast.
 
 			out.Values[i] = ec._RentPaymentByTraining_trainings(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._RentPaymentByTraining_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._RentPaymentByTraining_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -57780,20 +52356,6 @@ func (ec *executionContext) _Stadium(ctx context.Context, sel ast.SelectionSet, 
 		case "published":
 
 			out.Values[i] = ec._Stadium_published(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "createdAt":
-
-			out.Values[i] = ec._Stadium_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Stadium_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -57971,20 +52533,6 @@ func (ec *executionContext) _Staff(ctx context.Context, sel ast.SelectionSet, ob
 		case "work":
 
 			out.Values[i] = ec._Staff_work(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "createdAt":
-
-			out.Values[i] = ec._Staff_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Staff_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -58272,20 +52820,6 @@ func (ec *executionContext) _Student(ctx context.Context, sel ast.SelectionSet, 
 
 			out.Values[i] = ec._Student_teams(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._Student_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Student_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -58525,20 +53059,6 @@ func (ec *executionContext) _StudentVisit(ctx context.Context, sel ast.Selection
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "createdAt":
-
-			out.Values[i] = ec._StudentVisit_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._StudentVisit_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -58727,20 +53247,6 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 
 			out.Values[i] = ec._Task_workers(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._Task_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Task_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -58911,20 +53417,6 @@ func (ec *executionContext) _Team(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "createdAt":
-
-			out.Values[i] = ec._Team_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Team_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -59002,20 +53494,6 @@ func (ec *executionContext) _TeamBalance(ctx context.Context, sel ast.SelectionS
 		case "tickets":
 
 			out.Values[i] = ec._TeamBalance_tickets(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "createdAt":
-
-			out.Values[i] = ec._TeamBalance_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._TeamBalance_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -59362,20 +53840,6 @@ func (ec *executionContext) _Training(ctx context.Context, sel ast.SelectionSet,
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "createdAt":
-
-			out.Values[i] = ec._Training_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._Training_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -59467,20 +53931,6 @@ func (ec *executionContext) _TrainingDay(ctx context.Context, sel ast.SelectionS
 
 			out.Values[i] = ec._TrainingDay_time(ctx, field, obj)
 
-		case "createdAt":
-
-			out.Values[i] = ec._TrainingDay_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._TrainingDay_updatedAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -59743,20 +54193,6 @@ func (ec *executionContext) _User(ctx context.Context, sel ast.SelectionSet, obj
 		case "roles":
 
 			out.Values[i] = ec._User_roles(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
-		case "createdAt":
-
-			out.Values[i] = ec._User_createdAt(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
-		case "updatedAt":
-
-			out.Values[i] = ec._User_updatedAt(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				atomic.AddUint32(&invalids, 1)
