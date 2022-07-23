@@ -14,8 +14,8 @@ func (d *Domain) Login(ctx context.Context, input models.LoginInput) (*models.Au
 		return nil, ErrBadCredentials
 	}
 
-	err = user.ComparePassword(input.Password)
-	if err != nil {
+	match, err := user.ComparePassword(input.Password, user.Password)
+	if !match || err != nil {
 		return nil, ErrBadCredentials
 	}
 
