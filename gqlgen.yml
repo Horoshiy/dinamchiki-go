@@ -91,3 +91,10 @@ models:
     fields:
       user:
         resolver: true
+  Student:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Student
+    fields:
+      teams:
+        resolver: true
+      creators:
+        resolver: true

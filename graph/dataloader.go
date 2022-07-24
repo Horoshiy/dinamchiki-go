@@ -17,6 +17,7 @@ type Loaders struct {
 	StaffLoader
 	StadiumLoader
 	TeamLoader
+	CreatorLoader
 }
 
 func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
@@ -67,6 +68,34 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			}
 
 			result := make([]*models.Place, len(keys))
+
+			for i, id := range keys {
+				result[i] = u[id]
+			}
+
+			return result, nil
+		},
+	}
+
+	creatorLoader := CreatorLoader{
+		maxBatch: 100,
+		wait:     1 * time.Millisecond,
+		fetch: func(keys []string) ([]*models.Creator, []error) {
+			var items []*models.Creator
+
+			err := db.Model(&items).Where("id in (?)", pg.In(keys)).Select()
+
+			if err != nil {
+				return nil, []error{err}
+			}
+
+			u := make(map[string]*models.Creator, len(items))
+
+			for _, item := range items {
+				u[item.ID] = item
+			}
+
+			result := make([]*models.Creator, len(keys))
 
 			for i, id := range keys {
 				result[i] = u[id]
@@ -197,6 +226,7 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			StaffLoader:      staffLoader,
 			StadiumLoader:    stadiumLoader,
 			TeamLoader:       teamLoader,
+			CreatorLoader:    creatorLoader,
 		})
 
 		next.ServeHTTP(w, r.WithContext(ctx))

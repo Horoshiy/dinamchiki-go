@@ -779,19 +779,6 @@ type StaffPayload struct {
 	RecordID string `json:"recordId"`
 }
 
-type Student struct {
-	Birthday    *time.Time `json:"birthday"`
-	CreatorIds  []string   `json:"creatorIds"`
-	Creators    []*Creator `json:"creators"`
-	ID          string     `json:"id"`
-	Name        string     `json:"name"`
-	PassportNum *string    `json:"passportNum"`
-	PaymentSum  *int       `json:"paymentSum"`
-	Published   bool       `json:"published"`
-	TeamIds     []string   `json:"teamIds"`
-	Teams       []*Team    `json:"teams"`
-}
-
 type StudentConnection struct {
 	Edges    []*StudentEdge `json:"edges"`
 	PageInfo *PageInfo      `json:"pageInfo"`

@@ -464,22 +464,37 @@ func (r *mutationResolver) StaffUpdate(ctx context.Context, staffInput models.St
 
 // StudentDelete is the resolver for the studentDelete field.
 func (r *mutationResolver) StudentDelete(ctx context.Context, id string) (*models.StudentPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.StudentDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.StudentPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // StudentPublishUpdate is the resolver for the studentPublishUpdate field.
 func (r *mutationResolver) StudentPublishUpdate(ctx context.Context, id string) (*models.StudentPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.StudentPublish(id)
 }
 
 // StudentSave is the resolver for the studentSave field.
 func (r *mutationResolver) StudentSave(ctx context.Context, studentInput models.StudentInput) (*models.StudentPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, studentInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.StudentSave(ctx, studentInput)
 }
 
 // StudentUpdate is the resolver for the studentUpdate field.
 func (r *mutationResolver) StudentUpdate(ctx context.Context, studentInput models.StudentInputWithID) (*models.StudentPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, studentInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.StudentUpdate(ctx, studentInput)
 }
 
 // StudentVisitDelete is the resolver for the studentVisitDelete field.
@@ -729,7 +744,7 @@ func (r *queryResolver) CreatorAll(ctx context.Context) ([]*models.CreatorDto, e
 
 // Creators is the resolver for the creators field.
 func (r *queryResolver) Creators(ctx context.Context, after *string, before *string, filter *models.CreatorFilter, first *int, last *int) (*models.CreatorConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.CreatorsRepo.GetCreators(filter, first, last, after, before)
 }
 
 // CurrentTasks is the resolver for the currentTasks field.
@@ -894,7 +909,7 @@ func (r *queryResolver) StudentVisits(ctx context.Context, after *string, before
 
 // Students is the resolver for the students field.
 func (r *queryResolver) Students(ctx context.Context, after *string, before *string, filter *models.StudentFilter, first *int, last *int) (*models.StudentConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.StudentsRepo.GetStudents(filter, first, last, after, before)
 }
 
 // Task is the resolver for the task field.
@@ -997,6 +1012,16 @@ func (r *staffResolver) User(ctx context.Context, obj *models.Staff) (*models.Us
 	return For(ctx).UserLoader.Load(*obj.UserId)
 }
 
+// Creators is the resolver for the creators field.
+func (r *studentResolver) Creators(ctx context.Context, obj *models.Student) ([]*models.Creator, error) {
+	return r.Domain.StudentsRepo.GetCreatorsForStudent(obj)
+}
+
+// Teams is the resolver for the teams field.
+func (r *studentResolver) Teams(ctx context.Context, obj *models.Student) ([]*models.Team, error) {
+	return r.Domain.StudentsRepo.GetTeamsForStudent(obj)
+}
+
 // Coaches is the resolver for the coaches field.
 func (r *teamResolver) Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error) {
 	return r.Domain.TeamsRepo.GetCoachesForTeam(obj)
@@ -1050,6 +1075,9 @@ func (r *Resolver) Stadium() generated.StadiumResolver { return &stadiumResolver
 // Staff returns generated.StaffResolver implementation.
 func (r *Resolver) Staff() generated.StaffResolver { return &staffResolver{r} }
 
+// Student returns generated.StudentResolver implementation.
+func (r *Resolver) Student() generated.StudentResolver { return &studentResolver{r} }
+
 // Team returns generated.TeamResolver implementation.
 func (r *Resolver) Team() generated.TeamResolver { return &teamResolver{r} }
 
@@ -1062,6 +1090,7 @@ type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
 type staffResolver struct{ *Resolver }
+type studentResolver struct{ *Resolver }
 type teamResolver struct{ *Resolver }
 type trainingResolver struct{ *Resolver }
 

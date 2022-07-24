@@ -43,6 +43,7 @@ type ResolverRoot interface {
 	Query() QueryResolver
 	Stadium() StadiumResolver
 	Staff() StaffResolver
+	Student() StudentResolver
 	Team() TeamResolver
 	Training() TrainingResolver
 }
@@ -1167,6 +1168,11 @@ type StadiumResolver interface {
 }
 type StaffResolver interface {
 	User(ctx context.Context, obj *models.Staff) (*models.User, error)
+}
+type StudentResolver interface {
+	Creators(ctx context.Context, obj *models.Student) ([]*models.Creator, error)
+
+	Teams(ctx context.Context, obj *models.Student) ([]*models.Team, error)
 }
 type TeamResolver interface {
 	Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error)
@@ -34775,7 +34781,7 @@ func (ec *executionContext) _Student_creators(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Creators, nil
+		return ec.resolvers.Student().Creators(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -34793,8 +34799,8 @@ func (ec *executionContext) fieldContext_Student_creators(ctx context.Context, f
 	fc = &graphql.FieldContext{
 		Object:     "Student",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "id":
@@ -35090,7 +35096,7 @@ func (ec *executionContext) _Student_teams(ctx context.Context, field graphql.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Teams, nil
+		return ec.resolvers.Student().Teams(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -35108,8 +35114,8 @@ func (ec *executionContext) fieldContext_Student_teams(ctx context.Context, fiel
 	fc = &graphql.FieldContext{
 		Object:     "Student",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "ages":
@@ -52317,25 +52323,38 @@ func (ec *executionContext) _Student(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Student_creatorIds(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "creators":
+			field := field
 
-			out.Values[i] = ec._Student_creators(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Student_creators(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "id":
 
 			out.Values[i] = ec._Student_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "name":
 
 			out.Values[i] = ec._Student_name(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "passportNum":
 
@@ -52350,19 +52369,32 @@ func (ec *executionContext) _Student(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Student_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "teamIds":
 
 			out.Values[i] = ec._Student_teamIds(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "teams":
+			field := field
 
-			out.Values[i] = ec._Student_teams(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Student_teams(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
