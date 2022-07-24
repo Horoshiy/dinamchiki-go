@@ -66,3 +66,12 @@ models:
     fields:
       user:
         resolver: true
+  Team:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Team
+    fields:
+      headCoach:
+        resolver: true
+      place:
+        resolver: true
+      coaches:
+        resolver: true

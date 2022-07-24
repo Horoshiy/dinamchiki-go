@@ -9,7 +9,7 @@ type Article struct {
 	FileName    *string    `json:"fileName"`
 	ID          string     `json:"id"`
 	Published   bool       `json:"published"`
-	Tags        []string   `json:"tags"`
+	Tags        []string   `json:"tags" pg:",array"`
 	Title       string     `json:"title"`
 	DeletedAt   *time.Time `json:"-" pg:",soft_delete"`
 }

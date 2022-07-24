@@ -42,6 +42,7 @@ type ResolverRoot interface {
 	Query() QueryResolver
 	Stadium() StadiumResolver
 	Staff() StaffResolver
+	Team() TeamResolver
 }
 
 type DirectiveRoot struct {
@@ -86,12 +87,12 @@ type ComplexityRoot struct {
 	}
 
 	Cart struct {
-		ID          func(childComplexity int) int
-		KitIds      func(childComplexity int) int
-		Published   func(childComplexity int) int
-		StudentID   func(childComplexity int) int
-		StudentItem func(childComplexity int) int
-		Sum         func(childComplexity int) int
+		ID        func(childComplexity int) int
+		KitIds    func(childComplexity int) int
+		Published func(childComplexity int) int
+		Student   func(childComplexity int) int
+		StudentID func(childComplexity int) int
+		Sum       func(childComplexity int) int
 	}
 
 	CartConnection struct {
@@ -173,8 +174,8 @@ type ComplexityRoot struct {
 		PaymentRule func(childComplexity int) int
 		Published   func(childComplexity int) int
 		Sum         func(childComplexity int) int
+		Team        func(childComplexity int) int
 		TeamID      func(childComplexity int) int
-		TeamItem    func(childComplexity int) int
 	}
 
 	CoachPaymentByTeamConnection struct {
@@ -193,13 +194,13 @@ type ComplexityRoot struct {
 	}
 
 	CoachPaymentByTraining struct {
-		Coach        func(childComplexity int) int
-		CoachID      func(childComplexity int) int
-		ID           func(childComplexity int) int
-		Published    func(childComplexity int) int
-		Sum          func(childComplexity int) int
-		TrainingID   func(childComplexity int) int
-		TrainingItem func(childComplexity int) int
+		Coach      func(childComplexity int) int
+		CoachID    func(childComplexity int) int
+		ID         func(childComplexity int) int
+		Published  func(childComplexity int) int
+		Sum        func(childComplexity int) int
+		Training   func(childComplexity int) int
+		TrainingID func(childComplexity int) int
 	}
 
 	CoachPaymentByTrainingConnection struct {
@@ -223,8 +224,8 @@ type ComplexityRoot struct {
 		PassportNum func(childComplexity int) int
 		Phone       func(childComplexity int) int
 		Published   func(childComplexity int) int
+		User        func(childComplexity int) int
 		UserID      func(childComplexity int) int
-		UserItem    func(childComplexity int) int
 	}
 
 	CreatorConnection struct {
@@ -291,8 +292,8 @@ type ComplexityRoot struct {
 		Status      func(childComplexity int) int
 		StudentIds  func(childComplexity int) int
 		Students    func(childComplexity int) int
+		Team        func(childComplexity int) int
 		TeamID      func(childComplexity int) int
-		TeamItem    func(childComplexity int) int
 		YearBorn    func(childComplexity int) int
 	}
 
@@ -352,11 +353,11 @@ type ComplexityRoot struct {
 		Owner       func(childComplexity int) int
 		OwnerID     func(childComplexity int) int
 		Published   func(childComplexity int) int
+		Student     func(childComplexity int) int
 		StudentID   func(childComplexity int) int
-		StudentItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
+		User        func(childComplexity int) int
 		UserID      func(childComplexity int) int
-		UserItem    func(childComplexity int) int
 	}
 
 	MoneyMoveConnection struct {
@@ -481,10 +482,10 @@ type ComplexityRoot struct {
 	}
 
 	Order struct {
+		Cart        func(childComplexity int) int
 		CartID      func(childComplexity int) int
-		CartItem    func(childComplexity int) int
+		Creator     func(childComplexity int) int
 		CreatorID   func(childComplexity int) int
-		CreatorItem func(childComplexity int) int
 		FileName    func(childComplexity int) int
 		ID          func(childComplexity int) int
 		OrderStatus func(childComplexity int) int
@@ -537,8 +538,8 @@ type ComplexityRoot struct {
 	}
 
 	PlacePayload struct {
-		ID    func(childComplexity int) int
-		Place func(childComplexity int) int
+		Record   func(childComplexity int) int
+		RecordID func(childComplexity int) int
 	}
 
 	Query struct {
@@ -617,8 +618,8 @@ type ComplexityRoot struct {
 		Month       func(childComplexity int) int
 		PaymentDate func(childComplexity int) int
 		Published   func(childComplexity int) int
+		Stadium     func(childComplexity int) int
 		StadiumID   func(childComplexity int) int
-		StadiumItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
 	}
 
@@ -641,8 +642,8 @@ type ComplexityRoot struct {
 		Description func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Published   func(childComplexity int) int
+		Stadium     func(childComplexity int) int
 		StadiumID   func(childComplexity int) int
-		StadiumItem func(childComplexity int) int
 		Sum         func(childComplexity int) int
 		TrainingIds func(childComplexity int) int
 		Trainings   func(childComplexity int) int
@@ -762,14 +763,14 @@ type ComplexityRoot struct {
 	}
 
 	StudentVisit struct {
-		ID           func(childComplexity int) int
-		Payed        func(childComplexity int) int
-		Published    func(childComplexity int) int
-		StudentID    func(childComplexity int) int
-		StudentItem  func(childComplexity int) int
-		TrainingID   func(childComplexity int) int
-		TrainingItem func(childComplexity int) int
-		VisitStatus  func(childComplexity int) int
+		ID          func(childComplexity int) int
+		Payed       func(childComplexity int) int
+		Published   func(childComplexity int) int
+		Student     func(childComplexity int) int
+		StudentID   func(childComplexity int) int
+		Training    func(childComplexity int) int
+		TrainingID  func(childComplexity int) int
+		VisitStatus func(childComplexity int) int
 	}
 
 	StudentVisitConnection struct {
@@ -830,8 +831,8 @@ type ComplexityRoot struct {
 		HeadCoachID func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Name        func(childComplexity int) int
+		Place       func(childComplexity int) int
 		PlaceID     func(childComplexity int) int
-		PlaceItem   func(childComplexity int) int
 		Published   func(childComplexity int) int
 		Writable    func(childComplexity int) int
 	}
@@ -843,8 +844,8 @@ type ComplexityRoot struct {
 		Rent      func(childComplexity int) int
 		Salary    func(childComplexity int) int
 		Sum       func(childComplexity int) int
+		Team      func(childComplexity int) int
 		TeamID    func(childComplexity int) int
-		TeamItem  func(childComplexity int) int
 		Tickets   func(childComplexity int) int
 	}
 
@@ -896,10 +897,10 @@ type ComplexityRoot struct {
 		HeadCoachID func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Published   func(childComplexity int) int
+		Stadium     func(childComplexity int) int
 		StadiumID   func(childComplexity int) int
-		StadiumItem func(childComplexity int) int
+		Team        func(childComplexity int) int
 		TeamID      func(childComplexity int) int
-		TeamItem    func(childComplexity int) int
 		Time        func(childComplexity int) int
 		Visits      func(childComplexity int) int
 	}
@@ -910,14 +911,14 @@ type ComplexityRoot struct {
 	}
 
 	TrainingDay struct {
-		Day         func(childComplexity int) int
-		ID          func(childComplexity int) int
-		Published   func(childComplexity int) int
-		StadiumID   func(childComplexity int) int
-		StadiumItem func(childComplexity int) int
-		TeamID      func(childComplexity int) int
-		TeamItem    func(childComplexity int) int
-		Time        func(childComplexity int) int
+		Day       func(childComplexity int) int
+		ID        func(childComplexity int) int
+		Published func(childComplexity int) int
+		Stadium   func(childComplexity int) int
+		StadiumID func(childComplexity int) int
+		Team      func(childComplexity int) int
+		TeamID    func(childComplexity int) int
+		Time      func(childComplexity int) int
 	}
 
 	TrainingDayConnection struct {
@@ -1162,6 +1163,13 @@ type StadiumResolver interface {
 type StaffResolver interface {
 	User(ctx context.Context, obj *models.Staff) (*models.User, error)
 }
+type TeamResolver interface {
+	HeadCoach(ctx context.Context, obj *models.Team) (*models.Staff, error)
+
+	Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error)
+
+	Place(ctx context.Context, obj *models.Team) (*models.Place, error)
+}
 
 type executableSchema struct {
 	resolvers  ResolverRoot
@@ -1325,19 +1333,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Cart.Published(childComplexity), true
 
+	case "Cart.student":
+		if e.complexity.Cart.Student == nil {
+			break
+		}
+
+		return e.complexity.Cart.Student(childComplexity), true
+
 	case "Cart.studentId":
 		if e.complexity.Cart.StudentID == nil {
 			break
 		}
 
 		return e.complexity.Cart.StudentID(childComplexity), true
-
-	case "Cart.studentItem":
-		if e.complexity.Cart.StudentItem == nil {
-			break
-		}
-
-		return e.complexity.Cart.StudentItem(childComplexity), true
 
 	case "Cart.sum":
 		if e.complexity.Cart.Sum == nil {
@@ -1640,19 +1648,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByTeam.Sum(childComplexity), true
 
+	case "CoachPaymentByTeam.team":
+		if e.complexity.CoachPaymentByTeam.Team == nil {
+			break
+		}
+
+		return e.complexity.CoachPaymentByTeam.Team(childComplexity), true
+
 	case "CoachPaymentByTeam.teamId":
 		if e.complexity.CoachPaymentByTeam.TeamID == nil {
 			break
 		}
 
 		return e.complexity.CoachPaymentByTeam.TeamID(childComplexity), true
-
-	case "CoachPaymentByTeam.teamItem":
-		if e.complexity.CoachPaymentByTeam.TeamItem == nil {
-			break
-		}
-
-		return e.complexity.CoachPaymentByTeam.TeamItem(childComplexity), true
 
 	case "CoachPaymentByTeamConnection.edges":
 		if e.complexity.CoachPaymentByTeamConnection.Edges == nil {
@@ -1731,19 +1739,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.CoachPaymentByTraining.Sum(childComplexity), true
 
+	case "CoachPaymentByTraining.training":
+		if e.complexity.CoachPaymentByTraining.Training == nil {
+			break
+		}
+
+		return e.complexity.CoachPaymentByTraining.Training(childComplexity), true
+
 	case "CoachPaymentByTraining.trainingId":
 		if e.complexity.CoachPaymentByTraining.TrainingID == nil {
 			break
 		}
 
 		return e.complexity.CoachPaymentByTraining.TrainingID(childComplexity), true
-
-	case "CoachPaymentByTraining.trainingItem":
-		if e.complexity.CoachPaymentByTraining.TrainingItem == nil {
-			break
-		}
-
-		return e.complexity.CoachPaymentByTraining.TrainingItem(childComplexity), true
 
 	case "CoachPaymentByTrainingConnection.edges":
 		if e.complexity.CoachPaymentByTrainingConnection.Edges == nil {
@@ -1822,19 +1830,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Creator.Published(childComplexity), true
 
+	case "Creator.user":
+		if e.complexity.Creator.User == nil {
+			break
+		}
+
+		return e.complexity.Creator.User(childComplexity), true
+
 	case "Creator.userId":
 		if e.complexity.Creator.UserID == nil {
 			break
 		}
 
 		return e.complexity.Creator.UserID(childComplexity), true
-
-	case "Creator.userItem":
-		if e.complexity.Creator.UserItem == nil {
-			break
-		}
-
-		return e.complexity.Creator.UserItem(childComplexity), true
 
 	case "CreatorConnection.edges":
 		if e.complexity.CreatorConnection.Edges == nil {
@@ -2088,19 +2096,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Lead.Students(childComplexity), true
 
+	case "Lead.team":
+		if e.complexity.Lead.Team == nil {
+			break
+		}
+
+		return e.complexity.Lead.Team(childComplexity), true
+
 	case "Lead.teamId":
 		if e.complexity.Lead.TeamID == nil {
 			break
 		}
 
 		return e.complexity.Lead.TeamID(childComplexity), true
-
-	case "Lead.teamItem":
-		if e.complexity.Lead.TeamItem == nil {
-			break
-		}
-
-		return e.complexity.Lead.TeamItem(childComplexity), true
 
 	case "Lead.yearBorn":
 		if e.complexity.Lead.YearBorn == nil {
@@ -2326,19 +2334,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.MoneyMove.Published(childComplexity), true
 
+	case "MoneyMove.student":
+		if e.complexity.MoneyMove.Student == nil {
+			break
+		}
+
+		return e.complexity.MoneyMove.Student(childComplexity), true
+
 	case "MoneyMove.studentId":
 		if e.complexity.MoneyMove.StudentID == nil {
 			break
 		}
 
 		return e.complexity.MoneyMove.StudentID(childComplexity), true
-
-	case "MoneyMove.studentItem":
-		if e.complexity.MoneyMove.StudentItem == nil {
-			break
-		}
-
-		return e.complexity.MoneyMove.StudentItem(childComplexity), true
 
 	case "MoneyMove.sum":
 		if e.complexity.MoneyMove.Sum == nil {
@@ -2347,19 +2355,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.MoneyMove.Sum(childComplexity), true
 
+	case "MoneyMove.user":
+		if e.complexity.MoneyMove.User == nil {
+			break
+		}
+
+		return e.complexity.MoneyMove.User(childComplexity), true
+
 	case "MoneyMove.userId":
 		if e.complexity.MoneyMove.UserID == nil {
 			break
 		}
 
 		return e.complexity.MoneyMove.UserID(childComplexity), true
-
-	case "MoneyMove.userItem":
-		if e.complexity.MoneyMove.UserItem == nil {
-			break
-		}
-
-		return e.complexity.MoneyMove.UserItem(childComplexity), true
 
 	case "MoneyMoveConnection.edges":
 		if e.complexity.MoneyMoveConnection.Edges == nil {
@@ -3639,6 +3647,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UserUpdate(childComplexity, args["userInput"].(models.UserInputWithID)), true
 
+	case "Order.cart":
+		if e.complexity.Order.Cart == nil {
+			break
+		}
+
+		return e.complexity.Order.Cart(childComplexity), true
+
 	case "Order.cartId":
 		if e.complexity.Order.CartID == nil {
 			break
@@ -3646,12 +3661,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Order.CartID(childComplexity), true
 
-	case "Order.cartItem":
-		if e.complexity.Order.CartItem == nil {
+	case "Order.creator":
+		if e.complexity.Order.Creator == nil {
 			break
 		}
 
-		return e.complexity.Order.CartItem(childComplexity), true
+		return e.complexity.Order.Creator(childComplexity), true
 
 	case "Order.creatorId":
 		if e.complexity.Order.CreatorID == nil {
@@ -3659,13 +3674,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Order.CreatorID(childComplexity), true
-
-	case "Order.creatorItem":
-		if e.complexity.Order.CreatorItem == nil {
-			break
-		}
-
-		return e.complexity.Order.CreatorItem(childComplexity), true
 
 	case "Order.fileName":
 		if e.complexity.Order.FileName == nil {
@@ -3842,19 +3850,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.PlaceEdge.Node(childComplexity), true
 
-	case "PlacePayload.id":
-		if e.complexity.PlacePayload.ID == nil {
+	case "PlacePayload.record":
+		if e.complexity.PlacePayload.Record == nil {
 			break
 		}
 
-		return e.complexity.PlacePayload.ID(childComplexity), true
+		return e.complexity.PlacePayload.Record(childComplexity), true
 
-	case "PlacePayload.place":
-		if e.complexity.PlacePayload.Place == nil {
+	case "PlacePayload.recordId":
+		if e.complexity.PlacePayload.RecordID == nil {
 			break
 		}
 
-		return e.complexity.PlacePayload.Place(childComplexity), true
+		return e.complexity.PlacePayload.RecordID(childComplexity), true
 
 	case "Query.article":
 		if e.complexity.Query.Article == nil {
@@ -4640,19 +4648,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RentPaymentByMonth.Published(childComplexity), true
 
+	case "RentPaymentByMonth.stadium":
+		if e.complexity.RentPaymentByMonth.Stadium == nil {
+			break
+		}
+
+		return e.complexity.RentPaymentByMonth.Stadium(childComplexity), true
+
 	case "RentPaymentByMonth.stadiumId":
 		if e.complexity.RentPaymentByMonth.StadiumID == nil {
 			break
 		}
 
 		return e.complexity.RentPaymentByMonth.StadiumID(childComplexity), true
-
-	case "RentPaymentByMonth.stadiumItem":
-		if e.complexity.RentPaymentByMonth.StadiumItem == nil {
-			break
-		}
-
-		return e.complexity.RentPaymentByMonth.StadiumItem(childComplexity), true
 
 	case "RentPaymentByMonth.sum":
 		if e.complexity.RentPaymentByMonth.Sum == nil {
@@ -4724,19 +4732,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RentPaymentByTraining.Published(childComplexity), true
 
+	case "RentPaymentByTraining.stadium":
+		if e.complexity.RentPaymentByTraining.Stadium == nil {
+			break
+		}
+
+		return e.complexity.RentPaymentByTraining.Stadium(childComplexity), true
+
 	case "RentPaymentByTraining.stadiumId":
 		if e.complexity.RentPaymentByTraining.StadiumID == nil {
 			break
 		}
 
 		return e.complexity.RentPaymentByTraining.StadiumID(childComplexity), true
-
-	case "RentPaymentByTraining.stadiumItem":
-		if e.complexity.RentPaymentByTraining.StadiumItem == nil {
-			break
-		}
-
-		return e.complexity.RentPaymentByTraining.StadiumItem(childComplexity), true
 
 	case "RentPaymentByTraining.sum":
 		if e.complexity.RentPaymentByTraining.Sum == nil {
@@ -5193,6 +5201,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.StudentVisit.Published(childComplexity), true
 
+	case "StudentVisit.student":
+		if e.complexity.StudentVisit.Student == nil {
+			break
+		}
+
+		return e.complexity.StudentVisit.Student(childComplexity), true
+
 	case "StudentVisit.studentId":
 		if e.complexity.StudentVisit.StudentID == nil {
 			break
@@ -5200,12 +5215,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.StudentVisit.StudentID(childComplexity), true
 
-	case "StudentVisit.studentItem":
-		if e.complexity.StudentVisit.StudentItem == nil {
+	case "StudentVisit.training":
+		if e.complexity.StudentVisit.Training == nil {
 			break
 		}
 
-		return e.complexity.StudentVisit.StudentItem(childComplexity), true
+		return e.complexity.StudentVisit.Training(childComplexity), true
 
 	case "StudentVisit.trainingId":
 		if e.complexity.StudentVisit.TrainingID == nil {
@@ -5213,13 +5228,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.StudentVisit.TrainingID(childComplexity), true
-
-	case "StudentVisit.trainingItem":
-		if e.complexity.StudentVisit.TrainingItem == nil {
-			break
-		}
-
-		return e.complexity.StudentVisit.TrainingItem(childComplexity), true
 
 	case "StudentVisit.visitStatus":
 		if e.complexity.StudentVisit.VisitStatus == nil {
@@ -5480,19 +5488,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Team.Name(childComplexity), true
 
+	case "Team.place":
+		if e.complexity.Team.Place == nil {
+			break
+		}
+
+		return e.complexity.Team.Place(childComplexity), true
+
 	case "Team.placeId":
 		if e.complexity.Team.PlaceID == nil {
 			break
 		}
 
 		return e.complexity.Team.PlaceID(childComplexity), true
-
-	case "Team.placeItem":
-		if e.complexity.Team.PlaceItem == nil {
-			break
-		}
-
-		return e.complexity.Team.PlaceItem(childComplexity), true
 
 	case "Team.published":
 		if e.complexity.Team.Published == nil {
@@ -5550,19 +5558,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.TeamBalance.Sum(childComplexity), true
 
+	case "TeamBalance.team":
+		if e.complexity.TeamBalance.Team == nil {
+			break
+		}
+
+		return e.complexity.TeamBalance.Team(childComplexity), true
+
 	case "TeamBalance.teamId":
 		if e.complexity.TeamBalance.TeamID == nil {
 			break
 		}
 
 		return e.complexity.TeamBalance.TeamID(childComplexity), true
-
-	case "TeamBalance.teamItem":
-		if e.complexity.TeamBalance.TeamItem == nil {
-			break
-		}
-
-		return e.complexity.TeamBalance.TeamItem(childComplexity), true
 
 	case "TeamBalance.tickets":
 		if e.complexity.TeamBalance.Tickets == nil {
@@ -5732,6 +5740,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Training.Published(childComplexity), true
 
+	case "Training.stadium":
+		if e.complexity.Training.Stadium == nil {
+			break
+		}
+
+		return e.complexity.Training.Stadium(childComplexity), true
+
 	case "Training.stadiumId":
 		if e.complexity.Training.StadiumID == nil {
 			break
@@ -5739,12 +5754,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Training.StadiumID(childComplexity), true
 
-	case "Training.stadiumItem":
-		if e.complexity.Training.StadiumItem == nil {
+	case "Training.team":
+		if e.complexity.Training.Team == nil {
 			break
 		}
 
-		return e.complexity.Training.StadiumItem(childComplexity), true
+		return e.complexity.Training.Team(childComplexity), true
 
 	case "Training.teamId":
 		if e.complexity.Training.TeamID == nil {
@@ -5752,13 +5767,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Training.TeamID(childComplexity), true
-
-	case "Training.teamItem":
-		if e.complexity.Training.TeamItem == nil {
-			break
-		}
-
-		return e.complexity.Training.TeamItem(childComplexity), true
 
 	case "Training.time":
 		if e.complexity.Training.Time == nil {
@@ -5809,6 +5817,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.TrainingDay.Published(childComplexity), true
 
+	case "TrainingDay.stadium":
+		if e.complexity.TrainingDay.Stadium == nil {
+			break
+		}
+
+		return e.complexity.TrainingDay.Stadium(childComplexity), true
+
 	case "TrainingDay.stadiumId":
 		if e.complexity.TrainingDay.StadiumID == nil {
 			break
@@ -5816,12 +5831,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.TrainingDay.StadiumID(childComplexity), true
 
-	case "TrainingDay.stadiumItem":
-		if e.complexity.TrainingDay.StadiumItem == nil {
+	case "TrainingDay.team":
+		if e.complexity.TrainingDay.Team == nil {
 			break
 		}
 
-		return e.complexity.TrainingDay.StadiumItem(childComplexity), true
+		return e.complexity.TrainingDay.Team(childComplexity), true
 
 	case "TrainingDay.teamId":
 		if e.complexity.TrainingDay.TeamID == nil {
@@ -5829,13 +5844,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.TrainingDay.TeamID(childComplexity), true
-
-	case "TrainingDay.teamItem":
-		if e.complexity.TrainingDay.TeamItem == nil {
-			break
-		}
-
-		return e.complexity.TrainingDay.TeamItem(childComplexity), true
 
 	case "TrainingDay.time":
 		if e.complexity.TrainingDay.Time == nil {
@@ -6523,7 +6531,7 @@ type Cart {
     kitIds: [ID!]!
     published: Boolean!
     studentId: ID!
-    studentItem: Student
+    student: Student
     sum: Int!
 }
 
@@ -6602,7 +6610,7 @@ type CoachPaymentByTeam {
     published: Boolean!
     sum: Int
     teamId: ID
-    teamItem: Team
+    team: Team
 }
 
 type CoachPaymentByTeamConnection {
@@ -6627,7 +6635,7 @@ type CoachPaymentByTraining {
     published: Boolean!
     sum: Int
     trainingId: ID
-    trainingItem: Training
+    training: Training
 }
 
 type CoachPaymentByTrainingConnection {
@@ -6652,7 +6660,7 @@ type Creator {
     phone: String!
     published: Boolean!
     userId: ID
-    userItem: User
+    user: User
 }
 
 type CreatorConnection {
@@ -6710,7 +6718,7 @@ type Lead {
     studentIds: [ID!]
     students: [Student!]
     teamId: ID
-    teamItem: Team
+    team: Team
     yearBorn: Int
 }
 
@@ -6766,10 +6774,10 @@ type MoneyMove {
     ownerId: ID!
     published: Boolean!
     studentId: ID!
-    studentItem: Student
+    student: Student
     sum: Int
     userId: ID!
-    userItem: User
+    user: User
 }
 
 type MoneyMoveConnection {
@@ -6789,9 +6797,9 @@ type MoneyMovePayload {
 
 type Order {
     cartId: ID!
-    cartItem: Cart
+    cart: Cart
     creatorId: ID!
-    creatorItem: Creator
+    creator: Creator
     fileName: String
     id: ID!
     orderStatus: OrderStatus!
@@ -6820,7 +6828,7 @@ type RentPaymentByMonth {
     paymentDate:Time
     published: Boolean!
     stadiumId: ID!
-    stadiumItem: Stadium
+    stadium: Stadium
     sum: Int!
 }
 
@@ -6844,7 +6852,7 @@ type RentPaymentByTraining {
     id: ID!
     published: Boolean!
     stadiumId: ID!
-    stadiumItem: Stadium
+    stadium: Stadium
     sum: Int!
     trainingIds: [ID!]!
     trainings: [Training!]
@@ -6953,9 +6961,9 @@ type StudentVisit {
     payed: Boolean!
     published: Boolean!
     studentId: ID!
-    studentItem: Student
+    student: Student
     trainingId: ID!
-    trainingItem: Training
+    training: Training
     visitStatus: VisitStatus!
 }
 
@@ -7010,15 +7018,15 @@ type TaskPayload {
 }
 
 type Team {
+    id: ID!
     ages: [Age!]
+    headCoachId: ID
+    headCoach: Staff
     coachIds: [ID!]
     coaches: [Staff!]
-    headCoach: Staff
-    headCoachId: ID
-    id: ID!
     name: String!
     placeId: ID!
-    placeItem: Place
+    place: Place
     published: Boolean!
     writable: Boolean!
 }
@@ -7031,7 +7039,7 @@ type TeamBalance {
     salary: Int!
     sum: Int!
     teamId: ID!
-    teamItem: Team
+    team: Team
     tickets: Int!
 }
 
@@ -7079,9 +7087,9 @@ type Training {
     id: ID!
     published: Boolean!
     stadiumId: ID
-    stadiumItem: Stadium
+    stadium: Stadium
     teamId: ID!
-    teamItem: Team
+    team: Team
     time: Time
     visits: Int!
 }
@@ -7096,9 +7104,9 @@ type TrainingDay {
     id: ID!
     published: Boolean!
     stadiumId: ID
-    stadiumItem: Stadium
+    stadium: Stadium
     teamId: ID!
-    teamItem: Team
+    team: Team
     time: Time
 }
 
@@ -7444,8 +7452,8 @@ type PlaceDto {
 }
 
 type PlacePayload {
-    place: Place!
-    id: ID!
+    record: Place!
+    recordId: ID!
 }
 
 input PlaceInput {
@@ -12285,8 +12293,8 @@ func (ec *executionContext) fieldContext_Cart_studentId(ctx context.Context, fie
 	return fc, nil
 }
 
-func (ec *executionContext) _Cart_studentItem(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Cart_studentItem(ctx, field)
+func (ec *executionContext) _Cart_student(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Cart_student(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -12299,7 +12307,7 @@ func (ec *executionContext) _Cart_studentItem(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.StudentItem, nil
+		return obj.Student, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12313,7 +12321,7 @@ func (ec *executionContext) _Cart_studentItem(ctx context.Context, field graphql
 	return ec.marshalOStudent2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudent(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Cart_studentItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Cart_student(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Cart",
 		Field:      field,
@@ -12667,8 +12675,8 @@ func (ec *executionContext) fieldContext_CartEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Cart_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_Cart_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_Cart_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_Cart_student(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
 			}
@@ -12722,8 +12730,8 @@ func (ec *executionContext) fieldContext_CartPayload_record(ctx context.Context,
 				return ec.fieldContext_Cart_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_Cart_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_Cart_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_Cart_student(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
 			}
@@ -14419,8 +14427,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_teamId(ctx context.C
 	return fc, nil
 }
 
-func (ec *executionContext) _CoachPaymentByTeam_teamItem(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
+func (ec *executionContext) _CoachPaymentByTeam_team(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByTeam_team(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -14433,7 +14441,7 @@ func (ec *executionContext) _CoachPaymentByTeam_teamItem(ctx context.Context, fi
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TeamItem, nil
+		return obj.Team, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14447,7 +14455,7 @@ func (ec *executionContext) _CoachPaymentByTeam_teamItem(ctx context.Context, fi
 	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_CoachPaymentByTeam_teamItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_CoachPaymentByTeam_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "CoachPaymentByTeam",
 		Field:      field,
@@ -14455,24 +14463,24 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_teamItem(ctx context
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -14681,8 +14689,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamEdge_node(ctx context
 				return ec.fieldContext_CoachPaymentByTeam_sum(ctx, field)
 			case "teamId":
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_CoachPaymentByTeam_team(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -14744,8 +14752,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamPayload_record(ctx co
 				return ec.fieldContext_CoachPaymentByTeam_sum(ctx, field)
 			case "teamId":
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_CoachPaymentByTeam_team(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -15078,8 +15086,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_trainingId(ctx c
 	return fc, nil
 }
 
-func (ec *executionContext) _CoachPaymentByTraining_trainingItem(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
+func (ec *executionContext) _CoachPaymentByTraining_training(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByTraining_training(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -15092,7 +15100,7 @@ func (ec *executionContext) _CoachPaymentByTraining_trainingItem(ctx context.Con
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TrainingItem, nil
+		return obj.Training, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15106,7 +15114,7 @@ func (ec *executionContext) _CoachPaymentByTraining_trainingItem(ctx context.Con
 	return ec.marshalOTraining2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTraining(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_CoachPaymentByTraining_trainingItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_CoachPaymentByTraining_training(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "CoachPaymentByTraining",
 		Field:      field,
@@ -15128,12 +15136,12 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_trainingItem(ctx
 				return ec.fieldContext_Training_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_Training_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_Training_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_Training_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Training_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Training_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Training_team(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -15336,8 +15344,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingEdge_node(ctx con
 				return ec.fieldContext_CoachPaymentByTraining_sum(ctx, field)
 			case "trainingId":
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
-			case "trainingItem":
-				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
+			case "training":
+				return ec.fieldContext_CoachPaymentByTraining_training(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -15393,8 +15401,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingPayload_record(ct
 				return ec.fieldContext_CoachPaymentByTraining_sum(ctx, field)
 			case "trainingId":
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
-			case "trainingItem":
-				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
+			case "training":
+				return ec.fieldContext_CoachPaymentByTraining_training(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -15704,8 +15712,8 @@ func (ec *executionContext) fieldContext_Creator_userId(ctx context.Context, fie
 	return fc, nil
 }
 
-func (ec *executionContext) _Creator_userItem(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Creator_userItem(ctx, field)
+func (ec *executionContext) _Creator_user(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Creator_user(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -15718,7 +15726,7 @@ func (ec *executionContext) _Creator_userItem(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UserItem, nil
+		return obj.User, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15732,7 +15740,7 @@ func (ec *executionContext) _Creator_userItem(ctx context.Context, field graphql
 	return ec.marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Creator_userItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Creator_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Creator",
 		Field:      field,
@@ -16036,8 +16044,8 @@ func (ec *executionContext) fieldContext_CreatorEdge_node(ctx context.Context, f
 				return ec.fieldContext_Creator_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Creator_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Creator_user(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -16093,8 +16101,8 @@ func (ec *executionContext) fieldContext_CreatorPayload_record(ctx context.Conte
 				return ec.fieldContext_Creator_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Creator_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Creator_user(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -17103,12 +17111,12 @@ func (ec *executionContext) fieldContext_Lead_nextVisit(ctx context.Context, fie
 				return ec.fieldContext_Training_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_Training_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_Training_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_Training_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Training_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Training_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Training_team(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -17476,8 +17484,8 @@ func (ec *executionContext) fieldContext_Lead_teamId(ctx context.Context, field 
 	return fc, nil
 }
 
-func (ec *executionContext) _Lead_teamItem(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Lead_teamItem(ctx, field)
+func (ec *executionContext) _Lead_team(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Lead_team(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -17490,7 +17498,7 @@ func (ec *executionContext) _Lead_teamItem(ctx context.Context, field graphql.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TeamItem, nil
+		return obj.Team, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17504,7 +17512,7 @@ func (ec *executionContext) _Lead_teamItem(ctx context.Context, field graphql.Co
 	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Lead_teamItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Lead_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Lead",
 		Field:      field,
@@ -17512,24 +17520,24 @@ func (ec *executionContext) fieldContext_Lead_teamItem(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -17873,8 +17881,8 @@ func (ec *executionContext) fieldContext_LeadEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Lead_students(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Lead_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Lead_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Lead_team(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
 			}
@@ -17944,8 +17952,8 @@ func (ec *executionContext) fieldContext_LeadPayload_record(ctx context.Context,
 				return ec.fieldContext_Lead_students(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Lead_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Lead_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Lead_team(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
 			}
@@ -19127,8 +19135,8 @@ func (ec *executionContext) fieldContext_MoneyMove_studentId(ctx context.Context
 	return fc, nil
 }
 
-func (ec *executionContext) _MoneyMove_studentItem(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MoneyMove_studentItem(ctx, field)
+func (ec *executionContext) _MoneyMove_student(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MoneyMove_student(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -19141,7 +19149,7 @@ func (ec *executionContext) _MoneyMove_studentItem(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.StudentItem, nil
+		return obj.Student, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19155,7 +19163,7 @@ func (ec *executionContext) _MoneyMove_studentItem(ctx context.Context, field gr
 	return ec.marshalOStudent2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudent(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MoneyMove_studentItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MoneyMove_student(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "MoneyMove",
 		Field:      field,
@@ -19275,8 +19283,8 @@ func (ec *executionContext) fieldContext_MoneyMove_userId(ctx context.Context, f
 	return fc, nil
 }
 
-func (ec *executionContext) _MoneyMove_userItem(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MoneyMove_userItem(ctx, field)
+func (ec *executionContext) _MoneyMove_user(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MoneyMove_user(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -19289,7 +19297,7 @@ func (ec *executionContext) _MoneyMove_userItem(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UserItem, nil
+		return obj.User, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19303,7 +19311,7 @@ func (ec *executionContext) _MoneyMove_userItem(ctx context.Context, field graph
 	return ec.marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MoneyMove_userItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MoneyMove_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "MoneyMove",
 		Field:      field,
@@ -19527,14 +19535,14 @@ func (ec *executionContext) fieldContext_MoneyMoveEdge_node(ctx context.Context,
 				return ec.fieldContext_MoneyMove_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_MoneyMove_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_MoneyMove_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_MoneyMove_student(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyMove_sum(ctx, field)
 			case "userId":
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_MoneyMove_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_MoneyMove_user(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -19598,14 +19606,14 @@ func (ec *executionContext) fieldContext_MoneyMovePayload_record(ctx context.Con
 				return ec.fieldContext_MoneyMove_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_MoneyMove_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_MoneyMove_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_MoneyMove_student(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyMove_sum(ctx, field)
 			case "userId":
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_MoneyMove_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_MoneyMove_user(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -22743,10 +22751,10 @@ func (ec *executionContext) fieldContext_Mutation_placeDelete(ctx context.Contex
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "place":
-				return ec.fieldContext_PlacePayload_place(ctx, field)
-			case "id":
-				return ec.fieldContext_PlacePayload_id(ctx, field)
+			case "record":
+				return ec.fieldContext_PlacePayload_record(ctx, field)
+			case "recordId":
+				return ec.fieldContext_PlacePayload_recordId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PlacePayload", field.Name)
 		},
@@ -22804,10 +22812,10 @@ func (ec *executionContext) fieldContext_Mutation_placePublishUpdate(ctx context
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "place":
-				return ec.fieldContext_PlacePayload_place(ctx, field)
-			case "id":
-				return ec.fieldContext_PlacePayload_id(ctx, field)
+			case "record":
+				return ec.fieldContext_PlacePayload_record(ctx, field)
+			case "recordId":
+				return ec.fieldContext_PlacePayload_recordId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PlacePayload", field.Name)
 		},
@@ -22865,10 +22873,10 @@ func (ec *executionContext) fieldContext_Mutation_placeSave(ctx context.Context,
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "place":
-				return ec.fieldContext_PlacePayload_place(ctx, field)
-			case "id":
-				return ec.fieldContext_PlacePayload_id(ctx, field)
+			case "record":
+				return ec.fieldContext_PlacePayload_record(ctx, field)
+			case "recordId":
+				return ec.fieldContext_PlacePayload_recordId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PlacePayload", field.Name)
 		},
@@ -22926,10 +22934,10 @@ func (ec *executionContext) fieldContext_Mutation_placeUpdate(ctx context.Contex
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "place":
-				return ec.fieldContext_PlacePayload_place(ctx, field)
-			case "id":
-				return ec.fieldContext_PlacePayload_id(ctx, field)
+			case "record":
+				return ec.fieldContext_PlacePayload_record(ctx, field)
+			case "recordId":
+				return ec.fieldContext_PlacePayload_recordId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PlacePayload", field.Name)
 		},
@@ -25983,8 +25991,8 @@ func (ec *executionContext) fieldContext_Order_cartId(ctx context.Context, field
 	return fc, nil
 }
 
-func (ec *executionContext) _Order_cartItem(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Order_cartItem(ctx, field)
+func (ec *executionContext) _Order_cart(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Order_cart(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -25997,7 +26005,7 @@ func (ec *executionContext) _Order_cartItem(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CartItem, nil
+		return obj.Cart, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26011,7 +26019,7 @@ func (ec *executionContext) _Order_cartItem(ctx context.Context, field graphql.C
 	return ec.marshalOCart2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCart(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Order_cartItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Order_cart(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Order",
 		Field:      field,
@@ -26027,8 +26035,8 @@ func (ec *executionContext) fieldContext_Order_cartItem(ctx context.Context, fie
 				return ec.fieldContext_Cart_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_Cart_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_Cart_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_Cart_student(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
 			}
@@ -26082,8 +26090,8 @@ func (ec *executionContext) fieldContext_Order_creatorId(ctx context.Context, fi
 	return fc, nil
 }
 
-func (ec *executionContext) _Order_creatorItem(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Order_creatorItem(ctx, field)
+func (ec *executionContext) _Order_creator(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Order_creator(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26096,7 +26104,7 @@ func (ec *executionContext) _Order_creatorItem(ctx context.Context, field graphq
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreatorItem, nil
+		return obj.Creator, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26110,7 +26118,7 @@ func (ec *executionContext) _Order_creatorItem(ctx context.Context, field graphq
 	return ec.marshalOCreator2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreator(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Order_creatorItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Order_creator(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Order",
 		Field:      field,
@@ -26130,8 +26138,8 @@ func (ec *executionContext) fieldContext_Order_creatorItem(ctx context.Context, 
 				return ec.fieldContext_Creator_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Creator_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Creator_user(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -26493,12 +26501,12 @@ func (ec *executionContext) fieldContext_OrderEdge_node(ctx context.Context, fie
 			switch field.Name {
 			case "cartId":
 				return ec.fieldContext_Order_cartId(ctx, field)
-			case "cartItem":
-				return ec.fieldContext_Order_cartItem(ctx, field)
+			case "cart":
+				return ec.fieldContext_Order_cart(ctx, field)
 			case "creatorId":
 				return ec.fieldContext_Order_creatorId(ctx, field)
-			case "creatorItem":
-				return ec.fieldContext_Order_creatorItem(ctx, field)
+			case "creator":
+				return ec.fieldContext_Order_creator(ctx, field)
 			case "fileName":
 				return ec.fieldContext_Order_fileName(ctx, field)
 			case "id":
@@ -26552,12 +26560,12 @@ func (ec *executionContext) fieldContext_OrderPayload_record(ctx context.Context
 			switch field.Name {
 			case "cartId":
 				return ec.fieldContext_Order_cartId(ctx, field)
-			case "cartItem":
-				return ec.fieldContext_Order_cartItem(ctx, field)
+			case "cart":
+				return ec.fieldContext_Order_cart(ctx, field)
 			case "creatorId":
 				return ec.fieldContext_Order_creatorId(ctx, field)
-			case "creatorItem":
-				return ec.fieldContext_Order_creatorItem(ctx, field)
+			case "creator":
+				return ec.fieldContext_Order_creator(ctx, field)
 			case "fileName":
 				return ec.fieldContext_Order_fileName(ctx, field)
 			case "id":
@@ -27299,8 +27307,8 @@ func (ec *executionContext) fieldContext_PlaceEdge_node(ctx context.Context, fie
 	return fc, nil
 }
 
-func (ec *executionContext) _PlacePayload_place(ctx context.Context, field graphql.CollectedField, obj *models.PlacePayload) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_PlacePayload_place(ctx, field)
+func (ec *executionContext) _PlacePayload_record(ctx context.Context, field graphql.CollectedField, obj *models.PlacePayload) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PlacePayload_record(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -27313,7 +27321,7 @@ func (ec *executionContext) _PlacePayload_place(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Place, nil
+		return obj.Record, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27330,7 +27338,7 @@ func (ec *executionContext) _PlacePayload_place(ctx context.Context, field graph
 	return ec.marshalNPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_PlacePayload_place(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_PlacePayload_record(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "PlacePayload",
 		Field:      field,
@@ -27357,8 +27365,8 @@ func (ec *executionContext) fieldContext_PlacePayload_place(ctx context.Context,
 	return fc, nil
 }
 
-func (ec *executionContext) _PlacePayload_id(ctx context.Context, field graphql.CollectedField, obj *models.PlacePayload) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_PlacePayload_id(ctx, field)
+func (ec *executionContext) _PlacePayload_recordId(ctx context.Context, field graphql.CollectedField, obj *models.PlacePayload) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PlacePayload_recordId(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -27371,7 +27379,7 @@ func (ec *executionContext) _PlacePayload_id(ctx context.Context, field graphql.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
+		return obj.RecordID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27388,7 +27396,7 @@ func (ec *executionContext) _PlacePayload_id(ctx context.Context, field graphql.
 	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_PlacePayload_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_PlacePayload_recordId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "PlacePayload",
 		Field:      field,
@@ -27573,8 +27581,8 @@ func (ec *executionContext) fieldContext_Query_cart(ctx context.Context, field g
 				return ec.fieldContext_Cart_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_Cart_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_Cart_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_Cart_student(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
 			}
@@ -27901,8 +27909,8 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByTeam(ctx context.Co
 				return ec.fieldContext_CoachPaymentByTeam_sum(ctx, field)
 			case "teamId":
 				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_CoachPaymentByTeam_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_CoachPaymentByTeam_team(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -27969,8 +27977,8 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByTraining(ctx contex
 				return ec.fieldContext_CoachPaymentByTraining_sum(ctx, field)
 			case "trainingId":
 				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
-			case "trainingItem":
-				return ec.fieldContext_CoachPaymentByTraining_trainingItem(ctx, field)
+			case "training":
+				return ec.fieldContext_CoachPaymentByTraining_training(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -28211,8 +28219,8 @@ func (ec *executionContext) fieldContext_Query_creator(ctx context.Context, fiel
 				return ec.fieldContext_Creator_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Creator_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Creator_user(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -28479,8 +28487,8 @@ func (ec *executionContext) fieldContext_Query_lead(ctx context.Context, field g
 				return ec.fieldContext_Lead_students(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Lead_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Lead_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Lead_team(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
 			}
@@ -28743,14 +28751,14 @@ func (ec *executionContext) fieldContext_Query_moneyMove(ctx context.Context, fi
 				return ec.fieldContext_MoneyMove_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_MoneyMove_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_MoneyMove_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_MoneyMove_student(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyMove_sum(ctx, field)
 			case "userId":
 				return ec.fieldContext_MoneyMove_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_MoneyMove_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_MoneyMove_user(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -28865,12 +28873,12 @@ func (ec *executionContext) fieldContext_Query_order(ctx context.Context, field 
 			switch field.Name {
 			case "cartId":
 				return ec.fieldContext_Order_cartId(ctx, field)
-			case "cartItem":
-				return ec.fieldContext_Order_cartItem(ctx, field)
+			case "cart":
+				return ec.fieldContext_Order_cart(ctx, field)
 			case "creatorId":
 				return ec.fieldContext_Order_creatorId(ctx, field)
-			case "creatorItem":
-				return ec.fieldContext_Order_creatorItem(ctx, field)
+			case "creator":
+				return ec.fieldContext_Order_creator(ctx, field)
 			case "fileName":
 				return ec.fieldContext_Order_fileName(ctx, field)
 			case "id":
@@ -29130,8 +29138,8 @@ func (ec *executionContext) fieldContext_Query_rentPaymentByMonth(ctx context.Co
 				return ec.fieldContext_RentPaymentByMonth_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_RentPaymentByMonth_stadium(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
 			}
@@ -29196,8 +29204,8 @@ func (ec *executionContext) fieldContext_Query_rentPaymentByTraining(ctx context
 				return ec.fieldContext_RentPaymentByTraining_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_RentPaymentByTraining_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_RentPaymentByTraining_stadium(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByTraining_sum(ctx, field)
 			case "trainingIds":
@@ -29718,12 +29726,12 @@ func (ec *executionContext) fieldContext_Query_studentVisit(ctx context.Context,
 				return ec.fieldContext_StudentVisit_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_StudentVisit_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_StudentVisit_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_StudentVisit_student(ctx, field)
 			case "trainingId":
 				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
-			case "trainingItem":
-				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
+			case "training":
+				return ec.fieldContext_StudentVisit_training(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
 			}
@@ -30390,24 +30398,24 @@ func (ec *executionContext) fieldContext_Query_team(ctx context.Context, field g
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -30480,8 +30488,8 @@ func (ec *executionContext) fieldContext_Query_teamBalance(ctx context.Context, 
 				return ec.fieldContext_TeamBalance_sum(ctx, field)
 			case "teamId":
 				return ec.fieldContext_TeamBalance_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_TeamBalance_team(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
 			}
@@ -30668,12 +30676,12 @@ func (ec *executionContext) fieldContext_Query_training(ctx context.Context, fie
 				return ec.fieldContext_Training_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_Training_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_Training_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_Training_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Training_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Training_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Training_team(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -30740,12 +30748,12 @@ func (ec *executionContext) fieldContext_Query_trainingDay(ctx context.Context, 
 				return ec.fieldContext_TrainingDay_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_TrainingDay_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_TrainingDay_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_TrainingDay_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_TrainingDay_team(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
 			}
@@ -31911,8 +31919,8 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_stadiumId(ctx contex
 	return fc, nil
 }
 
-func (ec *executionContext) _RentPaymentByMonth_stadiumItem(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
+func (ec *executionContext) _RentPaymentByMonth_stadium(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_RentPaymentByMonth_stadium(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -31925,7 +31933,7 @@ func (ec *executionContext) _RentPaymentByMonth_stadiumItem(ctx context.Context,
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.StadiumItem, nil
+		return obj.Stadium, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -31939,7 +31947,7 @@ func (ec *executionContext) _RentPaymentByMonth_stadiumItem(ctx context.Context,
 	return ec.marshalOStadium2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadium(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_RentPaymentByMonth_stadiumItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_RentPaymentByMonth_stadium(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "RentPaymentByMonth",
 		Field:      field,
@@ -32203,8 +32211,8 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthEdge_node(ctx context
 				return ec.fieldContext_RentPaymentByMonth_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_RentPaymentByMonth_stadium(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
 			}
@@ -32262,8 +32270,8 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthPayload_record(ctx co
 				return ec.fieldContext_RentPaymentByMonth_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_RentPaymentByMonth_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_RentPaymentByMonth_stadium(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
 			}
@@ -32490,8 +32498,8 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_stadiumId(ctx con
 	return fc, nil
 }
 
-func (ec *executionContext) _RentPaymentByTraining_stadiumItem(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_RentPaymentByTraining_stadiumItem(ctx, field)
+func (ec *executionContext) _RentPaymentByTraining_stadium(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_RentPaymentByTraining_stadium(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -32504,7 +32512,7 @@ func (ec *executionContext) _RentPaymentByTraining_stadiumItem(ctx context.Conte
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.StadiumItem, nil
+		return obj.Stadium, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -32518,7 +32526,7 @@ func (ec *executionContext) _RentPaymentByTraining_stadiumItem(ctx context.Conte
 	return ec.marshalOStadium2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadium(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_RentPaymentByTraining_stadiumItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_RentPaymentByTraining_stadium(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "RentPaymentByTraining",
 		Field:      field,
@@ -32685,12 +32693,12 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_trainings(ctx con
 				return ec.fieldContext_Training_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_Training_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_Training_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_Training_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Training_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Training_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Training_team(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -32889,8 +32897,8 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingEdge_node(ctx cont
 				return ec.fieldContext_RentPaymentByTraining_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_RentPaymentByTraining_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_RentPaymentByTraining_stadium(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByTraining_sum(ctx, field)
 			case "trainingIds":
@@ -32948,8 +32956,8 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingPayload_record(ctx
 				return ec.fieldContext_RentPaymentByTraining_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_RentPaymentByTraining_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_RentPaymentByTraining_stadium(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByTraining_sum(ctx, field)
 			case "trainingIds":
@@ -34782,8 +34790,8 @@ func (ec *executionContext) fieldContext_Student_creators(ctx context.Context, f
 				return ec.fieldContext_Creator_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Creator_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Creator_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Creator_user(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -35085,24 +35093,24 @@ func (ec *executionContext) fieldContext_Student_teams(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -35691,8 +35699,8 @@ func (ec *executionContext) fieldContext_StudentVisit_studentId(ctx context.Cont
 	return fc, nil
 }
 
-func (ec *executionContext) _StudentVisit_studentItem(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_StudentVisit_studentItem(ctx, field)
+func (ec *executionContext) _StudentVisit_student(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_StudentVisit_student(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -35705,7 +35713,7 @@ func (ec *executionContext) _StudentVisit_studentItem(ctx context.Context, field
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.StudentItem, nil
+		return obj.Student, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -35719,7 +35727,7 @@ func (ec *executionContext) _StudentVisit_studentItem(ctx context.Context, field
 	return ec.marshalOStudent2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudent(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_StudentVisit_studentItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_StudentVisit_student(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "StudentVisit",
 		Field:      field,
@@ -35798,8 +35806,8 @@ func (ec *executionContext) fieldContext_StudentVisit_trainingId(ctx context.Con
 	return fc, nil
 }
 
-func (ec *executionContext) _StudentVisit_trainingItem(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_StudentVisit_trainingItem(ctx, field)
+func (ec *executionContext) _StudentVisit_training(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_StudentVisit_training(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -35812,7 +35820,7 @@ func (ec *executionContext) _StudentVisit_trainingItem(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TrainingItem, nil
+		return obj.Training, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -35826,7 +35834,7 @@ func (ec *executionContext) _StudentVisit_trainingItem(ctx context.Context, fiel
 	return ec.marshalOTraining2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTraining(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_StudentVisit_trainingItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_StudentVisit_training(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "StudentVisit",
 		Field:      field,
@@ -35848,12 +35856,12 @@ func (ec *executionContext) fieldContext_StudentVisit_trainingItem(ctx context.C
 				return ec.fieldContext_Training_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_Training_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_Training_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_Training_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Training_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Training_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Training_team(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -36096,12 +36104,12 @@ func (ec *executionContext) fieldContext_StudentVisitEdge_node(ctx context.Conte
 				return ec.fieldContext_StudentVisit_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_StudentVisit_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_StudentVisit_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_StudentVisit_student(ctx, field)
 			case "trainingId":
 				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
-			case "trainingItem":
-				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
+			case "training":
+				return ec.fieldContext_StudentVisit_training(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
 			}
@@ -36155,12 +36163,12 @@ func (ec *executionContext) fieldContext_StudentVisitPayload_record(ctx context.
 				return ec.fieldContext_StudentVisit_published(ctx, field)
 			case "studentId":
 				return ec.fieldContext_StudentVisit_studentId(ctx, field)
-			case "studentItem":
-				return ec.fieldContext_StudentVisit_studentItem(ctx, field)
+			case "student":
+				return ec.fieldContext_StudentVisit_student(ctx, field)
 			case "trainingId":
 				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
-			case "trainingItem":
-				return ec.fieldContext_StudentVisit_trainingItem(ctx, field)
+			case "training":
+				return ec.fieldContext_StudentVisit_training(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
 			}
@@ -36535,8 +36543,8 @@ func (ec *executionContext) fieldContext_Task_leads(ctx context.Context, field g
 				return ec.fieldContext_Lead_students(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Lead_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Lead_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Lead_team(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
 			}
@@ -37351,6 +37359,50 @@ func (ec *executionContext) fieldContext_TaskPayload_recordId(ctx context.Contex
 	return fc, nil
 }
 
+func (ec *executionContext) _Team_id(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_id(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Team_ages(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Team_ages(ctx, field)
 	if err != nil {
@@ -37387,6 +37439,114 @@ func (ec *executionContext) fieldContext_Team_ages(ctx context.Context, field gr
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Age does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Team_headCoachId(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_headCoachId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.HeadCoachID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_headCoachId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Team_headCoach(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_headCoach(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Team().HeadCoach(rctx, obj)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.Staff)
+	fc.Result = res
+	return ec.marshalOStaff2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaff(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_headCoach(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "birthday":
+				return ec.fieldContext_Staff_birthday(ctx, field)
+			case "department":
+				return ec.fieldContext_Staff_department(ctx, field)
+			case "description":
+				return ec.fieldContext_Staff_description(ctx, field)
+			case "fileName":
+				return ec.fieldContext_Staff_fileName(ctx, field)
+			case "id":
+				return ec.fieldContext_Staff_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Staff_name(ctx, field)
+			case "orderNumber":
+				return ec.fieldContext_Staff_orderNumber(ctx, field)
+			case "phoneNumber":
+				return ec.fieldContext_Staff_phoneNumber(ctx, field)
+			case "published":
+				return ec.fieldContext_Staff_published(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
+			case "work":
+				return ec.fieldContext_Staff_work(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
 	}
 	return fc, nil
@@ -37447,7 +37607,7 @@ func (ec *executionContext) _Team_coaches(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Coaches, nil
+		return ec.resolvers.Team().Coaches(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -37465,8 +37625,8 @@ func (ec *executionContext) fieldContext_Team_coaches(ctx context.Context, field
 	fc = &graphql.FieldContext{
 		Object:     "Team",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -37495,158 +37655,6 @@ func (ec *executionContext) fieldContext_Team_coaches(ctx context.Context, field
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Team_headCoach(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_headCoach(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.HeadCoach, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.Staff)
-	fc.Result = res
-	return ec.marshalOStaff2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaff(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_headCoach(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "birthday":
-				return ec.fieldContext_Staff_birthday(ctx, field)
-			case "department":
-				return ec.fieldContext_Staff_department(ctx, field)
-			case "description":
-				return ec.fieldContext_Staff_description(ctx, field)
-			case "fileName":
-				return ec.fieldContext_Staff_fileName(ctx, field)
-			case "id":
-				return ec.fieldContext_Staff_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Staff_name(ctx, field)
-			case "orderNumber":
-				return ec.fieldContext_Staff_orderNumber(ctx, field)
-			case "phoneNumber":
-				return ec.fieldContext_Staff_phoneNumber(ctx, field)
-			case "published":
-				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
-			case "user":
-				return ec.fieldContext_Staff_user(ctx, field)
-			case "work":
-				return ec.fieldContext_Staff_work(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Team_headCoachId(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_headCoachId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.HeadCoachID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_headCoachId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Team_id(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_id(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -37740,8 +37748,8 @@ func (ec *executionContext) fieldContext_Team_placeId(ctx context.Context, field
 	return fc, nil
 }
 
-func (ec *executionContext) _Team_placeItem(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_placeItem(ctx, field)
+func (ec *executionContext) _Team_place(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_place(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -37754,7 +37762,7 @@ func (ec *executionContext) _Team_placeItem(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.PlaceItem, nil
+		return ec.resolvers.Team().Place(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -37768,12 +37776,12 @@ func (ec *executionContext) _Team_placeItem(ctx context.Context, field graphql.C
 	return ec.marshalOPlace2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlace(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Team_placeItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Team_place(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Team",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "address":
@@ -38191,8 +38199,8 @@ func (ec *executionContext) fieldContext_TeamBalance_teamId(ctx context.Context,
 	return fc, nil
 }
 
-func (ec *executionContext) _TeamBalance_teamItem(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TeamBalance_teamItem(ctx, field)
+func (ec *executionContext) _TeamBalance_team(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TeamBalance_team(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -38205,7 +38213,7 @@ func (ec *executionContext) _TeamBalance_teamItem(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TeamItem, nil
+		return obj.Team, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -38219,7 +38227,7 @@ func (ec *executionContext) _TeamBalance_teamItem(ctx context.Context, field gra
 	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_TeamBalance_teamItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_TeamBalance_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "TeamBalance",
 		Field:      field,
@@ -38227,24 +38235,24 @@ func (ec *executionContext) fieldContext_TeamBalance_teamItem(ctx context.Contex
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -38493,8 +38501,8 @@ func (ec *executionContext) fieldContext_TeamBalanceEdge_node(ctx context.Contex
 				return ec.fieldContext_TeamBalance_sum(ctx, field)
 			case "teamId":
 				return ec.fieldContext_TeamBalance_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_TeamBalance_team(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
 			}
@@ -38554,8 +38562,8 @@ func (ec *executionContext) fieldContext_TeamBalancePayload_record(ctx context.C
 				return ec.fieldContext_TeamBalance_sum(ctx, field)
 			case "teamId":
 				return ec.fieldContext_TeamBalance_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_TeamBalance_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_TeamBalance_team(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
 			}
@@ -38876,24 +38884,24 @@ func (ec *executionContext) fieldContext_TeamEdge_node(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -38941,24 +38949,24 @@ func (ec *executionContext) fieldContext_TeamPayload_record(ctx context.Context,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -39491,8 +39499,8 @@ func (ec *executionContext) fieldContext_Training_stadiumId(ctx context.Context,
 	return fc, nil
 }
 
-func (ec *executionContext) _Training_stadiumItem(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Training_stadiumItem(ctx, field)
+func (ec *executionContext) _Training_stadium(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Training_stadium(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -39505,7 +39513,7 @@ func (ec *executionContext) _Training_stadiumItem(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.StadiumItem, nil
+		return obj.Stadium, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -39519,7 +39527,7 @@ func (ec *executionContext) _Training_stadiumItem(ctx context.Context, field gra
 	return ec.marshalOStadium2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadium(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Training_stadiumItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Training_stadium(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Training",
 		Field:      field,
@@ -39592,8 +39600,8 @@ func (ec *executionContext) fieldContext_Training_teamId(ctx context.Context, fi
 	return fc, nil
 }
 
-func (ec *executionContext) _Training_teamItem(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Training_teamItem(ctx, field)
+func (ec *executionContext) _Training_team(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Training_team(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -39606,7 +39614,7 @@ func (ec *executionContext) _Training_teamItem(ctx context.Context, field graphq
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TeamItem, nil
+		return obj.Team, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -39620,7 +39628,7 @@ func (ec *executionContext) _Training_teamItem(ctx context.Context, field graphq
 	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Training_teamItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Training_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Training",
 		Field:      field,
@@ -39628,24 +39636,24 @@ func (ec *executionContext) fieldContext_Training_teamItem(ctx context.Context, 
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -40011,8 +40019,8 @@ func (ec *executionContext) fieldContext_TrainingDay_stadiumId(ctx context.Conte
 	return fc, nil
 }
 
-func (ec *executionContext) _TrainingDay_stadiumItem(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TrainingDay_stadiumItem(ctx, field)
+func (ec *executionContext) _TrainingDay_stadium(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TrainingDay_stadium(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -40025,7 +40033,7 @@ func (ec *executionContext) _TrainingDay_stadiumItem(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.StadiumItem, nil
+		return obj.Stadium, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -40039,7 +40047,7 @@ func (ec *executionContext) _TrainingDay_stadiumItem(ctx context.Context, field 
 	return ec.marshalOStadium2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadium(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_TrainingDay_stadiumItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_TrainingDay_stadium(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "TrainingDay",
 		Field:      field,
@@ -40112,8 +40120,8 @@ func (ec *executionContext) fieldContext_TrainingDay_teamId(ctx context.Context,
 	return fc, nil
 }
 
-func (ec *executionContext) _TrainingDay_teamItem(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TrainingDay_teamItem(ctx, field)
+func (ec *executionContext) _TrainingDay_team(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TrainingDay_team(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -40126,7 +40134,7 @@ func (ec *executionContext) _TrainingDay_teamItem(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TeamItem, nil
+		return obj.Team, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -40140,7 +40148,7 @@ func (ec *executionContext) _TrainingDay_teamItem(ctx context.Context, field gra
 	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_TrainingDay_teamItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_TrainingDay_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "TrainingDay",
 		Field:      field,
@@ -40148,24 +40156,24 @@ func (ec *executionContext) fieldContext_TrainingDay_teamItem(ctx context.Contex
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
 			case "placeId":
 				return ec.fieldContext_Team_placeId(ctx, field)
-			case "placeItem":
-				return ec.fieldContext_Team_placeItem(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -40405,12 +40413,12 @@ func (ec *executionContext) fieldContext_TrainingDayEdge_node(ctx context.Contex
 				return ec.fieldContext_TrainingDay_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_TrainingDay_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_TrainingDay_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_TrainingDay_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_TrainingDay_team(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
 			}
@@ -40464,12 +40472,12 @@ func (ec *executionContext) fieldContext_TrainingDayPayload_record(ctx context.C
 				return ec.fieldContext_TrainingDay_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_TrainingDay_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_TrainingDay_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_TrainingDay_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_TrainingDay_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_TrainingDay_team(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
 			}
@@ -40705,12 +40713,12 @@ func (ec *executionContext) fieldContext_TrainingEdge_node(ctx context.Context, 
 				return ec.fieldContext_Training_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_Training_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_Training_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_Training_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Training_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Training_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Training_team(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -40772,12 +40780,12 @@ func (ec *executionContext) fieldContext_TrainingPayload_record(ctx context.Cont
 				return ec.fieldContext_Training_published(ctx, field)
 			case "stadiumId":
 				return ec.fieldContext_Training_stadiumId(ctx, field)
-			case "stadiumItem":
-				return ec.fieldContext_Training_stadiumItem(ctx, field)
+			case "stadium":
+				return ec.fieldContext_Training_stadium(ctx, field)
 			case "teamId":
 				return ec.fieldContext_Training_teamId(ctx, field)
-			case "teamItem":
-				return ec.fieldContext_Training_teamItem(ctx, field)
+			case "team":
+				return ec.fieldContext_Training_team(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -46971,9 +46979,9 @@ func (ec *executionContext) _Cart(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentItem":
+		case "student":
 
-			out.Values[i] = ec._Cart_studentItem(ctx, field, obj)
+			out.Values[i] = ec._Cart_student(ctx, field, obj)
 
 		case "sum":
 
@@ -47505,9 +47513,9 @@ func (ec *executionContext) _CoachPaymentByTeam(ctx context.Context, sel ast.Sel
 
 			out.Values[i] = ec._CoachPaymentByTeam_teamId(ctx, field, obj)
 
-		case "teamItem":
+		case "team":
 
-			out.Values[i] = ec._CoachPaymentByTeam_teamItem(ctx, field, obj)
+			out.Values[i] = ec._CoachPaymentByTeam_team(ctx, field, obj)
 
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -47659,9 +47667,9 @@ func (ec *executionContext) _CoachPaymentByTraining(ctx context.Context, sel ast
 
 			out.Values[i] = ec._CoachPaymentByTraining_trainingId(ctx, field, obj)
 
-		case "trainingItem":
+		case "training":
 
-			out.Values[i] = ec._CoachPaymentByTraining_trainingItem(ctx, field, obj)
+			out.Values[i] = ec._CoachPaymentByTraining_training(ctx, field, obj)
 
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -47816,9 +47824,9 @@ func (ec *executionContext) _Creator(ctx context.Context, sel ast.SelectionSet, 
 
 			out.Values[i] = ec._Creator_userId(ctx, field, obj)
 
-		case "userItem":
+		case "user":
 
-			out.Values[i] = ec._Creator_userItem(ctx, field, obj)
+			out.Values[i] = ec._Creator_user(ctx, field, obj)
 
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -48232,9 +48240,9 @@ func (ec *executionContext) _Lead(ctx context.Context, sel ast.SelectionSet, obj
 
 			out.Values[i] = ec._Lead_teamId(ctx, field, obj)
 
-		case "teamItem":
+		case "team":
 
-			out.Values[i] = ec._Lead_teamItem(ctx, field, obj)
+			out.Values[i] = ec._Lead_team(ctx, field, obj)
 
 		case "yearBorn":
 
@@ -48614,9 +48622,9 @@ func (ec *executionContext) _MoneyMove(ctx context.Context, sel ast.SelectionSet
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentItem":
+		case "student":
 
-			out.Values[i] = ec._MoneyMove_studentItem(ctx, field, obj)
+			out.Values[i] = ec._MoneyMove_student(ctx, field, obj)
 
 		case "sum":
 
@@ -48629,9 +48637,9 @@ func (ec *executionContext) _MoneyMove(ctx context.Context, sel ast.SelectionSet
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "userItem":
+		case "user":
 
-			out.Values[i] = ec._MoneyMove_userItem(ctx, field, obj)
+			out.Values[i] = ec._MoneyMove_user(ctx, field, obj)
 
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -49711,9 +49719,9 @@ func (ec *executionContext) _Order(ctx context.Context, sel ast.SelectionSet, ob
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "cartItem":
+		case "cart":
 
-			out.Values[i] = ec._Order_cartItem(ctx, field, obj)
+			out.Values[i] = ec._Order_cart(ctx, field, obj)
 
 		case "creatorId":
 
@@ -49722,9 +49730,9 @@ func (ec *executionContext) _Order(ctx context.Context, sel ast.SelectionSet, ob
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "creatorItem":
+		case "creator":
 
-			out.Values[i] = ec._Order_creatorItem(ctx, field, obj)
+			out.Values[i] = ec._Order_creator(ctx, field, obj)
 
 		case "fileName":
 
@@ -50072,16 +50080,16 @@ func (ec *executionContext) _PlacePayload(ctx context.Context, sel ast.Selection
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("PlacePayload")
-		case "place":
+		case "record":
 
-			out.Values[i] = ec._PlacePayload_place(ctx, field, obj)
+			out.Values[i] = ec._PlacePayload_record(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "id":
+		case "recordId":
 
-			out.Values[i] = ec._PlacePayload_id(ctx, field, obj)
+			out.Values[i] = ec._PlacePayload_recordId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -51531,9 +51539,9 @@ func (ec *executionContext) _RentPaymentByMonth(ctx context.Context, sel ast.Sel
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadiumItem":
+		case "stadium":
 
-			out.Values[i] = ec._RentPaymentByMonth_stadiumItem(ctx, field, obj)
+			out.Values[i] = ec._RentPaymentByMonth_stadium(ctx, field, obj)
 
 		case "sum":
 
@@ -51684,9 +51692,9 @@ func (ec *executionContext) _RentPaymentByTraining(ctx context.Context, sel ast.
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadiumItem":
+		case "stadium":
 
-			out.Values[i] = ec._RentPaymentByTraining_stadiumItem(ctx, field, obj)
+			out.Values[i] = ec._RentPaymentByTraining_stadium(ctx, field, obj)
 
 		case "sum":
 
@@ -52503,9 +52511,9 @@ func (ec *executionContext) _StudentVisit(ctx context.Context, sel ast.Selection
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentItem":
+		case "student":
 
-			out.Values[i] = ec._StudentVisit_studentItem(ctx, field, obj)
+			out.Values[i] = ec._StudentVisit_student(ctx, field, obj)
 
 		case "trainingId":
 
@@ -52514,9 +52522,9 @@ func (ec *executionContext) _StudentVisit(ctx context.Context, sel ast.Selection
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "trainingItem":
+		case "training":
 
-			out.Values[i] = ec._StudentVisit_trainingItem(ctx, field, obj)
+			out.Values[i] = ec._StudentVisit_training(ctx, field, obj)
 
 		case "visitStatus":
 
@@ -52836,64 +52844,103 @@ func (ec *executionContext) _Team(ctx context.Context, sel ast.SelectionSet, obj
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Team")
-		case "ages":
-
-			out.Values[i] = ec._Team_ages(ctx, field, obj)
-
-		case "coachIds":
-
-			out.Values[i] = ec._Team_coachIds(ctx, field, obj)
-
-		case "coaches":
-
-			out.Values[i] = ec._Team_coaches(ctx, field, obj)
-
-		case "headCoach":
-
-			out.Values[i] = ec._Team_headCoach(ctx, field, obj)
-
-		case "headCoachId":
-
-			out.Values[i] = ec._Team_headCoachId(ctx, field, obj)
-
 		case "id":
 
 			out.Values[i] = ec._Team_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
+		case "ages":
+
+			out.Values[i] = ec._Team_ages(ctx, field, obj)
+
+		case "headCoachId":
+
+			out.Values[i] = ec._Team_headCoachId(ctx, field, obj)
+
+		case "headCoach":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Team_headCoach(ctx, field, obj)
+				return res
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
+		case "coachIds":
+
+			out.Values[i] = ec._Team_coachIds(ctx, field, obj)
+
+		case "coaches":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Team_coaches(ctx, field, obj)
+				return res
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "name":
 
 			out.Values[i] = ec._Team_name(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "placeId":
 
 			out.Values[i] = ec._Team_placeId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
-		case "placeItem":
+		case "place":
+			field := field
 
-			out.Values[i] = ec._Team_placeItem(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Team_place(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "published":
 
 			out.Values[i] = ec._Team_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "writable":
 
 			out.Values[i] = ec._Team_writable(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -52965,9 +53012,9 @@ func (ec *executionContext) _TeamBalance(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamItem":
+		case "team":
 
-			out.Values[i] = ec._TeamBalance_teamItem(ctx, field, obj)
+			out.Values[i] = ec._TeamBalance_team(ctx, field, obj)
 
 		case "tickets":
 
@@ -53300,9 +53347,9 @@ func (ec *executionContext) _Training(ctx context.Context, sel ast.SelectionSet,
 
 			out.Values[i] = ec._Training_stadiumId(ctx, field, obj)
 
-		case "stadiumItem":
+		case "stadium":
 
-			out.Values[i] = ec._Training_stadiumItem(ctx, field, obj)
+			out.Values[i] = ec._Training_stadium(ctx, field, obj)
 
 		case "teamId":
 
@@ -53311,9 +53358,9 @@ func (ec *executionContext) _Training(ctx context.Context, sel ast.SelectionSet,
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamItem":
+		case "team":
 
-			out.Values[i] = ec._Training_teamItem(ctx, field, obj)
+			out.Values[i] = ec._Training_team(ctx, field, obj)
 
 		case "time":
 
@@ -53401,9 +53448,9 @@ func (ec *executionContext) _TrainingDay(ctx context.Context, sel ast.SelectionS
 
 			out.Values[i] = ec._TrainingDay_stadiumId(ctx, field, obj)
 
-		case "stadiumItem":
+		case "stadium":
 
-			out.Values[i] = ec._TrainingDay_stadiumItem(ctx, field, obj)
+			out.Values[i] = ec._TrainingDay_stadium(ctx, field, obj)
 
 		case "teamId":
 
@@ -53412,9 +53459,9 @@ func (ec *executionContext) _TrainingDay(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "teamItem":
+		case "team":
 
-			out.Values[i] = ec._TrainingDay_teamItem(ctx, field, obj)
+			out.Values[i] = ec._TrainingDay_team(ctx, field, obj)
 
 		case "time":
 

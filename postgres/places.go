@@ -161,8 +161,8 @@ func (r *PlacesRepo) PlaceSave(place *models.Place) (*models.PlacePayload, error
 	_, err := r.DB.Model(place).Returning("*").Insert()
 	fmt.Println(err)
 	placePayload := &models.PlacePayload{
-		Place: place,
-		ID:    place.ID,
+		Record:   place,
+		RecordID: place.ID,
 	}
 	return placePayload, err
 }
@@ -170,8 +170,8 @@ func (r *PlacesRepo) PlaceSave(place *models.Place) (*models.PlacePayload, error
 func (r *PlacesRepo) PlaceUpdate(place *models.Place) (*models.PlacePayload, error) {
 	_, err := r.DB.Model(place).Where("id = ?", place.ID).Update()
 	placePayload := &models.PlacePayload{
-		Place: place,
-		ID:    place.ID,
+		Record:   place,
+		RecordID: place.ID,
 	}
 	return placePayload, err
 }
@@ -179,8 +179,8 @@ func (r *PlacesRepo) PlaceUpdate(place *models.Place) (*models.PlacePayload, err
 func (r *PlacesRepo) PlacePublish(place *models.Place) (*models.PlacePayload, error) {
 	_, err := r.DB.Model(place).Set("published = NOT published").Where("id = ?", place.ID).Update()
 	placePayload := &models.PlacePayload{
-		Place: place,
-		ID:    place.ID,
+		Record:   place,
+		RecordID: place.ID,
 	}
 	return placePayload, err
 }
@@ -188,8 +188,8 @@ func (r *PlacesRepo) PlacePublish(place *models.Place) (*models.PlacePayload, er
 func (r *PlacesRepo) PlaceRestore(place *models.Place) (*models.PlacePayload, error) {
 	_, err := r.DB.Model(place).Set("deletedAt = NULL").Where("id = ?", place.ID).Update()
 	placePayload := &models.PlacePayload{
-		Place: place,
-		ID:    place.ID,
+		Record:   place,
+		RecordID: place.ID,
 	}
 	return placePayload, err
 }

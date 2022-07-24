@@ -299,8 +299,8 @@ func (r *mutationResolver) PlaceDelete(ctx context.Context, id string) (*models.
 		return nil, err
 	}
 	return &models.PlacePayload{
-		ID:    id,
-		Place: nil,
+		RecordID: id,
+		Record:   nil,
 	}, nil
 }
 
@@ -524,22 +524,37 @@ func (r *mutationResolver) TeamBalanceUpdate(ctx context.Context, teamBalanceInp
 
 // TeamDelete is the resolver for the teamDelete field.
 func (r *mutationResolver) TeamDelete(ctx context.Context, id string) (*models.TeamPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.TeamDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.TeamPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // TeamPublishUpdate is the resolver for the teamPublishUpdate field.
 func (r *mutationResolver) TeamPublishUpdate(ctx context.Context, id string) (*models.TeamPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TeamPublish(id)
 }
 
 // TeamSave is the resolver for the teamSave field.
 func (r *mutationResolver) TeamSave(ctx context.Context, teamInput models.TeamInput) (*models.TeamPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, teamInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.TeamSave(ctx, teamInput)
 }
 
 // TeamUpdate is the resolver for the teamUpdate field.
 func (r *mutationResolver) TeamUpdate(ctx context.Context, teamInput models.TeamInputWithID) (*models.TeamPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, teamInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.TeamUpdate(ctx, teamInput)
 }
 
 // TrainingDayDelete is the resolver for the trainingDayDelete field.
@@ -947,6 +962,21 @@ func (r *staffResolver) User(ctx context.Context, obj *models.Staff) (*models.Us
 	return For(ctx).UserLoader.Load(*obj.UserId)
 }
 
+// HeadCoach is the resolver for the headCoach field.
+func (r *teamResolver) HeadCoach(ctx context.Context, obj *models.Team) (*models.Staff, error) {
+	return For(ctx).StaffLoader.Load(*obj.HeadCoachID)
+}
+
+// Coaches is the resolver for the coaches field.
+func (r *teamResolver) Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error) {
+	return r.Domain.TeamsRepo.GetCoachesForTeam(obj)
+}
+
+// Place is the resolver for the place field.
+func (r *teamResolver) Place(ctx context.Context, obj *models.Team) (*models.Place, error) {
+	return For(ctx).PlaceLoader.Load(obj.PlaceID)
+}
+
 // Article returns generated.ArticleResolver implementation.
 func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver{r} }
 
@@ -962,11 +992,15 @@ func (r *Resolver) Stadium() generated.StadiumResolver { return &stadiumResolver
 // Staff returns generated.StaffResolver implementation.
 func (r *Resolver) Staff() generated.StaffResolver { return &staffResolver{r} }
 
+// Team returns generated.TeamResolver implementation.
+func (r *Resolver) Team() generated.TeamResolver { return &teamResolver{r} }
+
 type articleResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
 type staffResolver struct{ *Resolver }
+type teamResolver struct{ *Resolver }
 
 // !!! WARNING !!!
 // The code below was going to be deleted when updating resolvers. It has been copied here so you have

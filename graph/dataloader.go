@@ -9,12 +9,12 @@ import (
 )
 
 const loadersKey = "dataLoaders"
-const userLoaderKey = "userLoader"
-const placeLoaderKey = "placeLoader"
 
 type Loaders struct {
 	UserLoader
 	PlaceLoader
+	StaffSliceLoader
+	StaffLoader
 }
 
 func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
@@ -73,11 +73,70 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			return result, nil
 		},
 	}
+
+	staffLoader := StaffLoader{
+		maxBatch: 100,
+		wait:     1 * time.Millisecond,
+		fetch: func(keys []string) ([]*models.Staff, []error) {
+			var items []*models.Staff
+
+			err := db.Model(&items).Where("id in (?)", pg.In(keys)).Select()
+
+			if err != nil {
+				return nil, []error{err}
+			}
+
+			u := make(map[string]*models.Staff, len(items))
+
+			for _, item := range items {
+				u[item.ID] = item
+			}
+
+			result := make([]*models.Staff, len(keys))
+
+			for i, id := range keys {
+				result[i] = u[id]
+			}
+
+			return result, nil
+		},
+	}
+
+	staffSliceLoader := StaffSliceLoader{
+		maxBatch: 100,
+		wait:     1 * time.Millisecond,
+		fetch: func(keys []string) ([][]*models.Staff, []error) {
+			staff := make([][]*models.Staff, len(keys))
+			errors := make([]error, len(keys))
+
+			var items []*models.Staff
+
+			err := db.Model(&items).Where("id in (?)", pg.In(keys)).Select()
+
+			if err != nil {
+				return nil, []error{err}
+			}
+
+			u := make(map[string]*models.Staff, len(items))
+
+			for _, item := range items {
+				u[item.ID] = item
+			}
+			result := make([]*models.Staff, len(keys))
+
+			for i, _ := range keys {
+				staff[i] = result
+			}
+			return staff, errors
+		},
+	}
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
 		ctx := context.WithValue(r.Context(), loadersKey, &Loaders{
-			userLoader,
-			placeLoader,
+			UserLoader:       userLoader,
+			PlaceLoader:      placeLoader,
+			StaffSliceLoader: staffSliceLoader,
+			StaffLoader:      staffLoader,
 		})
 
 		next.ServeHTTP(w, r.WithContext(ctx))

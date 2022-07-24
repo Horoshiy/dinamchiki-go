@@ -7,12 +7,12 @@ import (
 	"gitlab.com/dinamchiki/go-graphql/graph/model"
 )
 
-type StaffRepo struct {
+type TeamsRepo struct {
 	DB *pg.DB
 }
 
-func (r *StaffRepo) GetStaff(filter *models.StaffFilter, first, last *int, after, before *string) (*models.StaffConnection, error) {
-	var items []*models.Staff
+func (r *TeamsRepo) GetTeams(filter *models.TeamFilter, first, last *int, after, before *string) (*models.TeamConnection, error) {
+	var items []*models.Team
 	query := r.DB.Model(&items)
 
 	var decodedCursor string
@@ -30,25 +30,25 @@ func (r *StaffRepo) GetStaff(filter *models.StaffFilter, first, last *int, after
 		}
 		decodedCursor = string(b)
 	}
-	var edges []*models.StaffEdge
+	var edges []*models.TeamEdge
 	countElems, err := query.Count()
 	if err != nil {
 		return nil, err
 	}
 
-	edges = make([]*models.StaffEdge, countElems)
+	edges = make([]*models.TeamEdge, countElems)
 
 	if first != nil {
 		query.Order("id ASC")
-		edges = make([]*models.StaffEdge, *first)
+		edges = make([]*models.TeamEdge, *first)
 	}
 	if last != nil && first == nil && before == nil && after == nil {
 		query.Order("id DESC")
-		edges = make([]*models.StaffEdge, *last)
+		edges = make([]*models.TeamEdge, *last)
 	}
 	if (last != nil && first == nil) || (before != nil && after == nil) {
 		query.Order("id DESC")
-		edges = make([]*models.StaffEdge, countElems)
+		edges = make([]*models.TeamEdge, countElems)
 	}
 
 	count := 0
@@ -79,7 +79,7 @@ func (r *StaffRepo) GetStaff(filter *models.StaffFilter, first, last *int, after
 		}
 		if first != nil {
 			if currentPage && count < *first {
-				edges[count] = &models.StaffEdge{
+				edges[count] = &models.TeamEdge{
 					Cursor: base64.StdEncoding.EncodeToString([]byte(v.ID)),
 					Node:   v,
 				}
@@ -92,7 +92,7 @@ func (r *StaffRepo) GetStaff(filter *models.StaffFilter, first, last *int, after
 		}
 		if last != nil && first == nil {
 			if currentPage && count < *last {
-				edges[count] = &models.StaffEdge{
+				edges[count] = &models.TeamEdge{
 					Cursor: base64.StdEncoding.EncodeToString([]byte(v.ID)),
 					Node:   v,
 				}
@@ -105,7 +105,7 @@ func (r *StaffRepo) GetStaff(filter *models.StaffFilter, first, last *int, after
 		}
 		if last == nil && first == nil {
 			if currentPage && count < countElems {
-				edges[count] = &models.StaffEdge{
+				edges[count] = &models.TeamEdge{
 					Cursor: base64.StdEncoding.EncodeToString([]byte(v.ID)),
 					Node:   v,
 				}
@@ -120,7 +120,7 @@ func (r *StaffRepo) GetStaff(filter *models.StaffFilter, first, last *int, after
 		HasNextPage: &hasNextPage,
 	}
 
-	pc := &models.StaffConnection{
+	pc := &models.TeamConnection{
 		Edges:    edges[:count],
 		PageInfo: &pageInfo,
 	}
@@ -128,16 +128,16 @@ func (r *StaffRepo) GetStaff(filter *models.StaffFilter, first, last *int, after
 	return pc, nil
 }
 
-func (r *StaffRepo) All() ([]*models.StaffDto, error) {
-	var items []*models.Staff
+func (r *TeamsRepo) All() ([]*models.TeamDto, error) {
+	var items []*models.Team
 	query := r.DB.Model(&items).Column("id", "name")
 	err := query.Select()
 	if err != nil {
 		return nil, err
 	}
-	var arr []*models.StaffDto
+	var arr []*models.TeamDto
 	for _, v := range items {
-		arr = append(arr, &models.StaffDto{
+		arr = append(arr, &models.TeamDto{
 			ID:   v.ID,
 			Name: v.Name,
 		})
@@ -145,58 +145,64 @@ func (r *StaffRepo) All() ([]*models.StaffDto, error) {
 	return arr, nil
 }
 
-func (r *StaffRepo) GetStaffByFiled(field, value string) (*models.Staff, error) {
-	var item models.Staff
+func (r *TeamsRepo) GetTeamsByFiled(field, value string) (*models.Team, error) {
+	var item models.Team
 	err := r.DB.Model(&item).Where(fmt.Sprintf("%v = ?", field), value).First()
 	return &item, err
 }
 
-func (r *StaffRepo) GetStaffByID(id string) (*models.Staff, error) {
-	return r.GetStaffByFiled("id", id)
+func (r *TeamsRepo) GetTeamsByID(id string) (*models.Team, error) {
+	return r.GetTeamsByFiled("id", id)
 }
 
-func (r *StaffRepo) GetStaffByName(name string) (*models.Staff, error) {
-	return r.GetStaffByFiled("name", name)
+func (r *TeamsRepo) GetTeamsByName(name string) (*models.Team, error) {
+	return r.GetTeamsByFiled("name", name)
 }
 
-func (r *StaffRepo) StaffSave(staff *models.Staff) (*models.StaffPayload, error) {
-	_, err := r.DB.Model(staff).Returning("*").Insert()
+func (r *TeamsRepo) TeamsSave(stadium *models.Team) (*models.TeamPayload, error) {
+	_, err := r.DB.Model(stadium).Returning("*").Insert()
 	fmt.Println(err)
-	placePayload := &models.StaffPayload{
-		Record:   staff,
-		RecordID: staff.ID,
+	placePayload := &models.TeamPayload{
+		Record:   stadium,
+		RecordID: stadium.ID,
 	}
 	return placePayload, err
 }
 
-func (r *StaffRepo) StaffUpdate(place *models.Staff) (*models.StaffPayload, error) {
+func (r *TeamsRepo) TeamsUpdate(place *models.Team) (*models.TeamPayload, error) {
 	_, err := r.DB.Model(place).Where("id = ?", place.ID).Update()
-	placePayload := &models.StaffPayload{
+	placePayload := &models.TeamPayload{
 		Record:   place,
 		RecordID: place.ID,
 	}
 	return placePayload, err
 }
 
-func (r *StaffRepo) StaffPublish(place *models.Staff) (*models.StaffPayload, error) {
+func (r *TeamsRepo) TeamsPublish(place *models.Team) (*models.TeamPayload, error) {
 	_, err := r.DB.Model(place).Set("published = NOT published").Where("id = ?", place.ID).Update()
-	placePayload := &models.StaffPayload{
+	placePayload := &models.TeamPayload{
 		Record:   place,
 		RecordID: place.ID,
 	}
 	return placePayload, err
 }
 
-func (r *StaffRepo) StaffRestore(place *models.Staff) (*models.StaffPayload, error) {
+func (r *TeamsRepo) TeamsRestore(place *models.Team) (*models.TeamPayload, error) {
 	_, err := r.DB.Model(place).Set("deletedAt = NULL").Where("id = ?", place.ID).Update()
-	placePayload := &models.StaffPayload{
+	placePayload := &models.TeamPayload{
 		Record:   place,
 		RecordID: place.ID,
 	}
 	return placePayload, err
 }
 
-func (r *StaffRepo) StaffDelete(place *models.Staff) error {
+func (r *TeamsRepo) TeamsDelete(place *models.Team) error {
 	_, err := r.DB.Model(place).Where("id = ?", place.ID).Delete()
 	return err
+}
+
+func (r *TeamsRepo) GetCoachesForTeam(obj *models.Team) ([]*models.Staff, error) {
+	var coaches []*models.Staff
+	err := r.DB.Model(&coaches).Where("id in (?)", pg.In(obj.CoachIds)).Select()
+	return coaches, err
 }
