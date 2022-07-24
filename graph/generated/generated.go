@@ -42,6 +42,7 @@ type ResolverRoot interface {
 	CoachPaymentByTeam() CoachPaymentByTeamResolver
 	CoachPaymentByTraining() CoachPaymentByTrainingResolver
 	Creator() CreatorResolver
+	Lead() LeadResolver
 	MoneyCost() MoneyCostResolver
 	MoneyMove() MoneyMoveResolver
 	Mutation() MutationResolver
@@ -52,6 +53,7 @@ type ResolverRoot interface {
 	Staff() StaffResolver
 	Student() StudentResolver
 	StudentVisit() StudentVisitResolver
+	Task() TaskResolver
 	Team() TeamResolver
 	TeamBalance() TeamBalanceResolver
 	Training() TrainingResolver
@@ -1012,6 +1014,12 @@ type CoachPaymentByTrainingResolver interface {
 type CreatorResolver interface {
 	User(ctx context.Context, obj *models.Creator) (*models.User, error)
 }
+type LeadResolver interface {
+	NextVisit(ctx context.Context, obj *models.Lead) (*models.Training, error)
+
+	Students(ctx context.Context, obj *models.Lead) ([]*models.Student, error)
+	Team(ctx context.Context, obj *models.Lead) (*models.Team, error)
+}
 type MoneyCostResolver interface {
 	Staff(ctx context.Context, obj *models.MoneyCost) (*models.Staff, error)
 }
@@ -1219,6 +1227,15 @@ type StudentVisitResolver interface {
 	Student(ctx context.Context, obj *models.StudentVisit) (*models.Student, error)
 
 	Training(ctx context.Context, obj *models.StudentVisit) (*models.Training, error)
+}
+type TaskResolver interface {
+	Author(ctx context.Context, obj *models.Task) (*models.User, error)
+
+	Leads(ctx context.Context, obj *models.Task) ([]*models.Lead, error)
+
+	Students(ctx context.Context, obj *models.Task) ([]*models.Student, error)
+
+	Workers(ctx context.Context, obj *models.Task) ([]*models.Staff, error)
 }
 type TeamResolver interface {
 	Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error)
@@ -17154,7 +17171,7 @@ func (ec *executionContext) _Lead_nextVisit(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.NextVisit, nil
+		return ec.resolvers.Lead().NextVisit(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17172,8 +17189,8 @@ func (ec *executionContext) fieldContext_Lead_nextVisit(ctx context.Context, fie
 	fc = &graphql.FieldContext{
 		Object:     "Lead",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "coachIds":
@@ -17473,7 +17490,7 @@ func (ec *executionContext) _Lead_students(ctx context.Context, field graphql.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Students, nil
+		return ec.resolvers.Lead().Students(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17491,8 +17508,8 @@ func (ec *executionContext) fieldContext_Lead_students(ctx context.Context, fiel
 	fc = &graphql.FieldContext{
 		Object:     "Lead",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -17536,7 +17553,7 @@ func (ec *executionContext) _Lead_team(ctx context.Context, field graphql.Collec
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Team, nil
+		return ec.resolvers.Lead().Team(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17554,8 +17571,8 @@ func (ec *executionContext) fieldContext_Lead_team(ctx context.Context, field gr
 	fc = &graphql.FieldContext{
 		Object:     "Lead",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "ages":
@@ -36315,7 +36332,7 @@ func (ec *executionContext) _Task_author(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Author, nil
+		return ec.resolvers.Task().Author(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -36333,8 +36350,8 @@ func (ec *executionContext) fieldContext_Task_author(ctx context.Context, field 
 	fc = &graphql.FieldContext{
 		Object:     "Task",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "firstName":
@@ -36576,7 +36593,7 @@ func (ec *executionContext) _Task_leads(ctx context.Context, field graphql.Colle
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Leads, nil
+		return ec.resolvers.Task().Leads(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -36594,8 +36611,8 @@ func (ec *executionContext) fieldContext_Task_leads(ctx context.Context, field g
 	fc = &graphql.FieldContext{
 		Object:     "Task",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "description":
@@ -36855,7 +36872,7 @@ func (ec *executionContext) _Task_students(ctx context.Context, field graphql.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Students, nil
+		return ec.resolvers.Task().Students(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -36873,8 +36890,8 @@ func (ec *executionContext) fieldContext_Task_students(ctx context.Context, fiel
 	fc = &graphql.FieldContext{
 		Object:     "Task",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -37044,7 +37061,7 @@ func (ec *executionContext) _Task_workers(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Workers, nil
+		return ec.resolvers.Task().Workers(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -37062,8 +37079,8 @@ func (ec *executionContext) fieldContext_Task_workers(ctx context.Context, field
 	fc = &graphql.FieldContext{
 		Object:     "Task",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -48349,16 +48366,29 @@ func (ec *executionContext) _Lead(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._Lead_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "name":
 
 			out.Values[i] = ec._Lead_name(ctx, field, obj)
 
 		case "nextVisit":
+			field := field
 
-			out.Values[i] = ec._Lead_nextVisit(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Lead_nextVisit(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "nextVisitId":
 
 			out.Values[i] = ec._Lead_nextVisitId(ctx, field, obj)
@@ -48368,14 +48398,14 @@ func (ec *executionContext) _Lead(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._Lead_phone(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._Lead_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "source":
 
@@ -48390,13 +48420,39 @@ func (ec *executionContext) _Lead(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._Lead_studentIds(ctx, field, obj)
 
 		case "students":
+			field := field
 
-			out.Values[i] = ec._Lead_students(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Lead_students(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "team":
+			field := field
 
-			out.Values[i] = ec._Lead_team(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Lead_team(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "teamId":
 
 			out.Values[i] = ec._Lead_teamId(ctx, field, obj)
@@ -52951,9 +53007,22 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Task")
 		case "author":
+			field := field
 
-			out.Values[i] = ec._Task_author(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Task_author(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "authorId":
 
 			out.Values[i] = ec._Task_authorId(ctx, field, obj)
@@ -52971,16 +53040,29 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._Task_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "leadIds":
 
 			out.Values[i] = ec._Task_leadIds(ctx, field, obj)
 
 		case "leads":
+			field := field
 
-			out.Values[i] = ec._Task_leads(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Task_leads(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "priority":
 
 			out.Values[i] = ec._Task_priority(ctx, field, obj)
@@ -52990,7 +53072,7 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._Task_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "result":
 
@@ -53005,9 +53087,22 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._Task_studentIds(ctx, field, obj)
 
 		case "students":
+			field := field
 
-			out.Values[i] = ec._Task_students(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Task_students(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "taskStatus":
 
 			out.Values[i] = ec._Task_taskStatus(ctx, field, obj)
@@ -53017,16 +53112,29 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._Task_title(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "workerIds":
 
 			out.Values[i] = ec._Task_workerIds(ctx, field, obj)
 
 		case "workers":
+			field := field
 
-			out.Values[i] = ec._Task_workers(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Task_workers(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}

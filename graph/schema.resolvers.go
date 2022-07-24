@@ -47,6 +47,21 @@ func (r *creatorResolver) User(ctx context.Context, obj *models.Creator) (*model
 	return For(ctx).UserLoader.Load(*obj.UserID)
 }
 
+// NextVisit is the resolver for the nextVisit field.
+func (r *leadResolver) NextVisit(ctx context.Context, obj *models.Lead) (*models.Training, error) {
+	return For(ctx).TrainingLoader.Load(*obj.NextVisitID)
+}
+
+// Students is the resolver for the students field.
+func (r *leadResolver) Students(ctx context.Context, obj *models.Lead) ([]*models.Student, error) {
+	return r.Domain.LeadsRepo.GetStudentsForLead(obj)
+}
+
+// Team is the resolver for the team field.
+func (r *leadResolver) Team(ctx context.Context, obj *models.Lead) (*models.Team, error) {
+	return For(ctx).TeamLoader.Load(*obj.TeamID)
+}
+
 // Staff is the resolver for the staff field.
 func (r *moneyCostResolver) Staff(ctx context.Context, obj *models.MoneyCost) (*models.Staff, error) {
 	return For(ctx).StaffLoader.Load(obj.StaffID)
@@ -319,22 +334,37 @@ func (r *mutationResolver) KitUpdate(ctx context.Context, kitInput models.KitInp
 
 // LeadDelete is the resolver for the leadDelete field.
 func (r *mutationResolver) LeadDelete(ctx context.Context, id string) (*models.LeadPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.LeadDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.LeadPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // LeadPublishUpdate is the resolver for the leadPublishUpdate field.
 func (r *mutationResolver) LeadPublishUpdate(ctx context.Context, id string) (*models.LeadPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.LeadPublish(id)
 }
 
 // LeadSave is the resolver for the leadSave field.
 func (r *mutationResolver) LeadSave(ctx context.Context, leadInput models.LeadInput) (*models.LeadPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, leadInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.LeadSave(ctx, leadInput)
 }
 
 // LeadUpdate is the resolver for the leadUpdate field.
 func (r *mutationResolver) LeadUpdate(ctx context.Context, leadInput models.LeadInputWithID) (*models.LeadPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, leadInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.LeadUpdate(ctx, leadInput)
 }
 
 // Login is the resolver for the login field.
@@ -699,22 +729,37 @@ func (r *mutationResolver) StudentVisitUpdate(ctx context.Context, studentVisitI
 
 // TaskDelete is the resolver for the taskDelete field.
 func (r *mutationResolver) TaskDelete(ctx context.Context, id string) (*models.TaskPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.TaskDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.TaskPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // TaskPublishUpdate is the resolver for the taskPublishUpdate field.
 func (r *mutationResolver) TaskPublishUpdate(ctx context.Context, id string) (*models.TaskPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TaskPublish(id)
 }
 
 // TaskSave is the resolver for the taskSave field.
 func (r *mutationResolver) TaskSave(ctx context.Context, taskInput models.TaskInput) (*models.TaskPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, taskInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.TaskSave(ctx, taskInput)
 }
 
 // TaskUpdate is the resolver for the taskUpdate field.
 func (r *mutationResolver) TaskUpdate(ctx context.Context, taskInput models.TaskInputWithID) (*models.TaskPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, taskInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.TaskUpdate(ctx, taskInput)
 }
 
 // TeamBalanceDelete is the resolver for the teamBalanceDelete field.
@@ -989,7 +1034,7 @@ func (r *queryResolver) LeadAll(ctx context.Context) ([]*models.LeadDto, error) 
 
 // Leads is the resolver for the leads field.
 func (r *queryResolver) Leads(ctx context.Context, after *string, before *string, filter *models.LeadFilter, first *int, last *int) (*models.LeadConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.LeadsRepo.GetLeads(filter, first, last, after, before)
 }
 
 // MoneyCost is the resolver for the moneyCost field.
@@ -1129,7 +1174,7 @@ func (r *queryResolver) Task(ctx context.Context, id string) (*models.Task, erro
 
 // Tasks is the resolver for the tasks field.
 func (r *queryResolver) Tasks(ctx context.Context, after *string, before *string, filter *models.TaskFilter, first *int, last *int) (*models.TaskConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TasksRepo.GetTasks(filter, first, last, after, before)
 }
 
 // Team is the resolver for the team field.
@@ -1154,7 +1199,7 @@ func (r *queryResolver) TeamBalances(ctx context.Context, after *string, before 
 
 // Teams is the resolver for the teams field.
 func (r *queryResolver) Teams(ctx context.Context, after *string, before *string, filter *models.TeamFilter, first *int, last *int) (*models.TeamConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TeamsRepo.GetTeams(filter, first, last, after, before)
 }
 
 // TimeTable is the resolver for the timeTable field.
@@ -1257,6 +1302,26 @@ func (r *studentVisitResolver) Training(ctx context.Context, obj *models.Student
 	return For(ctx).TrainingLoader.Load(obj.TrainingID)
 }
 
+// Author is the resolver for the author field.
+func (r *taskResolver) Author(ctx context.Context, obj *models.Task) (*models.User, error) {
+	return For(ctx).UserLoader.Load(*obj.AuthorID)
+}
+
+// Leads is the resolver for the leads field.
+func (r *taskResolver) Leads(ctx context.Context, obj *models.Task) ([]*models.Lead, error) {
+	return r.Domain.TasksRepo.GetLeadsForTask(obj)
+}
+
+// Students is the resolver for the students field.
+func (r *taskResolver) Students(ctx context.Context, obj *models.Task) ([]*models.Student, error) {
+	return r.Domain.TasksRepo.GetStudentsForTask(obj)
+}
+
+// Workers is the resolver for the workers field.
+func (r *taskResolver) Workers(ctx context.Context, obj *models.Task) ([]*models.Staff, error) {
+	return r.Domain.TasksRepo.GetWorkersForTask(obj)
+}
+
 // Coaches is the resolver for the coaches field.
 func (r *teamResolver) Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error) {
 	return r.Domain.TeamsRepo.GetCoachesForTeam(obj)
@@ -1328,6 +1393,9 @@ func (r *Resolver) CoachPaymentByTraining() generated.CoachPaymentByTrainingReso
 // Creator returns generated.CreatorResolver implementation.
 func (r *Resolver) Creator() generated.CreatorResolver { return &creatorResolver{r} }
 
+// Lead returns generated.LeadResolver implementation.
+func (r *Resolver) Lead() generated.LeadResolver { return &leadResolver{r} }
+
 // MoneyCost returns generated.MoneyCostResolver implementation.
 func (r *Resolver) MoneyCost() generated.MoneyCostResolver { return &moneyCostResolver{r} }
 
@@ -1362,6 +1430,9 @@ func (r *Resolver) Student() generated.StudentResolver { return &studentResolver
 // StudentVisit returns generated.StudentVisitResolver implementation.
 func (r *Resolver) StudentVisit() generated.StudentVisitResolver { return &studentVisitResolver{r} }
 
+// Task returns generated.TaskResolver implementation.
+func (r *Resolver) Task() generated.TaskResolver { return &taskResolver{r} }
+
 // Team returns generated.TeamResolver implementation.
 func (r *Resolver) Team() generated.TeamResolver { return &teamResolver{r} }
 
@@ -1379,6 +1450,7 @@ type coachPaymentByMonthResolver struct{ *Resolver }
 type coachPaymentByTeamResolver struct{ *Resolver }
 type coachPaymentByTrainingResolver struct{ *Resolver }
 type creatorResolver struct{ *Resolver }
+type leadResolver struct{ *Resolver }
 type moneyCostResolver struct{ *Resolver }
 type moneyMoveResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
@@ -1389,6 +1461,7 @@ type stadiumResolver struct{ *Resolver }
 type staffResolver struct{ *Resolver }
 type studentResolver struct{ *Resolver }
 type studentVisitResolver struct{ *Resolver }
+type taskResolver struct{ *Resolver }
 type teamResolver struct{ *Resolver }
 type teamBalanceResolver struct{ *Resolver }
 type trainingResolver struct{ *Resolver }

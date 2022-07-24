@@ -74,6 +74,8 @@ func main() {
 		postgres.TrainingDaysRepo{DB: DB},
 		postgres.ClubBalancesRepo{DB: DB},
 		postgres.TeamBalancesRepo{DB: DB},
+		postgres.TasksRepo{DB: DB},
+		postgres.LeadsRepo{DB: DB},
 	)
 	c := generated.Config{
 		Resolvers: &graph.Resolver{

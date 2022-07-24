@@ -164,3 +164,24 @@ models:
     fields:
       team:
         resolver: true
+  Task:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Task
+    fields:
+      author:
+        resolver: true
+      leads:
+        resolver: true
+      students:
+        resolver: true
+      workers:
+        resolver: true
+  Lead:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Lead
+    fields:
+      nextVisit:
+        resolver: true
+      students:
+        resolver: true
+      team:
+        resolver: true
+

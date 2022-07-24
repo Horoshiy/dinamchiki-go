@@ -314,23 +314,6 @@ type KitPayload struct {
 	RecordID string `json:"recordId"`
 }
 
-type Lead struct {
-	Description *string     `json:"description"`
-	ID          string      `json:"id"`
-	Name        *string     `json:"name"`
-	NextVisit   *Training   `json:"nextVisit"`
-	NextVisitID *string     `json:"nextVisitId"`
-	Phone       string      `json:"phone"`
-	Published   bool        `json:"published"`
-	Source      *LeadSource `json:"source"`
-	Status      *LeadStatus `json:"status"`
-	StudentIds  []string    `json:"studentIds"`
-	Students    []*Student  `json:"students"`
-	Team        *Team       `json:"team"`
-	TeamID      *string     `json:"teamId"`
-	YearBorn    *int        `json:"yearBorn"`
-}
-
 type LeadConnection struct {
 	Edges    []*LeadEdge `json:"edges"`
 	PageInfo *PageInfo   `json:"pageInfo"`
@@ -755,26 +738,6 @@ type StudentVisitInputWithID struct {
 type StudentVisitPayload struct {
 	Record   *StudentVisit `json:"record"`
 	RecordID string        `json:"recordId"`
-}
-
-type Task struct {
-	Author      *User       `json:"author"`
-	AuthorID    *string     `json:"authorId"`
-	Description *string     `json:"description"`
-	EndTime     *time.Time  `json:"endTime"`
-	ID          string      `json:"id"`
-	LeadIds     []string    `json:"leadIds"`
-	Leads       []*Lead     `json:"leads"`
-	Priority    *Priority   `json:"priority"`
-	Published   bool        `json:"published"`
-	Result      *string     `json:"result"`
-	StartTime   *time.Time  `json:"startTime"`
-	StudentIds  []string    `json:"studentIds"`
-	Students    []*Student  `json:"students"`
-	TaskStatus  *TaskStatus `json:"taskStatus"`
-	Title       string      `json:"title"`
-	WorkerIds   []string    `json:"workerIds"`
-	Workers     []*Staff    `json:"workers"`
 }
 
 type TaskConnection struct {
