@@ -66,6 +66,7 @@ func main() {
 		postgres.StudentVisitsRepo{DB: DB},
 		postgres.MoneyMovesRepo{DB: DB},
 		postgres.MoneyCostsRepo{DB: DB},
+		postgres.RentPaymentByMonthRepo{DB: DB},
 		postgres.CoachPaymentByMonthRepo{DB: DB},
 		postgres.CoachPaymentByTeamRepo{DB: DB},
 		postgres.CoachPaymentByTrainingRepo{DB: DB},

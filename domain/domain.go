@@ -24,6 +24,7 @@ type Domain struct {
 	StudentVisitsRepo          postgres.StudentVisitsRepo
 	MoneyMoveRepo              postgres.MoneyMovesRepo
 	MoneyCostRepo              postgres.MoneyCostsRepo
+	RentPaymentByMonthRepo     postgres.RentPaymentByMonthRepo
 	CoachPaymentByMonthRepo    postgres.CoachPaymentByMonthRepo
 	CoachPaymentByTeamRepo     postgres.CoachPaymentByTeamRepo
 	CoachPaymentByTrainingRepo postgres.CoachPaymentByTrainingRepo
@@ -42,6 +43,7 @@ func NewDomain(
 	studentVisitsRepo postgres.StudentVisitsRepo,
 	moneyMoveRepo postgres.MoneyMovesRepo,
 	moneyCostsRepo postgres.MoneyCostsRepo,
+	rentPaymentByMonthRepo postgres.RentPaymentByMonthRepo,
 	coachPaymentByMonthRepo postgres.CoachPaymentByMonthRepo,
 	coachPaymentByTeamRepo postgres.CoachPaymentByTeamRepo,
 	coachPaymentByTrainingRepo postgres.CoachPaymentByTrainingRepo,
@@ -59,6 +61,7 @@ func NewDomain(
 		StudentVisitsRepo:          studentVisitsRepo,
 		MoneyMoveRepo:              moneyMoveRepo,
 		MoneyCostRepo:              moneyCostsRepo,
+		RentPaymentByMonthRepo:     rentPaymentByMonthRepo,
 		CoachPaymentByMonthRepo:    coachPaymentByMonthRepo,
 		CoachPaymentByTeamRepo:     coachPaymentByTeamRepo,
 		CoachPaymentByTrainingRepo: coachPaymentByTrainingRepo,

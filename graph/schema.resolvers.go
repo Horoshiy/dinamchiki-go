@@ -474,22 +474,37 @@ func (r *mutationResolver) Register(ctx context.Context, input models.RegisterIn
 
 // RentPaymentByMonthDelete is the resolver for the rentPaymentByMonthDelete field.
 func (r *mutationResolver) RentPaymentByMonthDelete(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.RentPaymentByMonthDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.RentPaymentByMonthPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // RentPaymentByMonthPublishUpdate is the resolver for the rentPaymentByMonthPublishUpdate field.
 func (r *mutationResolver) RentPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.RentPaymentByMonthPublish(id)
 }
 
 // RentPaymentByMonthSave is the resolver for the rentPaymentByMonthSave field.
 func (r *mutationResolver) RentPaymentByMonthSave(ctx context.Context, rentPaymentInput models.RentPaymentByMonthInput) (*models.RentPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, rentPaymentInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.RentPaymentByMonthSave(ctx, rentPaymentInput)
 }
 
 // RentPaymentByMonthUpdate is the resolver for the rentPaymentByMonthUpdate field.
 func (r *mutationResolver) RentPaymentByMonthUpdate(ctx context.Context, rentPaymentInput models.RentPaymentByMonthInputWithID) (*models.RentPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, rentPaymentInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.RentPaymentByMonthUpdate(ctx, rentPaymentInput)
 }
 
 // RentPaymentByTrainingDelete is the resolver for the rentPaymentByTrainingDelete field.
@@ -984,7 +999,7 @@ func (r *queryResolver) RentPaymentByTraining(ctx context.Context, id string) (*
 
 // RentPaymentsByMonth is the resolver for the rentPaymentsByMonth field.
 func (r *queryResolver) RentPaymentsByMonth(ctx context.Context, after *string, before *string, filter *models.RentPaymentByMonthFilter, first *int, last *int) (*models.RentPaymentByMonthConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.RentPaymentByMonthRepo.GetRentPaymentByMonth(filter, first, last, after, before)
 }
 
 // RentPaymentsByTraining is the resolver for the rentPaymentsByTraining field.
@@ -1137,6 +1152,11 @@ func (r *queryResolver) Users(ctx context.Context, after *string, before *string
 	return r.Domain.UsersRepo.GetUsers(filter, first, last, after, before)
 }
 
+// Stadium is the resolver for the stadium field.
+func (r *rentPaymentByMonthResolver) Stadium(ctx context.Context, obj *models.RentPaymentByMonth) (*models.Stadium, error) {
+	return For(ctx).StadiumLoader.Load(obj.StadiumID)
+}
+
 // Place is the resolver for the place field.
 func (r *stadiumResolver) Place(ctx context.Context, obj *models.Stadium) (*models.Place, error) {
 	return For(ctx).PlaceLoader.Load(*obj.PlaceID)
@@ -1235,6 +1255,11 @@ func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResol
 // Query returns generated.QueryResolver implementation.
 func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
+// RentPaymentByMonth returns generated.RentPaymentByMonthResolver implementation.
+func (r *Resolver) RentPaymentByMonth() generated.RentPaymentByMonthResolver {
+	return &rentPaymentByMonthResolver{r}
+}
+
 // Stadium returns generated.StadiumResolver implementation.
 func (r *Resolver) Stadium() generated.StadiumResolver { return &stadiumResolver{r} }
 
@@ -1262,6 +1287,7 @@ type moneyCostResolver struct{ *Resolver }
 type moneyMoveResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
+type rentPaymentByMonthResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
 type staffResolver struct{ *Resolver }
 type studentResolver struct{ *Resolver }

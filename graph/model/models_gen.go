@@ -553,17 +553,6 @@ type RegisterInput struct {
 	Phone           string `json:"phone"`
 }
 
-type RentPaymentByMonth struct {
-	Description *string    `json:"description"`
-	ID          string     `json:"id"`
-	Month       time.Time  `json:"month"`
-	PaymentDate *time.Time `json:"paymentDate"`
-	Published   bool       `json:"published"`
-	Stadium     *Stadium   `json:"stadium"`
-	StadiumID   string     `json:"stadiumId"`
-	Sum         int        `json:"sum"`
-}
-
 type RentPaymentByMonthConnection struct {
 	Edges    []*RentPaymentByMonthEdge `json:"edges"`
 	PageInfo *PageInfo                 `json:"pageInfo"`

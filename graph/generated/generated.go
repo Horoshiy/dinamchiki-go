@@ -46,6 +46,7 @@ type ResolverRoot interface {
 	MoneyMove() MoneyMoveResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
+	RentPaymentByMonth() RentPaymentByMonthResolver
 	Stadium() StadiumResolver
 	Staff() StaffResolver
 	Student() StudentResolver
@@ -1191,6 +1192,9 @@ type QueryResolver interface {
 	User(ctx context.Context, id string) (*models.User, error)
 	UserAll(ctx context.Context) ([]*models.UserDto, error)
 	Users(ctx context.Context, after *string, before *string, filter *models.UserFilter, first *int, last *int) (*models.UserConnection, error)
+}
+type RentPaymentByMonthResolver interface {
+	Stadium(ctx context.Context, obj *models.RentPaymentByMonth) (*models.Stadium, error)
 }
 type StadiumResolver interface {
 	Place(ctx context.Context, obj *models.Stadium) (*models.Place, error)
@@ -31948,7 +31952,7 @@ func (ec *executionContext) _RentPaymentByMonth_stadium(ctx context.Context, fie
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Stadium, nil
+		return ec.resolvers.RentPaymentByMonth().Stadium(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -31966,8 +31970,8 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_stadium(ctx context.
 	fc = &graphql.FieldContext{
 		Object:     "RentPaymentByMonth",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "id":
@@ -51701,14 +51705,14 @@ func (ec *executionContext) _RentPaymentByMonth(ctx context.Context, sel ast.Sel
 			out.Values[i] = ec._RentPaymentByMonth_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "month":
 
 			out.Values[i] = ec._RentPaymentByMonth_month(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "paymentDate":
 
@@ -51719,25 +51723,38 @@ func (ec *executionContext) _RentPaymentByMonth(ctx context.Context, sel ast.Sel
 			out.Values[i] = ec._RentPaymentByMonth_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "stadium":
+			field := field
 
-			out.Values[i] = ec._RentPaymentByMonth_stadium(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._RentPaymentByMonth_stadium(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "stadiumId":
 
 			out.Values[i] = ec._RentPaymentByMonth_stadiumId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "sum":
 
 			out.Values[i] = ec._RentPaymentByMonth_sum(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))

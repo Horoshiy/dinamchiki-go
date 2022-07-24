@@ -131,3 +131,15 @@ func (l LoginInput) Validate() (bool, map[string]string) {
 
 	return v.IsValid(), v.Errors
 }
+
+func (r RentPaymentByMonthInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	return v.IsValid(), v.Errors
+}
+
+func (r RentPaymentByTrainingInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	return v.IsValid(), v.Errors
+}

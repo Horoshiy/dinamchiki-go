@@ -138,4 +138,8 @@ models:
         resolver: true
       training:
         resolver: true
-
+  RentPaymentByMonth:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.RentPaymentByMonth
+    fields:
+      stadium:
+        resolver: true
