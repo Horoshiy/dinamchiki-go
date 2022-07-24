@@ -159,3 +159,8 @@ models:
         resolver: true
   ClubBalance:
     model: gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalance
+  TeamBalance:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.TeamBalance
+    fields:
+      team:
+        resolver: true

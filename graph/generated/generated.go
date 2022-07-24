@@ -53,6 +53,7 @@ type ResolverRoot interface {
 	Student() StudentResolver
 	StudentVisit() StudentVisitResolver
 	Team() TeamResolver
+	TeamBalance() TeamBalanceResolver
 	Training() TrainingResolver
 	TrainingDay() TrainingDayResolver
 }
@@ -1224,6 +1225,9 @@ type TeamResolver interface {
 	HeadCoach(ctx context.Context, obj *models.Team) (*models.Staff, error)
 
 	Place(ctx context.Context, obj *models.Team) (*models.Place, error)
+}
+type TeamBalanceResolver interface {
+	Team(ctx context.Context, obj *models.TeamBalance) (*models.Team, error)
 }
 type TrainingResolver interface {
 	Coaches(ctx context.Context, obj *models.Training) ([]*models.Staff, error)
@@ -38244,7 +38248,7 @@ func (ec *executionContext) _TeamBalance_team(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Team, nil
+		return ec.resolvers.TeamBalance().Team(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -38262,8 +38266,8 @@ func (ec *executionContext) fieldContext_TeamBalance_team(ctx context.Context, f
 	fc = &graphql.FieldContext{
 		Object:     "TeamBalance",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "ages":
@@ -53264,60 +53268,73 @@ func (ec *executionContext) _TeamBalance(ctx context.Context, sel ast.SelectionS
 			out.Values[i] = ec._TeamBalance_date(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "id":
 
 			out.Values[i] = ec._TeamBalance_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._TeamBalance_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "rent":
 
 			out.Values[i] = ec._TeamBalance_rent(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "salary":
 
 			out.Values[i] = ec._TeamBalance_salary(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "sum":
 
 			out.Values[i] = ec._TeamBalance_sum(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "team":
+			field := field
 
-			out.Values[i] = ec._TeamBalance_team(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._TeamBalance_team(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "teamId":
 
 			out.Values[i] = ec._TeamBalance_teamId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "tickets":
 
 			out.Values[i] = ec._TeamBalance_tickets(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))

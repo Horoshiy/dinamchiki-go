@@ -155,3 +155,9 @@ func (r ClubBalanceInput) Validate() (bool, map[string]string) {
 
 	return v.IsValid(), v.Errors
 }
+
+func (r TeamBalanceInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	return v.IsValid(), v.Errors
+}

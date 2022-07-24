@@ -719,22 +719,37 @@ func (r *mutationResolver) TaskUpdate(ctx context.Context, taskInput models.Task
 
 // TeamBalanceDelete is the resolver for the teamBalanceDelete field.
 func (r *mutationResolver) TeamBalanceDelete(ctx context.Context, id string) (*models.TeamBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.TeamBalanceDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.TeamBalancePayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // TeamBalancePublishUpdate is the resolver for the teamBalancePublishUpdate field.
 func (r *mutationResolver) TeamBalancePublishUpdate(ctx context.Context, id string) (*models.TeamBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TeamBalancePublish(id)
 }
 
 // TeamBalanceSave is the resolver for the teamBalanceSave field.
 func (r *mutationResolver) TeamBalanceSave(ctx context.Context, teamBalanceInput models.TeamBalanceInput) (*models.TeamBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, teamBalanceInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.TeamBalanceSave(ctx, teamBalanceInput)
 }
 
 // TeamBalanceUpdate is the resolver for the teamBalanceUpdate field.
 func (r *mutationResolver) TeamBalanceUpdate(ctx context.Context, teamBalanceInput models.TeamBalanceInputWithID) (*models.TeamBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, teamBalanceInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.TeamBalanceUpdate(ctx, teamBalanceInput)
 }
 
 // TeamDelete is the resolver for the teamDelete field.
@@ -1257,6 +1272,11 @@ func (r *teamResolver) Place(ctx context.Context, obj *models.Team) (*models.Pla
 	return For(ctx).PlaceLoader.Load(obj.PlaceID)
 }
 
+// Team is the resolver for the team field.
+func (r *teamBalanceResolver) Team(ctx context.Context, obj *models.TeamBalance) (*models.Team, error) {
+	return For(ctx).TeamLoader.Load(obj.TeamID)
+}
+
 // Coaches is the resolver for the coaches field.
 func (r *trainingResolver) Coaches(ctx context.Context, obj *models.Training) ([]*models.Staff, error) {
 	return r.Domain.TrainingsRepo.GetCoachesForTeam(obj)
@@ -1345,6 +1365,9 @@ func (r *Resolver) StudentVisit() generated.StudentVisitResolver { return &stude
 // Team returns generated.TeamResolver implementation.
 func (r *Resolver) Team() generated.TeamResolver { return &teamResolver{r} }
 
+// TeamBalance returns generated.TeamBalanceResolver implementation.
+func (r *Resolver) TeamBalance() generated.TeamBalanceResolver { return &teamBalanceResolver{r} }
+
 // Training returns generated.TrainingResolver implementation.
 func (r *Resolver) Training() generated.TrainingResolver { return &trainingResolver{r} }
 
@@ -1367,6 +1390,7 @@ type staffResolver struct{ *Resolver }
 type studentResolver struct{ *Resolver }
 type studentVisitResolver struct{ *Resolver }
 type teamResolver struct{ *Resolver }
+type teamBalanceResolver struct{ *Resolver }
 type trainingResolver struct{ *Resolver }
 type trainingDayResolver struct{ *Resolver }
 

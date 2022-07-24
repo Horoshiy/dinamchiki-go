@@ -816,18 +816,6 @@ type TaskPayload struct {
 	RecordID string `json:"recordId"`
 }
 
-type TeamBalance struct {
-	Date      time.Time `json:"date"`
-	ID        string    `json:"id"`
-	Published bool      `json:"published"`
-	Rent      int       `json:"rent"`
-	Salary    int       `json:"salary"`
-	Sum       int       `json:"sum"`
-	Team      *Team     `json:"team"`
-	TeamID    string    `json:"teamId"`
-	Tickets   int       `json:"tickets"`
-}
-
 type TeamBalanceConnection struct {
 	Edges    []*TeamBalanceEdge `json:"edges"`
 	PageInfo *PageInfo          `json:"pageInfo"`
