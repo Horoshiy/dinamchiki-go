@@ -150,3 +150,10 @@ models:
         resolver: true
       trainings:
         resolver: true
+  TrainingDay:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.TrainingDay
+    fields:
+      stadium:
+        resolver: true
+      team:
+        resolver: true

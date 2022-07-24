@@ -54,6 +54,7 @@ type ResolverRoot interface {
 	StudentVisit() StudentVisitResolver
 	Team() TeamResolver
 	Training() TrainingResolver
+	TrainingDay() TrainingDayResolver
 }
 
 type DirectiveRoot struct {
@@ -1231,6 +1232,11 @@ type TrainingResolver interface {
 	Stadium(ctx context.Context, obj *models.Training) (*models.Stadium, error)
 
 	Team(ctx context.Context, obj *models.Training) (*models.Team, error)
+}
+type TrainingDayResolver interface {
+	Stadium(ctx context.Context, obj *models.TrainingDay) (*models.Stadium, error)
+
+	Team(ctx context.Context, obj *models.TrainingDay) (*models.Team, error)
 }
 
 type executableSchema struct {
@@ -40061,7 +40067,7 @@ func (ec *executionContext) _TrainingDay_stadium(ctx context.Context, field grap
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Stadium, nil
+		return ec.resolvers.TrainingDay().Stadium(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -40079,8 +40085,8 @@ func (ec *executionContext) fieldContext_TrainingDay_stadium(ctx context.Context
 	fc = &graphql.FieldContext{
 		Object:     "TrainingDay",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "id":
@@ -40159,7 +40165,7 @@ func (ec *executionContext) _TrainingDay_team(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Team, nil
+		return ec.resolvers.TrainingDay().Team(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -40177,8 +40183,8 @@ func (ec *executionContext) fieldContext_TrainingDay_team(ctx context.Context, f
 	fc = &graphql.FieldContext{
 		Object:     "TrainingDay",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "ages":
@@ -53777,33 +53783,59 @@ func (ec *executionContext) _TrainingDay(ctx context.Context, sel ast.SelectionS
 			out.Values[i] = ec._TrainingDay_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._TrainingDay_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "stadium":
+			field := field
 
-			out.Values[i] = ec._TrainingDay_stadium(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._TrainingDay_stadium(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "stadiumId":
 
 			out.Values[i] = ec._TrainingDay_stadiumId(ctx, field, obj)
 
 		case "team":
+			field := field
 
-			out.Values[i] = ec._TrainingDay_team(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._TrainingDay_team(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "teamId":
 
 			out.Values[i] = ec._TrainingDay_teamId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "time":
 

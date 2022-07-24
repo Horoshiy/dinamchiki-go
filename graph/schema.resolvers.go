@@ -759,22 +759,37 @@ func (r *mutationResolver) TeamUpdate(ctx context.Context, teamInput models.Team
 
 // TrainingDayDelete is the resolver for the trainingDayDelete field.
 func (r *mutationResolver) TrainingDayDelete(ctx context.Context, id string) (*models.TrainingDayPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.TrainingDayDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.TrainingDayPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // TrainingDayPublishUpdate is the resolver for the trainingDayPublishUpdate field.
 func (r *mutationResolver) TrainingDayPublishUpdate(ctx context.Context, id string) (*models.TrainingDayPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TrainingDayPublish(id)
 }
 
 // TrainingDaySave is the resolver for the trainingDaySave field.
 func (r *mutationResolver) TrainingDaySave(ctx context.Context, trainingDayInput models.TrainingDayInput) (*models.TrainingDayPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, trainingDayInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.TrainingDaySave(ctx, trainingDayInput)
 }
 
 // TrainingDayUpdate is the resolver for the trainingDayUpdate field.
 func (r *mutationResolver) TrainingDayUpdate(ctx context.Context, trainingDayInput models.TrainingDayInputWithID) (*models.TrainingDayPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, trainingDayInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.TrainingDayUpdate(ctx, trainingDayInput)
 }
 
 // TrainingDelete is the resolver for the trainingDelete field.
@@ -1134,7 +1149,7 @@ func (r *queryResolver) TrainingDay(ctx context.Context, id string) (*models.Tra
 
 // TrainingDays is the resolver for the trainingDays field.
 func (r *queryResolver) TrainingDays(ctx context.Context, after *string, before *string, filter *models.TrainingDayFilter, first *int, last *int) (*models.TrainingDayConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TrainingDaysRepo.GetTrainingDays(filter, first, last, after, before)
 }
 
 // Trainings is the resolver for the trainings field.
@@ -1247,6 +1262,16 @@ func (r *trainingResolver) Team(ctx context.Context, obj *models.Training) (*mod
 	return For(ctx).TeamLoader.Load(obj.TeamID)
 }
 
+// Stadium is the resolver for the stadium field.
+func (r *trainingDayResolver) Stadium(ctx context.Context, obj *models.TrainingDay) (*models.Stadium, error) {
+	return For(ctx).StadiumLoader.Load(*obj.StadiumID)
+}
+
+// Team is the resolver for the team field.
+func (r *trainingDayResolver) Team(ctx context.Context, obj *models.TrainingDay) (*models.Team, error) {
+	return For(ctx).TeamLoader.Load(obj.TeamID)
+}
+
 // Article returns generated.ArticleResolver implementation.
 func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver{r} }
 
@@ -1308,6 +1333,9 @@ func (r *Resolver) Team() generated.TeamResolver { return &teamResolver{r} }
 // Training returns generated.TrainingResolver implementation.
 func (r *Resolver) Training() generated.TrainingResolver { return &trainingResolver{r} }
 
+// TrainingDay returns generated.TrainingDayResolver implementation.
+func (r *Resolver) TrainingDay() generated.TrainingDayResolver { return &trainingDayResolver{r} }
+
 type articleResolver struct{ *Resolver }
 type coachPaymentByMonthResolver struct{ *Resolver }
 type coachPaymentByTeamResolver struct{ *Resolver }
@@ -1325,6 +1353,7 @@ type studentResolver struct{ *Resolver }
 type studentVisitResolver struct{ *Resolver }
 type teamResolver struct{ *Resolver }
 type trainingResolver struct{ *Resolver }
+type trainingDayResolver struct{ *Resolver }
 
 // !!! WARNING !!!
 // The code below was going to be deleted when updating resolvers. It has been copied here so you have

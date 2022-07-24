@@ -922,17 +922,6 @@ type TrainingConnection struct {
 	PageInfo *PageInfo       `json:"pageInfo"`
 }
 
-type TrainingDay struct {
-	Day       *DayOfWeek `json:"day"`
-	ID        string     `json:"id"`
-	Published bool       `json:"published"`
-	Stadium   *Stadium   `json:"stadium"`
-	StadiumID *string    `json:"stadiumId"`
-	Team      *Team      `json:"team"`
-	TeamID    string     `json:"teamId"`
-	Time      *time.Time `json:"time"`
-}
-
 type TrainingDayConnection struct {
 	Edges    []*TrainingDayEdge `json:"edges"`
 	PageInfo *PageInfo          `json:"pageInfo"`
