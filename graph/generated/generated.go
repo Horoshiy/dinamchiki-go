@@ -39,6 +39,7 @@ type Config struct {
 type ResolverRoot interface {
 	Article() ArticleResolver
 	Creator() CreatorResolver
+	MoneyMove() MoneyMoveResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
 	Stadium() StadiumResolver
@@ -989,6 +990,13 @@ type ArticleResolver interface {
 }
 type CreatorResolver interface {
 	User(ctx context.Context, obj *models.Creator) (*models.User, error)
+}
+type MoneyMoveResolver interface {
+	Owner(ctx context.Context, obj *models.MoneyMove) (*models.Staff, error)
+
+	Student(ctx context.Context, obj *models.MoneyMove) (*models.Student, error)
+
+	User(ctx context.Context, obj *models.MoneyMove) (*models.User, error)
 }
 type MutationResolver interface {
 	ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error)
@@ -18981,7 +18989,7 @@ func (ec *executionContext) _MoneyMove_owner(ctx context.Context, field graphql.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Owner, nil
+		return ec.resolvers.MoneyMove().Owner(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18999,8 +19007,8 @@ func (ec *executionContext) fieldContext_MoneyMove_owner(ctx context.Context, fi
 	fc = &graphql.FieldContext{
 		Object:     "MoneyMove",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -19136,7 +19144,7 @@ func (ec *executionContext) _MoneyMove_student(ctx context.Context, field graphq
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Student, nil
+		return ec.resolvers.MoneyMove().Student(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19154,8 +19162,8 @@ func (ec *executionContext) fieldContext_MoneyMove_student(ctx context.Context, 
 	fc = &graphql.FieldContext{
 		Object:     "MoneyMove",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -19284,7 +19292,7 @@ func (ec *executionContext) _MoneyMove_user(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.User, nil
+		return ec.resolvers.MoneyMove().User(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19302,8 +19310,8 @@ func (ec *executionContext) fieldContext_MoneyMove_user(ctx context.Context, fie
 	fc = &graphql.FieldContext{
 		Object:     "MoneyMove",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "firstName":
@@ -48635,55 +48643,94 @@ func (ec *executionContext) _MoneyMove(ctx context.Context, sel ast.SelectionSet
 			out.Values[i] = ec._MoneyMove_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "moneyForm":
 
 			out.Values[i] = ec._MoneyMove_moneyForm(ctx, field, obj)
 
 		case "owner":
+			field := field
 
-			out.Values[i] = ec._MoneyMove_owner(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._MoneyMove_owner(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "ownerId":
 
 			out.Values[i] = ec._MoneyMove_ownerId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._MoneyMove_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "student":
+			field := field
 
-			out.Values[i] = ec._MoneyMove_student(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._MoneyMove_student(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "studentId":
 
 			out.Values[i] = ec._MoneyMove_studentId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "sum":
 
 			out.Values[i] = ec._MoneyMove_sum(ctx, field, obj)
 
 		case "user":
+			field := field
 
-			out.Values[i] = ec._MoneyMove_user(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._MoneyMove_user(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "userId":
 
 			out.Values[i] = ec._MoneyMove_userId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))

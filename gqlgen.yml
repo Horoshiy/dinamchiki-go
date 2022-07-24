@@ -105,3 +105,12 @@ models:
         resolver: true
       student:
         resolver: true
+  MoneyMove:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.MoneyMove
+    fields:
+      owner:
+        resolver: true
+      student:
+        resolver: true
+      user:
+        resolver: true

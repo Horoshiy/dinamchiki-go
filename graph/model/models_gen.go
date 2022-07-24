@@ -465,23 +465,6 @@ type MoneyCostPayload struct {
 	RecordID string     `json:"recordId"`
 }
 
-type MoneyMove struct {
-	DateFinish  *time.Time `json:"dateFinish"`
-	DatePayment *time.Time `json:"datePayment"`
-	DateStart   *time.Time `json:"dateStart"`
-	Description *string    `json:"description"`
-	ID          string     `json:"id"`
-	MoneyForm   *MoneyForm `json:"moneyForm"`
-	Owner       *Staff     `json:"owner"`
-	OwnerID     string     `json:"ownerId"`
-	Published   bool       `json:"published"`
-	Student     *Student   `json:"student"`
-	StudentID   string     `json:"studentId"`
-	Sum         *int       `json:"sum"`
-	User        *User      `json:"user"`
-	UserID      string     `json:"userId"`
-}
-
 type MoneyMoveConnection struct {
 	Edges    []*MoneyMoveEdge `json:"edges"`
 	PageInfo *PageInfo        `json:"pageInfo"`

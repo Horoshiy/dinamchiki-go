@@ -22,6 +22,21 @@ func (r *creatorResolver) User(ctx context.Context, obj *models.Creator) (*model
 	return For(ctx).UserLoader.Load(*obj.UserID)
 }
 
+// Owner is the resolver for the owner field.
+func (r *moneyMoveResolver) Owner(ctx context.Context, obj *models.MoneyMove) (*models.Staff, error) {
+	return For(ctx).StaffLoader.Load(obj.OwnerID)
+}
+
+// Student is the resolver for the student field.
+func (r *moneyMoveResolver) Student(ctx context.Context, obj *models.MoneyMove) (*models.Student, error) {
+	return For(ctx).StudentLoader.Load(obj.StudentID)
+}
+
+// User is the resolver for the user field.
+func (r *moneyMoveResolver) User(ctx context.Context, obj *models.MoneyMove) (*models.User, error) {
+	return For(ctx).UserLoader.Load(obj.UserID)
+}
+
 // ArticleDelete is the resolver for the articleDelete field.
 func (r *mutationResolver) ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error) {
 	_, err := r.Domain.ArticleDelete(id)
@@ -264,22 +279,37 @@ func (r *mutationResolver) MoneyCostUpdate(ctx context.Context, moneyCostInput m
 
 // MoneyMoveDelete is the resolver for the moneyMoveDelete field.
 func (r *mutationResolver) MoneyMoveDelete(ctx context.Context, id string) (*models.MoneyMovePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.MoneyMoveDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.MoneyMovePayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // MoneyMovePublishUpdate is the resolver for the moneyMovePublishUpdate field.
 func (r *mutationResolver) MoneyMovePublishUpdate(ctx context.Context, id string) (*models.MoneyMovePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.MoneyMovePublish(id)
 }
 
 // MoneyMoveSave is the resolver for the moneyMoveSave field.
 func (r *mutationResolver) MoneyMoveSave(ctx context.Context, moneyMoveInput models.MoneyMoveInput) (*models.MoneyMovePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, moneyMoveInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.MoneyMoveSave(ctx, moneyMoveInput)
 }
 
 // MoneyMoveUpdate is the resolver for the moneyMoveUpdate field.
 func (r *mutationResolver) MoneyMoveUpdate(ctx context.Context, moneyMoveInput models.MoneyMoveInputWithID) (*models.MoneyMovePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, moneyMoveInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.MoneyMoveUpdate(ctx, moneyMoveInput)
 }
 
 // OrderDelete is the resolver for the orderDelete field.
@@ -814,7 +844,7 @@ func (r *queryResolver) MoneyMove(ctx context.Context, id string) (*models.Money
 
 // MoneyMoves is the resolver for the moneyMoves field.
 func (r *queryResolver) MoneyMoves(ctx context.Context, after *string, before *string, filter *models.MoneyMoveFilter, first *int, last *int) (*models.MoneyMoveConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.MoneyMoveRepo.GetMoneyMoves(filter, first, last, after, before)
 }
 
 // NearestStaffBirthdays is the resolver for the nearestStaffBirthdays field.
@@ -1088,6 +1118,9 @@ func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver
 // Creator returns generated.CreatorResolver implementation.
 func (r *Resolver) Creator() generated.CreatorResolver { return &creatorResolver{r} }
 
+// MoneyMove returns generated.MoneyMoveResolver implementation.
+func (r *Resolver) MoneyMove() generated.MoneyMoveResolver { return &moneyMoveResolver{r} }
+
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
@@ -1114,6 +1147,7 @@ func (r *Resolver) Training() generated.TrainingResolver { return &trainingResol
 
 type articleResolver struct{ *Resolver }
 type creatorResolver struct{ *Resolver }
+type moneyMoveResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
