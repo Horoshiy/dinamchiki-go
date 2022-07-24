@@ -6509,7 +6509,7 @@ type ArticleConnection {
 }
 
 type ArticleEdge {
-    cursor: String!
+    cursor: ID!
     node: Article
 }
 
@@ -6528,12 +6528,12 @@ type Cart {
 }
 
 type CartConnection {
-    edges: [CartEdge]
+    edges: [CartEdge!]!
     pageInfo: PageInfo
 }
 
 type CartEdge {
-    cursor: String
+    cursor: ID!
     node: Cart
 }
 
@@ -6554,12 +6554,12 @@ type ClubBalance {
 }
 
 type ClubBalanceConnection {
-    edges: [ClubBalanceEdge]
+    edges: [ClubBalanceEdge!]!
     pageInfo: PageInfo
 }
 
 type ClubBalanceEdge {
-    cursor: String
+    cursor: ID!
     node: ClubBalance
 }
 
@@ -6578,12 +6578,12 @@ type CoachPaymentByMonth {
 }
 
 type CoachPaymentByMonthConnection {
-    edges: [CoachPaymentByMonthEdge]
+    edges: [CoachPaymentByMonthEdge!]!
     pageInfo: PageInfo
 }
 
 type CoachPaymentByMonthEdge {
-    cursor: String
+    cursor: ID!
     node: CoachPaymentByMonth
 }
 
@@ -6606,12 +6606,12 @@ type CoachPaymentByTeam {
 }
 
 type CoachPaymentByTeamConnection {
-    edges: [CoachPaymentByTeamEdge]
+    edges: [CoachPaymentByTeamEdge!]!
     pageInfo: PageInfo
 }
 
 type CoachPaymentByTeamEdge {
-    cursor: String
+    cursor: ID!
     node: CoachPaymentByTeam
 }
 
@@ -6631,12 +6631,12 @@ type CoachPaymentByTraining {
 }
 
 type CoachPaymentByTrainingConnection {
-    edges: [CoachPaymentByTrainingEdge]
+    edges: [CoachPaymentByTrainingEdge!]!
     pageInfo: PageInfo
 }
 
 type CoachPaymentByTrainingEdge {
-    cursor: String
+    cursor: ID!
     node: CoachPaymentByTraining
 }
 
@@ -6656,12 +6656,12 @@ type Creator {
 }
 
 type CreatorConnection {
-    edges: [CreatorEdge]
+    edges: [CreatorEdge!]!
     pageInfo: PageInfo
 }
 
 type CreatorEdge {
-    cursor: String
+    cursor: ID!
     node: Creator
 }
 
@@ -6683,12 +6683,12 @@ type Kit {
 }
 
 type KitConnection {
-    edges: [KitEdge]
+    edges: [KitEdge!]!
     pageInfo: PageInfo
 }
 
 type KitEdge {
-    cursor: String
+    cursor: ID!
     node: Kit
 }
 
@@ -6715,12 +6715,12 @@ type Lead {
 }
 
 type LeadConnection {
-    edges: [LeadEdge]
+    edges: [LeadEdge!]!
     pageInfo: PageInfo
 }
 
 type LeadEdge {
-    cursor: String
+    cursor: ID!
     node: Lead
 }
 
@@ -6741,12 +6741,12 @@ type MoneyCost {
 }
 
 type MoneyCostConnection {
-    edges: [MoneyCostEdge]
+    edges: [MoneyCostEdge!]!
     pageInfo: PageInfo
 }
 
 type MoneyCostEdge {
-    cursor: String
+    cursor: ID!
     node: MoneyCost
 }
 
@@ -6773,12 +6773,12 @@ type MoneyMove {
 }
 
 type MoneyMoveConnection {
-    edges: [MoneyMoveEdge]
+    edges: [MoneyMoveEdge!]!
     pageInfo: PageInfo
 }
 
 type MoneyMoveEdge {
-    cursor: String
+    cursor: ID!
     node: MoneyMove
 }
 
@@ -6799,12 +6799,12 @@ type Order {
 }
 
 type OrderConnection {
-    edges: [OrderEdge]
+    edges: [OrderEdge!]!
     pageInfo: PageInfo
 }
 
 type OrderEdge {
-    cursor: String
+    cursor: ID!
     node: Order
 }
 
@@ -6825,12 +6825,12 @@ type RentPaymentByMonth {
 }
 
 type RentPaymentByMonthConnection {
-    edges: [RentPaymentByMonthEdge]
+    edges: [RentPaymentByMonthEdge!]!
     pageInfo: PageInfo
 }
 
 type RentPaymentByMonthEdge {
-    cursor: String
+    cursor: ID!
     node: RentPaymentByMonth
 }
 
@@ -6851,12 +6851,12 @@ type RentPaymentByTraining {
 }
 
 type RentPaymentByTrainingConnection {
-    edges: [RentPaymentByTrainingEdge]
+    edges: [RentPaymentByTrainingEdge!]!
     pageInfo: PageInfo
 }
 
 type RentPaymentByTrainingEdge {
-    cursor: String
+    cursor: ID!
     node: RentPaymentByTraining
 }
 
@@ -6881,7 +6881,7 @@ type StadiumConnection {
 }
 
 type StadiumEdge {
-    cursor: String!
+    cursor: ID!
     node: Stadium
 }
 
@@ -6911,7 +6911,7 @@ type StaffConnection {
 }
 
 type StaffEdge {
-    cursor: String!
+    cursor: ID!
     node: Staff
 }
 
@@ -6934,12 +6934,12 @@ type Student {
 }
 
 type StudentConnection {
-    edges: [StudentEdge]
+    edges: [StudentEdge!]!
     pageInfo: PageInfo
 }
 
 type StudentEdge {
-    cursor: String
+    cursor: ID!
     node: Student
 }
 
@@ -6960,12 +6960,12 @@ type StudentVisit {
 }
 
 type StudentVisitConnection {
-    edges: [StudentVisitEdge]
+    edges: [StudentVisitEdge!]!
     pageInfo: PageInfo
 }
 
 type StudentVisitEdge {
-    cursor: String
+    cursor: ID!
     node: StudentVisit
 }
 
@@ -6995,12 +6995,12 @@ type Task {
 }
 
 type TaskConnection {
-    edges: [TaskEdge]
+    edges: [TaskEdge!]!
     pageInfo: PageInfo
 }
 
 type TaskEdge {
-    cursor: String
+    cursor: ID!
     node: Task
 }
 
@@ -7036,12 +7036,12 @@ type TeamBalance {
 }
 
 type TeamBalanceConnection {
-    edges: [TeamBalanceEdge]
+    edges: [TeamBalanceEdge!]!
     pageInfo: PageInfo
 }
 
 type TeamBalanceEdge {
-    cursor: String
+    cursor: ID!
     node: TeamBalance
 }
 
@@ -7051,12 +7051,12 @@ type TeamBalancePayload {
 }
 
 type TeamConnection {
-    edges: [TeamEdge]
+    edges: [TeamEdge!]!
     pageInfo: PageInfo
 }
 
 type TeamEdge {
-    cursor: String
+    cursor: ID!
     node: Team
 }
 
@@ -7087,7 +7087,7 @@ type Training {
 }
 
 type TrainingConnection {
-    edges: [TrainingEdge]
+    edges: [TrainingEdge!]!
     pageInfo: PageInfo
 }
 
@@ -7103,12 +7103,12 @@ type TrainingDay {
 }
 
 type TrainingDayConnection {
-    edges: [TrainingDayEdge]
+    edges: [TrainingDayEdge!]!
     pageInfo: PageInfo
 }
 
 type TrainingDayEdge {
-    cursor: String
+    cursor: ID!
     node: TrainingDay
 }
 
@@ -7118,7 +7118,7 @@ type TrainingDayPayload {
 }
 
 type TrainingEdge {
-    cursor: String
+    cursor: ID!
     node: Training
 }
 
@@ -7136,12 +7136,12 @@ type User {
 }
 
 type UserConnection {
-    edges: [UserEdge]
+    edges: [UserEdge!]!
     pageInfo: PageInfo
 }
 
 type UserEdge {
-    cursor: String
+    cursor: ID!
     node: User
 }
 
@@ -11737,7 +11737,7 @@ func (ec *executionContext) _ArticleEdge_cursor(ctx context.Context, field graph
 	}
 	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_ArticleEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -11747,7 +11747,7 @@ func (ec *executionContext) fieldContext_ArticleEdge_cursor(ctx context.Context,
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -12413,11 +12413,14 @@ func (ec *executionContext) _CartConnection_edges(ctx context.Context, field gra
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.CartEdge)
 	fc.Result = res
-	return ec.marshalOCartEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartEdge(ctx, field.Selections, res)
+	return ec.marshalNCartEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CartConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -12597,11 +12600,14 @@ func (ec *executionContext) _CartEdge_cursor(ctx context.Context, field graphql.
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CartEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -12611,7 +12617,7 @@ func (ec *executionContext) fieldContext_CartEdge_cursor(ctx context.Context, fi
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -13144,11 +13150,14 @@ func (ec *executionContext) _ClubBalanceConnection_edges(ctx context.Context, fi
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.ClubBalanceEdge)
 	fc.Result = res
-	return ec.marshalOClubBalanceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceEdge(ctx, field.Selections, res)
+	return ec.marshalNClubBalanceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_ClubBalanceConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -13240,11 +13249,14 @@ func (ec *executionContext) _ClubBalanceEdge_cursor(ctx context.Context, field g
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_ClubBalanceEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -13254,7 +13266,7 @@ func (ec *executionContext) fieldContext_ClubBalanceEdge_cursor(ctx context.Cont
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -13727,11 +13739,14 @@ func (ec *executionContext) _CoachPaymentByMonthConnection_edges(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.CoachPaymentByMonthEdge)
 	fc.Result = res
-	return ec.marshalOCoachPaymentByMonthEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthEdge(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByMonthEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CoachPaymentByMonthConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -13823,11 +13838,14 @@ func (ec *executionContext) _CoachPaymentByMonthEdge_cursor(ctx context.Context,
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CoachPaymentByMonthEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -13837,7 +13855,7 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonthEdge_cursor(ctx cont
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -14487,11 +14505,14 @@ func (ec *executionContext) _CoachPaymentByTeamConnection_edges(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.CoachPaymentByTeamEdge)
 	fc.Result = res
-	return ec.marshalOCoachPaymentByTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamEdge(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CoachPaymentByTeamConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -14583,11 +14604,14 @@ func (ec *executionContext) _CoachPaymentByTeamEdge_cursor(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CoachPaymentByTeamEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -14597,7 +14621,7 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamEdge_cursor(ctx conte
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -15142,11 +15166,14 @@ func (ec *executionContext) _CoachPaymentByTrainingConnection_edges(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.CoachPaymentByTrainingEdge)
 	fc.Result = res
-	return ec.marshalOCoachPaymentByTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingEdge(ctx, field.Selections, res)
+	return ec.marshalNCoachPaymentByTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CoachPaymentByTrainingConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -15238,11 +15265,14 @@ func (ec *executionContext) _CoachPaymentByTrainingEdge_cursor(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CoachPaymentByTrainingEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -15252,7 +15282,7 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingEdge_cursor(ctx c
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -15748,11 +15778,14 @@ func (ec *executionContext) _CreatorConnection_edges(ctx context.Context, field 
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.CreatorEdge)
 	fc.Result = res
-	return ec.marshalOCreatorEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorEdge(ctx, field.Selections, res)
+	return ec.marshalNCreatorEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CreatorConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -15932,11 +15965,14 @@ func (ec *executionContext) _CreatorEdge_cursor(ctx context.Context, field graph
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_CreatorEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -15946,7 +15982,7 @@ func (ec *executionContext) fieldContext_CreatorEdge_cursor(ctx context.Context,
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -16515,11 +16551,14 @@ func (ec *executionContext) _KitConnection_edges(ctx context.Context, field grap
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.KitEdge)
 	fc.Result = res
-	return ec.marshalOKitEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitEdge(ctx, field.Selections, res)
+	return ec.marshalNKitEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_KitConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -16699,11 +16738,14 @@ func (ec *executionContext) _KitEdge_cursor(ctx context.Context, field graphql.C
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_KitEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -16713,7 +16755,7 @@ func (ec *executionContext) fieldContext_KitEdge_cursor(ctx context.Context, fie
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -17561,11 +17603,14 @@ func (ec *executionContext) _LeadConnection_edges(ctx context.Context, field gra
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.LeadEdge)
 	fc.Result = res
-	return ec.marshalOLeadEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadEdge(ctx, field.Selections, res)
+	return ec.marshalNLeadEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_LeadConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -17745,11 +17790,14 @@ func (ec *executionContext) _LeadEdge_cursor(ctx context.Context, field graphql.
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_LeadEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -17759,7 +17807,7 @@ func (ec *executionContext) fieldContext_LeadEdge_cursor(ctx context.Context, fi
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -18347,11 +18395,14 @@ func (ec *executionContext) _MoneyCostConnection_edges(ctx context.Context, fiel
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.MoneyCostEdge)
 	fc.Result = res
-	return ec.marshalOMoneyCostEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostEdge(ctx, field.Selections, res)
+	return ec.marshalNMoneyCostEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_MoneyCostConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -18443,11 +18494,14 @@ func (ec *executionContext) _MoneyCostEdge_cursor(ctx context.Context, field gra
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_MoneyCostEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -18457,7 +18511,7 @@ func (ec *executionContext) fieldContext_MoneyCostEdge_cursor(ctx context.Contex
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -19295,11 +19349,14 @@ func (ec *executionContext) _MoneyMoveConnection_edges(ctx context.Context, fiel
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.MoneyMoveEdge)
 	fc.Result = res
-	return ec.marshalOMoneyMoveEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveEdge(ctx, field.Selections, res)
+	return ec.marshalNMoneyMoveEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_MoneyMoveConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -19391,11 +19448,14 @@ func (ec *executionContext) _MoneyMoveEdge_cursor(ctx context.Context, field gra
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_MoneyMoveEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -19405,7 +19465,7 @@ func (ec *executionContext) fieldContext_MoneyMoveEdge_cursor(ctx context.Contex
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -26273,11 +26333,14 @@ func (ec *executionContext) _OrderConnection_edges(ctx context.Context, field gr
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.OrderEdge)
 	fc.Result = res
-	return ec.marshalOOrderEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderEdge(ctx, field.Selections, res)
+	return ec.marshalNOrderEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_OrderConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -26369,11 +26432,14 @@ func (ec *executionContext) _OrderEdge_cursor(ctx context.Context, field graphql
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_OrderEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -26383,7 +26449,7 @@ func (ec *executionContext) fieldContext_OrderEdge_cursor(ctx context.Context, f
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -31967,11 +32033,14 @@ func (ec *executionContext) _RentPaymentByMonthConnection_edges(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.RentPaymentByMonthEdge)
 	fc.Result = res
-	return ec.marshalORentPaymentByMonthEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthEdge(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByMonthEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_RentPaymentByMonthConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -32063,11 +32132,14 @@ func (ec *executionContext) _RentPaymentByMonthEdge_cursor(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_RentPaymentByMonthEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -32077,7 +32149,7 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthEdge_cursor(ctx conte
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -32651,11 +32723,14 @@ func (ec *executionContext) _RentPaymentByTrainingConnection_edges(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.RentPaymentByTrainingEdge)
 	fc.Result = res
-	return ec.marshalORentPaymentByTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingEdge(ctx, field.Selections, res)
+	return ec.marshalNRentPaymentByTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_RentPaymentByTrainingConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -32747,11 +32822,14 @@ func (ec *executionContext) _RentPaymentByTrainingEdge_cursor(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_RentPaymentByTrainingEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -32761,7 +32839,7 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingEdge_cursor(ctx co
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -33463,7 +33541,7 @@ func (ec *executionContext) _StadiumEdge_cursor(ctx context.Context, field graph
 	}
 	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StadiumEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -33473,7 +33551,7 @@ func (ec *executionContext) fieldContext_StadiumEdge_cursor(ctx context.Context,
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -34377,7 +34455,7 @@ func (ec *executionContext) _StaffEdge_cursor(ctx context.Context, field graphql
 	}
 	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StaffEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -34387,7 +34465,7 @@ func (ec *executionContext) fieldContext_StaffEdge_cursor(ctx context.Context, f
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -35057,11 +35135,14 @@ func (ec *executionContext) _StudentConnection_edges(ctx context.Context, field 
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.StudentEdge)
 	fc.Result = res
-	return ec.marshalOStudentEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentEdge(ctx, field.Selections, res)
+	return ec.marshalNStudentEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StudentConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -35241,11 +35322,14 @@ func (ec *executionContext) _StudentEdge_cursor(ctx context.Context, field graph
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StudentEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -35255,7 +35339,7 @@ func (ec *executionContext) fieldContext_StudentEdge_cursor(ctx context.Context,
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -35846,11 +35930,14 @@ func (ec *executionContext) _StudentVisitConnection_edges(ctx context.Context, f
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.StudentVisitEdge)
 	fc.Result = res
-	return ec.marshalOStudentVisitEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitEdge(ctx, field.Selections, res)
+	return ec.marshalNStudentVisitEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StudentVisitConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -35942,11 +36029,14 @@ func (ec *executionContext) _StudentVisitEdge_cursor(ctx context.Context, field 
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StudentVisitEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -35956,7 +36046,7 @@ func (ec *executionContext) fieldContext_StudentVisitEdge_cursor(ctx context.Con
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -36941,11 +37031,14 @@ func (ec *executionContext) _TaskConnection_edges(ctx context.Context, field gra
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.TaskEdge)
 	fc.Result = res
-	return ec.marshalOTaskEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskEdge(ctx, field.Selections, res)
+	return ec.marshalNTaskEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TaskConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -37037,11 +37130,14 @@ func (ec *executionContext) _TaskEdge_cursor(ctx context.Context, field graphql.
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TaskEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -37051,7 +37147,7 @@ func (ec *executionContext) fieldContext_TaskEdge_cursor(ctx context.Context, fi
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -38225,11 +38321,14 @@ func (ec *executionContext) _TeamBalanceConnection_edges(ctx context.Context, fi
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.TeamBalanceEdge)
 	fc.Result = res
-	return ec.marshalOTeamBalanceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceEdge(ctx, field.Selections, res)
+	return ec.marshalNTeamBalanceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TeamBalanceConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -38321,11 +38420,14 @@ func (ec *executionContext) _TeamBalanceEdge_cursor(ctx context.Context, field g
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TeamBalanceEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -38335,7 +38437,7 @@ func (ec *executionContext) fieldContext_TeamBalanceEdge_cursor(ctx context.Cont
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -38528,11 +38630,14 @@ func (ec *executionContext) _TeamConnection_edges(ctx context.Context, field gra
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.TeamEdge)
 	fc.Result = res
-	return ec.marshalOTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdge(ctx, field.Selections, res)
+	return ec.marshalNTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TeamConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -38712,11 +38817,14 @@ func (ec *executionContext) _TeamEdge_cursor(ctx context.Context, field graphql.
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TeamEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -38726,7 +38834,7 @@ func (ec *executionContext) fieldContext_TeamEdge_cursor(ctx context.Context, fi
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -39655,11 +39763,14 @@ func (ec *executionContext) _TrainingConnection_edges(ctx context.Context, field
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.TrainingEdge)
 	fc.Result = res
-	return ec.marshalOTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingEdge(ctx, field.Selections, res)
+	return ec.marshalNTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TrainingConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -40128,11 +40239,14 @@ func (ec *executionContext) _TrainingDayConnection_edges(ctx context.Context, fi
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.TrainingDayEdge)
 	fc.Result = res
-	return ec.marshalOTrainingDayEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayEdge(ctx, field.Selections, res)
+	return ec.marshalNTrainingDayEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TrainingDayConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -40224,11 +40338,14 @@ func (ec *executionContext) _TrainingDayEdge_cursor(ctx context.Context, field g
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TrainingDayEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -40238,7 +40355,7 @@ func (ec *executionContext) fieldContext_TrainingDayEdge_cursor(ctx context.Cont
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -40515,11 +40632,14 @@ func (ec *executionContext) _TrainingEdge_cursor(ctx context.Context, field grap
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_TrainingEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -40529,7 +40649,7 @@ func (ec *executionContext) fieldContext_TrainingEdge_cursor(ctx context.Context
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -40954,11 +41074,14 @@ func (ec *executionContext) _UserConnection_edges(ctx context.Context, field gra
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.UserEdge)
 	fc.Result = res
-	return ec.marshalOUserEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserEdge(ctx, field.Selections, res)
+	return ec.marshalNUserEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_UserConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -41138,11 +41261,14 @@ func (ec *executionContext) _UserEdge_cursor(ctx context.Context, field graphql.
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_UserEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -41152,7 +41278,7 @@ func (ec *executionContext) fieldContext_UserEdge_cursor(ctx context.Context, fi
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -46881,6 +47007,9 @@ func (ec *executionContext) _CartConnection(ctx context.Context, sel ast.Selecti
 
 			out.Values[i] = ec._CartConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._CartConnection_pageInfo(ctx, field, obj)
@@ -46945,6 +47074,9 @@ func (ec *executionContext) _CartEdge(ctx context.Context, sel ast.SelectionSet,
 
 			out.Values[i] = ec._CartEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._CartEdge_node(ctx, field, obj)
@@ -47083,6 +47215,9 @@ func (ec *executionContext) _ClubBalanceConnection(ctx context.Context, sel ast.
 
 			out.Values[i] = ec._ClubBalanceConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._ClubBalanceConnection_pageInfo(ctx, field, obj)
@@ -47112,6 +47247,9 @@ func (ec *executionContext) _ClubBalanceEdge(ctx context.Context, sel ast.Select
 
 			out.Values[i] = ec._ClubBalanceEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._ClubBalanceEdge_node(ctx, field, obj)
@@ -47230,6 +47368,9 @@ func (ec *executionContext) _CoachPaymentByMonthConnection(ctx context.Context, 
 
 			out.Values[i] = ec._CoachPaymentByMonthConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._CoachPaymentByMonthConnection_pageInfo(ctx, field, obj)
@@ -47259,6 +47400,9 @@ func (ec *executionContext) _CoachPaymentByMonthEdge(ctx context.Context, sel as
 
 			out.Values[i] = ec._CoachPaymentByMonthEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._CoachPaymentByMonthEdge_node(ctx, field, obj)
@@ -47390,6 +47534,9 @@ func (ec *executionContext) _CoachPaymentByTeamConnection(ctx context.Context, s
 
 			out.Values[i] = ec._CoachPaymentByTeamConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._CoachPaymentByTeamConnection_pageInfo(ctx, field, obj)
@@ -47419,6 +47566,9 @@ func (ec *executionContext) _CoachPaymentByTeamEdge(ctx context.Context, sel ast
 
 			out.Values[i] = ec._CoachPaymentByTeamEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._CoachPaymentByTeamEdge_node(ctx, field, obj)
@@ -47538,6 +47688,9 @@ func (ec *executionContext) _CoachPaymentByTrainingConnection(ctx context.Contex
 
 			out.Values[i] = ec._CoachPaymentByTrainingConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._CoachPaymentByTrainingConnection_pageInfo(ctx, field, obj)
@@ -47567,6 +47720,9 @@ func (ec *executionContext) _CoachPaymentByTrainingEdge(ctx context.Context, sel
 
 			out.Values[i] = ec._CoachPaymentByTrainingEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._CoachPaymentByTrainingEdge_node(ctx, field, obj)
@@ -47689,6 +47845,9 @@ func (ec *executionContext) _CreatorConnection(ctx context.Context, sel ast.Sele
 
 			out.Values[i] = ec._CreatorConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._CreatorConnection_pageInfo(ctx, field, obj)
@@ -47753,6 +47912,9 @@ func (ec *executionContext) _CreatorEdge(ctx context.Context, sel ast.SelectionS
 
 			out.Values[i] = ec._CreatorEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._CreatorEdge_node(ctx, field, obj)
@@ -47886,6 +48048,9 @@ func (ec *executionContext) _KitConnection(ctx context.Context, sel ast.Selectio
 
 			out.Values[i] = ec._KitConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._KitConnection_pageInfo(ctx, field, obj)
@@ -47950,6 +48115,9 @@ func (ec *executionContext) _KitEdge(ctx context.Context, sel ast.SelectionSet, 
 
 			out.Values[i] = ec._KitEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._KitEdge_node(ctx, field, obj)
@@ -48097,6 +48265,9 @@ func (ec *executionContext) _LeadConnection(ctx context.Context, sel ast.Selecti
 
 			out.Values[i] = ec._LeadConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._LeadConnection_pageInfo(ctx, field, obj)
@@ -48161,6 +48332,9 @@ func (ec *executionContext) _LeadEdge(ctx context.Context, sel ast.SelectionSet,
 
 			out.Values[i] = ec._LeadEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._LeadEdge_node(ctx, field, obj)
@@ -48296,6 +48470,9 @@ func (ec *executionContext) _MoneyCostConnection(ctx context.Context, sel ast.Se
 
 			out.Values[i] = ec._MoneyCostConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._MoneyCostConnection_pageInfo(ctx, field, obj)
@@ -48325,6 +48502,9 @@ func (ec *executionContext) _MoneyCostEdge(ctx context.Context, sel ast.Selectio
 
 			out.Values[i] = ec._MoneyCostEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._MoneyCostEdge_node(ctx, field, obj)
@@ -48478,6 +48658,9 @@ func (ec *executionContext) _MoneyMoveConnection(ctx context.Context, sel ast.Se
 
 			out.Values[i] = ec._MoneyMoveConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._MoneyMoveConnection_pageInfo(ctx, field, obj)
@@ -48507,6 +48690,9 @@ func (ec *executionContext) _MoneyMoveEdge(ctx context.Context, sel ast.Selectio
 
 			out.Values[i] = ec._MoneyMoveEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._MoneyMoveEdge_node(ctx, field, obj)
@@ -49590,6 +49776,9 @@ func (ec *executionContext) _OrderConnection(ctx context.Context, sel ast.Select
 
 			out.Values[i] = ec._OrderConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._OrderConnection_pageInfo(ctx, field, obj)
@@ -49619,6 +49808,9 @@ func (ec *executionContext) _OrderEdge(ctx context.Context, sel ast.SelectionSet
 
 			out.Values[i] = ec._OrderEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._OrderEdge_node(ctx, field, obj)
@@ -51375,6 +51567,9 @@ func (ec *executionContext) _RentPaymentByMonthConnection(ctx context.Context, s
 
 			out.Values[i] = ec._RentPaymentByMonthConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._RentPaymentByMonthConnection_pageInfo(ctx, field, obj)
@@ -51404,6 +51599,9 @@ func (ec *executionContext) _RentPaymentByMonthEdge(ctx context.Context, sel ast
 
 			out.Values[i] = ec._RentPaymentByMonthEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._RentPaymentByMonthEdge_node(ctx, field, obj)
@@ -51533,6 +51731,9 @@ func (ec *executionContext) _RentPaymentByTrainingConnection(ctx context.Context
 
 			out.Values[i] = ec._RentPaymentByTrainingConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._RentPaymentByTrainingConnection_pageInfo(ctx, field, obj)
@@ -51562,6 +51763,9 @@ func (ec *executionContext) _RentPaymentByTrainingEdge(ctx context.Context, sel 
 
 			out.Values[i] = ec._RentPaymentByTrainingEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._RentPaymentByTrainingEdge_node(ctx, field, obj)
@@ -52144,6 +52348,9 @@ func (ec *executionContext) _StudentConnection(ctx context.Context, sel ast.Sele
 
 			out.Values[i] = ec._StudentConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._StudentConnection_pageInfo(ctx, field, obj)
@@ -52208,6 +52415,9 @@ func (ec *executionContext) _StudentEdge(ctx context.Context, sel ast.SelectionS
 
 			out.Values[i] = ec._StudentEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._StudentEdge_node(ctx, field, obj)
@@ -52340,6 +52550,9 @@ func (ec *executionContext) _StudentVisitConnection(ctx context.Context, sel ast
 
 			out.Values[i] = ec._StudentVisitConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._StudentVisitConnection_pageInfo(ctx, field, obj)
@@ -52369,6 +52582,9 @@ func (ec *executionContext) _StudentVisitEdge(ctx context.Context, sel ast.Selec
 
 			out.Values[i] = ec._StudentVisitEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._StudentVisitEdge_node(ctx, field, obj)
@@ -52528,6 +52744,9 @@ func (ec *executionContext) _TaskConnection(ctx context.Context, sel ast.Selecti
 
 			out.Values[i] = ec._TaskConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._TaskConnection_pageInfo(ctx, field, obj)
@@ -52557,6 +52776,9 @@ func (ec *executionContext) _TaskEdge(ctx context.Context, sel ast.SelectionSet,
 
 			out.Values[i] = ec._TaskEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._TaskEdge_node(ctx, field, obj)
@@ -52779,6 +53001,9 @@ func (ec *executionContext) _TeamBalanceConnection(ctx context.Context, sel ast.
 
 			out.Values[i] = ec._TeamBalanceConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._TeamBalanceConnection_pageInfo(ctx, field, obj)
@@ -52808,6 +53033,9 @@ func (ec *executionContext) _TeamBalanceEdge(ctx context.Context, sel ast.Select
 
 			out.Values[i] = ec._TeamBalanceEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._TeamBalanceEdge_node(ctx, field, obj)
@@ -52869,6 +53097,9 @@ func (ec *executionContext) _TeamConnection(ctx context.Context, sel ast.Selecti
 
 			out.Values[i] = ec._TeamConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._TeamConnection_pageInfo(ctx, field, obj)
@@ -52933,6 +53164,9 @@ func (ec *executionContext) _TeamEdge(ctx context.Context, sel ast.SelectionSet,
 
 			out.Values[i] = ec._TeamEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._TeamEdge_node(ctx, field, obj)
@@ -53117,6 +53351,9 @@ func (ec *executionContext) _TrainingConnection(ctx context.Context, sel ast.Sel
 
 			out.Values[i] = ec._TrainingConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._TrainingConnection_pageInfo(ctx, field, obj)
@@ -53208,6 +53445,9 @@ func (ec *executionContext) _TrainingDayConnection(ctx context.Context, sel ast.
 
 			out.Values[i] = ec._TrainingDayConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._TrainingDayConnection_pageInfo(ctx, field, obj)
@@ -53237,6 +53477,9 @@ func (ec *executionContext) _TrainingDayEdge(ctx context.Context, sel ast.Select
 
 			out.Values[i] = ec._TrainingDayEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._TrainingDayEdge_node(ctx, field, obj)
@@ -53333,6 +53576,9 @@ func (ec *executionContext) _TrainingEdge(ctx context.Context, sel ast.Selection
 
 			out.Values[i] = ec._TrainingEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._TrainingEdge_node(ctx, field, obj)
@@ -53450,6 +53696,9 @@ func (ec *executionContext) _UserConnection(ctx context.Context, sel ast.Selecti
 
 			out.Values[i] = ec._UserConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._UserConnection_pageInfo(ctx, field, obj)
@@ -53514,6 +53763,9 @@ func (ec *executionContext) _UserEdge(ctx context.Context, sel ast.SelectionSet,
 
 			out.Values[i] = ec._UserEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._UserEdge_node(ctx, field, obj)
@@ -54021,6 +54273,60 @@ func (ec *executionContext) marshalNCartDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑ
 	return ec._CartDto(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNCartEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CartEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNCartEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNCartEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartEdge(ctx context.Context, sel ast.SelectionSet, v *models.CartEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._CartEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNCartInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartInput(ctx context.Context, v interface{}) (models.CartInput, error) {
 	res, err := ec.unmarshalInputCartInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -54048,6 +54354,60 @@ func (ec *executionContext) marshalNCartPayload2ᚖgitlabᚗcomᚋdinamchikiᚋg
 		return graphql.Null
 	}
 	return ec._CartPayload(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNClubBalanceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.ClubBalanceEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNClubBalanceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNClubBalanceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceEdge(ctx context.Context, sel ast.SelectionSet, v *models.ClubBalanceEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._ClubBalanceEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNClubBalanceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceInput(ctx context.Context, v interface{}) (models.ClubBalanceInput, error) {
@@ -54079,6 +54439,60 @@ func (ec *executionContext) marshalNClubBalancePayload2ᚖgitlabᚗcomᚋdinamch
 	return ec._ClubBalancePayload(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNCoachPaymentByMonthEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByMonthEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNCoachPaymentByMonthEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNCoachPaymentByMonthEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthEdge(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByMonthEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._CoachPaymentByMonthEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNCoachPaymentByMonthInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthInput(ctx context.Context, v interface{}) (models.CoachPaymentByMonthInput, error) {
 	res, err := ec.unmarshalInputCoachPaymentByMonthInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -54108,6 +54522,60 @@ func (ec *executionContext) marshalNCoachPaymentByMonthPayload2ᚖgitlabᚗcom�
 	return ec._CoachPaymentByMonthPayload(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNCoachPaymentByTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByTeamEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNCoachPaymentByTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNCoachPaymentByTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamEdge(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByTeamEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._CoachPaymentByTeamEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNCoachPaymentByTeamInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamInput(ctx context.Context, v interface{}) (models.CoachPaymentByTeamInput, error) {
 	res, err := ec.unmarshalInputCoachPaymentByTeamInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -54135,6 +54603,60 @@ func (ec *executionContext) marshalNCoachPaymentByTeamPayload2ᚖgitlabᚗcomᚋ
 		return graphql.Null
 	}
 	return ec._CoachPaymentByTeamPayload(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNCoachPaymentByTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByTrainingEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNCoachPaymentByTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNCoachPaymentByTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingEdge(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByTrainingEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._CoachPaymentByTrainingEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNCoachPaymentByTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingInput(ctx context.Context, v interface{}) (models.CoachPaymentByTrainingInput, error) {
@@ -54194,6 +54716,60 @@ func (ec *executionContext) marshalNCreatorDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo
 		return graphql.Null
 	}
 	return ec._CreatorDto(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNCreatorEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.CreatorEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNCreatorEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNCreatorEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorEdge(ctx context.Context, sel ast.SelectionSet, v *models.CreatorEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._CreatorEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNCreatorInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorInput(ctx context.Context, v interface{}) (models.CreatorInput, error) {
@@ -54343,6 +54919,60 @@ func (ec *executionContext) marshalNKitDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑg
 	return ec._KitDto(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNKitEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.KitEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNKitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNKitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitEdge(ctx context.Context, sel ast.SelectionSet, v *models.KitEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._KitEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNKitInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitInput(ctx context.Context, v interface{}) (models.KitInput, error) {
 	res, err := ec.unmarshalInputKitInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -54392,6 +55022,60 @@ func (ec *executionContext) marshalNLeadDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑ
 	return ec._LeadDto(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNLeadEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.LeadEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNLeadEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNLeadEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadEdge(ctx context.Context, sel ast.SelectionSet, v *models.LeadEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._LeadEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNLeadInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadInput(ctx context.Context, v interface{}) (models.LeadInput, error) {
 	res, err := ec.unmarshalInputLeadInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -54424,6 +55108,60 @@ func (ec *executionContext) marshalNLeadPayload2ᚖgitlabᚗcomᚋdinamchikiᚋg
 func (ec *executionContext) unmarshalNLoginInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLoginInput(ctx context.Context, v interface{}) (models.LoginInput, error) {
 	res, err := ec.unmarshalInputLoginInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNMoneyCostEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.MoneyCostEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNMoneyCostEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNMoneyCostEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostEdge(ctx context.Context, sel ast.SelectionSet, v *models.MoneyCostEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._MoneyCostEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNMoneyCostInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostInput(ctx context.Context, v interface{}) (models.MoneyCostInput, error) {
@@ -54465,6 +55203,60 @@ func (ec *executionContext) marshalNMoneyForm2gitlabᚗcomᚋdinamchikiᚋgoᚑg
 	return v
 }
 
+func (ec *executionContext) marshalNMoneyMoveEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.MoneyMoveEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNMoneyMoveEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNMoneyMoveEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveEdge(ctx context.Context, sel ast.SelectionSet, v *models.MoneyMoveEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._MoneyMoveEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNMoneyMoveInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveInput(ctx context.Context, v interface{}) (models.MoneyMoveInput, error) {
 	res, err := ec.unmarshalInputMoneyMoveInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -54492,6 +55284,60 @@ func (ec *executionContext) marshalNMoneyMovePayload2ᚖgitlabᚗcomᚋdinamchik
 		return graphql.Null
 	}
 	return ec._MoneyMovePayload(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNOrderEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.OrderEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNOrderEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNOrderEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderEdge(ctx context.Context, sel ast.SelectionSet, v *models.OrderEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._OrderEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNOrderInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderInput(ctx context.Context, v interface{}) (models.OrderInput, error) {
@@ -54665,6 +55511,60 @@ func (ec *executionContext) unmarshalNRegisterInput2gitlabᚗcomᚋdinamchikiᚋ
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
+func (ec *executionContext) marshalNRentPaymentByMonthEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.RentPaymentByMonthEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNRentPaymentByMonthEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNRentPaymentByMonthEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthEdge(ctx context.Context, sel ast.SelectionSet, v *models.RentPaymentByMonthEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._RentPaymentByMonthEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNRentPaymentByMonthInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthInput(ctx context.Context, v interface{}) (models.RentPaymentByMonthInput, error) {
 	res, err := ec.unmarshalInputRentPaymentByMonthInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -54692,6 +55592,60 @@ func (ec *executionContext) marshalNRentPaymentByMonthPayload2ᚖgitlabᚗcomᚋ
 		return graphql.Null
 	}
 	return ec._RentPaymentByMonthPayload(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNRentPaymentByTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.RentPaymentByTrainingEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNRentPaymentByTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNRentPaymentByTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingEdge(ctx context.Context, sel ast.SelectionSet, v *models.RentPaymentByTrainingEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._RentPaymentByTrainingEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNRentPaymentByTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingInput(ctx context.Context, v interface{}) (models.RentPaymentByTrainingInput, error) {
@@ -55025,6 +55979,60 @@ func (ec *executionContext) marshalNStudentDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo
 	return ec._StudentDto(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNStudentEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StudentEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNStudentEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNStudentEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentEdge(ctx context.Context, sel ast.SelectionSet, v *models.StudentEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._StudentEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNStudentInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentInput(ctx context.Context, v interface{}) (models.StudentInput, error) {
 	res, err := ec.unmarshalInputStudentInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -55054,6 +56062,60 @@ func (ec *executionContext) marshalNStudentPayload2ᚖgitlabᚗcomᚋdinamchiki�
 	return ec._StudentPayload(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNStudentVisitEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StudentVisitEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNStudentVisitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNStudentVisitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitEdge(ctx context.Context, sel ast.SelectionSet, v *models.StudentVisitEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._StudentVisitEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNStudentVisitInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitInput(ctx context.Context, v interface{}) (models.StudentVisitInput, error) {
 	res, err := ec.unmarshalInputStudentVisitInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -55081,6 +56143,60 @@ func (ec *executionContext) marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamc
 		return graphql.Null
 	}
 	return ec._StudentVisitPayload(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNTaskEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TaskEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNTaskEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNTaskEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskEdge(ctx context.Context, sel ast.SelectionSet, v *models.TaskEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._TaskEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNTaskInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskInput(ctx context.Context, v interface{}) (models.TaskInput, error) {
@@ -55122,6 +56238,60 @@ func (ec *executionContext) marshalNTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgra
 	return ec._Team(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNTeamBalanceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TeamBalanceEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNTeamBalanceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNTeamBalanceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceEdge(ctx context.Context, sel ast.SelectionSet, v *models.TeamBalanceEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._TeamBalanceEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNTeamBalanceInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceInput(ctx context.Context, v interface{}) (models.TeamBalanceInput, error) {
 	res, err := ec.unmarshalInputTeamBalanceInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -55159,6 +56329,60 @@ func (ec *executionContext) marshalNTeamDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑ
 		return graphql.Null
 	}
 	return ec._TeamDto(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TeamEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdge(ctx context.Context, sel ast.SelectionSet, v *models.TeamEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._TeamEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNTeamInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamInput(ctx context.Context, v interface{}) (models.TeamInput, error) {
@@ -55229,6 +56453,60 @@ func (ec *executionContext) marshalNTraining2ᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return ec._Training(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNTrainingDayEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TrainingDayEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNTrainingDayEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNTrainingDayEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayEdge(ctx context.Context, sel ast.SelectionSet, v *models.TrainingDayEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._TrainingDayEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNTrainingDayInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayInput(ctx context.Context, v interface{}) (models.TrainingDayInput, error) {
 	res, err := ec.unmarshalInputTrainingDayInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -55266,6 +56544,60 @@ func (ec *executionContext) marshalNTrainingDto2ᚖgitlabᚗcomᚋdinamchikiᚋg
 		return graphql.Null
 	}
 	return ec._TrainingDto(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.TrainingEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingEdge(ctx context.Context, sel ast.SelectionSet, v *models.TrainingEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._TrainingEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNTrainingInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingInput(ctx context.Context, v interface{}) (models.TrainingInput, error) {
@@ -55319,6 +56651,60 @@ func (ec *executionContext) marshalNUserDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑ
 		return graphql.Null
 	}
 	return ec._UserDto(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNUserEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.UserEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNUserEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNUserEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserEdge(ctx context.Context, sel ast.SelectionSet, v *models.UserEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._UserEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNUserInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserInput(ctx context.Context, v interface{}) (models.UserInput, error) {
@@ -55789,54 +57175,6 @@ func (ec *executionContext) marshalOCartDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgo
 	return ret
 }
 
-func (ec *executionContext) marshalOCartEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartEdge(ctx context.Context, sel ast.SelectionSet, v []*models.CartEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOCartEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOCartEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartEdge(ctx context.Context, sel ast.SelectionSet, v *models.CartEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._CartEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOCartFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartFilter(ctx context.Context, v interface{}) (*models.CartFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -55857,54 +57195,6 @@ func (ec *executionContext) marshalOClubBalanceConnection2ᚖgitlabᚗcomᚋdina
 		return graphql.Null
 	}
 	return ec._ClubBalanceConnection(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOClubBalanceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceEdge(ctx context.Context, sel ast.SelectionSet, v []*models.ClubBalanceEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOClubBalanceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOClubBalanceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceEdge(ctx context.Context, sel ast.SelectionSet, v *models.ClubBalanceEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._ClubBalanceEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOClubBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceFilter(ctx context.Context, v interface{}) (*models.ClubBalanceFilter, error) {
@@ -55929,54 +57219,6 @@ func (ec *executionContext) marshalOCoachPaymentByMonthConnection2ᚖgitlabᚗco
 	return ec._CoachPaymentByMonthConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOCoachPaymentByMonthEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthEdge(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByMonthEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOCoachPaymentByMonthEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOCoachPaymentByMonthEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthEdge(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByMonthEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._CoachPaymentByMonthEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOCoachPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthFilter(ctx context.Context, v interface{}) (*models.CoachPaymentByMonthFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -55999,54 +57241,6 @@ func (ec *executionContext) marshalOCoachPaymentByTeamConnection2ᚖgitlabᚗcom
 	return ec._CoachPaymentByTeamConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOCoachPaymentByTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamEdge(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByTeamEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOCoachPaymentByTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOCoachPaymentByTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamEdge(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByTeamEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._CoachPaymentByTeamEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOCoachPaymentByTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamFilter(ctx context.Context, v interface{}) (*models.CoachPaymentByTeamFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -56067,54 +57261,6 @@ func (ec *executionContext) marshalOCoachPaymentByTrainingConnection2ᚖgitlab�
 		return graphql.Null
 	}
 	return ec._CoachPaymentByTrainingConnection(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOCoachPaymentByTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingEdge(ctx context.Context, sel ast.SelectionSet, v []*models.CoachPaymentByTrainingEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOCoachPaymentByTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOCoachPaymentByTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingEdge(ctx context.Context, sel ast.SelectionSet, v *models.CoachPaymentByTrainingEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._CoachPaymentByTrainingEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOCoachPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingFilter(ctx context.Context, v interface{}) (*models.CoachPaymentByTrainingFilter, error) {
@@ -56247,54 +57393,6 @@ func (ec *executionContext) marshalOCreatorDto2ᚕᚖgitlabᚗcomᚋdinamchiki�
 	}
 
 	return ret
-}
-
-func (ec *executionContext) marshalOCreatorEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorEdge(ctx context.Context, sel ast.SelectionSet, v []*models.CreatorEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOCreatorEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOCreatorEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorEdge(ctx context.Context, sel ast.SelectionSet, v *models.CreatorEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._CreatorEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOCreatorFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorFilter(ctx context.Context, v interface{}) (*models.CreatorFilter, error) {
@@ -56452,54 +57550,6 @@ func (ec *executionContext) marshalOKitDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgo�
 	return ret
 }
 
-func (ec *executionContext) marshalOKitEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitEdge(ctx context.Context, sel ast.SelectionSet, v []*models.KitEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOKitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOKitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitEdge(ctx context.Context, sel ast.SelectionSet, v *models.KitEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._KitEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOKitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitFilter(ctx context.Context, v interface{}) (*models.KitFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -56616,54 +57666,6 @@ func (ec *executionContext) marshalOLeadDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgo
 	return ret
 }
 
-func (ec *executionContext) marshalOLeadEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadEdge(ctx context.Context, sel ast.SelectionSet, v []*models.LeadEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOLeadEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOLeadEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadEdge(ctx context.Context, sel ast.SelectionSet, v *models.LeadEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._LeadEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOLeadFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadFilter(ctx context.Context, v interface{}) (*models.LeadFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -56725,54 +57727,6 @@ func (ec *executionContext) marshalOMoneyCostConnection2ᚖgitlabᚗcomᚋdinamc
 	return ec._MoneyCostConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOMoneyCostEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostEdge(ctx context.Context, sel ast.SelectionSet, v []*models.MoneyCostEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOMoneyCostEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOMoneyCostEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostEdge(ctx context.Context, sel ast.SelectionSet, v *models.MoneyCostEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._MoneyCostEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOMoneyCostFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostFilter(ctx context.Context, v interface{}) (*models.MoneyCostFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -56811,54 +57765,6 @@ func (ec *executionContext) marshalOMoneyMoveConnection2ᚖgitlabᚗcomᚋdinamc
 	return ec._MoneyMoveConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOMoneyMoveEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveEdge(ctx context.Context, sel ast.SelectionSet, v []*models.MoneyMoveEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOMoneyMoveEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOMoneyMoveEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveEdge(ctx context.Context, sel ast.SelectionSet, v *models.MoneyMoveEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._MoneyMoveEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOMoneyMoveFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveFilter(ctx context.Context, v interface{}) (*models.MoneyMoveFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -56879,54 +57785,6 @@ func (ec *executionContext) marshalOOrderConnection2ᚖgitlabᚗcomᚋdinamchiki
 		return graphql.Null
 	}
 	return ec._OrderConnection(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOOrderEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderEdge(ctx context.Context, sel ast.SelectionSet, v []*models.OrderEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOOrderEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOOrderEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderEdge(ctx context.Context, sel ast.SelectionSet, v *models.OrderEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._OrderEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOOrderFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderFilter(ctx context.Context, v interface{}) (*models.OrderFilter, error) {
@@ -57036,54 +57894,6 @@ func (ec *executionContext) marshalORentPaymentByMonthConnection2ᚖgitlabᚗcom
 	return ec._RentPaymentByMonthConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalORentPaymentByMonthEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthEdge(ctx context.Context, sel ast.SelectionSet, v []*models.RentPaymentByMonthEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalORentPaymentByMonthEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalORentPaymentByMonthEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthEdge(ctx context.Context, sel ast.SelectionSet, v *models.RentPaymentByMonthEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._RentPaymentByMonthEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalORentPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthFilter(ctx context.Context, v interface{}) (*models.RentPaymentByMonthFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -57104,54 +57914,6 @@ func (ec *executionContext) marshalORentPaymentByTrainingConnection2ᚖgitlabᚗ
 		return graphql.Null
 	}
 	return ec._RentPaymentByTrainingConnection(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalORentPaymentByTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingEdge(ctx context.Context, sel ast.SelectionSet, v []*models.RentPaymentByTrainingEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalORentPaymentByTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalORentPaymentByTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingEdge(ctx context.Context, sel ast.SelectionSet, v *models.RentPaymentByTrainingEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._RentPaymentByTrainingEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalORentPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingFilter(ctx context.Context, v interface{}) (*models.RentPaymentByTrainingFilter, error) {
@@ -57550,54 +58312,6 @@ func (ec *executionContext) marshalOStudentDto2ᚕᚖgitlabᚗcomᚋdinamchiki�
 	return ret
 }
 
-func (ec *executionContext) marshalOStudentEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentEdge(ctx context.Context, sel ast.SelectionSet, v []*models.StudentEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOStudentEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOStudentEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentEdge(ctx context.Context, sel ast.SelectionSet, v *models.StudentEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._StudentEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx context.Context, v interface{}) (*models.StudentFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -57620,54 +58334,6 @@ func (ec *executionContext) marshalOStudentVisitConnection2ᚖgitlabᚗcomᚋdin
 	return ec._StudentVisitConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOStudentVisitEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitEdge(ctx context.Context, sel ast.SelectionSet, v []*models.StudentVisitEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOStudentVisitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOStudentVisitEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitEdge(ctx context.Context, sel ast.SelectionSet, v *models.StudentVisitEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._StudentVisitEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOStudentVisitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitFilter(ctx context.Context, v interface{}) (*models.StudentVisitFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -57688,54 +58354,6 @@ func (ec *executionContext) marshalOTaskConnection2ᚖgitlabᚗcomᚋdinamchiki�
 		return graphql.Null
 	}
 	return ec._TaskConnection(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOTaskEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskEdge(ctx context.Context, sel ast.SelectionSet, v []*models.TaskEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOTaskEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOTaskEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskEdge(ctx context.Context, sel ast.SelectionSet, v *models.TaskEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._TaskEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOTaskFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskFilter(ctx context.Context, v interface{}) (*models.TaskFilter, error) {
@@ -57830,54 +58448,6 @@ func (ec *executionContext) marshalOTeamBalanceConnection2ᚖgitlabᚗcomᚋdina
 	return ec._TeamBalanceConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOTeamBalanceEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceEdge(ctx context.Context, sel ast.SelectionSet, v []*models.TeamBalanceEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOTeamBalanceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOTeamBalanceEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceEdge(ctx context.Context, sel ast.SelectionSet, v *models.TeamBalanceEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._TeamBalanceEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOTeamBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceFilter(ctx context.Context, v interface{}) (*models.TeamBalanceFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -57938,54 +58508,6 @@ func (ec *executionContext) marshalOTeamDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgo
 	}
 
 	return ret
-}
-
-func (ec *executionContext) marshalOTeamEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdge(ctx context.Context, sel ast.SelectionSet, v []*models.TeamEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOTeamEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamEdge(ctx context.Context, sel ast.SelectionSet, v *models.TeamEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._TeamEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamFilter(ctx context.Context, v interface{}) (*models.TeamFilter, error) {
@@ -58087,54 +58609,6 @@ func (ec *executionContext) marshalOTrainingDayConnection2ᚖgitlabᚗcomᚋdina
 	return ec._TrainingDayConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOTrainingDayEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayEdge(ctx context.Context, sel ast.SelectionSet, v []*models.TrainingDayEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOTrainingDayEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOTrainingDayEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayEdge(ctx context.Context, sel ast.SelectionSet, v *models.TrainingDayEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._TrainingDayEdge(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOTrainingDayFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayFilter(ctx context.Context, v interface{}) (*models.TrainingDayFilter, error) {
 	if v == nil {
 		return nil, nil
@@ -58188,54 +58662,6 @@ func (ec *executionContext) marshalOTrainingDto2ᚕᚖgitlabᚗcomᚋdinamchiki�
 	}
 
 	return ret
-}
-
-func (ec *executionContext) marshalOTrainingEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingEdge(ctx context.Context, sel ast.SelectionSet, v []*models.TrainingEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOTrainingEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingEdge(ctx context.Context, sel ast.SelectionSet, v *models.TrainingEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._TrainingEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx context.Context, v interface{}) (*models.TrainingFilter, error) {
@@ -58305,54 +58731,6 @@ func (ec *executionContext) marshalOUserDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgo
 	}
 
 	return ret
-}
-
-func (ec *executionContext) marshalOUserEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserEdge(ctx context.Context, sel ast.SelectionSet, v []*models.UserEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOUserEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOUserEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserEdge(ctx context.Context, sel ast.SelectionSet, v *models.UserEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._UserEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOUserFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserFilter(ctx context.Context, v interface{}) (*models.UserFilter, error) {

@@ -343,7 +343,7 @@ type ArticleConnection {
 }
 
 type ArticleEdge {
-    cursor: String!
+    cursor: ID!
     node: Article
 }
 
@@ -362,12 +362,12 @@ type Cart {
 }
 
 type CartConnection {
-    edges: [CartEdge]
+    edges: [CartEdge!]!
     pageInfo: PageInfo
 }
 
 type CartEdge {
-    cursor: String
+    cursor: ID!
     node: Cart
 }
 
@@ -388,12 +388,12 @@ type ClubBalance {
 }
 
 type ClubBalanceConnection {
-    edges: [ClubBalanceEdge]
+    edges: [ClubBalanceEdge!]!
     pageInfo: PageInfo
 }
 
 type ClubBalanceEdge {
-    cursor: String
+    cursor: ID!
     node: ClubBalance
 }
 
@@ -412,12 +412,12 @@ type CoachPaymentByMonth {
 }
 
 type CoachPaymentByMonthConnection {
-    edges: [CoachPaymentByMonthEdge]
+    edges: [CoachPaymentByMonthEdge!]!
     pageInfo: PageInfo
 }
 
 type CoachPaymentByMonthEdge {
-    cursor: String
+    cursor: ID!
     node: CoachPaymentByMonth
 }
 
@@ -440,12 +440,12 @@ type CoachPaymentByTeam {
 }
 
 type CoachPaymentByTeamConnection {
-    edges: [CoachPaymentByTeamEdge]
+    edges: [CoachPaymentByTeamEdge!]!
     pageInfo: PageInfo
 }
 
 type CoachPaymentByTeamEdge {
-    cursor: String
+    cursor: ID!
     node: CoachPaymentByTeam
 }
 
@@ -465,12 +465,12 @@ type CoachPaymentByTraining {
 }
 
 type CoachPaymentByTrainingConnection {
-    edges: [CoachPaymentByTrainingEdge]
+    edges: [CoachPaymentByTrainingEdge!]!
     pageInfo: PageInfo
 }
 
 type CoachPaymentByTrainingEdge {
-    cursor: String
+    cursor: ID!
     node: CoachPaymentByTraining
 }
 
@@ -490,12 +490,12 @@ type Creator {
 }
 
 type CreatorConnection {
-    edges: [CreatorEdge]
+    edges: [CreatorEdge!]!
     pageInfo: PageInfo
 }
 
 type CreatorEdge {
-    cursor: String
+    cursor: ID!
     node: Creator
 }
 
@@ -517,12 +517,12 @@ type Kit {
 }
 
 type KitConnection {
-    edges: [KitEdge]
+    edges: [KitEdge!]!
     pageInfo: PageInfo
 }
 
 type KitEdge {
-    cursor: String
+    cursor: ID!
     node: Kit
 }
 
@@ -549,12 +549,12 @@ type Lead {
 }
 
 type LeadConnection {
-    edges: [LeadEdge]
+    edges: [LeadEdge!]!
     pageInfo: PageInfo
 }
 
 type LeadEdge {
-    cursor: String
+    cursor: ID!
     node: Lead
 }
 
@@ -575,12 +575,12 @@ type MoneyCost {
 }
 
 type MoneyCostConnection {
-    edges: [MoneyCostEdge]
+    edges: [MoneyCostEdge!]!
     pageInfo: PageInfo
 }
 
 type MoneyCostEdge {
-    cursor: String
+    cursor: ID!
     node: MoneyCost
 }
 
@@ -607,12 +607,12 @@ type MoneyMove {
 }
 
 type MoneyMoveConnection {
-    edges: [MoneyMoveEdge]
+    edges: [MoneyMoveEdge!]!
     pageInfo: PageInfo
 }
 
 type MoneyMoveEdge {
-    cursor: String
+    cursor: ID!
     node: MoneyMove
 }
 
@@ -633,12 +633,12 @@ type Order {
 }
 
 type OrderConnection {
-    edges: [OrderEdge]
+    edges: [OrderEdge!]!
     pageInfo: PageInfo
 }
 
 type OrderEdge {
-    cursor: String
+    cursor: ID!
     node: Order
 }
 
@@ -659,12 +659,12 @@ type RentPaymentByMonth {
 }
 
 type RentPaymentByMonthConnection {
-    edges: [RentPaymentByMonthEdge]
+    edges: [RentPaymentByMonthEdge!]!
     pageInfo: PageInfo
 }
 
 type RentPaymentByMonthEdge {
-    cursor: String
+    cursor: ID!
     node: RentPaymentByMonth
 }
 
@@ -685,12 +685,12 @@ type RentPaymentByTraining {
 }
 
 type RentPaymentByTrainingConnection {
-    edges: [RentPaymentByTrainingEdge]
+    edges: [RentPaymentByTrainingEdge!]!
     pageInfo: PageInfo
 }
 
 type RentPaymentByTrainingEdge {
-    cursor: String
+    cursor: ID!
     node: RentPaymentByTraining
 }
 
@@ -715,7 +715,7 @@ type StadiumConnection {
 }
 
 type StadiumEdge {
-    cursor: String!
+    cursor: ID!
     node: Stadium
 }
 
@@ -745,7 +745,7 @@ type StaffConnection {
 }
 
 type StaffEdge {
-    cursor: String!
+    cursor: ID!
     node: Staff
 }
 
@@ -768,12 +768,12 @@ type Student {
 }
 
 type StudentConnection {
-    edges: [StudentEdge]
+    edges: [StudentEdge!]!
     pageInfo: PageInfo
 }
 
 type StudentEdge {
-    cursor: String
+    cursor: ID!
     node: Student
 }
 
@@ -794,12 +794,12 @@ type StudentVisit {
 }
 
 type StudentVisitConnection {
-    edges: [StudentVisitEdge]
+    edges: [StudentVisitEdge!]!
     pageInfo: PageInfo
 }
 
 type StudentVisitEdge {
-    cursor: String
+    cursor: ID!
     node: StudentVisit
 }
 
@@ -829,12 +829,12 @@ type Task {
 }
 
 type TaskConnection {
-    edges: [TaskEdge]
+    edges: [TaskEdge!]!
     pageInfo: PageInfo
 }
 
 type TaskEdge {
-    cursor: String
+    cursor: ID!
     node: Task
 }
 
@@ -870,12 +870,12 @@ type TeamBalance {
 }
 
 type TeamBalanceConnection {
-    edges: [TeamBalanceEdge]
+    edges: [TeamBalanceEdge!]!
     pageInfo: PageInfo
 }
 
 type TeamBalanceEdge {
-    cursor: String
+    cursor: ID!
     node: TeamBalance
 }
 
@@ -885,12 +885,12 @@ type TeamBalancePayload {
 }
 
 type TeamConnection {
-    edges: [TeamEdge]
+    edges: [TeamEdge!]!
     pageInfo: PageInfo
 }
 
 type TeamEdge {
-    cursor: String
+    cursor: ID!
     node: Team
 }
 
@@ -921,7 +921,7 @@ type Training {
 }
 
 type TrainingConnection {
-    edges: [TrainingEdge]
+    edges: [TrainingEdge!]!
     pageInfo: PageInfo
 }
 
@@ -937,12 +937,12 @@ type TrainingDay {
 }
 
 type TrainingDayConnection {
-    edges: [TrainingDayEdge]
+    edges: [TrainingDayEdge!]!
     pageInfo: PageInfo
 }
 
 type TrainingDayEdge {
-    cursor: String
+    cursor: ID!
     node: TrainingDay
 }
 
@@ -952,7 +952,7 @@ type TrainingDayPayload {
 }
 
 type TrainingEdge {
-    cursor: String
+    cursor: ID!
     node: Training
 }
 
@@ -970,12 +970,12 @@ type User {
 }
 
 type UserConnection {
-    edges: [UserEdge]
+    edges: [UserEdge!]!
     pageInfo: PageInfo
 }
 
 type UserEdge {
-    cursor: String
+    cursor: ID!
     node: User
 }
 

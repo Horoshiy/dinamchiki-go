@@ -879,12 +879,12 @@ func (r *queryResolver) User(ctx context.Context, id string) (*models.User, erro
 
 // Users is the resolver for the users field.
 func (r *queryResolver) Users(ctx context.Context, filter *models.UserFilter, first *int, after *string, last *int, before *string) (*models.UserConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.UsersRepo.GetUsers(filter, first, last, after, before)
 }
 
 // UserAll is the resolver for the userAll field.
 func (r *queryResolver) UserAll(ctx context.Context) ([]*models.UserDto, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.UsersRepo.GetUsersAll()
 }
 
 // CartAll is the resolver for the cartAll field.
@@ -909,17 +909,17 @@ func (r *queryResolver) LeadAll(ctx context.Context) ([]*models.LeadDto, error) 
 
 // PlaceAll is the resolver for the placeAll field.
 func (r *queryResolver) PlaceAll(ctx context.Context) ([]*models.PlaceDto, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.PlacesRepo.All()
 }
 
 // StadiumAll is the resolver for the stadiumAll field.
 func (r *queryResolver) StadiumAll(ctx context.Context) ([]*models.StadiumDto, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.StadiumsRepo.All()
 }
 
 // StaffAll is the resolver for the staffAll field.
 func (r *queryResolver) StaffAll(ctx context.Context) ([]*models.StaffDto, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.StaffRepo.All()
 }
 
 // StudentAll is the resolver for the studentAll field.

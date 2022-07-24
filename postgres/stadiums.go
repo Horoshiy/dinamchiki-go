@@ -128,6 +128,23 @@ func (r *StadiumsRepo) GetStadiums(filter *models.StadiumFilter, first, last *in
 	return pc, nil
 }
 
+func (r *StadiumsRepo) All() ([]*models.StadiumDto, error) {
+	var items []*models.Stadium
+	query := r.DB.Model(&items).Column("id", "name")
+	err := query.Select()
+	if err != nil {
+		return nil, err
+	}
+	var arr []*models.StadiumDto
+	for _, v := range items {
+		arr = append(arr, &models.StadiumDto{
+			ID:   v.ID,
+			Name: v.Name,
+		})
+	}
+	return arr, nil
+}
+
 func (r *StadiumsRepo) GetStadiumByFiled(field, value string) (*models.Stadium, error) {
 	var item models.Stadium
 	err := r.DB.Model(&item).Where(fmt.Sprintf("%v = ?", field), value).First()

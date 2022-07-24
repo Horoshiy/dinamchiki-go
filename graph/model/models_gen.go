@@ -71,8 +71,8 @@ type CartDto struct {
 }
 
 type CartEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *Cart   `json:"node"`
+	Cursor string `json:"cursor"`
+	Node   *Cart  `json:"node"`
 }
 
 type CartFilter struct {
@@ -113,7 +113,7 @@ type ClubBalanceConnection struct {
 }
 
 type ClubBalanceEdge struct {
-	Cursor *string      `json:"cursor"`
+	Cursor string       `json:"cursor"`
 	Node   *ClubBalance `json:"node"`
 }
 
@@ -155,7 +155,7 @@ type CoachPaymentByMonthConnection struct {
 }
 
 type CoachPaymentByMonthEdge struct {
-	Cursor *string              `json:"cursor"`
+	Cursor string               `json:"cursor"`
 	Node   *CoachPaymentByMonth `json:"node"`
 }
 
@@ -199,7 +199,7 @@ type CoachPaymentByTeamConnection struct {
 }
 
 type CoachPaymentByTeamEdge struct {
-	Cursor *string             `json:"cursor"`
+	Cursor string              `json:"cursor"`
 	Node   *CoachPaymentByTeam `json:"node"`
 }
 
@@ -243,7 +243,7 @@ type CoachPaymentByTrainingConnection struct {
 }
 
 type CoachPaymentByTrainingEdge struct {
-	Cursor *string                 `json:"cursor"`
+	Cursor string                  `json:"cursor"`
 	Node   *CoachPaymentByTraining `json:"node"`
 }
 
@@ -289,7 +289,7 @@ type CreatorDto struct {
 }
 
 type CreatorEdge struct {
-	Cursor *string  `json:"cursor"`
+	Cursor string   `json:"cursor"`
 	Node   *Creator `json:"node"`
 }
 
@@ -338,8 +338,8 @@ type KitDto struct {
 }
 
 type KitEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *Kit    `json:"node"`
+	Cursor string `json:"cursor"`
+	Node   *Kit   `json:"node"`
 }
 
 type KitFilter struct {
@@ -395,8 +395,8 @@ type LeadDto struct {
 }
 
 type LeadEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *Lead   `json:"node"`
+	Cursor string `json:"cursor"`
+	Node   *Lead  `json:"node"`
 }
 
 type LeadFilter struct {
@@ -448,7 +448,7 @@ type MoneyCostConnection struct {
 }
 
 type MoneyCostEdge struct {
-	Cursor *string    `json:"cursor"`
+	Cursor string     `json:"cursor"`
 	Node   *MoneyCost `json:"node"`
 }
 
@@ -498,7 +498,7 @@ type MoneyMoveConnection struct {
 }
 
 type MoneyMoveEdge struct {
-	Cursor *string    `json:"cursor"`
+	Cursor string     `json:"cursor"`
 	Node   *MoneyMove `json:"node"`
 }
 
@@ -546,8 +546,8 @@ type OrderConnection struct {
 }
 
 type OrderEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *Order  `json:"node"`
+	Cursor string `json:"cursor"`
+	Node   *Order `json:"node"`
 }
 
 type OrderFilter struct {
@@ -640,7 +640,7 @@ type RentPaymentByMonthConnection struct {
 }
 
 type RentPaymentByMonthEdge struct {
-	Cursor *string             `json:"cursor"`
+	Cursor string              `json:"cursor"`
 	Node   *RentPaymentByMonth `json:"node"`
 }
 
@@ -684,7 +684,7 @@ type RentPaymentByTrainingConnection struct {
 }
 
 type RentPaymentByTrainingEdge struct {
-	Cursor *string                `json:"cursor"`
+	Cursor string                 `json:"cursor"`
 	Node   *RentPaymentByTraining `json:"node"`
 }
 
@@ -813,7 +813,7 @@ type StudentDto struct {
 }
 
 type StudentEdge struct {
-	Cursor *string  `json:"cursor"`
+	Cursor string   `json:"cursor"`
 	Node   *Student `json:"node"`
 }
 
@@ -858,7 +858,7 @@ type StudentVisitConnection struct {
 }
 
 type StudentVisitEdge struct {
-	Cursor *string       `json:"cursor"`
+	Cursor string        `json:"cursor"`
 	Node   *StudentVisit `json:"node"`
 }
 
@@ -910,8 +910,8 @@ type TaskConnection struct {
 }
 
 type TaskEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *Task   `json:"node"`
+	Cursor string `json:"cursor"`
+	Node   *Task  `json:"node"`
 }
 
 type TaskFilter struct {
@@ -975,7 +975,7 @@ type TeamBalanceConnection struct {
 }
 
 type TeamBalanceEdge struct {
-	Cursor *string      `json:"cursor"`
+	Cursor string       `json:"cursor"`
 	Node   *TeamBalance `json:"node"`
 }
 
@@ -1013,8 +1013,8 @@ type TeamDto struct {
 }
 
 type TeamEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *Team   `json:"node"`
+	Cursor string `json:"cursor"`
+	Node   *Team  `json:"node"`
 }
 
 type TeamFilter struct {
@@ -1084,7 +1084,7 @@ type TrainingDayConnection struct {
 }
 
 type TrainingDayEdge struct {
-	Cursor *string      `json:"cursor"`
+	Cursor string       `json:"cursor"`
 	Node   *TrainingDay `json:"node"`
 }
 
@@ -1116,7 +1116,7 @@ type TrainingDto struct {
 }
 
 type TrainingEdge struct {
-	Cursor *string   `json:"cursor"`
+	Cursor string    `json:"cursor"`
 	Node   *Training `json:"node"`
 }
 
@@ -1155,8 +1155,8 @@ type UserDto struct {
 }
 
 type UserEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *User   `json:"node"`
+	Cursor string `json:"cursor"`
+	Node   *User  `json:"node"`
 }
 
 type UserFilter struct {

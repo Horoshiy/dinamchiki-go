@@ -128,6 +128,23 @@ func (r *StaffRepo) GetStaff(filter *models.StaffFilter, first, last *int, after
 	return pc, nil
 }
 
+func (r *StaffRepo) All() ([]*models.StaffDto, error) {
+	var items []*models.Staff
+	query := r.DB.Model(&items).Column("id", "name")
+	err := query.Select()
+	if err != nil {
+		return nil, err
+	}
+	var arr []*models.StaffDto
+	for _, v := range items {
+		arr = append(arr, &models.StaffDto{
+			ID:   v.ID,
+			Name: v.Name,
+		})
+	}
+	return arr, nil
+}
+
 func (r *StaffRepo) GetStaffByFiled(field, value string) (*models.Staff, error) {
 	var item models.Staff
 	err := r.DB.Model(&item).Where(fmt.Sprintf("%v = ?", field), value).First()

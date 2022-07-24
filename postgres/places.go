@@ -126,6 +126,23 @@ func (r *PlacesRepo) GetPlaces(filter *models.PlaceFilter, first, last *int, aft
 	return pc, nil
 }
 
+func (r *PlacesRepo) All() ([]*models.PlaceDto, error) {
+	var items []*models.Place
+	query := r.DB.Model(&items).Column("id", "name")
+	err := query.Select()
+	if err != nil {
+		return nil, err
+	}
+	var arr []*models.PlaceDto
+	for _, v := range items {
+		arr = append(arr, &models.PlaceDto{
+			ID:   v.ID,
+			Name: v.Name,
+		})
+	}
+	return arr, nil
+}
+
 func (r *PlacesRepo) GetPlaceByFiled(field, value string) (*models.Place, error) {
 	var place models.Place
 	err := r.DB.Model(&place).Where(fmt.Sprintf("%v = ?", field), value).First()
