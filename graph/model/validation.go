@@ -71,6 +71,13 @@ func (r TrainingInput) Validate() (bool, map[string]string) {
 	return v.IsValid(), v.Errors
 }
 
+func (r CreatorInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	v.Required("name", r.Name)
+	return v.IsValid(), v.Errors
+}
+
 func (l LoginInput) Validate() (bool, map[string]string) {
 	v := validator.New()
 

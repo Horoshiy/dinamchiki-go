@@ -86,3 +86,8 @@ models:
         resolver: true
       coaches:
         resolver: true
+  Creator:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Creator
+    fields:
+      user:
+        resolver: true

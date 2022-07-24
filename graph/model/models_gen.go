@@ -268,16 +268,6 @@ type CoachPaymentByTrainingPayload struct {
 	RecordID string                  `json:"recordId"`
 }
 
-type Creator struct {
-	ID          string  `json:"id"`
-	Name        string  `json:"name"`
-	PassportNum *string `json:"passportNum"`
-	Phone       string  `json:"phone"`
-	Published   bool    `json:"published"`
-	User        *User   `json:"user"`
-	UserID      *string `json:"userId"`
-}
-
 type CreatorConnection struct {
 	Edges    []*CreatorEdge `json:"edges"`
 	PageInfo *PageInfo      `json:"pageInfo"`

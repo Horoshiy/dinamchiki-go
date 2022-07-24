@@ -38,6 +38,7 @@ type Config struct {
 
 type ResolverRoot interface {
 	Article() ArticleResolver
+	Creator() CreatorResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
 	Stadium() StadiumResolver
@@ -983,6 +984,9 @@ type ComplexityRoot struct {
 
 type ArticleResolver interface {
 	Author(ctx context.Context, obj *models.Article) (*models.User, error)
+}
+type CreatorResolver interface {
+	User(ctx context.Context, obj *models.Creator) (*models.User, error)
 }
 type MutationResolver interface {
 	ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error)
@@ -15700,7 +15704,7 @@ func (ec *executionContext) _Creator_user(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.User, nil
+		return ec.resolvers.Creator().User(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15718,8 +15722,8 @@ func (ec *executionContext) fieldContext_Creator_user(ctx context.Context, field
 	fc = &graphql.FieldContext{
 		Object:     "Creator",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "firstName":
@@ -47808,14 +47812,14 @@ func (ec *executionContext) _Creator(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Creator_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "name":
 
 			out.Values[i] = ec._Creator_name(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "passportNum":
 
@@ -47826,19 +47830,32 @@ func (ec *executionContext) _Creator(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Creator_phone(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._Creator_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "user":
+			field := field
 
-			out.Values[i] = ec._Creator_user(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Creator_user(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "userId":
 
 			out.Values[i] = ec._Creator_userId(ctx, field, obj)

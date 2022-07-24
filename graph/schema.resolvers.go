@@ -17,6 +17,11 @@ func (r *articleResolver) Author(ctx context.Context, obj *models.Article) (*mod
 	return For(ctx).UserLoader.Load(obj.AuthorID)
 }
 
+// User is the resolver for the user field.
+func (r *creatorResolver) User(ctx context.Context, obj *models.Creator) (*models.User, error) {
+	return For(ctx).UserLoader.Load(*obj.UserID)
+}
+
 // ArticleDelete is the resolver for the articleDelete field.
 func (r *mutationResolver) ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error) {
 	_, err := r.Domain.ArticleDelete(id)
@@ -154,22 +159,37 @@ func (r *mutationResolver) CoachPaymentByTrainingUpdate(ctx context.Context, coa
 
 // CreatorDelete is the resolver for the creatorDelete field.
 func (r *mutationResolver) CreatorDelete(ctx context.Context, id string) (*models.CreatorPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.CreatorDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.CreatorPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // CreatorPublishUpdate is the resolver for the creatorPublishUpdate field.
 func (r *mutationResolver) CreatorPublishUpdate(ctx context.Context, id string) (*models.CreatorPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.CreatorPublish(id)
 }
 
 // CreatorSave is the resolver for the creatorSave field.
 func (r *mutationResolver) CreatorSave(ctx context.Context, creatorInput models.CreatorInput) (*models.CreatorPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, creatorInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.CreatorSave(ctx, creatorInput)
 }
 
 // CreatorUpdate is the resolver for the creatorUpdate field.
 func (r *mutationResolver) CreatorUpdate(ctx context.Context, creatorInput models.CreatorInputWithID) (*models.CreatorPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, creatorInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.CreatorUpdate(ctx, creatorInput)
 }
 
 // KitDelete is the resolver for the kitDelete field.
@@ -1015,6 +1035,9 @@ func (r *trainingResolver) Team(ctx context.Context, obj *models.Training) (*mod
 // Article returns generated.ArticleResolver implementation.
 func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver{r} }
 
+// Creator returns generated.CreatorResolver implementation.
+func (r *Resolver) Creator() generated.CreatorResolver { return &creatorResolver{r} }
+
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
@@ -1034,6 +1057,7 @@ func (r *Resolver) Team() generated.TeamResolver { return &teamResolver{r} }
 func (r *Resolver) Training() generated.TrainingResolver { return &trainingResolver{r} }
 
 type articleResolver struct{ *Resolver }
+type creatorResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
