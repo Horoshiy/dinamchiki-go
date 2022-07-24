@@ -103,6 +103,12 @@ func (r MoneyCostInput) Validate() (bool, map[string]string) {
 	return v.IsValid(), v.Errors
 }
 
+func (r CoachPaymentByMonthInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	return v.IsValid(), v.Errors
+}
+
 func (l LoginInput) Validate() (bool, map[string]string) {
 	v := validator.New()
 

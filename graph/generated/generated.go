@@ -38,6 +38,7 @@ type Config struct {
 
 type ResolverRoot interface {
 	Article() ArticleResolver
+	CoachPaymentByMonth() CoachPaymentByMonthResolver
 	Creator() CreatorResolver
 	MoneyCost() MoneyCostResolver
 	MoneyMove() MoneyMoveResolver
@@ -988,6 +989,9 @@ type ComplexityRoot struct {
 
 type ArticleResolver interface {
 	Author(ctx context.Context, obj *models.Article) (*models.User, error)
+}
+type CoachPaymentByMonthResolver interface {
+	Coach(ctx context.Context, obj *models.CoachPaymentByMonth) (*models.Staff, error)
 }
 type CreatorResolver interface {
 	User(ctx context.Context, obj *models.Creator) (*models.User, error)
@@ -13499,7 +13503,7 @@ func (ec *executionContext) _CoachPaymentByMonth_coach(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Coach, nil
+		return ec.resolvers.CoachPaymentByMonth().Coach(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13517,8 +13521,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonth_coach(ctx context.C
 	fc = &graphql.FieldContext{
 		Object:     "CoachPaymentByMonth",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -47359,15 +47363,28 @@ func (ec *executionContext) _CoachPaymentByMonth(ctx context.Context, sel ast.Se
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("CoachPaymentByMonth")
 		case "coach":
+			field := field
 
-			out.Values[i] = ec._CoachPaymentByMonth_coach(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._CoachPaymentByMonth_coach(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "coachId":
 
 			out.Values[i] = ec._CoachPaymentByMonth_coachId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "date":
 
@@ -47378,21 +47395,21 @@ func (ec *executionContext) _CoachPaymentByMonth(ctx context.Context, sel ast.Se
 			out.Values[i] = ec._CoachPaymentByMonth_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._CoachPaymentByMonth_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "sum":
 
 			out.Values[i] = ec._CoachPaymentByMonth_sum(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))

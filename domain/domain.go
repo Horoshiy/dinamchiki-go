@@ -12,18 +12,19 @@ var (
 )
 
 type Domain struct {
-	UsersRepo         postgres.UsersRepo
-	PlacesRepo        postgres.PlacesRepo
-	ArticlesRepo      postgres.ArticlesRepo
-	StadiumsRepo      postgres.StadiumsRepo
-	StaffRepo         postgres.StaffRepo
-	TeamsRepo         postgres.TeamsRepo
-	TrainingsRepo     postgres.TrainingsRepo
-	CreatorsRepo      postgres.CreatorsRepo
-	StudentsRepo      postgres.StudentsRepo
-	StudentVisitsRepo postgres.StudentVisitsRepo
-	MoneyMoveRepo     postgres.MoneyMovesRepo
-	MoneyCostRepo     postgres.MoneyCostsRepo
+	UsersRepo               postgres.UsersRepo
+	PlacesRepo              postgres.PlacesRepo
+	ArticlesRepo            postgres.ArticlesRepo
+	StadiumsRepo            postgres.StadiumsRepo
+	StaffRepo               postgres.StaffRepo
+	TeamsRepo               postgres.TeamsRepo
+	TrainingsRepo           postgres.TrainingsRepo
+	CreatorsRepo            postgres.CreatorsRepo
+	StudentsRepo            postgres.StudentsRepo
+	StudentVisitsRepo       postgres.StudentVisitsRepo
+	MoneyMoveRepo           postgres.MoneyMovesRepo
+	MoneyCostRepo           postgres.MoneyCostsRepo
+	CoachPaymentByMonthRepo postgres.CoachPaymentByMonthRepo
 }
 
 func NewDomain(
@@ -39,19 +40,21 @@ func NewDomain(
 	studentVisitsRepo postgres.StudentVisitsRepo,
 	moneyMoveRepo postgres.MoneyMovesRepo,
 	moneyCostsRepo postgres.MoneyCostsRepo,
+	coachPaymentByMonthRepo postgres.CoachPaymentByMonthRepo,
 ) *Domain {
 	return &Domain{
-		UsersRepo:         usersRepo,
-		PlacesRepo:        placesRepo,
-		ArticlesRepo:      articlesRepo,
-		StadiumsRepo:      stadiumsRepo,
-		StaffRepo:         staffRepo,
-		TeamsRepo:         teamsRepo,
-		TrainingsRepo:     trainingsRepo,
-		CreatorsRepo:      creatorsRepo,
-		StudentsRepo:      studentsRepo,
-		StudentVisitsRepo: studentVisitsRepo,
-		MoneyMoveRepo:     moneyMoveRepo,
-		MoneyCostRepo:     moneyCostsRepo,
+		UsersRepo:               usersRepo,
+		PlacesRepo:              placesRepo,
+		ArticlesRepo:            articlesRepo,
+		StadiumsRepo:            stadiumsRepo,
+		StaffRepo:               staffRepo,
+		TeamsRepo:               teamsRepo,
+		TrainingsRepo:           trainingsRepo,
+		CreatorsRepo:            creatorsRepo,
+		StudentsRepo:            studentsRepo,
+		StudentVisitsRepo:       studentVisitsRepo,
+		MoneyMoveRepo:           moneyMoveRepo,
+		MoneyCostRepo:           moneyCostsRepo,
+		CoachPaymentByMonthRepo: coachPaymentByMonthRepo,
 	}
 }

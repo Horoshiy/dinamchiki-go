@@ -17,6 +17,11 @@ func (r *articleResolver) Author(ctx context.Context, obj *models.Article) (*mod
 	return For(ctx).UserLoader.Load(obj.AuthorID)
 }
 
+// Coach is the resolver for the coach field.
+func (r *coachPaymentByMonthResolver) Coach(ctx context.Context, obj *models.CoachPaymentByMonth) (*models.Staff, error) {
+	return For(ctx).StaffLoader.Load(obj.CoachID)
+}
+
 // User is the resolver for the user field.
 func (r *creatorResolver) User(ctx context.Context, obj *models.Creator) (*models.User, error) {
 	return For(ctx).UserLoader.Load(*obj.UserID)
@@ -119,22 +124,37 @@ func (r *mutationResolver) ClubBalanceUpdate(ctx context.Context, clubBalanceInp
 
 // CoachPaymentByMonthDelete is the resolver for the coachPaymentByMonthDelete field.
 func (r *mutationResolver) CoachPaymentByMonthDelete(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.CoachPaymentByMonthDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.CoachPaymentByMonthPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // CoachPaymentByMonthPublishUpdate is the resolver for the coachPaymentByMonthPublishUpdate field.
 func (r *mutationResolver) CoachPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.CoachPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.CoachPaymentByMonthPublish(id)
 }
 
 // CoachPaymentByMonthSave is the resolver for the coachPaymentByMonthSave field.
 func (r *mutationResolver) CoachPaymentByMonthSave(ctx context.Context, coachPaymentByMonthInput models.CoachPaymentByMonthInput) (*models.CoachPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, coachPaymentByMonthInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.CoachPaymentByMonthSave(ctx, coachPaymentByMonthInput)
 }
 
 // CoachPaymentByMonthUpdate is the resolver for the coachPaymentByMonthUpdate field.
 func (r *mutationResolver) CoachPaymentByMonthUpdate(ctx context.Context, coachPaymentByMonthInput models.CoachPaymentByMonthInputWithID) (*models.CoachPaymentByMonthPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, coachPaymentByMonthInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.CoachPaymentByMonthUpdate(ctx, coachPaymentByMonthInput)
 }
 
 // CoachPaymentByTeamDelete is the resolver for the coachPaymentByTeamDelete field.
@@ -444,7 +464,7 @@ func (r *mutationResolver) RentPaymentByTrainingUpdate(ctx context.Context, rent
 
 // StadiumDelete is the resolver for the stadiumDelete field.
 func (r *mutationResolver) StadiumDelete(ctx context.Context, id string) (*models.StadiumPayload, error) {
-	_, err := r.Domain.ArticleDelete(id)
+	_, err := r.Domain.StadiumDelete(id)
 	if err != nil {
 		return nil, err
 	}
@@ -784,7 +804,7 @@ func (r *queryResolver) CoachPaymentByTraining(ctx context.Context, id string) (
 
 // CoachPaymentsByMonth is the resolver for the coachPaymentsByMonth field.
 func (r *queryResolver) CoachPaymentsByMonth(ctx context.Context, after *string, before *string, filter *models.CoachPaymentByMonthFilter, first *int, last *int) (*models.CoachPaymentByMonthConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.CoachPaymentByMonthRepo.GetCoachPaymentByMonth(filter, first, last, after, before)
 }
 
 // CoachPaymentsByTeam is the resolver for the coachPaymentsByTeam field.
@@ -1135,6 +1155,11 @@ func (r *trainingResolver) Team(ctx context.Context, obj *models.Training) (*mod
 // Article returns generated.ArticleResolver implementation.
 func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver{r} }
 
+// CoachPaymentByMonth returns generated.CoachPaymentByMonthResolver implementation.
+func (r *Resolver) CoachPaymentByMonth() generated.CoachPaymentByMonthResolver {
+	return &coachPaymentByMonthResolver{r}
+}
+
 // Creator returns generated.CreatorResolver implementation.
 func (r *Resolver) Creator() generated.CreatorResolver { return &creatorResolver{r} }
 
@@ -1169,6 +1194,7 @@ func (r *Resolver) Team() generated.TeamResolver { return &teamResolver{r} }
 func (r *Resolver) Training() generated.TrainingResolver { return &trainingResolver{r} }
 
 type articleResolver struct{ *Resolver }
+type coachPaymentByMonthResolver struct{ *Resolver }
 type creatorResolver struct{ *Resolver }
 type moneyCostResolver struct{ *Resolver }
 type moneyMoveResolver struct{ *Resolver }

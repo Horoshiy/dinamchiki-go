@@ -119,3 +119,8 @@ models:
     fields:
       staff:
         resolver: true
+  CoachPaymentByMonth:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonth
+    fields:
+      coach:
+        resolver: true
