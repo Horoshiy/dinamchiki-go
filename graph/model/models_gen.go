@@ -586,17 +586,6 @@ type RentPaymentByMonthPayload struct {
 	RecordID string              `json:"recordId"`
 }
 
-type RentPaymentByTraining struct {
-	Description *string     `json:"description"`
-	ID          string      `json:"id"`
-	Published   bool        `json:"published"`
-	Stadium     *Stadium    `json:"stadium"`
-	StadiumID   string      `json:"stadiumId"`
-	Sum         int         `json:"sum"`
-	TrainingIds []string    `json:"trainingIds"`
-	Trainings   []*Training `json:"trainings"`
-}
-
 type RentPaymentByTrainingConnection struct {
 	Edges    []*RentPaymentByTrainingEdge `json:"edges"`
 	PageInfo *PageInfo                    `json:"pageInfo"`

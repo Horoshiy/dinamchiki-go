@@ -143,3 +143,10 @@ models:
     fields:
       stadium:
         resolver: true
+  RentPaymentByTraining:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.RentPaymentByTraining
+    fields:
+      stadium:
+        resolver: true
+      trainings:
+        resolver: true

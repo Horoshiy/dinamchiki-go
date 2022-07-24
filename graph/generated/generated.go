@@ -47,6 +47,7 @@ type ResolverRoot interface {
 	Mutation() MutationResolver
 	Query() QueryResolver
 	RentPaymentByMonth() RentPaymentByMonthResolver
+	RentPaymentByTraining() RentPaymentByTrainingResolver
 	Stadium() StadiumResolver
 	Staff() StaffResolver
 	Student() StudentResolver
@@ -1195,6 +1196,11 @@ type QueryResolver interface {
 }
 type RentPaymentByMonthResolver interface {
 	Stadium(ctx context.Context, obj *models.RentPaymentByMonth) (*models.Stadium, error)
+}
+type RentPaymentByTrainingResolver interface {
+	Stadium(ctx context.Context, obj *models.RentPaymentByTraining) (*models.Stadium, error)
+
+	Trainings(ctx context.Context, obj *models.RentPaymentByTraining) ([]*models.Training, error)
 }
 type StadiumResolver interface {
 	Place(ctx context.Context, obj *models.Stadium) (*models.Place, error)
@@ -32531,7 +32537,7 @@ func (ec *executionContext) _RentPaymentByTraining_stadium(ctx context.Context, 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Stadium, nil
+		return ec.resolvers.RentPaymentByTraining().Stadium(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -32549,8 +32555,8 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_stadium(ctx conte
 	fc = &graphql.FieldContext{
 		Object:     "RentPaymentByTraining",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "id":
@@ -32720,7 +32726,7 @@ func (ec *executionContext) _RentPaymentByTraining_trainings(ctx context.Context
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Trainings, nil
+		return ec.resolvers.RentPaymentByTraining().Trainings(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -32738,8 +32744,8 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_trainings(ctx con
 	fc = &graphql.FieldContext{
 		Object:     "RentPaymentByTraining",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "coachIds":
@@ -51882,44 +51888,70 @@ func (ec *executionContext) _RentPaymentByTraining(ctx context.Context, sel ast.
 			out.Values[i] = ec._RentPaymentByTraining_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._RentPaymentByTraining_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "stadium":
+			field := field
 
-			out.Values[i] = ec._RentPaymentByTraining_stadium(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._RentPaymentByTraining_stadium(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "stadiumId":
 
 			out.Values[i] = ec._RentPaymentByTraining_stadiumId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "sum":
 
 			out.Values[i] = ec._RentPaymentByTraining_sum(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "trainingIds":
 
 			out.Values[i] = ec._RentPaymentByTraining_trainingIds(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "trainings":
+			field := field
 
-			out.Values[i] = ec._RentPaymentByTraining_trainings(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._RentPaymentByTraining_trainings(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}

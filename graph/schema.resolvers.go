@@ -509,22 +509,37 @@ func (r *mutationResolver) RentPaymentByMonthUpdate(ctx context.Context, rentPay
 
 // RentPaymentByTrainingDelete is the resolver for the rentPaymentByTrainingDelete field.
 func (r *mutationResolver) RentPaymentByTrainingDelete(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.RentPaymentByTrainingDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.RentPaymentByTrainingPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // RentPaymentByTrainingPublishUpdate is the resolver for the rentPaymentByTrainingPublishUpdate field.
 func (r *mutationResolver) RentPaymentByTrainingPublishUpdate(ctx context.Context, id string) (*models.RentPaymentByTrainingPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.RentPaymentByTrainingPublish(id)
 }
 
 // RentPaymentByTrainingSave is the resolver for the rentPaymentByTrainingSave field.
 func (r *mutationResolver) RentPaymentByTrainingSave(ctx context.Context, rentPaymentInput models.RentPaymentByTrainingInput) (*models.RentPaymentByTrainingPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, rentPaymentInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.RentPaymentByTrainingSave(ctx, rentPaymentInput)
 }
 
 // RentPaymentByTrainingUpdate is the resolver for the rentPaymentByTrainingUpdate field.
 func (r *mutationResolver) RentPaymentByTrainingUpdate(ctx context.Context, rentPaymentInput models.RentPaymentByTrainingInputWithID) (*models.RentPaymentByTrainingPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, rentPaymentInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.RentPaymentByTrainingUpdate(ctx, rentPaymentInput)
 }
 
 // StadiumDelete is the resolver for the stadiumDelete field.
@@ -1004,7 +1019,7 @@ func (r *queryResolver) RentPaymentsByMonth(ctx context.Context, after *string, 
 
 // RentPaymentsByTraining is the resolver for the rentPaymentsByTraining field.
 func (r *queryResolver) RentPaymentsByTraining(ctx context.Context, after *string, before *string, filter *models.RentPaymentByTrainingFilter, first *int, last *int) (*models.RentPaymentByTrainingConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.RentPaymentByTrainingRepo.GetRentPaymentByTraining(filter, first, last, after, before)
 }
 
 // Stadium is the resolver for the stadium field.
@@ -1157,6 +1172,16 @@ func (r *rentPaymentByMonthResolver) Stadium(ctx context.Context, obj *models.Re
 	return For(ctx).StadiumLoader.Load(obj.StadiumID)
 }
 
+// Stadium is the resolver for the stadium field.
+func (r *rentPaymentByTrainingResolver) Stadium(ctx context.Context, obj *models.RentPaymentByTraining) (*models.Stadium, error) {
+	return For(ctx).StadiumLoader.Load(obj.StadiumID)
+}
+
+// Trainings is the resolver for the trainings field.
+func (r *rentPaymentByTrainingResolver) Trainings(ctx context.Context, obj *models.RentPaymentByTraining) ([]*models.Training, error) {
+	return r.Domain.RentPaymentByTrainingRepo.GetTrainingsForRentPaymentByTraining(obj)
+}
+
 // Place is the resolver for the place field.
 func (r *stadiumResolver) Place(ctx context.Context, obj *models.Stadium) (*models.Place, error) {
 	return For(ctx).PlaceLoader.Load(*obj.PlaceID)
@@ -1260,6 +1285,11 @@ func (r *Resolver) RentPaymentByMonth() generated.RentPaymentByMonthResolver {
 	return &rentPaymentByMonthResolver{r}
 }
 
+// RentPaymentByTraining returns generated.RentPaymentByTrainingResolver implementation.
+func (r *Resolver) RentPaymentByTraining() generated.RentPaymentByTrainingResolver {
+	return &rentPaymentByTrainingResolver{r}
+}
+
 // Stadium returns generated.StadiumResolver implementation.
 func (r *Resolver) Stadium() generated.StadiumResolver { return &stadiumResolver{r} }
 
@@ -1288,6 +1318,7 @@ type moneyMoveResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type rentPaymentByMonthResolver struct{ *Resolver }
+type rentPaymentByTrainingResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
 type staffResolver struct{ *Resolver }
 type studentResolver struct{ *Resolver }
@@ -1301,6 +1332,10 @@ type trainingResolver struct{ *Resolver }
 //  - When renaming or deleting a resolver the old code will be put in here. You can safely delete
 //    it when you're done.
 //  - You have helper methods in this file. Move them out to keep these resolver files clean.
+func (r *rentPaymentByTrainingResolver) TrainingIds(ctx context.Context, obj *models.RentPaymentByMonth) ([]string, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
 var (
 	ErrInput = errors.New("inputs errors")
 )
