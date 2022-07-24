@@ -894,7 +894,7 @@ func (r *queryResolver) Team(ctx context.Context, id string) (*models.Team, erro
 
 // TeamAll is the resolver for the teamAll field.
 func (r *queryResolver) TeamAll(ctx context.Context) ([]*models.TeamDto, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TeamsRepo.All()
 }
 
 // TeamBalance is the resolver for the teamBalance field.
@@ -924,7 +924,7 @@ func (r *queryResolver) Training(ctx context.Context, id string) (*models.Traini
 
 // TrainingAll is the resolver for the trainingAll field.
 func (r *queryResolver) TrainingAll(ctx context.Context) ([]*models.TrainingDto, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.TrainingsRepo.All()
 }
 
 // TrainingDay is the resolver for the trainingDay field.

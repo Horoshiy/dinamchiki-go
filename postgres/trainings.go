@@ -131,10 +131,10 @@ func (r *TrainingsRepo) GetTrainings(filter *models.TrainingFilter, first, last 
 func (r *TrainingsRepo) All() ([]*models.TrainingDto, error) {
 	var items []*models.Training
 	query := r.DB.Model(&items).
-		ColumnExpr("trainings.*").
+		ColumnExpr("training.*").
 		ColumnExpr("squad.id AS squad__id").
 		ColumnExpr("squad.name AS squad__name").
-		Join("LEFT JOIN teams AS squad ON squad.id = trainings.team")
+		Join("LEFT JOIN teams AS squad ON squad.id = training.team_id")
 	err := query.Select()
 	if err != nil {
 		return nil, err
