@@ -22,6 +22,11 @@ func (r *creatorResolver) User(ctx context.Context, obj *models.Creator) (*model
 	return For(ctx).UserLoader.Load(*obj.UserID)
 }
 
+// Staff is the resolver for the staff field.
+func (r *moneyCostResolver) Staff(ctx context.Context, obj *models.MoneyCost) (*models.Staff, error) {
+	return For(ctx).StaffLoader.Load(obj.StaffID)
+}
+
 // Owner is the resolver for the owner field.
 func (r *moneyMoveResolver) Owner(ctx context.Context, obj *models.MoneyMove) (*models.Staff, error) {
 	return For(ctx).StaffLoader.Load(obj.OwnerID)
@@ -259,22 +264,37 @@ func (r *mutationResolver) Login(ctx context.Context, input models.LoginInput) (
 
 // MoneyCostDelete is the resolver for the moneyCostDelete field.
 func (r *mutationResolver) MoneyCostDelete(ctx context.Context, id string) (*models.MoneyCostPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.MoneyCostDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.MoneyCostPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // MoneyCostPublishUpdate is the resolver for the moneyCostPublishUpdate field.
 func (r *mutationResolver) MoneyCostPublishUpdate(ctx context.Context, id string) (*models.MoneyCostPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.MoneyCostPublish(id)
 }
 
 // MoneyCostSave is the resolver for the moneyCostSave field.
 func (r *mutationResolver) MoneyCostSave(ctx context.Context, moneyCostInput models.MoneyCostInput) (*models.MoneyCostPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, moneyCostInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.MoneyCostSave(ctx, moneyCostInput)
 }
 
 // MoneyCostUpdate is the resolver for the moneyCostUpdate field.
 func (r *mutationResolver) MoneyCostUpdate(ctx context.Context, moneyCostInput models.MoneyCostInputWithID) (*models.MoneyCostPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, moneyCostInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.MoneyCostUpdate(ctx, moneyCostInput)
 }
 
 // MoneyMoveDelete is the resolver for the moneyMoveDelete field.
@@ -834,7 +854,7 @@ func (r *queryResolver) MoneyCost(ctx context.Context, id string) (*models.Money
 
 // MoneyCosts is the resolver for the moneyCosts field.
 func (r *queryResolver) MoneyCosts(ctx context.Context, after *string, before *string, filter *models.MoneyCostFilter, first *int, last *int) (*models.MoneyCostConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.MoneyCostRepo.GetMoneyCosts(filter, first, last, after, before)
 }
 
 // MoneyMove is the resolver for the moneyMove field.
@@ -1118,6 +1138,9 @@ func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver
 // Creator returns generated.CreatorResolver implementation.
 func (r *Resolver) Creator() generated.CreatorResolver { return &creatorResolver{r} }
 
+// MoneyCost returns generated.MoneyCostResolver implementation.
+func (r *Resolver) MoneyCost() generated.MoneyCostResolver { return &moneyCostResolver{r} }
+
 // MoneyMove returns generated.MoneyMoveResolver implementation.
 func (r *Resolver) MoneyMove() generated.MoneyMoveResolver { return &moneyMoveResolver{r} }
 
@@ -1147,6 +1170,7 @@ func (r *Resolver) Training() generated.TrainingResolver { return &trainingResol
 
 type articleResolver struct{ *Resolver }
 type creatorResolver struct{ *Resolver }
+type moneyCostResolver struct{ *Resolver }
 type moneyMoveResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }

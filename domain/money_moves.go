@@ -23,7 +23,7 @@ func moneyMoveInputToMoneyMove(ctx context.Context, input *models.MoneyMoveInput
 }
 func moneyMoveInputWithIdToMoneyMove(ctx context.Context, moneyMove *models.MoneyMove, input *models.MoneyMoveInput) *models.MoneyMove {
 	return &models.MoneyMove{
-		ID:          moneyMove.StudentID,
+		ID:          moneyMove.ID,
 		DateFinish:  &input.DateFinish,
 		DatePayment: &input.DatePayment,
 		DateStart:   &input.DateStart,

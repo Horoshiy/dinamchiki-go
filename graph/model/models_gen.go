@@ -421,17 +421,6 @@ type LoginInput struct {
 	Phone    string `json:"phone"`
 }
 
-type MoneyCost struct {
-	Date        time.Time `json:"date"`
-	Description string    `json:"description"`
-	ID          string    `json:"id"`
-	MoneyForm   MoneyForm `json:"moneyForm"`
-	Published   bool      `json:"published"`
-	Staff       *Staff    `json:"staff"`
-	StaffID     string    `json:"staffId"`
-	Sum         int       `json:"sum"`
-}
-
 type MoneyCostConnection struct {
 	Edges    []*MoneyCostEdge `json:"edges"`
 	PageInfo *PageInfo        `json:"pageInfo"`

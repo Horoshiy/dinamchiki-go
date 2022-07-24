@@ -114,3 +114,8 @@ models:
         resolver: true
       user:
         resolver: true
+  MoneyCost:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.MoneyCost
+    fields:
+      staff:
+        resolver: true

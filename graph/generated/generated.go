@@ -39,6 +39,7 @@ type Config struct {
 type ResolverRoot interface {
 	Article() ArticleResolver
 	Creator() CreatorResolver
+	MoneyCost() MoneyCostResolver
 	MoneyMove() MoneyMoveResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
@@ -990,6 +991,9 @@ type ArticleResolver interface {
 }
 type CreatorResolver interface {
 	User(ctx context.Context, obj *models.Creator) (*models.User, error)
+}
+type MoneyCostResolver interface {
+	Staff(ctx context.Context, obj *models.MoneyCost) (*models.Staff, error)
 }
 type MoneyMoveResolver interface {
 	Owner(ctx context.Context, obj *models.MoneyMove) (*models.Staff, error)
@@ -18280,7 +18284,7 @@ func (ec *executionContext) _MoneyCost_staff(ctx context.Context, field graphql.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Staff, nil
+		return ec.resolvers.MoneyCost().Staff(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18298,8 +18302,8 @@ func (ec *executionContext) fieldContext_MoneyCost_staff(ctx context.Context, fi
 	fc = &graphql.FieldContext{
 		Object:     "MoneyCost",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -48457,53 +48461,66 @@ func (ec *executionContext) _MoneyCost(ctx context.Context, sel ast.SelectionSet
 			out.Values[i] = ec._MoneyCost_date(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "description":
 
 			out.Values[i] = ec._MoneyCost_description(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "id":
 
 			out.Values[i] = ec._MoneyCost_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "moneyForm":
 
 			out.Values[i] = ec._MoneyCost_moneyForm(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._MoneyCost_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "staff":
+			field := field
 
-			out.Values[i] = ec._MoneyCost_staff(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._MoneyCost_staff(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "staffId":
 
 			out.Values[i] = ec._MoneyCost_staffId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "sum":
 
 			out.Values[i] = ec._MoneyCost_sum(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
