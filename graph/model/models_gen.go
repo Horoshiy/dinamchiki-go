@@ -818,17 +818,6 @@ type StudentPayload struct {
 	RecordID string   `json:"recordId"`
 }
 
-type StudentVisit struct {
-	ID          string      `json:"id"`
-	Payed       bool        `json:"payed"`
-	Published   bool        `json:"published"`
-	Student     *Student    `json:"student"`
-	StudentID   string      `json:"studentId"`
-	Training    *Training   `json:"training"`
-	TrainingID  string      `json:"trainingId"`
-	VisitStatus VisitStatus `json:"visitStatus"`
-}
-
 type StudentVisitConnection struct {
 	Edges    []*StudentVisitEdge `json:"edges"`
 	PageInfo *PageInfo           `json:"pageInfo"`

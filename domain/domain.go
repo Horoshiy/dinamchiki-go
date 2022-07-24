@@ -12,15 +12,16 @@ var (
 )
 
 type Domain struct {
-	UsersRepo     postgres.UsersRepo
-	PlacesRepo    postgres.PlacesRepo
-	ArticlesRepo  postgres.ArticlesRepo
-	StadiumsRepo  postgres.StadiumsRepo
-	StaffRepo     postgres.StaffRepo
-	TeamsRepo     postgres.TeamsRepo
-	TrainingsRepo postgres.TrainingsRepo
-	CreatorsRepo  postgres.CreatorsRepo
-	StudentsRepo  postgres.StudentsRepo
+	UsersRepo         postgres.UsersRepo
+	PlacesRepo        postgres.PlacesRepo
+	ArticlesRepo      postgres.ArticlesRepo
+	StadiumsRepo      postgres.StadiumsRepo
+	StaffRepo         postgres.StaffRepo
+	TeamsRepo         postgres.TeamsRepo
+	TrainingsRepo     postgres.TrainingsRepo
+	CreatorsRepo      postgres.CreatorsRepo
+	StudentsRepo      postgres.StudentsRepo
+	StudentVisitsRepo postgres.StudentVisitsRepo
 }
 
 func NewDomain(
@@ -33,16 +34,18 @@ func NewDomain(
 	trainingsRepo postgres.TrainingsRepo,
 	creatorsRepo postgres.CreatorsRepo,
 	studentsRepo postgres.StudentsRepo,
+	studentVisitsRepo postgres.StudentVisitsRepo,
 ) *Domain {
 	return &Domain{
-		UsersRepo:     usersRepo,
-		PlacesRepo:    placesRepo,
-		ArticlesRepo:  articlesRepo,
-		StadiumsRepo:  stadiumsRepo,
-		StaffRepo:     staffRepo,
-		TeamsRepo:     teamsRepo,
-		TrainingsRepo: trainingsRepo,
-		CreatorsRepo:  creatorsRepo,
-		StudentsRepo:  studentsRepo,
+		UsersRepo:         usersRepo,
+		PlacesRepo:        placesRepo,
+		ArticlesRepo:      articlesRepo,
+		StadiumsRepo:      stadiumsRepo,
+		StaffRepo:         staffRepo,
+		TeamsRepo:         teamsRepo,
+		TrainingsRepo:     trainingsRepo,
+		CreatorsRepo:      creatorsRepo,
+		StudentsRepo:      studentsRepo,
+		StudentVisitsRepo: studentVisitsRepo,
 	}
 }

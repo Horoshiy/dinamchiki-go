@@ -44,6 +44,7 @@ type ResolverRoot interface {
 	Stadium() StadiumResolver
 	Staff() StaffResolver
 	Student() StudentResolver
+	StudentVisit() StudentVisitResolver
 	Team() TeamResolver
 	Training() TrainingResolver
 }
@@ -1173,6 +1174,11 @@ type StudentResolver interface {
 	Creators(ctx context.Context, obj *models.Student) ([]*models.Creator, error)
 
 	Teams(ctx context.Context, obj *models.Student) ([]*models.Team, error)
+}
+type StudentVisitResolver interface {
+	Student(ctx context.Context, obj *models.StudentVisit) (*models.Student, error)
+
+	Training(ctx context.Context, obj *models.StudentVisit) (*models.Training, error)
 }
 type TeamResolver interface {
 	Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error)
@@ -35694,7 +35700,7 @@ func (ec *executionContext) _StudentVisit_student(ctx context.Context, field gra
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Student, nil
+		return ec.resolvers.StudentVisit().Student(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -35712,8 +35718,8 @@ func (ec *executionContext) fieldContext_StudentVisit_student(ctx context.Contex
 	fc = &graphql.FieldContext{
 		Object:     "StudentVisit",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -35801,7 +35807,7 @@ func (ec *executionContext) _StudentVisit_training(ctx context.Context, field gr
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Training, nil
+		return ec.resolvers.StudentVisit().Training(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -35819,8 +35825,8 @@ func (ec *executionContext) fieldContext_StudentVisit_training(ctx context.Conte
 	fc = &graphql.FieldContext{
 		Object:     "StudentVisit",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "coachIds":
@@ -52552,50 +52558,76 @@ func (ec *executionContext) _StudentVisit(ctx context.Context, sel ast.Selection
 			out.Values[i] = ec._StudentVisit_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "payed":
 
 			out.Values[i] = ec._StudentVisit_payed(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._StudentVisit_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "student":
+			field := field
 
-			out.Values[i] = ec._StudentVisit_student(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._StudentVisit_student(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "studentId":
 
 			out.Values[i] = ec._StudentVisit_studentId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "training":
+			field := field
 
-			out.Values[i] = ec._StudentVisit_training(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._StudentVisit_training(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "trainingId":
 
 			out.Values[i] = ec._StudentVisit_trainingId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "visitStatus":
 
 			out.Values[i] = ec._StudentVisit_visitStatus(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))

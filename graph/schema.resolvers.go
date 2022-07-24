@@ -499,22 +499,37 @@ func (r *mutationResolver) StudentUpdate(ctx context.Context, studentInput model
 
 // StudentVisitDelete is the resolver for the studentVisitDelete field.
 func (r *mutationResolver) StudentVisitDelete(ctx context.Context, id string) (*models.StudentVisitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.StudentVisitDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.StudentVisitPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // StudentVisitPublishUpdate is the resolver for the studentVisitPublishUpdate field.
 func (r *mutationResolver) StudentVisitPublishUpdate(ctx context.Context, id string) (*models.StudentVisitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.StudentVisitPublish(id)
 }
 
 // StudentVisitSave is the resolver for the studentVisitSave field.
 func (r *mutationResolver) StudentVisitSave(ctx context.Context, studentVisitInput models.StudentVisitInput) (*models.StudentVisitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, studentVisitInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.StudentVisitSave(ctx, studentVisitInput)
 }
 
 // StudentVisitUpdate is the resolver for the studentVisitUpdate field.
 func (r *mutationResolver) StudentVisitUpdate(ctx context.Context, studentVisitInput models.StudentVisitInputWithID) (*models.StudentVisitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, studentVisitInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.StudentVisitUpdate(ctx, studentVisitInput)
 }
 
 // TaskDelete is the resolver for the taskDelete field.
@@ -904,7 +919,7 @@ func (r *queryResolver) StudentVisit(ctx context.Context, id string) (*models.St
 
 // StudentVisits is the resolver for the studentVisits field.
 func (r *queryResolver) StudentVisits(ctx context.Context, after *string, before *string, filter *models.StudentVisitFilter, first *int, last *int) (*models.StudentVisitConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.StudentVisitsRepo.GetStudentVisits(filter, first, last, after, before)
 }
 
 // Students is the resolver for the students field.
@@ -1022,6 +1037,16 @@ func (r *studentResolver) Teams(ctx context.Context, obj *models.Student) ([]*mo
 	return r.Domain.StudentsRepo.GetTeamsForStudent(obj)
 }
 
+// Student is the resolver for the student field.
+func (r *studentVisitResolver) Student(ctx context.Context, obj *models.StudentVisit) (*models.Student, error) {
+	return For(ctx).StudentLoader.Load(obj.StudentID)
+}
+
+// Training is the resolver for the training field.
+func (r *studentVisitResolver) Training(ctx context.Context, obj *models.StudentVisit) (*models.Training, error) {
+	return For(ctx).TrainingLoader.Load(obj.TrainingID)
+}
+
 // Coaches is the resolver for the coaches field.
 func (r *teamResolver) Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error) {
 	return r.Domain.TeamsRepo.GetCoachesForTeam(obj)
@@ -1078,6 +1103,9 @@ func (r *Resolver) Staff() generated.StaffResolver { return &staffResolver{r} }
 // Student returns generated.StudentResolver implementation.
 func (r *Resolver) Student() generated.StudentResolver { return &studentResolver{r} }
 
+// StudentVisit returns generated.StudentVisitResolver implementation.
+func (r *Resolver) StudentVisit() generated.StudentVisitResolver { return &studentVisitResolver{r} }
+
 // Team returns generated.TeamResolver implementation.
 func (r *Resolver) Team() generated.TeamResolver { return &teamResolver{r} }
 
@@ -1091,6 +1119,7 @@ type queryResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
 type staffResolver struct{ *Resolver }
 type studentResolver struct{ *Resolver }
+type studentVisitResolver struct{ *Resolver }
 type teamResolver struct{ *Resolver }
 type trainingResolver struct{ *Resolver }
 

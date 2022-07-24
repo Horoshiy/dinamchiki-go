@@ -18,6 +18,8 @@ type Loaders struct {
 	StadiumLoader
 	TeamLoader
 	CreatorLoader
+	StudentLoader
+	TrainingLoader
 }
 
 func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
@@ -96,6 +98,62 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			}
 
 			result := make([]*models.Creator, len(keys))
+
+			for i, id := range keys {
+				result[i] = u[id]
+			}
+
+			return result, nil
+		},
+	}
+
+	trainingLoader := TrainingLoader{
+		maxBatch: 100,
+		wait:     1 * time.Millisecond,
+		fetch: func(keys []string) ([]*models.Training, []error) {
+			var items []*models.Training
+
+			err := db.Model(&items).Where("id in (?)", pg.In(keys)).Select()
+
+			if err != nil {
+				return nil, []error{err}
+			}
+
+			u := make(map[string]*models.Training, len(items))
+
+			for _, item := range items {
+				u[item.ID] = item
+			}
+
+			result := make([]*models.Training, len(keys))
+
+			for i, id := range keys {
+				result[i] = u[id]
+			}
+
+			return result, nil
+		},
+	}
+
+	studentLoader := StudentLoader{
+		maxBatch: 100,
+		wait:     1 * time.Millisecond,
+		fetch: func(keys []string) ([]*models.Student, []error) {
+			var items []*models.Student
+
+			err := db.Model(&items).Where("id in (?)", pg.In(keys)).Select()
+
+			if err != nil {
+				return nil, []error{err}
+			}
+
+			u := make(map[string]*models.Student, len(items))
+
+			for _, item := range items {
+				u[item.ID] = item
+			}
+
+			result := make([]*models.Student, len(keys))
 
 			for i, id := range keys {
 				result[i] = u[id]
@@ -227,6 +285,8 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			StadiumLoader:    stadiumLoader,
 			TeamLoader:       teamLoader,
 			CreatorLoader:    creatorLoader,
+			StudentLoader:    studentLoader,
+			TrainingLoader:   trainingLoader,
 		})
 
 		next.ServeHTTP(w, r.WithContext(ctx))

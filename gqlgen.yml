@@ -98,3 +98,10 @@ models:
         resolver: true
       creators:
         resolver: true
+  StudentVisit:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.StudentVisit
+    fields:
+      training:
+        resolver: true
+      student:
+        resolver: true
