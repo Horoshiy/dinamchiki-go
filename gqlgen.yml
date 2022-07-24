@@ -124,3 +124,10 @@ models:
     fields:
       coach:
         resolver: true
+  CoachPaymentByTeam:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByTeam
+    fields:
+      coach:
+        resolver: true
+      team:
+        resolver: true

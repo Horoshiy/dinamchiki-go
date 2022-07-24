@@ -25,6 +25,7 @@ type Domain struct {
 	MoneyMoveRepo           postgres.MoneyMovesRepo
 	MoneyCostRepo           postgres.MoneyCostsRepo
 	CoachPaymentByMonthRepo postgres.CoachPaymentByMonthRepo
+	CoachPaymentByTeamRepo  postgres.CoachPaymentByTeamRepo
 }
 
 func NewDomain(
@@ -41,6 +42,7 @@ func NewDomain(
 	moneyMoveRepo postgres.MoneyMovesRepo,
 	moneyCostsRepo postgres.MoneyCostsRepo,
 	coachPaymentByMonthRepo postgres.CoachPaymentByMonthRepo,
+	coachPaymentByTeamRepo postgres.CoachPaymentByTeamRepo,
 ) *Domain {
 	return &Domain{
 		UsersRepo:               usersRepo,
@@ -56,5 +58,6 @@ func NewDomain(
 		MoneyMoveRepo:           moneyMoveRepo,
 		MoneyCostRepo:           moneyCostsRepo,
 		CoachPaymentByMonthRepo: coachPaymentByMonthRepo,
+		CoachPaymentByTeamRepo:  coachPaymentByTeamRepo,
 	}
 }

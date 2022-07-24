@@ -171,19 +171,6 @@ type CoachPaymentByMonthPayload struct {
 	RecordID string               `json:"recordId"`
 }
 
-type CoachPaymentByTeam struct {
-	Coach       *Staff            `json:"coach"`
-	CoachID     string            `json:"coachId"`
-	DateFinish  *time.Time        `json:"dateFinish"`
-	DateStart   *time.Time        `json:"dateStart"`
-	ID          string            `json:"id"`
-	PaymentRule *CoachPaymentRule `json:"paymentRule"`
-	Published   bool              `json:"published"`
-	Sum         *int              `json:"sum"`
-	Team        *Team             `json:"team"`
-	TeamID      *string           `json:"teamId"`
-}
-
 type CoachPaymentByTeamConnection struct {
 	Edges    []*CoachPaymentByTeamEdge `json:"edges"`
 	PageInfo *PageInfo                 `json:"pageInfo"`

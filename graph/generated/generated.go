@@ -39,6 +39,7 @@ type Config struct {
 type ResolverRoot interface {
 	Article() ArticleResolver
 	CoachPaymentByMonth() CoachPaymentByMonthResolver
+	CoachPaymentByTeam() CoachPaymentByTeamResolver
 	Creator() CreatorResolver
 	MoneyCost() MoneyCostResolver
 	MoneyMove() MoneyMoveResolver
@@ -992,6 +993,11 @@ type ArticleResolver interface {
 }
 type CoachPaymentByMonthResolver interface {
 	Coach(ctx context.Context, obj *models.CoachPaymentByMonth) (*models.Staff, error)
+}
+type CoachPaymentByTeamResolver interface {
+	Coach(ctx context.Context, obj *models.CoachPaymentByTeam) (*models.Staff, error)
+
+	Team(ctx context.Context, obj *models.CoachPaymentByTeam) (*models.Team, error)
 }
 type CreatorResolver interface {
 	User(ctx context.Context, obj *models.Creator) (*models.User, error)
@@ -14084,7 +14090,7 @@ func (ec *executionContext) _CoachPaymentByTeam_coach(ctx context.Context, field
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Coach, nil
+		return ec.resolvers.CoachPaymentByTeam().Coach(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14102,8 +14108,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_coach(ctx context.Co
 	fc = &graphql.FieldContext{
 		Object:     "CoachPaymentByTeam",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -14447,7 +14453,7 @@ func (ec *executionContext) _CoachPaymentByTeam_team(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Team, nil
+		return ec.resolvers.CoachPaymentByTeam().Team(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14465,8 +14471,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_team(ctx context.Con
 	fc = &graphql.FieldContext{
 		Object:     "CoachPaymentByTeam",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "ages":
@@ -47529,15 +47535,28 @@ func (ec *executionContext) _CoachPaymentByTeam(ctx context.Context, sel ast.Sel
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("CoachPaymentByTeam")
 		case "coach":
+			field := field
 
-			out.Values[i] = ec._CoachPaymentByTeam_coach(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._CoachPaymentByTeam_coach(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "coachId":
 
 			out.Values[i] = ec._CoachPaymentByTeam_coachId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "dateFinish":
 
@@ -47552,7 +47571,7 @@ func (ec *executionContext) _CoachPaymentByTeam(ctx context.Context, sel ast.Sel
 			out.Values[i] = ec._CoachPaymentByTeam_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "paymentRule":
 
@@ -47563,16 +47582,29 @@ func (ec *executionContext) _CoachPaymentByTeam(ctx context.Context, sel ast.Sel
 			out.Values[i] = ec._CoachPaymentByTeam_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "sum":
 
 			out.Values[i] = ec._CoachPaymentByTeam_sum(ctx, field, obj)
 
 		case "team":
+			field := field
 
-			out.Values[i] = ec._CoachPaymentByTeam_team(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._CoachPaymentByTeam_team(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "teamId":
 
 			out.Values[i] = ec._CoachPaymentByTeam_teamId(ctx, field, obj)
