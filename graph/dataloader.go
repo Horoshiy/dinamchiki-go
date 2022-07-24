@@ -15,6 +15,8 @@ type Loaders struct {
 	PlaceLoader
 	StaffSliceLoader
 	StaffLoader
+	StadiumLoader
+	TeamLoader
 }
 
 func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
@@ -74,6 +76,34 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 		},
 	}
 
+	stadiumLoader := StadiumLoader{
+		maxBatch: 100,
+		wait:     1 * time.Millisecond,
+		fetch: func(keys []string) ([]*models.Stadium, []error) {
+			var items []*models.Stadium
+
+			err := db.Model(&items).Where("id in (?)", pg.In(keys)).Select()
+
+			if err != nil {
+				return nil, []error{err}
+			}
+
+			u := make(map[string]*models.Stadium, len(items))
+
+			for _, item := range items {
+				u[item.ID] = item
+			}
+
+			result := make([]*models.Stadium, len(keys))
+
+			for i, id := range keys {
+				result[i] = u[id]
+			}
+
+			return result, nil
+		},
+	}
+
 	staffLoader := StaffLoader{
 		maxBatch: 100,
 		wait:     1 * time.Millisecond,
@@ -93,6 +123,34 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			}
 
 			result := make([]*models.Staff, len(keys))
+
+			for i, id := range keys {
+				result[i] = u[id]
+			}
+
+			return result, nil
+		},
+	}
+
+	teamLoader := TeamLoader{
+		maxBatch: 100,
+		wait:     1 * time.Millisecond,
+		fetch: func(keys []string) ([]*models.Team, []error) {
+			var items []*models.Team
+
+			err := db.Model(&items).Where("id in (?)", pg.In(keys)).Select()
+
+			if err != nil {
+				return nil, []error{err}
+			}
+
+			u := make(map[string]*models.Team, len(items))
+
+			for _, item := range items {
+				u[item.ID] = item
+			}
+
+			result := make([]*models.Team, len(keys))
 
 			for i, id := range keys {
 				result[i] = u[id]
@@ -137,6 +195,8 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			PlaceLoader:      placeLoader,
 			StaffSliceLoader: staffSliceLoader,
 			StaffLoader:      staffLoader,
+			StadiumLoader:    stadiumLoader,
+			TeamLoader:       teamLoader,
 		})
 
 		next.ServeHTTP(w, r.WithContext(ctx))

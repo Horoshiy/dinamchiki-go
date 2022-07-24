@@ -43,6 +43,7 @@ type ResolverRoot interface {
 	Stadium() StadiumResolver
 	Staff() StaffResolver
 	Team() TeamResolver
+	Training() TrainingResolver
 }
 
 type DirectiveRoot struct {
@@ -544,72 +545,72 @@ type ComplexityRoot struct {
 
 	Query struct {
 		Article                 func(childComplexity int, id string) int
-		Articles                func(childComplexity int, filter *models.ArticleFilter, first *int, after *string, last *int, before *string) int
+		Articles                func(childComplexity int, after *string, before *string, filter *models.ArticleFilter, first *int, last *int) int
 		Cart                    func(childComplexity int, id string) int
 		CartAll                 func(childComplexity int) int
-		Carts                   func(childComplexity int, filter *models.CartFilter, first *int, after *string, last *int, before *string) int
+		Carts                   func(childComplexity int, after *string, before *string, filter *models.CartFilter, first *int, last *int) int
 		ClubBalance             func(childComplexity int, id string) int
-		ClubBalances            func(childComplexity int, filter *models.ClubBalanceFilter, first *int, after *string, last *int, before *string) int
+		ClubBalances            func(childComplexity int, after *string, before *string, filter *models.ClubBalanceFilter, first *int, last *int) int
 		CoachPaymentByMonth     func(childComplexity int, id string) int
 		CoachPaymentByTeam      func(childComplexity int, id string) int
 		CoachPaymentByTraining  func(childComplexity int, id string) int
-		CoachPaymentsByMonth    func(childComplexity int, filter *models.CoachPaymentByMonthFilter, first *int, after *string, last *int, before *string) int
-		CoachPaymentsByTeam     func(childComplexity int, filter *models.CoachPaymentByTeamFilter, first *int, after *string, last *int, before *string) int
-		CoachPaymentsByTraining func(childComplexity int, filter *models.CoachPaymentByTrainingFilter, first *int, after *string, last *int, before *string) int
+		CoachPaymentsByMonth    func(childComplexity int, after *string, before *string, filter *models.CoachPaymentByMonthFilter, first *int, last *int) int
+		CoachPaymentsByTeam     func(childComplexity int, after *string, before *string, filter *models.CoachPaymentByTeamFilter, first *int, last *int) int
+		CoachPaymentsByTraining func(childComplexity int, after *string, before *string, filter *models.CoachPaymentByTrainingFilter, first *int, last *int) int
 		Creator                 func(childComplexity int, id *string) int
 		CreatorAll              func(childComplexity int) int
-		Creators                func(childComplexity int, filter *models.CreatorFilter, first *int, after *string, last *int, before *string) int
-		CurrentTasks            func(childComplexity int, filter *models.TaskFilter, first *int, after *string, last *int, before *string) int
+		Creators                func(childComplexity int, after *string, before *string, filter *models.CreatorFilter, first *int, last *int) int
+		CurrentTasks            func(childComplexity int, after *string, before *string, filter *models.TaskFilter, first *int, last *int) int
 		Kit                     func(childComplexity int, id string) int
 		KitAll                  func(childComplexity int) int
-		Kits                    func(childComplexity int, filter *models.KitFilter, first *int, after *string, last *int, before *string) int
+		Kits                    func(childComplexity int, after *string, before *string, filter *models.KitFilter, first *int, last *int) int
 		Lead                    func(childComplexity int, id string) int
 		LeadAll                 func(childComplexity int) int
-		Leads                   func(childComplexity int, filter *models.LeadFilter, first *int, after *string, last *int, before *string) int
+		Leads                   func(childComplexity int, after *string, before *string, filter *models.LeadFilter, first *int, last *int) int
 		MoneyCost               func(childComplexity int, id string) int
-		MoneyCosts              func(childComplexity int, filter *models.MoneyCostFilter, first *int, after *string, last *int, before *string) int
+		MoneyCosts              func(childComplexity int, after *string, before *string, filter *models.MoneyCostFilter, first *int, last *int) int
 		MoneyMove               func(childComplexity int, id string) int
-		MoneyMoves              func(childComplexity int, filter *models.MoneyMoveFilter, first *int, after *string, last *int, before *string) int
-		NearestStaffBirthdays   func(childComplexity int, filter *models.StaffFilter, first *int, after *string, last *int, before *string) int
-		NearestStudentBirthdays func(childComplexity int, filter *models.StudentFilter, first *int, after *string, last *int, before *string) int
+		MoneyMoves              func(childComplexity int, after *string, before *string, filter *models.MoneyMoveFilter, first *int, last *int) int
+		NearestStaffBirthdays   func(childComplexity int, after *string, before *string, filter *models.StaffFilter, first *int, last *int) int
+		NearestStudentBirthdays func(childComplexity int, after *string, before *string, filter *models.StudentFilter, first *int, last *int) int
 		Order                   func(childComplexity int, id string) int
-		Orders                  func(childComplexity int, filter *models.OrderFilter, first *int, after *string, last *int, before *string) int
+		Orders                  func(childComplexity int, after *string, before *string, filter *models.OrderFilter, first *int, last *int) int
 		Place                   func(childComplexity int, id string) int
 		PlaceAll                func(childComplexity int) int
-		Places                  func(childComplexity int, filter *models.PlaceFilter, first *int, after *string, last *int, before *string) int
+		Places                  func(childComplexity int, after *string, before *string, filter *models.PlaceFilter, first *int, last *int) int
 		RentPaymentByMonth      func(childComplexity int, id string) int
 		RentPaymentByTraining   func(childComplexity int, id string) int
-		RentPaymentsByMonth     func(childComplexity int, filter *models.RentPaymentByMonthFilter, first *int, after *string, last *int, before *string) int
-		RentPaymentsByTraining  func(childComplexity int, filter *models.RentPaymentByTrainingFilter, first *int, after *string, last *int, before *string) int
+		RentPaymentsByMonth     func(childComplexity int, after *string, before *string, filter *models.RentPaymentByMonthFilter, first *int, last *int) int
+		RentPaymentsByTraining  func(childComplexity int, after *string, before *string, filter *models.RentPaymentByTrainingFilter, first *int, last *int) int
 		Stadium                 func(childComplexity int, id string) int
 		StadiumAll              func(childComplexity int) int
-		Stadiums                func(childComplexity int, filter *models.StadiumFilter, first *int, after *string, last *int, before *string) int
-		Staff                   func(childComplexity int, filter *models.StaffFilter, first *int, after *string, last *int, before *string) int
+		Stadiums                func(childComplexity int, after *string, before *string, filter *models.StadiumFilter, first *int, last *int) int
+		Staff                   func(childComplexity int, after *string, before *string, filter *models.StaffFilter, first *int, last *int) int
 		StaffAll                func(childComplexity int) int
 		StaffPerson             func(childComplexity int, id string) int
 		Student                 func(childComplexity int, id string) int
 		StudentAll              func(childComplexity int) int
 		StudentVisit            func(childComplexity int, id string) int
-		StudentVisits           func(childComplexity int, filter *models.StudentVisitFilter, first *int, after *string, last *int, before *string) int
-		Students                func(childComplexity int, filter *models.StudentFilter, first *int, after *string, last *int, before *string) int
+		StudentVisits           func(childComplexity int, after *string, before *string, filter *models.StudentVisitFilter, first *int, last *int) int
+		Students                func(childComplexity int, after *string, before *string, filter *models.StudentFilter, first *int, last *int) int
 		Task                    func(childComplexity int, id string) int
-		Tasks                   func(childComplexity int, filter *models.TaskFilter, first *int, after *string, last *int, before *string) int
+		Tasks                   func(childComplexity int, after *string, before *string, filter *models.TaskFilter, first *int, last *int) int
 		Team                    func(childComplexity int, id string) int
 		TeamAll                 func(childComplexity int) int
 		TeamBalance             func(childComplexity int, id string) int
-		TeamBalances            func(childComplexity int, filter *models.TeamBalanceFilter, first *int, after *string, last *int, before *string) int
-		Teams                   func(childComplexity int, filter *models.TeamFilter, first *int, after *string, last *int, before *string) int
-		TimeTable               func(childComplexity int, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) int
+		TeamBalances            func(childComplexity int, after *string, before *string, filter *models.TeamBalanceFilter, first *int, last *int) int
+		Teams                   func(childComplexity int, after *string, before *string, filter *models.TeamFilter, first *int, last *int) int
+		TimeTable               func(childComplexity int, after *string, before *string, filter *models.TrainingFilter, first *int, last *int) int
 		Training                func(childComplexity int, id string) int
 		TrainingAll             func(childComplexity int) int
 		TrainingDay             func(childComplexity int, id string) int
-		TrainingDays            func(childComplexity int, filter *models.TrainingDayFilter, first *int, after *string, last *int, before *string) int
-		Trainings               func(childComplexity int, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) int
-		TrainingsByDay          func(childComplexity int, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) int
-		UnPayedStudents         func(childComplexity int, filter *models.StudentFilter, first *int, after *string, last *int, before *string) int
+		TrainingDays            func(childComplexity int, after *string, before *string, filter *models.TrainingDayFilter, first *int, last *int) int
+		Trainings               func(childComplexity int, after *string, before *string, filter *models.TrainingFilter, first *int, last *int) int
+		TrainingsByDay          func(childComplexity int, after *string, before *string, filter *models.TrainingFilter, first *int, last *int) int
+		UnPayedStudents         func(childComplexity int, after *string, before *string, filter *models.StudentFilter, first *int, last *int) int
 		User                    func(childComplexity int, id string) int
 		UserAll                 func(childComplexity int) int
-		Users                   func(childComplexity int, filter *models.UserFilter, first *int, after *string, last *int, before *string) int
+		Users                   func(childComplexity int, after *string, before *string, filter *models.UserFilter, first *int, last *int) int
 	}
 
 	RentPaymentByMonth struct {
@@ -984,8 +985,6 @@ type ArticleResolver interface {
 	Author(ctx context.Context, obj *models.Article) (*models.User, error)
 }
 type MutationResolver interface {
-	Register(ctx context.Context, input models.RegisterInput) (*models.AuthResponse, error)
-	Login(ctx context.Context, input models.LoginInput) (*models.AuthResponse, error)
 	ArticleDelete(ctx context.Context, id string) (*models.ArticlePayload, error)
 	ArticlePublishUpdate(ctx context.Context, id string) (*models.ArticlePayload, error)
 	ArticleSave(ctx context.Context, articleInput models.ArticleInput) (*models.ArticlePayload, error)
@@ -1022,6 +1021,7 @@ type MutationResolver interface {
 	LeadPublishUpdate(ctx context.Context, id string) (*models.LeadPayload, error)
 	LeadSave(ctx context.Context, leadInput models.LeadInput) (*models.LeadPayload, error)
 	LeadUpdate(ctx context.Context, leadInput models.LeadInputWithID) (*models.LeadPayload, error)
+	Login(ctx context.Context, input models.LoginInput) (*models.AuthResponse, error)
 	MoneyCostDelete(ctx context.Context, id string) (*models.MoneyCostPayload, error)
 	MoneyCostPublishUpdate(ctx context.Context, id string) (*models.MoneyCostPayload, error)
 	MoneyCostSave(ctx context.Context, moneyCostInput models.MoneyCostInput) (*models.MoneyCostPayload, error)
@@ -1039,6 +1039,7 @@ type MutationResolver interface {
 	PlaceSave(ctx context.Context, placeInput models.PlaceInput) (*models.PlacePayload, error)
 	PlaceUpdate(ctx context.Context, placeInput models.PlaceInputWithID) (*models.PlacePayload, error)
 	Refresh(ctx context.Context, phone string, token string) (*models.Token, error)
+	Register(ctx context.Context, input models.RegisterInput) (*models.AuthResponse, error)
 	RentPaymentByMonthDelete(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error)
 	RentPaymentByMonthPublishUpdate(ctx context.Context, id string) (*models.RentPaymentByMonthPayload, error)
 	RentPaymentByMonthSave(ctx context.Context, rentPaymentInput models.RentPaymentByMonthInput) (*models.RentPaymentByMonthPayload, error)
@@ -1055,14 +1056,14 @@ type MutationResolver interface {
 	StaffPublishUpdate(ctx context.Context, id string) (*models.StaffPayload, error)
 	StaffSave(ctx context.Context, staffInput models.StaffInput) (*models.StaffPayload, error)
 	StaffUpdate(ctx context.Context, staffInput models.StaffInputWithID) (*models.StaffPayload, error)
-	StudentVisitDelete(ctx context.Context, id string) (*models.StudentVisitPayload, error)
-	StudentVisitPublishUpdate(ctx context.Context, id string) (*models.StudentVisitPayload, error)
-	StudentVisitSave(ctx context.Context, studentVisitInput models.StudentVisitInput) (*models.StudentVisitPayload, error)
-	StudentVisitUpdate(ctx context.Context, studentVisitInput models.StudentVisitInputWithID) (*models.StudentVisitPayload, error)
 	StudentDelete(ctx context.Context, id string) (*models.StudentPayload, error)
 	StudentPublishUpdate(ctx context.Context, id string) (*models.StudentPayload, error)
 	StudentSave(ctx context.Context, studentInput models.StudentInput) (*models.StudentPayload, error)
 	StudentUpdate(ctx context.Context, studentInput models.StudentInputWithID) (*models.StudentPayload, error)
+	StudentVisitDelete(ctx context.Context, id string) (*models.StudentVisitPayload, error)
+	StudentVisitPublishUpdate(ctx context.Context, id string) (*models.StudentVisitPayload, error)
+	StudentVisitSave(ctx context.Context, studentVisitInput models.StudentVisitInput) (*models.StudentVisitPayload, error)
+	StudentVisitUpdate(ctx context.Context, studentVisitInput models.StudentVisitInputWithID) (*models.StudentVisitPayload, error)
 	TaskDelete(ctx context.Context, id string) (*models.TaskPayload, error)
 	TaskPublishUpdate(ctx context.Context, id string) (*models.TaskPayload, error)
 	TaskSave(ctx context.Context, taskInput models.TaskInput) (*models.TaskPayload, error)
@@ -1090,72 +1091,72 @@ type MutationResolver interface {
 }
 type QueryResolver interface {
 	Article(ctx context.Context, id string) (*models.Article, error)
-	Articles(ctx context.Context, filter *models.ArticleFilter, first *int, after *string, last *int, before *string) (*models.ArticleConnection, error)
+	Articles(ctx context.Context, after *string, before *string, filter *models.ArticleFilter, first *int, last *int) (*models.ArticleConnection, error)
 	Cart(ctx context.Context, id string) (*models.Cart, error)
-	Carts(ctx context.Context, filter *models.CartFilter, first *int, after *string, last *int, before *string) (*models.CartConnection, error)
+	CartAll(ctx context.Context) ([]*models.CartDto, error)
+	Carts(ctx context.Context, after *string, before *string, filter *models.CartFilter, first *int, last *int) (*models.CartConnection, error)
 	ClubBalance(ctx context.Context, id string) (*models.ClubBalance, error)
-	ClubBalances(ctx context.Context, filter *models.ClubBalanceFilter, first *int, after *string, last *int, before *string) (*models.ClubBalanceConnection, error)
+	ClubBalances(ctx context.Context, after *string, before *string, filter *models.ClubBalanceFilter, first *int, last *int) (*models.ClubBalanceConnection, error)
 	CoachPaymentByMonth(ctx context.Context, id string) (*models.CoachPaymentByMonth, error)
 	CoachPaymentByTeam(ctx context.Context, id string) (*models.CoachPaymentByTeam, error)
 	CoachPaymentByTraining(ctx context.Context, id string) (*models.CoachPaymentByTraining, error)
-	CoachPaymentsByMonth(ctx context.Context, filter *models.CoachPaymentByMonthFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByMonthConnection, error)
-	CoachPaymentsByTeam(ctx context.Context, filter *models.CoachPaymentByTeamFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByTeamConnection, error)
-	CoachPaymentsByTraining(ctx context.Context, filter *models.CoachPaymentByTrainingFilter, first *int, after *string, last *int, before *string) (*models.CoachPaymentByTrainingConnection, error)
+	CoachPaymentsByMonth(ctx context.Context, after *string, before *string, filter *models.CoachPaymentByMonthFilter, first *int, last *int) (*models.CoachPaymentByMonthConnection, error)
+	CoachPaymentsByTeam(ctx context.Context, after *string, before *string, filter *models.CoachPaymentByTeamFilter, first *int, last *int) (*models.CoachPaymentByTeamConnection, error)
+	CoachPaymentsByTraining(ctx context.Context, after *string, before *string, filter *models.CoachPaymentByTrainingFilter, first *int, last *int) (*models.CoachPaymentByTrainingConnection, error)
 	Creator(ctx context.Context, id *string) (*models.Creator, error)
-	Creators(ctx context.Context, filter *models.CreatorFilter, first *int, after *string, last *int, before *string) (*models.CreatorConnection, error)
+	CreatorAll(ctx context.Context) ([]*models.CreatorDto, error)
+	Creators(ctx context.Context, after *string, before *string, filter *models.CreatorFilter, first *int, last *int) (*models.CreatorConnection, error)
+	CurrentTasks(ctx context.Context, after *string, before *string, filter *models.TaskFilter, first *int, last *int) (*models.TaskConnection, error)
 	Kit(ctx context.Context, id string) (*models.Kit, error)
-	Kits(ctx context.Context, filter *models.KitFilter, first *int, after *string, last *int, before *string) (*models.KitConnection, error)
+	KitAll(ctx context.Context) ([]*models.KitDto, error)
+	Kits(ctx context.Context, after *string, before *string, filter *models.KitFilter, first *int, last *int) (*models.KitConnection, error)
 	Lead(ctx context.Context, id string) (*models.Lead, error)
-	Leads(ctx context.Context, filter *models.LeadFilter, first *int, after *string, last *int, before *string) (*models.LeadConnection, error)
+	LeadAll(ctx context.Context) ([]*models.LeadDto, error)
+	Leads(ctx context.Context, after *string, before *string, filter *models.LeadFilter, first *int, last *int) (*models.LeadConnection, error)
 	MoneyCost(ctx context.Context, id string) (*models.MoneyCost, error)
-	MoneyCosts(ctx context.Context, filter *models.MoneyCostFilter, first *int, after *string, last *int, before *string) (*models.MoneyCostConnection, error)
+	MoneyCosts(ctx context.Context, after *string, before *string, filter *models.MoneyCostFilter, first *int, last *int) (*models.MoneyCostConnection, error)
 	MoneyMove(ctx context.Context, id string) (*models.MoneyMove, error)
-	MoneyMoves(ctx context.Context, filter *models.MoneyMoveFilter, first *int, after *string, last *int, before *string) (*models.MoneyMoveConnection, error)
+	MoneyMoves(ctx context.Context, after *string, before *string, filter *models.MoneyMoveFilter, first *int, last *int) (*models.MoneyMoveConnection, error)
+	NearestStaffBirthdays(ctx context.Context, after *string, before *string, filter *models.StaffFilter, first *int, last *int) (*models.StaffConnection, error)
+	NearestStudentBirthdays(ctx context.Context, after *string, before *string, filter *models.StudentFilter, first *int, last *int) (*models.StudentConnection, error)
 	Order(ctx context.Context, id string) (*models.Order, error)
-	Orders(ctx context.Context, filter *models.OrderFilter, first *int, after *string, last *int, before *string) (*models.OrderConnection, error)
+	Orders(ctx context.Context, after *string, before *string, filter *models.OrderFilter, first *int, last *int) (*models.OrderConnection, error)
 	Place(ctx context.Context, id string) (*models.Place, error)
-	Places(ctx context.Context, filter *models.PlaceFilter, first *int, after *string, last *int, before *string) (*models.PlaceConnection, error)
+	PlaceAll(ctx context.Context) ([]*models.PlaceDto, error)
+	Places(ctx context.Context, after *string, before *string, filter *models.PlaceFilter, first *int, last *int) (*models.PlaceConnection, error)
 	RentPaymentByMonth(ctx context.Context, id string) (*models.RentPaymentByMonth, error)
 	RentPaymentByTraining(ctx context.Context, id string) (*models.RentPaymentByTraining, error)
-	RentPaymentsByMonth(ctx context.Context, filter *models.RentPaymentByMonthFilter, first *int, after *string, last *int, before *string) (*models.RentPaymentByMonthConnection, error)
-	RentPaymentsByTraining(ctx context.Context, filter *models.RentPaymentByTrainingFilter, first *int, after *string, last *int, before *string) (*models.RentPaymentByTrainingConnection, error)
+	RentPaymentsByMonth(ctx context.Context, after *string, before *string, filter *models.RentPaymentByMonthFilter, first *int, last *int) (*models.RentPaymentByMonthConnection, error)
+	RentPaymentsByTraining(ctx context.Context, after *string, before *string, filter *models.RentPaymentByTrainingFilter, first *int, last *int) (*models.RentPaymentByTrainingConnection, error)
 	Stadium(ctx context.Context, id string) (*models.Stadium, error)
-	Stadiums(ctx context.Context, filter *models.StadiumFilter, first *int, after *string, last *int, before *string) (*models.StadiumConnection, error)
-	Staff(ctx context.Context, filter *models.StaffFilter, first *int, after *string, last *int, before *string) (*models.StaffConnection, error)
+	StadiumAll(ctx context.Context) ([]*models.StadiumDto, error)
+	Stadiums(ctx context.Context, after *string, before *string, filter *models.StadiumFilter, first *int, last *int) (*models.StadiumConnection, error)
+	Staff(ctx context.Context, after *string, before *string, filter *models.StaffFilter, first *int, last *int) (*models.StaffConnection, error)
+	StaffAll(ctx context.Context) ([]*models.StaffDto, error)
 	StaffPerson(ctx context.Context, id string) (*models.Staff, error)
 	Student(ctx context.Context, id string) (*models.Student, error)
-	StudentVisit(ctx context.Context, id string) (*models.StudentVisit, error)
-	StudentVisits(ctx context.Context, filter *models.StudentVisitFilter, first *int, after *string, last *int, before *string) (*models.StudentVisitConnection, error)
-	Students(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error)
-	Task(ctx context.Context, id string) (*models.Task, error)
-	NearestStudentBirthdays(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error)
-	NearestStaffBirthdays(ctx context.Context, filter *models.StaffFilter, first *int, after *string, last *int, before *string) (*models.StaffConnection, error)
-	UnPayedStudents(ctx context.Context, filter *models.StudentFilter, first *int, after *string, last *int, before *string) (*models.StudentConnection, error)
-	CurrentTasks(ctx context.Context, filter *models.TaskFilter, first *int, after *string, last *int, before *string) (*models.TaskConnection, error)
-	TimeTable(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error)
-	TrainingsByDay(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error)
-	Tasks(ctx context.Context, filter *models.TaskFilter, first *int, after *string, last *int, before *string) (*models.TaskConnection, error)
-	Team(ctx context.Context, id string) (*models.Team, error)
-	TeamBalance(ctx context.Context, id string) (*models.TeamBalance, error)
-	TeamBalances(ctx context.Context, filter *models.TeamBalanceFilter, first *int, after *string, last *int, before *string) (*models.TeamBalanceConnection, error)
-	Teams(ctx context.Context, filter *models.TeamFilter, first *int, after *string, last *int, before *string) (*models.TeamConnection, error)
-	Training(ctx context.Context, id string) (*models.Training, error)
-	TrainingDay(ctx context.Context, id string) (*models.TrainingDay, error)
-	TrainingDays(ctx context.Context, filter *models.TrainingDayFilter, first *int, after *string, last *int, before *string) (*models.TrainingDayConnection, error)
-	Trainings(ctx context.Context, filter *models.TrainingFilter, first *int, after *string, last *int, before *string) (*models.TrainingConnection, error)
-	User(ctx context.Context, id string) (*models.User, error)
-	Users(ctx context.Context, filter *models.UserFilter, first *int, after *string, last *int, before *string) (*models.UserConnection, error)
-	UserAll(ctx context.Context) ([]*models.UserDto, error)
-	CartAll(ctx context.Context) ([]*models.CartDto, error)
-	CreatorAll(ctx context.Context) ([]*models.CreatorDto, error)
-	KitAll(ctx context.Context) ([]*models.KitDto, error)
-	LeadAll(ctx context.Context) ([]*models.LeadDto, error)
-	PlaceAll(ctx context.Context) ([]*models.PlaceDto, error)
-	StadiumAll(ctx context.Context) ([]*models.StadiumDto, error)
-	StaffAll(ctx context.Context) ([]*models.StaffDto, error)
 	StudentAll(ctx context.Context) ([]*models.StudentDto, error)
+	StudentVisit(ctx context.Context, id string) (*models.StudentVisit, error)
+	StudentVisits(ctx context.Context, after *string, before *string, filter *models.StudentVisitFilter, first *int, last *int) (*models.StudentVisitConnection, error)
+	Students(ctx context.Context, after *string, before *string, filter *models.StudentFilter, first *int, last *int) (*models.StudentConnection, error)
+	Task(ctx context.Context, id string) (*models.Task, error)
+	Tasks(ctx context.Context, after *string, before *string, filter *models.TaskFilter, first *int, last *int) (*models.TaskConnection, error)
+	Team(ctx context.Context, id string) (*models.Team, error)
 	TeamAll(ctx context.Context) ([]*models.TeamDto, error)
+	TeamBalance(ctx context.Context, id string) (*models.TeamBalance, error)
+	TeamBalances(ctx context.Context, after *string, before *string, filter *models.TeamBalanceFilter, first *int, last *int) (*models.TeamBalanceConnection, error)
+	Teams(ctx context.Context, after *string, before *string, filter *models.TeamFilter, first *int, last *int) (*models.TeamConnection, error)
+	TimeTable(ctx context.Context, after *string, before *string, filter *models.TrainingFilter, first *int, last *int) (*models.TrainingConnection, error)
+	Training(ctx context.Context, id string) (*models.Training, error)
 	TrainingAll(ctx context.Context) ([]*models.TrainingDto, error)
+	TrainingDay(ctx context.Context, id string) (*models.TrainingDay, error)
+	TrainingDays(ctx context.Context, after *string, before *string, filter *models.TrainingDayFilter, first *int, last *int) (*models.TrainingDayConnection, error)
+	Trainings(ctx context.Context, after *string, before *string, filter *models.TrainingFilter, first *int, last *int) (*models.TrainingConnection, error)
+	TrainingsByDay(ctx context.Context, after *string, before *string, filter *models.TrainingFilter, first *int, last *int) (*models.TrainingConnection, error)
+	UnPayedStudents(ctx context.Context, after *string, before *string, filter *models.StudentFilter, first *int, last *int) (*models.StudentConnection, error)
+	User(ctx context.Context, id string) (*models.User, error)
+	UserAll(ctx context.Context) ([]*models.UserDto, error)
+	Users(ctx context.Context, after *string, before *string, filter *models.UserFilter, first *int, last *int) (*models.UserConnection, error)
 }
 type StadiumResolver interface {
 	Place(ctx context.Context, obj *models.Stadium) (*models.Place, error)
@@ -1164,11 +1165,18 @@ type StaffResolver interface {
 	User(ctx context.Context, obj *models.Staff) (*models.User, error)
 }
 type TeamResolver interface {
+	Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error)
 	HeadCoach(ctx context.Context, obj *models.Team) (*models.Staff, error)
 
-	Coaches(ctx context.Context, obj *models.Team) ([]*models.Staff, error)
-
 	Place(ctx context.Context, obj *models.Team) (*models.Place, error)
+}
+type TrainingResolver interface {
+	Coaches(ctx context.Context, obj *models.Training) ([]*models.Staff, error)
+	HeadCoach(ctx context.Context, obj *models.Training) (*models.Staff, error)
+
+	Stadium(ctx context.Context, obj *models.Training) (*models.Stadium, error)
+
+	Team(ctx context.Context, obj *models.Training) (*models.Team, error)
 }
 
 type executableSchema struct {
@@ -3886,7 +3894,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Articles(childComplexity, args["filter"].(*models.ArticleFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Articles(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.ArticleFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.cart":
 		if e.complexity.Query.Cart == nil {
@@ -3917,7 +3925,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Carts(childComplexity, args["filter"].(*models.CartFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Carts(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.CartFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.clubBalance":
 		if e.complexity.Query.ClubBalance == nil {
@@ -3941,7 +3949,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.ClubBalances(childComplexity, args["filter"].(*models.ClubBalanceFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.ClubBalances(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.ClubBalanceFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.coachPaymentByMonth":
 		if e.complexity.Query.CoachPaymentByMonth == nil {
@@ -3989,7 +3997,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.CoachPaymentsByMonth(childComplexity, args["filter"].(*models.CoachPaymentByMonthFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.CoachPaymentsByMonth(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.CoachPaymentByMonthFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.coachPaymentsByTeam":
 		if e.complexity.Query.CoachPaymentsByTeam == nil {
@@ -4001,7 +4009,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.CoachPaymentsByTeam(childComplexity, args["filter"].(*models.CoachPaymentByTeamFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.CoachPaymentsByTeam(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.CoachPaymentByTeamFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.coachPaymentsByTraining":
 		if e.complexity.Query.CoachPaymentsByTraining == nil {
@@ -4013,7 +4021,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.CoachPaymentsByTraining(childComplexity, args["filter"].(*models.CoachPaymentByTrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.CoachPaymentsByTraining(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.CoachPaymentByTrainingFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.creator":
 		if e.complexity.Query.Creator == nil {
@@ -4044,7 +4052,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Creators(childComplexity, args["filter"].(*models.CreatorFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Creators(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.CreatorFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.currentTasks":
 		if e.complexity.Query.CurrentTasks == nil {
@@ -4056,7 +4064,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.CurrentTasks(childComplexity, args["filter"].(*models.TaskFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.CurrentTasks(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.TaskFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.kit":
 		if e.complexity.Query.Kit == nil {
@@ -4087,7 +4095,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Kits(childComplexity, args["filter"].(*models.KitFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Kits(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.KitFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.lead":
 		if e.complexity.Query.Lead == nil {
@@ -4118,7 +4126,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Leads(childComplexity, args["filter"].(*models.LeadFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Leads(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.LeadFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.moneyCost":
 		if e.complexity.Query.MoneyCost == nil {
@@ -4142,7 +4150,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.MoneyCosts(childComplexity, args["filter"].(*models.MoneyCostFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.MoneyCosts(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.MoneyCostFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.moneyMove":
 		if e.complexity.Query.MoneyMove == nil {
@@ -4166,7 +4174,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.MoneyMoves(childComplexity, args["filter"].(*models.MoneyMoveFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.MoneyMoves(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.MoneyMoveFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.nearestStaffBirthdays":
 		if e.complexity.Query.NearestStaffBirthdays == nil {
@@ -4178,7 +4186,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.NearestStaffBirthdays(childComplexity, args["filter"].(*models.StaffFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.NearestStaffBirthdays(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.StaffFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.nearestStudentBirthdays":
 		if e.complexity.Query.NearestStudentBirthdays == nil {
@@ -4190,7 +4198,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.NearestStudentBirthdays(childComplexity, args["filter"].(*models.StudentFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.NearestStudentBirthdays(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.StudentFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.order":
 		if e.complexity.Query.Order == nil {
@@ -4214,7 +4222,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Orders(childComplexity, args["filter"].(*models.OrderFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Orders(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.OrderFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.place":
 		if e.complexity.Query.Place == nil {
@@ -4245,7 +4253,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Places(childComplexity, args["filter"].(*models.PlaceFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Places(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.PlaceFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.rentPaymentByMonth":
 		if e.complexity.Query.RentPaymentByMonth == nil {
@@ -4281,7 +4289,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.RentPaymentsByMonth(childComplexity, args["filter"].(*models.RentPaymentByMonthFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.RentPaymentsByMonth(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.RentPaymentByMonthFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.rentPaymentsByTraining":
 		if e.complexity.Query.RentPaymentsByTraining == nil {
@@ -4293,7 +4301,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.RentPaymentsByTraining(childComplexity, args["filter"].(*models.RentPaymentByTrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.RentPaymentsByTraining(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.RentPaymentByTrainingFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.stadium":
 		if e.complexity.Query.Stadium == nil {
@@ -4324,7 +4332,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Stadiums(childComplexity, args["filter"].(*models.StadiumFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Stadiums(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.StadiumFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.staff":
 		if e.complexity.Query.Staff == nil {
@@ -4336,7 +4344,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Staff(childComplexity, args["filter"].(*models.StaffFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Staff(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.StaffFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.staffAll":
 		if e.complexity.Query.StaffAll == nil {
@@ -4398,7 +4406,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.StudentVisits(childComplexity, args["filter"].(*models.StudentVisitFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.StudentVisits(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.StudentVisitFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.students":
 		if e.complexity.Query.Students == nil {
@@ -4410,7 +4418,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Students(childComplexity, args["filter"].(*models.StudentFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Students(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.StudentFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.task":
 		if e.complexity.Query.Task == nil {
@@ -4434,7 +4442,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Tasks(childComplexity, args["filter"].(*models.TaskFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Tasks(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.TaskFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.team":
 		if e.complexity.Query.Team == nil {
@@ -4477,7 +4485,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.TeamBalances(childComplexity, args["filter"].(*models.TeamBalanceFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.TeamBalances(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.TeamBalanceFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.teams":
 		if e.complexity.Query.Teams == nil {
@@ -4489,7 +4497,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Teams(childComplexity, args["filter"].(*models.TeamFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Teams(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.TeamFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.timeTable":
 		if e.complexity.Query.TimeTable == nil {
@@ -4501,7 +4509,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.TimeTable(childComplexity, args["filter"].(*models.TrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.TimeTable(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.TrainingFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.training":
 		if e.complexity.Query.Training == nil {
@@ -4544,7 +4552,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.TrainingDays(childComplexity, args["filter"].(*models.TrainingDayFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.TrainingDays(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.TrainingDayFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.trainings":
 		if e.complexity.Query.Trainings == nil {
@@ -4556,7 +4564,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Trainings(childComplexity, args["filter"].(*models.TrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Trainings(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.TrainingFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.trainingsByDay":
 		if e.complexity.Query.TrainingsByDay == nil {
@@ -4568,7 +4576,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.TrainingsByDay(childComplexity, args["filter"].(*models.TrainingFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.TrainingsByDay(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.TrainingFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.unPayedStudents":
 		if e.complexity.Query.UnPayedStudents == nil {
@@ -4580,7 +4588,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.UnPayedStudents(childComplexity, args["filter"].(*models.StudentFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.UnPayedStudents(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.StudentFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "Query.user":
 		if e.complexity.Query.User == nil {
@@ -4611,7 +4619,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.Users(childComplexity, args["filter"].(*models.UserFilter), args["first"].(*int), args["after"].(*string), args["last"].(*int), args["before"].(*string)), true
+		return e.complexity.Query.Users(childComplexity, args["after"].(*string), args["before"].(*string), args["filter"].(*models.UserFilter), args["first"].(*int), args["last"].(*int)), true
 
 	case "RentPaymentByMonth.description":
 		if e.complexity.RentPaymentByMonth.Description == nil {
@@ -6172,82 +6180,341 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "../../schema/schema.graphql", Input: `directive @hasRole(role: Role!) on FIELD_DEFINITION
-scalar Time
+	{Name: "../../schema/schema.graphql", Input: `# This file was generated based on ".graphqlconfig". Do not edit manually.
 
-type Query {
-    article(id: ID!): Article
-    articles(filter: ArticleFilter, first: Int, after: ID, last: Int, before: ID): ArticleConnection
-    cart(id: ID!): Cart
-    carts(filter: CartFilter, first: Int, after: ID, last: Int, before: ID): CartConnection
-    clubBalance(id: ID!): ClubBalance
-    clubBalances(filter: ClubBalanceFilter, first: Int, after: ID, last: Int, before: ID): ClubBalanceConnection
-    coachPaymentByMonth(id: ID!): CoachPaymentByMonth
-    coachPaymentByTeam(id: ID!): CoachPaymentByTeam
-    coachPaymentByTraining(id: ID!): CoachPaymentByTraining
-    coachPaymentsByMonth(filter: CoachPaymentByMonthFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByMonthConnection
-    coachPaymentsByTeam(filter: CoachPaymentByTeamFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByTeamConnection
-    coachPaymentsByTraining(filter: CoachPaymentByTrainingFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByTrainingConnection
-    creator(Id: ID): Creator
-    creators(filter: CreatorFilter, first: Int, after: ID, last: Int, before: ID): CreatorConnection
-    kit(id: ID!): Kit
-    kits(filter: KitFilter, first: Int, after: ID, last: Int, before: ID): KitConnection
-    lead(id: ID!): Lead
-    leads(filter: LeadFilter, first: Int, after: ID, last: Int, before: ID): LeadConnection
-    moneyCost(id: ID!): MoneyCost
-    moneyCosts(filter: MoneyCostFilter, first: Int, after: ID, last: Int, before: ID): MoneyCostConnection
-    moneyMove(id: ID!): MoneyMove
-    moneyMoves(filter: MoneyMoveFilter, first: Int, after: ID, last: Int, before: ID): MoneyMoveConnection
-    order(id: ID!): Order
-    orders(filter: OrderFilter, first: Int, after: ID, last: Int, before: ID): OrderConnection
-    place(id: ID!): Place
-    places(filter: PlaceFilter, first: Int, after: ID, last: Int, before: ID): PlaceConnection!
-    rentPaymentByMonth(id: ID!): RentPaymentByMonth
-    rentPaymentByTraining(id: ID!): RentPaymentByTraining
-    rentPaymentsByMonth(filter: RentPaymentByMonthFilter, first: Int, after: ID, last: Int, before: ID): RentPaymentByMonthConnection
-    rentPaymentsByTraining(filter: RentPaymentByTrainingFilter, first: Int, after: ID, last: Int, before: ID): RentPaymentByTrainingConnection
-    stadium(id: ID!): Stadium
-    stadiums(filter: StadiumFilter, first: Int, after: ID, last: Int, before: ID): StadiumConnection
-    staff(filter: StaffFilter, first: Int, after: ID, last: Int, before: ID): StaffConnection
-    staffPerson(id: ID!): Staff
-    student(id: ID!): Student
-    studentVisit(id: ID!): StudentVisit
-    studentVisits(filter: StudentVisitFilter, first: Int, after: ID, last: Int, before: ID): StudentVisitConnection
-    students(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
-    task(id: ID!): Task
-    nearestStudentBirthdays(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
-    nearestStaffBirthdays(filter: StaffFilter, first: Int, after: ID, last: Int, before: ID): StaffConnection
-    unPayedStudents(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
-    currentTasks(filter: TaskFilter, first: Int, after: ID, last: Int, before: ID): TaskConnection
-    timeTable(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
-    trainingsByDay(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
-    tasks(filter: TaskFilter, first: Int, after: ID, last: Int, before: ID): TaskConnection
-    team(id: ID!): Team
-    teamBalance(id: ID!): TeamBalance
-    teamBalances(filter: TeamBalanceFilter, first: Int, after: ID, last: Int, before: ID): TeamBalanceConnection
-    teams(filter: TeamFilter, first: Int, after: ID, last: Int, before: ID): TeamConnection
-    training(id: ID!): Training
-    trainingDay(id: ID!): TrainingDay
-    trainingDays(filter: TrainingDayFilter, first: Int, after: ID, last: Int, before: ID): TrainingDayConnection
-    trainings(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
-    user(id: ID!): User!
-    users(filter: UserFilter, first: Int, after: ID, last: Int, before: ID): UserConnection
-    userAll: [UserDto!]
-    cartAll: [CartDto!]
-    creatorAll: [CreatorDto!]
-    kitAll: [KitDto!]
-    leadAll: [LeadDto!]
-    placeAll: [PlaceDto!]
-    stadiumAll: [StadiumDto!]
-    staffAll: [StaffDto!]
-    studentAll: [StudentDto!]
-    teamAll: [TeamDto!]
-    trainingAll: [TrainingDto!]
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+directive @hasRole(role: Role!) on FIELD_DEFINITION
+
+type Article {
+    author: User
+    authorId: ID!
+    description: String!
+    fileName: String
+    id: ID!
+    published: Boolean!
+    tags: [String!]
+    title: String!
+}
+
+type ArticleConnection {
+    edges: [ArticleEdge!]!
+    pageInfo: PageInfo!
+}
+
+type ArticleEdge {
+    cursor: ID!
+    node: Article
+}
+
+type ArticlePayload {
+    record: Article
+    recordId: ID!
+}
+
+type AuthResponse {
+    authToken: AuthToken!
+    user: User!
+}
+
+type AuthToken {
+    accessToken: String!
+    expiredAt: Time!
+}
+
+type Cart {
+    id: ID!
+    kitIds: [ID!]!
+    published: Boolean!
+    student: Student
+    studentId: ID!
+    sum: Int!
+}
+
+type CartConnection {
+    edges: [CartEdge!]!
+    pageInfo: PageInfo
+}
+
+type CartDto {
+    id: ID!
+    name: String!
+}
+
+type CartEdge {
+    cursor: ID!
+    node: Cart
+}
+
+type CartPayload {
+    record: Cart
+    recordId: ID!
+}
+
+type ClubBalance {
+    date: Time!
+    id: ID!
+    otherCosts: Int!
+    published: Boolean!
+    rent: Int!
+    salary: Int!
+    sum: Int!
+    tickets: Int!
+}
+
+type ClubBalanceConnection {
+    edges: [ClubBalanceEdge!]!
+    pageInfo: PageInfo
+}
+
+type ClubBalanceEdge {
+    cursor: ID!
+    node: ClubBalance
+}
+
+type ClubBalancePayload {
+    record: ClubBalance
+    recordId: ID!
+}
+
+type CoachPaymentByMonth {
+    coach: Staff
+    coachId: ID!
+    date: Time
+    id: ID!
+    published: Boolean!
+    sum: Int!
+}
+
+type CoachPaymentByMonthConnection {
+    edges: [CoachPaymentByMonthEdge!]!
+    pageInfo: PageInfo
+}
+
+type CoachPaymentByMonthEdge {
+    cursor: ID!
+    node: CoachPaymentByMonth
+}
+
+type CoachPaymentByMonthPayload {
+    record: CoachPaymentByMonth
+    recordId: ID!
+}
+
+type CoachPaymentByTeam {
+    coach: Staff
+    coachId: ID!
+    dateFinish: Time
+    dateStart: Time
+    id: ID!
+    paymentRule: CoachPaymentRule
+    published: Boolean!
+    sum: Int
+    team: Team
+    teamId: ID
+}
+
+type CoachPaymentByTeamConnection {
+    edges: [CoachPaymentByTeamEdge!]!
+    pageInfo: PageInfo
+}
+
+type CoachPaymentByTeamEdge {
+    cursor: ID!
+    node: CoachPaymentByTeam
+}
+
+type CoachPaymentByTeamPayload {
+    record: CoachPaymentByTeam
+    recordId: ID!
+}
+
+type CoachPaymentByTraining {
+    coach: Staff
+    coachId: ID!
+    id: ID!
+    published: Boolean!
+    sum: Int
+    training: Training
+    trainingId: ID
+}
+
+type CoachPaymentByTrainingConnection {
+    edges: [CoachPaymentByTrainingEdge!]!
+    pageInfo: PageInfo
+}
+
+type CoachPaymentByTrainingEdge {
+    cursor: ID!
+    node: CoachPaymentByTraining
+}
+
+type CoachPaymentByTrainingPayload {
+    record: CoachPaymentByTraining
+    recordId: ID!
+}
+
+type Creator {
+    id: ID!
+    name: String!
+    passportNum: String
+    phone: String!
+    published: Boolean!
+    user: User
+    userId: ID
+}
+
+type CreatorConnection {
+    edges: [CreatorEdge!]!
+    pageInfo: PageInfo
+}
+
+type CreatorDto {
+    id: ID!
+    name: String!
+}
+
+type CreatorEdge {
+    cursor: ID!
+    node: Creator
+}
+
+type CreatorPayload {
+    record: Creator
+    recordId: ID!
+}
+
+type Kit {
+    fileName: String
+    id: ID!
+    name: String!
+    number: Int
+    price: Int!
+    published: Boolean!
+    quantity: Int
+    size: String!
+    title: String
+}
+
+type KitConnection {
+    edges: [KitEdge!]!
+    pageInfo: PageInfo
+}
+
+type KitDto {
+    id: ID!
+    name: String!
+}
+
+type KitEdge {
+    cursor: ID!
+    node: Kit
+}
+
+type KitPayload {
+    record: Kit
+    recordId: ID!
+}
+
+type Lead {
+    description: String
+    id: ID!
+    name: String
+    nextVisit: Training
+    nextVisitId: ID
+    phone: String!
+    published: Boolean!
+    source: LeadSource
+    status: LeadStatus
+    studentIds: [ID!]
+    students: [Student!]
+    team: Team
+    teamId: ID
+    yearBorn: Int
+}
+
+type LeadConnection {
+    edges: [LeadEdge!]!
+    pageInfo: PageInfo
+}
+
+type LeadDto {
+    id: ID!
+    name: String!
+}
+
+type LeadEdge {
+    cursor: ID!
+    node: Lead
+}
+
+type LeadPayload {
+    record: Lead
+    recordId: ID!
+}
+
+type MoneyCost {
+    date: Time!
+    description: String!
+    id: ID!
+    moneyForm: MoneyForm!
+    published: Boolean!
+    staff: Staff
+    staffId: ID!
+    sum: Int!
+}
+
+type MoneyCostConnection {
+    edges: [MoneyCostEdge!]!
+    pageInfo: PageInfo
+}
+
+type MoneyCostEdge {
+    cursor: ID!
+    node: MoneyCost
+}
+
+type MoneyCostPayload {
+    record: MoneyCost
+    recordId: ID!
+}
+
+type MoneyMove {
+    dateFinish: Time
+    datePayment: Time
+    dateStart: Time
+    description: String
+    id: ID!
+    moneyForm: MoneyForm
+    owner: Staff
+    ownerId: ID!
+    published: Boolean!
+    student: Student
+    studentId: ID!
+    sum: Int
+    user: User
+    userId: ID!
+}
+
+type MoneyMoveConnection {
+    edges: [MoneyMoveEdge!]!
+    pageInfo: PageInfo
+}
+
+type MoneyMoveEdge {
+    cursor: ID!
+    node: MoneyMove
+}
+
+type MoneyMovePayload {
+    record: MoneyMove
+    recordId: ID!
 }
 
 type Mutation {
-    register(input: RegisterInput!): AuthResponse!
-    login(input: LoginInput!): AuthResponse!
     articleDelete(id: ID!): ArticlePayload!
     articlePublishUpdate(id: ID!): ArticlePayload!
     articleSave(articleInput: ArticleInput!): ArticlePayload!
@@ -6284,6 +6551,7 @@ type Mutation {
     leadPublishUpdate(id: ID!): LeadPayload!
     leadSave(leadInput: LeadInput!): LeadPayload
     leadUpdate(leadInput: LeadInputWithId!): LeadPayload!
+    login(input: LoginInput!): AuthResponse!
     moneyCostDelete(id: ID!): MoneyCostPayload!
     moneyCostPublishUpdate(id: ID!): MoneyCostPayload!
     moneyCostSave(moneyCostInput: MoneyCostInput!): MoneyCostPayload!
@@ -6301,6 +6569,7 @@ type Mutation {
     placeSave(placeInput: PlaceInput!): PlacePayload!
     placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
+    register(input: RegisterInput!): AuthResponse!
     rentPaymentByMonthDelete(id: ID!): RentPaymentByMonthPayload!
     rentPaymentByMonthPublishUpdate(id: ID!): RentPaymentByMonthPayload!
     rentPaymentByMonthSave(rentPaymentInput: RentPaymentByMonthInput!): RentPaymentByMonthPayload!
@@ -6317,14 +6586,14 @@ type Mutation {
     staffPublishUpdate(id: ID!): StaffPayload!
     staffSave(staffInput: StaffInput!): StaffPayload!
     staffUpdate(staffInput: StaffInputWithId!): StaffPayload!
-    studentVisitDelete(id: ID!): StudentVisitPayload!
-    studentVisitPublishUpdate(id: ID!): StudentVisitPayload!
-    studentVisitSave(studentVisitInput: StudentVisitInput!): StudentVisitPayload!
-    studentVisitUpdate(studentVisitInput: StudentVisitInputWithId!): StudentVisitPayload!
     studentDelete(id: ID!): StudentPayload!
     studentPublishUpdate(id: ID!): StudentPayload!
     studentSave(studentInput: StudentInput!): StudentPayload!
     studentUpdate(studentInput: StudentInputWithId!): StudentPayload!
+    studentVisitDelete(id: ID!): StudentVisitPayload!
+    studentVisitPublishUpdate(id: ID!): StudentVisitPayload!
+    studentVisitSave(studentVisitInput: StudentVisitInput!): StudentVisitPayload!
+    studentVisitUpdate(studentVisitInput: StudentVisitInputWithId!): StudentVisitPayload!
     taskDelete(id: ID!): TaskPayload!
     taskPublishUpdate(id: ID!): TaskPayload!
     taskSave(taskInput: TaskInput!): TaskPayload!
@@ -6351,455 +6620,11 @@ type Mutation {
     userUpdate(userInput: UserInputWithId!): UserPayload!
 }
 
-type AuthResponse {
-    authToken: AuthToken!
-    user: User!
-}
-
-type AuthToken {
-    accessToken: String!
-    expiredAt: Time!
-}
-
-
-input LoginInput {
-    phone: String!
-    password: String!
-}
-
-input PlaceFilter {
-    name: String
-}
-
-input ArticleFilter {
-    title: String
-}
-
-input StadiumFilter {
-    name: String
-}
-
-input CartFilter {
-    name: String
-}
-
-input TrainingFilter {
-    name: String
-}
-
-input OrderFilter {
-    name: String
-}
-
-input MoneyMoveFilter {
-    name: String
-}
-
-input RentPaymentByMonthFilter {
-    name: String
-}
-
-input RentPaymentByTrainingFilter {
-    name: String
-}
-
-input MoneyCostFilter {
-    name: String
-}
-
-input RegisterInput {
-    phone: String!
-    password: String!
-    confirmPassword: String!
-    firstName: String!
-    lastName: String!
-}
-
-input TeamBalanceFilter {
-    name: String
-}
-
-input TeamFilter {
-    name: String
-}
-
-input StudentFilter {
-    name: String
-}
-
-input StaffFilter {
-    name: String
-}
-
-input UserFilter {
-    name: String
-}
-
-input TaskFilter {
-    name: String
-}
-
-input ClubBalanceFilter {
-    name: String
-}
-
-input CoachPaymentByMonthFilter {
-    name: String
-}
-
-input CoachPaymentByTeamFilter {
-    name: String
-}
-
-input CoachPaymentByTrainingFilter {
-    name: String
-}
-
-input CreatorFilter {
-    name: String
-}
-
-input LeadFilter {
-    name: String
-}
-
-input KitFilter {
-    name: String
-}
-
-input StudentVisitFilter {
-    name: String
-}
-
-input TrainingDayFilter {
-    name: String
-}
-
-type Place {
-    address: String!
-    description: String!
-    id: ID!
-    name: String!
-    orderNumber: Int!
-    published: Boolean!
-}
-
-type PlaceConnection {
-    edges: [PlaceEdge!]!
-    pageInfo: PageInfo!
-}
-
-type PlaceEdge {
-    cursor: ID!
-    node: Place
-}
-
-type PageInfo {
-    startCursor: ID!
-    endCursor: ID!
-    hasNextPage: Boolean
-}
-
-type Article {
-    author: User
-    authorId: ID!
-    description: String!
-    fileName: String
-    id: ID!
-    published: Boolean!
-    tags: [String!]
-    title: String!
-}
-
-type ArticleConnection {
-    edges: [ArticleEdge!]!
-    pageInfo: PageInfo!
-}
-
-type ArticleEdge {
-    cursor: ID!
-    node: Article
-}
-
-type ArticlePayload {
-    record: Article
-    recordId: ID!
-}
-
-type Cart {
-    id: ID!
-    kitIds: [ID!]!
-    published: Boolean!
-    studentId: ID!
-    student: Student
-    sum: Int!
-}
-
-type CartConnection {
-    edges: [CartEdge!]!
-    pageInfo: PageInfo
-}
-
-type CartEdge {
-    cursor: ID!
-    node: Cart
-}
-
-type CartPayload {
-    record: Cart
-    recordId: ID!
-}
-
-type ClubBalance {
-    date:Time!
-    id: ID!
-    otherCosts: Int!
-    published: Boolean!
-    rent: Int!
-    salary: Int!
-    sum: Int!
-    tickets: Int!
-}
-
-type ClubBalanceConnection {
-    edges: [ClubBalanceEdge!]!
-    pageInfo: PageInfo
-}
-
-type ClubBalanceEdge {
-    cursor: ID!
-    node: ClubBalance
-}
-
-type ClubBalancePayload {
-    record: ClubBalance
-    recordId: ID!
-}
-
-type CoachPaymentByMonth {
-    coach: Staff
-    coachId: ID!
-    date:Time
-    id: ID!
-    published: Boolean!
-    sum: Int!
-}
-
-type CoachPaymentByMonthConnection {
-    edges: [CoachPaymentByMonthEdge!]!
-    pageInfo: PageInfo
-}
-
-type CoachPaymentByMonthEdge {
-    cursor: ID!
-    node: CoachPaymentByMonth
-}
-
-type CoachPaymentByMonthPayload {
-    record: CoachPaymentByMonth
-    recordId: ID!
-}
-
-type CoachPaymentByTeam {
-    coach: Staff
-    coachId: ID!
-    dateFinish:Time
-    dateStart:Time
-    id: ID!
-    paymentRule: CoachPaymentRule
-    published: Boolean!
-    sum: Int
-    teamId: ID
-    team: Team
-}
-
-type CoachPaymentByTeamConnection {
-    edges: [CoachPaymentByTeamEdge!]!
-    pageInfo: PageInfo
-}
-
-type CoachPaymentByTeamEdge {
-    cursor: ID!
-    node: CoachPaymentByTeam
-}
-
-type CoachPaymentByTeamPayload {
-    record: CoachPaymentByTeam
-    recordId: ID!
-}
-
-type CoachPaymentByTraining {
-    coach: Staff
-    coachId: ID!
-    id: ID!
-    published: Boolean!
-    sum: Int
-    trainingId: ID
-    training: Training
-}
-
-type CoachPaymentByTrainingConnection {
-    edges: [CoachPaymentByTrainingEdge!]!
-    pageInfo: PageInfo
-}
-
-type CoachPaymentByTrainingEdge {
-    cursor: ID!
-    node: CoachPaymentByTraining
-}
-
-type CoachPaymentByTrainingPayload {
-    record: CoachPaymentByTraining
-    recordId: ID!
-}
-
-type Creator {
-    id: ID!
-    name: String!
-    passportNum: String
-    phone: String!
-    published: Boolean!
-    userId: ID
-    user: User
-}
-
-type CreatorConnection {
-    edges: [CreatorEdge!]!
-    pageInfo: PageInfo
-}
-
-type CreatorEdge {
-    cursor: ID!
-    node: Creator
-}
-
-type CreatorPayload {
-    record: Creator
-    recordId: ID!
-}
-
-type Kit {
-    fileName: String
-    id: ID!
-    name: String!
-    number: Int
-    price: Int!
-    published: Boolean!
-    quantity: Int
-    size: String!
-    title: String
-}
-
-type KitConnection {
-    edges: [KitEdge!]!
-    pageInfo: PageInfo
-}
-
-type KitEdge {
-    cursor: ID!
-    node: Kit
-}
-
-type KitPayload {
-    record: Kit
-    recordId: ID!
-}
-
-type Lead {
-    description: String
-    id: ID!
-    name: String
-    nextVisit: Training
-    nextVisitId: ID
-    phone: String!
-    published: Boolean!
-    source: LeadSource
-    status: LeadStatus
-    studentIds: [ID!]
-    students: [Student!]
-    teamId: ID
-    team: Team
-    yearBorn: Int
-}
-
-type LeadConnection {
-    edges: [LeadEdge!]!
-    pageInfo: PageInfo
-}
-
-type LeadEdge {
-    cursor: ID!
-    node: Lead
-}
-
-type LeadPayload {
-    record: Lead
-    recordId: ID!
-}
-
-type MoneyCost {
-    date:Time!
-    description: String!
-    id: ID!
-    moneyForm: MoneyForm!
-    published: Boolean!
-    staff: Staff
-    staffId: ID!
-    sum: Int!
-}
-
-type MoneyCostConnection {
-    edges: [MoneyCostEdge!]!
-    pageInfo: PageInfo
-}
-
-type MoneyCostEdge {
-    cursor: ID!
-    node: MoneyCost
-}
-
-type MoneyCostPayload {
-    record: MoneyCost
-    recordId: ID!
-}
-
-type MoneyMove {
-    dateFinish:Time
-    datePayment:Time
-    dateStart:Time
-    description: String
-    id: ID!
-    moneyForm: MoneyForm
-    owner: Staff
-    ownerId: ID!
-    published: Boolean!
-    studentId: ID!
-    student: Student
-    sum: Int
-    userId: ID!
-    user: User
-}
-
-type MoneyMoveConnection {
-    edges: [MoneyMoveEdge!]!
-    pageInfo: PageInfo
-}
-
-type MoneyMoveEdge {
-    cursor: ID!
-    node: MoneyMove
-}
-
-type MoneyMovePayload {
-    record: MoneyMove
-    recordId: ID!
-}
-
 type Order {
-    cartId: ID!
     cart: Cart
-    creatorId: ID!
+    cartId: ID!
     creator: Creator
+    creatorId: ID!
     fileName: String
     id: ID!
     orderStatus: OrderStatus!
@@ -6821,14 +6646,119 @@ type OrderPayload {
     recordId: ID!
 }
 
+type PageInfo {
+    endCursor: ID!
+    hasNextPage: Boolean
+    startCursor: ID!
+}
+
+type Place {
+    address: String!
+    description: String!
+    id: ID!
+    name: String!
+    orderNumber: Int!
+    published: Boolean!
+}
+
+type PlaceConnection {
+    edges: [PlaceEdge!]!
+    pageInfo: PageInfo!
+}
+
+type PlaceDto {
+    id: ID!
+    name: String!
+}
+
+type PlaceEdge {
+    cursor: ID!
+    node: Place
+}
+
+type PlacePayload {
+    record: Place!
+    recordId: ID!
+}
+
+type Query {
+    article(id: ID!): Article
+    articles(after: ID, before: ID, filter: ArticleFilter, first: Int, last: Int): ArticleConnection
+    cart(id: ID!): Cart
+    cartAll: [CartDto!]
+    carts(after: ID, before: ID, filter: CartFilter, first: Int, last: Int): CartConnection
+    clubBalance(id: ID!): ClubBalance
+    clubBalances(after: ID, before: ID, filter: ClubBalanceFilter, first: Int, last: Int): ClubBalanceConnection
+    coachPaymentByMonth(id: ID!): CoachPaymentByMonth
+    coachPaymentByTeam(id: ID!): CoachPaymentByTeam
+    coachPaymentByTraining(id: ID!): CoachPaymentByTraining
+    coachPaymentsByMonth(after: ID, before: ID, filter: CoachPaymentByMonthFilter, first: Int, last: Int): CoachPaymentByMonthConnection
+    coachPaymentsByTeam(after: ID, before: ID, filter: CoachPaymentByTeamFilter, first: Int, last: Int): CoachPaymentByTeamConnection
+    coachPaymentsByTraining(after: ID, before: ID, filter: CoachPaymentByTrainingFilter, first: Int, last: Int): CoachPaymentByTrainingConnection
+    creator(Id: ID): Creator
+    creatorAll: [CreatorDto!]
+    creators(after: ID, before: ID, filter: CreatorFilter, first: Int, last: Int): CreatorConnection
+    currentTasks(after: ID, before: ID, filter: TaskFilter, first: Int, last: Int): TaskConnection
+    kit(id: ID!): Kit
+    kitAll: [KitDto!]
+    kits(after: ID, before: ID, filter: KitFilter, first: Int, last: Int): KitConnection
+    lead(id: ID!): Lead
+    leadAll: [LeadDto!]
+    leads(after: ID, before: ID, filter: LeadFilter, first: Int, last: Int): LeadConnection
+    moneyCost(id: ID!): MoneyCost
+    moneyCosts(after: ID, before: ID, filter: MoneyCostFilter, first: Int, last: Int): MoneyCostConnection
+    moneyMove(id: ID!): MoneyMove
+    moneyMoves(after: ID, before: ID, filter: MoneyMoveFilter, first: Int, last: Int): MoneyMoveConnection
+    nearestStaffBirthdays(after: ID, before: ID, filter: StaffFilter, first: Int, last: Int): StaffConnection
+    nearestStudentBirthdays(after: ID, before: ID, filter: StudentFilter, first: Int, last: Int): StudentConnection
+    order(id: ID!): Order
+    orders(after: ID, before: ID, filter: OrderFilter, first: Int, last: Int): OrderConnection
+    place(id: ID!): Place
+    placeAll: [PlaceDto!]
+    places(after: ID, before: ID, filter: PlaceFilter, first: Int, last: Int): PlaceConnection!
+    rentPaymentByMonth(id: ID!): RentPaymentByMonth
+    rentPaymentByTraining(id: ID!): RentPaymentByTraining
+    rentPaymentsByMonth(after: ID, before: ID, filter: RentPaymentByMonthFilter, first: Int, last: Int): RentPaymentByMonthConnection
+    rentPaymentsByTraining(after: ID, before: ID, filter: RentPaymentByTrainingFilter, first: Int, last: Int): RentPaymentByTrainingConnection
+    stadium(id: ID!): Stadium
+    stadiumAll: [StadiumDto!]
+    stadiums(after: ID, before: ID, filter: StadiumFilter, first: Int, last: Int): StadiumConnection
+    staff(after: ID, before: ID, filter: StaffFilter, first: Int, last: Int): StaffConnection
+    staffAll: [StaffDto!]
+    staffPerson(id: ID!): Staff
+    student(id: ID!): Student
+    studentAll: [StudentDto!]
+    studentVisit(id: ID!): StudentVisit
+    studentVisits(after: ID, before: ID, filter: StudentVisitFilter, first: Int, last: Int): StudentVisitConnection
+    students(after: ID, before: ID, filter: StudentFilter, first: Int, last: Int): StudentConnection
+    task(id: ID!): Task
+    tasks(after: ID, before: ID, filter: TaskFilter, first: Int, last: Int): TaskConnection
+    team(id: ID!): Team
+    teamAll: [TeamDto!]
+    teamBalance(id: ID!): TeamBalance
+    teamBalances(after: ID, before: ID, filter: TeamBalanceFilter, first: Int, last: Int): TeamBalanceConnection
+    teams(after: ID, before: ID, filter: TeamFilter, first: Int, last: Int): TeamConnection
+    timeTable(after: ID, before: ID, filter: TrainingFilter, first: Int, last: Int): TrainingConnection
+    training(id: ID!): Training
+    trainingAll: [TrainingDto!]
+    trainingDay(id: ID!): TrainingDay
+    trainingDays(after: ID, before: ID, filter: TrainingDayFilter, first: Int, last: Int): TrainingDayConnection
+    trainings(after: ID, before: ID, filter: TrainingFilter, first: Int, last: Int): TrainingConnection
+    trainingsByDay(after: ID, before: ID, filter: TrainingFilter, first: Int, last: Int): TrainingConnection
+    unPayedStudents(after: ID, before: ID, filter: StudentFilter, first: Int, last: Int): StudentConnection
+    user(id: ID!): User!
+    userAll: [UserDto!]
+    users(after: ID, before: ID, filter: UserFilter, first: Int, last: Int): UserConnection
+}
+
 type RentPaymentByMonth {
     description: String
     id: ID!
-    month:Time!
-    paymentDate:Time
+    month: Time!
+    paymentDate: Time
     published: Boolean!
-    stadiumId: ID!
     stadium: Stadium
+    stadiumId: ID!
     sum: Int!
 }
 
@@ -6851,8 +6781,8 @@ type RentPaymentByTraining {
     description: String
     id: ID!
     published: Boolean!
-    stadiumId: ID!
     stadium: Stadium
+    stadiumId: ID!
     sum: Int!
     trainingIds: [ID!]!
     trainings: [Training!]
@@ -6878,14 +6808,19 @@ type Stadium {
     latitude: Float!
     longitude: Float!
     name: String!
-    placeId: ID!
     place: Place
+    placeId: ID!
     published: Boolean!
 }
 
 type StadiumConnection {
     edges: [StadiumEdge!]!
     pageInfo: PageInfo
+}
+
+type StadiumDto {
+    id: ID!
+    name: String!
 }
 
 type StadiumEdge {
@@ -6899,7 +6834,7 @@ type StadiumPayload {
 }
 
 type Staff {
-    birthday:Time
+    birthday: Time
     department: Department!
     description: String
     fileName: String
@@ -6908,14 +6843,19 @@ type Staff {
     orderNumber: Int!
     phoneNumber: String
     published: Boolean!
-    userId: ID!
     user: User
+    userId: ID!
     work: String!
 }
 
 type StaffConnection {
     edges: [StaffEdge!]!
     pageInfo: PageInfo
+}
+
+type StaffDto {
+    id: ID!
+    name: String!
 }
 
 type StaffEdge {
@@ -6929,7 +6869,7 @@ type StaffPayload {
 }
 
 type Student {
-    birthday:Time
+    birthday: Time
     creatorIds: [ID!]!
     creators: [Creator!]
     id: ID!
@@ -6946,6 +6886,11 @@ type StudentConnection {
     pageInfo: PageInfo
 }
 
+type StudentDto {
+    id: ID!
+    name: String!
+}
+
 type StudentEdge {
     cursor: ID!
     node: Student
@@ -6960,10 +6905,10 @@ type StudentVisit {
     id: ID!
     payed: Boolean!
     published: Boolean!
-    studentId: ID!
     student: Student
-    trainingId: ID!
+    studentId: ID!
     training: Training
+    trainingId: ID!
     visitStatus: VisitStatus!
 }
 
@@ -7018,28 +6963,28 @@ type TaskPayload {
 }
 
 type Team {
-    id: ID!
     ages: [Age!]
-    headCoachId: ID
-    headCoach: Staff
     coachIds: [ID!]
     coaches: [Staff!]
+    headCoach: Staff
+    headCoachId: ID
+    id: ID!
     name: String!
-    placeId: ID!
     place: Place
+    placeId: ID!
     published: Boolean!
     writable: Boolean!
 }
 
 type TeamBalance {
-    date:Time!
+    date: Time!
     id: ID!
     published: Boolean!
     rent: Int!
     salary: Int!
     sum: Int!
-    teamId: ID!
     team: Team
+    teamId: ID!
     tickets: Int!
 }
 
@@ -7061,6 +7006,11 @@ type TeamBalancePayload {
 type TeamConnection {
     edges: [TeamEdge!]!
     pageInfo: PageInfo
+}
+
+type TeamDto {
+    id: ID!
+    name: String!
 }
 
 type TeamEdge {
@@ -7086,10 +7036,10 @@ type Training {
     headCoachId: ID
     id: ID!
     published: Boolean!
-    stadiumId: ID
     stadium: Stadium
-    teamId: ID!
+    stadiumId: ID
     team: Team
+    teamId: ID!
     time: Time
     visits: Int!
 }
@@ -7103,10 +7053,10 @@ type TrainingDay {
     day: DayOfWeek
     id: ID!
     published: Boolean!
-    stadiumId: ID
     stadium: Stadium
-    teamId: ID!
+    stadiumId: ID
     team: Team
+    teamId: ID!
     time: Time
 }
 
@@ -7125,6 +7075,11 @@ type TrainingDayPayload {
     recordId: ID!
 }
 
+type TrainingDto {
+    id: ID!
+    name: String!
+}
+
 type TrainingEdge {
     cursor: ID!
     node: Training
@@ -7136,16 +7091,21 @@ type TrainingPayload {
 }
 
 type User {
-    id: ID!
-    phone: String!
     firstName: String!
+    id: ID!
     lastName: String!
+    phone: String!
     roles: [Role!]!
 }
 
 type UserConnection {
     edges: [UserEdge!]!
     pageInfo: PageInfo
+}
+
+type UserDto {
+    id: ID!
+    name: String!
 }
 
 type UserEdge {
@@ -7256,6 +7216,12 @@ enum VisitStatus {
     VISITED
 }
 
+scalar Time
+
+input ArticleFilter {
+    title: String
+}
+
 input ArticleInput {
     description: String!
     fileName: String
@@ -7269,9 +7235,8 @@ input ArticleInputWithId {
     input: ArticleInput!
 }
 
-type CartDto {
-    id: ID!
-    name: String!
+input CartFilter {
+    name: String
 }
 
 input CartInput {
@@ -7286,8 +7251,12 @@ input CartInputWithId {
     input: CartInput!
 }
 
+input ClubBalanceFilter {
+    name: String
+}
+
 input ClubBalanceInput {
-    date:Time!
+    date: Time!
     otherCosts: Int!
     published: Boolean!
     rent: Int!
@@ -7300,9 +7269,13 @@ input ClubBalanceInputWithId {
     input: ClubBalanceInput!
 }
 
+input CoachPaymentByMonthFilter {
+    name: String
+}
+
 input CoachPaymentByMonthInput {
     coachId: ID!
-    date:Time!
+    date: Time!
     published: Boolean!
     sum: Int!
 }
@@ -7312,10 +7285,14 @@ input CoachPaymentByMonthInputWithId {
     input: CoachPaymentByMonthInput!
 }
 
+input CoachPaymentByTeamFilter {
+    name: String
+}
+
 input CoachPaymentByTeamInput {
     coachId: ID!
-    dateFinish:Time!
-    dateStart:Time!
+    dateFinish: Time!
+    dateStart: Time!
     paymentRule: CoachPaymentRule!
     published: Boolean!
     sum: Int!
@@ -7325,6 +7302,10 @@ input CoachPaymentByTeamInput {
 input CoachPaymentByTeamInputWithId {
     id: ID!
     input: CoachPaymentByTeamInput!
+}
+
+input CoachPaymentByTrainingFilter {
+    name: String
 }
 
 input CoachPaymentByTrainingInput {
@@ -7339,9 +7320,8 @@ input CoachPaymentByTrainingInputWithId {
     input: CoachPaymentByTrainingInput!
 }
 
-type CreatorDto {
-    id: ID!
-    name: String!
+input CreatorFilter {
+    name: String
 }
 
 input CreatorInput {
@@ -7357,9 +7337,8 @@ input CreatorInputWithId {
     input: CreatorInput!
 }
 
-type KitDto {
-    id: ID!
-    name: String!
+input KitFilter {
+    name: String
 }
 
 input KitInput {
@@ -7378,9 +7357,8 @@ input KitInputWithId {
     input: KitInput!
 }
 
-type LeadDto {
-    id: ID!
-    name: String!
+input LeadFilter {
+    name: String
 }
 
 input LeadInput {
@@ -7401,8 +7379,17 @@ input LeadInputWithId {
     input: LeadInput!
 }
 
+input LoginInput {
+    password: String!
+    phone: String!
+}
+
+input MoneyCostFilter {
+    name: String
+}
+
 input MoneyCostInput {
-    date:Time!
+    date: Time!
     description: String!
     moneyForm: MoneyForm!
     published: Boolean!
@@ -7415,10 +7402,14 @@ input MoneyCostInputWithId {
     input: MoneyCostInput!
 }
 
+input MoneyMoveFilter {
+    name: String
+}
+
 input MoneyMoveInput {
-    dateFinish:Time!
-    datePayment:Time!
-    dateStart:Time!
+    dateFinish: Time!
+    datePayment: Time!
+    dateStart: Time!
     description: String
     moneyForm: MoneyForm!
     ownerId: ID!
@@ -7431,6 +7422,10 @@ input MoneyMoveInput {
 input MoneyMoveInputWithId {
     id: ID!
     input: MoneyMoveInput!
+}
+
+input OrderFilter {
+    name: String
 }
 
 input OrderInput {
@@ -7446,14 +7441,8 @@ input OrderInputWithId {
     input: OrderInput!
 }
 
-type PlaceDto {
-    id: ID!
-    name: String!
-}
-
-type PlacePayload {
-    record: Place!
-    recordId: ID!
+input PlaceFilter {
+    name: String
 }
 
 input PlaceInput {
@@ -7469,10 +7458,22 @@ input PlaceInputWithId {
     input: PlaceInput!
 }
 
+input RegisterInput {
+    confirmPassword: String!
+    firstName: String!
+    lastName: String!
+    password: String!
+    phone: String!
+}
+
+input RentPaymentByMonthFilter {
+    name: String
+}
+
 input RentPaymentByMonthInput {
     description: String
-    month:Time!
-    paymentDate:Time!
+    month: Time!
+    paymentDate: Time!
     published: Boolean!
     stadiumId: ID!
     sum: Int!
@@ -7481,6 +7482,10 @@ input RentPaymentByMonthInput {
 input RentPaymentByMonthInputWithId {
     id: ID!
     input: RentPaymentByMonthInput!
+}
+
+input RentPaymentByTrainingFilter {
+    name: String
 }
 
 input RentPaymentByTrainingInput {
@@ -7496,9 +7501,8 @@ input RentPaymentByTrainingInputWithId {
     input: RentPaymentByTrainingInput!
 }
 
-type StadiumDto {
-    id: ID!
-    name: String!
+input StadiumFilter {
+    name: String
 }
 
 input StadiumInput {
@@ -7514,13 +7518,12 @@ input StadiumInputWithId {
     input: StadiumInput!
 }
 
-type StaffDto {
-    id: ID!
-    name: String!
+input StaffFilter {
+    name: String
 }
 
 input StaffInput {
-    birthday:Time
+    birthday: Time
     department: Department!
     description: String
     fileName: String
@@ -7537,13 +7540,12 @@ input StaffInputWithId {
     input: StaffInput!
 }
 
-type StudentDto {
-    id: ID!
-    name: String!
+input StudentFilter {
+    name: String
 }
 
 input StudentInput {
-    birthday:Time
+    birthday: Time
     creatorIds: [ID!]!
     name: String!
     passportNum: String
@@ -7557,6 +7559,10 @@ input StudentInputWithId {
     input: StudentInput!
 }
 
+input StudentVisitFilter {
+    name: String
+}
+
 input StudentVisitInput {
     payed: Boolean!
     published: Boolean!
@@ -7568,6 +7574,10 @@ input StudentVisitInput {
 input StudentVisitInputWithId {
     id: ID!
     input: StudentVisitInput!
+}
+
+input TaskFilter {
+    name: String
 }
 
 input TaskInput {
@@ -7590,8 +7600,12 @@ input TaskInputWithId {
     input: TaskInput!
 }
 
+input TeamBalanceFilter {
+    name: String
+}
+
 input TeamBalanceInput {
-    date:Time!
+    date: Time!
     published: Boolean!
     rent: Int!
     salary: Int!
@@ -7604,9 +7618,8 @@ input TeamBalanceInputWithId {
     input: TeamBalanceInput!
 }
 
-type TeamDto {
-    id: ID!
-    name: String!
+input TeamFilter {
+    name: String
 }
 
 input TeamInput {
@@ -7624,6 +7637,10 @@ input TeamInputWithId {
     input: TeamInput!
 }
 
+input TrainingDayFilter {
+    name: String
+}
+
 input TrainingDayInput {
     day: DayOfWeek
     published: Boolean!
@@ -7637,9 +7654,8 @@ input TrainingDayInputWithId {
     input: TrainingDayInput!
 }
 
-type TrainingDto {
-    id: ID!
-    name: String!
+input TrainingFilter {
+    name: String
 }
 
 input TrainingInput {
@@ -7657,9 +7673,8 @@ input TrainingInputWithId {
     input: TrainingInput!
 }
 
-type UserDto {
-    id: ID!
-    name: String!
+input UserFilter {
+    name: String
 }
 
 input UserInput {
@@ -9284,51 +9299,51 @@ func (ec *executionContext) field_Query_article_args(ctx context.Context, rawArg
 func (ec *executionContext) field_Query_articles_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.ArticleFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOArticleFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.ArticleFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOArticleFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐArticleFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -9350,51 +9365,51 @@ func (ec *executionContext) field_Query_cart_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_carts_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.CartFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOCartFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.CartFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOCartFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -9416,51 +9431,51 @@ func (ec *executionContext) field_Query_clubBalance_args(ctx context.Context, ra
 func (ec *executionContext) field_Query_clubBalances_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.ClubBalanceFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOClubBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.ClubBalanceFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOClubBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐClubBalanceFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -9512,153 +9527,153 @@ func (ec *executionContext) field_Query_coachPaymentByTraining_args(ctx context.
 func (ec *executionContext) field_Query_coachPaymentsByMonth_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.CoachPaymentByMonthFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOCoachPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.CoachPaymentByMonthFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOCoachPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByMonthFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_coachPaymentsByTeam_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.CoachPaymentByTeamFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOCoachPaymentByTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.CoachPaymentByTeamFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOCoachPaymentByTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTeamFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_coachPaymentsByTraining_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.CoachPaymentByTrainingFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOCoachPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.CoachPaymentByTrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOCoachPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCoachPaymentByTrainingFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -9680,102 +9695,102 @@ func (ec *executionContext) field_Query_creator_args(ctx context.Context, rawArg
 func (ec *executionContext) field_Query_creators_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.CreatorFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOCreatorFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.CreatorFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOCreatorFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_currentTasks_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.TaskFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOTaskFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.TaskFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOTaskFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -9797,51 +9812,51 @@ func (ec *executionContext) field_Query_kit_args(ctx context.Context, rawArgs ma
 func (ec *executionContext) field_Query_kits_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.KitFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOKitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.KitFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOKitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -9863,51 +9878,51 @@ func (ec *executionContext) field_Query_lead_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_leads_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.LeadFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOLeadFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.LeadFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOLeadFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -9929,51 +9944,51 @@ func (ec *executionContext) field_Query_moneyCost_args(ctx context.Context, rawA
 func (ec *executionContext) field_Query_moneyCosts_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.MoneyCostFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOMoneyCostFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.MoneyCostFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOMoneyCostFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyCostFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -9995,153 +10010,153 @@ func (ec *executionContext) field_Query_moneyMove_args(ctx context.Context, rawA
 func (ec *executionContext) field_Query_moneyMoves_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.MoneyMoveFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOMoneyMoveFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.MoneyMoveFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOMoneyMoveFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐMoneyMoveFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_nearestStaffBirthdays_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.StaffFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOStaffFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.StaffFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOStaffFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_nearestStudentBirthdays_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.StudentFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.StudentFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10163,51 +10178,51 @@ func (ec *executionContext) field_Query_order_args(ctx context.Context, rawArgs 
 func (ec *executionContext) field_Query_orders_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.OrderFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOOrderFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.OrderFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOOrderFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐOrderFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10229,51 +10244,51 @@ func (ec *executionContext) field_Query_place_args(ctx context.Context, rawArgs 
 func (ec *executionContext) field_Query_places_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.PlaceFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOPlaceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.PlaceFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOPlaceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10310,102 +10325,102 @@ func (ec *executionContext) field_Query_rentPaymentByTraining_args(ctx context.C
 func (ec *executionContext) field_Query_rentPaymentsByMonth_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.RentPaymentByMonthFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalORentPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.RentPaymentByMonthFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalORentPaymentByMonthFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByMonthFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_rentPaymentsByTraining_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.RentPaymentByTrainingFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalORentPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.RentPaymentByTrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalORentPaymentByTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRentPaymentByTrainingFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10427,51 +10442,51 @@ func (ec *executionContext) field_Query_stadium_args(ctx context.Context, rawArg
 func (ec *executionContext) field_Query_stadiums_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.StadiumFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOStadiumFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.StadiumFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOStadiumFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10493,51 +10508,51 @@ func (ec *executionContext) field_Query_staffPerson_args(ctx context.Context, ra
 func (ec *executionContext) field_Query_staff_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.StaffFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOStaffFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.StaffFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOStaffFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10559,51 +10574,51 @@ func (ec *executionContext) field_Query_studentVisit_args(ctx context.Context, r
 func (ec *executionContext) field_Query_studentVisits_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.StudentVisitFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOStudentVisitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.StudentVisitFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOStudentVisitFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10625,51 +10640,51 @@ func (ec *executionContext) field_Query_student_args(ctx context.Context, rawArg
 func (ec *executionContext) field_Query_students_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.StudentFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.StudentFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10691,51 +10706,51 @@ func (ec *executionContext) field_Query_task_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_tasks_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.TaskFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOTaskFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.TaskFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOTaskFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10757,51 +10772,51 @@ func (ec *executionContext) field_Query_teamBalance_args(ctx context.Context, ra
 func (ec *executionContext) field_Query_teamBalances_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.TeamBalanceFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOTeamBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.TeamBalanceFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOTeamBalanceFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamBalanceFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10823,102 +10838,102 @@ func (ec *executionContext) field_Query_team_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_teams_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.TeamFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.TeamFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOTeamFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_timeTable_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.TrainingFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.TrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -10940,51 +10955,51 @@ func (ec *executionContext) field_Query_trainingDay_args(ctx context.Context, ra
 func (ec *executionContext) field_Query_trainingDays_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.TrainingDayFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOTrainingDayFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.TrainingDayFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOTrainingDayFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDayFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -11006,153 +11021,153 @@ func (ec *executionContext) field_Query_training_args(ctx context.Context, rawAr
 func (ec *executionContext) field_Query_trainingsByDay_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.TrainingFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.TrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_trainings_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.TrainingFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.TrainingFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOTrainingFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
 func (ec *executionContext) field_Query_unPayedStudents_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.StudentFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.StudentFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOStudentFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -11174,51 +11189,51 @@ func (ec *executionContext) field_Query_user_args(ctx context.Context, rawArgs m
 func (ec *executionContext) field_Query_users_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *models.UserFilter
-	if tmp, ok := rawArgs["filter"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
-		arg0, err = ec.unmarshalOUserFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserFilter(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["filter"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["first"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["first"] = arg1
-	var arg2 *string
+	var arg0 *string
 	if tmp, ok := rawArgs["after"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("after"))
-		arg2, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		arg0, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["after"] = arg2
+	args["after"] = arg0
+	var arg1 *string
+	if tmp, ok := rawArgs["before"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
+		arg1, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["before"] = arg1
+	var arg2 *models.UserFilter
+	if tmp, ok := rawArgs["filter"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("filter"))
+		arg2, err = ec.unmarshalOUserFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["filter"] = arg2
 	var arg3 *int
-	if tmp, ok := rawArgs["last"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+	if tmp, ok := rawArgs["first"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first"))
 		arg3, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["last"] = arg3
-	var arg4 *string
-	if tmp, ok := rawArgs["before"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("before"))
-		arg4, err = ec.unmarshalOID2ᚖstring(ctx, tmp)
+	args["first"] = arg3
+	var arg4 *int
+	if tmp, ok := rawArgs["last"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("last"))
+		arg4, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["before"] = arg4
+	args["last"] = arg4
 	return args, nil
 }
 
@@ -11296,14 +11311,14 @@ func (ec *executionContext) fieldContext_Article_author(ctx context.Context, fie
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
 			case "firstName":
 				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -11704,12 +11719,12 @@ func (ec *executionContext) fieldContext_ArticleConnection_pageInfo(ctx context.
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -12012,14 +12027,14 @@ func (ec *executionContext) fieldContext_AuthResponse_user(ctx context.Context, 
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
 			case "firstName":
 				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -12249,50 +12264,6 @@ func (ec *executionContext) fieldContext_Cart_published(ctx context.Context, fie
 	return fc, nil
 }
 
-func (ec *executionContext) _Cart_studentId(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Cart_studentId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StudentID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Cart_studentId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Cart",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Cart_student(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Cart_student(ctx, field)
 	if err != nil {
@@ -12351,6 +12322,50 @@ func (ec *executionContext) fieldContext_Cart_student(ctx context.Context, field
 				return ec.fieldContext_Student_teams(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Student", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Cart_studentId(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Cart_studentId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StudentID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Cart_studentId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Cart",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -12486,12 +12501,12 @@ func (ec *executionContext) fieldContext_CartConnection_pageInfo(ctx context.Con
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -12673,10 +12688,10 @@ func (ec *executionContext) fieldContext_CartEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Cart_kitIds(ctx, field)
 			case "published":
 				return ec.fieldContext_Cart_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_Cart_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_Cart_student(ctx, field)
+			case "studentId":
+				return ec.fieldContext_Cart_studentId(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
 			}
@@ -12728,10 +12743,10 @@ func (ec *executionContext) fieldContext_CartPayload_record(ctx context.Context,
 				return ec.fieldContext_Cart_kitIds(ctx, field)
 			case "published":
 				return ec.fieldContext_Cart_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_Cart_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_Cart_student(ctx, field)
+			case "studentId":
+				return ec.fieldContext_Cart_studentId(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
 			}
@@ -13223,12 +13238,12 @@ func (ec *executionContext) fieldContext_ClubBalanceConnection_pageInfo(ctx cont
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -13496,10 +13511,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonth_coach(ctx context.C
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -13812,12 +13827,12 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonthConnection_pageInfo(
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -14077,10 +14092,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_coach(ctx context.Co
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -14386,47 +14401,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_sum(ctx context.Cont
 	return fc, nil
 }
 
-func (ec *executionContext) _CoachPaymentByTeam_teamId(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.TeamID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_CoachPaymentByTeam_teamId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "CoachPaymentByTeam",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _CoachPaymentByTeam_team(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_CoachPaymentByTeam_team(ctx, field)
 	if err != nil {
@@ -14463,30 +14437,71 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_team(ctx context.Con
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _CoachPaymentByTeam_teamId(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTeam) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TeamID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_CoachPaymentByTeam_teamId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "CoachPaymentByTeam",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -14578,12 +14593,12 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamConnection_pageInfo(c
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -14687,10 +14702,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamEdge_node(ctx context
 				return ec.fieldContext_CoachPaymentByTeam_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByTeam_sum(ctx, field)
-			case "teamId":
-				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_CoachPaymentByTeam_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -14750,10 +14765,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeamPayload_record(ctx co
 				return ec.fieldContext_CoachPaymentByTeam_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByTeam_sum(ctx, field)
-			case "teamId":
-				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_CoachPaymentByTeam_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -14859,10 +14874,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_coach(ctx contex
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -15045,47 +15060,6 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_sum(ctx context.
 	return fc, nil
 }
 
-func (ec *executionContext) _CoachPaymentByTraining_trainingId(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.TrainingID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_CoachPaymentByTraining_trainingId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "CoachPaymentByTraining",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _CoachPaymentByTraining_training(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_CoachPaymentByTraining_training(ctx, field)
 	if err != nil {
@@ -15134,20 +15108,61 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_training(ctx con
 				return ec.fieldContext_Training_id(ctx, field)
 			case "published":
 				return ec.fieldContext_Training_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_Training_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Training_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_Training_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Training_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _CoachPaymentByTraining_trainingId(ctx context.Context, field graphql.CollectedField, obj *models.CoachPaymentByTraining) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TrainingID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_CoachPaymentByTraining_trainingId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "CoachPaymentByTraining",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -15239,12 +15254,12 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingConnection_pageIn
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -15342,10 +15357,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingEdge_node(ctx con
 				return ec.fieldContext_CoachPaymentByTraining_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByTraining_sum(ctx, field)
-			case "trainingId":
-				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "training":
 				return ec.fieldContext_CoachPaymentByTraining_training(ctx, field)
+			case "trainingId":
+				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -15399,10 +15414,10 @@ func (ec *executionContext) fieldContext_CoachPaymentByTrainingPayload_record(ct
 				return ec.fieldContext_CoachPaymentByTraining_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByTraining_sum(ctx, field)
-			case "trainingId":
-				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "training":
 				return ec.fieldContext_CoachPaymentByTraining_training(ctx, field)
+			case "trainingId":
+				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -15671,47 +15686,6 @@ func (ec *executionContext) fieldContext_Creator_published(ctx context.Context, 
 	return fc, nil
 }
 
-func (ec *executionContext) _Creator_userId(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Creator_userId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UserID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Creator_userId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Creator",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Creator_user(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Creator_user(ctx, field)
 	if err != nil {
@@ -15748,18 +15722,59 @@ func (ec *executionContext) fieldContext_Creator_user(ctx context.Context, field
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
 			case "firstName":
 				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Creator_userId(ctx context.Context, field graphql.CollectedField, obj *models.Creator) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Creator_userId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UserID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Creator_userId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Creator",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -15851,12 +15866,12 @@ func (ec *executionContext) fieldContext_CreatorConnection_pageInfo(ctx context.
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -16042,10 +16057,10 @@ func (ec *executionContext) fieldContext_CreatorEdge_node(ctx context.Context, f
 				return ec.fieldContext_Creator_phone(ctx, field)
 			case "published":
 				return ec.fieldContext_Creator_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Creator_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Creator_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Creator_userId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -16099,10 +16114,10 @@ func (ec *executionContext) fieldContext_CreatorPayload_record(ctx context.Conte
 				return ec.fieldContext_Creator_phone(ctx, field)
 			case "published":
 				return ec.fieldContext_Creator_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Creator_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Creator_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Creator_userId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -16624,12 +16639,12 @@ func (ec *executionContext) fieldContext_KitConnection_pageInfo(ctx context.Cont
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -17109,14 +17124,14 @@ func (ec *executionContext) fieldContext_Lead_nextVisit(ctx context.Context, fie
 				return ec.fieldContext_Training_id(ctx, field)
 			case "published":
 				return ec.fieldContext_Training_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_Training_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Training_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_Training_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Training_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -17443,47 +17458,6 @@ func (ec *executionContext) fieldContext_Lead_students(ctx context.Context, fiel
 	return fc, nil
 }
 
-func (ec *executionContext) _Lead_teamId(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Lead_teamId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.TeamID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Lead_teamId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Lead",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Lead_team(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Lead_team(ctx, field)
 	if err != nil {
@@ -17520,30 +17494,71 @@ func (ec *executionContext) fieldContext_Lead_team(ctx context.Context, field gr
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Lead_teamId(ctx context.Context, field graphql.CollectedField, obj *models.Lead) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Lead_teamId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TeamID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Lead_teamId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Lead",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -17676,12 +17691,12 @@ func (ec *executionContext) fieldContext_LeadConnection_pageInfo(ctx context.Con
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -17879,10 +17894,10 @@ func (ec *executionContext) fieldContext_LeadEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Lead_studentIds(ctx, field)
 			case "students":
 				return ec.fieldContext_Lead_students(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Lead_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_Lead_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Lead_teamId(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
 			}
@@ -17950,10 +17965,10 @@ func (ec *executionContext) fieldContext_LeadPayload_record(ctx context.Context,
 				return ec.fieldContext_Lead_studentIds(ctx, field)
 			case "students":
 				return ec.fieldContext_Lead_students(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Lead_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_Lead_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Lead_teamId(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
 			}
@@ -18281,10 +18296,10 @@ func (ec *executionContext) fieldContext_MoneyCost_staff(ctx context.Context, fi
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -18468,12 +18483,12 @@ func (ec *executionContext) fieldContext_MoneyCostConnection_pageInfo(ctx contex
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -18990,10 +19005,10 @@ func (ec *executionContext) fieldContext_MoneyMove_owner(ctx context.Context, fi
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -19091,50 +19106,6 @@ func (ec *executionContext) fieldContext_MoneyMove_published(ctx context.Context
 	return fc, nil
 }
 
-func (ec *executionContext) _MoneyMove_studentId(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MoneyMove_studentId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StudentID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_MoneyMove_studentId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "MoneyMove",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _MoneyMove_student(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_MoneyMove_student(ctx, field)
 	if err != nil {
@@ -19198,6 +19169,50 @@ func (ec *executionContext) fieldContext_MoneyMove_student(ctx context.Context, 
 	return fc, nil
 }
 
+func (ec *executionContext) _MoneyMove_studentId(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MoneyMove_studentId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StudentID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_MoneyMove_studentId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "MoneyMove",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _MoneyMove_sum(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_MoneyMove_sum(ctx, field)
 	if err != nil {
@@ -19234,6 +19249,59 @@ func (ec *executionContext) fieldContext_MoneyMove_sum(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Int does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _MoneyMove_user(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MoneyMove_user(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.User, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.User)
+	fc.Result = res
+	return ec.marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_MoneyMove_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "MoneyMove",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "firstName":
+				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
+			case "lastName":
+				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
 	}
 	return fc, nil
@@ -19278,59 +19346,6 @@ func (ec *executionContext) fieldContext_MoneyMove_userId(ctx context.Context, f
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _MoneyMove_user(ctx context.Context, field graphql.CollectedField, obj *models.MoneyMove) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MoneyMove_user(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.User, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.User)
-	fc.Result = res
-	return ec.marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_MoneyMove_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "MoneyMove",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
-			case "firstName":
-				return ec.fieldContext_User_firstName(ctx, field)
-			case "lastName":
-				return ec.fieldContext_User_lastName(ctx, field)
-			case "roles":
-				return ec.fieldContext_User_roles(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
 	}
 	return fc, nil
@@ -19422,12 +19437,12 @@ func (ec *executionContext) fieldContext_MoneyMoveConnection_pageInfo(ctx contex
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -19533,16 +19548,16 @@ func (ec *executionContext) fieldContext_MoneyMoveEdge_node(ctx context.Context,
 				return ec.fieldContext_MoneyMove_ownerId(ctx, field)
 			case "published":
 				return ec.fieldContext_MoneyMove_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_MoneyMove_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_MoneyMove_student(ctx, field)
+			case "studentId":
+				return ec.fieldContext_MoneyMove_studentId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyMove_sum(ctx, field)
-			case "userId":
-				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_MoneyMove_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -19604,16 +19619,16 @@ func (ec *executionContext) fieldContext_MoneyMovePayload_record(ctx context.Con
 				return ec.fieldContext_MoneyMove_ownerId(ctx, field)
 			case "published":
 				return ec.fieldContext_MoneyMove_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_MoneyMove_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_MoneyMove_student(ctx, field)
+			case "studentId":
+				return ec.fieldContext_MoneyMove_studentId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyMove_sum(ctx, field)
-			case "userId":
-				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_MoneyMove_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -19661,128 +19676,6 @@ func (ec *executionContext) fieldContext_MoneyMovePayload_recordId(ctx context.C
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type ID does not have child fields")
 		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_register(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_register(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().Register(rctx, fc.Args["input"].(models.RegisterInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.AuthResponse)
-	fc.Result = res
-	return ec.marshalNAuthResponse2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐAuthResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_register(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "authToken":
-				return ec.fieldContext_AuthResponse_authToken(ctx, field)
-			case "user":
-				return ec.fieldContext_AuthResponse_user(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type AuthResponse", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_register_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_login(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_login(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().Login(rctx, fc.Args["input"].(models.LoginInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.AuthResponse)
-	fc.Result = res
-	return ec.marshalNAuthResponse2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐAuthResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_login(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "authToken":
-				return ec.fieldContext_AuthResponse_authToken(ctx, field)
-			case "user":
-				return ec.fieldContext_AuthResponse_user(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type AuthResponse", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_login_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
 	}
 	return fc, nil
 }
@@ -21980,6 +21873,67 @@ func (ec *executionContext) fieldContext_Mutation_leadUpdate(ctx context.Context
 	return fc, nil
 }
 
+func (ec *executionContext) _Mutation_login(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_login(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().Login(rctx, fc.Args["input"].(models.LoginInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.AuthResponse)
+	fc.Result = res
+	return ec.marshalNAuthResponse2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐAuthResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_login(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "authToken":
+				return ec.fieldContext_AuthResponse_authToken(ctx, field)
+			case "user":
+				return ec.fieldContext_AuthResponse_user(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type AuthResponse", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_login_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Mutation_moneyCostDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_moneyCostDelete(ctx, field)
 	if err != nil {
@@ -23019,6 +22973,67 @@ func (ec *executionContext) fieldContext_Mutation_refresh(ctx context.Context, f
 	return fc, nil
 }
 
+func (ec *executionContext) _Mutation_register(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_register(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().Register(rctx, fc.Args["input"].(models.RegisterInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.AuthResponse)
+	fc.Result = res
+	return ec.marshalNAuthResponse2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐAuthResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_register(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "authToken":
+				return ec.fieldContext_AuthResponse_authToken(ctx, field)
+			case "user":
+				return ec.fieldContext_AuthResponse_user(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type AuthResponse", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_register_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Mutation_rentPaymentByMonthDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_rentPaymentByMonthDelete(ctx, field)
 	if err != nil {
@@ -23995,250 +24010,6 @@ func (ec *executionContext) fieldContext_Mutation_staffUpdate(ctx context.Contex
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_studentVisitDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitDelete(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitDelete(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.StudentVisitPayload)
-	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_studentVisitDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_studentVisitPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitPublishUpdate(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitPublishUpdate(rctx, fc.Args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.StudentVisitPayload)
-	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_studentVisitPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_studentVisitSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitSave(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitSave(rctx, fc.Args["studentVisitInput"].(models.StudentVisitInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.StudentVisitPayload)
-	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_studentVisitSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Mutation_studentVisitUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Mutation_studentVisitUpdate(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().StudentVisitUpdate(rctx, fc.Args["studentVisitInput"].(models.StudentVisitInputWithID))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*models.StudentVisitPayload)
-	fc.Result = res
-	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Mutation_studentVisitUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "record":
-				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
-			case "recordId":
-				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_studentVisitUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Mutation_studentDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Mutation_studentDelete(ctx, field)
 	if err != nil {
@@ -24477,6 +24248,250 @@ func (ec *executionContext) fieldContext_Mutation_studentUpdate(ctx context.Cont
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Mutation_studentUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Mutation_studentVisitDelete(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitDelete(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().StudentVisitDelete(rctx, fc.Args["id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.StudentVisitPayload)
+	fc.Result = res
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_studentVisitDelete(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "record":
+				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
+			case "recordId":
+				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_studentVisitDelete_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Mutation_studentVisitPublishUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitPublishUpdate(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().StudentVisitPublishUpdate(rctx, fc.Args["id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.StudentVisitPayload)
+	fc.Result = res
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_studentVisitPublishUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "record":
+				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
+			case "recordId":
+				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_studentVisitPublishUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Mutation_studentVisitSave(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitSave(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().StudentVisitSave(rctx, fc.Args["studentVisitInput"].(models.StudentVisitInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.StudentVisitPayload)
+	fc.Result = res
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_studentVisitSave(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "record":
+				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
+			case "recordId":
+				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_studentVisitSave_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Mutation_studentVisitUpdate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Mutation_studentVisitUpdate(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().StudentVisitUpdate(rctx, fc.Args["studentVisitInput"].(models.StudentVisitInputWithID))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*models.StudentVisitPayload)
+	fc.Result = res
+	return ec.marshalNStudentVisitPayload2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentVisitPayload(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Mutation_studentVisitUpdate(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "record":
+				return ec.fieldContext_StudentVisitPayload_record(ctx, field)
+			case "recordId":
+				return ec.fieldContext_StudentVisitPayload_recordId(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StudentVisitPayload", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Mutation_studentVisitUpdate_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -25947,50 +25962,6 @@ func (ec *executionContext) fieldContext_Mutation_userUpdate(ctx context.Context
 	return fc, nil
 }
 
-func (ec *executionContext) _Order_cartId(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Order_cartId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CartID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Order_cartId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Order",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Order_cart(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Order_cart(ctx, field)
 	if err != nil {
@@ -26033,10 +26004,10 @@ func (ec *executionContext) fieldContext_Order_cart(ctx context.Context, field g
 				return ec.fieldContext_Cart_kitIds(ctx, field)
 			case "published":
 				return ec.fieldContext_Cart_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_Cart_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_Cart_student(ctx, field)
+			case "studentId":
+				return ec.fieldContext_Cart_studentId(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
 			}
@@ -26046,8 +26017,8 @@ func (ec *executionContext) fieldContext_Order_cart(ctx context.Context, field g
 	return fc, nil
 }
 
-func (ec *executionContext) _Order_creatorId(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Order_creatorId(ctx, field)
+func (ec *executionContext) _Order_cartId(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Order_cartId(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -26060,7 +26031,7 @@ func (ec *executionContext) _Order_creatorId(ctx context.Context, field graphql.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreatorID, nil
+		return obj.CartID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26077,7 +26048,7 @@ func (ec *executionContext) _Order_creatorId(ctx context.Context, field graphql.
 	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Order_creatorId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Order_cartId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Order",
 		Field:      field,
@@ -26136,12 +26107,56 @@ func (ec *executionContext) fieldContext_Order_creator(ctx context.Context, fiel
 				return ec.fieldContext_Creator_phone(ctx, field)
 			case "published":
 				return ec.fieldContext_Creator_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Creator_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Creator_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Creator_userId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Order_creatorId(ctx context.Context, field graphql.CollectedField, obj *models.Order) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Order_creatorId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatorID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Order_creatorId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Order",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -26406,12 +26421,12 @@ func (ec *executionContext) fieldContext_OrderConnection_pageInfo(ctx context.Co
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -26499,14 +26514,14 @@ func (ec *executionContext) fieldContext_OrderEdge_node(ctx context.Context, fie
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "cartId":
-				return ec.fieldContext_Order_cartId(ctx, field)
 			case "cart":
 				return ec.fieldContext_Order_cart(ctx, field)
-			case "creatorId":
-				return ec.fieldContext_Order_creatorId(ctx, field)
+			case "cartId":
+				return ec.fieldContext_Order_cartId(ctx, field)
 			case "creator":
 				return ec.fieldContext_Order_creator(ctx, field)
+			case "creatorId":
+				return ec.fieldContext_Order_creatorId(ctx, field)
 			case "fileName":
 				return ec.fieldContext_Order_fileName(ctx, field)
 			case "id":
@@ -26558,14 +26573,14 @@ func (ec *executionContext) fieldContext_OrderPayload_record(ctx context.Context
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "cartId":
-				return ec.fieldContext_Order_cartId(ctx, field)
 			case "cart":
 				return ec.fieldContext_Order_cart(ctx, field)
-			case "creatorId":
-				return ec.fieldContext_Order_creatorId(ctx, field)
+			case "cartId":
+				return ec.fieldContext_Order_cartId(ctx, field)
 			case "creator":
 				return ec.fieldContext_Order_creator(ctx, field)
+			case "creatorId":
+				return ec.fieldContext_Order_creatorId(ctx, field)
 			case "fileName":
 				return ec.fieldContext_Order_fileName(ctx, field)
 			case "id":
@@ -26615,50 +26630,6 @@ func (ec *executionContext) _OrderPayload_recordId(ctx context.Context, field gr
 func (ec *executionContext) fieldContext_OrderPayload_recordId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "OrderPayload",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _PageInfo_startCursor(ctx context.Context, field graphql.CollectedField, obj *models.PageInfo) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_PageInfo_startCursor(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StartCursor, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_PageInfo_startCursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "PageInfo",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -26749,6 +26720,50 @@ func (ec *executionContext) fieldContext_PageInfo_hasNextPage(ctx context.Contex
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Boolean does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _PageInfo_startCursor(ctx context.Context, field graphql.CollectedField, obj *models.PageInfo) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_PageInfo_startCursor(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StartCursor, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_PageInfo_startCursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "PageInfo",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -27107,12 +27122,12 @@ func (ec *executionContext) fieldContext_PlaceConnection_pageInfo(ctx context.Co
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -27493,7 +27508,7 @@ func (ec *executionContext) _Query_articles(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Articles(rctx, fc.Args["filter"].(*models.ArticleFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Articles(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.ArticleFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27579,10 +27594,10 @@ func (ec *executionContext) fieldContext_Query_cart(ctx context.Context, field g
 				return ec.fieldContext_Cart_kitIds(ctx, field)
 			case "published":
 				return ec.fieldContext_Cart_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_Cart_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_Cart_student(ctx, field)
+			case "studentId":
+				return ec.fieldContext_Cart_studentId(ctx, field)
 			case "sum":
 				return ec.fieldContext_Cart_sum(ctx, field)
 			}
@@ -27603,6 +27618,53 @@ func (ec *executionContext) fieldContext_Query_cart(ctx context.Context, field g
 	return fc, nil
 }
 
+func (ec *executionContext) _Query_cartAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_cartAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().CartAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.CartDto)
+	fc.Result = res
+	return ec.marshalOCartDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_cartAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_CartDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_CartDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type CartDto", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_carts(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_carts(ctx, field)
 	if err != nil {
@@ -27617,7 +27679,7 @@ func (ec *executionContext) _Query_carts(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Carts(rctx, fc.Args["filter"].(*models.CartFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Carts(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.CartFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27745,7 +27807,7 @@ func (ec *executionContext) _Query_clubBalances(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().ClubBalances(rctx, fc.Args["filter"].(*models.ClubBalanceFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().ClubBalances(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.ClubBalanceFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27907,10 +27969,10 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByTeam(ctx context.Co
 				return ec.fieldContext_CoachPaymentByTeam_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByTeam_sum(ctx, field)
-			case "teamId":
-				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_CoachPaymentByTeam_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_CoachPaymentByTeam_teamId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTeam", field.Name)
 		},
@@ -27975,10 +28037,10 @@ func (ec *executionContext) fieldContext_Query_coachPaymentByTraining(ctx contex
 				return ec.fieldContext_CoachPaymentByTraining_published(ctx, field)
 			case "sum":
 				return ec.fieldContext_CoachPaymentByTraining_sum(ctx, field)
-			case "trainingId":
-				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			case "training":
 				return ec.fieldContext_CoachPaymentByTraining_training(ctx, field)
+			case "trainingId":
+				return ec.fieldContext_CoachPaymentByTraining_trainingId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type CoachPaymentByTraining", field.Name)
 		},
@@ -28011,7 +28073,7 @@ func (ec *executionContext) _Query_coachPaymentsByMonth(ctx context.Context, fie
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CoachPaymentsByMonth(rctx, fc.Args["filter"].(*models.CoachPaymentByMonthFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().CoachPaymentsByMonth(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.CoachPaymentByMonthFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28069,7 +28131,7 @@ func (ec *executionContext) _Query_coachPaymentsByTeam(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CoachPaymentsByTeam(rctx, fc.Args["filter"].(*models.CoachPaymentByTeamFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().CoachPaymentsByTeam(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.CoachPaymentByTeamFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28127,7 +28189,7 @@ func (ec *executionContext) _Query_coachPaymentsByTraining(ctx context.Context, 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CoachPaymentsByTraining(rctx, fc.Args["filter"].(*models.CoachPaymentByTrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().CoachPaymentsByTraining(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.CoachPaymentByTrainingFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28217,10 +28279,10 @@ func (ec *executionContext) fieldContext_Query_creator(ctx context.Context, fiel
 				return ec.fieldContext_Creator_phone(ctx, field)
 			case "published":
 				return ec.fieldContext_Creator_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Creator_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Creator_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Creator_userId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -28239,6 +28301,53 @@ func (ec *executionContext) fieldContext_Query_creator(ctx context.Context, fiel
 	return fc, nil
 }
 
+func (ec *executionContext) _Query_creatorAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_creatorAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().CreatorAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.CreatorDto)
+	fc.Result = res
+	return ec.marshalOCreatorDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_creatorAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_CreatorDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_CreatorDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type CreatorDto", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_creators(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_creators(ctx, field)
 	if err != nil {
@@ -28253,7 +28362,7 @@ func (ec *executionContext) _Query_creators(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Creators(rctx, fc.Args["filter"].(*models.CreatorFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Creators(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.CreatorFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28291,6 +28400,64 @@ func (ec *executionContext) fieldContext_Query_creators(ctx context.Context, fie
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Query_creators_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_currentTasks(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_currentTasks(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().CurrentTasks(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.TaskFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.TaskConnection)
+	fc.Result = res
+	return ec.marshalOTaskConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskConnection(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_currentTasks(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "edges":
+				return ec.fieldContext_TaskConnection_edges(ctx, field)
+			case "pageInfo":
+				return ec.fieldContext_TaskConnection_pageInfo(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type TaskConnection", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Query_currentTasks_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -28369,6 +28536,53 @@ func (ec *executionContext) fieldContext_Query_kit(ctx context.Context, field gr
 	return fc, nil
 }
 
+func (ec *executionContext) _Query_kitAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_kitAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().KitAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.KitDto)
+	fc.Result = res
+	return ec.marshalOKitDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_kitAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_KitDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_KitDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type KitDto", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_kits(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_kits(ctx, field)
 	if err != nil {
@@ -28383,7 +28597,7 @@ func (ec *executionContext) _Query_kits(ctx context.Context, field graphql.Colle
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Kits(rctx, fc.Args["filter"].(*models.KitFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Kits(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.KitFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28485,10 +28699,10 @@ func (ec *executionContext) fieldContext_Query_lead(ctx context.Context, field g
 				return ec.fieldContext_Lead_studentIds(ctx, field)
 			case "students":
 				return ec.fieldContext_Lead_students(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Lead_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_Lead_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Lead_teamId(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
 			}
@@ -28509,6 +28723,53 @@ func (ec *executionContext) fieldContext_Query_lead(ctx context.Context, field g
 	return fc, nil
 }
 
+func (ec *executionContext) _Query_leadAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_leadAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().LeadAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.LeadDto)
+	fc.Result = res
+	return ec.marshalOLeadDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_leadAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_LeadDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_LeadDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type LeadDto", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_leads(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_leads(ctx, field)
 	if err != nil {
@@ -28523,7 +28784,7 @@ func (ec *executionContext) _Query_leads(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Leads(rctx, fc.Args["filter"].(*models.LeadFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Leads(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.LeadFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28651,7 +28912,7 @@ func (ec *executionContext) _Query_moneyCosts(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().MoneyCosts(rctx, fc.Args["filter"].(*models.MoneyCostFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().MoneyCosts(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.MoneyCostFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28749,16 +29010,16 @@ func (ec *executionContext) fieldContext_Query_moneyMove(ctx context.Context, fi
 				return ec.fieldContext_MoneyMove_ownerId(ctx, field)
 			case "published":
 				return ec.fieldContext_MoneyMove_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_MoneyMove_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_MoneyMove_student(ctx, field)
+			case "studentId":
+				return ec.fieldContext_MoneyMove_studentId(ctx, field)
 			case "sum":
 				return ec.fieldContext_MoneyMove_sum(ctx, field)
-			case "userId":
-				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_MoneyMove_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_MoneyMove_userId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type MoneyMove", field.Name)
 		},
@@ -28791,7 +29052,7 @@ func (ec *executionContext) _Query_moneyMoves(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().MoneyMoves(rctx, fc.Args["filter"].(*models.MoneyMoveFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().MoneyMoves(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.MoneyMoveFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28835,6 +29096,122 @@ func (ec *executionContext) fieldContext_Query_moneyMoves(ctx context.Context, f
 	return fc, nil
 }
 
+func (ec *executionContext) _Query_nearestStaffBirthdays(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_nearestStaffBirthdays(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().NearestStaffBirthdays(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.StaffFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.StaffConnection)
+	fc.Result = res
+	return ec.marshalOStaffConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffConnection(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_nearestStaffBirthdays(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "edges":
+				return ec.fieldContext_StaffConnection_edges(ctx, field)
+			case "pageInfo":
+				return ec.fieldContext_StaffConnection_pageInfo(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StaffConnection", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Query_nearestStaffBirthdays_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_nearestStudentBirthdays(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_nearestStudentBirthdays(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().NearestStudentBirthdays(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.StudentConnection)
+	fc.Result = res
+	return ec.marshalOStudentConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentConnection(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_nearestStudentBirthdays(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "edges":
+				return ec.fieldContext_StudentConnection_edges(ctx, field)
+			case "pageInfo":
+				return ec.fieldContext_StudentConnection_pageInfo(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StudentConnection", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Query_nearestStudentBirthdays_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_order(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_order(ctx, field)
 	if err != nil {
@@ -28871,14 +29248,14 @@ func (ec *executionContext) fieldContext_Query_order(ctx context.Context, field 
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "cartId":
-				return ec.fieldContext_Order_cartId(ctx, field)
 			case "cart":
 				return ec.fieldContext_Order_cart(ctx, field)
-			case "creatorId":
-				return ec.fieldContext_Order_creatorId(ctx, field)
+			case "cartId":
+				return ec.fieldContext_Order_cartId(ctx, field)
 			case "creator":
 				return ec.fieldContext_Order_creator(ctx, field)
+			case "creatorId":
+				return ec.fieldContext_Order_creatorId(ctx, field)
 			case "fileName":
 				return ec.fieldContext_Order_fileName(ctx, field)
 			case "id":
@@ -28919,7 +29296,7 @@ func (ec *executionContext) _Query_orders(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Orders(rctx, fc.Args["filter"].(*models.OrderFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Orders(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.OrderFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29029,6 +29406,53 @@ func (ec *executionContext) fieldContext_Query_place(ctx context.Context, field 
 	return fc, nil
 }
 
+func (ec *executionContext) _Query_placeAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_placeAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().PlaceAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.PlaceDto)
+	fc.Result = res
+	return ec.marshalOPlaceDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_placeAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_PlaceDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_PlaceDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type PlaceDto", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_places(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_places(ctx, field)
 	if err != nil {
@@ -29043,7 +29467,7 @@ func (ec *executionContext) _Query_places(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Places(rctx, fc.Args["filter"].(*models.PlaceFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Places(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.PlaceFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29136,10 +29560,10 @@ func (ec *executionContext) fieldContext_Query_rentPaymentByMonth(ctx context.Co
 				return ec.fieldContext_RentPaymentByMonth_paymentDate(ctx, field)
 			case "published":
 				return ec.fieldContext_RentPaymentByMonth_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_RentPaymentByMonth_stadium(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
 			}
@@ -29202,10 +29626,10 @@ func (ec *executionContext) fieldContext_Query_rentPaymentByTraining(ctx context
 				return ec.fieldContext_RentPaymentByTraining_id(ctx, field)
 			case "published":
 				return ec.fieldContext_RentPaymentByTraining_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_RentPaymentByTraining_stadium(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByTraining_sum(ctx, field)
 			case "trainingIds":
@@ -29244,7 +29668,7 @@ func (ec *executionContext) _Query_rentPaymentsByMonth(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().RentPaymentsByMonth(rctx, fc.Args["filter"].(*models.RentPaymentByMonthFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().RentPaymentsByMonth(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.RentPaymentByMonthFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29302,7 +29726,7 @@ func (ec *executionContext) _Query_rentPaymentsByTraining(ctx context.Context, f
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().RentPaymentsByTraining(rctx, fc.Args["filter"].(*models.RentPaymentByTrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().RentPaymentsByTraining(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.RentPaymentByTrainingFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29390,10 +29814,10 @@ func (ec *executionContext) fieldContext_Query_stadium(ctx context.Context, fiel
 				return ec.fieldContext_Stadium_longitude(ctx, field)
 			case "name":
 				return ec.fieldContext_Stadium_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Stadium_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -29414,6 +29838,53 @@ func (ec *executionContext) fieldContext_Query_stadium(ctx context.Context, fiel
 	return fc, nil
 }
 
+func (ec *executionContext) _Query_stadiumAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_stadiumAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().StadiumAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.StadiumDto)
+	fc.Result = res
+	return ec.marshalOStadiumDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_stadiumAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_StadiumDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_StadiumDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StadiumDto", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_stadiums(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_stadiums(ctx, field)
 	if err != nil {
@@ -29428,7 +29899,7 @@ func (ec *executionContext) _Query_stadiums(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Stadiums(rctx, fc.Args["filter"].(*models.StadiumFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Stadiums(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.StadiumFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29486,7 +29957,7 @@ func (ec *executionContext) _Query_staff(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Staff(rctx, fc.Args["filter"].(*models.StaffFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Staff(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.StaffFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29526,6 +29997,53 @@ func (ec *executionContext) fieldContext_Query_staff(ctx context.Context, field 
 	if fc.Args, err = ec.field_Query_staff_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_staffAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_staffAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().StaffAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.StaffDto)
+	fc.Result = res
+	return ec.marshalOStaffDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_staffAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_StaffDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_StaffDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StaffDto", field.Name)
+		},
 	}
 	return fc, nil
 }
@@ -29584,10 +30102,10 @@ func (ec *executionContext) fieldContext_Query_staffPerson(ctx context.Context, 
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -29682,6 +30200,53 @@ func (ec *executionContext) fieldContext_Query_student(ctx context.Context, fiel
 	return fc, nil
 }
 
+func (ec *executionContext) _Query_studentAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_studentAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().StudentAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.StudentDto)
+	fc.Result = res
+	return ec.marshalOStudentDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_studentAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_StudentDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_StudentDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StudentDto", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Query_studentVisit(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_studentVisit(ctx, field)
 	if err != nil {
@@ -29724,14 +30289,14 @@ func (ec *executionContext) fieldContext_Query_studentVisit(ctx context.Context,
 				return ec.fieldContext_StudentVisit_payed(ctx, field)
 			case "published":
 				return ec.fieldContext_StudentVisit_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_StudentVisit_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_StudentVisit_student(ctx, field)
-			case "trainingId":
-				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
+			case "studentId":
+				return ec.fieldContext_StudentVisit_studentId(ctx, field)
 			case "training":
 				return ec.fieldContext_StudentVisit_training(ctx, field)
+			case "trainingId":
+				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
 			}
@@ -29766,7 +30331,7 @@ func (ec *executionContext) _Query_studentVisits(ctx context.Context, field grap
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().StudentVisits(rctx, fc.Args["filter"].(*models.StudentVisitFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().StudentVisits(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.StudentVisitFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29824,7 +30389,7 @@ func (ec *executionContext) _Query_students(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Students(rctx, fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Students(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29956,354 +30521,6 @@ func (ec *executionContext) fieldContext_Query_task(ctx context.Context, field g
 	return fc, nil
 }
 
-func (ec *executionContext) _Query_nearestStudentBirthdays(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_nearestStudentBirthdays(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().NearestStudentBirthdays(rctx, fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.StudentConnection)
-	fc.Result = res
-	return ec.marshalOStudentConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentConnection(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_nearestStudentBirthdays(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "edges":
-				return ec.fieldContext_StudentConnection_edges(ctx, field)
-			case "pageInfo":
-				return ec.fieldContext_StudentConnection_pageInfo(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentConnection", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_nearestStudentBirthdays_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_nearestStaffBirthdays(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_nearestStaffBirthdays(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().NearestStaffBirthdays(rctx, fc.Args["filter"].(*models.StaffFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.StaffConnection)
-	fc.Result = res
-	return ec.marshalOStaffConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffConnection(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_nearestStaffBirthdays(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "edges":
-				return ec.fieldContext_StaffConnection_edges(ctx, field)
-			case "pageInfo":
-				return ec.fieldContext_StaffConnection_pageInfo(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StaffConnection", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_nearestStaffBirthdays_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_unPayedStudents(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_unPayedStudents(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().UnPayedStudents(rctx, fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.StudentConnection)
-	fc.Result = res
-	return ec.marshalOStudentConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentConnection(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_unPayedStudents(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "edges":
-				return ec.fieldContext_StudentConnection_edges(ctx, field)
-			case "pageInfo":
-				return ec.fieldContext_StudentConnection_pageInfo(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentConnection", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_unPayedStudents_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_currentTasks(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_currentTasks(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CurrentTasks(rctx, fc.Args["filter"].(*models.TaskFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.TaskConnection)
-	fc.Result = res
-	return ec.marshalOTaskConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTaskConnection(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_currentTasks(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "edges":
-				return ec.fieldContext_TaskConnection_edges(ctx, field)
-			case "pageInfo":
-				return ec.fieldContext_TaskConnection_pageInfo(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TaskConnection", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_currentTasks_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_timeTable(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_timeTable(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TimeTable(rctx, fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.TrainingConnection)
-	fc.Result = res
-	return ec.marshalOTrainingConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingConnection(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_timeTable(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "edges":
-				return ec.fieldContext_TrainingConnection_edges(ctx, field)
-			case "pageInfo":
-				return ec.fieldContext_TrainingConnection_pageInfo(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TrainingConnection", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_timeTable_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_trainingsByDay(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_trainingsByDay(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TrainingsByDay(rctx, fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.TrainingConnection)
-	fc.Result = res
-	return ec.marshalOTrainingConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingConnection(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_trainingsByDay(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "edges":
-				return ec.fieldContext_TrainingConnection_edges(ctx, field)
-			case "pageInfo":
-				return ec.fieldContext_TrainingConnection_pageInfo(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TrainingConnection", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_trainingsByDay_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Query_tasks(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Query_tasks(ctx, field)
 	if err != nil {
@@ -30318,7 +30535,7 @@ func (ec *executionContext) _Query_tasks(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Tasks(rctx, fc.Args["filter"].(*models.TaskFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Tasks(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.TaskFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30398,24 +30615,24 @@ func (ec *executionContext) fieldContext_Query_team(ctx context.Context, field g
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -30434,6 +30651,53 @@ func (ec *executionContext) fieldContext_Query_team(ctx context.Context, field g
 	if fc.Args, err = ec.field_Query_team_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_teamAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_teamAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TeamAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.TeamDto)
+	fc.Result = res
+	return ec.marshalOTeamDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_teamAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_TeamDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_TeamDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type TeamDto", field.Name)
+		},
 	}
 	return fc, nil
 }
@@ -30486,10 +30750,10 @@ func (ec *executionContext) fieldContext_Query_teamBalance(ctx context.Context, 
 				return ec.fieldContext_TeamBalance_salary(ctx, field)
 			case "sum":
 				return ec.fieldContext_TeamBalance_sum(ctx, field)
-			case "teamId":
-				return ec.fieldContext_TeamBalance_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_TeamBalance_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_TeamBalance_teamId(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
 			}
@@ -30524,7 +30788,7 @@ func (ec *executionContext) _Query_teamBalances(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TeamBalances(rctx, fc.Args["filter"].(*models.TeamBalanceFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().TeamBalances(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.TeamBalanceFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30582,7 +30846,7 @@ func (ec *executionContext) _Query_teams(ctx context.Context, field graphql.Coll
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Teams(rctx, fc.Args["filter"].(*models.TeamFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Teams(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.TeamFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30620,6 +30884,64 @@ func (ec *executionContext) fieldContext_Query_teams(ctx context.Context, field 
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Query_teams_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_timeTable(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_timeTable(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TimeTable(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.TrainingConnection)
+	fc.Result = res
+	return ec.marshalOTrainingConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingConnection(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_timeTable(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "edges":
+				return ec.fieldContext_TrainingConnection_edges(ctx, field)
+			case "pageInfo":
+				return ec.fieldContext_TrainingConnection_pageInfo(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type TrainingConnection", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Query_timeTable_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -30674,14 +30996,14 @@ func (ec *executionContext) fieldContext_Query_training(ctx context.Context, fie
 				return ec.fieldContext_Training_id(ctx, field)
 			case "published":
 				return ec.fieldContext_Training_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_Training_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Training_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_Training_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Training_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -30700,6 +31022,53 @@ func (ec *executionContext) fieldContext_Query_training(ctx context.Context, fie
 	if fc.Args, err = ec.field_Query_training_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_trainingAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_trainingAll(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TrainingAll(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*models.TrainingDto)
+	fc.Result = res
+	return ec.marshalOTrainingDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDtoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_trainingAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_TrainingDto_id(ctx, field)
+			case "name":
+				return ec.fieldContext_TrainingDto_name(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type TrainingDto", field.Name)
+		},
 	}
 	return fc, nil
 }
@@ -30746,14 +31115,14 @@ func (ec *executionContext) fieldContext_Query_trainingDay(ctx context.Context, 
 				return ec.fieldContext_TrainingDay_id(ctx, field)
 			case "published":
 				return ec.fieldContext_TrainingDay_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_TrainingDay_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_TrainingDay_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_TrainingDay_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_TrainingDay_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
 			}
@@ -30788,7 +31157,7 @@ func (ec *executionContext) _Query_trainingDays(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TrainingDays(rctx, fc.Args["filter"].(*models.TrainingDayFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().TrainingDays(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.TrainingDayFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30846,7 +31215,7 @@ func (ec *executionContext) _Query_trainings(ctx context.Context, field graphql.
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Trainings(rctx, fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
+		return ec.resolvers.Query().Trainings(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30884,6 +31253,122 @@ func (ec *executionContext) fieldContext_Query_trainings(ctx context.Context, fi
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Query_trainings_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_trainingsByDay(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_trainingsByDay(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TrainingsByDay(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.TrainingFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.TrainingConnection)
+	fc.Result = res
+	return ec.marshalOTrainingConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingConnection(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_trainingsByDay(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "edges":
+				return ec.fieldContext_TrainingConnection_edges(ctx, field)
+			case "pageInfo":
+				return ec.fieldContext_TrainingConnection_pageInfo(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type TrainingConnection", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Query_trainingsByDay_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+		ec.Error(ctx, err)
+		return
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_unPayedStudents(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_unPayedStudents(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().UnPayedStudents(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.StudentFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.StudentConnection)
+	fc.Result = res
+	return ec.marshalOStudentConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentConnection(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Query_unPayedStudents(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "edges":
+				return ec.fieldContext_StudentConnection_edges(ctx, field)
+			case "pageInfo":
+				return ec.fieldContext_StudentConnection_pageInfo(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type StudentConnection", field.Name)
+		},
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
+		}
+	}()
+	ctx = graphql.WithFieldContext(ctx, fc)
+	if fc.Args, err = ec.field_Query_unPayedStudents_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -30929,14 +31414,14 @@ func (ec *executionContext) fieldContext_Query_user(ctx context.Context, field g
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
 			case "firstName":
 				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -30951,64 +31436,6 @@ func (ec *executionContext) fieldContext_Query_user(ctx context.Context, field g
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
 	if fc.Args, err = ec.field_Query_user_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
-		ec.Error(ctx, err)
-		return
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_users(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_users(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().Users(rctx, fc.Args["filter"].(*models.UserFilter), fc.Args["first"].(*int), fc.Args["after"].(*string), fc.Args["last"].(*int), fc.Args["before"].(*string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.UserConnection)
-	fc.Result = res
-	return ec.marshalOUserConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserConnection(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_users(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "edges":
-				return ec.fieldContext_UserConnection_edges(ctx, field)
-			case "pageInfo":
-				return ec.fieldContext_UserConnection_pageInfo(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type UserConnection", field.Name)
-		},
-	}
-	defer func() {
-		if r := recover(); r != nil {
-			err = ec.Recover(ctx, r)
-			ec.Error(ctx, err)
-		}
-	}()
-	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_users_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return
 	}
@@ -31062,8 +31489,8 @@ func (ec *executionContext) fieldContext_Query_userAll(ctx context.Context, fiel
 	return fc, nil
 }
 
-func (ec *executionContext) _Query_cartAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_cartAll(ctx, field)
+func (ec *executionContext) _Query_users(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Query_users(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -31076,7 +31503,7 @@ func (ec *executionContext) _Query_cartAll(ctx context.Context, field graphql.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CartAll(rctx)
+		return ec.resolvers.Query().Users(rctx, fc.Args["after"].(*string), fc.Args["before"].(*string), fc.Args["filter"].(*models.UserFilter), fc.Args["first"].(*int), fc.Args["last"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -31085,12 +31512,12 @@ func (ec *executionContext) _Query_cartAll(ctx context.Context, field graphql.Co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.([]*models.CartDto)
+	res := resTmp.(*models.UserConnection)
 	fc.Result = res
-	return ec.marshalOCartDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCartDtoᚄ(ctx, field.Selections, res)
+	return ec.marshalOUserConnection2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUserConnection(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Query_cartAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Query_users(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Query",
 		Field:      field,
@@ -31098,436 +31525,24 @@ func (ec *executionContext) fieldContext_Query_cartAll(ctx context.Context, fiel
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_CartDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_CartDto_name(ctx, field)
+			case "edges":
+				return ec.fieldContext_UserConnection_edges(ctx, field)
+			case "pageInfo":
+				return ec.fieldContext_UserConnection_pageInfo(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type CartDto", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type UserConnection", field.Name)
 		},
 	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_creatorAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_creatorAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
 	defer func() {
 		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
+			err = ec.Recover(ctx, r)
+			ec.Error(ctx, err)
 		}
 	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().CreatorAll(rctx)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.CreatorDto)
-	fc.Result = res
-	return ec.marshalOCreatorDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐCreatorDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_creatorAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_CreatorDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_CreatorDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type CreatorDto", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_kitAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_kitAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
 	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().KitAll(rctx)
-	})
-	if err != nil {
+	if fc.Args, err = ec.field_Query_users_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.KitDto)
-	fc.Result = res
-	return ec.marshalOKitDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_kitAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_KitDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_KitDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type KitDto", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_leadAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_leadAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().LeadAll(rctx)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.LeadDto)
-	fc.Result = res
-	return ec.marshalOLeadDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐLeadDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_leadAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_LeadDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_LeadDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type LeadDto", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_placeAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_placeAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().PlaceAll(rctx)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.PlaceDto)
-	fc.Result = res
-	return ec.marshalOPlaceDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐPlaceDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_placeAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_PlaceDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_PlaceDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type PlaceDto", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_stadiumAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_stadiumAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().StadiumAll(rctx)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.StadiumDto)
-	fc.Result = res
-	return ec.marshalOStadiumDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadiumDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_stadiumAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_StadiumDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_StadiumDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StadiumDto", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_staffAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_staffAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().StaffAll(rctx)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.StaffDto)
-	fc.Result = res
-	return ec.marshalOStaffDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_staffAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_StaffDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_StaffDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StaffDto", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_studentAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_studentAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().StudentAll(rctx)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.StudentDto)
-	fc.Result = res
-	return ec.marshalOStudentDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStudentDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_studentAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_StudentDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_StudentDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type StudentDto", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_teamAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_teamAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TeamAll(rctx)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.TeamDto)
-	fc.Result = res
-	return ec.marshalOTeamDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeamDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_teamAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_TeamDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_TeamDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TeamDto", field.Name)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Query_trainingAll(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Query_trainingAll(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().TrainingAll(rctx)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*models.TrainingDto)
-	fc.Result = res
-	return ec.marshalOTrainingDto2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTrainingDtoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Query_trainingAll(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_TrainingDto_id(ctx, field)
-			case "name":
-				return ec.fieldContext_TrainingDto_name(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type TrainingDto", field.Name)
-		},
+		return
 	}
 	return fc, nil
 }
@@ -31875,50 +31890,6 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_published(ctx contex
 	return fc, nil
 }
 
-func (ec *executionContext) _RentPaymentByMonth_stadiumId(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StadiumID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_RentPaymentByMonth_stadiumId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "RentPaymentByMonth",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _RentPaymentByMonth_stadium(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_RentPaymentByMonth_stadium(ctx, field)
 	if err != nil {
@@ -31963,14 +31934,58 @@ func (ec *executionContext) fieldContext_RentPaymentByMonth_stadium(ctx context.
 				return ec.fieldContext_Stadium_longitude(ctx, field)
 			case "name":
 				return ec.fieldContext_Stadium_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Stadium_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _RentPaymentByMonth_stadiumId(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByMonth) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StadiumID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_RentPaymentByMonth_stadiumId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "RentPaymentByMonth",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -32106,12 +32121,12 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthConnection_pageInfo(c
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -32209,10 +32224,10 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthEdge_node(ctx context
 				return ec.fieldContext_RentPaymentByMonth_paymentDate(ctx, field)
 			case "published":
 				return ec.fieldContext_RentPaymentByMonth_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_RentPaymentByMonth_stadium(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
 			}
@@ -32268,10 +32283,10 @@ func (ec *executionContext) fieldContext_RentPaymentByMonthPayload_record(ctx co
 				return ec.fieldContext_RentPaymentByMonth_paymentDate(ctx, field)
 			case "published":
 				return ec.fieldContext_RentPaymentByMonth_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_RentPaymentByMonth_stadium(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_RentPaymentByMonth_stadiumId(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByMonth_sum(ctx, field)
 			}
@@ -32454,50 +32469,6 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_published(ctx con
 	return fc, nil
 }
 
-func (ec *executionContext) _RentPaymentByTraining_stadiumId(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StadiumID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_RentPaymentByTraining_stadiumId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "RentPaymentByTraining",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _RentPaymentByTraining_stadium(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_RentPaymentByTraining_stadium(ctx, field)
 	if err != nil {
@@ -32542,14 +32513,58 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_stadium(ctx conte
 				return ec.fieldContext_Stadium_longitude(ctx, field)
 			case "name":
 				return ec.fieldContext_Stadium_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Stadium_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _RentPaymentByTraining_stadiumId(ctx context.Context, field graphql.CollectedField, obj *models.RentPaymentByTraining) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StadiumID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_RentPaymentByTraining_stadiumId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "RentPaymentByTraining",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -32691,14 +32706,14 @@ func (ec *executionContext) fieldContext_RentPaymentByTraining_trainings(ctx con
 				return ec.fieldContext_Training_id(ctx, field)
 			case "published":
 				return ec.fieldContext_Training_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_Training_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Training_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_Training_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Training_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -32796,12 +32811,12 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingConnection_pageInf
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -32895,10 +32910,10 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingEdge_node(ctx cont
 				return ec.fieldContext_RentPaymentByTraining_id(ctx, field)
 			case "published":
 				return ec.fieldContext_RentPaymentByTraining_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_RentPaymentByTraining_stadium(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByTraining_sum(ctx, field)
 			case "trainingIds":
@@ -32954,10 +32969,10 @@ func (ec *executionContext) fieldContext_RentPaymentByTrainingPayload_record(ctx
 				return ec.fieldContext_RentPaymentByTraining_id(ctx, field)
 			case "published":
 				return ec.fieldContext_RentPaymentByTraining_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_RentPaymentByTraining_stadium(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_RentPaymentByTraining_stadiumId(ctx, field)
 			case "sum":
 				return ec.fieldContext_RentPaymentByTraining_sum(ctx, field)
 			case "trainingIds":
@@ -33191,50 +33206,6 @@ func (ec *executionContext) fieldContext_Stadium_name(ctx context.Context, field
 	return fc, nil
 }
 
-func (ec *executionContext) _Stadium_placeId(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Stadium_placeId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PlaceID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalNID2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Stadium_placeId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Stadium",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Stadium_place(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Stadium_place(ctx, field)
 	if err != nil {
@@ -33285,6 +33256,50 @@ func (ec *executionContext) fieldContext_Stadium_place(ctx context.Context, fiel
 				return ec.fieldContext_Place_published(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Stadium_placeId(ctx context.Context, field graphql.CollectedField, obj *models.Stadium) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Stadium_placeId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PlaceID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalNID2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Stadium_placeId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Stadium",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -33420,12 +33435,12 @@ func (ec *executionContext) fieldContext_StadiumConnection_pageInfo(ctx context.
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -33609,10 +33624,10 @@ func (ec *executionContext) fieldContext_StadiumEdge_node(ctx context.Context, f
 				return ec.fieldContext_Stadium_longitude(ctx, field)
 			case "name":
 				return ec.fieldContext_Stadium_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Stadium_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -33666,10 +33681,10 @@ func (ec *executionContext) fieldContext_StadiumPayload_record(ctx context.Conte
 				return ec.fieldContext_Stadium_longitude(ctx, field)
 			case "name":
 				return ec.fieldContext_Stadium_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Stadium_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -34107,6 +34122,59 @@ func (ec *executionContext) fieldContext_Staff_published(ctx context.Context, fi
 	return fc, nil
 }
 
+func (ec *executionContext) _Staff_user(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Staff_user(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Staff().User(rctx, obj)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.User)
+	fc.Result = res
+	return ec.marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Staff_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Staff",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "firstName":
+				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
+			case "lastName":
+				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
+			case "roles":
+				return ec.fieldContext_User_roles(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Staff_userId(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Staff_userId(ctx, field)
 	if err != nil {
@@ -34146,59 +34214,6 @@ func (ec *executionContext) fieldContext_Staff_userId(ctx context.Context, field
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Staff_user(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Staff_user(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Staff().User(rctx, obj)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.User)
-	fc.Result = res
-	return ec.marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Staff_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Staff",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
-			case "firstName":
-				return ec.fieldContext_User_firstName(ctx, field)
-			case "lastName":
-				return ec.fieldContext_User_lastName(ctx, field)
-			case "roles":
-				return ec.fieldContext_User_roles(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
 	}
 	return fc, nil
@@ -34334,12 +34349,12 @@ func (ec *executionContext) fieldContext_StaffConnection_pageInfo(ctx context.Co
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -34533,10 +34548,10 @@ func (ec *executionContext) fieldContext_StaffEdge_node(ctx context.Context, fie
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -34600,10 +34615,10 @@ func (ec *executionContext) fieldContext_StaffPayload_record(ctx context.Context
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -34788,10 +34803,10 @@ func (ec *executionContext) fieldContext_Student_creators(ctx context.Context, f
 				return ec.fieldContext_Creator_phone(ctx, field)
 			case "published":
 				return ec.fieldContext_Creator_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Creator_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Creator_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Creator_userId(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Creator", field.Name)
 		},
@@ -35093,24 +35108,24 @@ func (ec *executionContext) fieldContext_Student_teams(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -35208,12 +35223,12 @@ func (ec *executionContext) fieldContext_StudentConnection_pageInfo(ctx context.
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -35655,50 +35670,6 @@ func (ec *executionContext) fieldContext_StudentVisit_published(ctx context.Cont
 	return fc, nil
 }
 
-func (ec *executionContext) _StudentVisit_studentId(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_StudentVisit_studentId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StudentID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_StudentVisit_studentId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "StudentVisit",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _StudentVisit_student(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_StudentVisit_student(ctx, field)
 	if err != nil {
@@ -35762,8 +35733,8 @@ func (ec *executionContext) fieldContext_StudentVisit_student(ctx context.Contex
 	return fc, nil
 }
 
-func (ec *executionContext) _StudentVisit_trainingId(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_StudentVisit_trainingId(ctx, field)
+func (ec *executionContext) _StudentVisit_studentId(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_StudentVisit_studentId(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -35776,7 +35747,7 @@ func (ec *executionContext) _StudentVisit_trainingId(ctx context.Context, field 
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TrainingID, nil
+		return obj.StudentID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -35793,7 +35764,7 @@ func (ec *executionContext) _StudentVisit_trainingId(ctx context.Context, field 
 	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_StudentVisit_trainingId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_StudentVisit_studentId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "StudentVisit",
 		Field:      field,
@@ -35854,20 +35825,64 @@ func (ec *executionContext) fieldContext_StudentVisit_training(ctx context.Conte
 				return ec.fieldContext_Training_id(ctx, field)
 			case "published":
 				return ec.fieldContext_Training_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_Training_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Training_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_Training_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Training_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
 				return ec.fieldContext_Training_visits(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Training", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _StudentVisit_trainingId(ctx context.Context, field graphql.CollectedField, obj *models.StudentVisit) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_StudentVisit_trainingId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TrainingID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_StudentVisit_trainingId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "StudentVisit",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -36003,12 +36018,12 @@ func (ec *executionContext) fieldContext_StudentVisitConnection_pageInfo(ctx con
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -36102,14 +36117,14 @@ func (ec *executionContext) fieldContext_StudentVisitEdge_node(ctx context.Conte
 				return ec.fieldContext_StudentVisit_payed(ctx, field)
 			case "published":
 				return ec.fieldContext_StudentVisit_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_StudentVisit_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_StudentVisit_student(ctx, field)
-			case "trainingId":
-				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
+			case "studentId":
+				return ec.fieldContext_StudentVisit_studentId(ctx, field)
 			case "training":
 				return ec.fieldContext_StudentVisit_training(ctx, field)
+			case "trainingId":
+				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
 			}
@@ -36161,14 +36176,14 @@ func (ec *executionContext) fieldContext_StudentVisitPayload_record(ctx context.
 				return ec.fieldContext_StudentVisit_payed(ctx, field)
 			case "published":
 				return ec.fieldContext_StudentVisit_published(ctx, field)
-			case "studentId":
-				return ec.fieldContext_StudentVisit_studentId(ctx, field)
 			case "student":
 				return ec.fieldContext_StudentVisit_student(ctx, field)
-			case "trainingId":
-				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
+			case "studentId":
+				return ec.fieldContext_StudentVisit_studentId(ctx, field)
 			case "training":
 				return ec.fieldContext_StudentVisit_training(ctx, field)
+			case "trainingId":
+				return ec.fieldContext_StudentVisit_trainingId(ctx, field)
 			case "visitStatus":
 				return ec.fieldContext_StudentVisit_visitStatus(ctx, field)
 			}
@@ -36258,14 +36273,14 @@ func (ec *executionContext) fieldContext_Task_author(ctx context.Context, field 
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
 			case "firstName":
 				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -36541,10 +36556,10 @@ func (ec *executionContext) fieldContext_Task_leads(ctx context.Context, field g
 				return ec.fieldContext_Lead_studentIds(ctx, field)
 			case "students":
 				return ec.fieldContext_Lead_students(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Lead_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_Lead_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Lead_teamId(ctx, field)
 			case "yearBorn":
 				return ec.fieldContext_Lead_yearBorn(ctx, field)
 			}
@@ -37005,10 +37020,10 @@ func (ec *executionContext) fieldContext_Task_workers(ctx context.Context, field
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -37104,12 +37119,12 @@ func (ec *executionContext) fieldContext_TaskConnection_pageInfo(ctx context.Con
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -37359,50 +37374,6 @@ func (ec *executionContext) fieldContext_TaskPayload_recordId(ctx context.Contex
 	return fc, nil
 }
 
-func (ec *executionContext) _Team_id(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_id(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _Team_ages(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Team_ages(ctx, field)
 	if err != nil {
@@ -37439,114 +37410,6 @@ func (ec *executionContext) fieldContext_Team_ages(ctx context.Context, field gr
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type Age does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Team_headCoachId(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_headCoachId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.HeadCoachID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_headCoachId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Team_headCoach(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_headCoach(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Team().HeadCoach(rctx, obj)
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.Staff)
-	fc.Result = res
-	return ec.marshalOStaff2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaff(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_headCoach(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "birthday":
-				return ec.fieldContext_Staff_birthday(ctx, field)
-			case "department":
-				return ec.fieldContext_Staff_department(ctx, field)
-			case "description":
-				return ec.fieldContext_Staff_description(ctx, field)
-			case "fileName":
-				return ec.fieldContext_Staff_fileName(ctx, field)
-			case "id":
-				return ec.fieldContext_Staff_id(ctx, field)
-			case "name":
-				return ec.fieldContext_Staff_name(ctx, field)
-			case "orderNumber":
-				return ec.fieldContext_Staff_orderNumber(ctx, field)
-			case "phoneNumber":
-				return ec.fieldContext_Staff_phoneNumber(ctx, field)
-			case "published":
-				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
-			case "user":
-				return ec.fieldContext_Staff_user(ctx, field)
-			case "work":
-				return ec.fieldContext_Staff_work(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
 		},
 	}
 	return fc, nil
@@ -37647,14 +37510,166 @@ func (ec *executionContext) fieldContext_Team_coaches(ctx context.Context, field
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Team_headCoach(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_headCoach(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Team().HeadCoach(rctx, obj)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.Staff)
+	fc.Result = res
+	return ec.marshalOStaff2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaff(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_headCoach(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "birthday":
+				return ec.fieldContext_Staff_birthday(ctx, field)
+			case "department":
+				return ec.fieldContext_Staff_department(ctx, field)
+			case "description":
+				return ec.fieldContext_Staff_description(ctx, field)
+			case "fileName":
+				return ec.fieldContext_Staff_fileName(ctx, field)
+			case "id":
+				return ec.fieldContext_Staff_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Staff_name(ctx, field)
+			case "orderNumber":
+				return ec.fieldContext_Staff_orderNumber(ctx, field)
+			case "phoneNumber":
+				return ec.fieldContext_Staff_phoneNumber(ctx, field)
+			case "published":
+				return ec.fieldContext_Staff_published(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
+			case "work":
+				return ec.fieldContext_Staff_work(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Staff", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Team_headCoachId(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_headCoachId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.HeadCoachID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_headCoachId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Team_id(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_id(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -37699,50 +37714,6 @@ func (ec *executionContext) fieldContext_Team_name(ctx context.Context, field gr
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type String does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Team_placeId(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Team_placeId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PlaceID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Team_placeId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Team",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -37798,6 +37769,50 @@ func (ec *executionContext) fieldContext_Team_place(ctx context.Context, field g
 				return ec.fieldContext_Place_published(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Place", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Team_placeId(ctx context.Context, field graphql.CollectedField, obj *models.Team) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Team_placeId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PlaceID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Team_placeId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Team",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -38155,6 +38170,71 @@ func (ec *executionContext) fieldContext_TeamBalance_sum(ctx context.Context, fi
 	return fc, nil
 }
 
+func (ec *executionContext) _TeamBalance_team(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TeamBalance_team(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Team, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.Team)
+	fc.Result = res
+	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_TeamBalance_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "TeamBalance",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "ages":
+				return ec.fieldContext_Team_ages(ctx, field)
+			case "coachIds":
+				return ec.fieldContext_Team_coachIds(ctx, field)
+			case "coaches":
+				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Team_name(ctx, field)
+			case "place":
+				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
+			case "published":
+				return ec.fieldContext_Team_published(ctx, field)
+			case "writable":
+				return ec.fieldContext_Team_writable(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _TeamBalance_teamId(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_TeamBalance_teamId(ctx, field)
 	if err != nil {
@@ -38194,71 +38274,6 @@ func (ec *executionContext) fieldContext_TeamBalance_teamId(ctx context.Context,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _TeamBalance_team(ctx context.Context, field graphql.CollectedField, obj *models.TeamBalance) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TeamBalance_team(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Team, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.Team)
-	fc.Result = res
-	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_TeamBalance_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "TeamBalance",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
-			case "ages":
-				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "coachIds":
-				return ec.fieldContext_Team_coachIds(ctx, field)
-			case "coaches":
-				return ec.fieldContext_Team_coaches(ctx, field)
-			case "name":
-				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
-			case "place":
-				return ec.fieldContext_Team_place(ctx, field)
-			case "published":
-				return ec.fieldContext_Team_published(ctx, field)
-			case "writable":
-				return ec.fieldContext_Team_writable(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
 	}
 	return fc, nil
@@ -38394,12 +38409,12 @@ func (ec *executionContext) fieldContext_TeamBalanceConnection_pageInfo(ctx cont
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -38499,10 +38514,10 @@ func (ec *executionContext) fieldContext_TeamBalanceEdge_node(ctx context.Contex
 				return ec.fieldContext_TeamBalance_salary(ctx, field)
 			case "sum":
 				return ec.fieldContext_TeamBalance_sum(ctx, field)
-			case "teamId":
-				return ec.fieldContext_TeamBalance_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_TeamBalance_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_TeamBalance_teamId(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
 			}
@@ -38560,10 +38575,10 @@ func (ec *executionContext) fieldContext_TeamBalancePayload_record(ctx context.C
 				return ec.fieldContext_TeamBalance_salary(ctx, field)
 			case "sum":
 				return ec.fieldContext_TeamBalance_sum(ctx, field)
-			case "teamId":
-				return ec.fieldContext_TeamBalance_teamId(ctx, field)
 			case "team":
 				return ec.fieldContext_TeamBalance_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_TeamBalance_teamId(ctx, field)
 			case "tickets":
 				return ec.fieldContext_TeamBalance_tickets(ctx, field)
 			}
@@ -38703,12 +38718,12 @@ func (ec *executionContext) fieldContext_TeamConnection_pageInfo(ctx context.Con
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -38884,24 +38899,24 @@ func (ec *executionContext) fieldContext_TeamEdge_node(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -38949,24 +38964,24 @@ func (ec *executionContext) fieldContext_TeamPayload_record(ctx context.Context,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
@@ -39209,7 +39224,7 @@ func (ec *executionContext) _Training_coaches(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Coaches, nil
+		return ec.resolvers.Training().Coaches(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -39227,8 +39242,8 @@ func (ec *executionContext) fieldContext_Training_coaches(ctx context.Context, f
 	fc = &graphql.FieldContext{
 		Object:     "Training",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -39249,10 +39264,10 @@ func (ec *executionContext) fieldContext_Training_coaches(ctx context.Context, f
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -39276,7 +39291,7 @@ func (ec *executionContext) _Training_headCoach(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.HeadCoach, nil
+		return ec.resolvers.Training().HeadCoach(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -39294,8 +39309,8 @@ func (ec *executionContext) fieldContext_Training_headCoach(ctx context.Context,
 	fc = &graphql.FieldContext{
 		Object:     "Training",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -39316,10 +39331,10 @@ func (ec *executionContext) fieldContext_Training_headCoach(ctx context.Context,
 				return ec.fieldContext_Staff_phoneNumber(ctx, field)
 			case "published":
 				return ec.fieldContext_Staff_published(ctx, field)
-			case "userId":
-				return ec.fieldContext_Staff_userId(ctx, field)
 			case "user":
 				return ec.fieldContext_Staff_user(ctx, field)
+			case "userId":
+				return ec.fieldContext_Staff_userId(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -39458,6 +39473,63 @@ func (ec *executionContext) fieldContext_Training_published(ctx context.Context,
 	return fc, nil
 }
 
+func (ec *executionContext) _Training_stadium(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Training_stadium(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Training().Stadium(rctx, obj)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*models.Stadium)
+	fc.Result = res
+	return ec.marshalOStadium2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadium(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Training_stadium(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Training",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_Stadium_id(ctx, field)
+			case "latitude":
+				return ec.fieldContext_Stadium_latitude(ctx, field)
+			case "longitude":
+				return ec.fieldContext_Stadium_longitude(ctx, field)
+			case "name":
+				return ec.fieldContext_Stadium_name(ctx, field)
+			case "place":
+				return ec.fieldContext_Stadium_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Stadium_placeId(ctx, field)
+			case "published":
+				return ec.fieldContext_Stadium_published(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Training_stadiumId(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Training_stadiumId(ctx, field)
 	if err != nil {
@@ -39499,8 +39571,8 @@ func (ec *executionContext) fieldContext_Training_stadiumId(ctx context.Context,
 	return fc, nil
 }
 
-func (ec *executionContext) _Training_stadium(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Training_stadium(ctx, field)
+func (ec *executionContext) _Training_team(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Training_team(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -39513,7 +39585,7 @@ func (ec *executionContext) _Training_stadium(ctx context.Context, field graphql
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Stadium, nil
+		return ec.resolvers.Training().Team(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -39522,35 +39594,43 @@ func (ec *executionContext) _Training_stadium(ctx context.Context, field graphql
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*models.Stadium)
+	res := resTmp.(*models.Team)
 	fc.Result = res
-	return ec.marshalOStadium2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStadium(ctx, field.Selections, res)
+	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Training_stadium(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Training_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Training",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
+			case "ages":
+				return ec.fieldContext_Team_ages(ctx, field)
+			case "coachIds":
+				return ec.fieldContext_Team_coachIds(ctx, field)
+			case "coaches":
+				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
 			case "id":
-				return ec.fieldContext_Stadium_id(ctx, field)
-			case "latitude":
-				return ec.fieldContext_Stadium_latitude(ctx, field)
-			case "longitude":
-				return ec.fieldContext_Stadium_longitude(ctx, field)
+				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
-				return ec.fieldContext_Stadium_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Stadium_placeId(ctx, field)
+				return ec.fieldContext_Team_name(ctx, field)
 			case "place":
-				return ec.fieldContext_Stadium_place(ctx, field)
+				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
 			case "published":
-				return ec.fieldContext_Stadium_published(ctx, field)
+				return ec.fieldContext_Team_published(ctx, field)
+			case "writable":
+				return ec.fieldContext_Team_writable(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type Stadium", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
 	}
 	return fc, nil
@@ -39595,71 +39675,6 @@ func (ec *executionContext) fieldContext_Training_teamId(ctx context.Context, fi
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _Training_team(ctx context.Context, field graphql.CollectedField, obj *models.Training) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Training_team(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Team, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*models.Team)
-	fc.Result = res
-	return ec.marshalOTeam2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐTeam(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_Training_team(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Training",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
-			case "ages":
-				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
-			case "coachIds":
-				return ec.fieldContext_Team_coachIds(ctx, field)
-			case "coaches":
-				return ec.fieldContext_Team_coaches(ctx, field)
-			case "name":
-				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
-			case "place":
-				return ec.fieldContext_Team_place(ctx, field)
-			case "published":
-				return ec.fieldContext_Team_published(ctx, field)
-			case "writable":
-				return ec.fieldContext_Team_writable(ctx, field)
-			}
-			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
 		},
 	}
 	return fc, nil
@@ -39836,12 +39851,12 @@ func (ec *executionContext) fieldContext_TrainingConnection_pageInfo(ctx context
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -39978,47 +39993,6 @@ func (ec *executionContext) fieldContext_TrainingDay_published(ctx context.Conte
 	return fc, nil
 }
 
-func (ec *executionContext) _TrainingDay_stadiumId(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TrainingDay_stadiumId(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StadiumID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_TrainingDay_stadiumId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "TrainingDay",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _TrainingDay_stadium(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_TrainingDay_stadium(ctx, field)
 	if err != nil {
@@ -40063,10 +40037,10 @@ func (ec *executionContext) fieldContext_TrainingDay_stadium(ctx context.Context
 				return ec.fieldContext_Stadium_longitude(ctx, field)
 			case "name":
 				return ec.fieldContext_Stadium_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Stadium_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Stadium_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Stadium_published(ctx, field)
 			}
@@ -40076,8 +40050,8 @@ func (ec *executionContext) fieldContext_TrainingDay_stadium(ctx context.Context
 	return fc, nil
 }
 
-func (ec *executionContext) _TrainingDay_teamId(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_TrainingDay_teamId(ctx, field)
+func (ec *executionContext) _TrainingDay_stadiumId(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TrainingDay_stadiumId(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -40090,24 +40064,21 @@ func (ec *executionContext) _TrainingDay_teamId(ctx context.Context, field graph
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TeamID, nil
+		return obj.StadiumID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
-	res := resTmp.(string)
+	res := resTmp.(*string)
 	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
+	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_TrainingDay_teamId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_TrainingDay_stadiumId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "TrainingDay",
 		Field:      field,
@@ -40156,30 +40127,74 @@ func (ec *executionContext) fieldContext_TrainingDay_team(ctx context.Context, f
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_Team_id(ctx, field)
 			case "ages":
 				return ec.fieldContext_Team_ages(ctx, field)
-			case "headCoachId":
-				return ec.fieldContext_Team_headCoachId(ctx, field)
-			case "headCoach":
-				return ec.fieldContext_Team_headCoach(ctx, field)
 			case "coachIds":
 				return ec.fieldContext_Team_coachIds(ctx, field)
 			case "coaches":
 				return ec.fieldContext_Team_coaches(ctx, field)
+			case "headCoach":
+				return ec.fieldContext_Team_headCoach(ctx, field)
+			case "headCoachId":
+				return ec.fieldContext_Team_headCoachId(ctx, field)
+			case "id":
+				return ec.fieldContext_Team_id(ctx, field)
 			case "name":
 				return ec.fieldContext_Team_name(ctx, field)
-			case "placeId":
-				return ec.fieldContext_Team_placeId(ctx, field)
 			case "place":
 				return ec.fieldContext_Team_place(ctx, field)
+			case "placeId":
+				return ec.fieldContext_Team_placeId(ctx, field)
 			case "published":
 				return ec.fieldContext_Team_published(ctx, field)
 			case "writable":
 				return ec.fieldContext_Team_writable(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type Team", field.Name)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _TrainingDay_teamId(ctx context.Context, field graphql.CollectedField, obj *models.TrainingDay) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_TrainingDay_teamId(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TeamID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_TrainingDay_teamId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "TrainingDay",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
 		},
 	}
 	return fc, nil
@@ -40312,12 +40327,12 @@ func (ec *executionContext) fieldContext_TrainingDayConnection_pageInfo(ctx cont
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -40411,14 +40426,14 @@ func (ec *executionContext) fieldContext_TrainingDayEdge_node(ctx context.Contex
 				return ec.fieldContext_TrainingDay_id(ctx, field)
 			case "published":
 				return ec.fieldContext_TrainingDay_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_TrainingDay_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_TrainingDay_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_TrainingDay_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_TrainingDay_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
 			}
@@ -40470,14 +40485,14 @@ func (ec *executionContext) fieldContext_TrainingDayPayload_record(ctx context.C
 				return ec.fieldContext_TrainingDay_id(ctx, field)
 			case "published":
 				return ec.fieldContext_TrainingDay_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_TrainingDay_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_TrainingDay_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_TrainingDay_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_TrainingDay_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_TrainingDay_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_TrainingDay_time(ctx, field)
 			}
@@ -40711,14 +40726,14 @@ func (ec *executionContext) fieldContext_TrainingEdge_node(ctx context.Context, 
 				return ec.fieldContext_Training_id(ctx, field)
 			case "published":
 				return ec.fieldContext_Training_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_Training_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Training_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_Training_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Training_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -40778,14 +40793,14 @@ func (ec *executionContext) fieldContext_TrainingPayload_record(ctx context.Cont
 				return ec.fieldContext_Training_id(ctx, field)
 			case "published":
 				return ec.fieldContext_Training_published(ctx, field)
-			case "stadiumId":
-				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "stadium":
 				return ec.fieldContext_Training_stadium(ctx, field)
-			case "teamId":
-				return ec.fieldContext_Training_teamId(ctx, field)
+			case "stadiumId":
+				return ec.fieldContext_Training_stadiumId(ctx, field)
 			case "team":
 				return ec.fieldContext_Training_team(ctx, field)
+			case "teamId":
+				return ec.fieldContext_Training_teamId(ctx, field)
 			case "time":
 				return ec.fieldContext_Training_time(ctx, field)
 			case "visits":
@@ -40841,94 +40856,6 @@ func (ec *executionContext) fieldContext_TrainingPayload_recordId(ctx context.Co
 	return fc, nil
 }
 
-func (ec *executionContext) _User_id(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_User_id(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_User_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "User",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type ID does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _User_phone(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_User_phone(ctx, field)
-	if err != nil {
-		return graphql.Null
-	}
-	ctx = graphql.WithFieldContext(ctx, fc)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Phone, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) fieldContext_User_phone(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "User",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type String does not have child fields")
-		},
-	}
-	return fc, nil
-}
-
 func (ec *executionContext) _User_firstName(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_User_firstName(ctx, field)
 	if err != nil {
@@ -40973,6 +40900,50 @@ func (ec *executionContext) fieldContext_User_firstName(ctx context.Context, fie
 	return fc, nil
 }
 
+func (ec *executionContext) _User_id(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_User_id(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_User_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "User",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type ID does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _User_lastName(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_User_lastName(ctx, field)
 	if err != nil {
@@ -41005,6 +40976,50 @@ func (ec *executionContext) _User_lastName(ctx context.Context, field graphql.Co
 }
 
 func (ec *executionContext) fieldContext_User_lastName(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "User",
+		Field:      field,
+		IsMethod:   false,
+		IsResolver: false,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return nil, errors.New("field of type String does not have child fields")
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _User_phone(ctx context.Context, field graphql.CollectedField, obj *models.User) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_User_phone(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Phone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_User_phone(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "User",
 		Field:      field,
@@ -41147,12 +41162,12 @@ func (ec *executionContext) fieldContext_UserConnection_pageInfo(ctx context.Con
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "startCursor":
-				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			case "endCursor":
 				return ec.fieldContext_PageInfo_endCursor(ctx, field)
 			case "hasNextPage":
 				return ec.fieldContext_PageInfo_hasNextPage(ctx, field)
+			case "startCursor":
+				return ec.fieldContext_PageInfo_startCursor(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type PageInfo", field.Name)
 		},
@@ -41328,14 +41343,14 @@ func (ec *executionContext) fieldContext_UserEdge_node(ctx context.Context, fiel
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
 			case "firstName":
 				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -41381,14 +41396,14 @@ func (ec *executionContext) fieldContext_UserPayload_record(ctx context.Context,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
-			case "id":
-				return ec.fieldContext_User_id(ctx, field)
-			case "phone":
-				return ec.fieldContext_User_phone(ctx, field)
 			case "firstName":
 				return ec.fieldContext_User_firstName(ctx, field)
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
 			case "lastName":
 				return ec.fieldContext_User_lastName(ctx, field)
+			case "phone":
+				return ec.fieldContext_User_phone(ctx, field)
 			case "roles":
 				return ec.fieldContext_User_roles(ctx, field)
 			}
@@ -44402,26 +44417,26 @@ func (ec *executionContext) unmarshalInputLoginInput(ctx context.Context, obj in
 		asMap[k] = v
 	}
 
-	fieldsInOrder := [...]string{"phone", "password"}
+	fieldsInOrder := [...]string{"password", "phone"}
 	for _, k := range fieldsInOrder {
 		v, ok := asMap[k]
 		if !ok {
 			continue
 		}
 		switch k {
-		case "phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phone"))
-			it.Phone, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "password":
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("password"))
 			it.Password, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phone"))
+			it.Phone, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44982,29 +44997,13 @@ func (ec *executionContext) unmarshalInputRegisterInput(ctx context.Context, obj
 		asMap[k] = v
 	}
 
-	fieldsInOrder := [...]string{"phone", "password", "confirmPassword", "firstName", "lastName"}
+	fieldsInOrder := [...]string{"confirmPassword", "firstName", "lastName", "password", "phone"}
 	for _, k := range fieldsInOrder {
 		v, ok := asMap[k]
 		if !ok {
 			continue
 		}
 		switch k {
-		case "phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phone"))
-			it.Phone, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "password":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("password"))
-			it.Password, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "confirmPassword":
 			var err error
 
@@ -45026,6 +45025,22 @@ func (ec *executionContext) unmarshalInputRegisterInput(ctx context.Context, obj
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("lastName"))
 			it.LastName, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "password":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("password"))
+			it.Password, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phone"))
+			it.Phone, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -46972,6 +46987,10 @@ func (ec *executionContext) _Cart(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "student":
+
+			out.Values[i] = ec._Cart_student(ctx, field, obj)
+
 		case "studentId":
 
 			out.Values[i] = ec._Cart_studentId(ctx, field, obj)
@@ -46979,10 +46998,6 @@ func (ec *executionContext) _Cart(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "student":
-
-			out.Values[i] = ec._Cart_student(ctx, field, obj)
-
 		case "sum":
 
 			out.Values[i] = ec._Cart_sum(ctx, field, obj)
@@ -47509,13 +47524,13 @@ func (ec *executionContext) _CoachPaymentByTeam(ctx context.Context, sel ast.Sel
 
 			out.Values[i] = ec._CoachPaymentByTeam_sum(ctx, field, obj)
 
-		case "teamId":
-
-			out.Values[i] = ec._CoachPaymentByTeam_teamId(ctx, field, obj)
-
 		case "team":
 
 			out.Values[i] = ec._CoachPaymentByTeam_team(ctx, field, obj)
+
+		case "teamId":
+
+			out.Values[i] = ec._CoachPaymentByTeam_teamId(ctx, field, obj)
 
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -47663,13 +47678,13 @@ func (ec *executionContext) _CoachPaymentByTraining(ctx context.Context, sel ast
 
 			out.Values[i] = ec._CoachPaymentByTraining_sum(ctx, field, obj)
 
-		case "trainingId":
-
-			out.Values[i] = ec._CoachPaymentByTraining_trainingId(ctx, field, obj)
-
 		case "training":
 
 			out.Values[i] = ec._CoachPaymentByTraining_training(ctx, field, obj)
+
+		case "trainingId":
+
+			out.Values[i] = ec._CoachPaymentByTraining_trainingId(ctx, field, obj)
 
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -47820,13 +47835,13 @@ func (ec *executionContext) _Creator(ctx context.Context, sel ast.SelectionSet, 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "userId":
-
-			out.Values[i] = ec._Creator_userId(ctx, field, obj)
-
 		case "user":
 
 			out.Values[i] = ec._Creator_user(ctx, field, obj)
+
+		case "userId":
+
+			out.Values[i] = ec._Creator_userId(ctx, field, obj)
 
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -48236,13 +48251,13 @@ func (ec *executionContext) _Lead(ctx context.Context, sel ast.SelectionSet, obj
 
 			out.Values[i] = ec._Lead_students(ctx, field, obj)
 
-		case "teamId":
-
-			out.Values[i] = ec._Lead_teamId(ctx, field, obj)
-
 		case "team":
 
 			out.Values[i] = ec._Lead_team(ctx, field, obj)
+
+		case "teamId":
+
+			out.Values[i] = ec._Lead_teamId(ctx, field, obj)
 
 		case "yearBorn":
 
@@ -48615,6 +48630,10 @@ func (ec *executionContext) _MoneyMove(ctx context.Context, sel ast.SelectionSet
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "student":
+
+			out.Values[i] = ec._MoneyMove_student(ctx, field, obj)
+
 		case "studentId":
 
 			out.Values[i] = ec._MoneyMove_studentId(ctx, field, obj)
@@ -48622,13 +48641,13 @@ func (ec *executionContext) _MoneyMove(ctx context.Context, sel ast.SelectionSet
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "student":
-
-			out.Values[i] = ec._MoneyMove_student(ctx, field, obj)
-
 		case "sum":
 
 			out.Values[i] = ec._MoneyMove_sum(ctx, field, obj)
+
+		case "user":
+
+			out.Values[i] = ec._MoneyMove_user(ctx, field, obj)
 
 		case "userId":
 
@@ -48637,10 +48656,6 @@ func (ec *executionContext) _MoneyMove(ctx context.Context, sel ast.SelectionSet
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "user":
-
-			out.Values[i] = ec._MoneyMove_user(ctx, field, obj)
-
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -48767,24 +48782,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Mutation")
-		case "register":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_register(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "login":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_login(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "articleDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -49106,6 +49103,15 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "login":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_login(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "moneyCostDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -49259,6 +49265,15 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "register":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_register(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "rentPaymentByMonthDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -49403,42 +49418,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentVisitDelete":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitDelete(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "studentVisitPublishUpdate":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitPublishUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "studentVisitSave":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitSave(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "studentVisitUpdate":
-
-			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_studentVisitUpdate(ctx, field)
-			})
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "studentDelete":
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
@@ -49470,6 +49449,42 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
 				return ec._Mutation_studentUpdate(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "studentVisitDelete":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_studentVisitDelete(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "studentVisitPublishUpdate":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_studentVisitPublishUpdate(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "studentVisitSave":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_studentVisitSave(ctx, field)
+			})
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "studentVisitUpdate":
+
+			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
+				return ec._Mutation_studentVisitUpdate(ctx, field)
 			})
 
 			if out.Values[i] == graphql.Null {
@@ -49712,20 +49727,13 @@ func (ec *executionContext) _Order(ctx context.Context, sel ast.SelectionSet, ob
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Order")
-		case "cartId":
-
-			out.Values[i] = ec._Order_cartId(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "cart":
 
 			out.Values[i] = ec._Order_cart(ctx, field, obj)
 
-		case "creatorId":
+		case "cartId":
 
-			out.Values[i] = ec._Order_creatorId(ctx, field, obj)
+			out.Values[i] = ec._Order_cartId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -49734,6 +49742,13 @@ func (ec *executionContext) _Order(ctx context.Context, sel ast.SelectionSet, ob
 
 			out.Values[i] = ec._Order_creator(ctx, field, obj)
 
+		case "creatorId":
+
+			out.Values[i] = ec._Order_creatorId(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "fileName":
 
 			out.Values[i] = ec._Order_fileName(ctx, field, obj)
@@ -49876,13 +49891,6 @@ func (ec *executionContext) _PageInfo(ctx context.Context, sel ast.SelectionSet,
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("PageInfo")
-		case "startCursor":
-
-			out.Values[i] = ec._PageInfo_startCursor(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "endCursor":
 
 			out.Values[i] = ec._PageInfo_endCursor(ctx, field, obj)
@@ -49894,6 +49902,13 @@ func (ec *executionContext) _PageInfo(ctx context.Context, sel ast.SelectionSet,
 
 			out.Values[i] = ec._PageInfo_hasNextPage(ctx, field, obj)
 
+		case "startCursor":
+
+			out.Values[i] = ec._PageInfo_startCursor(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -50184,6 +50199,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
+		case "cartAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_cartAll(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
 		case "carts":
 			field := field
 
@@ -50384,6 +50419,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
+		case "creatorAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_creatorAll(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
 		case "creators":
 			field := field
 
@@ -50404,6 +50459,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
+		case "currentTasks":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_currentTasks(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
 		case "kit":
 			field := field
 
@@ -50414,6 +50489,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_kit(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "kitAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_kitAll(ctx, field)
 				return res
 			}
 
@@ -50454,6 +50549,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_lead(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "leadAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_leadAll(ctx, field)
 				return res
 			}
 
@@ -50564,6 +50679,46 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
+		case "nearestStaffBirthdays":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_nearestStaffBirthdays(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "nearestStudentBirthdays":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_nearestStudentBirthdays(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
 		case "order":
 			field := field
 
@@ -50614,6 +50769,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_place(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "placeAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_placeAll(ctx, field)
 				return res
 			}
 
@@ -50747,6 +50922,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
+		case "stadiumAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_stadiumAll(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
 		case "stadiums":
 			field := field
 
@@ -50787,6 +50982,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
+		case "staffAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_staffAll(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
 		case "staffPerson":
 			field := field
 
@@ -50817,6 +51032,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_student(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "studentAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_studentAll(ctx, field)
 				return res
 			}
 
@@ -50907,126 +51142,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
-		case "nearestStudentBirthdays":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_nearestStudentBirthdays(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "nearestStaffBirthdays":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_nearestStaffBirthdays(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "unPayedStudents":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_unPayedStudents(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "currentTasks":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_currentTasks(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "timeTable":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_timeTable(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "trainingsByDay":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_trainingsByDay(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
 		case "tasks":
 			field := field
 
@@ -51057,6 +51172,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_team(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "teamAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_teamAll(ctx, field)
 				return res
 			}
 
@@ -51127,6 +51262,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
+		case "timeTable":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_timeTable(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
 		case "training":
 			field := field
 
@@ -51137,6 +51292,26 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_training(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "trainingAll":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_trainingAll(ctx, field)
 				return res
 			}
 
@@ -51207,6 +51382,46 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
+		case "trainingsByDay":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_trainingsByDay(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
+		case "unPayedStudents":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_unPayedStudents(ctx, field)
+				return res
+			}
+
+			rrm := func(ctx context.Context) graphql.Marshaler {
+				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return rrm(innerCtx)
+			})
 		case "user":
 			field := field
 
@@ -51220,26 +51435,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "users":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_users(ctx, field)
 				return res
 			}
 
@@ -51270,7 +51465,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 			out.Concurrently(i, func() graphql.Marshaler {
 				return rrm(innerCtx)
 			})
-		case "cartAll":
+		case "users":
 			field := field
 
 			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
@@ -51279,187 +51474,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_cartAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "creatorAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_creatorAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "kitAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_kitAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "leadAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_leadAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "placeAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_placeAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "stadiumAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_stadiumAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "staffAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_staffAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "studentAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_studentAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "teamAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_teamAll(ctx, field)
-				return res
-			}
-
-			rrm := func(ctx context.Context) graphql.Marshaler {
-				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return rrm(innerCtx)
-			})
-		case "trainingAll":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_trainingAll(ctx, field)
+				res = ec._Query_users(ctx, field)
 				return res
 			}
 
@@ -51532,6 +51547,10 @@ func (ec *executionContext) _RentPaymentByMonth(ctx context.Context, sel ast.Sel
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "stadium":
+
+			out.Values[i] = ec._RentPaymentByMonth_stadium(ctx, field, obj)
+
 		case "stadiumId":
 
 			out.Values[i] = ec._RentPaymentByMonth_stadiumId(ctx, field, obj)
@@ -51539,10 +51558,6 @@ func (ec *executionContext) _RentPaymentByMonth(ctx context.Context, sel ast.Sel
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadium":
-
-			out.Values[i] = ec._RentPaymentByMonth_stadium(ctx, field, obj)
-
 		case "sum":
 
 			out.Values[i] = ec._RentPaymentByMonth_sum(ctx, field, obj)
@@ -51685,6 +51700,10 @@ func (ec *executionContext) _RentPaymentByTraining(ctx context.Context, sel ast.
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "stadium":
+
+			out.Values[i] = ec._RentPaymentByTraining_stadium(ctx, field, obj)
+
 		case "stadiumId":
 
 			out.Values[i] = ec._RentPaymentByTraining_stadiumId(ctx, field, obj)
@@ -51692,10 +51711,6 @@ func (ec *executionContext) _RentPaymentByTraining(ctx context.Context, sel ast.
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "stadium":
-
-			out.Values[i] = ec._RentPaymentByTraining_stadium(ctx, field, obj)
-
 		case "sum":
 
 			out.Values[i] = ec._RentPaymentByTraining_sum(ctx, field, obj)
@@ -51859,13 +51874,6 @@ func (ec *executionContext) _Stadium(ctx context.Context, sel ast.SelectionSet, 
 			if out.Values[i] == graphql.Null {
 				atomic.AddUint32(&invalids, 1)
 			}
-		case "placeId":
-
-			out.Values[i] = ec._Stadium_placeId(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
 		case "place":
 			field := field
 
@@ -51883,6 +51891,13 @@ func (ec *executionContext) _Stadium(ctx context.Context, sel ast.SelectionSet, 
 				return innerFunc(ctx)
 
 			})
+		case "placeId":
+
+			out.Values[i] = ec._Stadium_placeId(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&invalids, 1)
+			}
 		case "published":
 
 			out.Values[i] = ec._Stadium_published(ctx, field, obj)
@@ -52093,13 +52108,6 @@ func (ec *executionContext) _Staff(ctx context.Context, sel ast.SelectionSet, ob
 			if out.Values[i] == graphql.Null {
 				atomic.AddUint32(&invalids, 1)
 			}
-		case "userId":
-
-			out.Values[i] = ec._Staff_userId(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
 		case "user":
 			field := field
 
@@ -52117,6 +52125,13 @@ func (ec *executionContext) _Staff(ctx context.Context, sel ast.SelectionSet, ob
 				return innerFunc(ctx)
 
 			})
+		case "userId":
+
+			out.Values[i] = ec._Staff_userId(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&invalids, 1)
+			}
 		case "work":
 
 			out.Values[i] = ec._Staff_work(ctx, field, obj)
@@ -52504,20 +52519,13 @@ func (ec *executionContext) _StudentVisit(ctx context.Context, sel ast.Selection
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "studentId":
-
-			out.Values[i] = ec._StudentVisit_studentId(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "student":
 
 			out.Values[i] = ec._StudentVisit_student(ctx, field, obj)
 
-		case "trainingId":
+		case "studentId":
 
-			out.Values[i] = ec._StudentVisit_trainingId(ctx, field, obj)
+			out.Values[i] = ec._StudentVisit_studentId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -52526,6 +52534,13 @@ func (ec *executionContext) _StudentVisit(ctx context.Context, sel ast.Selection
 
 			out.Values[i] = ec._StudentVisit_training(ctx, field, obj)
 
+		case "trainingId":
+
+			out.Values[i] = ec._StudentVisit_trainingId(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "visitStatus":
 
 			out.Values[i] = ec._StudentVisit_visitStatus(ctx, field, obj)
@@ -52844,38 +52859,10 @@ func (ec *executionContext) _Team(ctx context.Context, sel ast.SelectionSet, obj
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Team")
-		case "id":
-
-			out.Values[i] = ec._Team_id(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&invalids, 1)
-			}
 		case "ages":
 
 			out.Values[i] = ec._Team_ages(ctx, field, obj)
 
-		case "headCoachId":
-
-			out.Values[i] = ec._Team_headCoachId(ctx, field, obj)
-
-		case "headCoach":
-			field := field
-
-			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Team_headCoach(ctx, field, obj)
-				return res
-			}
-
-			out.Concurrently(i, func() graphql.Marshaler {
-				return innerFunc(ctx)
-
-			})
 		case "coachIds":
 
 			out.Values[i] = ec._Team_coachIds(ctx, field, obj)
@@ -52897,16 +52884,37 @@ func (ec *executionContext) _Team(ctx context.Context, sel ast.SelectionSet, obj
 				return innerFunc(ctx)
 
 			})
-		case "name":
+		case "headCoach":
+			field := field
 
-			out.Values[i] = ec._Team_name(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Team_headCoach(ctx, field, obj)
+				return res
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
+		case "headCoachId":
+
+			out.Values[i] = ec._Team_headCoachId(ctx, field, obj)
+
+		case "id":
+
+			out.Values[i] = ec._Team_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				atomic.AddUint32(&invalids, 1)
 			}
-		case "placeId":
+		case "name":
 
-			out.Values[i] = ec._Team_placeId(ctx, field, obj)
+			out.Values[i] = ec._Team_name(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				atomic.AddUint32(&invalids, 1)
@@ -52928,6 +52936,13 @@ func (ec *executionContext) _Team(ctx context.Context, sel ast.SelectionSet, obj
 				return innerFunc(ctx)
 
 			})
+		case "placeId":
+
+			out.Values[i] = ec._Team_placeId(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&invalids, 1)
+			}
 		case "published":
 
 			out.Values[i] = ec._Team_published(ctx, field, obj)
@@ -53005,6 +53020,10 @@ func (ec *executionContext) _TeamBalance(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "team":
+
+			out.Values[i] = ec._TeamBalance_team(ctx, field, obj)
+
 		case "teamId":
 
 			out.Values[i] = ec._TeamBalance_teamId(ctx, field, obj)
@@ -53012,10 +53031,6 @@ func (ec *executionContext) _TeamBalance(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "team":
-
-			out.Values[i] = ec._TeamBalance_team(ctx, field, obj)
-
 		case "tickets":
 
 			out.Values[i] = ec._TeamBalance_tickets(ctx, field, obj)
@@ -53318,13 +53333,39 @@ func (ec *executionContext) _Training(ctx context.Context, sel ast.SelectionSet,
 			out.Values[i] = ec._Training_coachIds(ctx, field, obj)
 
 		case "coaches":
+			field := field
 
-			out.Values[i] = ec._Training_coaches(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Training_coaches(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "headCoach":
+			field := field
 
-			out.Values[i] = ec._Training_headCoach(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Training_headCoach(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "headCoachId":
 
 			out.Values[i] = ec._Training_headCoachId(ctx, field, obj)
@@ -53334,34 +53375,60 @@ func (ec *executionContext) _Training(ctx context.Context, sel ast.SelectionSet,
 			out.Values[i] = ec._Training_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._Training_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
+		case "stadium":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Training_stadium(ctx, field, obj)
+				return res
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "stadiumId":
 
 			out.Values[i] = ec._Training_stadiumId(ctx, field, obj)
 
-		case "stadium":
+		case "team":
+			field := field
 
-			out.Values[i] = ec._Training_stadium(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Training_team(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "teamId":
 
 			out.Values[i] = ec._Training_teamId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
-		case "team":
-
-			out.Values[i] = ec._Training_team(ctx, field, obj)
-
 		case "time":
 
 			out.Values[i] = ec._Training_time(ctx, field, obj)
@@ -53371,7 +53438,7 @@ func (ec *executionContext) _Training(ctx context.Context, sel ast.SelectionSet,
 			out.Values[i] = ec._Training_visits(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -53444,13 +53511,17 @@ func (ec *executionContext) _TrainingDay(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "stadium":
+
+			out.Values[i] = ec._TrainingDay_stadium(ctx, field, obj)
+
 		case "stadiumId":
 
 			out.Values[i] = ec._TrainingDay_stadiumId(ctx, field, obj)
 
-		case "stadium":
+		case "team":
 
-			out.Values[i] = ec._TrainingDay_stadium(ctx, field, obj)
+			out.Values[i] = ec._TrainingDay_team(ctx, field, obj)
 
 		case "teamId":
 
@@ -53459,10 +53530,6 @@ func (ec *executionContext) _TrainingDay(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "team":
-
-			out.Values[i] = ec._TrainingDay_team(ctx, field, obj)
-
 		case "time":
 
 			out.Values[i] = ec._TrainingDay_time(ctx, field, obj)
@@ -53683,20 +53750,6 @@ func (ec *executionContext) _User(ctx context.Context, sel ast.SelectionSet, obj
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("User")
-		case "id":
-
-			out.Values[i] = ec._User_id(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "phone":
-
-			out.Values[i] = ec._User_phone(ctx, field, obj)
-
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "firstName":
 
 			out.Values[i] = ec._User_firstName(ctx, field, obj)
@@ -53704,9 +53757,23 @@ func (ec *executionContext) _User(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "id":
+
+			out.Values[i] = ec._User_id(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "lastName":
 
 			out.Values[i] = ec._User_lastName(ctx, field, obj)
+
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "phone":
+
+			out.Values[i] = ec._User_phone(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++

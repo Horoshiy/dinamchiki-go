@@ -12,12 +12,13 @@ var (
 )
 
 type Domain struct {
-	UsersRepo    postgres.UsersRepo
-	PlacesRepo   postgres.PlacesRepo
-	ArticlesRepo postgres.ArticlesRepo
-	StadiumsRepo postgres.StadiumsRepo
-	StaffRepo    postgres.StaffRepo
-	TeamsRepo    postgres.TeamsRepo
+	UsersRepo     postgres.UsersRepo
+	PlacesRepo    postgres.PlacesRepo
+	ArticlesRepo  postgres.ArticlesRepo
+	StadiumsRepo  postgres.StadiumsRepo
+	StaffRepo     postgres.StaffRepo
+	TeamsRepo     postgres.TeamsRepo
+	TrainingsRepo postgres.TrainingsRepo
 }
 
 func NewDomain(
@@ -27,13 +28,15 @@ func NewDomain(
 	stadiumsRepo postgres.StadiumsRepo,
 	staffRepo postgres.StaffRepo,
 	teamsRepo postgres.TeamsRepo,
+	trainingsRepo postgres.TrainingsRepo,
 ) *Domain {
 	return &Domain{
-		UsersRepo:    usersRepo,
-		PlacesRepo:   placesRepo,
-		ArticlesRepo: articlesRepo,
-		StadiumsRepo: stadiumsRepo,
-		StaffRepo:    staffRepo,
-		TeamsRepo:    teamsRepo,
+		UsersRepo:     usersRepo,
+		PlacesRepo:    placesRepo,
+		ArticlesRepo:  articlesRepo,
+		StadiumsRepo:  stadiumsRepo,
+		StaffRepo:     staffRepo,
+		TeamsRepo:     teamsRepo,
+		TrainingsRepo: trainingsRepo,
 	}
 }

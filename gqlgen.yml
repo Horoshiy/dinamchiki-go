@@ -75,3 +75,14 @@ models:
         resolver: true
       coaches:
         resolver: true
+  Training:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Training
+    fields:
+      headCoach:
+        resolver: true
+      stadium:
+        resolver: true
+      team:
+        resolver: true
+      coaches:
+        resolver: true
