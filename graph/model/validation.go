@@ -50,6 +50,13 @@ func (r StadiumInput) Validate() (bool, map[string]string) {
 	return v.IsValid(), v.Errors
 }
 
+func (r StaffInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	v.Required("name", r.Name)
+	return v.IsValid(), v.Errors
+}
+
 func (l LoginInput) Validate() (bool, map[string]string) {
 	v := validator.New()
 

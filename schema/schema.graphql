@@ -63,23 +63,23 @@ type Query {
 type Mutation {
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
-    articleDelete(id: String!): ArticlePayload! @hasRole(role: EDITOR)
-    articlePublishUpdate(id: String!): ArticlePayload! @hasRole(role: EDITOR)
-    articleSave(articleInput: ArticleInput!): ArticlePayload! @hasRole(role: EDITOR)
-    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload! @hasRole(role: EDITOR)
-    cartDelete(id: String!): CartPayload! @hasRole(role: ADMIN)
-    cartPublishUpdate(id: String!): CartPayload! @hasRole(role: ADMIN)
-    cartSave(cartInput: CartInput!): CartPayload! @hasRole(role: USER)
-    cartUpdate(cartInput: CartInputWithId!): CartPayload! @hasRole(role: USER)
-    clubBalanceDelete(id: String!): ClubBalancePayload! @hasRole(role: ADMIN)
-    clubBalancePublishUpdate(id: String!): ClubBalancePayload! @hasRole(role: ADMIN)
-    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload! @hasRole(role: ADMIN)
-    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload! @hasRole(role: ADMIN)
-    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload! @hasRole(role: ADMIN)
-    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload! @hasRole(role: ADMIN)
-    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload! @hasRole(role: ECONOMIST)
-    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload! @hasRole(role: ECONOMIST)
-    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload! @hasRole(role: ADMIN)
+    articleDelete(id: String!): ArticlePayload!
+    articlePublishUpdate(id: String!): ArticlePayload!
+    articleSave(articleInput: ArticleInput!): ArticlePayload!
+    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload!
+    cartDelete(id: String!): CartPayload!
+    cartPublishUpdate(id: String!): CartPayload!
+    cartSave(cartInput: CartInput!): CartPayload!
+    cartUpdate(cartInput: CartInputWithId!): CartPayload!
+    clubBalanceDelete(id: String!): ClubBalancePayload!
+    clubBalancePublishUpdate(id: String!): ClubBalancePayload!
+    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload!
+    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload!
+    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload!
+    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload!
     coachPaymentByTeamPublishUpdate(id: String!): CoachPaymentByTeamPayload!
     coachPaymentByTeamSave(coachPaymentByTeamInput: CoachPaymentByTeamInput!): CoachPaymentByTeamPayload!
     coachPaymentByTeamUpdate(coachPaymentByTeamInput: CoachPaymentByTeamInputWithId!): CoachPaymentByTeamPayload!
@@ -113,7 +113,7 @@ type Mutation {
     orderUpdate(orderInput: OrderInputWithId!): OrderPayload!
     placeDelete(id: String!): PlacePayload!
     placePublishUpdate(id: String!): PlacePayload!
-    placeSave(placeInput: PlaceInput!): PlacePayload! @hasRole(role: EDITOR)
+    placeSave(placeInput: PlaceInput!): PlacePayload!
     placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
     rentPaymentByMonthDelete(id: String!): RentPaymentByMonthPayload!
@@ -742,18 +742,18 @@ type Staff {
     orderNumber: Int!
     phoneNumber: String
     published: Boolean!
-    userId: String
-    userItem: User
+    userId: String!
+    user: User
     work: String!
 }
 
 type StaffConnection {
-    edges: [StaffEdge]
+    edges: [StaffEdge!]!
     pageInfo: PageInfo
 }
 
 type StaffEdge {
-    cursor: String
+    cursor: String!
     node: Staff
 }
 

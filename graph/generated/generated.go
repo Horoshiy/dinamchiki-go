@@ -41,6 +41,7 @@ type ResolverRoot interface {
 	Mutation() MutationResolver
 	Query() QueryResolver
 	Stadium() StadiumResolver
+	Staff() StaffResolver
 }
 
 type DirectiveRoot struct {
@@ -680,8 +681,8 @@ type ComplexityRoot struct {
 		OrderNumber func(childComplexity int) int
 		PhoneNumber func(childComplexity int) int
 		Published   func(childComplexity int) int
+		User        func(childComplexity int) int
 		UserID      func(childComplexity int) int
-		UserItem    func(childComplexity int) int
 		Work        func(childComplexity int) int
 	}
 
@@ -1141,6 +1142,9 @@ type QueryResolver interface {
 }
 type StadiumResolver interface {
 	Place(ctx context.Context, obj *models.Stadium) (*models.Place, error)
+}
+type StaffResolver interface {
+	User(ctx context.Context, obj *models.Staff) (*models.User, error)
 }
 
 type executableSchema struct {
@@ -4858,19 +4862,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Staff.Published(childComplexity), true
 
+	case "Staff.user":
+		if e.complexity.Staff.User == nil {
+			break
+		}
+
+		return e.complexity.Staff.User(childComplexity), true
+
 	case "Staff.userId":
 		if e.complexity.Staff.UserID == nil {
 			break
 		}
 
 		return e.complexity.Staff.UserID(childComplexity), true
-
-	case "Staff.userItem":
-		if e.complexity.Staff.UserItem == nil {
-			break
-		}
-
-		return e.complexity.Staff.UserItem(childComplexity), true
 
 	case "Staff.work":
 		if e.complexity.Staff.Work == nil {
@@ -6212,23 +6216,23 @@ type Query {
 type Mutation {
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
-    articleDelete(id: String!): ArticlePayload! @hasRole(role: EDITOR)
-    articlePublishUpdate(id: String!): ArticlePayload! @hasRole(role: EDITOR)
-    articleSave(articleInput: ArticleInput!): ArticlePayload! @hasRole(role: EDITOR)
-    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload! @hasRole(role: EDITOR)
-    cartDelete(id: String!): CartPayload! @hasRole(role: ADMIN)
-    cartPublishUpdate(id: String!): CartPayload! @hasRole(role: ADMIN)
-    cartSave(cartInput: CartInput!): CartPayload! @hasRole(role: USER)
-    cartUpdate(cartInput: CartInputWithId!): CartPayload! @hasRole(role: USER)
-    clubBalanceDelete(id: String!): ClubBalancePayload! @hasRole(role: ADMIN)
-    clubBalancePublishUpdate(id: String!): ClubBalancePayload! @hasRole(role: ADMIN)
-    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload! @hasRole(role: ADMIN)
-    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload! @hasRole(role: ADMIN)
-    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload! @hasRole(role: ADMIN)
-    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload! @hasRole(role: ADMIN)
-    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload! @hasRole(role: ECONOMIST)
-    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload! @hasRole(role: ECONOMIST)
-    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload! @hasRole(role: ADMIN)
+    articleDelete(id: String!): ArticlePayload!
+    articlePublishUpdate(id: String!): ArticlePayload!
+    articleSave(articleInput: ArticleInput!): ArticlePayload!
+    articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload!
+    cartDelete(id: String!): CartPayload!
+    cartPublishUpdate(id: String!): CartPayload!
+    cartSave(cartInput: CartInput!): CartPayload!
+    cartUpdate(cartInput: CartInputWithId!): CartPayload!
+    clubBalanceDelete(id: String!): ClubBalancePayload!
+    clubBalancePublishUpdate(id: String!): ClubBalancePayload!
+    clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload!
+    clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload!
+    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload!
+    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload!
     coachPaymentByTeamPublishUpdate(id: String!): CoachPaymentByTeamPayload!
     coachPaymentByTeamSave(coachPaymentByTeamInput: CoachPaymentByTeamInput!): CoachPaymentByTeamPayload!
     coachPaymentByTeamUpdate(coachPaymentByTeamInput: CoachPaymentByTeamInputWithId!): CoachPaymentByTeamPayload!
@@ -6262,7 +6266,7 @@ type Mutation {
     orderUpdate(orderInput: OrderInputWithId!): OrderPayload!
     placeDelete(id: String!): PlacePayload!
     placePublishUpdate(id: String!): PlacePayload!
-    placeSave(placeInput: PlaceInput!): PlacePayload! @hasRole(role: EDITOR)
+    placeSave(placeInput: PlaceInput!): PlacePayload!
     placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
     rentPaymentByMonthDelete(id: String!): RentPaymentByMonthPayload!
@@ -6891,18 +6895,18 @@ type Staff {
     orderNumber: Int!
     phoneNumber: String
     published: Boolean!
-    userId: String
-    userItem: User
+    userId: String!
+    user: User
     work: String!
 }
 
 type StaffConnection {
-    edges: [StaffEdge]
+    edges: [StaffEdge!]!
     pageInfo: PageInfo
 }
 
 type StaffEdge {
-    cursor: String
+    cursor: String!
     node: Staff
 }
 
@@ -13506,8 +13510,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByMonth_coach(ctx context.C
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -14081,8 +14085,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTeam_coach(ctx context.Co
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -14857,8 +14861,8 @@ func (ec *executionContext) fieldContext_CoachPaymentByTraining_coach(ctx contex
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -18430,8 +18434,8 @@ func (ec *executionContext) fieldContext_MoneyCost_staff(ctx context.Context, fi
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -19133,8 +19137,8 @@ func (ec *executionContext) fieldContext_MoneyMove_owner(ctx context.Context, fi
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -19935,32 +19939,8 @@ func (ec *executionContext) _Mutation_articleDelete(ctx context.Context, field g
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().ArticleDelete(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.ArticlePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ArticlePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().ArticleDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20020,32 +20000,8 @@ func (ec *executionContext) _Mutation_articlePublishUpdate(ctx context.Context, 
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().ArticlePublishUpdate(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.ArticlePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ArticlePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().ArticlePublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20105,32 +20061,8 @@ func (ec *executionContext) _Mutation_articleSave(ctx context.Context, field gra
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().ArticleSave(rctx, fc.Args["articleInput"].(models.ArticleInput))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.ArticlePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ArticlePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().ArticleSave(rctx, fc.Args["articleInput"].(models.ArticleInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20190,32 +20122,8 @@ func (ec *executionContext) _Mutation_articleUpdate(ctx context.Context, field g
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().ArticleUpdate(rctx, fc.Args["articleInput"].(models.ArticleInputWithID))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.ArticlePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ArticlePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().ArticleUpdate(rctx, fc.Args["articleInput"].(models.ArticleInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20275,32 +20183,8 @@ func (ec *executionContext) _Mutation_cartDelete(ctx context.Context, field grap
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CartDelete(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CartPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CartPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CartDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20360,32 +20244,8 @@ func (ec *executionContext) _Mutation_cartPublishUpdate(ctx context.Context, fie
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CartPublishUpdate(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CartPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CartPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CartPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20445,32 +20305,8 @@ func (ec *executionContext) _Mutation_cartSave(ctx context.Context, field graphq
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CartSave(rctx, fc.Args["cartInput"].(models.CartInput))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "USER")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CartPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CartPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CartSave(rctx, fc.Args["cartInput"].(models.CartInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20530,32 +20366,8 @@ func (ec *executionContext) _Mutation_cartUpdate(ctx context.Context, field grap
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CartUpdate(rctx, fc.Args["cartInput"].(models.CartInputWithID))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "USER")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CartPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CartPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CartUpdate(rctx, fc.Args["cartInput"].(models.CartInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20615,32 +20427,8 @@ func (ec *executionContext) _Mutation_clubBalanceDelete(ctx context.Context, fie
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().ClubBalanceDelete(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.ClubBalancePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalancePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().ClubBalanceDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20700,32 +20488,8 @@ func (ec *executionContext) _Mutation_clubBalancePublishUpdate(ctx context.Conte
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().ClubBalancePublishUpdate(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.ClubBalancePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalancePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().ClubBalancePublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20785,32 +20549,8 @@ func (ec *executionContext) _Mutation_clubBalanceSave(ctx context.Context, field
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().ClubBalanceSave(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInput))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.ClubBalancePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalancePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().ClubBalanceSave(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20870,32 +20610,8 @@ func (ec *executionContext) _Mutation_clubBalanceUpdate(ctx context.Context, fie
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().ClubBalanceUpdate(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInputWithID))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.ClubBalancePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.ClubBalancePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().ClubBalanceUpdate(rctx, fc.Args["clubBalanceInput"].(models.ClubBalanceInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20955,32 +20671,8 @@ func (ec *executionContext) _Mutation_coachPaymentByMonthDelete(ctx context.Cont
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CoachPaymentByMonthDelete(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CoachPaymentByMonthPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonthPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CoachPaymentByMonthDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -21040,32 +20732,8 @@ func (ec *executionContext) _Mutation_coachPaymentByMonthPublishUpdate(ctx conte
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CoachPaymentByMonthPublishUpdate(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CoachPaymentByMonthPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonthPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CoachPaymentByMonthPublishUpdate(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -21125,32 +20793,8 @@ func (ec *executionContext) _Mutation_coachPaymentByMonthSave(ctx context.Contex
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CoachPaymentByMonthSave(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInput))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ECONOMIST")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CoachPaymentByMonthPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonthPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CoachPaymentByMonthSave(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -21210,32 +20854,8 @@ func (ec *executionContext) _Mutation_coachPaymentByMonthUpdate(ctx context.Cont
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CoachPaymentByMonthUpdate(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInputWithID))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ECONOMIST")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CoachPaymentByMonthPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByMonthPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CoachPaymentByMonthUpdate(rctx, fc.Args["coachPaymentByMonthInput"].(models.CoachPaymentByMonthInputWithID))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -21295,32 +20915,8 @@ func (ec *executionContext) _Mutation_coachPaymentByTeamDelete(ctx context.Conte
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().CoachPaymentByTeamDelete(rctx, fc.Args["id"].(string))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "ADMIN")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.CoachPaymentByTeamPayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByTeamPayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().CoachPaymentByTeamDelete(rctx, fc.Args["id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23390,32 +22986,8 @@ func (ec *executionContext) _Mutation_placeSave(ctx context.Context, field graph
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().PlaceSave(rctx, fc.Args["placeInput"].(models.PlaceInput))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			role, err := ec.unmarshalNRole2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐRole(ctx, "EDITOR")
-			if err != nil {
-				return nil, err
-			}
-			if ec.directives.HasRole == nil {
-				return nil, errors.New("directive hasRole is not implemented")
-			}
-			return ec.directives.HasRole(ctx, nil, directive0, role)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*models.PlacePayload); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *gitlab.com/dinamchiki/go-graphql/graph/model.PlacePayload`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().PlaceSave(rctx, fc.Args["placeInput"].(models.PlaceInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30063,8 +29635,8 @@ func (ec *executionContext) fieldContext_Query_staffPerson(ctx context.Context, 
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -33970,11 +33542,14 @@ func (ec *executionContext) _Staff_userId(ctx context.Context, field graphql.Col
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.(*string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNString2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Staff_userId(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -33990,8 +33565,8 @@ func (ec *executionContext) fieldContext_Staff_userId(ctx context.Context, field
 	return fc, nil
 }
 
-func (ec *executionContext) _Staff_userItem(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_Staff_userItem(ctx, field)
+func (ec *executionContext) _Staff_user(ctx context.Context, field graphql.CollectedField, obj *models.Staff) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Staff_user(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -34004,7 +33579,7 @@ func (ec *executionContext) _Staff_userItem(ctx context.Context, field graphql.C
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UserItem, nil
+		return ec.resolvers.Staff().User(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -34018,12 +33593,12 @@ func (ec *executionContext) _Staff_userItem(ctx context.Context, field graphql.C
 	return ec.marshalOUser2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_Staff_userItem(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Staff_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Staff",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "id":
@@ -34108,11 +33683,14 @@ func (ec *executionContext) _StaffConnection_edges(ctx context.Context, field gr
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
 	res := resTmp.([]*models.StaffEdge)
 	fc.Result = res
-	return ec.marshalOStaffEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffEdge(ctx, field.Selections, res)
+	return ec.marshalNStaffEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StaffConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -34204,11 +33782,14 @@ func (ec *executionContext) _StaffEdge_cursor(ctx context.Context, field graphql
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_StaffEdge_cursor(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -34280,8 +33861,8 @@ func (ec *executionContext) fieldContext_StaffEdge_node(ctx context.Context, fie
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -34347,8 +33928,8 @@ func (ec *executionContext) fieldContext_StaffPayload_record(ctx context.Context
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -34502,8 +34083,8 @@ func (ec *executionContext) fieldContext_StaffTask_staffTask(ctx context.Context
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -34657,8 +34238,8 @@ func (ec *executionContext) fieldContext_StaffTeam_staffTeam(ctx context.Context
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -34812,8 +34393,8 @@ func (ec *executionContext) fieldContext_StaffTraining_staffTraining(ctx context
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -37874,8 +37455,8 @@ func (ec *executionContext) fieldContext_Team_headCoach(ctx context.Context, fie
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -39663,8 +39244,8 @@ func (ec *executionContext) fieldContext_Training_headCoach(ctx context.Context,
 				return ec.fieldContext_Staff_published(ctx, field)
 			case "userId":
 				return ec.fieldContext_Staff_userId(ctx, field)
-			case "userItem":
-				return ec.fieldContext_Staff_userItem(ctx, field)
+			case "user":
+				return ec.fieldContext_Staff_user(ctx, field)
 			case "work":
 				return ec.fieldContext_Staff_work(ctx, field)
 			}
@@ -52582,7 +52163,7 @@ func (ec *executionContext) _Staff(ctx context.Context, sel ast.SelectionSet, ob
 			out.Values[i] = ec._Staff_department(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "description":
 
@@ -52597,21 +52178,21 @@ func (ec *executionContext) _Staff(ctx context.Context, sel ast.SelectionSet, ob
 			out.Values[i] = ec._Staff_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "name":
 
 			out.Values[i] = ec._Staff_name(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "orderNumber":
 
 			out.Values[i] = ec._Staff_orderNumber(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "phoneNumber":
 
@@ -52622,22 +52203,38 @@ func (ec *executionContext) _Staff(ctx context.Context, sel ast.SelectionSet, ob
 			out.Values[i] = ec._Staff_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "userId":
 
 			out.Values[i] = ec._Staff_userId(ctx, field, obj)
 
-		case "userItem":
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&invalids, 1)
+			}
+		case "user":
+			field := field
 
-			out.Values[i] = ec._Staff_userItem(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Staff_user(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "work":
 
 			out.Values[i] = ec._Staff_work(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -52664,6 +52261,9 @@ func (ec *executionContext) _StaffConnection(ctx context.Context, sel ast.Select
 
 			out.Values[i] = ec._StaffConnection_edges(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "pageInfo":
 
 			out.Values[i] = ec._StaffConnection_pageInfo(ctx, field, obj)
@@ -52693,6 +52293,9 @@ func (ec *executionContext) _StaffEdge(ctx context.Context, sel ast.SelectionSet
 
 			out.Values[i] = ec._StaffEdge_cursor(ctx, field, obj)
 
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "node":
 
 			out.Values[i] = ec._StaffEdge_node(ctx, field, obj)
@@ -55662,6 +55265,60 @@ func (ec *executionContext) unmarshalNStaffDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
+func (ec *executionContext) marshalNStaffEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.StaffEdge) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNStaffEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffEdge(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNStaffEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffEdge(ctx context.Context, sel ast.SelectionSet, v *models.StaffEdge) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._StaffEdge(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNStaffInput2gitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffInput(ctx context.Context, v interface{}) (models.StaffInput, error) {
 	res, err := ec.unmarshalInputStaffInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -57835,54 +57492,6 @@ func (ec *executionContext) unmarshalOStaffDto2ᚖgitlabᚗcomᚋdinamchikiᚋgo
 	}
 	res, err := ec.unmarshalInputStaffDto(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOStaffEdge2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffEdge(ctx context.Context, sel ast.SelectionSet, v []*models.StaffEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalOStaffEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffEdge(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-
-	return ret
-}
-
-func (ec *executionContext) marshalOStaffEdge2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffEdge(ctx context.Context, sel ast.SelectionSet, v *models.StaffEdge) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._StaffEdge(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOStaffFilter2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐStaffFilter(ctx context.Context, v interface{}) (*models.StaffFilter, error) {

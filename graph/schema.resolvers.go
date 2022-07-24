@@ -409,22 +409,37 @@ func (r *mutationResolver) StadiumUpdate(ctx context.Context, stadiumInput model
 
 // StaffDelete is the resolver for the staffDelete field.
 func (r *mutationResolver) StaffDelete(ctx context.Context, id string) (*models.StaffPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.StaffDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.StaffPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // StaffPublishUpdate is the resolver for the staffPublishUpdate field.
 func (r *mutationResolver) StaffPublishUpdate(ctx context.Context, id string) (*models.StaffPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.StaffPublish(id)
 }
 
 // StaffSave is the resolver for the staffSave field.
 func (r *mutationResolver) StaffSave(ctx context.Context, staffInput models.StaffInput) (*models.StaffPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, staffInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.StaffSave(ctx, staffInput)
 }
 
 // StaffUpdate is the resolver for the staffUpdate field.
 func (r *mutationResolver) StaffUpdate(ctx context.Context, staffInput models.StaffInputWithID) (*models.StaffPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, staffInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.StaffUpdate(ctx, staffInput)
 }
 
 // StudentVisitDelete is the resolver for the studentVisitDelete field.
@@ -749,7 +764,7 @@ func (r *queryResolver) Stadiums(ctx context.Context, filter *models.StadiumFilt
 
 // Staff is the resolver for the staff field.
 func (r *queryResolver) Staff(ctx context.Context, filter *models.StaffFilter, first *int, after *string, last *int, before *string) (*models.StaffConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.StaffRepo.GetStaff(filter, first, last, after, before)
 }
 
 // StaffPerson is the resolver for the staffPerson field.
@@ -872,6 +887,16 @@ func (r *stadiumResolver) Place(ctx context.Context, obj *models.Stadium) (*mode
 	return For(ctx).PlaceLoader.Load(*obj.PlaceID)
 }
 
+// User is the resolver for the user field.
+func (r *staffResolver) User(ctx context.Context, obj *models.Staff) (*models.User, error) {
+	var user *models.User
+	var err error
+	if obj.UserID != nil {
+		user, err = For(ctx).UserLoader.Load(*obj.UserID)
+	}
+	return user, err
+}
+
 // Article returns generated.ArticleResolver implementation.
 func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver{r} }
 
@@ -884,10 +909,14 @@ func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 // Stadium returns generated.StadiumResolver implementation.
 func (r *Resolver) Stadium() generated.StadiumResolver { return &stadiumResolver{r} }
 
+// Staff returns generated.StaffResolver implementation.
+func (r *Resolver) Staff() generated.StaffResolver { return &staffResolver{r} }
+
 type articleResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type stadiumResolver struct{ *Resolver }
+type staffResolver struct{ *Resolver }
 
 // !!! WARNING !!!
 // The code below was going to be deleted when updating resolvers. It has been copied here so you have

@@ -766,21 +766,6 @@ type StadiumPayload struct {
 	RecordID string   `json:"recordId"`
 }
 
-type Staff struct {
-	Birthday    *time.Time `json:"birthday"`
-	Department  Department `json:"department"`
-	Description *string    `json:"description"`
-	FileName    *string    `json:"fileName"`
-	ID          string     `json:"id"`
-	Name        string     `json:"name"`
-	OrderNumber int        `json:"orderNumber"`
-	PhoneNumber *string    `json:"phoneNumber"`
-	Published   bool       `json:"published"`
-	UserID      *string    `json:"userId"`
-	UserItem    *User      `json:"userItem"`
-	Work        string     `json:"work"`
-}
-
 type StaffConnection struct {
 	Edges    []*StaffEdge `json:"edges"`
 	PageInfo *PageInfo    `json:"pageInfo"`
@@ -792,8 +777,8 @@ type StaffDto struct {
 }
 
 type StaffEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *Staff  `json:"node"`
+	Cursor string `json:"cursor"`
+	Node   *Staff `json:"node"`
 }
 
 type StaffFilter struct {

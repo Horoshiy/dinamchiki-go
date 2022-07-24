@@ -61,3 +61,8 @@ models:
     fields:
       place:
         resolver: true
+  Staff:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Staff
+    fields:
+      place:
+        resolver: true
