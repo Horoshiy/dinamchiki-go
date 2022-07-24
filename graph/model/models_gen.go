@@ -205,16 +205,6 @@ type CoachPaymentByTeamPayload struct {
 	RecordID string              `json:"recordId"`
 }
 
-type CoachPaymentByTraining struct {
-	Coach      *Staff    `json:"coach"`
-	CoachID    string    `json:"coachId"`
-	ID         string    `json:"id"`
-	Published  bool      `json:"published"`
-	Sum        *int      `json:"sum"`
-	Training   *Training `json:"training"`
-	TrainingID *string   `json:"trainingId"`
-}
-
 type CoachPaymentByTrainingConnection struct {
 	Edges    []*CoachPaymentByTrainingEdge `json:"edges"`
 	PageInfo *PageInfo                     `json:"pageInfo"`

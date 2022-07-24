@@ -131,3 +131,11 @@ models:
         resolver: true
       team:
         resolver: true
+  CoachPaymentByTraining:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.CoachPaymentByTraining
+    fields:
+      coach:
+        resolver: true
+      training:
+        resolver: true
+

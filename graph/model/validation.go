@@ -115,6 +115,12 @@ func (r CoachPaymentByTeamInput) Validate() (bool, map[string]string) {
 	return v.IsValid(), v.Errors
 }
 
+func (r CoachPaymentByTrainingInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	return v.IsValid(), v.Errors
+}
+
 func (l LoginInput) Validate() (bool, map[string]string) {
 	v := validator.New()
 
