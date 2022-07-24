@@ -12,7 +12,7 @@ func stadiumInputToStadium(ctx context.Context, input *models.StadiumInput) *mod
 		Latitude:  input.Latitude,
 		Longitude: input.Longitude,
 		Name:      input.Name,
-		PlaceID:   &input.Place.ID,
+		PlaceID:   &input.PlaceID,
 		Published: input.Published,
 	}
 }
@@ -22,7 +22,7 @@ func stadiumInputWithIdToStadium(ctx context.Context, stadium *models.Stadium, i
 		Latitude:  input.Latitude,
 		Longitude: input.Longitude,
 		Name:      input.Name,
-		PlaceID:   &input.Place.ID,
+		PlaceID:   &input.PlaceID,
 		Published: input.Published,
 	}
 }

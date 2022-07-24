@@ -8,10 +8,6 @@ import (
 )
 
 func staffInputToStaff(ctx context.Context, input *models.StaffInput) *models.Staff {
-	var userId *string
-	if input.User != nil {
-		userId = &input.User.ID
-	}
 	return &models.Staff{
 		Birthday:    input.Birthday,
 		Department:  input.Department,
@@ -21,15 +17,11 @@ func staffInputToStaff(ctx context.Context, input *models.StaffInput) *models.St
 		OrderNumber: input.OrderNumber,
 		PhoneNumber: input.PhoneNumber,
 		Published:   input.Published,
-		UserID:      userId,
+		UserId:      input.UserID,
 		Work:        input.Work,
 	}
 }
 func staffInputWithIdToStaff(ctx context.Context, staff *models.Staff, input *models.StaffInput) *models.Staff {
-	var userId *string
-	if input.User != nil {
-		userId = &input.User.ID
-	}
 	return &models.Staff{
 		ID:          staff.ID,
 		Birthday:    input.Birthday,
@@ -40,7 +32,7 @@ func staffInputWithIdToStaff(ctx context.Context, staff *models.Staff, input *mo
 		OrderNumber: input.OrderNumber,
 		PhoneNumber: input.PhoneNumber,
 		Published:   input.Published,
-		UserID:      userId,
+		UserId:      input.UserID,
 		Work:        input.Work,
 	}
 }

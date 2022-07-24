@@ -882,6 +882,61 @@ func (r *queryResolver) Users(ctx context.Context, filter *models.UserFilter, fi
 	panic(fmt.Errorf("not implemented"))
 }
 
+// UserAll is the resolver for the userAll field.
+func (r *queryResolver) UserAll(ctx context.Context) ([]*models.UserDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// CartAll is the resolver for the cartAll field.
+func (r *queryResolver) CartAll(ctx context.Context) ([]*models.CartDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// CreatorAll is the resolver for the creatorAll field.
+func (r *queryResolver) CreatorAll(ctx context.Context) ([]*models.CreatorDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// KitAll is the resolver for the kitAll field.
+func (r *queryResolver) KitAll(ctx context.Context) ([]*models.KitDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// LeadAll is the resolver for the leadAll field.
+func (r *queryResolver) LeadAll(ctx context.Context) ([]*models.LeadDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// PlaceAll is the resolver for the placeAll field.
+func (r *queryResolver) PlaceAll(ctx context.Context) ([]*models.PlaceDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// StadiumAll is the resolver for the stadiumAll field.
+func (r *queryResolver) StadiumAll(ctx context.Context) ([]*models.StadiumDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// StaffAll is the resolver for the staffAll field.
+func (r *queryResolver) StaffAll(ctx context.Context) ([]*models.StaffDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// StudentAll is the resolver for the studentAll field.
+func (r *queryResolver) StudentAll(ctx context.Context) ([]*models.StudentDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// TeamAll is the resolver for the teamAll field.
+func (r *queryResolver) TeamAll(ctx context.Context) ([]*models.TeamDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// TrainingAll is the resolver for the trainingAll field.
+func (r *queryResolver) TrainingAll(ctx context.Context) ([]*models.TrainingDto, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
 // Place is the resolver for the place field.
 func (r *stadiumResolver) Place(ctx context.Context, obj *models.Stadium) (*models.Place, error) {
 	return For(ctx).PlaceLoader.Load(*obj.PlaceID)
@@ -889,12 +944,7 @@ func (r *stadiumResolver) Place(ctx context.Context, obj *models.Stadium) (*mode
 
 // User is the resolver for the user field.
 func (r *staffResolver) User(ctx context.Context, obj *models.Staff) (*models.User, error) {
-	var user *models.User
-	var err error
-	if obj.UserID != nil {
-		user, err = For(ctx).UserLoader.Load(*obj.UserID)
-	}
-	return user, err
+	return For(ctx).UserLoader.Load(*obj.UserId)
 }
 
 // Article returns generated.ArticleResolver implementation.

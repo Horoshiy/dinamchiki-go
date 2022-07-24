@@ -2,45 +2,45 @@ directive @hasRole(role: Role!) on FIELD_DEFINITION
 scalar Time
 
 type Query {
-    article(id: String!): Article
+    article(id: ID!): Article
     articles(filter: ArticleFilter, first: Int, after: ID, last: Int, before: ID): ArticleConnection
-    cart(id: String!): Cart
+    cart(id: ID!): Cart
     carts(filter: CartFilter, first: Int, after: ID, last: Int, before: ID): CartConnection
-    clubBalance(id: String!): ClubBalance
+    clubBalance(id: ID!): ClubBalance
     clubBalances(filter: ClubBalanceFilter, first: Int, after: ID, last: Int, before: ID): ClubBalanceConnection
-    coachPaymentByMonth(id: String!): CoachPaymentByMonth
-    coachPaymentByTeam(id: String!): CoachPaymentByTeam
-    coachPaymentByTraining(id: String!): CoachPaymentByTraining
+    coachPaymentByMonth(id: ID!): CoachPaymentByMonth
+    coachPaymentByTeam(id: ID!): CoachPaymentByTeam
+    coachPaymentByTraining(id: ID!): CoachPaymentByTraining
     coachPaymentsByMonth(filter: CoachPaymentByMonthFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByMonthConnection
     coachPaymentsByTeam(filter: CoachPaymentByTeamFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByTeamConnection
     coachPaymentsByTraining(filter: CoachPaymentByTrainingFilter, first: Int, after: ID, last: Int, before: ID): CoachPaymentByTrainingConnection
-    creator(id: String): Creator
+    creator(Id: ID): Creator
     creators(filter: CreatorFilter, first: Int, after: ID, last: Int, before: ID): CreatorConnection
-    kit(id: String!): Kit
+    kit(id: ID!): Kit
     kits(filter: KitFilter, first: Int, after: ID, last: Int, before: ID): KitConnection
-    lead(id: String!): Lead
+    lead(id: ID!): Lead
     leads(filter: LeadFilter, first: Int, after: ID, last: Int, before: ID): LeadConnection
-    moneyCost(id: String!): MoneyCost
+    moneyCost(id: ID!): MoneyCost
     moneyCosts(filter: MoneyCostFilter, first: Int, after: ID, last: Int, before: ID): MoneyCostConnection
-    moneyMove(id: String!): MoneyMove
+    moneyMove(id: ID!): MoneyMove
     moneyMoves(filter: MoneyMoveFilter, first: Int, after: ID, last: Int, before: ID): MoneyMoveConnection
-    order(id: String!): Order
+    order(id: ID!): Order
     orders(filter: OrderFilter, first: Int, after: ID, last: Int, before: ID): OrderConnection
-    place(id: String!): Place
+    place(id: ID!): Place
     places(filter: PlaceFilter, first: Int, after: ID, last: Int, before: ID): PlaceConnection!
-    rentPaymentByMonth(id: String!): RentPaymentByMonth
-    rentPaymentByTraining(id: String!): RentPaymentByTraining
+    rentPaymentByMonth(id: ID!): RentPaymentByMonth
+    rentPaymentByTraining(id: ID!): RentPaymentByTraining
     rentPaymentsByMonth(filter: RentPaymentByMonthFilter, first: Int, after: ID, last: Int, before: ID): RentPaymentByMonthConnection
     rentPaymentsByTraining(filter: RentPaymentByTrainingFilter, first: Int, after: ID, last: Int, before: ID): RentPaymentByTrainingConnection
-    stadium(id: String!): Stadium
+    stadium(id: ID!): Stadium
     stadiums(filter: StadiumFilter, first: Int, after: ID, last: Int, before: ID): StadiumConnection
     staff(filter: StaffFilter, first: Int, after: ID, last: Int, before: ID): StaffConnection
-    staffPerson(id: String!): Staff
-    student(id: String!): Student
-    studentVisit(id: String!): StudentVisit
+    staffPerson(id: ID!): Staff
+    student(id: ID!): Student
+    studentVisit(id: ID!): StudentVisit
     studentVisits(filter: StudentVisitFilter, first: Int, after: ID, last: Int, before: ID): StudentVisitConnection
     students(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
-    task(id: String!): Task
+    task(id: ID!): Task
     nearestStudentBirthdays(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
     nearestStaffBirthdays(filter: StaffFilter, first: Int, after: ID, last: Int, before: ID): StaffConnection
     unPayedStudents(filter: StudentFilter, first: Int, after: ID, last: Int, before: ID): StudentConnection
@@ -48,120 +48,131 @@ type Query {
     timeTable(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
     trainingsByDay(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
     tasks(filter: TaskFilter, first: Int, after: ID, last: Int, before: ID): TaskConnection
-    team(id: String!): Team
-    teamBalance(id: String!): TeamBalance
+    team(id: ID!): Team
+    teamBalance(id: ID!): TeamBalance
     teamBalances(filter: TeamBalanceFilter, first: Int, after: ID, last: Int, before: ID): TeamBalanceConnection
     teams(filter: TeamFilter, first: Int, after: ID, last: Int, before: ID): TeamConnection
-    training(id: String!): Training
-    trainingDay(id: String!): TrainingDay
+    training(id: ID!): Training
+    trainingDay(id: ID!): TrainingDay
     trainingDays(filter: TrainingDayFilter, first: Int, after: ID, last: Int, before: ID): TrainingDayConnection
     trainings(filter: TrainingFilter, first: Int, after: ID, last: Int, before: ID): TrainingConnection
     user(id: ID!): User!
     users(filter: UserFilter, first: Int, after: ID, last: Int, before: ID): UserConnection
+    userAll: [UserDto!]
+    cartAll: [CartDto!]
+    creatorAll: [CreatorDto!]
+    kitAll: [KitDto!]
+    leadAll: [LeadDto!]
+    placeAll: [PlaceDto!]
+    stadiumAll: [StadiumDto!]
+    staffAll: [StaffDto!]
+    studentAll: [StudentDto!]
+    teamAll: [TeamDto!]
+    trainingAll: [TrainingDto!]
 }
 
 type Mutation {
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
-    articleDelete(id: String!): ArticlePayload!
-    articlePublishUpdate(id: String!): ArticlePayload!
+    articleDelete(id: ID!): ArticlePayload!
+    articlePublishUpdate(id: ID!): ArticlePayload!
     articleSave(articleInput: ArticleInput!): ArticlePayload!
     articleUpdate(articleInput: ArticleInputWithId!): ArticlePayload!
-    cartDelete(id: String!): CartPayload!
-    cartPublishUpdate(id: String!): CartPayload!
+    cartDelete(id: ID!): CartPayload!
+    cartPublishUpdate(id: ID!): CartPayload!
     cartSave(cartInput: CartInput!): CartPayload!
     cartUpdate(cartInput: CartInputWithId!): CartPayload!
-    clubBalanceDelete(id: String!): ClubBalancePayload!
-    clubBalancePublishUpdate(id: String!): ClubBalancePayload!
+    clubBalanceDelete(id: ID!): ClubBalancePayload!
+    clubBalancePublishUpdate(id: ID!): ClubBalancePayload!
     clubBalanceSave(clubBalanceInput: ClubBalanceInput!): ClubBalancePayload!
     clubBalanceUpdate(clubBalanceInput: ClubBalanceInputWithId!): ClubBalancePayload!
-    coachPaymentByMonthDelete(id: String!): CoachPaymentByMonthPayload!
-    coachPaymentByMonthPublishUpdate(id: String!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthDelete(id: ID!): CoachPaymentByMonthPayload!
+    coachPaymentByMonthPublishUpdate(id: ID!): CoachPaymentByMonthPayload!
     coachPaymentByMonthSave(coachPaymentByMonthInput: CoachPaymentByMonthInput!): CoachPaymentByMonthPayload!
     coachPaymentByMonthUpdate(coachPaymentByMonthInput: CoachPaymentByMonthInputWithId!): CoachPaymentByMonthPayload!
-    coachPaymentByTeamDelete(id: String!): CoachPaymentByTeamPayload!
-    coachPaymentByTeamPublishUpdate(id: String!): CoachPaymentByTeamPayload!
+    coachPaymentByTeamDelete(id: ID!): CoachPaymentByTeamPayload!
+    coachPaymentByTeamPublishUpdate(id: ID!): CoachPaymentByTeamPayload!
     coachPaymentByTeamSave(coachPaymentByTeamInput: CoachPaymentByTeamInput!): CoachPaymentByTeamPayload!
     coachPaymentByTeamUpdate(coachPaymentByTeamInput: CoachPaymentByTeamInputWithId!): CoachPaymentByTeamPayload!
-    coachPaymentByTrainingDelete(id: String!): CoachPaymentByTrainingPayload!
-    coachPaymentByTrainingPublishUpdate(id: String!): CoachPaymentByTrainingPayload!
+    coachPaymentByTrainingDelete(id: ID!): CoachPaymentByTrainingPayload!
+    coachPaymentByTrainingPublishUpdate(id: ID!): CoachPaymentByTrainingPayload!
     coachPaymentByTrainingSave(coachPaymentByTrainingInput: CoachPaymentByTrainingInput!): CoachPaymentByTrainingPayload!
     coachPaymentByTrainingUpdate(coachPaymentByTrainingInput: CoachPaymentByTrainingInputWithId!): CoachPaymentByTrainingPayload!
-    creatorDelete(id: String!): CreatorPayload!
-    creatorPublishUpdate(id: String!): CreatorPayload!
+    creatorDelete(id: ID!): CreatorPayload!
+    creatorPublishUpdate(id: ID!): CreatorPayload!
     creatorSave(creatorInput: CreatorInput!): CreatorPayload!
     creatorUpdate(creatorInput: CreatorInputWithId!): CreatorPayload!
-    kitDelete(id: String!): KitPayload!
-    kitPublishUpdate(id: String!): KitPayload!
+    kitDelete(id: ID!): KitPayload!
+    kitPublishUpdate(id: ID!): KitPayload!
     kitSave(kitInput: KitInput!): KitPayload!
     kitUpdate(kitInput: KitInputWithId!): KitPayload!
-    leadDelete(id: String!): LeadPayload!
-    leadPublishUpdate(id: String!): LeadPayload!
+    leadDelete(id: ID!): LeadPayload!
+    leadPublishUpdate(id: ID!): LeadPayload!
     leadSave(leadInput: LeadInput!): LeadPayload
     leadUpdate(leadInput: LeadInputWithId!): LeadPayload!
-    moneyCostDelete(id: String!): MoneyCostPayload!
-    moneyCostPublishUpdate(id: String!): MoneyCostPayload!
+    moneyCostDelete(id: ID!): MoneyCostPayload!
+    moneyCostPublishUpdate(id: ID!): MoneyCostPayload!
     moneyCostSave(moneyCostInput: MoneyCostInput!): MoneyCostPayload!
     moneyCostUpdate(moneyCostInput: MoneyCostInputWithId!): MoneyCostPayload!
-    moneyMoveDelete(id: String!): MoneyMovePayload!
-    moneyMovePublishUpdate(id: String!): MoneyMovePayload!
+    moneyMoveDelete(id: ID!): MoneyMovePayload!
+    moneyMovePublishUpdate(id: ID!): MoneyMovePayload!
     moneyMoveSave(moneyMoveInput: MoneyMoveInput!): MoneyMovePayload!
     moneyMoveUpdate(moneyMoveInput: MoneyMoveInputWithId!): MoneyMovePayload!
-    orderDelete(id: String!): OrderPayload!
-    orderPublishUpdate(id: String!): OrderPayload!
+    orderDelete(id: ID!): OrderPayload!
+    orderPublishUpdate(id: ID!): OrderPayload!
     orderSave(orderInput: OrderInput!): OrderPayload!
     orderUpdate(orderInput: OrderInputWithId!): OrderPayload!
-    placeDelete(id: String!): PlacePayload!
-    placePublishUpdate(id: String!): PlacePayload!
+    placeDelete(id: ID!): PlacePayload!
+    placePublishUpdate(id: ID!): PlacePayload!
     placeSave(placeInput: PlaceInput!): PlacePayload!
     placeUpdate(placeInput: PlaceInputWithId!): PlacePayload!
     refresh(phone: String!, token: String!): Token!
-    rentPaymentByMonthDelete(id: String!): RentPaymentByMonthPayload!
-    rentPaymentByMonthPublishUpdate(id: String!): RentPaymentByMonthPayload!
+    rentPaymentByMonthDelete(id: ID!): RentPaymentByMonthPayload!
+    rentPaymentByMonthPublishUpdate(id: ID!): RentPaymentByMonthPayload!
     rentPaymentByMonthSave(rentPaymentInput: RentPaymentByMonthInput!): RentPaymentByMonthPayload!
     rentPaymentByMonthUpdate(rentPaymentInput: RentPaymentByMonthInputWithId!): RentPaymentByMonthPayload!
-    rentPaymentByTrainingDelete(id: String!): RentPaymentByTrainingPayload!
-    rentPaymentByTrainingPublishUpdate(id: String!): RentPaymentByTrainingPayload!
+    rentPaymentByTrainingDelete(id: ID!): RentPaymentByTrainingPayload!
+    rentPaymentByTrainingPublishUpdate(id: ID!): RentPaymentByTrainingPayload!
     rentPaymentByTrainingSave(rentPaymentInput: RentPaymentByTrainingInput!): RentPaymentByTrainingPayload!
     rentPaymentByTrainingUpdate(rentPaymentInput: RentPaymentByTrainingInputWithId!): RentPaymentByTrainingPayload!
-    stadiumDelete(id: String!): StadiumPayload!
-    stadiumPublishUpdate(id: String!): StadiumPayload!
+    stadiumDelete(id: ID!): StadiumPayload!
+    stadiumPublishUpdate(id: ID!): StadiumPayload!
     stadiumSave(stadiumInput: StadiumInput!): StadiumPayload!
     stadiumUpdate(stadiumInput: StadiumInputWithId!): StadiumPayload!
-    staffDelete(id: String!): StaffPayload!
-    staffPublishUpdate(id: String!): StaffPayload!
+    staffDelete(id: ID!): StaffPayload!
+    staffPublishUpdate(id: ID!): StaffPayload!
     staffSave(staffInput: StaffInput!): StaffPayload!
     staffUpdate(staffInput: StaffInputWithId!): StaffPayload!
-    studentVisitDelete(id: String!): StudentVisitPayload!
-    studentVisitPublishUpdate(id: String!): StudentVisitPayload!
+    studentVisitDelete(id: ID!): StudentVisitPayload!
+    studentVisitPublishUpdate(id: ID!): StudentVisitPayload!
     studentVisitSave(studentVisitInput: StudentVisitInput!): StudentVisitPayload!
     studentVisitUpdate(studentVisitInput: StudentVisitInputWithId!): StudentVisitPayload!
-    studentDelete(id: String!): StudentPayload!
-    studentPublishUpdate(id: String!): StudentPayload!
+    studentDelete(id: ID!): StudentPayload!
+    studentPublishUpdate(id: ID!): StudentPayload!
     studentSave(studentInput: StudentInput!): StudentPayload!
     studentUpdate(studentInput: StudentInputWithId!): StudentPayload!
-    taskDelete(id: String!): TaskPayload!
-    taskPublishUpdate(id: String!): TaskPayload!
+    taskDelete(id: ID!): TaskPayload!
+    taskPublishUpdate(id: ID!): TaskPayload!
     taskSave(taskInput: TaskInput!): TaskPayload!
     taskUpdate(taskInput: TaskInputWithId!): TaskPayload!
-    teamBalanceDelete(id: String!): TeamBalancePayload!
-    teamBalancePublishUpdate(id: String!): TeamBalancePayload!
+    teamBalanceDelete(id: ID!): TeamBalancePayload!
+    teamBalancePublishUpdate(id: ID!): TeamBalancePayload!
     teamBalanceSave(teamBalanceInput: TeamBalanceInput!): TeamBalancePayload!
     teamBalanceUpdate(teamBalanceInput: TeamBalanceInputWithId!): TeamBalancePayload!
-    teamDelete(id: String!): TeamPayload!
-    teamPublishUpdate(id: String!): TeamPayload!
+    teamDelete(id: ID!): TeamPayload!
+    teamPublishUpdate(id: ID!): TeamPayload!
     teamSave(teamInput: TeamInput!): TeamPayload!
     teamUpdate(teamInput: TeamInputWithId!): TeamPayload!
-    trainingDayDelete(id: String!): TrainingDayPayload!
-    trainingDayPublishUpdate(id: String!): TrainingDayPayload!
+    trainingDayDelete(id: ID!): TrainingDayPayload!
+    trainingDayPublishUpdate(id: ID!): TrainingDayPayload!
     trainingDaySave(trainingDayInput: TrainingDayInput!): TrainingDayPayload!
     trainingDayUpdate(trainingDayInput: TrainingDayInputWithId!): TrainingDayPayload!
-    trainingDelete(id: String!): TrainingPayload!
-    trainingPublishUpdate(id: String!): TrainingPayload!
+    trainingDelete(id: ID!): TrainingPayload!
+    trainingPublishUpdate(id: ID!): TrainingPayload!
     trainingSave(trainingInput: TrainingInput!): TrainingPayload!
     trainingUpdate(trainingInput: TrainingInputWithId!): TrainingPayload!
-    userDelete(id: String!): UserPayload!
-    userPublishUpdate(id: String!): UserPayload!
+    userDelete(id: ID!): UserPayload!
+    userPublishUpdate(id: ID!): UserPayload!
     userSave(userInput: UserInput!): UserPayload!
     userUpdate(userInput: UserInputWithId!): UserPayload!
 }
@@ -317,7 +328,7 @@ type PageInfo {
 
 type Article {
     author: User
-    authorId: String!
+    authorId: ID!
     description: String!
     fileName: String
     id: ID!
@@ -343,10 +354,9 @@ type ArticlePayload {
 
 type Cart {
     id: ID!
-    kitIds: [String!]!
-    kits: [KitCart!]
+    kitIds: [ID!]!
     published: Boolean!
-    studentId: String!
+    studentId: ID!
     studentItem: Student
     sum: Int!
 }
@@ -394,7 +404,7 @@ type ClubBalancePayload {
 
 type CoachPaymentByMonth {
     coach: Staff
-    coachId: String!
+    coachId: ID!
     date:Time
     id: ID!
     published: Boolean!
@@ -418,14 +428,14 @@ type CoachPaymentByMonthPayload {
 
 type CoachPaymentByTeam {
     coach: Staff
-    coachId: String!
+    coachId: ID!
     dateFinish:Time
     dateStart:Time
     id: ID!
     paymentRule: CoachPaymentRule
     published: Boolean!
     sum: Int
-    teamId: String
+    teamId: ID
     teamItem: Team
 }
 
@@ -446,11 +456,11 @@ type CoachPaymentByTeamPayload {
 
 type CoachPaymentByTraining {
     coach: Staff
-    coachId: String!
+    coachId: ID!
     id: ID!
     published: Boolean!
     sum: Int
-    trainingId: String
+    trainingId: ID
     trainingItem: Training
 }
 
@@ -475,7 +485,7 @@ type Creator {
     passportNum: String
     phone: String!
     published: Boolean!
-    userId: String
+    userId: ID
     userItem: User
 }
 
@@ -494,12 +504,6 @@ type CreatorPayload {
     recordId: ID!
 }
 
-type CreatorStudent {
-    creatorId: String!
-    creatorStudent: Creator
-    studentId: String!
-}
-
 type Kit {
     fileName: String
     id: ID!
@@ -510,12 +514,6 @@ type Kit {
     quantity: Int
     size: String!
     title: String
-}
-
-type KitCart {
-    cartId: String!
-    kitCart: Kit
-    kitId: String!
 }
 
 type KitConnection {
@@ -538,14 +536,14 @@ type Lead {
     id: ID!
     name: String
     nextVisit: Training
-    nextVisitId: String
+    nextVisitId: ID
     phone: String!
     published: Boolean!
     source: LeadSource
     status: LeadStatus
-    studentIds: [String!]
-    students: [StudentLead!]
-    teamId: String
+    studentIds: [ID!]
+    students: [Student!]
+    teamId: ID
     teamItem: Team
     yearBorn: Int
 }
@@ -565,12 +563,6 @@ type LeadPayload {
     recordId: ID!
 }
 
-type LeadTask {
-    leadId: String!
-    leadTask: Lead
-    taskId: String!
-}
-
 type MoneyCost {
     date:Time!
     description: String!
@@ -578,7 +570,7 @@ type MoneyCost {
     moneyForm: MoneyForm!
     published: Boolean!
     staff: Staff
-    staffId: String!
+    staffId: ID!
     sum: Int!
 }
 
@@ -605,12 +597,12 @@ type MoneyMove {
     id: ID!
     moneyForm: MoneyForm
     owner: Staff
-    ownerId: String!
+    ownerId: ID!
     published: Boolean!
-    studentId: String!
+    studentId: ID!
     studentItem: Student
     sum: Int
-    userId: String!
+    userId: ID!
     userItem: User
 }
 
@@ -630,9 +622,9 @@ type MoneyMovePayload {
 }
 
 type Order {
-    cartId: String!
+    cartId: ID!
     cartItem: Cart
-    creatorId: String!
+    creatorId: ID!
     creatorItem: Creator
     fileName: String
     id: ID!
@@ -661,7 +653,7 @@ type RentPaymentByMonth {
     month:Time!
     paymentDate:Time
     published: Boolean!
-    stadiumId: String!
+    stadiumId: ID!
     stadiumItem: Stadium
     sum: Int!
 }
@@ -685,11 +677,11 @@ type RentPaymentByTraining {
     description: String
     id: ID!
     published: Boolean!
-    stadiumId: String!
+    stadiumId: ID!
     stadiumItem: Stadium
     sum: Int!
-    trainingIds: [String!]!
-    trainings: [TrainingRent!]
+    trainingIds: [ID!]!
+    trainings: [Training!]
 }
 
 type RentPaymentByTrainingConnection {
@@ -712,7 +704,7 @@ type Stadium {
     latitude: Float!
     longitude: Float!
     name: String!
-    placeId: String!
+    placeId: ID!
     place: Place
     published: Boolean!
 }
@@ -742,7 +734,7 @@ type Staff {
     orderNumber: Int!
     phoneNumber: String
     published: Boolean!
-    userId: String!
+    userId: ID!
     user: User
     work: String!
 }
@@ -762,35 +754,17 @@ type StaffPayload {
     recordId: ID!
 }
 
-type StaffTask {
-    staffId: String!
-    staffTask: Staff
-    taskId: String!
-}
-
-type StaffTeam {
-    staffId: String!
-    staffTeam: Staff
-    teamId: String!
-}
-
-type StaffTraining {
-    staffId: String!
-    staffTraining: Staff
-    trainingId: String!
-}
-
 type Student {
     birthday:Time
-    creatorIds: [String!]!
-    creators: [CreatorStudent!]
+    creatorIds: [ID!]!
+    creators: [Creator!]
     id: ID!
     name: String!
     passportNum: String
     paymentSum: Int
     published: Boolean!
-    teamIds: [String!]!
-    teams: [TeamStudent!]
+    teamIds: [ID!]!
+    teams: [Team!]
 }
 
 type StudentConnection {
@@ -803,30 +777,18 @@ type StudentEdge {
     node: Student
 }
 
-type StudentLead {
-    leadId: String!
-    studentId: String!
-    studentLead: Student
-}
-
 type StudentPayload {
     record: Student
     recordId: ID!
-}
-
-type StudentTask {
-    studentId: String!
-    studentTask: Student
-    taskId: String!
 }
 
 type StudentVisit {
     id: ID!
     payed: Boolean!
     published: Boolean!
-    studentId: String!
+    studentId: ID!
     studentItem: Student
-    trainingId: String!
+    trainingId: ID!
     trainingItem: Training
     visitStatus: VisitStatus!
 }
@@ -848,22 +810,22 @@ type StudentVisitPayload {
 
 type Task {
     author: User
-    authorId: String
+    authorId: ID
     description: String
     endTime: Time
     id: ID!
-    leadIds: [String!]
-    leads: [LeadTask]
+    leadIds: [ID!]
+    leads: [Lead!]
     priority: Priority
     published: Boolean!
     result: String
     startTime: Time
-    studentIds: [String!]
-    students: [StudentTask]
+    studentIds: [ID!]
+    students: [Student!]
     taskStatus: TaskStatus
     title: String!
-    workerIds: [String!]
-    workers: [StaffTask]
+    workerIds: [ID!]
+    workers: [Staff]
 }
 
 type TaskConnection {
@@ -883,13 +845,13 @@ type TaskPayload {
 
 type Team {
     ages: [Age!]
-    coachIds: [String!]
-    coaches: [StaffTeam!]
+    coachIds: [ID!]
+    coaches: [Staff!]
     headCoach: Staff
-    headCoachId: String
+    headCoachId: ID
     id: ID!
     name: String!
-    placeId: String!
+    placeId: ID!
     placeItem: Place
     published: Boolean!
     writable: Boolean!
@@ -902,7 +864,7 @@ type TeamBalance {
     rent: Int!
     salary: Int!
     sum: Int!
-    teamId: String!
+    teamId: ID!
     teamItem: Team
     tickets: Int!
 }
@@ -937,12 +899,6 @@ type TeamPayload {
     recordId: ID!
 }
 
-type TeamStudent {
-    studentId: String!
-    teamId: String!
-    teamStudent: Team
-}
-
 type Token {
     accessToken: String!
     expiration: Time!
@@ -950,15 +906,15 @@ type Token {
 }
 
 type Training {
-    coachIds: [String!]
-    coaches: [StaffTraining!]
+    coachIds: [ID!]
+    coaches: [Staff!]
     headCoach: Staff
-    headCoachId: String
+    headCoachId: ID
     id: ID!
     published: Boolean!
-    stadiumId: String
+    stadiumId: ID
     stadiumItem: Stadium
-    teamId: String!
+    teamId: ID!
     teamItem: Team
     time: Time
     visits: Int!
@@ -973,9 +929,9 @@ type TrainingDay {
     day: DayOfWeek
     id: ID!
     published: Boolean!
-    stadiumId: String
+    stadiumId: ID
     stadiumItem: Stadium
-    teamId: String!
+    teamId: ID!
     teamItem: Team
     time: Time
 }
@@ -1003,12 +959,6 @@ type TrainingEdge {
 type TrainingPayload {
     record: Training
     recordId: ID!
-}
-
-type TrainingRent {
-    rentId: String!
-    trainingId: String!
-    trainingRent: Training
 }
 
 type User {
@@ -1141,24 +1091,24 @@ input ArticleInput {
 }
 
 input ArticleInputWithId {
-    id: String!
+    id: ID!
     input: ArticleInput!
 }
 
-input CartDto {
-    id: String!
+type CartDto {
+    id: ID!
     name: String!
 }
 
 input CartInput {
-    kit: [KitDto!]!
+    kitIds: [ID!]!
     published: Boolean!
-    student: StudentDto!
+    studentId: ID!
     sum: Int!
 }
 
 input CartInputWithId {
-    id: String!
+    id: ID!
     input: CartInput!
 }
 
@@ -1172,51 +1122,51 @@ input ClubBalanceInput {
 }
 
 input ClubBalanceInputWithId {
-    id: String!
+    id: ID!
     input: ClubBalanceInput!
 }
 
 input CoachPaymentByMonthInput {
-    coach: StaffDto!
+    coachId: ID!
     date:Time!
     published: Boolean!
     sum: Int!
 }
 
 input CoachPaymentByMonthInputWithId {
-    id: String!
+    id: ID!
     input: CoachPaymentByMonthInput!
 }
 
 input CoachPaymentByTeamInput {
-    coach: StaffDto!
+    coachId: ID!
     dateFinish:Time!
     dateStart:Time!
     paymentRule: CoachPaymentRule!
     published: Boolean!
     sum: Int!
-    team: TeamCoachPaymentDto!
+    teamID: ID!
 }
 
 input CoachPaymentByTeamInputWithId {
-    id: String!
+    id: ID!
     input: CoachPaymentByTeamInput!
 }
 
 input CoachPaymentByTrainingInput {
-    coach: StaffDto!
+    coachId: ID!
     published: Boolean!
     sum: Int!
-    training: TrainingDto!
+    trainingID: ID!
 }
 
 input CoachPaymentByTrainingInputWithId {
-    id: String!
+    id: ID!
     input: CoachPaymentByTrainingInput!
 }
 
-input CreatorDto {
-    id: String!
+type CreatorDto {
+    id: ID!
     name: String!
 }
 
@@ -1225,16 +1175,16 @@ input CreatorInput {
     passportNum: String
     phone: String!
     published: Boolean!
-    user: UserDto
+    userId: ID
 }
 
 input CreatorInputWithId {
-    id: String!
+    id: ID!
     input: CreatorInput!
 }
 
-input KitDto {
-    id: String!
+type KitDto {
+    id: ID!
     name: String!
 }
 
@@ -1250,30 +1200,30 @@ input KitInput {
 }
 
 input KitInputWithId {
-    id: String!
+    id: ID!
     input: KitInput!
 }
 
-input LeadDto {
-    id: String!
+type LeadDto {
+    id: ID!
     name: String!
 }
 
 input LeadInput {
     description: String
     name: String
-    nextVisit: TrainingDto
+    nextVisitId: ID
     phone: String!
     published: Boolean!
     source: LeadSource
     status: LeadStatus
-    students: [StudentDto!]
-    team: TeamLeadDto
+    studentIds: [ID!]
+    teamId: ID
     yearBorn: Int
 }
 
 input LeadInputWithId {
-    id: String!
+    id: ID!
     input: LeadInput!
 }
 
@@ -1282,12 +1232,12 @@ input MoneyCostInput {
     description: String!
     moneyForm: MoneyForm!
     published: Boolean!
-    staff: StaffDto!
+    staffId: ID!
     sum: Int!
 }
 
 input MoneyCostInputWithId {
-    id: String!
+    id: ID!
     input: MoneyCostInput!
 }
 
@@ -1297,33 +1247,33 @@ input MoneyMoveInput {
     dateStart:Time!
     description: String
     moneyForm: MoneyForm!
-    owner: StaffDto!
+    ownerId: ID!
     published: Boolean!
-    student: StudentDto!
+    studentId: ID!
     sum: Int!
-    user: UserDto!
+    userId: ID!
 }
 
 input MoneyMoveInputWithId {
-    id: String!
+    id: ID!
     input: MoneyMoveInput!
 }
 
 input OrderInput {
-    cart: CartDto!
-    creator: CreatorDto!
+    cartId: ID!
+    creatorId: ID!
     fileName: String
     orderStatus: OrderStatus!
     published: Boolean!
 }
 
 input OrderInputWithId {
-    id: String!
+    id: ID!
     input: OrderInput!
 }
 
-input PlaceDto {
-    id: String!
+type PlaceDto {
+    id: ID!
     name: String!
 }
 
@@ -1341,7 +1291,7 @@ input PlaceInput {
 }
 
 input PlaceInputWithId {
-    id: String!
+    id: ID!
     input: PlaceInput!
 }
 
@@ -1350,30 +1300,30 @@ input RentPaymentByMonthInput {
     month:Time!
     paymentDate:Time!
     published: Boolean!
-    stadium: StadiumDto!
+    stadiumId: ID!
     sum: Int!
 }
 
 input RentPaymentByMonthInputWithId {
-    id: String!
+    id: ID!
     input: RentPaymentByMonthInput!
 }
 
 input RentPaymentByTrainingInput {
     description: String
     published: Boolean!
-    stadium: StadiumDto!
+    stadiumID: ID!
     sum: Int!
-    trainings: [TrainingDto!]!
+    trainingIds: [ID!]!
 }
 
 input RentPaymentByTrainingInputWithId {
-    id: String!
+    id: ID!
     input: RentPaymentByTrainingInput!
 }
 
-input StadiumDto {
-    id: String!
+type StadiumDto {
+    id: ID!
     name: String!
 }
 
@@ -1381,17 +1331,17 @@ input StadiumInput {
     latitude: Float!
     longitude: Float!
     name: String!
-    place: PlaceDto!
+    placeId: ID!
     published: Boolean!
 }
 
 input StadiumInputWithId {
-    id: String!
+    id: ID!
     input: StadiumInput!
 }
 
-input StaffDto {
-    id: String!
+type StaffDto {
+    id: ID!
     name: String!
 }
 
@@ -1404,71 +1354,66 @@ input StaffInput {
     orderNumber: Int!
     phoneNumber: String
     published: Boolean!
-    user: UserDto
+    userId: ID
     work: String!
 }
 
 input StaffInputWithId {
-    id: String!
+    id: ID!
     input: StaffInput!
 }
 
-input StudentDto {
-    id: String!
+type StudentDto {
+    id: ID!
     name: String!
 }
 
 input StudentInput {
     birthday:Time
-    creators: [CreatorDto!]!
+    creatorIds: [ID!]!
     name: String!
     passportNum: String
     paymentSum: Int
     published: Boolean!
-    teams: [TeamStudentDto!]!
+    teamIds: [ID!]!
 }
 
 input StudentInputWithId {
-    id: String!
+    id: ID!
     input: StudentInput!
 }
 
 input StudentVisitInput {
     payed: Boolean!
     published: Boolean!
-    student: StudentDto!
-    training: TrainingDto!
+    studentId: ID!
+    trainingId: ID!
     visitStatus: VisitStatus!
 }
 
 input StudentVisitInputWithId {
-    id: String!
+    id: ID!
     input: StudentVisitInput!
 }
 
 input TaskInput {
-    author: UserDto
+    authorId: ID
     description: String
     endTime: Time
-    leads: [LeadDto!]
+    leadIds: [ID!]
     priority: Priority
     published: Boolean!
     result: String
     startTime: Time
-    students: [StudentDto!]
+    studentIds: [ID!]
     taskStatus: TaskStatus
     title: String!
-    workers: [StaffDto!]
+    workerIds: [ID!]
 }
 
 input TaskInputWithId {
-    id: String!
+    id: ID!
     input: TaskInput!
-}
-
-input TeamBalanceDto {
-    id: String!
-    name: String!
 }
 
 input TeamBalanceInput {
@@ -1476,95 +1421,70 @@ input TeamBalanceInput {
     published: Boolean!
     rent: Int!
     salary: Int!
-    team: TeamBalanceDto!
+    teamId: ID!
     tickets: Int!
 }
 
 input TeamBalanceInputWithId {
-    id: String!
+    id: ID!
     input: TeamBalanceInput!
 }
 
-input TeamCoachPaymentDto {
-    id: String!
-    name: String!
-}
-
-input TeamDto {
-    id: String!
+type TeamDto {
+    id: ID!
     name: String!
 }
 
 input TeamInput {
     ages: [Age!]
-    coaches: [StaffDto!]
-    headCoach: StaffDto
+    coachIds: [ID!]
+    headCoachId: ID
     name: String!
-    place: PlaceDto!
+    placeId: ID!
     published: Boolean!
     writable: Boolean!
 }
 
 input TeamInputWithId {
-    id: String!
+    id: ID!
     input: TeamInput!
-}
-
-input TeamLeadDto {
-    id: String!
-    name: String!
-}
-
-input TeamStudentDto {
-    id: String!
-    name: String!
-}
-
-input TeamTrainingDayDto {
-    id: String!
-    name: String!
-}
-
-input TeamTrainingDto {
-    id: String!
-    name: String!
 }
 
 input TrainingDayInput {
     day: DayOfWeek
     published: Boolean!
-    stadium: StadiumDto
-    team: TeamTrainingDayDto!
+    stadiumId: ID
+    teamId: ID!
     time: Time
 }
 
 input TrainingDayInputWithId {
-    id: String!
+    id: ID!
     input: TrainingDayInput!
 }
 
-input TrainingDto {
-    id: String!
+type TrainingDto {
+    id: ID!
     name: String!
 }
 
 input TrainingInput {
-    coaches: [StaffDto!]
-    headCoach: StaffDto
+    coachIds: [ID!]
+    headCoachId: ID
     published: Boolean!
-    stadium: StadiumDto
-    team: TeamTrainingDto!
+    stadiumId: ID
+    teamId: ID!
     time: Time!
     visits: Int!
 }
 
 input TrainingInputWithId {
-    id: String!
+    id: ID!
     input: TrainingInput!
 }
 
-input UserDto {
-    id: String!
+type UserDto {
+    id: ID!
     name: String!
 }
 
@@ -1577,6 +1497,6 @@ input UserInput {
 }
 
 input UserInputWithId {
-    id: String!
+    id: ID!
     input: UserInput!
 }

@@ -52,13 +52,12 @@ type AuthToken struct {
 }
 
 type Cart struct {
-	ID          string     `json:"id"`
-	KitIds      []string   `json:"kitIds"`
-	Kits        []*KitCart `json:"kits"`
-	Published   bool       `json:"published"`
-	StudentID   string     `json:"studentId"`
-	StudentItem *Student   `json:"studentItem"`
-	Sum         int        `json:"sum"`
+	ID          string   `json:"id"`
+	KitIds      []string `json:"kitIds"`
+	Published   bool     `json:"published"`
+	StudentID   string   `json:"studentId"`
+	StudentItem *Student `json:"studentItem"`
+	Sum         int      `json:"sum"`
 }
 
 type CartConnection struct {
@@ -81,10 +80,10 @@ type CartFilter struct {
 }
 
 type CartInput struct {
-	Kit       []*KitDto   `json:"kit"`
-	Published bool        `json:"published"`
-	Student   *StudentDto `json:"student"`
-	Sum       int         `json:"sum"`
+	KitIds    []string `json:"kitIds"`
+	Published bool     `json:"published"`
+	StudentID string   `json:"studentId"`
+	Sum       int      `json:"sum"`
 }
 
 type CartInputWithID struct {
@@ -165,7 +164,7 @@ type CoachPaymentByMonthFilter struct {
 }
 
 type CoachPaymentByMonthInput struct {
-	Coach     *StaffDto `json:"coach"`
+	CoachID   string    `json:"coachId"`
 	Date      time.Time `json:"date"`
 	Published bool      `json:"published"`
 	Sum       int       `json:"sum"`
@@ -209,13 +208,13 @@ type CoachPaymentByTeamFilter struct {
 }
 
 type CoachPaymentByTeamInput struct {
-	Coach       *StaffDto            `json:"coach"`
-	DateFinish  time.Time            `json:"dateFinish"`
-	DateStart   time.Time            `json:"dateStart"`
-	PaymentRule CoachPaymentRule     `json:"paymentRule"`
-	Published   bool                 `json:"published"`
-	Sum         int                  `json:"sum"`
-	Team        *TeamCoachPaymentDto `json:"team"`
+	CoachID     string           `json:"coachId"`
+	DateFinish  time.Time        `json:"dateFinish"`
+	DateStart   time.Time        `json:"dateStart"`
+	PaymentRule CoachPaymentRule `json:"paymentRule"`
+	Published   bool             `json:"published"`
+	Sum         int              `json:"sum"`
+	TeamID      string           `json:"teamID"`
 }
 
 type CoachPaymentByTeamInputWithID struct {
@@ -253,10 +252,10 @@ type CoachPaymentByTrainingFilter struct {
 }
 
 type CoachPaymentByTrainingInput struct {
-	Coach     *StaffDto    `json:"coach"`
-	Published bool         `json:"published"`
-	Sum       int          `json:"sum"`
-	Training  *TrainingDto `json:"training"`
+	CoachID    string `json:"coachId"`
+	Published  bool   `json:"published"`
+	Sum        int    `json:"sum"`
+	TrainingID string `json:"trainingID"`
 }
 
 type CoachPaymentByTrainingInputWithID struct {
@@ -299,11 +298,11 @@ type CreatorFilter struct {
 }
 
 type CreatorInput struct {
-	Name        string   `json:"name"`
-	PassportNum *string  `json:"passportNum"`
-	Phone       string   `json:"phone"`
-	Published   bool     `json:"published"`
-	User        *UserDto `json:"user"`
+	Name        string  `json:"name"`
+	PassportNum *string `json:"passportNum"`
+	Phone       string  `json:"phone"`
+	Published   bool    `json:"published"`
+	UserID      *string `json:"userId"`
 }
 
 type CreatorInputWithID struct {
@@ -316,12 +315,6 @@ type CreatorPayload struct {
 	RecordID string   `json:"recordId"`
 }
 
-type CreatorStudent struct {
-	CreatorID      string   `json:"creatorId"`
-	CreatorStudent *Creator `json:"creatorStudent"`
-	StudentID      string   `json:"studentId"`
-}
-
 type Kit struct {
 	FileName  *string `json:"fileName"`
 	ID        string  `json:"id"`
@@ -332,12 +325,6 @@ type Kit struct {
 	Quantity  *int    `json:"quantity"`
 	Size      string  `json:"size"`
 	Title     *string `json:"title"`
-}
-
-type KitCart struct {
-	CartID  string `json:"cartId"`
-	KitCart *Kit   `json:"kitCart"`
-	KitID   string `json:"kitId"`
 }
 
 type KitConnection struct {
@@ -381,20 +368,20 @@ type KitPayload struct {
 }
 
 type Lead struct {
-	Description *string        `json:"description"`
-	ID          string         `json:"id"`
-	Name        *string        `json:"name"`
-	NextVisit   *Training      `json:"nextVisit"`
-	NextVisitID *string        `json:"nextVisitId"`
-	Phone       string         `json:"phone"`
-	Published   bool           `json:"published"`
-	Source      *LeadSource    `json:"source"`
-	Status      *LeadStatus    `json:"status"`
-	StudentIds  []string       `json:"studentIds"`
-	Students    []*StudentLead `json:"students"`
-	TeamID      *string        `json:"teamId"`
-	TeamItem    *Team          `json:"teamItem"`
-	YearBorn    *int           `json:"yearBorn"`
+	Description *string     `json:"description"`
+	ID          string      `json:"id"`
+	Name        *string     `json:"name"`
+	NextVisit   *Training   `json:"nextVisit"`
+	NextVisitID *string     `json:"nextVisitId"`
+	Phone       string      `json:"phone"`
+	Published   bool        `json:"published"`
+	Source      *LeadSource `json:"source"`
+	Status      *LeadStatus `json:"status"`
+	StudentIds  []string    `json:"studentIds"`
+	Students    []*Student  `json:"students"`
+	TeamID      *string     `json:"teamId"`
+	TeamItem    *Team       `json:"teamItem"`
+	YearBorn    *int        `json:"yearBorn"`
 }
 
 type LeadConnection struct {
@@ -417,16 +404,16 @@ type LeadFilter struct {
 }
 
 type LeadInput struct {
-	Description *string       `json:"description"`
-	Name        *string       `json:"name"`
-	NextVisit   *TrainingDto  `json:"nextVisit"`
-	Phone       string        `json:"phone"`
-	Published   bool          `json:"published"`
-	Source      *LeadSource   `json:"source"`
-	Status      *LeadStatus   `json:"status"`
-	Students    []*StudentDto `json:"students"`
-	Team        *TeamLeadDto  `json:"team"`
-	YearBorn    *int          `json:"yearBorn"`
+	Description *string     `json:"description"`
+	Name        *string     `json:"name"`
+	NextVisitID *string     `json:"nextVisitId"`
+	Phone       string      `json:"phone"`
+	Published   bool        `json:"published"`
+	Source      *LeadSource `json:"source"`
+	Status      *LeadStatus `json:"status"`
+	StudentIds  []string    `json:"studentIds"`
+	TeamID      *string     `json:"teamId"`
+	YearBorn    *int        `json:"yearBorn"`
 }
 
 type LeadInputWithID struct {
@@ -437,12 +424,6 @@ type LeadInputWithID struct {
 type LeadPayload struct {
 	Record   *Lead  `json:"record"`
 	RecordID string `json:"recordId"`
-}
-
-type LeadTask struct {
-	LeadID   string `json:"leadId"`
-	LeadTask *Lead  `json:"leadTask"`
-	TaskID   string `json:"taskId"`
 }
 
 type LoginInput struct {
@@ -480,7 +461,7 @@ type MoneyCostInput struct {
 	Description string    `json:"description"`
 	MoneyForm   MoneyForm `json:"moneyForm"`
 	Published   bool      `json:"published"`
-	Staff       *StaffDto `json:"staff"`
+	StaffID     string    `json:"staffId"`
 	Sum         int       `json:"sum"`
 }
 
@@ -526,16 +507,16 @@ type MoneyMoveFilter struct {
 }
 
 type MoneyMoveInput struct {
-	DateFinish  time.Time   `json:"dateFinish"`
-	DatePayment time.Time   `json:"datePayment"`
-	DateStart   time.Time   `json:"dateStart"`
-	Description *string     `json:"description"`
-	MoneyForm   MoneyForm   `json:"moneyForm"`
-	Owner       *StaffDto   `json:"owner"`
-	Published   bool        `json:"published"`
-	Student     *StudentDto `json:"student"`
-	Sum         int         `json:"sum"`
-	User        *UserDto    `json:"user"`
+	DateFinish  time.Time `json:"dateFinish"`
+	DatePayment time.Time `json:"datePayment"`
+	DateStart   time.Time `json:"dateStart"`
+	Description *string   `json:"description"`
+	MoneyForm   MoneyForm `json:"moneyForm"`
+	OwnerID     string    `json:"ownerId"`
+	Published   bool      `json:"published"`
+	StudentID   string    `json:"studentId"`
+	Sum         int       `json:"sum"`
+	UserID      string    `json:"userId"`
 }
 
 type MoneyMoveInputWithID struct {
@@ -574,8 +555,8 @@ type OrderFilter struct {
 }
 
 type OrderInput struct {
-	Cart        *CartDto    `json:"cart"`
-	Creator     *CreatorDto `json:"creator"`
+	CartID      string      `json:"cartId"`
+	CreatorID   string      `json:"creatorId"`
 	FileName    *string     `json:"fileName"`
 	OrderStatus OrderStatus `json:"orderStatus"`
 	Published   bool        `json:"published"`
@@ -668,12 +649,12 @@ type RentPaymentByMonthFilter struct {
 }
 
 type RentPaymentByMonthInput struct {
-	Description *string     `json:"description"`
-	Month       time.Time   `json:"month"`
-	PaymentDate time.Time   `json:"paymentDate"`
-	Published   bool        `json:"published"`
-	Stadium     *StadiumDto `json:"stadium"`
-	Sum         int         `json:"sum"`
+	Description *string   `json:"description"`
+	Month       time.Time `json:"month"`
+	PaymentDate time.Time `json:"paymentDate"`
+	Published   bool      `json:"published"`
+	StadiumID   string    `json:"stadiumId"`
+	Sum         int       `json:"sum"`
 }
 
 type RentPaymentByMonthInputWithID struct {
@@ -687,14 +668,14 @@ type RentPaymentByMonthPayload struct {
 }
 
 type RentPaymentByTraining struct {
-	Description *string         `json:"description"`
-	ID          string          `json:"id"`
-	Published   bool            `json:"published"`
-	StadiumID   string          `json:"stadiumId"`
-	StadiumItem *Stadium        `json:"stadiumItem"`
-	Sum         int             `json:"sum"`
-	TrainingIds []string        `json:"trainingIds"`
-	Trainings   []*TrainingRent `json:"trainings"`
+	Description *string     `json:"description"`
+	ID          string      `json:"id"`
+	Published   bool        `json:"published"`
+	StadiumID   string      `json:"stadiumId"`
+	StadiumItem *Stadium    `json:"stadiumItem"`
+	Sum         int         `json:"sum"`
+	TrainingIds []string    `json:"trainingIds"`
+	Trainings   []*Training `json:"trainings"`
 }
 
 type RentPaymentByTrainingConnection struct {
@@ -712,11 +693,11 @@ type RentPaymentByTrainingFilter struct {
 }
 
 type RentPaymentByTrainingInput struct {
-	Description *string        `json:"description"`
-	Published   bool           `json:"published"`
-	Stadium     *StadiumDto    `json:"stadium"`
-	Sum         int            `json:"sum"`
-	Trainings   []*TrainingDto `json:"trainings"`
+	Description *string  `json:"description"`
+	Published   bool     `json:"published"`
+	StadiumID   string   `json:"stadiumID"`
+	Sum         int      `json:"sum"`
+	TrainingIds []string `json:"trainingIds"`
 }
 
 type RentPaymentByTrainingInputWithID struct {
@@ -749,11 +730,11 @@ type StadiumFilter struct {
 }
 
 type StadiumInput struct {
-	Latitude  float64   `json:"latitude"`
-	Longitude float64   `json:"longitude"`
-	Name      string    `json:"name"`
-	Place     *PlaceDto `json:"place"`
-	Published bool      `json:"published"`
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
+	Name      string  `json:"name"`
+	PlaceID   string  `json:"placeId"`
+	Published bool    `json:"published"`
 }
 
 type StadiumInputWithID struct {
@@ -794,7 +775,7 @@ type StaffInput struct {
 	OrderNumber int        `json:"orderNumber"`
 	PhoneNumber *string    `json:"phoneNumber"`
 	Published   bool       `json:"published"`
-	User        *UserDto   `json:"user"`
+	UserID      *string    `json:"userId"`
 	Work        string     `json:"work"`
 }
 
@@ -808,35 +789,17 @@ type StaffPayload struct {
 	RecordID string `json:"recordId"`
 }
 
-type StaffTask struct {
-	StaffID   string `json:"staffId"`
-	StaffTask *Staff `json:"staffTask"`
-	TaskID    string `json:"taskId"`
-}
-
-type StaffTeam struct {
-	StaffID   string `json:"staffId"`
-	StaffTeam *Staff `json:"staffTeam"`
-	TeamID    string `json:"teamId"`
-}
-
-type StaffTraining struct {
-	StaffID       string `json:"staffId"`
-	StaffTraining *Staff `json:"staffTraining"`
-	TrainingID    string `json:"trainingId"`
-}
-
 type Student struct {
-	Birthday    *time.Time        `json:"birthday"`
-	CreatorIds  []string          `json:"creatorIds"`
-	Creators    []*CreatorStudent `json:"creators"`
-	ID          string            `json:"id"`
-	Name        string            `json:"name"`
-	PassportNum *string           `json:"passportNum"`
-	PaymentSum  *int              `json:"paymentSum"`
-	Published   bool              `json:"published"`
-	TeamIds     []string          `json:"teamIds"`
-	Teams       []*TeamStudent    `json:"teams"`
+	Birthday    *time.Time `json:"birthday"`
+	CreatorIds  []string   `json:"creatorIds"`
+	Creators    []*Creator `json:"creators"`
+	ID          string     `json:"id"`
+	Name        string     `json:"name"`
+	PassportNum *string    `json:"passportNum"`
+	PaymentSum  *int       `json:"paymentSum"`
+	Published   bool       `json:"published"`
+	TeamIds     []string   `json:"teamIds"`
+	Teams       []*Team    `json:"teams"`
 }
 
 type StudentConnection struct {
@@ -859,13 +822,13 @@ type StudentFilter struct {
 }
 
 type StudentInput struct {
-	Birthday    *time.Time        `json:"birthday"`
-	Creators    []*CreatorDto     `json:"creators"`
-	Name        string            `json:"name"`
-	PassportNum *string           `json:"passportNum"`
-	PaymentSum  *int              `json:"paymentSum"`
-	Published   bool              `json:"published"`
-	Teams       []*TeamStudentDto `json:"teams"`
+	Birthday    *time.Time `json:"birthday"`
+	CreatorIds  []string   `json:"creatorIds"`
+	Name        string     `json:"name"`
+	PassportNum *string    `json:"passportNum"`
+	PaymentSum  *int       `json:"paymentSum"`
+	Published   bool       `json:"published"`
+	TeamIds     []string   `json:"teamIds"`
 }
 
 type StudentInputWithID struct {
@@ -873,21 +836,9 @@ type StudentInputWithID struct {
 	Input *StudentInput `json:"input"`
 }
 
-type StudentLead struct {
-	LeadID      string   `json:"leadId"`
-	StudentID   string   `json:"studentId"`
-	StudentLead *Student `json:"studentLead"`
-}
-
 type StudentPayload struct {
 	Record   *Student `json:"record"`
 	RecordID string   `json:"recordId"`
-}
-
-type StudentTask struct {
-	StudentID   string   `json:"studentId"`
-	StudentTask *Student `json:"studentTask"`
-	TaskID      string   `json:"taskId"`
 }
 
 type StudentVisit struct {
@@ -916,11 +867,11 @@ type StudentVisitFilter struct {
 }
 
 type StudentVisitInput struct {
-	Payed       bool         `json:"payed"`
-	Published   bool         `json:"published"`
-	Student     *StudentDto  `json:"student"`
-	Training    *TrainingDto `json:"training"`
-	VisitStatus VisitStatus  `json:"visitStatus"`
+	Payed       bool        `json:"payed"`
+	Published   bool        `json:"published"`
+	StudentID   string      `json:"studentId"`
+	TrainingID  string      `json:"trainingId"`
+	VisitStatus VisitStatus `json:"visitStatus"`
 }
 
 type StudentVisitInputWithID struct {
@@ -934,23 +885,23 @@ type StudentVisitPayload struct {
 }
 
 type Task struct {
-	Author      *User          `json:"author"`
-	AuthorID    *string        `json:"authorId"`
-	Description *string        `json:"description"`
-	EndTime     *time.Time     `json:"endTime"`
-	ID          string         `json:"id"`
-	LeadIds     []string       `json:"leadIds"`
-	Leads       []*LeadTask    `json:"leads"`
-	Priority    *Priority      `json:"priority"`
-	Published   bool           `json:"published"`
-	Result      *string        `json:"result"`
-	StartTime   *time.Time     `json:"startTime"`
-	StudentIds  []string       `json:"studentIds"`
-	Students    []*StudentTask `json:"students"`
-	TaskStatus  *TaskStatus    `json:"taskStatus"`
-	Title       string         `json:"title"`
-	WorkerIds   []string       `json:"workerIds"`
-	Workers     []*StaffTask   `json:"workers"`
+	Author      *User       `json:"author"`
+	AuthorID    *string     `json:"authorId"`
+	Description *string     `json:"description"`
+	EndTime     *time.Time  `json:"endTime"`
+	ID          string      `json:"id"`
+	LeadIds     []string    `json:"leadIds"`
+	Leads       []*Lead     `json:"leads"`
+	Priority    *Priority   `json:"priority"`
+	Published   bool        `json:"published"`
+	Result      *string     `json:"result"`
+	StartTime   *time.Time  `json:"startTime"`
+	StudentIds  []string    `json:"studentIds"`
+	Students    []*Student  `json:"students"`
+	TaskStatus  *TaskStatus `json:"taskStatus"`
+	Title       string      `json:"title"`
+	WorkerIds   []string    `json:"workerIds"`
+	Workers     []*Staff    `json:"workers"`
 }
 
 type TaskConnection struct {
@@ -968,18 +919,18 @@ type TaskFilter struct {
 }
 
 type TaskInput struct {
-	Author      *UserDto      `json:"author"`
-	Description *string       `json:"description"`
-	EndTime     *time.Time    `json:"endTime"`
-	Leads       []*LeadDto    `json:"leads"`
-	Priority    *Priority     `json:"priority"`
-	Published   bool          `json:"published"`
-	Result      *string       `json:"result"`
-	StartTime   *time.Time    `json:"startTime"`
-	Students    []*StudentDto `json:"students"`
-	TaskStatus  *TaskStatus   `json:"taskStatus"`
-	Title       string        `json:"title"`
-	Workers     []*StaffDto   `json:"workers"`
+	AuthorID    *string     `json:"authorId"`
+	Description *string     `json:"description"`
+	EndTime     *time.Time  `json:"endTime"`
+	LeadIds     []string    `json:"leadIds"`
+	Priority    *Priority   `json:"priority"`
+	Published   bool        `json:"published"`
+	Result      *string     `json:"result"`
+	StartTime   *time.Time  `json:"startTime"`
+	StudentIds  []string    `json:"studentIds"`
+	TaskStatus  *TaskStatus `json:"taskStatus"`
+	Title       string      `json:"title"`
+	WorkerIds   []string    `json:"workerIds"`
 }
 
 type TaskInputWithID struct {
@@ -993,17 +944,17 @@ type TaskPayload struct {
 }
 
 type Team struct {
-	Ages        []Age        `json:"ages"`
-	CoachIds    []string     `json:"coachIds"`
-	Coaches     []*StaffTeam `json:"coaches"`
-	HeadCoach   *Staff       `json:"headCoach"`
-	HeadCoachID *string      `json:"headCoachId"`
-	ID          string       `json:"id"`
-	Name        string       `json:"name"`
-	PlaceID     string       `json:"placeId"`
-	PlaceItem   *Place       `json:"placeItem"`
-	Published   bool         `json:"published"`
-	Writable    bool         `json:"writable"`
+	Ages        []Age    `json:"ages"`
+	CoachIds    []string `json:"coachIds"`
+	Coaches     []*Staff `json:"coaches"`
+	HeadCoach   *Staff   `json:"headCoach"`
+	HeadCoachID *string  `json:"headCoachId"`
+	ID          string   `json:"id"`
+	Name        string   `json:"name"`
+	PlaceID     string   `json:"placeId"`
+	PlaceItem   *Place   `json:"placeItem"`
+	Published   bool     `json:"published"`
+	Writable    bool     `json:"writable"`
 }
 
 type TeamBalance struct {
@@ -1023,11 +974,6 @@ type TeamBalanceConnection struct {
 	PageInfo *PageInfo          `json:"pageInfo"`
 }
 
-type TeamBalanceDto struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
-}
-
 type TeamBalanceEdge struct {
 	Cursor *string      `json:"cursor"`
 	Node   *TeamBalance `json:"node"`
@@ -1038,12 +984,12 @@ type TeamBalanceFilter struct {
 }
 
 type TeamBalanceInput struct {
-	Date      time.Time       `json:"date"`
-	Published bool            `json:"published"`
-	Rent      int             `json:"rent"`
-	Salary    int             `json:"salary"`
-	Team      *TeamBalanceDto `json:"team"`
-	Tickets   int             `json:"tickets"`
+	Date      time.Time `json:"date"`
+	Published bool      `json:"published"`
+	Rent      int       `json:"rent"`
+	Salary    int       `json:"salary"`
+	TeamID    string    `json:"teamId"`
+	Tickets   int       `json:"tickets"`
 }
 
 type TeamBalanceInputWithID struct {
@@ -1054,11 +1000,6 @@ type TeamBalanceInputWithID struct {
 type TeamBalancePayload struct {
 	Record   *TeamBalance `json:"record"`
 	RecordID string       `json:"recordId"`
-}
-
-type TeamCoachPaymentDto struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
 }
 
 type TeamConnection struct {
@@ -1081,13 +1022,13 @@ type TeamFilter struct {
 }
 
 type TeamInput struct {
-	Ages      []Age       `json:"ages"`
-	Coaches   []*StaffDto `json:"coaches"`
-	HeadCoach *StaffDto   `json:"headCoach"`
-	Name      string      `json:"name"`
-	Place     *PlaceDto   `json:"place"`
-	Published bool        `json:"published"`
-	Writable  bool        `json:"writable"`
+	Ages        []Age    `json:"ages"`
+	CoachIds    []string `json:"coachIds"`
+	HeadCoachID *string  `json:"headCoachId"`
+	Name        string   `json:"name"`
+	PlaceID     string   `json:"placeId"`
+	Published   bool     `json:"published"`
+	Writable    bool     `json:"writable"`
 }
 
 type TeamInputWithID struct {
@@ -1095,35 +1036,9 @@ type TeamInputWithID struct {
 	Input *TeamInput `json:"input"`
 }
 
-type TeamLeadDto struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
-}
-
 type TeamPayload struct {
 	Record   *Team  `json:"record"`
 	RecordID string `json:"recordId"`
-}
-
-type TeamStudent struct {
-	StudentID   string `json:"studentId"`
-	TeamID      string `json:"teamId"`
-	TeamStudent *Team  `json:"teamStudent"`
-}
-
-type TeamStudentDto struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
-}
-
-type TeamTrainingDayDto struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
-}
-
-type TeamTrainingDto struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
 }
 
 type Token struct {
@@ -1133,18 +1048,18 @@ type Token struct {
 }
 
 type Training struct {
-	CoachIds    []string         `json:"coachIds"`
-	Coaches     []*StaffTraining `json:"coaches"`
-	HeadCoach   *Staff           `json:"headCoach"`
-	HeadCoachID *string          `json:"headCoachId"`
-	ID          string           `json:"id"`
-	Published   bool             `json:"published"`
-	StadiumID   *string          `json:"stadiumId"`
-	StadiumItem *Stadium         `json:"stadiumItem"`
-	TeamID      string           `json:"teamId"`
-	TeamItem    *Team            `json:"teamItem"`
-	Time        *time.Time       `json:"time"`
-	Visits      int              `json:"visits"`
+	CoachIds    []string   `json:"coachIds"`
+	Coaches     []*Staff   `json:"coaches"`
+	HeadCoach   *Staff     `json:"headCoach"`
+	HeadCoachID *string    `json:"headCoachId"`
+	ID          string     `json:"id"`
+	Published   bool       `json:"published"`
+	StadiumID   *string    `json:"stadiumId"`
+	StadiumItem *Stadium   `json:"stadiumItem"`
+	TeamID      string     `json:"teamId"`
+	TeamItem    *Team      `json:"teamItem"`
+	Time        *time.Time `json:"time"`
+	Visits      int        `json:"visits"`
 }
 
 type TrainingConnection struct {
@@ -1178,11 +1093,11 @@ type TrainingDayFilter struct {
 }
 
 type TrainingDayInput struct {
-	Day       *DayOfWeek          `json:"day"`
-	Published bool                `json:"published"`
-	Stadium   *StadiumDto         `json:"stadium"`
-	Team      *TeamTrainingDayDto `json:"team"`
-	Time      *time.Time          `json:"time"`
+	Day       *DayOfWeek `json:"day"`
+	Published bool       `json:"published"`
+	StadiumID *string    `json:"stadiumId"`
+	TeamID    string     `json:"teamId"`
+	Time      *time.Time `json:"time"`
 }
 
 type TrainingDayInputWithID struct {
@@ -1210,13 +1125,13 @@ type TrainingFilter struct {
 }
 
 type TrainingInput struct {
-	Coaches   []*StaffDto      `json:"coaches"`
-	HeadCoach *StaffDto        `json:"headCoach"`
-	Published bool             `json:"published"`
-	Stadium   *StadiumDto      `json:"stadium"`
-	Team      *TeamTrainingDto `json:"team"`
-	Time      time.Time        `json:"time"`
-	Visits    int              `json:"visits"`
+	CoachIds    []string  `json:"coachIds"`
+	HeadCoachID *string   `json:"headCoachId"`
+	Published   bool      `json:"published"`
+	StadiumID   *string   `json:"stadiumId"`
+	TeamID      string    `json:"teamId"`
+	Time        time.Time `json:"time"`
+	Visits      int       `json:"visits"`
 }
 
 type TrainingInputWithID struct {
@@ -1227,12 +1142,6 @@ type TrainingInputWithID struct {
 type TrainingPayload struct {
 	Record   *Training `json:"record"`
 	RecordID string    `json:"recordId"`
-}
-
-type TrainingRent struct {
-	RentID       string    `json:"rentId"`
-	TrainingID   string    `json:"trainingId"`
-	TrainingRent *Training `json:"trainingRent"`
 }
 
 type UserConnection struct {
