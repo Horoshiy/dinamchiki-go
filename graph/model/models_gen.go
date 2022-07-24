@@ -96,17 +96,6 @@ type CartPayload struct {
 	RecordID string `json:"recordId"`
 }
 
-type ClubBalance struct {
-	Date       time.Time `json:"date"`
-	ID         string    `json:"id"`
-	OtherCosts int       `json:"otherCosts"`
-	Published  bool      `json:"published"`
-	Rent       int       `json:"rent"`
-	Salary     int       `json:"salary"`
-	Sum        int       `json:"sum"`
-	Tickets    int       `json:"tickets"`
-}
-
 type ClubBalanceConnection struct {
 	Edges    []*ClubBalanceEdge `json:"edges"`
 	PageInfo *PageInfo          `json:"pageInfo"`

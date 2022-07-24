@@ -124,22 +124,37 @@ func (r *mutationResolver) CartUpdate(ctx context.Context, cartInput models.Cart
 
 // ClubBalanceDelete is the resolver for the clubBalanceDelete field.
 func (r *mutationResolver) ClubBalanceDelete(ctx context.Context, id string) (*models.ClubBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.ClubBalanceDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.ClubBalancePayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // ClubBalancePublishUpdate is the resolver for the clubBalancePublishUpdate field.
 func (r *mutationResolver) ClubBalancePublishUpdate(ctx context.Context, id string) (*models.ClubBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.ClubBalancePublish(id)
 }
 
 // ClubBalanceSave is the resolver for the clubBalanceSave field.
 func (r *mutationResolver) ClubBalanceSave(ctx context.Context, clubBalanceInput models.ClubBalanceInput) (*models.ClubBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, clubBalanceInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.ClubBalanceSave(ctx, clubBalanceInput)
 }
 
 // ClubBalanceUpdate is the resolver for the clubBalanceUpdate field.
 func (r *mutationResolver) ClubBalanceUpdate(ctx context.Context, clubBalanceInput models.ClubBalanceInputWithID) (*models.ClubBalancePayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, clubBalanceInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.ClubBalanceUpdate(ctx, clubBalanceInput)
 }
 
 // CoachPaymentByMonthDelete is the resolver for the coachPaymentByMonthDelete field.
@@ -879,7 +894,7 @@ func (r *queryResolver) ClubBalance(ctx context.Context, id string) (*models.Clu
 
 // ClubBalances is the resolver for the clubBalances field.
 func (r *queryResolver) ClubBalances(ctx context.Context, after *string, before *string, filter *models.ClubBalanceFilter, first *int, last *int) (*models.ClubBalanceConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.ClubBalancesRepo.GetClubBalances(filter, first, last, after, before)
 }
 
 // CoachPaymentByMonth is the resolver for the coachPaymentByMonth field.
