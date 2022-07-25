@@ -410,17 +410,6 @@ type MoneyMovePayload struct {
 	RecordID string     `json:"recordId"`
 }
 
-type Order struct {
-	Cart        *Cart       `json:"cart"`
-	CartID      string      `json:"cartId"`
-	Creator     *Creator    `json:"creator"`
-	CreatorID   string      `json:"creatorId"`
-	FileName    *string     `json:"fileName"`
-	ID          string      `json:"id"`
-	OrderStatus OrderStatus `json:"orderStatus"`
-	Published   bool        `json:"published"`
-}
-
 type OrderConnection struct {
 	Edges    []*OrderEdge `json:"edges"`
 	PageInfo *PageInfo    `json:"pageInfo"`

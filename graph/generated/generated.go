@@ -47,6 +47,7 @@ type ResolverRoot interface {
 	MoneyCost() MoneyCostResolver
 	MoneyMove() MoneyMoveResolver
 	Mutation() MutationResolver
+	Order() OrderResolver
 	Query() QueryResolver
 	RentPaymentByMonth() RentPaymentByMonthResolver
 	RentPaymentByTraining() RentPaymentByTrainingResolver
@@ -1141,6 +1142,11 @@ type MutationResolver interface {
 	UserPublishUpdate(ctx context.Context, id string) (*models.UserPayload, error)
 	UserSave(ctx context.Context, userInput models.UserInput) (*models.UserPayload, error)
 	UserUpdate(ctx context.Context, userInput models.UserInputWithID) (*models.UserPayload, error)
+}
+type OrderResolver interface {
+	Cart(ctx context.Context, obj *models.Order) (*models.Cart, error)
+
+	Creator(ctx context.Context, obj *models.Order) (*models.Creator, error)
 }
 type QueryResolver interface {
 	Article(ctx context.Context, id string) (*models.Article, error)
@@ -26140,7 +26146,7 @@ func (ec *executionContext) _Order_cart(ctx context.Context, field graphql.Colle
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Cart, nil
+		return ec.resolvers.Order().Cart(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26158,8 +26164,8 @@ func (ec *executionContext) fieldContext_Order_cart(ctx context.Context, field g
 	fc = &graphql.FieldContext{
 		Object:     "Order",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "id":
@@ -26241,7 +26247,7 @@ func (ec *executionContext) _Order_creator(ctx context.Context, field graphql.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Creator, nil
+		return ec.resolvers.Order().Creator(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26259,8 +26265,8 @@ func (ec *executionContext) fieldContext_Order_creator(ctx context.Context, fiel
 	fc = &graphql.FieldContext{
 		Object:     "Order",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "id":
@@ -50098,26 +50104,52 @@ func (ec *executionContext) _Order(ctx context.Context, sel ast.SelectionSet, ob
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Order")
 		case "cart":
+			field := field
 
-			out.Values[i] = ec._Order_cart(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Order_cart(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "cartId":
 
 			out.Values[i] = ec._Order_cartId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "creator":
+			field := field
 
-			out.Values[i] = ec._Order_creator(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Order_creator(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "creatorId":
 
 			out.Values[i] = ec._Order_creatorId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "fileName":
 
@@ -50128,21 +50160,21 @@ func (ec *executionContext) _Order(ctx context.Context, sel ast.SelectionSet, ob
 			out.Values[i] = ec._Order_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "orderStatus":
 
 			out.Values[i] = ec._Order_orderStatus(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "published":
 
 			out.Values[i] = ec._Order_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))

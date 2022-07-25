@@ -193,3 +193,10 @@ models:
         resolver: true
       student:
         resolver: true
+  Order:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Order
+    fields:
+      cart:
+        resolver: true
+      creator:
+        resolver: true
