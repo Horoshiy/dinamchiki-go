@@ -186,4 +186,10 @@ models:
         resolver: true
   Kit:
     model: gitlab.com/dinamchiki/go-graphql/graph/model.Kit
-
+  Cart:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Cart
+    fields:
+      kits:
+        resolver: true
+      student:
+        resolver: true

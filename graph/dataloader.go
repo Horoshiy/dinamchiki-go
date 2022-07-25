@@ -20,6 +20,7 @@ type Loaders struct {
 	CreatorLoader
 	StudentLoader
 	TrainingLoader
+	CartLoader
 }
 
 func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
@@ -247,6 +248,34 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 		},
 	}
 
+	cartLoader := CartLoader{
+		maxBatch: 100,
+		wait:     1 * time.Millisecond,
+		fetch: func(keys []string) ([]*models.Cart, []error) {
+			var items []*models.Cart
+
+			err := db.Model(&items).Where("id in (?)", pg.In(keys)).Select()
+
+			if err != nil {
+				return nil, []error{err}
+			}
+
+			u := make(map[string]*models.Cart, len(items))
+
+			for _, item := range items {
+				u[item.ID] = item
+			}
+
+			result := make([]*models.Cart, len(keys))
+
+			for i, id := range keys {
+				result[i] = u[id]
+			}
+
+			return result, nil
+		},
+	}
+
 	staffSliceLoader := StaffSliceLoader{
 		maxBatch: 100,
 		wait:     1 * time.Millisecond,
@@ -287,6 +316,7 @@ func DataLoaderMiddleware(db *pg.DB, next http.Handler) http.Handler {
 			CreatorLoader:    creatorLoader,
 			StudentLoader:    studentLoader,
 			TrainingLoader:   trainingLoader,
+			CartLoader:       cartLoader,
 		})
 
 		next.ServeHTTP(w, r.WithContext(ctx))

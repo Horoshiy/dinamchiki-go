@@ -51,15 +51,6 @@ type AuthToken struct {
 	ExpiredAt   time.Time `json:"expiredAt"`
 }
 
-type Cart struct {
-	ID        string   `json:"id"`
-	KitIds    []string `json:"kitIds"`
-	Published bool     `json:"published"`
-	Student   *Student `json:"student"`
-	StudentID string   `json:"studentId"`
-	Sum       int      `json:"sum"`
-}
-
 type CartConnection struct {
 	Edges    []*CartEdge `json:"edges"`
 	PageInfo *PageInfo   `json:"pageInfo"`

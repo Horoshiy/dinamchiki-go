@@ -46,6 +46,7 @@ type AuthToken {
 type Cart {
     id: ID!
     kitIds: [ID!]!
+    kits: [Kit!]!
     published: Boolean!
     student: Student
     studentId: ID!

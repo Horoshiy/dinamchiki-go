@@ -38,6 +38,7 @@ type Config struct {
 
 type ResolverRoot interface {
 	Article() ArticleResolver
+	Cart() CartResolver
 	CoachPaymentByMonth() CoachPaymentByMonthResolver
 	CoachPaymentByTeam() CoachPaymentByTeamResolver
 	CoachPaymentByTraining() CoachPaymentByTrainingResolver
@@ -104,6 +105,7 @@ type ComplexityRoot struct {
 	Cart struct {
 		ID        func(childComplexity int) int
 		KitIds    func(childComplexity int) int
+		Kits      func(childComplexity int) int
 		Published func(childComplexity int) int
 		Student   func(childComplexity int) int
 		StudentID func(childComplexity int) int
@@ -998,6 +1000,11 @@ type ComplexityRoot struct {
 type ArticleResolver interface {
 	Author(ctx context.Context, obj *models.Article) (*models.User, error)
 }
+type CartResolver interface {
+	Kits(ctx context.Context, obj *models.Cart) ([]*models.Kit, error)
+
+	Student(ctx context.Context, obj *models.Cart) (*models.Student, error)
+}
 type CoachPaymentByMonthResolver interface {
 	Coach(ctx context.Context, obj *models.CoachPaymentByMonth) (*models.Staff, error)
 }
@@ -1414,6 +1421,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Cart.KitIds(childComplexity), true
+
+	case "Cart.kits":
+		if e.complexity.Cart.Kits == nil {
+			break
+		}
+
+		return e.complexity.Cart.Kits(childComplexity), true
 
 	case "Cart.published":
 		if e.complexity.Cart.Published == nil {
@@ -6309,6 +6323,7 @@ type AuthToken {
 type Cart {
     id: ID!
     kitIds: [ID!]!
+    kits: [Kit!]!
     published: Boolean!
     student: Student
     studentId: ID!
@@ -12301,6 +12316,70 @@ func (ec *executionContext) fieldContext_Cart_kitIds(ctx context.Context, field 
 	return fc, nil
 }
 
+func (ec *executionContext) _Cart_kits(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Cart_kits(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Cart().Kits(rctx, obj)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*models.Kit)
+	fc.Result = res
+	return ec.marshalNKit2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Cart_kits(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Cart",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "fileName":
+				return ec.fieldContext_Kit_fileName(ctx, field)
+			case "id":
+				return ec.fieldContext_Kit_id(ctx, field)
+			case "name":
+				return ec.fieldContext_Kit_name(ctx, field)
+			case "number":
+				return ec.fieldContext_Kit_number(ctx, field)
+			case "price":
+				return ec.fieldContext_Kit_price(ctx, field)
+			case "published":
+				return ec.fieldContext_Kit_published(ctx, field)
+			case "quantity":
+				return ec.fieldContext_Kit_quantity(ctx, field)
+			case "size":
+				return ec.fieldContext_Kit_size(ctx, field)
+			case "title":
+				return ec.fieldContext_Kit_title(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type Kit", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Cart_published(ctx context.Context, field graphql.CollectedField, obj *models.Cart) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Cart_published(ctx, field)
 	if err != nil {
@@ -12359,7 +12438,7 @@ func (ec *executionContext) _Cart_student(ctx context.Context, field graphql.Col
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Student, nil
+		return ec.resolvers.Cart().Student(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12377,8 +12456,8 @@ func (ec *executionContext) fieldContext_Cart_student(ctx context.Context, field
 	fc = &graphql.FieldContext{
 		Object:     "Cart",
 		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "birthday":
@@ -12767,6 +12846,8 @@ func (ec *executionContext) fieldContext_CartEdge_node(ctx context.Context, fiel
 				return ec.fieldContext_Cart_id(ctx, field)
 			case "kitIds":
 				return ec.fieldContext_Cart_kitIds(ctx, field)
+			case "kits":
+				return ec.fieldContext_Cart_kits(ctx, field)
 			case "published":
 				return ec.fieldContext_Cart_published(ctx, field)
 			case "student":
@@ -12822,6 +12903,8 @@ func (ec *executionContext) fieldContext_CartPayload_record(ctx context.Context,
 				return ec.fieldContext_Cart_id(ctx, field)
 			case "kitIds":
 				return ec.fieldContext_Cart_kitIds(ctx, field)
+			case "kits":
+				return ec.fieldContext_Cart_kits(ctx, field)
 			case "published":
 				return ec.fieldContext_Cart_published(ctx, field)
 			case "student":
@@ -26083,6 +26166,8 @@ func (ec *executionContext) fieldContext_Order_cart(ctx context.Context, field g
 				return ec.fieldContext_Cart_id(ctx, field)
 			case "kitIds":
 				return ec.fieldContext_Cart_kitIds(ctx, field)
+			case "kits":
+				return ec.fieldContext_Cart_kits(ctx, field)
 			case "published":
 				return ec.fieldContext_Cart_published(ctx, field)
 			case "student":
@@ -27673,6 +27758,8 @@ func (ec *executionContext) fieldContext_Query_cart(ctx context.Context, field g
 				return ec.fieldContext_Cart_id(ctx, field)
 			case "kitIds":
 				return ec.fieldContext_Cart_kitIds(ctx, field)
+			case "kits":
+				return ec.fieldContext_Cart_kits(ctx, field)
 			case "published":
 				return ec.fieldContext_Cart_published(ctx, field)
 			case "student":
@@ -47052,39 +47139,72 @@ func (ec *executionContext) _Cart(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._Cart_id(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "kitIds":
 
 			out.Values[i] = ec._Cart_kitIds(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
+		case "kits":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Cart_kits(ctx, field, obj)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "published":
 
 			out.Values[i] = ec._Cart_published(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "student":
+			field := field
 
-			out.Values[i] = ec._Cart_student(ctx, field, obj)
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Cart_student(ctx, field, obj)
+				return res
+			}
 
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
 		case "studentId":
 
 			out.Values[i] = ec._Cart_studentId(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "sum":
 
 			out.Values[i] = ec._Cart_sum(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
@@ -55453,6 +55573,60 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 		}
 	}
 	return res
+}
+
+func (ec *executionContext) marshalNKit2ᚕᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitᚄ(ctx context.Context, sel ast.SelectionSet, v []*models.Kit) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNKit2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKit(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNKit2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKit(ctx context.Context, sel ast.SelectionSet, v *models.Kit) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
+		}
+		return graphql.Null
+	}
+	return ec._Kit(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalNKitDto2ᚖgitlabᚗcomᚋdinamchikiᚋgoᚑgraphqlᚋgraphᚋmodelᚐKitDto(ctx context.Context, sel ast.SelectionSet, v *models.KitDto) graphql.Marshaler {

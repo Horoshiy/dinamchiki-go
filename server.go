@@ -77,6 +77,7 @@ func main() {
 		postgres.TasksRepo{DB: DB},
 		postgres.LeadsRepo{DB: DB},
 		postgres.KitsRepo{DB: DB},
+		postgres.CartsRepo{DB: DB},
 	)
 	c := generated.Config{
 		Resolvers: &graph.Resolver{

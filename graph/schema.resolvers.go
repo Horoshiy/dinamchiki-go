@@ -17,6 +17,16 @@ func (r *articleResolver) Author(ctx context.Context, obj *models.Article) (*mod
 	return For(ctx).UserLoader.Load(obj.AuthorID)
 }
 
+// Kits is the resolver for the kits field.
+func (r *cartResolver) Kits(ctx context.Context, obj *models.Cart) ([]*models.Kit, error) {
+	return r.Domain.CartsRepo.GetKitsFoCart(obj)
+}
+
+// Student is the resolver for the student field.
+func (r *cartResolver) Student(ctx context.Context, obj *models.Cart) (*models.Student, error) {
+	return For(ctx).StudentLoader.Load(obj.StudentID)
+}
+
 // Coach is the resolver for the coach field.
 func (r *coachPaymentByMonthResolver) Coach(ctx context.Context, obj *models.CoachPaymentByMonth) (*models.Staff, error) {
 	return For(ctx).StaffLoader.Load(obj.CoachID)
@@ -119,22 +129,37 @@ func (r *mutationResolver) ArticleUpdate(ctx context.Context, articleInput model
 
 // CartDelete is the resolver for the cartDelete field.
 func (r *mutationResolver) CartDelete(ctx context.Context, id string) (*models.CartPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.CartDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.CartPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // CartPublishUpdate is the resolver for the cartPublishUpdate field.
 func (r *mutationResolver) CartPublishUpdate(ctx context.Context, id string) (*models.CartPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.CartPublish(id)
 }
 
 // CartSave is the resolver for the cartSave field.
 func (r *mutationResolver) CartSave(ctx context.Context, cartInput models.CartInput) (*models.CartPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, cartInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.CartSave(ctx, cartInput)
 }
 
 // CartUpdate is the resolver for the cartUpdate field.
 func (r *mutationResolver) CartUpdate(ctx context.Context, cartInput models.CartInputWithID) (*models.CartPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, cartInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.CartUpdate(ctx, cartInput)
 }
 
 // ClubBalanceDelete is the resolver for the clubBalanceDelete field.
@@ -959,7 +984,7 @@ func (r *queryResolver) CartAll(ctx context.Context) ([]*models.CartDto, error) 
 
 // Carts is the resolver for the carts field.
 func (r *queryResolver) Carts(ctx context.Context, after *string, before *string, filter *models.CartFilter, first *int, last *int) (*models.CartConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.CartsRepo.GetCarts(filter, first, last, after, before)
 }
 
 // ClubBalance is the resolver for the clubBalance field.
@@ -1390,6 +1415,9 @@ func (r *trainingDayResolver) Team(ctx context.Context, obj *models.TrainingDay)
 // Article returns generated.ArticleResolver implementation.
 func (r *Resolver) Article() generated.ArticleResolver { return &articleResolver{r} }
 
+// Cart returns generated.CartResolver implementation.
+func (r *Resolver) Cart() generated.CartResolver { return &cartResolver{r} }
+
 // CoachPaymentByMonth returns generated.CoachPaymentByMonthResolver implementation.
 func (r *Resolver) CoachPaymentByMonth() generated.CoachPaymentByMonthResolver {
 	return &coachPaymentByMonthResolver{r}
@@ -1461,6 +1489,7 @@ func (r *Resolver) Training() generated.TrainingResolver { return &trainingResol
 func (r *Resolver) TrainingDay() generated.TrainingDayResolver { return &trainingDayResolver{r} }
 
 type articleResolver struct{ *Resolver }
+type cartResolver struct{ *Resolver }
 type coachPaymentByMonthResolver struct{ *Resolver }
 type coachPaymentByTeamResolver struct{ *Resolver }
 type coachPaymentByTrainingResolver struct{ *Resolver }
