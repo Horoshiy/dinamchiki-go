@@ -262,18 +262,6 @@ type CreatorPayload struct {
 	RecordID string   `json:"recordId"`
 }
 
-type Kit struct {
-	FileName  *string `json:"fileName"`
-	ID        string  `json:"id"`
-	Name      string  `json:"name"`
-	Number    *int    `json:"number"`
-	Price     int     `json:"price"`
-	Published bool    `json:"published"`
-	Quantity  *int    `json:"quantity"`
-	Size      string  `json:"size"`
-	Title     *string `json:"title"`
-}
-
 type KitConnection struct {
 	Edges    []*KitEdge `json:"edges"`
 	PageInfo *PageInfo  `json:"pageInfo"`

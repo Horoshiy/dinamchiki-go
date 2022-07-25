@@ -184,4 +184,6 @@ models:
         resolver: true
       team:
         resolver: true
+  Kit:
+    model: gitlab.com/dinamchiki/go-graphql/graph/model.Kit
 

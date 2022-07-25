@@ -76,6 +76,7 @@ func main() {
 		postgres.TeamBalancesRepo{DB: DB},
 		postgres.TasksRepo{DB: DB},
 		postgres.LeadsRepo{DB: DB},
+		postgres.KitsRepo{DB: DB},
 	)
 	c := generated.Config{
 		Resolvers: &graph.Resolver{

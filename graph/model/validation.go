@@ -173,3 +173,21 @@ func (r LeadInput) Validate() (bool, map[string]string) {
 
 	return v.IsValid(), v.Errors
 }
+
+func (r KitInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	return v.IsValid(), v.Errors
+}
+
+func (r CartInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	return v.IsValid(), v.Errors
+}
+
+func (r OrderInput) Validate() (bool, map[string]string) {
+	v := validator.New()
+
+	return v.IsValid(), v.Errors
+}

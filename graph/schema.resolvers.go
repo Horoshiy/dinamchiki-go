@@ -314,22 +314,37 @@ func (r *mutationResolver) CreatorUpdate(ctx context.Context, creatorInput model
 
 // KitDelete is the resolver for the kitDelete field.
 func (r *mutationResolver) KitDelete(ctx context.Context, id string) (*models.KitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.Domain.KitDelete(id)
+	if err != nil {
+		return nil, err
+	}
+	return &models.KitPayload{
+		RecordID: id,
+		Record:   nil,
+	}, nil
 }
 
 // KitPublishUpdate is the resolver for the kitPublishUpdate field.
 func (r *mutationResolver) KitPublishUpdate(ctx context.Context, id string) (*models.KitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.KitPublish(id)
 }
 
 // KitSave is the resolver for the kitSave field.
 func (r *mutationResolver) KitSave(ctx context.Context, kitInput models.KitInput) (*models.KitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, kitInput)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.KitSave(ctx, kitInput)
 }
 
 // KitUpdate is the resolver for the kitUpdate field.
 func (r *mutationResolver) KitUpdate(ctx context.Context, kitInput models.KitInputWithID) (*models.KitPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	isValid := validation(ctx, kitInput.Input)
+	if !isValid {
+		return nil, ErrInput
+	}
+	return r.Domain.KitUpdate(ctx, kitInput)
 }
 
 // LeadDelete is the resolver for the leadDelete field.
@@ -1019,7 +1034,7 @@ func (r *queryResolver) KitAll(ctx context.Context) ([]*models.KitDto, error) {
 
 // Kits is the resolver for the kits field.
 func (r *queryResolver) Kits(ctx context.Context, after *string, before *string, filter *models.KitFilter, first *int, last *int) (*models.KitConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.Domain.KitsRepo.GetKits(filter, first, last, after, before)
 }
 
 // Lead is the resolver for the lead field.
@@ -1473,10 +1488,6 @@ type trainingDayResolver struct{ *Resolver }
 //  - When renaming or deleting a resolver the old code will be put in here. You can safely delete
 //    it when you're done.
 //  - You have helper methods in this file. Move them out to keep these resolver files clean.
-func (r *rentPaymentByTrainingResolver) TrainingIds(ctx context.Context, obj *models.RentPaymentByMonth) ([]string, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 var (
 	ErrInput = errors.New("inputs errors")
 )
